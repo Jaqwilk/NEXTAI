@@ -1,12 +1,12 @@
 {
   "benchmark_version": "heldout_wt_changepoints_prequential_v1",
-  "candidate_bundle_sha256": "5af42b37621c335f008a44a30885a4611bcc59407f72f69c2954351bc7606021",
-  "created_at": "2026-08-31T16:31:25Z",
+  "candidate_bundle_sha256": "01303d27626a164cd3860c0f8798ae1c530c139f44b09f1317fc7311b29b8c23",
+  "created_at": "2026-08-31T16:13:49Z",
   "evaluator_sha256": "1d16aef7d6e18632528dddf1a6f70715531dc5bc53ade5e79fce8b94e9b9aa0e",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
-    "config/baseline_semantics.json": "1a95435f41d5dba7fb324740ea49fcfd0cb2a3ad176041b34819ab952c4e1575",
+    "config/baseline_semantics.json": "f2dc9b52ab36ab23e87ea78d571c9249d1b05c80eec9851612499a2321b7ab7d",
     "config/research.toml": "6a0960a61e57ef129d4b0f6e1abdd9f566f1a4d849b5a807746781c4383b9484",
     "docs/SCIENTIFIC_PROTOCOL.md": "9946f1c73cc3816c0dab9c2d4e47c76f838eccd92573b171ec7ec4b2b5477597",
     "program.md": "e50270647d6d2eba47958f0a3ffcad24f72e276fdf18256b9906b43295640948",
@@ -408,7 +408,6 @@
     "src/nextai_autoresearch/candidates/variance_triggered_kalman.py": "23c8384dc7825d288d6cd908e6a2dc41c80f0b7e63e36b2097a5497d847a2bc8",
     "src/nextai_autoresearch/candidates/vsa_superposition.py": "2cfc1449e75dfb6b10b6fe75008d14c15681f68f719e9277740e206f68f936c1",
     "src/nextai_autoresearch/candidates/wt_bounded_replay_v1.py": "27101f8388f2fbdf6e4252453201e27df25505e407b734a6c1bda71840be46a5",
-    "src/nextai_autoresearch/candidates/wt_candidate_under_test.py": "4471f2a999f9432e9d2e6fb56d309ebe7af52cca6dff246ab1b439b38f035104",
     "src/nextai_autoresearch/candidates/wt_control_level_bank_v1.py": "eabd1c477bd7ef59afd9c4a4dc2ea4780b86e516f71840c03520c5241bfd82ae",
     "src/nextai_autoresearch/candidates/wt_lms_v1.py": "0738f0a74114844a063af7a8c76013f6f21a3804bda3713d15717e68662e8fcc",
     "src/nextai_autoresearch/candidates/wt_persistence_v1.py": "bf3f486a59ca997582cd97f93efdd1bc8f7a3e51964b80d20b21b896e0e3c2b0",
@@ -524,7 +523,6 @@
     "tests/test_three_family_continuous_transfer.py": "a296572d6091820513df916a57597e72489920ab24dcc21dba1ffb2bd2950176",
     "tests/test_v2_migration_integrity.py": "a99b512824583c1e475ab3b1661381dfba15380e3a9d606d2b0851b826c29725",
     "tests/test_vsa_superposition.py": "52a0c1d5fad17b36a9521cbc22410a5ebfe8074fbb33944052e8c9320c672ea9",
-    "tests/test_wt_candidate_under_test.py": "bf61de13e8470d429fafb716311a1582e51015eceb0cf51f3a9ec907c96e6d2e",
     "tests/test_wt_changepoints_prequential_v1.py": "8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03",
     "uv.lock": "b7f6ba1ae659ff3388728bfca0ec87b9d7477a36ae718aec86d81a1128e79942"
   },

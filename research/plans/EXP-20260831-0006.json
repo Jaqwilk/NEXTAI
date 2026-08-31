@@ -1,0 +1,202 @@
+{
+  "alternative_explanations": [
+    "The apparent H96 gain could arise only from classical VAR recurrence already covered by DMDc rather than a transferable new computational principle.",
+    "Local RLS adaptation rather than the learned recurrent residual representation could explain any gain."
+  ],
+  "architecture_family": "bounded_recurrent_residual_transition",
+  "benchmark": "heldout_wt_changepoints_prequential_v1",
+  "budget": "quick",
+  "candidates": [
+    "wt_candidate_under_test",
+    "wt_persistence_v1",
+    "wt_pooled_mean_v1",
+    "wt_control_level_bank_v1",
+    "wt_lms_v1",
+    "wt_rls_v1",
+    "wt_transition_bank_v1",
+    "wt_bounded_replay_v1",
+    "wt_ridge_fir_v1"
+  ],
+  "confounds": [
+    "Only two locally visible test files are used and H96 is evaluator-created extrapolation, not natural response-length OOD.",
+    "One runner-random seed cannot estimate seed variance or justify promotion."
+  ],
+  "created_at": "2026-08-31T16:26:10Z",
+  "evaluator_sha256": "1d16aef7d6e18632528dddf1a6f70715531dc5bc53ade5e79fce8b94e9b9aa0e",
+  "experiment_id": "EXP-20260831-0006",
+  "falsification_criteria": [
+    "Discard if overall NRMSE fails to beat the strongest complete implementable control by more than 0.1325268421060828.",
+    "Discard if any K/H96 cell fails to beat the best complete implementable control in that cell by more than 0.1325268421060828.",
+    "Discard on worst-file or worst-transition regression, stability below 1.0, K-dependent query work, cross-slot mutation, or simpler-baseline Pareto dominance.",
+    "Invalidate on bound, state, permutation, artifact ordering, source audit, semantic baseline, preflight, manifest, metric, budget or integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "b8d44100f950201417ee066db3e1a09d19820765",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0028",
+  "matrix": {
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "queries_per_cell": 18,
+    "reasoning_depths": [
+      16,
+      32,
+      96
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "rollout_16_nrmse": "minimize",
+    "rollout_32_nrmse": "minimize",
+    "rollout_96_nrmse": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_normalized_rmse": "minimize",
+    "worst_transition_normalized_rmse": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Discard the exact principle, preserve all failures, and return to mechanism selection rather than creating a nearby variant.",
+    "null": "Treat the exact recurrent residual transition as unsupported and do not tune its ridge, features, correction bound or update rule.",
+    "positive": "Authorize only an unchanged three-seed adversarial replication on this frozen cohort; make no novelty or LLM-successor claim."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The recurrent residual transition will beat the strongest complete baseline overall and at every K/H96 by more than 0.1325268421060828, remain stable at H16/H32, update only local state, keep query work K-independent, and avoid implementable Pareto dominance.",
+  "primary_metrics": [
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "worst_file_normalized_rmse",
+    "worst_transition_normalized_rmse",
+    "rollout_16_nrmse",
+    "rollout_32_nrmse",
+    "rollout_96_nrmse",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "A one-seed quick cannot promote; a conjunctive positive may only authorize an unchanged three-seed replication."
+  ],
+  "research_question": "Can one anonymous recurrent residual transition with slot-local adaptation improve H96 WT changepoint forecasts beyond frozen FIR and memory controls at matched full cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Bounded recurrent residual transition quick",
+  "wt_prequential_protocol": {
+    "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
+    "classical_baselines": [
+      "wt_persistence_v1",
+      "wt_pooled_mean_v1",
+      "wt_control_level_bank_v1",
+      "wt_lms_v1",
+      "wt_rls_v1",
+      "wt_transition_bank_v1",
+      "wt_bounded_replay_v1",
+      "wt_ridge_fir_v1"
+    ],
+    "corpus_id": "causal_chambers_wt_changepoints_v1",
+    "declared_horizons": [
+      16,
+      32,
+      96
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "development_files": [
+      6,
+      7
+    ],
+    "fit_depth": 32,
+    "fit_horizon": 32,
+    "invalidation_rules": [
+      "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+      "Invalidate if train, development or test whole-file roles overlap.",
+      "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+      "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+      "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+      "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+      "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+    "normalization": "train_files_only_mechanical_partition",
+    "pareto_capability_metrics": [
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "worst_file_normalized_rmse",
+      "worst_transition_normalized_rmse",
+      "rollout_16_nrmse",
+      "rollout_32_nrmse",
+      "rollout_96_nrmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_atomic_artifact_then_reveal": true,
+    "runner_random_channel_permutation": true,
+    "saturation_nrmse": 0.5,
+    "saturation_worst_file_nrmse": 0.75,
+    "shared_candidate": "wt_candidate_under_test",
+    "split_unit": "whole_csv_file_sha256",
+    "state_budget_bytes": 16777216,
+    "test_files": [
+      8,
+      9
+    ],
+    "train_files": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}

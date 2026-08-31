@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-08-31T16:18:20Z
+Generated: 2026-08-31T16:37:57Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -473,6 +473,22 @@ Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_famil
 | EXP-20260831-0005 | tensor_raw_window_local_linear_v1 | implementable | complete | 0.38 | 1 | 1.652e+05 | 4096 | 8.32e+05 | 1.028e+10 | 0 (3) | 427712 |  |
 | EXP-20260831-0005 | tensor_random_projection_hash_v1 | implementable | complete | 0.3627 | 1 | 2.755e+04 | 4096 | 4.864e+05 | 9.791e+09 | 0 (3) | 296960 |  |
 | EXP-20260831-0005 | privileged_tensor_support_v1 | privileged support control | complete | 0.3269 | 1 | 6083 | 4096 | 2.33e+04 | 9.695e+09 | 0 (3) | 1.13633e+07 |  |
+
+## heldout_wt_changepoints_prequential_v1 / quick
+
+Pareto axes: maximize `stable_rollout_rate`; minimize `normalized_rmse, worst_file_normalized_rmse, worst_transition_normalized_rmse, rollout_16_nrmse, rollout_32_nrmse, rollout_96_nrmse, data_acquisition_ops, preprocessing_ops, fit_ops, adaptation_ops, mean_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260831-0006 | wt_candidate_under_test | implementable | complete | 0.5979 | 1 | 2.256e+04 | 321 | 2.406e+04 | 1.668e+07 | 0 (3) | 16896 |  |
+| EXP-20260831-0006 | wt_persistence_v1 | implementable | complete | 0.4816 | 1 | 960 | 321 | 1.024e+04 | 7.599e+06 | 0 (3) | 0 |  |
+| EXP-20260831-0006 | wt_pooled_mean_v1 | implementable | complete | 0.4882 | 1 | 960 | 321 | 1.024e+04 | 7.61e+06 | 0 (3) | 2560 |  |
+| EXP-20260831-0006 | wt_control_level_bank_v1 | implementable | complete | 0.4988 | 1 | 1920 | 321 | 1.024e+04 | 7.887e+06 | 0 (3) | 10240 |  |
+| EXP-20260831-0006 | wt_lms_v1 | implementable | complete | 0.4237 | 1 | 6.144e+04 | 321 | 9.216e+04 | 2.573e+07 | 0 (3) | 253952 |  |
+| EXP-20260831-0006 | wt_rls_v1 | implementable | complete | 0.4251 | 1 | 6.144e+04 | 321 | 1.004e+05 | 2.58e+07 | 0 (3) | 270336 |  |
+| EXP-20260831-0006 | wt_transition_bank_v1 | implementable | complete | 0.49 | 1 | 2040 | 321 | 1.237e+04 | 7.944e+06 | -6.39e-31 (3) | 105168 |  |
+| EXP-20260831-0006 | wt_bounded_replay_v1 | implementable | complete | 0.4482 | 1 | 7072 | 321 | 1.664e+04 | 9.378e+06 | 0 (3) | 264448 |  |
+| EXP-20260831-0006 | wt_ridge_fir_v1 | implementable | complete | 0.4139 | 1 | 6.144e+04 | 321 | 1.024e+04 | 2.542e+07 | 0 (3) | 90112 |  |
 
 ## heterogeneous_module_composition_v1 / quick
 

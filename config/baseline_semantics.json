@@ -407,6 +407,16 @@
       "specification": {"features": "bias, final/mean/delta anonymous responses, public control", "ridge": 0.001, "fit_horizon": 32, "H96": "hold H32 final value", "update": "none"},
       "implementation_files": {"src/nextai_autoresearch/candidates/wt_ridge_fir_v1.py":"031b4ccf415f1831773e1ce3aea531474932f481f3502abbff58fd8405d05494","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877"},
       "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_ridge_fir_is_fixed_and_extends_only_by_hold_last","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
+    },
+    "wt_candidate_under_test": {
+      "baseline_id": "hypothesis_candidate_bounded_recurrent_residual_transition_v1", "version": 1,
+      "specification": {"role":"hypothesis candidate semantic registration; not a baseline","transition":"affine recurrent response-increment model with ridge 0.001","features":"bias, current anonymous response, response increment, public control","correction_bound":"plus or minus four standardized units relative to query origin","update":"post-artifact slot-local RLS initialized by train-fit covariance","invariance":"consistent anonymous-channel permutation"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_candidate_under_test.py":"4471f2a999f9432e9d2e6fb56d309ebe7af52cca6dff246ab1b439b38f035104"},
+      "conformance_tests": [
+        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_recurrent_residual_extrapolates_and_respects_bound","sha256":"bf61de13e8470d429fafb716311a1582e51015eceb0cf51f3a9ec907c96e6d2e"},
+        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_recurrent_residual_is_channel_permutation_equivariant","sha256":"bf61de13e8470d429fafb716311a1582e51015eceb0cf51f3a9ec907c96e6d2e"},
+        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_reveal_updates_only_one_slot","sha256":"bf61de13e8470d429fafb716311a1582e51015eceb0cf51f3a9ec907c96e6d2e"}
+      ]
     }
   }
 }
