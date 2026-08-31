@@ -1,0 +1,42 @@
+{
+  "audit": {
+    "dependencies": [
+      {
+        "path": "src/nextai_autoresearch/candidates/tensor_baseline_core.py",
+        "sha256": "d60f56f56972f7c2f06ae181fbc2ae14e3a3251f3f3f4734c256aec18cd44fd8"
+      },
+      {
+        "path": "src/nextai_autoresearch/candidates/tensor_rls_arx_v1.py",
+        "sha256": "709e422cdaf36a6cdbf1db103c3500c1df764182b8ae5bc94861757f9a1a481f"
+      },
+      {
+        "path": "src/nextai_autoresearch/three_family_tensor_contract.py",
+        "sha256": "dc2a4b2712f21560f4df8d02d52853cbc4a8d09e34baf3bc6a8b6e0e5d12b690"
+      }
+    ],
+    "ok": true,
+    "path": "src/nextai_autoresearch/candidates/tensor_rls_arx_v1.py",
+    "problems": [],
+    "sha256": "709e422cdaf36a6cdbf1db103c3500c1df764182b8ae5bc94861757f9a1a481f"
+  },
+  "candidate": "tensor_rls_arx_v1",
+  "error": "'mean_warm_query_ops'",
+  "error_type": "KeyError",
+  "execution": {
+    "environment_sanitized": true,
+    "log_path": "research/logs/SERVICE-TENSOR-RLS-V1-tensor_rls_arx_v1.log",
+    "network_policy": "forbidden_by_audit_and_rules_not_os_sandboxed",
+    "peak_rss_bytes": 54988800,
+    "return_code": 1,
+    "termination_reason": null,
+    "wall_seconds": 49.78027920000022
+  },
+  "status": "crash",
+  "summary": {
+    "completed_trials": 0,
+    "status": "failed",
+    "total_trials": 0
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\src\\nextai_autoresearch\\worker.py\", line 26, in run_worker\n    \"summary\": aggregate_trials(trials),\n               ~~~~~~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\src\\nextai_autoresearch\\metrics.py\", line 81, in aggregate_trials\n    warm_ops = [float(trial[\"mean_warm_query_ops\"]) for trial in complete]\n                      ~~~~~^^^^^^^^^^^^^^^^^^^^^^^\nKeyError: 'mean_warm_query_ops'\n",
+  "trials": []
+}

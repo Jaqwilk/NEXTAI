@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-31T17:59:07Z",
+  "cycle": 124,
+  "service_only": true,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "trigger": "EXP-20260831-0008 mandatory tensor_rls_arx_v1 timed out after 180.136 seconds with zero emitted trials",
+  "diagnosis": "The scalar implementation recomputes an identical 33x33 RLS precision trajectory separately for every output channel sharing the same visibility mask at every public support adaptation.",
+  "permitted_change": "Group output channels only when their complete row-visibility masks are byte-identical; execute the same ordered predict-gain-error-weight-covariance recurrence once per mask group and update all group weights with the common gain.",
+  "forbidden_change": [
+    "ridge or initial covariance",
+    "row order or visibility semantics",
+    "prediction, metric, cost, split, benchmark or budget semantics",
+    "completed EXP-20260831-0008 plan, result, analysis or timeout record",
+    "hypothesis, experiment plan, scoring seed or scoring"
+  ],
+  "before": {
+    "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd",
+    "tests/test_three_family_continuous_transfer.py": "963b7975f8d2df466a3194c27291604378770f9e867ad6b4c602a9419d7ff2b1",
+    "synthetic_k9_one_adaptation_seconds": 0.1205474000016693
+  },
+  "acceptance": [
+    "grouped weights match the original scalar recurrence on randomized mixed visibility masks",
+    "existing scalar reference test remains unchanged and passes",
+    "synthetic K9 adaptation is materially faster without changing charged operation counts",
+    "full pytest, semantic gate, preflight, integrity and doctor pass",
+    "no scoring command is invoked"
+  ]
+}

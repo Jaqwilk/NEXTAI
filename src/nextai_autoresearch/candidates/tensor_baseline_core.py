@@ -5,6 +5,26 @@ import numpy as np
 from ..three_family_tensor_contract import Tensor, Training
 
 
+def _rls_weights(design: np.ndarray, values: np.ndarray, visible: np.ndarray) -> np.ndarray:
+    """Run one exact covariance trajectory per identical target-visibility mask."""
+    weights = np.zeros((design.shape[1], values.shape[1]))
+    groups: dict[bytes, list[int]] = {}
+    for target in range(values.shape[1]):
+        groups.setdefault(visible[:, target].tobytes(), []).append(target)
+    for targets in groups.values():
+        rows = visible[:, targets[0]]
+        precision = np.eye(design.shape[1]) * 1000.0
+        local = np.zeros((design.shape[1], len(targets)))
+        for row, target_values in zip(design[rows], values[rows][:, targets]):
+            projected = precision @ row
+            gain = projected / (1.0 + row @ precision @ row)
+            for index, target_value in enumerate(target_values):
+                local[:, index] += gain * (target_value - row @ local[:, index])
+            precision -= np.outer(gain, row @ precision)
+        weights[:, targets] = local
+    return weights
+
+
 class TensorBaseline:
     def __init__(self, seed: int, variant: str) -> None:
         self.seed, self.variant = seed, variant
@@ -84,13 +104,7 @@ class TensorBaseline:
             intercept = mean[input_width:] - coefficient @ mean[:input_width]
             weights = np.vstack((intercept, coefficient.T))
         elif self.variant == "rls":
-            weights = np.zeros((design.shape[1], output_width))
-            for target in range(output_width):
-                precision = np.eye(design.shape[1]) * 1000.0
-                for row, value in zip(design[ym[:, target]], active_y[ym[:, target], target]):
-                    gain = precision @ row / (1.0 + row @ precision @ row)
-                    weights[:, target] += gain * (value - row @ weights[:, target])
-                    precision -= np.outer(gain, row @ precision)
+            weights = _rls_weights(design, active_y, ym[:, :output_width])
         else:
             ridge = 1e-3
             weights = np.zeros((design.shape[1], output_width))
