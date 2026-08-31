@@ -1,0 +1,60 @@
+{
+  "audit_id": "observable_auxiliary_identifiability_v1",
+  "created_at": "2026-08-31T19:30:17Z",
+  "decision_scope": "service diagnostic only; no scientific evidence, hypothesis, plan, seed, candidate or scoring",
+  "frozen_inputs": {
+    "research/data/wt_changepoints_v1/manifest.json": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "src/nextai_autoresearch/benchmarks/heldout_three_family_continuous_transfer_v1.py": "63a04b28951e0a384269fd5ae54e83bd6591a9545bd5349278e09e8117f8b5a5",
+    "src/nextai_autoresearch/benchmarks/heldout_wt_changepoints_prequential_v1.py": "ddfb3c376c2f7eaf3b56e0825e313afcb56169d5d5e784888de280f37abdce9a",
+    "src/nextai_autoresearch/three_family_tensor_contract.py": "dc2a4b2712f21560f4df8d02d52853cbc4a8d09e34baf3bc6a8b6e0e5d12b690",
+    "src/nextai_autoresearch/wt_prequential_contract.py": "12b36743d024db342f9e25255238bd9c1f10864e60e711d0a85955817b47149c"
+  },
+  "literature_assumption_gate": {
+    "SRC-0165": "candidate-visible non-iid pairs must be shown to share at least one varying latent factor under one source-identical generative account",
+    "SRC-0166": "one candidate-visible auxiliary variable must satisfy a stated conditional-independence and variability/rank mapping",
+    "SRC-0167": "an intervention must target a mapped latent and meet the paper's support/intervention conditions rather than merely correlate with an outcome",
+    "SRC-0168": "candidate-visible groups must be groups of observational variables satisfying the paper's mixing assumption, not sample/world IDs"
+  },
+  "prohibited_shortcuts": [
+    "family labels, native types, paths, semantic channel names or hidden event/intervention flags",
+    "three-family slot-number ranges or native-width mask signatures",
+    "held-out WT seeds 8 and 9 or any three-family test target",
+    "post-diagnostic threshold, feature, pairing or auxiliary-variable changes"
+  ],
+  "three_family_static_audit": {
+    "candidate_visible_fields": [
+      "world slot",
+      "support input/next-target ordered pairs and masks",
+      "32-row history and mask",
+      "50-row future-public values and mask",
+      "world boundary and within-tensor row order"
+    ],
+    "required_decision": "retain only an auxiliary rule available with identical meaning in ncmapss_ds08a, dronepropa and continuous_event without mask or slot routing"
+  },
+  "wt_development_diagnostic": {
+    "allowed_files": {
+      "fit": [0, 1, 2, 3, 4, 5],
+      "development": [6, 7],
+      "forbidden_test": [8, 9]
+    },
+    "public_auxiliary": "the normalized mechanically unique scalar control in WTEpisode.control",
+    "response_signature": "for each episode, mean(target rows 0:16) minus mean(history rows 16:32), retaining all ten anonymous coordinates",
+    "classifier": "Euclidean nearest train-control centroid; invariant to a consistent channel permutation",
+    "randomization": "256 independent permutations of the 54 train auxiliary labels from numpy PCG64 seed 129031; features, development labels and centroids otherwise unchanged",
+    "rank": "matrix rank of the four centered train-control centroids using numpy's default SVD tolerance",
+    "conditional_dependence": "after subtracting each train-control centroid, absolute off-diagonal Pearson correlations across the ten signature coordinates",
+    "pass_thresholds": {
+      "auxiliary_states_in_fit_and_development": 4,
+      "centered_control_centroid_rank": 3,
+      "minimum_true_development_accuracy": 0.75,
+      "minimum_accuracy_margin_over_randomization_p95": 0.25,
+      "maximum_absolute_conditional_correlation": 0.25,
+      "maximum_conditional_correlation_p90": 0.15
+    }
+  },
+  "overall_pass_rule": "all numerical WT gates pass and at least one cited theorem maps all required assumptions to a source-identical signal that supports the claimed cross-world scope; a within-one-system predictive association alone cannot pass",
+  "outcomes": {
+    "pass": "a later wake may create one low-confidence hypothesis before any implementation or scoring",
+    "fail": "append no_observable_auxiliary_identifiability_contract and create no hypothesis, candidate, plan, benchmark or schema"
+  }
+}

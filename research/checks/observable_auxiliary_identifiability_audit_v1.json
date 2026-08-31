@@ -1,0 +1,139 @@
+{
+  "audit_id": "observable_auxiliary_identifiability_v1",
+  "completed_at": "2026-08-31T19:33:24Z",
+  "decision": "no_observable_auxiliary_identifiability_contract",
+  "hypothesis_created": false,
+  "plan_created": false,
+  "preregistration_path": "research/checks/observable_auxiliary_identifiability_audit_preregistered_v1.json",
+  "preregistration_sha256": "6b25b5525149a15bbcd1f12da3789add4e575835c10798e474edadcf944f07b7",
+  "scientific_evidence": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "test_targets_read": false,
+  "three_family_v7": {
+    "candidate_visible_inventory": [
+      {
+        "signal": "support input/next-target ordered pairs",
+        "source_identical": true,
+        "problem": "the same temporal pairing rule exists, but no shared varying latent factor is defined or observable across the three unrelated generators"
+      },
+      {
+        "signal": "within-tensor row index or normalized phase",
+        "source_identical": true,
+        "problem": "DS08a segment start, DronePropA flight time and synthetic-event episode time have unrelated meanings; phase supplies no cross-family auxiliary semantics"
+      },
+      {
+        "signal": "world boundary or slot",
+        "source_identical": false,
+        "problem": "a sample/world identifier is not a grouping of observational variables; test slot ranges are evaluator-assigned and may not be a representation label"
+      },
+      {
+        "signal": "tensor masks and native valid widths",
+        "source_identical": false,
+        "problem": "mask signatures perfectly classify family and are a prohibited router rather than an ontology-free auxiliary variable"
+      },
+      {
+        "signal": "future-public or support-input numeric values",
+        "source_identical": false,
+        "problem": "the four DS08a controls, four DronePropA motor controls and 32 synthetic-event public coordinates are not mapped interventions on one shared latent system"
+      }
+    ],
+    "mask_signatures": {
+      "continuous_event": {
+        "future_public_width": 32,
+        "history_width": 32,
+        "output_width": 1,
+        "support_input_width": 32,
+        "support_target_width": 1
+      },
+      "dronepropa": {
+        "future_public_width": 4,
+        "history_width": 10,
+        "output_width": 6,
+        "support_input_width": 10,
+        "support_target_width": 6
+      },
+      "ncmapss_ds08a": {
+        "future_public_width": 4,
+        "history_width": 18,
+        "output_width": 14,
+        "support_input_width": 18,
+        "support_target_width": 14
+      }
+    },
+    "theorem_mapping": {
+      "SRC-0165_non_iid_pairs": "fail: shared-factor premise is neither defined nor verifiable across families",
+      "SRC-0166_auxiliary_nonlinear_ica": "fail: no common auxiliary with mapped conditional independence and cross-family variability",
+      "SRC-0167_interventional_crl": "fail: evaluator-public numeric coordinates are not registered interventions satisfying one latent/support model",
+      "SRC-0168_grouped_observations": "fail: masks expose padding/native width and world IDs group samples, not observational variables under the paper's mixing assumption"
+    },
+    "three_scale_full_cost_contract": true,
+    "existing_strong_controls": true,
+    "identifiability_gate": false
+  },
+  "wt_prequential_v1": {
+    "allowed_files": {
+      "development": [
+        6,
+        7
+      ],
+      "fit": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "forbidden_test_read": [
+        8,
+        9
+      ]
+    },
+    "centered_control_centroid_rank": 3,
+    "conditional_abs_correlation_max": 0.99397397786521,
+    "conditional_abs_correlation_mean": 0.27641920120482444,
+    "conditional_abs_correlation_p90": 0.8512682970687773,
+    "development_auxiliary_levels": 4,
+    "development_episodes": 18,
+    "diagnostic_seed": 117031,
+    "numeric_gate_results": {
+      "accuracy_margin_over_randomization_p95": false,
+      "auxiliary_states_in_fit_and_development": true,
+      "centered_control_centroid_rank": true,
+      "conditional_correlation_max": false,
+      "conditional_correlation_p90": false,
+      "true_development_accuracy": false
+    },
+    "randomization_mean_accuracy": 0.24696180555555555,
+    "randomization_p95_accuracy": 0.5555555555555556,
+    "response_signature_singular_values": [
+      2.333975982750387,
+      0.26918221274944404,
+      0.18376504150949147,
+      1.2252846922085544e-16
+    ],
+    "train_auxiliary_levels": 4,
+    "train_episodes": 54,
+    "true_development_accuracy": 0.4444444444444444,
+    "accuracy_margin_over_randomization_p95": -0.11111111111111116,
+    "theorem_mapping": {
+      "SRC-0165_non_iid_pairs": "fail: pre/post episodes share one physical apparatus, but the required varying shared latent-factor account is not observable and provides no heterogeneous-world alignment",
+      "SRC-0166_auxiliary_nonlinear_ica": "fail: the public control has four states and rank-three centroid modulation, but strong residual dependence contradicts the preregistered conditional-independence diagnostic",
+      "SRC-0167_interventional_crl": "fail: load_in is directly observed and intervened, but no hidden latent target/support geometry is mapped to the theorem; predictive association is not representation identification",
+      "SRC-0168_grouped_observations": "fail: ten anonymous response channels have no candidate-visible grouping; file and episode groups are sample groups"
+    },
+    "three_scale_full_cost_contract": true,
+    "existing_strong_controls": true,
+    "identifiability_gate": false
+  },
+  "overall_gate_results": {
+    "all_wt_numeric_gates": false,
+    "common_source_identical_rule_across_claimed_worlds": false,
+    "negative_control_demonstrates_auxiliary_alignment": false,
+    "theorem_assumptions_mapped_field_by_field": false,
+    "three_scales_and_full_cost_available": true
+  },
+  "interpretation": "WT control is a real observable intervention and modulates an anonymous response signature, but the frozen diagnostic neither generalizes beyond the shuffled-control bound nor supports conditional independence. The three-family interface has common temporal containers but no common auxiliary semantics; masks instead provide a prohibited family classifier. Existing cohorts therefore cannot identify the proposed cross-world causal representation without adding assumptions or ontology.",
+  "next_cycle": "Do not create or tune an auxiliary-representation learner. Use one no-scoring radical mechanism inventory outside anonymous cross-family canonicalization, fast weights, residuals, routing and indices; select at most one principle only if an existing cohort already exposes its causal discriminator and matched classical controls."
+}
