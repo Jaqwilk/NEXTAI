@@ -1,0 +1,63 @@
+{
+  "artifact_type": "no_scoring_public_metadata_shortlist",
+  "benchmark_unchanged": "heldout_three_family_continuous_transfer_v7",
+  "checked_at": "2026-08-31T21:07:27Z",
+  "cycle": 137,
+  "data_archive_downloaded": false,
+  "decision": "retain_tahoe_100m_for_feasibility_audit_only",
+  "hypothesis_created": false,
+  "plan_created": false,
+  "protected_files_changed": false,
+  "resources": [
+    {
+      "contexts": 2,
+      "decision": "reject",
+      "immutable_reference": "causalbench repository 1a2143cffdc85f835b41ce8d52034be1bf903e71 and published article",
+      "name": "CausalBench K562/RPE1",
+      "reason": "Only K562 and RPE1 are independent biological contexts, below the registered minimum of three and insufficient for train, development and unseen-context transfer.",
+      "source_ids": [
+        "SRC-0182"
+      ]
+    },
+    {
+      "contexts": 3,
+      "decision": "reject",
+      "immutable_reference": "GEO GSE139944 and sci-Plex repository 079639c50811dd43a206a779ab2f0199a147c98f",
+      "name": "sci-Plex 3",
+      "reason": "The screen has exactly three cancer cell lines. Holding out one leaves only two source contexts, so it cannot support three genuine source-context scales without row or well subsampling; no published unseen-intervention split repairs that limitation.",
+      "source_ids": [
+        "SRC-0183"
+      ]
+    },
+    {
+      "contexts_published": 50,
+      "decision": "retain_for_feasibility_audit_only",
+      "distinct_drugs_after_qc": 379,
+      "full_file_size_bytes_reported": 429000000000,
+      "immutable_reference": "Hugging Face dataset commit 2dc57900b7981cfcf5e211527169a0b006546a95",
+      "license_reported": "CC0-1.0",
+      "name": "Tahoe-100M",
+      "reasons_to_retain": [
+        "The public raw-count table uses one stable integer gene-token coordinate system across cell lines.",
+        "The publication reports 47 sufficiently covered cell lines, 379 drugs, 1135 drug-dose combinations and 52886 cell-line-drug-dose conditions after QC, plus plate-matched DMSO controls.",
+        "Context-count scales and unseen cell-line/drug partitions can in principle be frozen from identifiers before outcomes, without pathways, gene ontology, drug targets or mechanism labels.",
+        "The pinned public repository reports CC0-1.0, content-addressed files and a measurable 429 GB full acquisition boundary; streaming is documented."
+      ],
+      "unresolved_before_migration": [
+        "Verify the complete pinned file manifest and content digests rather than relying on a mutable repository label.",
+        "Read metadata only to measure the cell-line by drug-dose coverage, DMSO availability and replicate counts before freezing outcome-blind train, development and test partitions.",
+        "Show that three declared context scales use whole source contexts and fit within local acquisition, disk, memory and compute budgets; row subsampling is forbidden as a substitute.",
+        "Specify one anonymous raw-count interface and source-identical PCA, nearest-neighbor, adaptive/probabilistic and intervention-aware controls without curated MOA, targets, tissue, driver mutations or semantic gene enrichment."
+      ],
+      "source_ids": [
+        "SRC-0184",
+        "SRC-0185"
+      ]
+    }
+  ],
+  "scientific_evidence_changed": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "shortlist_limit": 3,
+  "test_targets_read": false
+}
