@@ -1,11 +1,11 @@
 # Research report
 
-Generated: 2026-08-31T22:21:34Z
+Generated: 2026-08-31T22:43:06Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
 Pareto axes come from the frozen benchmark contract; incomplete rows cannot remove an axis or enter the frontier.
-Append-only scientific-validity corrections exclude 3 result(s) from every frontier and evidential comparison.
+Append-only scientific-validity corrections exclude 4 result(s) from every frontier and evidential comparison.
 
 ## action_conditioned_predictive_equivalence_v1 / quick
 
@@ -331,6 +331,23 @@ Pareto axes: maximize `none`; minimize `none`.
 | EXP-20260830-0057 | nearest_template_recombination | implementable | complete | 0.02083 | 1 | 121 | 1 | 1936 | 1.855e+04 | 0 (2; screening) | 21632 |  |
 | EXP-20260830-0057 | exact_mdl_module_library | implementable | complete | 0.04167 | 1 | 7.333 | 1 | 117.3 | 3774 | 0 (2; screening) | 16400 |  |
 | EXP-20260830-0057 | oracle_composition_graph | privileged support control | complete | 1 | 1 | 1 | 1 | 8 | 2026 | 0 (2; screening) | 0 |  |
+
+## heldout_mechanism_recombination_v4 / quick
+
+Pareto axes unavailable: no scientifically valid immutable result.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0002 | experience_operator_compiler | scientifically invalid | scientifically_invalid | 1 | 1 | 749 | 656 | 6528 | 1.258e+05 | 0 (3) | 2472 |  |
+| EXP-20260901-0002 | experience_operator_independent | scientifically invalid | scientifically_invalid | 1 | 1 | 734 | 656 | 1.368e+04 | 1.256e+05 | 0 (3) | 20352 |  |
+| EXP-20260901-0002 | experience_operator_no_pairing | scientifically invalid | scientifically_invalid | 1 | 1 | 734 | 656 | 1.368e+04 | 1.256e+05 | 0 (3) | 20352 |  |
+| EXP-20260901-0002 | operator_interpreter | scientifically invalid | scientifically_invalid | 1 | 1 | 734 | 656 | 5312 | 5.181e+04 | 0 (3) | 64 |  |
+| EXP-20260901-0002 | operator_exact_key_cache | scientifically invalid | scientifically_invalid | 1 | 1 | 1306 | 656 | 2.307e+04 | 6.436e+04 | -1.026e-31 (3) | 40320 |  |
+| EXP-20260901-0002 | operator_structural_result_cache | scientifically invalid | scientifically_invalid | 1 | 1 | 1309 | 656 | 9555 | 5.398e+04 | 0 (3) | 5984 |  |
+| EXP-20260901-0002 | operator_canonical_table_cache | scientifically invalid | scientifically_invalid | 1 | 1 | 1881 | 656 | 7532 | 6.537e+04 | 0 (3) | 3616 |  |
+| EXP-20260901-0002 | operator_anti_unification_cache | scientifically invalid | scientifically_invalid | 1 | 1 | 1334 | 656 | 1.002e+04 | 9.113e+04 | 0.01615 (3) | 7024 |  |
+| EXP-20260901-0002 | operator_nearest_canonical | scientifically invalid | scientifically_invalid | 1 | 1 | 2410 | 656 | 1.414e+04 | 1.453e+05 | 0.02177 (3) | 9280 |  |
+| EXP-20260901-0002 | operator_random | scientifically invalid | scientifically_invalid | 0 | 1 | 730 | 656 | 5312 | 5.173e+04 | 0 (3) | 64 |  |
 
 ## heldout_parallel_masked_infilling_v1 / quick
 
