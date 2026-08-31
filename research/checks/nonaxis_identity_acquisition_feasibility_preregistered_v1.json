@@ -1,0 +1,44 @@
+{
+  "audit_id": "nonaxis_identity_acquisition_feasibility_v1",
+  "created_at": "2026-08-31T20:21:11Z",
+  "cycle": 133,
+  "decision_scope": "one preregistered service diagnostic only; no scientific evidence, hypothesis, experiment plan, scoring seed, candidate, benchmark, schema or scoring",
+  "target_hypothesis": "HYP-0001",
+  "frozen_inputs": {
+    "research/checks/dronepropa_anonymous_split_v2.jsonl": "fddd1c98aae13460ec58af25dbbea94f6f25177486da59a1e94f6a25f844a0e4",
+    "research/data/wt_changepoints_v1/manifest.json": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v2.py": "76bb768a0496924204c771a2226009b5d75d670f018a61bd4a0074578bb4a970",
+    "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v6.py": "9a78cfb51dccf7b95f67def40e52d96b37ed8fe88e79acba58cedf23dc5becdf",
+    "src/nextai_autoresearch/benchmarks/heldout_wt_changepoints_prequential_v1.py": "ddfb3c376c2f7eaf3b56e0825e313afcb56169d5d5e784888de280f37abdce9a",
+    "src/nextai_autoresearch/dronepropa_contract.py": "ca91b1eede1ea434effa1c0c6498f83d272fc9c55e8383056e82ccb29983ea1e",
+    "src/nextai_autoresearch/wt_prequential_contract.py": "12b36743d024db342f9e25255238bd9c1f10864e60e711d0a85955817b47149c"
+  },
+  "allowed_data": {
+    "dronepropa": "candidate-visible train and validation FlightExamples only; test, privileged support, paths and private factors forbidden",
+    "wt": "fit files 0-5 and development files 6-7 only; test files 8-9 forbidden"
+  },
+  "required_pair_contract": {
+    "natural_views": "at least two observations of one persistent latent entity must arise without an evaluator-supplied positive-pair relation",
+    "identity_absence": "correspondence may not be reconstructed from slot, container membership, row position, temporal adjacency, path, family, condition, channel name or another semantic label",
+    "representation": "useful identity variation must be non-axis-aligned or nonlinear; a stable raw coordinate subset is insufficient",
+    "task_distinction": "a supervised feature-target transition or forecasting pair is not an identity-view pair",
+    "heldout_test": "the relation must be learnable on allowed fit data and testable on disjoint development data"
+  },
+  "controls": {
+    "pair_break": "deterministically cyclically shift the second view by one record within each source group; any learned pair signal must collapse toward chance",
+    "exact_clustering": "fit-only whitened agglomerative or nearest-centroid linkage over anonymous views",
+    "exact_record_linkage": "exhaustive fit-whitened Euclidean gallery scan",
+    "ann": "fixed deterministic sign-projection hash followed by exact within-bucket scan",
+    "oracle": "offline same-record correspondence used only to score development retrieval and never supplied to an implementable learner"
+  },
+  "diagnostic_order": [
+    "inventory candidate-visible objects and all sources of correspondence",
+    "reject prediction/transition pairs and supplied identity before numerical interpretation",
+    "only if a qualifying view pair exists, run the frozen controls and cyclic pair break"
+  ],
+  "pass_rule": "both DronePropA and WT must expose a qualifying natural pair contract, at least one must exhibit non-axis or nonlinear identity variation, exact classical controls must not already solve development retrieval, and cyclic pair breaking must remove the learned advantage; otherwise record no_nonaxis_identity_acquisition_contract",
+  "outcomes": {
+    "pass": "a later wake may propose one low-confidence HYP-0001 experiment using an existing frozen cohort",
+    "fail": "keep HYP-0001 dormant; create no hypothesis, candidate, experiment plan, benchmark or schema and do not tune latent_entity_binding_retrieval_v1"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "audit_id": "nonaxis_identity_acquisition_feasibility_v1",
+  "completed_at": "2026-08-31T20:23:52Z",
+  "cycle": 133,
+  "decision": "no_nonaxis_identity_acquisition_contract",
+  "hypothesis_created": false,
+  "plan_created": false,
+  "preregistration_path": "research/checks/nonaxis_identity_acquisition_feasibility_preregistered_v1.json",
+  "preregistration_sha256": "991f825655857c9c215092b73053b4fd9a577f92daeb361cc56a29c9db225a31",
+  "scientific_evidence": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "data_arrays_loaded": false,
+  "test_targets_read": false,
+  "dronepropa": {
+    "candidate_visible_object": "FlightExamples(slot, features, targets)",
+    "pair_provenance": "features and targets are built at identical evaluator-selected anchors and validated to have identical row counts",
+    "identity_sources": ["explicit stable flight slot", "shared FlightExamples container", "row alignment", "temporal ARX construction"],
+    "natural_unpaired_views": false,
+    "identity_absent": false,
+    "nonaxis_identity_variation_defined": false,
+    "task_is_identity_binding": false,
+    "reason": "The only paired observations are supervised state-transition examples. Cyclically shifting targets would test temporal prediction alignment, not remove an independently available entity correspondence."
+  },
+  "wt": {
+    "candidate_visible_fit_object": "WTEpisode(history, control, target)",
+    "candidate_visible_query_objects": ["WTQuery(slot, history, control, horizon)", "WTReveal(slot, history, control, target)"],
+    "pair_provenance": "history and future target are placed in the same immutable episode from adjacent intervals around a known intervention",
+    "identity_sources": ["shared WTEpisode container", "temporal adjacency", "stable evaluator-issued slot across a development file's query/reveal sequence"],
+    "natural_unpaired_views": false,
+    "identity_absent": false,
+    "nonaxis_identity_variation_defined": false,
+    "task_is_identity_binding": false,
+    "reason": "The contract is prequential forecasting. Treating early and late response windows as identity views would create an ontology and positive pairing from evaluator-owned temporal structure."
+  },
+  "control_disposition": {
+    "pair_break": "not run because no qualifying second identity view exists; a cyclic shift would break supervised transitions rather than latent identity",
+    "exact_clustering": "not scientifically defined without choosing an entity ontology absent from both contracts",
+    "exact_record_linkage": "not scientifically defined without using supplied slot/container/row correspondence",
+    "ann": "not scientifically defined for the same reason",
+    "oracle": "only supplied transition/record correspondence exists, so an oracle identity control would restate evaluator structure"
+  },
+  "gate_results": {
+    "dronepropa_natural_views": false,
+    "dronepropa_identity_absence": false,
+    "dronepropa_task_distinction": false,
+    "wt_natural_views": false,
+    "wt_identity_absence": false,
+    "wt_task_distinction": false,
+    "nonaxis_or_nonlinear_identity_variation": false,
+    "classical_controls_well_defined_without_new_ontology": false,
+    "all_pass": false
+  },
+  "interpretation": "Neither frozen real-data contract contains the observational unit needed to revive HYP-0001. Both provide supervised temporal transition pairs and evaluator-owned grouping; neither provides multiple unlabeled views of a persistent entity. Creating record-linkage labels, pair-breaking fixtures or an identity oracle would therefore add the missing ontology rather than test acquisition from observation.",
+  "uncertainty": "Confidence 0.995 for the candidate-interface finding because it follows directly from frozen dataclasses and constructors. Confidence is lower, 0.85, that no useful identity relation exists anywhere in the raw archives: raw data were deliberately not inspected beyond the candidate boundary, and a future independently justified contract could expose a different natural observational unit.",
+  "next_cycle": "One no-scoring primary-literature and portfolio review after the five consecutive identifiability/mechanism feasibility failures in cycles 129-133. Select at most one genuinely different principle only if an existing frozen cohort can test its qualitative signature at three scales against matched classical controls; otherwise record that no scored experiment is currently justified and specify the minimal missing observational contract without creating it."
+}
