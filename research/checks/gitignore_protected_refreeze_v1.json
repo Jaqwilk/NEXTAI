@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-31T09:45:00Z",
+  "event": "gitignore_protected_refreeze_preregistered",
+  "authorization": "User requires large benchmark payloads to remain local via .gitignore and permits protected changes to be explained before scoring.",
+  "benchmark": "heldout_three_family_continuous_transfer_v2",
+  "old_gitignore_sha256": "432e9fb606b4726f9d871b28e99d2d2e8034014e15da96d35cd3b3ea7eaa1a95",
+  "new_gitignore_sha256": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
+  "old_manifest_sha256": "616f61b836ad4ce3e8ba2b308836b6cd798c9e8f0e022474f2b26cebbbe81fd6",
+  "scope": "Archive and re-freeze the protected manifest, regenerate the existing preflight certificate, verify tests/integrity/doctor, and append a maintenance record.",
+  "scientific_semantics_changed": false,
+  "forbidden": [
+    "hypothesis creation or update",
+    "experiment plan creation",
+    "scoring-seed realization",
+    "candidate or evaluator implementation changes",
+    "runner scoring",
+    "result or confidence changes"
+  ]
+}

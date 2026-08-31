@@ -1,10 +1,10 @@
 {
   "benchmark_version": "heldout_three_family_continuous_transfer_v2",
   "candidate_bundle_sha256": "6d89cd44f610e40d1ec4d9b6a04b5751086520a3dcc4c094176b8db04a99a283",
-  "created_at": "2026-08-31T09:46:23Z",
-  "evaluator_sha256": "a27bf2308e5f514c77e9d1b9a87fce850e93d097a4cc0ab8a2a0b6de24d9d7d2",
+  "created_at": "2026-08-31T00:17:52Z",
+  "evaluator_sha256": "b035558e9ac636952c975f2e708032e55eedb1741de46c57cf96a754e93c2107",
   "files": {
-    ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
+    ".gitignore": "432e9fb606b4726f9d871b28e99d2d2e8034014e15da96d35cd3b3ea7eaa1a95",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
     "config/baseline_semantics.json": "e40e1ffa9ba9ac0b96a6436b4470f91e910b67d68b85da12f69177498e34e19f",
     "config/research.toml": "47ffbb4aaf9e247e4dd4728eaa0ebf35e0e6fe31110dc784579956b4805a9f68",
