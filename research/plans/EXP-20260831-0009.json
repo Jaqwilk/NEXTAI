@@ -1,0 +1,179 @@
+{
+  "alternative_explanations": [
+    "The six-bin table may merely select an NLMS step already matched by a fixed classical updater.",
+    "Anonymous heterogeneous trajectories may not share an update geometry even when their world-local predictors are identifiable."
+  ],
+  "architecture_family": "transferable_local_update_law",
+  "benchmark": "heldout_three_family_continuous_transfer_v7",
+  "budget": "quick",
+  "candidates": [
+    "shared_local_update_law_v1",
+    "independent_local_update_law_v1",
+    "cross_family_only_local_update_law_v1",
+    "support_only_local_update_law_v1",
+    "tensor_persistence_v1",
+    "tensor_ridge_arx_v1",
+    "tensor_rls_arx_v1",
+    "tensor_empirical_gaussian_joint_v1",
+    "tensor_contextual_gaussian_chow_liu_v1",
+    "tensor_autoregressive_v1",
+    "tensor_raw_window_local_linear_v1",
+    "tensor_random_projection_hash_v1",
+    "privileged_tensor_support_v1"
+  ],
+  "confounds": [
+    "The fixed linear predictor class can limit quality independently of the learned update law.",
+    "One runner-random seed estimates no cross-seed variance and candidate costs are deterministic operation models rather than hardware complexity."
+  ],
+  "continuous_transfer_protocol": {
+    "causal_promotion_gates": [
+      "shared_vs_independent_gain",
+      "cross_family_transfer_gain"
+    ],
+    "classical_baselines": [
+      "tensor_persistence_v1",
+      "tensor_ridge_arx_v1",
+      "tensor_rls_arx_v1",
+      "tensor_empirical_gaussian_joint_v1",
+      "tensor_contextual_gaussian_chow_liu_v1",
+      "tensor_autoregressive_v1",
+      "tensor_raw_window_local_linear_v1",
+      "tensor_random_projection_hash_v1",
+      "privileged_tensor_support_v1"
+    ],
+    "cross_family_only_ablation": "cross_family_only_local_update_law_v1",
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "ncmapss_ds08a",
+      "dronepropa",
+      "continuous_event"
+    ],
+    "family_labels": "evaluator_private",
+    "independent_ablation": "independent_local_update_law_v1",
+    "invalidation_rules": [
+      "Invalidate if any candidate receives a family label, source path, native type or semantic channel name.",
+      "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
+      "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
+      "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+      "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
+      "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
+      "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change."
+    ],
+    "loss": "family_balanced_masked_normalized_mse",
+    "normalization": "masked_training_worlds_only",
+    "pareto_capability_metrics": [
+      "transfer_accuracy",
+      "minimum_family_accuracy",
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "privileged_support_control": "privileged_tensor_support_v1",
+    "semantic_channel_alignment": "forbidden",
+    "shared_candidate": "shared_local_update_law_v1",
+    "state_budget_bytes": 67108864,
+    "support_only_ablation": "support_only_local_update_law_v1",
+    "tensor_contract_sha256": "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
+  },
+  "created_at": "2026-08-31T18:51:00Z",
+  "evaluator_sha256": "b642acabc10510aa991f0e1fc16de0d9f578e05ac275ed0e0d7a59948addc29d",
+  "experiment_id": "EXP-20260831-0009",
+  "falsification_criteria": [
+    "Discard if shared minus independent is not greater than 0.03806855146519833 in every evaluator-private family and K=4/6/9 cell.",
+    "Discard if cross-family-only minus support-only is not greater than 0.03806855146519833 in every evaluator-private family and K=4/6/9 cell.",
+    "Discard if stable rollout is below 1, worst-family quality regresses, or any fixed complete implementable control Pareto-dominates shared under universal axes including update_ops.",
+    "Invalidate on contract, source identity, seed policy, target access, baseline semantics, preflight or evaluator integrity mismatch."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "404ee7fac05f97c04d4738821802196fcad77edc",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0029",
+  "matrix": {
+    "knowledge_sizes": [
+      4,
+      6,
+      9
+    ],
+    "queries_per_cell": 128,
+    "reasoning_depths": [
+      1
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "cross_family_transfer_gain": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "shared_vs_independent_gain": "maximize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify the exact transferable update-law claim and stop this direction without tuning.",
+    "null": "Return HYP-0029 to dormant and do not tune bins, rates, initialization, predictor class or state size.",
+    "positive": "Authorize only an unchanged three-seed replication of the exact table, constants and v7 contract."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The shared and cross-family-only learned rate tables exceed their source-identical ablations by more than 0.03806855146519833 in every family and K cell, remain stable, avoid worst-family regression and are not Pareto-dominated after full cost.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "shared_vs_independent_gain",
+    "cross_family_transfer_gain",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "A one-seed quick cannot promote; a complete positive may authorize only unchanged three-seed replication."
+  ],
+  "research_question": "Can a six-scalar family-blind update law learned from anonymous source trajectories improve unseen-world adaptation over source-identical and fixed classical controls without transferring world parameters?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Source-identical transferable local update law quick"
+}
