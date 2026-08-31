@@ -1,0 +1,75 @@
+{
+  "alternative_explanations": [
+    "Any apparent advantage may come from ordinary address filtering, timed finite-state recognition, priority/calendar queue indexing or sparse input delivery rather than polychronous neural computation."
+  ],
+  "architecture_family": "asynchronous_temporal_binding",
+  "benchmark": "asynchronous_temporal_binding_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_event_guess",
+    "rate_code_classifier",
+    "nearest_timed_trace",
+    "clocked_spike_reservoir",
+    "heap_event_transducer",
+    "timed_automaton_matcher",
+    "calendar_event_transducer",
+    "learned_polychronous_binder",
+    "oracle_temporal_binder"
+  ],
+  "confounds": [
+    "Exact integer delays, noiseless relevant events, four fixed temporal motifs and pre-tokenized event addresses may make binding and segmentation much easier than open-world asynchronous perception."
+  ],
+  "created_at": "2026-08-30T07:14:23Z",
+  "experiment_id": "EXP-20260830-0028",
+  "falsification_criteria": [
+    "Kill the learned polychronous implementation if it is inexact, false-triggers on changed valid timing, forgets unchanged bindings, or is matched or dominated by an implementable timed automaton or calendar event transducer once raw event delivery, scheduling, delay traces, fit, state, update, idle maintenance and full workload are charged."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If the learned binder fails temporal composition or safety while exact classical controls succeed, strengthen HYP-0012 modestly and discard this implementation family without tuning.",
+    "null": "If timed automaton or calendar controls match or dominate learned capability and full cost, retain HYP-0012 and make this learned binder route dormant while recording any general event-driven advantage over clocked computation separately.",
+    "positive": "Treat an exact deterministic non-dominated learned temporal binder as counterevidence to HYP-0012 and allocate exactly one adversarial multi-seed screen with jitter, missing events and confusable delays."
+  },
+  "parent_experiment_id": "EXP-20260830-0027",
+  "predicted_outcome": "Timed automaton, heap/calendar event transducers, the learned polychronous binder and oracle should recognize exact held-out compositions and local updates; rate, whole-trace nearest-neighbor and the small clocked reservoir should fail timing or composition. Event-driven methods should strongly beat clocked simulation across idle gaps, but the learned binder is expected to reimplement finite timed-state matching and gain no unique K, event-delivery, update or workload advantage over the strongest classical temporal control, supporting HYP-0012.",
+  "primary_metrics": [
+    "accuracy",
+    "near_equivalent_accuracy",
+    "reuse_precision",
+    "continual_retention",
+    "mean_query_ops",
+    "fit_seconds",
+    "peak_state_bytes",
+    "update_ops",
+    "workload_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. The learned binder earns exactly one three-seed adversarial screen only if it has exact held-out and changed-valid timing, reuse precision 1, full retention, no false triggers, and a materially better deterministic K and idle-time signature plus local update cost than every implementable classical temporal control under the same system boundary."
+  ],
+  "research_question": "Can a learned polychronous event-state substrate discover episode-specific delay bindings, recognize held-out temporal compositions and update one binding locally with a materially better full-system event, K and idle-time cost signature than timed automata, heap/calendar event transducers and a clocked liquid-state control?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Asynchronous temporal binding under irrelevant event growth"
+}

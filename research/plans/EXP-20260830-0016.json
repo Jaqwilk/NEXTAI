@@ -1,0 +1,84 @@
+{
+  "alternative_explanations": [
+    "The finite hand-written truth-table library and exhaustive clean single-node interventions may make exact recovery deterministic rather than demonstrate general learned representation.",
+    "Deterministic query selection is adversarial only to registered random, majority and parity controls; an unregistered nonlinear heuristic may remain.",
+    "A trained dense nonlinear predictor or modern unknown-intervention causal learner could match the capability under a fairer representation budget."
+  ],
+  "architecture_family": "latent_causal_predictive_state",
+  "benchmark": "latent_causal_transfer_adversarial_v2",
+  "budget": "screen",
+  "candidates": [
+    "random_latent_independent",
+    "latent_majority_guess",
+    "latent_parity_shortcut",
+    "raw_episode_predictor",
+    "latent_factorized_mixed",
+    "oracle_representation_mixed",
+    "oracle_latent_mixed"
+  ],
+  "confounds": [
+    "The benchmark remains a visible synthetic DAG with stable discrete tokens, complete clean intervention coverage and known binary variables.",
+    "K scales irrelevant roots and raw input length together, so full K slope measures the declared observation boundary rather than persistent-model access alone."
+  ],
+  "created_at": "2026-08-30T03:23:04Z",
+  "experiment_id": "EXP-20260830-0016",
+  "falsification_criteria": [
+    "Reduce HYP-0008 and end tuning of this apparatus if any learned seed or cell falls below 0.95 accuracy/OOD, target mapping, active structure or gate accuracy, if relative seed CV exceeds 0.10, or if the per-seed gap over the strongest registered simple shortcut is below 0.25.",
+    "Treat the screen as integrity-inconclusive if any cell is not exactly label-balanced, independent random or parity exceeds 5/12 in a cell, majority differs from 0.5, any candidate fails, or protected integrity changes."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0008",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 12,
+    "reasoning_depths": [
+      1,
+      4,
+      6,
+      8
+    ],
+    "seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If exact recovery or seed stability fails under the unchanged cohort, reduce HYP-0008 materially, end tuning of this implementation and pivot to a different architecture family.",
+    "null": "If exact recovery replicates but a control, Pareto or cost gate fails, keep HYP-0008 testing without promotion and choose the cheapest new-task-family discriminator.",
+    "positive": "Keep the mechanism as a replicated narrow causal-transfer result and consider HYP-0008 promising only under the registered Pareto and prior-art conditions; next test must transfer beyond exhaustive clean binary truth-table worlds rather than tune this cohort."
+  },
+  "parent_experiment_id": "EXP-20260830-0015",
+  "predicted_outcome": "Every cell is exactly label-balanced. In every seed, independent random and parity score at most 5/12 in every cell, majority scores exactly 0.5, and raw episode prediction averages at most 0.75. Learned factorized and both oracle controls reach at least 0.95 accuracy/OOD, mapping, structure and gate accuracy in every cell, with learned per-seed accuracy at least 0.95 and relative seed CV at most 0.10. Learned beats the strongest registered simple shortcut by at least 0.25 in every seed. Full query K slope exceeds 0.35 in every seed because perception grows with unordered roots, while local ops and visited nodes are K-invariant at fixed seed and D.",
+  "primary_metrics": [
+    "accuracy",
+    "ood_intervention_accuracy",
+    "per_seed_accuracy",
+    "shortcut_gap",
+    "label_positive_rate",
+    "target_mapping_accuracy",
+    "structure_accuracy",
+    "gate_accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "mean_perception_ops",
+    "mean_local_ops",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Screen may justify promising only if all three seeds pass every capability and control gate, learned factorization is on the accuracy-gated Pareto frontier among non-oracle controls, prior-art records SRC-0018 through SRC-0021 are acknowledged, and full input, fit, state and oracle advantages remain disclosed; screen cannot promote the family."
+  ],
+  "research_question": "Does the corrected latent causal factorization replicate across three opaque-code and mixed-gate worlds while preserving exact recovery, separation from registered shortcuts, local K-invariance, and explicit full-input K cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Multi-seed shortcut-resistant latent causal transfer screen"
+}

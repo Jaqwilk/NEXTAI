@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-30T22:33:00Z",
+  "dataset_sha256": "47971a68b239ecb756833218a95d68ded6eb7e63ee84e86671c8b188de1ca765",
+  "reader_library_sha256": "f9152376c0d8fde2703531888e1c21cbc088c6e531a74e544a7b8e139cf83df3",
+  "candidate_visible": ["W", "X_s"],
+  "evaluator_only": ["unit", "Fc", "hs", "T", "Y", "split_membership"],
+  "expected_development_units": [2, 5, 10, 16, 18, 20],
+  "expected_test_units": [11, 14, 15],
+  "router": {
+    "prefix_rows_per_engine": 4096,
+    "features": "per-column mean and standard deviation of W concatenated with X_s",
+    "classifier": "leave-one-engine-out nearest class centroid after train-fold standardization",
+    "tie_break": "development",
+    "pass_max_accuracy": 0.6666666666666666
+  },
+  "leakage": {
+    "rows_per_engine": 4096,
+    "reject_exact_numeric_column_match": true,
+    "reject_absolute_pearson_correlation_at_or_above": 0.999999,
+    "private_numeric_columns": ["Fc", "hs", "T", "Y"]
+  },
+  "no_adaptation_control": {
+    "features": "W and X_s at time t",
+    "target": "X_s at time t+1 within the same engine and cycle",
+    "development_transitions_per_engine": 8192,
+    "test_adaptation_transitions_per_engine": 8192,
+    "test_query_transitions_per_engine": 4096,
+    "sampling_stride": 32,
+    "ridge": 0.001,
+    "controls": ["persistence", "development_pooled_ridge_without_test_adaptation", "per_engine_ridge_with_prefix_adaptation"],
+    "gate": "all metrics finite; diagnostic only and never scientific evidence"
+  },
+  "invalidations": [
+    "dataset or reader hash mismatch",
+    "shape or unit split mismatch",
+    "candidate-visible router exceeds the frozen majority ceiling",
+    "exact or near-exact target/private-field leakage",
+    "any nonfinite no-adaptation metric"
+  ]
+}

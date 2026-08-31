@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "cycle": 89,
+  "proposal": "n_cmapss_ds02_shared_engine_representation",
+  "experiment_id": null,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "download_performed": true,
+  "acquisition_status": "pass",
+  "gates": {
+    "official_length": "pass",
+    "outer_sha256": "pass",
+    "nested_zip_catalog": "pass",
+    "ds02_only_extraction": "pass",
+    "ds02_crc32": "pass",
+    "ds02_sha256": "pass",
+    "hdf5_signature": "pass",
+    "expected_dataset_names": "pass",
+    "exact_shapes_and_units": "blocked_missing_local_hdf5_reader",
+    "development_test_units": "blocked_missing_local_hdf5_reader",
+    "target_leakage_audit": "blocked_missing_local_hdf5_reader",
+    "early_prefix_router_audit": "blocked_missing_local_hdf5_reader",
+    "no_adaptation_control": "blocked_missing_local_hdf5_reader",
+    "protected_evaluator_migration": "not_authorized"
+  },
+  "decision": "maintenance_blocked_before_evaluator",
+  "confidence": 1.0,
+  "required_authority": "Approve adding h5py as the minimal local HDF5 reader dependency, or provide an already installed equivalent reader.",
+  "next_gate": "service-only h5py-backed exact schema, 6/3 unit split, leakage, early-prefix routing and no-adaptation audit; no cohort migration or scoring in that cycle"
+}

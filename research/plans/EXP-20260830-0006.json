@@ -1,0 +1,65 @@
+{
+  "alternative_explanations": [
+    "Specialized learned experts may provide reusable computation that a key-value lookup task cannot express, so oracle domination here need not generalize to heterogeneous skills."
+  ],
+  "architecture_family": "sparse_modularity",
+  "benchmark": "adaptive_depth_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_guess",
+    "adaptive_linear_scan",
+    "adaptive_indexed",
+    "oracle_modular_router"
+  ],
+  "confounds": [
+    "Terminal membership checks follow the existing benchmark convention and are not added to declared query operations; tiny timing differences are not causal evidence."
+  ],
+  "created_at": "2026-08-30T01:01:04Z",
+  "experiment_id": "EXP-20260830-0006",
+  "falsification_criteria": [
+    "Treat the apparatus as invalid if random, linear-scan or adaptive-index controls do not reproduce their established quality and scaling ordering.",
+    "Reject this table-routed modular construction as a distinct efficiency principle if it is exact but no better than adaptive indexed on query operations or state; a learned router cannot improve the best-case routing bound without another source of module reuse."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0010",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      4,
+      16
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Failure of the oracle or frozen controls would invalidate this implementation or run rather than the sparse-modularity family.",
+    "null": "Exact K-independent routing that is dominated by direct indexing would show that module sparsity alone adds no efficiency on this task.",
+    "positive": "A non-dominated oracle modular result would justify a learned-router benchmark with heterogeneous reusable experts."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The oracle modular router should be exact with one active expert per hop, mean query operations 14, K slope 0 and D slope 1. It should beat linear scan scaling but use exactly twice the query operations and substantially more state than adaptive indexed at the same accuracy, so it should have no distinct exact-axis advantage.",
+  "primary_metrics": [
+    "accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Advance modular routing only if the oracle is exact, K-independent, activates one module, and improves at least one preregistered exact cost axis over adaptive indexed without losing another; quick cannot promote HYP-0010."
+  ],
+  "research_question": "Does perfect routing to exactly one constant-capacity expert provide any distinct efficiency advantage over direct indexed memory, or does modular sparsity reduce to an extra indirection with more state?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Best-case sparse modular routing versus a direct index"
+}

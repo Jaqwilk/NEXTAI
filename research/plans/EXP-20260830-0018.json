@@ -1,0 +1,83 @@
+{
+  "alternative_explanations": [
+    "A fixed correlation threshold may simply recover a deliberately separated error-correcting code, so robustness could come from identifiable clustering rather than learned energy reasoning.",
+    "Incremental sequential repair may remove the apparent operation advantage and show that one-round relaxation is only a scheduling presentation of independent bit corrections.",
+    "Nearest-pattern or Hopfield controls may fail because training examples are noisy even though a denoised modern Hopfield implementation could remain competitive."
+  ],
+  "architecture_family": "energy_based_associative_relaxation",
+  "benchmark": "associative_relational_relaxation_adversarial_v2",
+  "budget": "screen",
+  "candidates": [
+    "random_attractor_guess",
+    "bit_majority_attractor",
+    "nearest_stored_attractor",
+    "classical_hopfield_attractor",
+    "learned_parallel_energy",
+    "incremental_sequential_energy",
+    "robust_parallel_energy",
+    "oracle_relational_energy"
+  ],
+  "confounds": [
+    "K counts redundant compositions of eight latent relations rather than independent open-world facts; fit, state and query work must be reported separately.",
+    "The generator guarantees a preregistered correlation gap and one test error per affected component, so positive evidence cannot be generalized to overlapping, ambiguous or learned real-valued representations."
+  ],
+  "created_at": "2026-08-30T03:51:00Z",
+  "experiment_id": "EXP-20260830-0018",
+  "falsification_criteria": [
+    "Reduce HYP-0007 and stop tuning this family if robust_parallel_energy falls below 0.95 exact held-out accuracy in any seed or cell, has nonzero spurious-attractor rate, loses monotonicity, needs more than one round, or any preregistered generator invariant fails.",
+    "Treat the claimed architectural advantage as null if incremental_sequential_energy matches robust parallel in accuracy and total work so that the only remaining difference is a hand-scheduled round count, or if robust parallel has absolute per-seed query K slope above 0.05 or exceeds 0.12 of classical Hopfield query operations."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0007",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 12,
+    "reasoning_depths": [
+      1,
+      4,
+      6,
+      8
+    ],
+    "seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If noisy unequal relations break recovery or create spurious attractors in any seed, reduce HYP-0007 toward uncertain or dormant, preserve the failure, and test a different architecture family.",
+    "null": "If robust recovery works but a credible incremental or Hopfield control matches the full cost signature, classify the result as a known factored error-correcting mechanism, lower novelty confidence and pivot rather than optimize it.",
+    "positive": "Keep HYP-0007 testing and consider a different-task transfer only if the robust learned model replicates across all seeds with the registered dynamics and scaling signature; do not claim an LLM successor or novelty over prior art."
+  },
+  "parent_experiment_id": "EXP-20260830-0017",
+  "predicted_outcome": "Each seed uses eight opaque unequal components totaling 36 bits, exactly two noisy training bits per pattern, incomplete latent balance, visible within-component parity agreement at least 0.75 and cross-component association at most 0.625. Every clean target is a held-out composition and each query corrupts one bit in each of D distinct components. Random, majority and nearest controls have exact accuracy at most 0.10 per cell. Robust parallel, incremental sequential and oracle achieve at least 0.95 exact and held-out accuracy in every cell and seed with spurious rate 0 and monotonic energy 1. Robust parallel uses one round, D active updates, absolute per-seed query K slope at most 0.05, and at most 0.12 of classical Hopfield query operations. Its fit operations remain positive and grow with K; the brittle exact-correlation ablation is not required to succeed.",
+  "primary_metrics": [
+    "accuracy",
+    "heldout_composition_accuracy",
+    "spurious_attractor_rate",
+    "energy_monotonic_rate",
+    "mean_iterations",
+    "mean_active_updates",
+    "mean_bytes_scanned",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "A screen may raise confidence but HYP-0007 can become promising only if robust parallel passes every seed and cell, seed CV is at most 0.10, it lies on the accuracy-gated global Pareto frontier including the incremental and oracle controls, and the result remains distinct from Hopfield, sparse parity decoding and known iterative energy models SRC-0025 through SRC-0029."
+  ],
+  "research_question": "Can a learned local energy model recover noisy unequal latent relations and clean unseen compositions in one parallel relaxation round across seeds while retaining a distinct matched-cost signature against Hopfield retrieval and an incremental sequential schedule?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Adversarial multi-seed robust relational energy screen"
+}

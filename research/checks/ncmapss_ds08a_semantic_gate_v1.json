@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-30T23:02:39Z",
+  "dataset_sha256": "10ddf52e5441a05e3d0d8d797a34e0e5a9ac73dce8ae35d7b22d1ef224d24836",
+  "reader_library_sha256": "f9152376c0d8fde2703531888e1c21cbc088c6e531a74e544a7b8e139cf83df3",
+  "parent_audit_sha256": "c8c3d3b6856e5439817c3e7d0e724d49e2730349352260eb3e57710c4006e7a3",
+  "partition_path": "research/checks/ncmapss_ds08a_balanced_partition_v1.json",
+  "partition_sha256": "b9625cd036ea033fc69c08c36ff23a446a6c09b3ea7577074e6fe21398adbefb",
+  "candidate_visible": ["chronology within anonymous unit", "W", "X_s"],
+  "evaluator_only": ["unit", "Fc", "hs", "T", "Y", "official_source_role", "partition_role"],
+  "source_units": {
+    "development": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "test": [10, 11, 12, 13, 14, 15]
+  },
+  "roles": {
+    "training": [1, 2, 3, 4, 5, 10, 11, 12, 13],
+    "holdout": [6, 7, 8, 9, 14, 15]
+  },
+  "router": {
+    "prefix_rows_per_unit": 4096,
+    "features": "per-column mean and standard deviation of W concatenated with X_s",
+    "classifier": "leave-one-unit-out nearest role centroid after train-fold standardization",
+    "tie_break": "training",
+    "pass_max_accuracy": 0.6
+  },
+  "leakage": {
+    "rows_per_unit": 4096,
+    "reject_exact_numeric_column_match": true,
+    "reject_absolute_pearson_correlation_at_or_above": 0.999999,
+    "private_numeric_columns": ["Fc", "hs", "T", "Y"]
+  },
+  "no_adaptation_control": {
+    "features": "W and X_s at time t",
+    "target": "X_s at time t+1 within the same unit and cycle",
+    "training_transitions_per_unit": 4096,
+    "holdout_adaptation_transitions_per_unit": 2048,
+    "holdout_query_transitions_per_unit": 2048,
+    "sampling_stride": 32,
+    "ridge": 0.001,
+    "controls": ["persistence", "training_pooled_ridge_without_holdout_adaptation", "per_unit_ridge_with_prefix_adaptation"],
+    "gate": "all metrics finite; diagnostic only and never scientific evidence"
+  },
+  "invalidations": [
+    "dataset, reader, partition or source-unit mapping mismatch",
+    "candidate-visible router accuracy exceeds 0.6",
+    "exact or near-exact target/private-field leakage",
+    "any nonfinite no-adaptation metric"
+  ],
+  "on_pass": "authorize protected evaluator design in a later service-only wake",
+  "on_fail": "reject this exact partition before evaluator activation"
+}

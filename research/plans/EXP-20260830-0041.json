@@ -1,0 +1,118 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from pooled sample count rather than reusable representation; the independent same-architecture control isolates that explanation.",
+    "Specialists may win because the common serializer removes useful native structure, not because shared representation is impossible."
+  ],
+  "architecture_family": "cross_family_shared_representation",
+  "benchmark": "cross_family_shared_representation_v1",
+  "budget": "quick",
+  "candidates": [
+    "frozen_cross_family_encoder",
+    "shared_empirical_joint",
+    "shared_autoregressive",
+    "independent_cross_family_learner",
+    "shared_cross_family_learner",
+    "specialist_empirical_joint_suite",
+    "specialist_autoregressive_suite",
+    "specialist_contextual_chow_liu_suite",
+    "oracle_cross_family_suite"
+  ],
+  "confounds": [
+    "Sequence length or structural pattern could reveal family identity even though no label, type name or oracle field is supplied.",
+    "Fixed-width deterministic compression can discard different fractions of the four public supports; acquisition and truncation are recorded but may affect capability."
+  ],
+  "created_at": "2026-08-30T12:26:49Z",
+  "evaluator_sha256": "c2b47e4a7a487ed130e01a7d13bcf25279bd0712a857b98c8329537d49e44699",
+  "experiment_id": "EXP-20260830-0041",
+  "falsification_criteria": [
+    "Kill this implementation if overall unseen-world transfer is below 0.95, any family mean is below 0.90, or the independent/no-shared version matches it at no higher full cost.",
+    "Kill the mechanism claim if a simpler shared empirical or autoregressive control or the specialist suite Pareto-dominates the shared learner after acquisition, meta-fit, update, query, state and R16 workload are included."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0015",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "data_acquisition_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A crash or invalid output rejects only the implementation; leakage, seed collision or evaluator-integrity change invalidates the run, while decisive matched-capability dominance makes this route dormant without post-hoc adapters.",
+    "null": "A null keeps HYP-0015 proposed or dormant and identifies whether lack of transfer, no advantage over independent training, or full-cost dominance is responsible; do not tune this cohort.",
+    "positive": "A one-seed positive is surprising screening evidence only and authorizes a preregistered three-seed adversarial screen with unchanged learner and evaluator."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The first quick will likely be null: the shared learner may transfer relational regularities but will fail at least one 0.90 family gate or remain Pareto-dominated by the fully charged specialist suite; a genuine large positive would justify only a replicated screen.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "workload_ops_r16",
+    "state_bytes",
+    "meta_fit_ops",
+    "data_acquisition_ops"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; authorize only a three-seed screen if shared_cross_family_learner has transfer at least 0.95, minimum-family accuracy at least 0.90, no family trails the best shared control by more than 0.02, beats independent_cross_family_learner, and is implementably non-dominated."
+  ],
+  "research_question": "Can one source-identical local learner discover a pooled representation that transfers to runner-random unseen probabilistic, predictive-state, local-dynamics and program-composition worlds at better full-system capability per cost than separate family-specific models?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "One unchanged learner across four unseen world families",
+  "transfer_protocol": {
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "context_specific_probabilistic_circuit_v1",
+      "action_conditioned_predictive_equivalence_v1",
+      "nonlinear_local_state_transfer_v1",
+      "behavioral_conjugacy_library_transfer_v1"
+    ],
+    "family_labels": "forbidden",
+    "family_specific_rules": "forbidden",
+    "invalidation_rules": [
+      "Invalidate on any derived training and scoring seed collision.",
+      "Invalidate if the shared candidate receives a family label or privileged native object.",
+      "Invalidate on candidate tuning after any scoring output is observed.",
+      "Invalidate if public serialization contains oracle-only fields or derived latent roles."
+    ],
+    "shared_candidate": "shared_cross_family_learner",
+    "specialist_baselines": [
+      "specialist_contextual_chow_liu_suite",
+      "specialist_empirical_joint_suite",
+      "specialist_autoregressive_suite",
+      "oracle_cross_family_suite"
+    ],
+    "test_tuning": "forbidden",
+    "test_world_seed_source": "runner_scoring_seeds",
+    "training_world_seeds": [
+      1103
+    ]
+  }
+}

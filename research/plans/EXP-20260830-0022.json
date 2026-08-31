@@ -1,0 +1,80 @@
+{
+  "alternative_explanations": [
+    "The complete two-state machine parameterization may carry most of the solution even though it is not a four-op library; success would be finite system identification, not open-ended program discovery.",
+    "Whole-I/O supports may be behaviorally distinctive enough that classical enumeration or a signature index solves routing, while differentiable optimization adds no reusable representation.",
+    "The dense random-feature control may underfit weakly supervised recurrent behavior; enumerative MDL is the decisive exact matched baseline."
+  ],
+  "architecture_family": "learned_virtual_machine",
+  "benchmark": "program_induction_from_whole_io_v2",
+  "budget": "quick",
+  "candidates": [
+    "random_whole_io",
+    "nearest_whole_io",
+    "dense_whole_io",
+    "enumerative_mdl_vm",
+    "learned_latent_vm",
+    "oracle_latent_vm"
+  ],
+  "confounds": [
+    "K deliberately couples unrelated meta-training experience and padded external-memory capacity as a full-system scaling test; the experiment cannot attribute a K effect to only one without a child ablation.",
+    "The benchmark is a visible binary two-state synthetic machine with one quick seed, deterministic noise and exact operation proxies; it cannot establish transfer to larger machines, language or open-world algorithms."
+  ],
+  "created_at": "2026-08-30T05:04:23Z",
+  "experiment_id": "EXP-20260830-0022",
+  "falsification_criteria": [
+    "Make HYP-0009 dormant if learned_latent_vm is below 0.95 accuracy, length extrapolation or exact program induction in any cell; a soft output fit without recovery of the executable transition table does not pass.",
+    "Treat the learned VM as null and make HYP-0009 dormant if enumerative_mdl_vm matches its capability and is no worse on exact cold query operations, warm operations, memory reads, bytes, persistent state, fit operations and update operations.",
+    "Reject any scaling claim if learned_latent_vm omits support parsing or per-task optimization, reads padded cells without charging them, or query work/error grows materially with irrelevant K at fixed D."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0009",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If the learned VM fails exact induction or length extrapolation while MDL and oracle pass, make HYP-0009 dormant without tuning this toy and pivot to a different uncertain family.",
+    "null": "If learned latent execution is exact but explicit MDL matches or dominates its full cost, retain both as controls but make HYP-0009 dormant because a differentiable VM adds no distinct signature.",
+    "positive": "Keep HYP-0009 testing only if the learned latent VM recovers every unseen executable program, extrapolates exactly, has near-zero K query slope and beats enumerative MDL on at least one exact capability-cost axis without losing another; then preregister a three-seed adversarial state-count screen."
+  },
+  "parent_experiment_id": "EXP-20260830-0021",
+  "predicted_outcome": "Every scored task supplies only whole input-final-output examples for an unseen binary two-state Mealy program, with one deterministically corrupted support label, no program token, state trace, action sequence or task ID; D is active tape length and K jointly scales padded external memory and the unrelated meta-training corpus. Oracle and enumerative MDL are predicted exact in every cell because the harness admits only tasks whose true program is the unique minimum-error member of the complete 256-program class. Random and nearest are near 0.50, dense whole-I/O remains below 0.90 on unseen programs, and the differentiable latent VM is predicted below 0.95 in at least one D=4/6 cell or to require more cold induction work than enumerative MDL. Direct and latent warm execution should read only D active bits with near-zero K slope, while dense reads all K cells. The expected outcome is a registered negative or null for the current learned VM, not promotion.",
+  "primary_metrics": [
+    "accuracy",
+    "length_extrapolation_accuracy",
+    "program_induction_accuracy",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "mean_search_ops",
+    "mean_controller_ops",
+    "mean_memory_reads",
+    "mean_bytes_loaded",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "fit_ops",
+    "state_bytes",
+    "update_ops"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote HYP-0009. A later screen is allowed only if the learned VM is exact in every cell, recovers executable programs, is non-dominated by enumerative MDL and oracle on declared full-system axes, survives new noise positions and at least three seeds, and explicitly acknowledges SRC-0039 through SRC-0042."
+  ],
+  "research_question": "Can a compact differentiable latent-state machine infer an unseen recurrent program solely from noisy whole-program input-output examples, extrapolate execution to longer held-out tapes with work bounded by the active prefix rather than padded memory K, and provide any exact capability-cost advantage over explicit enumerative MDL synthesis?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Latent two-state VM induction from noisy whole-program I/O"
+}

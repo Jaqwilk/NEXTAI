@@ -1,0 +1,82 @@
+{
+  "alternative_explanations": [
+    "The learner may only extract a finite transition dictionary from differences, while all apparent semantic composition is ordinary table reuse or symbolic anti-unification.",
+    "Sparse event execution may be exactly Rete matching or a pointer state machine, leaving no computational distinction for ACC/SCCS.",
+    "A dense full-sweep baseline may overstate the benefit because optimized sparse tensors or change masks can skip dormant nodes without adopting chemical semantics."
+  ],
+  "architecture_family": "cognitive_chemistry_production_systems",
+  "benchmark": "semantic_reaction_composition_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_reaction_guess",
+    "reaction_trajectory_memorizer",
+    "learned_reaction_sweep",
+    "learned_reaction_recurrent",
+    "rete_reaction_engine",
+    "learned_semantic_reactor",
+    "oracle_reaction_engine"
+  ],
+  "confounds": [
+    "Particle slots, directed adjacency, active flags and a finite four-symbol alphabet are supplied by the benchmark; they are a strong hand-written ontology and prevent broad semantic claims.",
+    "Every fresh query and update is provided as a dense K-particle state, so locating the event incurs K-dependent parsing; a delta-stream interface would remove this cost for both ACC/SCCS and Rete."
+  ],
+  "created_at": "2026-08-30T04:10:09Z",
+  "experiment_id": "EXP-20260830-0019",
+  "falsification_criteria": [
+    "Reduce HYP-0003 if learned_semantic_reactor has exact or held-out accuracy below 0.95 in any cell, fails any observed local rule, does not converge, oscillates, activates more than D events, or fails the registered operation advantage over the full sweep at K=32 and D=4/6.",
+    "Treat the separate ACC/SCCS thesis as null and stop tuning if rete_reaction_engine or learned_reaction_recurrent matches semantic-reactor capability while being no worse on exact operations, bytes, state and continual-update work; a new name for a production system is not a positive result."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0003",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If the semantic reactor fails unseen composition, convergence or sparse activation, lower HYP-0003 toward dormant and do not patch the toy chemistry.",
+    "null": "If learned reactions compose exactly but Rete or pointer recurrence matches or dominates them, lower HYP-0003, preserve the mechanism as a production-system control and pivot to a different family.",
+    "positive": "Only a capability-exact, non-dominated learned reactor with a distinction beyond Rete and pointer recurrence may remain testing and earn an adversarial multi-seed screen; no quick result can be called promising."
+  },
+  "parent_experiment_id": "EXP-20260830-0018",
+  "predicted_outcome": "Training contains fifteen deterministic local rule instances as unlabeled dense before/after particle states and withholds one rule for a continual-update check. Every scored target is an unseen D-step composition whose full transition is absent from training. Random and whole-trajectory memorizer exact accuracy are at most 0.125. Learned sweep, pointer recurrent, Rete, semantic reactor and oracle reach exact held-out accuracy at least 0.95 in every cell, observed-rule accuracy 1, convergence 1 and oscillation 0. The semantic reactor activates exactly D events, scans dense input once, uses fewer than half the query operations of learned full sweep at K=32 and D=4/6, but has a positive full-system K slope and update work growing with K. Rete or pointer recurrent is expected to match or improve its accuracy, operations, state and update signature, yielding a preregistered null for a distinct ACC/SCCS architecture.",
+  "primary_metrics": [
+    "accuracy",
+    "heldout_composition_accuracy",
+    "observed_rule_accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "convergence_rate",
+    "oscillation_rate",
+    "mean_active_events",
+    "mean_full_scans",
+    "mean_bytes_scanned",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "fit_ops",
+    "update_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote HYP-0003. A later screen is justified only if the learned semantic reactor passes every capability gate, is non-dominated by Rete, recurrent, sweep and oracle controls on exact accounting, shows a reusable learned-rule or local-update signature not supplied by object slots and event pointers, and acknowledges SRC-0030 through SRC-0034."
+  ],
+  "research_question": "Can a persistent event-driven substrate infer reusable local reaction rules from unlabeled full-state transitions, compose them on unseen particle graphs, and retain a distinct end-to-end cost or update signature beyond conventional Rete matching and a pointer recurrent controller?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Unlabeled semantic reaction composition versus Rete and recurrent controls"
+}

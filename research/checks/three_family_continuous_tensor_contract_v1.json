@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-30T23:21:03Z",
+  "status": "frozen_for_shape_and_ablation_gate_only",
+  "families": [
+    "ncmapss_ds08a_portable_v1",
+    "heldout_dronepropa_factor_recombination_v6",
+    "continuous_event_predictive_state_v1"
+  ],
+  "common_interface": {
+    "support_input": [108, 32],
+    "support_target": [108, 32],
+    "history": [32, 32],
+    "future_public": [50, 32],
+    "output": [50, 32],
+    "mask_rule": "one public boolean mask per tensor; true exactly where a native finite value was copied",
+    "pad_rule": "cast native finite numeric matrix to float32, copy in row-major order to the upper-left corner, fill every remaining cell with positive zero",
+    "forbidden_adapter_behavior": [
+      "family labels, native class names or paths",
+      "semantic channel names or manual control/state/regime alignment",
+      "family-specific scaling, projection, permutation, truncation or hyperparameters",
+      "target or test-result access while constructing public inputs"
+    ]
+  },
+  "native_mechanical_views": {
+    "ncmapss_ds08a_portable_v1": {
+      "support_input": "row-wise concatenation of native public W and X_s",
+      "support_target": "next native public X_s row within the same unit and cycle",
+      "history": "last 32 concatenated W and X_s rows",
+      "future_public": "next 50 native public W rows",
+      "output": "next 50 native public X_s rows"
+    },
+    "heldout_dronepropa_factor_recombination_v6": {
+      "support_input": "row-wise concatenation of the already frozen native public motor controls and states",
+      "support_target": "next native public state row within the same whole flight",
+      "history": "last 32 concatenated control and state rows",
+      "future_public": "next 50 native public control rows",
+      "output": "next 50 native public state rows"
+    },
+    "continuous_event_predictive_state_v1": {
+      "support_input": "the native 108-row public episode channel matrix",
+      "support_target": "the native 108-row scalar target as one column",
+      "history": "the final 32 rows of the public support episode",
+      "future_public": "the native ForecastQuery channel matrix, using a frozen 50-step query",
+      "output": "the native 50-step scalar forecast as one column"
+    }
+  },
+  "normalization": {
+    "rule": "per tensor column mean and standard deviation from public training worlds only; masked cells are excluded",
+    "zero_scale": "replace by one",
+    "same_code_and_constants_for_every_family": true,
+    "test_and_holdout_values_forbidden": true
+  },
+  "loss": {
+    "primary": "mean squared normalized error over true output-mask cells, averaged within world then equally across families",
+    "minimum_family_guard": true,
+    "raw_family_metrics_retained": true,
+    "mask_not_scored": true
+  },
+  "causal_candidates": {
+    "shared": "one source-identical learner and hyperparameter set slow-fitted on pooled training worlds",
+    "independent": "source-identical clones slow-fitted separately per evaluator-private family group; all clone fit/state/costs are summed",
+    "no_cross_family": "for each evaluated family, the same learner receives no slow-fit worlds from that family and adapts on the identical public support as shared",
+    "support_only": "same learner with no slow-fit worlds, adapted on identical public support"
+  },
+  "transfer_success_requires": [
+    "shared beats independent on overall and minimum-family capability",
+    "no-cross-family beats support-only in every family",
+    "shared is not Pareto-dominated by independent, pooled probabilistic or native specialist controls",
+    "family router accuracy is reported but never itself counted as transfer",
+    "all acquisition, serialization, normalization, slow fit, support adaptation, query, update, bytes, state and R1/R4/R16 costs are charged"
+  ],
+  "shape_gate": {
+    "fixed_development_source": "DS08a unit 1, first DronePropA training flight, continuous-event seed 1103 width 32",
+    "continuous_event_query_depth": 50,
+    "requirements": [
+      "all five tensors and masks have frozen shapes",
+      "all copied values are finite and exactly recoverable after float32 cast",
+      "DS08a windows do not cross unit or cycle",
+      "DronePropA windows do not cross whole flight",
+      "all four causal candidate data assignments are constructible without changing learner source"
+    ]
+  },
+  "forbidden_this_cycle": ["protected migration", "hypothesis", "EXP-0060 plan", "scoring seed", "scoring"]
+}

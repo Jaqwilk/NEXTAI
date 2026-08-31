@@ -1,0 +1,68 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from generic hierarchical nearest-neighbor indexing or extra dimension/state rather than VSA algebra or learning."
+  ],
+  "architecture_family": "hyperdimensional_computing",
+  "benchmark": "routed_vsa_capacity_scaling_v2",
+  "budget": "screen",
+  "candidates": [
+    "random_vsa_capacity",
+    "exact_tuple_store_vsa",
+    "global_vsa_r8",
+    "global_vsa_r32",
+    "bucketed_vsa_r32",
+    "learned_routed_vsa_r32",
+    "dense_associative_vsa_r32",
+    "oracle_routed_vsa_r32"
+  ],
+  "confounds": [
+    "Bucket balance, codebook randomness, noise rate, oracle leakage, dimension mismatch, uncharged centroid training, prototype state, bytes touched, update replacement, or per-step composition could create a false advantage; matched ratio-32 variants share byte-identical codes and superposition memory, and all costs are recorded."
+  ],
+  "created_at": "2026-08-30T08:22:41Z",
+  "experiment_id": "EXP-20260830-0032",
+  "falsification_criteria": [
+    "Make HYP-0005 dormant if learned routing falls below 0.95 accuracy on any replicated K/depth regime, is dominated by the identical-representation classical bucket router or exact dictionary after fit/state/update/workload accounting, or the capacity gain requires dimension growth that removes the cost advantage."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0005",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 12,
+    "reasoning_depths": [
+      1,
+      4,
+      6,
+      8
+    ],
+    "seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Persistent capacity failure or dominance by exact/classical controls would make this VSA family dormant and redirect the portfolio.",
+    "null": "Equivalent learned and classical routing would attribute the cleanup gain to ordinary indexing and leave no evidence for a learned VSA-specific successor principle.",
+    "positive": "Evidence would support HYP-0005 only if learned routing uniquely improves the replicated full-system Pareto frontier while preserving robust unseen composition."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Global ratio-8 VSA will cross a capacity boundary; ratio-32 will recover accuracy at increased state, and routing will reduce cleanup comparisons. A genuinely useful learned router must exceed the matched classical bucket router rather than merely reproduce its partition.",
+  "primary_metrics": [
+    "accuracy"
+  ],
+  "promotion_criteria": [
+    "Replicate at least 0.95 cold, warm, and noisy accuracy on all three seeds and all K/depth cells; learned routing must be non-dominated, reduce fully charged workload or state versus exact dictionary and classical bucket routing, retain updates, show a favorable scaling signature, and pass integrity/prior-art checks before promotion."
+  ],
+  "research_question": "Does learned local cleanup preserve noisy multi-step VSA composition across K=8/32/128 with lower fully charged query and workload cost than identical-representation global cleanup, classical bucket routing, dense associative storage, and an exact dictionary?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Routed VSA capacity scaling with full cleanup accounting"
+}

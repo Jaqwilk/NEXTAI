@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-30T23:10:29Z",
+  "status": "frozen_pending_portable_export_and_protected_implementation",
+  "purpose": "one real-data family component for a later shared multi-family learner; not a standalone transfer claim",
+  "source": {
+    "path": "research/data/ncmapss_ds08a_v1/N-CMAPSS_DS08a-009.h5",
+    "sha256": "10ddf52e5441a05e3d0d8d797a34e0e5a9ac73dce8ae35d7b22d1ef224d24836",
+    "partition_path": "research/checks/ncmapss_ds08a_balanced_partition_v1.json",
+    "partition_sha256": "b9625cd036ea033fc69c08c36ff23a446a6c09b3ea7577074e6fe21398adbefb",
+    "semantic_gate_path": "research/checks/ncmapss_ds08a_semantic_gate_v1_result.json",
+    "semantic_gate_sha256": "d037450b6eab6ea693a3297afabda13b36254c2259dc5e68e91ed6932b6aafa1"
+  },
+  "portable_export": {
+    "directory": "research/data/ncmapss_ds08a_portable_v1",
+    "format": "NumPy .npy v1/v2 readable with numpy.load(..., mmap_mode='r')",
+    "arrays": {
+      "A_dev.npy": {"source": "A_dev", "dtype": "int16", "columns": ["unit", "cycle", "Fc", "hs"]},
+      "A_test.npy": {"source": "A_test", "dtype": "int16", "columns": ["unit", "cycle", "Fc", "hs"]},
+      "W_dev.npy": {"source": "W_dev", "dtype": "float32", "columns": ["alt", "Mach", "TRA", "T2"]},
+      "W_test.npy": {"source": "W_test", "dtype": "float32", "columns": ["alt", "Mach", "TRA", "T2"]},
+      "X_s_dev.npy": {"source": "X_s_dev", "dtype": "float32", "columns": ["T24", "T30", "T48", "T50", "P15", "P2", "P21", "P24", "Ps30", "P40", "P50", "Nf", "Nc", "Wf"]},
+      "X_s_test.npy": {"source": "X_s_test", "dtype": "float32", "columns": ["T24", "T30", "T48", "T50", "P15", "P2", "P21", "P24", "Ps30", "P40", "P50", "Nf", "Nc", "Wf"]}
+    },
+    "excluded": ["T_dev", "T_test", "Y_dev", "Y_test", "X_v_dev", "X_v_test", "HDF5 paths and metadata"],
+    "conversion": "numeric cast only; no row selection, shuffle, normalization or target-informed transform",
+    "atomic_write_required": true
+  },
+  "partition": {
+    "training_units": [1, 2, 3, 4, 5, 10, 11, 12, 13],
+    "holdout_units": [6, 7, 8, 9, 14, 15],
+    "whole_unit_disjoint": true,
+    "normalization": "fit from training-unit W and X_s only",
+    "candidate_identity": "anonymous unit slots only"
+  },
+  "prediction_boundary": {
+    "public_input": "history of W and X_s through time t plus evaluator-supplied future W",
+    "target": "X_s at registered future horizons",
+    "horizons": [1, 10, 50],
+    "history_rows": 32,
+    "cycle_crossing": "forbidden",
+    "holdout_target_access_during_fit_or_adaptation": "forbidden",
+    "runner_random_anchor_selection": "required after preflight"
+  },
+  "mandatory_implementable_controls": [
+    "persistence",
+    "training-pooled ridge ARX without holdout adaptation",
+    "source-identical independent ridge ARX",
+    "RLS ARX",
+    "empirical Gaussian joint",
+    "contextual Gaussian Chow-Liu"
+  ],
+  "privileged_controls": [
+    "full holdout-prefix support control, explicitly excluded from Pareto and promotion"
+  ],
+  "full_cost_axes": [
+    "source acquisition and hash verification",
+    "portable export and verification",
+    "training-only normalization",
+    "pooled or independent fit",
+    "holdout support adaptation",
+    "all horizon queries and updates",
+    "bytes read and touched",
+    "resident and peak state",
+    "R1/R4/R16 workload"
+  ],
+  "activation_requirements": [
+    "portable arrays exactly match frozen shapes, dtypes, hashes and finite-value checks",
+    "float casts pass declared round-trip error checks",
+    "whole-unit and cycle boundaries pass real-file smoke tests",
+    "all mandatory baseline semantics are registered and tested",
+    "protected evaluator, schemas, runner, registry, manifest and preflight all pass",
+    "at least two additional source-identical family components share the exact same learner interface before any multi-family EXP-0060"
+  ],
+  "forbidden_this_cycle": ["cohort activation", "hypothesis", "EXP-0060 plan", "scoring seed", "scoring"]
+}

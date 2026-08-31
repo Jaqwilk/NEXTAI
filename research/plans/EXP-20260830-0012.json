@@ -1,0 +1,81 @@
+{
+  "alternative_explanations": [
+    "Known topological order and four-element candidate-parent pools may carry the structure and make discovery a small supervised model-selection problem.",
+    "Ninety-six fully observed episodes may overwhelm five-percent measurement noise, while real latent confounding remains absent.",
+    "Nearest-intervention may be an intentionally weak statistical control; modern Bayesian causal discovery such as BaCaDI is substantially stronger prior art.",
+    "Local query savings may depend on receiving explicit intervention and target identifiers while fit, state, and parsing still scale with total K."
+  ],
+  "architecture_family": "causal_predictive_state_adversarial",
+  "benchmark": "causal_intervention_adversarial_v2",
+  "budget": "screen",
+  "candidates": [
+    "random_causal_guess",
+    "adversarial_observational",
+    "nearest_intervention",
+    "robust_dense_causal",
+    "robust_local_causal",
+    "noninvariant_local_causal",
+    "oracle_adversarial_causal"
+  ],
+  "confounds": [
+    "The benchmark uses visible synthetic binary gates, complete root context, labeled intervention targets, and a hand-specified mechanism library.",
+    "Ambiguous nodes are engineered clones outside the queried causal branch, so abstention calibration does not reduce target accuracy."
+  ],
+  "created_at": "2026-08-30T02:18:40Z",
+  "experiment_id": "EXP-20260830-0012",
+  "falsification_criteria": [
+    "Kill the current robust factorized learner if mean OOD accuracy is below 0.85, any seed is below 0.75, it fails to beat the best non-causal control by 0.15, main-structure accuracy is below 0.85, ambiguous abstention is below 0.60, local query K slope exceeds 0.25, or local execution fails to save 40% versus dense at K=128 and D=4/6/8.",
+    "If robust and noninvariant learners are indistinguishable on accuracy, structure, and calibration, reject intervention filtering as the explanation even if both score well."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0008",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 12,
+    "reasoning_depths": [
+      1,
+      4,
+      6,
+      8
+    ],
+    "seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  },
+  "outcome_policy": {
+    "negative": "The learner fails the easiest screen gates across seeds or K. Mark this implementation failed, make HYP-0008 uncertain or dormant, and do not patch it before the mandatory portfolio reflection.",
+    "null": "Accuracy or calibration advantage shrinks, intervention labels do not matter, or direct statistical controls match the learner. Reduce HYP-0008 confidence and use the mandatory portfolio reflection to pivot.",
+    "positive": "Robust factorization replicates OOD intervention composition and local query scaling under the registered adversarial changes. Preserve it as testing evidence, but do not promote while oracle domination and structural side information remain; use the mandatory cycle-12 reflection to choose whether any transfer test is worth the cost."
+  },
+  "parent_experiment_id": "EXP-20260830-0011",
+  "predicted_outcome": "Oracle accuracy is 1.0. Robust dense and robust local achieve mean OOD accuracy at least 0.95, no seed below 0.90, main-mechanism recovery at least 0.95, and ambiguous-node abstention at least 0.80. Observational and nearest-intervention controls remain at or below 0.75. Robust local query K slope is at most 0.15, its visited-node count changes by at most 10% from K=8 to K=128 at fixed D, and its query-operation seed CV is at most 0.10. Robust dense K slope is at least 0.75; at K=128 and D=4/6/8 local query cost is at least 60% lower. Ignoring intervention labels loses at least 0.05 accuracy or materially worsens structure recovery or abstention.",
+  "primary_metrics": [
+    "accuracy",
+    "ood_intervention_accuracy",
+    "main_structure_accuracy",
+    "ambiguous_abstention_rate",
+    "structure_coverage",
+    "mean_query_ops",
+    "mean_visited_nodes",
+    "knowledge_compute_slope",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Promising status requires the screen accuracy and variance gates, prior-art accounting, a non-dominated learned result on the configured Pareto axes, and a property beyond the privileged oracle. Known topological order, bounded parent pools, or oracle domination block promotion; otherwise retain only bounded mechanism evidence."
+  ],
+  "research_question": "Does intervention-aware factorization retain calibrated OOD multi-intervention prediction and local query scaling on noisy branching mixed-mechanism worlds, or was EXP-0011 an artifact of a complete deterministic chain?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Adversarial causal factorization screen"
+}

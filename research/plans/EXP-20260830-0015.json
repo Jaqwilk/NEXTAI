@@ -1,0 +1,79 @@
+{
+  "alternative_explanations": [
+    "The finite hand-written gate library and nested effect-set learner may still carry the causal solution despite randomized codes.",
+    "Balancing and selecting queries against registered shortcuts may overfit this benchmark to those controls while leaving unregistered shortcuts.",
+    "A stronger dense nonlinear predictor could learn the mixed gate composition despite raw episode search failing."
+  ],
+  "architecture_family": "latent_causal_predictive_state",
+  "benchmark": "latent_causal_transfer_adversarial_v2",
+  "budget": "quick",
+  "candidates": [
+    "random_latent_independent",
+    "latent_majority_guess",
+    "latent_parity_shortcut",
+    "raw_episode_predictor",
+    "latent_factorized_mixed",
+    "oracle_representation_mixed",
+    "oracle_latent_mixed"
+  ],
+  "confounds": [
+    "The task remains a visible synthetic DAG with exhaustive clean single-node interventions, structured missingness, stable sensor tokens and one quick seed.",
+    "K increases irrelevant roots and raw context length together, intentionally testing the full observation boundary rather than only stored-model size."
+  ],
+  "created_at": "2026-08-30T03:09:48Z",
+  "experiment_id": "EXP-20260830-0015",
+  "falsification_criteria": [
+    "Invalidate the corrective cohort before scoring if any cell is not exactly label-balanced or any registered random, majority or parity shortcut exceeds 0.625 in deterministic pre-scoring tests.",
+    "Kill the learned mixed-factorization implementation if any scored cell has accuracy/OOD below 0.90, target mapping, active structure or gate accuracy below 0.95, or its gap over the strongest registered noncausal shortcut is below 0.25."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0008",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Learned factorization loses target, structure, gate or OOD accuracy under the corrected cohort; discard this transfer implementation and reduce HYP-0008 materially.",
+    "null": "Factorization remains exact but a registered shortcut is competitive or labels cannot be balanced without selection; keep only structure recovery and do not screen.",
+    "positive": "The corrected controls separate learned causal composition from parity, majority and episode shortcuts; retain the transfer mechanism but keep full-system K scaling and oracle domination explicit, then require a three-seed screen."
+  },
+  "parent_experiment_id": "EXP-20260830-0014",
+  "predicted_outcome": "Every cell has label positive rate exactly 0.5. Independent random, majority and parity controls each score at most 0.625, and raw episode search at most 0.75. Learned factorized, oracle-representation and full-oracle candidates reach exact accuracy/OOD and learned factorized recovers all opaque targets, active parents and mixed gates. Learned factorized beats the strongest shortcut by at least 0.25 and raw search by at least 0.20. Full query K slope remains above 0.25 because unordered root observations grow with K, while local ops and visited nodes are K-invariant.",
+  "primary_metrics": [
+    "accuracy",
+    "ood_intervention_accuracy",
+    "shortcut_gap",
+    "label_positive_rate",
+    "target_mapping_accuracy",
+    "structure_accuracy",
+    "gate_accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "perception_ops",
+    "local_ops",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote HYP-0008. A screen is justified only if the correction passes all control-integrity gates, learned factorization is exact and non-dominated by non-oracle controls, and the positive-K full input cost is preserved rather than hidden."
+  ],
+  "research_question": "After randomizing sensor and intervention codes, mixing causal gates, balancing labels and registering simple shortcut controls, does learned factorization still recover unknown targets and compose unseen interventions better than noncausal baselines while exposing the full perception cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Shortcut-resistant latent causal transfer correction"
+}

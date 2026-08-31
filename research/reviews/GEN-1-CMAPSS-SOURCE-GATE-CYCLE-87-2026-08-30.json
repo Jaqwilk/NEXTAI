@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "cycle": 87,
+  "proposal": "classic_cmapss_shared_engine_representation",
+  "scoring_performed": false,
+  "download_performed": false,
+  "official_resource": "https://data.nasa.gov/docs/legacy/CMAPSSData.zip",
+  "gates": {
+    "authoritative_provenance": "pass",
+    "public_access": "pass",
+    "explicit_dataset_license": "fail",
+    "authoritative_version_or_digest": "fail",
+    "same_observable_schema": "pass",
+    "whole_engine_train_test_separation": "pass",
+    "fault_factor_holdout_identifiability": "fail",
+    "family_router_resistance": "fail",
+    "multiworld_representation_relevance": "partial"
+  },
+  "observations": {
+    "train_engines": 708,
+    "test_engines": 708,
+    "columns": 26,
+    "subsets": {
+      "FD001": {"train": 100, "test": 100, "conditions": 1, "fault_modes": 1},
+      "FD002": {"train": 260, "test": 259, "conditions": 6, "fault_modes": 1},
+      "FD003": {"train": 100, "test": 100, "conditions": 1, "fault_modes": 2},
+      "FD004": {"train": 248, "test": 249, "conditions": 6, "fault_modes": 2}
+    },
+    "ckan_license_id": "notspecified",
+    "ckan_resource_size": null,
+    "ckan_resource_hash": null,
+    "ckan_resource_last_modified": null,
+    "head_status": 403
+  },
+  "decision": "reject_before_download",
+  "confidence": 0.99,
+  "next_gate": "N-CMAPSS DS02 official artifact, CC0, exact engine split, digest, leakage and router audit"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "component_id": "ncmapss_ds08a_portable_v1",
+  "files": {
+    "component_contract": "9923c39dd8b41a4104f4f952cc868e76c0709fd62079545ab36e95b6af5390ff",
+    "portable_manifest": "b6230349d186c159faf19af2539627dc0d472f4d0917cf2ef5ce81e73f29e66e",
+    "exporter": "47bda4d42ab50f82a81f6156dd2cf24db3b2d35265b490fe298e083a89499c44",
+    "partition": "b9625cd036ea033fc69c08c36ff23a446a6c09b3ea7577074e6fe21398adbefb",
+    "semantic_spec": "ecd4df7c5018eb7c23c903ca115d6608e2cccca35292843ef0b468ee87562dd9",
+    "semantic_result": "d037450b6eab6ea693a3297afabda13b36254c2259dc5e68e91ed6932b6aafa1"
+  },
+  "certificate_sha256": "35b9238eec2f3d577502bdb87251a0d28a4842679a4927dbc4c7546b181cf5a9",
+  "checks": {
+    "portable_file_hashes": "pass",
+    "numpy_mmap_without_hdf5": "pass",
+    "shapes_dtypes_finite_values": "pass",
+    "partition_and_cycle_isolation": "pass",
+    "history32_horizon50_feasibility": "pass",
+    "global_protected_manifest_unchanged": true,
+    "scientific_scoring_performed": false
+  },
+  "status": "pass_component_only_not_runner_authorization"
+}

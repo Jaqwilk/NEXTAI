@@ -1,0 +1,127 @@
+{
+  "alternative_explanations": [
+    "A positive can arise from pooled sample count or generic equality canonicalization rather than a reusable cross-family relation representation; the independent ablation and shared controls isolate these explanations."
+  ],
+  "architecture_family": "lossless_cross_family_local_representation",
+  "benchmark": "cross_family_shared_representation_v2",
+  "budget": "quick",
+  "candidates": [
+    "shared_multiverse_local_learner",
+    "independent_multiverse_local_learner",
+    "shared_contextual_chow_liu_v2",
+    "shared_empirical_joint_v2",
+    "shared_autoregressive_v2",
+    "specialist_contextual_chow_liu_suite_v2",
+    "specialist_empirical_joint_suite_v2",
+    "specialist_autoregressive_suite_v2",
+    "oracle_cross_family_suite_v2"
+  ],
+  "confounds": [
+    "Structural shapes can statistically reveal families even without labels; any explicit family native-type slot or hand-authored ontology dispatch invalidates rather than scores the candidate."
+  ],
+  "created_at": "2026-08-30T13:55:41Z",
+  "evaluator_sha256": "4dd1a58dbdae9cd48a2d5a139c275e9b710ed476c853ec9a1994fc89b81f882c",
+  "experiment_id": "EXP-20260830-0045",
+  "falsification_criteria": [
+    "Discard this implementation and make HYP-0018 dormant if overall transfer is below 0.95, any family mean is below 0.90, or sharing fails to exceed the independent ablation by 0.05 on overall and minimum-family accuracy.",
+    "Discard the mechanism claim if a shared probabilistic control or fully charged specialist suite Pareto-dominates the learner at the capability gate."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0018",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "data_acquisition_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A crash rejects only implementation; leakage seed collision state breach missing mandatory control or evaluator change invalidates the cohort and forbids interpretation.",
+    "null": "A valid null or dominance result makes this minimal shared local-relation route dormant without representation-dimension feature or decoder tuning.",
+    "positive": "A one-seed valid success justifies a preregistered three-seed adversarial replication and no promotion."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The lossless boundary will remove the v1 truncation confound, but the minimal shared local-relation learner will probably remain below 0.90 in at least one family or fail to beat its independent ablation; a large valid gain would authorize only replication.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "workload_ops_r16",
+    "state_bytes",
+    "meta_fit_ops",
+    "data_acquisition_ops"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; authorize only a three-seed adversarial screen if every capability and sharing gate passes and the shared learner is implementably non-dominated."
+  ],
+  "research_question": "Does one source-identical local relation learner trained on losslessly serialized pooled worlds transfer to four runner-random unseen families better per full cost than the identical independently trained ablation and matched probabilistic specialists?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Lossless shared local representation across four unseen world families",
+  "transfer_protocol": {
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "context_specific_probabilistic_circuit_v1",
+      "action_conditioned_predictive_equivalence_v1",
+      "nonlinear_local_state_transfer_v1",
+      "behavioral_conjugacy_library_transfer_v1"
+    ],
+    "family_labels": "forbidden",
+    "family_specific_rules": "forbidden",
+    "invalidation_rules": [
+      "Invalidate on any derived training and scoring seed collision.",
+      "Invalidate if the shared candidate receives a family label or privileged native object.",
+      "Invalidate if any training or test value is truncated, sampled or encoded by a family-specific rule.",
+      "Invalidate if test results, targets or oracle fields are available during pooled meta-fit.",
+      "Invalidate on candidate tuning after any scoring output is observed.",
+      "Invalidate if the shared source dispatches on family, native type, slot identity or a hand-written ontology."
+    ],
+    "representation_interface": "lossless_family_neutral_structural_tokens_v2",
+    "shared_candidate": "shared_multiverse_local_learner",
+    "specialist_baselines": [
+      "shared_contextual_chow_liu_v2",
+      "shared_empirical_joint_v2",
+      "shared_autoregressive_v2",
+      "independent_multiverse_local_learner",
+      "specialist_contextual_chow_liu_suite_v2",
+      "specialist_empirical_joint_suite_v2",
+      "specialist_autoregressive_suite_v2",
+      "oracle_cross_family_suite_v2"
+    ],
+    "state_budget_bytes": 4194304,
+    "test_result_access_during_fit": "forbidden",
+    "test_tuning": "forbidden",
+    "test_world_seed_source": "runner_scoring_seeds",
+    "training_world_seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  }
+}

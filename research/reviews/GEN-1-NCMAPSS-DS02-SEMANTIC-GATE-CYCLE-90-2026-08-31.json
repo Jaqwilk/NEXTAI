@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "cycle": 90,
+  "proposal": "n_cmapss_ds02_shared_engine_representation",
+  "experiment_id": null,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "reader": {
+    "implementation": "research/audits/ncmapss_hdf5_audit.py",
+    "implementation_sha256": "c8c3d3b6856e5439817c3e7d0e724d49e2730349352260eb3e57710c4006e7a3",
+    "library_sha256": "f9152376c0d8fde2703531888e1c21cbc088c6e531a74e544a7b8e139cf83df3",
+    "new_dependency_installed": false
+  },
+  "specification": {
+    "v1": "invalid_pre_result_insufficient_unit14_transitions",
+    "v1_sha256": "25d48a3492d37ee8cdef6bb8002a518bea9ee578e98344763a8b9760766f5343",
+    "v2_sha256": "843a87766b4b0e32b965014708fd7ae6be6971aebf2824259b863684a6928d6f",
+    "result_sha256": "f030c309c18b8651d309b1253a3739579e90cb567916d55c255cea9ab72fe63d"
+  },
+  "observations": {
+    "development_rows": 5263447,
+    "test_rows": 1253743,
+    "development_units": [2, 5, 10, 16, 18, 20],
+    "test_units": [11, 14, 15],
+    "development_flight_classes": [3],
+    "test_flight_classes": [1, 2, 3],
+    "router_accuracy": 0.8888888888888888,
+    "router_pass_max": 0.6666666666666666,
+    "maximum_private_field_correlation": 0.6830370369457524,
+    "exact_private_field_matches": [],
+    "persistence_nrmse": 0.029881962917457653,
+    "pooled_no_adaptation_nrmse": 0.027947684703974622,
+    "per_engine_adaptation_nrmse": 0.029190580606327933
+  },
+  "decision": "reject_before_evaluator_observable_split_router",
+  "confidence": 0.99,
+  "next_gate": "metadata-only design gate for a broader N-CMAPSS multi-subset cohort with at least two development and two held-out engines in every included flight class, common W+X_s schema, whole-engine separation, and a preregistered chance-level source/split router before extracting more members"
+}

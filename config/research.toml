@@ -1,0 +1,362 @@
+schema_version = 1
+
+[project]
+name = "NEXTAI Autoresearch"
+objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
+generation = 1
+protocol_version = 2
+benchmark_version = "heldout_three_family_continuous_transfer_v2"
+benchmark_status = "active"
+timezone = "Europe/Warsaw"
+
+[codex]
+# Codex is the only research agent. No OpenAI API client or external model is used.
+one_bounded_cycle_per_scheduled_run = true
+reflection_every_completed_experiments = 12
+literature_review_every_completed_experiments = 6
+maximum_new_hypotheses_per_cycle = 3
+
+[transfer]
+families = [
+  "context_specific_probabilistic_circuit_v1",
+  "action_conditioned_predictive_equivalence_v1",
+  "nonlinear_local_state_transfer_v1",
+  "behavioral_conjugacy_library_transfer_v1",
+]
+training_world_seeds = [1103, 2207, 3301]
+shared_candidate = "shared_relation_fragment_graph"
+independent_ablation = "independent_relation_fragment_graph"
+specialist_baselines = [
+  "specialist_contextual_chow_liu_suite_v2",
+  "specialist_empirical_joint_suite_v2",
+  "specialist_autoregressive_suite_v2",
+  "oracle_cross_family_suite_v2",
+]
+declared_horizons = [1, 4, 16]
+representation_interface = "lossless_family_neutral_structural_tokens_v2"
+learner_contract = "anonymous_relation_fragment_graph_v1"
+shared_slow_fit_scope = "pooled_training_worlds_only"
+test_support_adaptation = "same_frozen_fragment_extractor_charged"
+fragment_capacity = 64
+composition_rule = "typed_equality_join_then_component_emit_v1"
+permutation_equivariance = "atom_relabeling_and_anonymous_world_permutation"
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any derived training and scoring seed collision.",
+  "Invalidate if the shared candidate receives a family label or privileged native object.",
+  "Invalidate if any training or test value is truncated, sampled or encoded by a family-specific rule.",
+  "Invalidate if test results, targets or oracle fields are available during pooled meta-fit.",
+  "Invalidate on candidate tuning after any scoring output is observed.",
+  "Invalidate if the shared source dispatches on family, native type, slot identity or a hand-written ontology.",
+  "Invalidate if the learner retrieves complete training examples without exposing fragment decomposition and a multi-fragment composition trace.",
+]
+
+[online_update]
+mechanisms = ["mixed_linear", "mixed_quadratic", "mixed_periodic"]
+training_stream_seeds = [1103, 2207]
+shared_candidate = "shared_meta_update"
+classical_baselines = [
+  "no_update_online",
+  "delta_lms_online",
+  "rls_kalman_online",
+  "polynomial_rls_online",
+  "kernel_dictionary_online",
+  "changepoint_bank_rls_online",
+  "bounded_replay_online",
+  "additive_fast_weights_online",
+  "delta_fast_weights_online",
+  "independent_meta_update",
+  "oracle_segmented_online",
+]
+declared_horizons = [1, 4, 16]
+state_budget_bytes_per_slot = 262144
+shared_state_budget_bytes = 65536
+invalidation_rules = [
+  "Invalidate on any training and scoring seed collision.",
+  "Invalidate if prediction occurs after target reveal or future observations are accessed.",
+  "Invalidate if a non-oracle candidate receives mechanism, regime, phase or boundary information.",
+  "Invalidate on post-score tuning or evaluator-integrity change.",
+]
+
+[compression]
+corpus_id = "nextai_local_repository_sha256_v1"
+shared_candidate = "hierarchical_motif_compressor"
+classical_baselines = [
+  "uniform_byte",
+  "empirical_unigram_byte",
+  "ppm_byte",
+  "context_tree_weighting_byte",
+  "lz_dictionary_byte",
+  "dense_autoregressive_byte",
+  "oracle_test_table_byte",
+]
+declared_horizons = [1, 4, 16]
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any frozen corpus hash or byte-length mismatch.",
+  "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
+  "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
+  "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
+]
+
+[masked_refinement]
+corpus_id = "nextai_disjoint_masked_corpus_sha256_v1"
+span_lengths = [8, 32, 128]
+context_bytes = 64
+shared_candidate = "iterative_masked_learner"
+one_pass_ablation = "one_pass_masked_learner"
+classical_baselines = [
+  "uniform_masked_byte",
+  "empirical_unigram_masked_byte",
+  "left_to_right_ppm_masked_byte",
+  "context_tree_weighting_masked_byte",
+  "dense_autoregressive_masked_byte",
+  "bidirectional_markov_masked_byte",
+  "parallel_markov_bp_masked_byte",
+  "oracle_conditional_masked_byte",
+]
+declared_horizons = [1, 4, 16]
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any frozen corpus mismatch or overlap with the EXP-0044 corpus.",
+  "Invalidate if a public query exposes a path, target byte, uncorrupted span or future refinement snapshot.",
+  "Invalidate if predictions within one round observe another prediction from that same round.",
+  "Invalidate if candidate critical-path work is sequentially hidden inside a declared simultaneous step.",
+  "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
+]
+
+[recombination]
+state_count = 144
+mechanism_source_seed = 1103
+source_mechanisms = ["program_table", "predictive_transition_outcome", "local_dynamics_rule"]
+train_compositions = ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]
+heldout_compositions = ["CB"]
+shared_candidate = "operator_algebra_completion"
+independent_ablation = "operator_algebra_independent"
+no_cross_mechanism_ablation = "operator_algebra_no_relations"
+classical_baselines = [
+  "unigram_recombination",
+  "markov5_recombination",
+  "nearest_template_recombination",
+  "exact_mdl_module_library",
+  "oracle_composition_graph",
+]
+declared_horizons = [1, 4, 16]
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any overlap between registered training and held-out compositions.",
+  "Invalidate if module IDs, source families, native types, extraction paths or the composition graph reach an implementable candidate.",
+  "Invalidate if public support, query or target shapes identify a composition above chance plus 0.10.",
+  "Invalidate if scoring-state conjugation or support partitions are realized before integrity and source audit.",
+  "Invalidate on target access, scoring-seed leakage, post-score tuning, state-budget breach or evaluator-integrity change.",
+]
+
+[dronepropa]
+corpus_id = "dronepropa_doi_10.17632_ftdyxrr3c5_v1"
+files_manifest = "research/data/dronepropa_v1/files.jsonl"
+files_manifest_sha256 = "76a27c66b38b634cbee362a8a2af250b02b2a1dea44eb9328d1d731472b24f53"
+split_manifest = "research/checks/dronepropa_anonymous_split_v2.jsonl"
+split_manifest_sha256 = "fddd1c98aae13460ec58af25dbbea94f6f25177486da59a1e94f6a25f844a0e4"
+archive_sha256 = "a7255dc4393a2314ba2a684beb3684106dbb6de23ba141eaa0529bd21ba3d825"
+archive_bytes = 4438911840
+extracted_bytes = 4537694153
+input_qdrone_rows_1based = [47, 49, 51, 53]
+state_qdrone_rows_1based = [27, 28, 29, 30, 31, 32]
+excluded_esc_rows_1based = [48, 50, 52, 54]
+history_samples = 32
+train_anchors_per_file = 128
+adaptation_anchors_per_file = 32
+evaluation_anchors_per_file = 128
+shared_candidate = "shared_operator_subspace_arx"
+independent_ablation = "source_identical_independent_arx_v1"
+no_sharing_ablation = "no_sharing_pooled_arx_v1"
+classical_baselines = [
+  "persistence_state_v1",
+  "ridge_arx_v1",
+  "rls_arx_v1",
+  "nearest_operator_template_v1",
+  "source_identical_independent_arx_v1",
+  "no_sharing_pooled_arx_v1",
+  "empirical_gaussian_joint_v1",
+  "contextual_gaussian_chow_liu_v1",
+  "privileged_all_condition_support_arx_v3",
+  "privileged_same_condition_support_arx_v3",
+]
+privileged_support_control = "privileged_same_condition_support_arx_v3"
+teacher_forced_horizon = 1
+rollout_horizons = [10, 50]
+declared_horizons = [1, 10, 50]
+state_budget_bytes = 67108864
+declared_reuses = [1, 4, 16]
+invalidation_rules = [
+  "Invalidate on any archive, file-manifest, split-manifest, raw MAT or numeric-payload hash mismatch.",
+  "Invalidate if any implementable candidate receives a source name, path, factor label, trajectory, speed, drone, repetition, timestamp or condition ID.",
+  "Invalidate if any file or history/target window crosses train, validation, test, OOD or privileged-oracle-support roles.",
+  "Invalidate if any candidate-visible feature reads outside the frozen adaptation boundary or if evaluation targets reach fit/adaptation.",
+  "Invalidate if normalization, rank, ridge, horizons, anchors, thresholds or baseline semantics change after scoring output.",
+  "Invalidate if a mandatory baseline hash or conformance test fails before runner seed realization.",
+  "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+]
+
+[three_family_continuous]
+families = ["ncmapss_ds08a", "dronepropa", "continuous_event"]
+tensor_contract_sha256 = "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
+shared_candidate = "shared_tensor_dynamics_v1"
+independent_ablation = "independent_tensor_dynamics_v1"
+cross_family_only_ablation = "cross_family_only_tensor_dynamics_v1"
+support_only_ablation = "support_only_tensor_dynamics_v1"
+classical_baselines = [
+  "tensor_persistence_v1",
+  "tensor_ridge_arx_v1",
+  "tensor_rls_arx_v1",
+  "tensor_empirical_gaussian_joint_v1",
+  "tensor_contextual_gaussian_chow_liu_v1",
+  "tensor_autoregressive_v1",
+  "privileged_tensor_support_v1",
+]
+privileged_support_control = "privileged_tensor_support_v1"
+knowledge_sizes = [4, 9]
+reasoning_depths = [1]
+state_budget_bytes = 67108864
+declared_reuses = [1, 4, 16]
+invalidation_rules = [
+  "Invalidate if any candidate receives a family label, source path, native type or semantic channel name.",
+  "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
+  "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
+  "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+  "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
+  "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
+  "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change.",
+]
+
+[execution]
+mode = "audited_subprocess"
+allow_network_in_candidate = false
+require_source_audit = true
+poll_interval_seconds = 0.10
+kill_grace_seconds = 2.0
+stale_lock_seconds = 7200
+allow_legacy_fixed_seed_plans = false
+allowed_import_roots = [
+  "__future__",
+  "abc",
+  "collections",
+  "dataclasses",
+  "functools",
+  "heapq",
+  "itertools",
+  "math",
+  "nextai_autoresearch",
+  "numpy",
+  "random",
+  "statistics",
+  "typing",
+]
+forbidden_builtins = ["open", "eval", "exec", "compile", "__import__", "input"]
+
+[budgets.quick]
+wall_seconds_per_candidate = 180
+max_rss_mb = 1536
+knowledge_sizes = [8, 32]
+reasoning_depths = [1]
+queries_per_cell = 128
+development_seeds = [1103]
+scoring_seed_count = 1
+
+[budgets.screen]
+wall_seconds_per_candidate = 600
+max_rss_mb = 4096
+knowledge_sizes = [8, 32, 64]
+reasoning_depths = [1]
+queries_per_cell = 128
+development_seeds = [1103, 2207, 3301]
+scoring_seed_count = 3
+
+[budgets.deep]
+wall_seconds_per_candidate = 1800
+max_rss_mb = 10240
+knowledge_sizes = [16, 32, 64]
+reasoning_depths = [1]
+queries_per_cell = 128
+development_seeds = [1103, 2207, 3301, 4409, 5519]
+scoring_seed_count = 5
+
+[decision]
+minimum_screen_accuracy = 0.95
+minimum_replication_seeds = 3
+maximum_relative_seed_cv = 0.10
+promotion_requires_screen = true
+promotion_requires_non_dominated_result = true
+promotion_requires_prior_art_check = true
+promotion_requires_no_integrity_violation = true
+promotion_requires_deep = true
+promotion_requires_adversarial_variant = true
+minimum_promotion_results = 2
+falsification_requires_discriminating_test = true
+minimum_scaling_points = 3
+
+[metrics]
+maximize = [
+  "accuracy",
+  "continual_retention",
+  "warm_accuracy",
+  "near_equivalent_accuracy",
+  "transfer_accuracy",
+  "minimum_family_accuracy",
+  "minimum_combination_accuracy",
+  "exact_span_accuracy",
+  "stable_rollout_rate",
+  "oracle_gap_closed",
+  "privileged_support_gain",
+  "minimum_condition_transfer_gain",
+  "minimum_trajectory_transfer_gain",
+  "shared_vs_independent_gain",
+  "cross_family_transfer_gain",
+  "worst_phase_accuracy",
+  "post_switch_recovery",
+  "recurrence_retention",
+  "reuse_precision",
+  "reuse_coverage",
+]
+minimize = [
+  "mean_query_ops",
+  "mean_warm_query_ops",
+  "p95_latency_us",
+  "state_bytes",
+  "fit_seconds",
+  "fit_ops",
+  "meta_fit_ops",
+  "data_acquisition_ops",
+  "mean_input_ops",
+  "mean_comparisons",
+  "mean_bytes_touched",
+  "update_ops",
+  "workload_ops",
+  "workload_ops_r1",
+  "workload_ops_r4",
+  "workload_ops_r16",
+  "peak_state_bytes",
+  "false_reuse_rate",
+  "conditional_probability_mae",
+  "prequential_loss",
+  "bits_per_byte",
+  "cold_bits_per_byte",
+  "worst_file_bits_per_byte",
+  "compression_ratio",
+  "distractor_interference",
+  "critical_path_steps",
+  "worst_span_bits_per_byte",
+  "conditional_log_loss",
+  "normalized_rmse",
+  "worst_flight_normalized_rmse",
+  "worst_condition_normalized_rmse",
+  "teacher_forced_nrmse",
+  "rollout_10_nrmse",
+  "rollout_50_nrmse",
+  "preprocessing_ops",
+  "adaptation_ops",
+  "calibration_error",
+  "circuit_nodes",
+  "knowledge_compute_slope",
+  "depth_compute_slope",
+]

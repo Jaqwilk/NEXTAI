@@ -1,0 +1,136 @@
+{
+  "alternative_explanations": [
+    "A gain may be ordinary nearest-example memorization or implicit clustering by anonymous support shape rather than reusable fragment composition; the independent dictionary and native suites separate these accounts."
+  ],
+  "architecture_family": "recurrent_predictive_dictionary_composition",
+  "benchmark": "cross_family_shared_representation_v3",
+  "budget": "quick",
+  "candidates": [
+    "shared_recurrent_predictive_state",
+    "independent_recurrent_predictive_state",
+    "specialist_contextual_chow_liu_suite_v2",
+    "specialist_empirical_joint_suite_v2",
+    "specialist_autoregressive_suite_v2",
+    "oracle_cross_family_suite_v2"
+  ],
+  "confounds": [
+    "Freeze dictionary capacity 48, squared Euclidean distance, top-k 3 and weight 1/(distance+1e-6). The only intended change from EXP-0048 is the readout; changing recurrent width, transition, token encoding, evaluator, training seeds, family access, state cap or any retrieval constant invalidates the causal comparison."
+  ],
+  "created_at": "2026-08-30T15:09:06Z",
+  "evaluator_sha256": "2d5f8d7538f465a25f0772b0366df8217f8e94c94d93ca5241c31e359b713b32",
+  "experiment_id": "EXP-20260830-0050",
+  "falsification_criteria": [
+    "Discard this exact capacity-48, squared-Euclidean, top-3 inverse-distance component-voting implementation without tuning if overall transfer is below 0.95, any family mean is below 0.90, or shared fitting fails to exceed the source-identical independent dictionary by 0.05 on both overall and minimum-family accuracy.",
+    "Discard the transfer claim if any registered native suite Pareto-dominates shared quality and every declared full-cost axis."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0019",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "near_equivalent_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A crash rejects only implementation; semantic baseline failure, leakage, hash change, state breach or any encoder/retrieval-contract change invalidates the cohort and forbids interpretation.",
+    "null": "A valid null makes the recurrent-state route dormant with stronger evidence that the state, not merely the linear decoder, is inadequate; do not tune dictionary capacity, distance, top-k or weights.",
+    "positive": "A valid one-seed success revives HYP-0019 only to proposed status and authorizes a preregistered three-seed adversarial replication, never promotion."
+  },
+  "parent_experiment_id": "EXP-20260830-0049",
+  "predicted_outcome": "The fixed 48-entry top-3 dictionary may remove EXP-0048's linear-decoder bottleneck and raise transfer materially, but shared accuracy will probably remain below 0.95 or collapse in one family; a valid full-threshold result would authorize replication only.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "near_equivalent_accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; authorize only a three-seed adversarial screen if all capability, sharing, state and full-cost Pareto gates pass with intact semantic baselines and integrity."
+  ],
+  "research_question": "Does replacing only EXP-0048's linear template readout with a fixed family-blind dictionary of at most 48 recurrent input-output fragments, squared-Euclidean top-3 retrieval and inverse-distance component voting allow the unchanged width-32 state transition to transfer across four unseen world families better than the source-identical independently fitted dictionary and registered native specialists?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Fixed 48-fragment predictive dictionary readout",
+  "transfer_protocol": {
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "context_specific_probabilistic_circuit_v1",
+      "action_conditioned_predictive_equivalence_v1",
+      "nonlinear_local_state_transfer_v1",
+      "behavioral_conjugacy_library_transfer_v1"
+    ],
+    "family_labels": "forbidden",
+    "family_specific_rules": "forbidden",
+    "independent_ablation": "independent_recurrent_predictive_state",
+    "invalidation_rules": [
+      "Invalidate on any derived training and scoring seed collision.",
+      "Invalidate if the shared candidate receives a family label or privileged native object.",
+      "Invalidate if any training or test value is truncated, sampled or encoded by a family-specific rule.",
+      "Invalidate if test results, targets or oracle fields are available during pooled meta-fit.",
+      "Invalidate on candidate tuning after any scoring output is observed.",
+      "Invalidate if the shared source dispatches on family, native type, slot identity or a hand-written ontology."
+    ],
+    "learner_contract": "tied_recurrent_predictive_state_width32_v1",
+    "representation_interface": "lossless_family_neutral_structural_tokens_v2",
+    "shared_candidate": "shared_recurrent_predictive_state",
+    "shared_slow_fit_scope": "pooled_training_worlds_only",
+    "specialist_baselines": [
+      "specialist_contextual_chow_liu_suite_v2",
+      "specialist_empirical_joint_suite_v2",
+      "specialist_autoregressive_suite_v2",
+      "oracle_cross_family_suite_v2"
+    ],
+    "state_budget_bytes": 4194304,
+    "test_result_access_during_fit": "forbidden",
+    "test_support_adaptation": "same_frozen_rule_charged",
+    "test_tuning": "forbidden",
+    "test_world_seed_source": "runner_scoring_seeds",
+    "training_world_seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  }
+}

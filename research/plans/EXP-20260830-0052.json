@@ -1,0 +1,139 @@
+{
+  "alternative_explanations": [
+    "Pooling might genuinely enable reusable fragments after totality is restored, while the low independent result may reflect lack of cross-world sharing rather than failure of the representation."
+  ],
+  "architecture_family": "anonymous_relation_fragment_graph_transfer",
+  "benchmark": "cross_family_relation_fragment_transfer_v4",
+  "budget": "quick",
+  "candidates": [
+    "shared_relation_fragment_graph",
+    "independent_relation_fragment_graph",
+    "specialist_contextual_chow_liu_suite_v2",
+    "specialist_empirical_joint_suite_v2",
+    "specialist_autoregressive_suite_v2",
+    "oracle_cross_family_suite_v2"
+  ],
+  "confounds": [
+    "The only permitted implementation change is this exact total fallback: rank fragments by the already frozen Jaccard/count/edge-count/lexical key; first filter by requested position and selected output length, if empty filter by requested position without length, and if still empty rank the existing capped model globally. Do not add fragments, regroup the cap, alter capacity 64, parsing, canonicalization, representation, similarity, composition, family blindness, evaluator, baselines, axes or budgets. Add a pre-scoring regression where a 64-item model has position-zero fragments but no required later position and both modes return deterministically without exception."
+  ],
+  "created_at": "2026-08-30T15:30:33Z",
+  "evaluator_sha256": "edb44fcc9422f6c5e90eca118347d43eac97426227b166a6f187f55e5cedd958",
+  "experiment_id": "EXP-20260830-0052",
+  "falsification_criteria": [
+    "Discard this exact repaired graph implementation without tuning if shared transfer is below 0.95, any family mean is below 0.90, shared fails to exceed independent by 0.05 on both capability measures, or an implementable specialist Pareto-dominates it on declared axes."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0020",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "near_equivalent_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A crash rejects the repaired implementation only; any semantic fixture, audit, state, seed-separation or integrity failure invalidates the cohort and forbids architectural interpretation.",
+    "null": "A completed result below any capability or sharing gate makes this exact capped fragment mechanism dormant; do not tune capacity, eligibility, similarity or composition.",
+    "positive": "A valid one-seed full-gate result keeps HYP-0020 testing and authorizes only preregistered adversarial multi-seed replication, not promotion."
+  },
+  "parent_experiment_id": "EXP-20260830-0051",
+  "predicted_outcome": "The totality repair should eliminate the EXP-0051 crash, but the completed independent score makes failure of the 0.95 overall, 0.90 minimum-family and +0.05 shared-advantage gates more likely than success; a valid full-threshold result authorizes replication only.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "near_equivalent_accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; only a completed result passing every capability, sharing, semantic-contract, state and full-cost Pareto gate may authorize a three-seed adversarial screen."
+  ],
+  "research_question": "After a preregistered deterministic totality repair only, can the unchanged shared 64-fragment graph complete all frozen v4 cells and satisfy transfer, sharing and full-cost Pareto gates?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Total relation-fragment emission after cap-64 pooling",
+  "transfer_protocol": {
+    "composition_rule": "typed_equality_join_then_component_emit_v1",
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "context_specific_probabilistic_circuit_v1",
+      "action_conditioned_predictive_equivalence_v1",
+      "nonlinear_local_state_transfer_v1",
+      "behavioral_conjugacy_library_transfer_v1"
+    ],
+    "family_labels": "forbidden",
+    "family_specific_rules": "forbidden",
+    "fragment_capacity": 64,
+    "independent_ablation": "independent_relation_fragment_graph",
+    "invalidation_rules": [
+      "Invalidate on any derived training and scoring seed collision.",
+      "Invalidate if the shared candidate receives a family label or privileged native object.",
+      "Invalidate if any training or test value is truncated, sampled or encoded by a family-specific rule.",
+      "Invalidate if test results, targets or oracle fields are available during pooled meta-fit.",
+      "Invalidate on candidate tuning after any scoring output is observed.",
+      "Invalidate if the shared source dispatches on family, native type, slot identity or a hand-written ontology.",
+      "Invalidate if the learner retrieves complete training examples without exposing fragment decomposition and a multi-fragment composition trace."
+    ],
+    "learner_contract": "anonymous_relation_fragment_graph_v1",
+    "permutation_equivariance": "atom_relabeling_and_anonymous_world_permutation",
+    "representation_interface": "lossless_family_neutral_structural_tokens_v2",
+    "shared_candidate": "shared_relation_fragment_graph",
+    "shared_slow_fit_scope": "pooled_training_worlds_only",
+    "specialist_baselines": [
+      "specialist_contextual_chow_liu_suite_v2",
+      "specialist_empirical_joint_suite_v2",
+      "specialist_autoregressive_suite_v2",
+      "oracle_cross_family_suite_v2"
+    ],
+    "state_budget_bytes": 4194304,
+    "test_result_access_during_fit": "forbidden",
+    "test_support_adaptation": "same_frozen_fragment_extractor_charged",
+    "test_tuning": "forbidden",
+    "test_world_seed_source": "runner_scoring_seeds",
+    "training_world_seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  }
+}

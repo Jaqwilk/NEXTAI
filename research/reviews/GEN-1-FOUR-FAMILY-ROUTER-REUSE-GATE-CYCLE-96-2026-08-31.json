@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "cycle": 96,
+  "audit_id": "four_family_router_reuse_gate_v1",
+  "experiment_id": null,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "proposed_families": [
+    "ncmapss_ds08a_portable_v1",
+    "heldout_dronepropa_factor_recombination_v6",
+    "nonlinear_local_state_transfer_v1",
+    "continuous_event_predictive_state_v1"
+  ],
+  "existing_decisive_evidence": {
+    "three_family_gate_cycle": 85,
+    "three_family_router_correct": 18,
+    "three_family_router_total": 18,
+    "three_family_router_accuracy": 1.0,
+    "three_family_maximum_allowed": 0.43333333333333335,
+    "temporal_interface_gate_cycle": 69,
+    "temporal_router_correct": 54,
+    "temporal_router_total": 54,
+    "new_ds08a_native_input_width": 18,
+    "new_ds08a_native_target_width": 14
+  },
+  "duplicate_router_run_performed": false,
+  "reason": "Three of four proposed families already have a perfect frozen structural router and an explicit append-only prohibition on rebuilding that lossless interface. DS08a adds another unique width and cannot reduce identifiability. A repeated router would consume a cycle without changing the decision.",
+  "decision": "reject_duplicate_four_family_router_gate_before_implementation",
+  "confidence": 0.995,
+  "revised_question": {
+    "families": [
+      "ncmapss_ds08a_portable_v1",
+      "heldout_dronepropa_factor_recombination_v6",
+      "continuous_event_predictive_state_v1"
+    ],
+    "shared_semantics": "continuous autoregressive dynamics from past public controls/states to future public state",
+    "router_policy": "family identifiability is reported as a confound but does not count as transfer",
+    "causal_transfer_test": "one source-identical pooled learner must beat both independent-per-family fitting and the same learner with all cross-family slow-fit data removed, including minimum-family performance and full cost",
+    "status": "design_only_not_authorized_for_scoring"
+  },
+  "next_gate": "freeze a generic padded numeric history/future-control tensor and evaluator-private score mask for the three continuous-dynamics families; reject if this requires family-specific feature meanings or if source-identical independent/no-cross-family ablations cannot be constructed"
+}

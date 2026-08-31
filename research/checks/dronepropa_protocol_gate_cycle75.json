@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "decision": "reject_before_implementation",
+  "router_chance": 0.1111111111111111,
+  "router_threshold_frozen_before_run": 0.35,
+  "routing_accuracy_leave_one_trajectory_out": {
+    "length": 0.09722222222222222,
+    "session": 0.1111111111111111,
+    "amplitude": 0.3472222222222222,
+    "histogram": 0.25,
+    "combined": 0.3611111111111111
+  },
+  "synthetic_identifiability_fixture": {
+    "shared_subspace_max_abs_error": 1.4210854715202004e-14,
+    "shared_subspace_exact_rate": 1.0,
+    "exact_table_test_coverage": 0.0,
+    "nearest_template_exact_rate": 0.0,
+    "easy_router_exact_rate": 0.0
+  },
+  "timing_failures": [],
+  "finite_failures_after_uniform_esc_exclusion": [],
+  "verified_incomplete_zlib_files": [
+    {
+      "name": "F0_SV0_SP1_t3_D1_R1.mat",
+      "members": 1
+    }
+  ],
+  "faulty_scored_family_files_audited": 72,
+  "anonymous_split_counts": {
+    "ood_healthy_diagnostic": 8,
+    "reserved_adversarial": 26,
+    "test": 24,
+    "train": 64,
+    "validation": 8
+  }
+}

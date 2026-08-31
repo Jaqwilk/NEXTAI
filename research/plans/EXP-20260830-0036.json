@@ -1,0 +1,71 @@
+{
+  "alternative_explanations": [
+    "Unique relational fingerprints may encode the full semantic ontology, allowing graph canonicalization or MDL to explain all transfer without a distinct learned abstraction.",
+    "Search reduction may come only from grammar shortening after a supplied full truth table rather than from robust cross-domain semantic acquisition."
+  ],
+  "architecture_family": "behavioral_conjugacy_program_induction",
+  "benchmark": "behavioral_conjugacy_library_transfer_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_conjugacy_program",
+    "primitive_trace_enumerator",
+    "exact_trace_memo",
+    "syntactic_mdl_library",
+    "unary_semantic_library",
+    "relational_graph_mdl_library",
+    "bayesian_relational_library",
+    "learned_relational_library",
+    "oracle_conjugacy_library"
+  ],
+  "confounds": [
+    "The worlds use six fixed involutions over twelve states, full primitive transition traces, one visible seed and synthetic programs; this isolates conjugacy-invariant library transfer but does not model open language, realistic perception or an LLM successor."
+  ],
+  "created_at": "2026-08-30T09:25:44Z",
+  "experiment_id": "EXP-20260830-0036",
+  "falsification_criteria": [
+    "Keep HYP-0002 dormant if learned_relational_library has accuracy or near-equivalent accuracy below 0.95 in any cell, any false transfer or retention failure, material query scaling with K, or matched capability with equal-or-lower fit/state/update/R16 workload from relational_graph_mdl_library or bayesian_relational_library."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0002",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If the learned route is inaccurate, collision-prone or nonlocal, reject this implementation, preserve the failure and return HYP-0002 to dormant.",
+    "null": "If exact relational canonicalization or Bayesian/MDL sharing matches or dominates learned transfer, preserve the cross-representation mechanism as a classical control and return HYP-0002 to dormant without tuning this cohort.",
+    "positive": "Retain HYP-0002 as testing and permit one adversarial multi-seed screen only if learned behavioral alignment uniquely improves the accuracy-gated full-system frontier."
+  },
+  "parent_experiment_id": "EXP-20260830-0009",
+  "predicted_outcome": "All exact search controls should preserve capability. Renaming plus state conjugacy should break syntactic and unary transfer. Relational graph MDL, Bayesian alignment and the learned relational library should recover the invariant macro and reduce D=4/6 search with near-zero query K slope. The learned route is expected to match rather than beat exact relational graph canonicalization after fit/state/update accounting, making classical semantic canonicalization the likely null; oracle supplies the attainable lower bound.",
+  "primary_metrics": [
+    "accuracy",
+    "near_equivalent_accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "workload_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. A screen is allowed only if learned relational alignment is exact in every cell, transfers to shuffled trace order and a local target update, has near-zero query K slope, and is non-dominated in full amortized workload by primitive, memo, semantic graph, Bayesian, MDL and oracle-calibrated controls."
+  ],
+  "research_question": "Can a learned relational library align opaque primitives across independently renamed and state-conjugated DSLs, transfer a reusable operation to held-out synthesis, and lower full amortized search cost beyond exact semantic graph matching, MDL and Bayesian controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Behavioral-conjugacy transfer of reusable program libraries"
+}

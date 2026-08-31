@@ -1,0 +1,166 @@
+{
+  "alternative_explanations": [
+    "Any gain may reflect generic smoothing or support regularization rather than portable dynamics; a loss may reflect the deliberately scalar exchangeable rule rather than all shared learners."
+  ],
+  "architecture_family": "exchangeable_bounded_residual_transfer",
+  "benchmark": "heldout_three_family_continuous_transfer_v2",
+  "budget": "quick",
+  "candidates": [
+    "shared_tensor_dynamics_v1",
+    "independent_tensor_dynamics_v1",
+    "cross_family_only_tensor_dynamics_v1",
+    "support_only_tensor_dynamics_v1",
+    "tensor_persistence_v1",
+    "tensor_ridge_arx_v1",
+    "tensor_rls_arx_v1",
+    "tensor_empirical_gaussian_joint_v1",
+    "tensor_contextual_gaussian_chow_liu_v1",
+    "tensor_autoregressive_v1",
+    "privileged_tensor_support_v1"
+  ],
+  "confounds": [
+    "Invalidate on family labels, native types, paths, semantic channel alignment, output-coordinate-specific learned parameters, training-world-order dependence, train/test overlap, test-output access, source or hyperparameter differences across causal roles, post-score tuning, certificate mismatch, budget breach or evaluator-integrity change."
+  ],
+  "continuous_transfer_protocol": {
+    "causal_promotion_gates": [
+      "shared_vs_independent_gain",
+      "cross_family_transfer_gain"
+    ],
+    "classical_baselines": [
+      "tensor_persistence_v1",
+      "tensor_ridge_arx_v1",
+      "tensor_rls_arx_v1",
+      "tensor_empirical_gaussian_joint_v1",
+      "tensor_contextual_gaussian_chow_liu_v1",
+      "tensor_autoregressive_v1",
+      "privileged_tensor_support_v1"
+    ],
+    "cross_family_only_ablation": "cross_family_only_tensor_dynamics_v1",
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "ncmapss_ds08a",
+      "dronepropa",
+      "continuous_event"
+    ],
+    "family_labels": "evaluator_private",
+    "independent_ablation": "independent_tensor_dynamics_v1",
+    "invalidation_rules": [
+      "Invalidate if any candidate receives a family label, source path, native type or semantic channel name.",
+      "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
+      "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
+      "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+      "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
+      "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
+      "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change."
+    ],
+    "loss": "family_balanced_masked_normalized_mse",
+    "normalization": "masked_training_worlds_only",
+    "pareto_capability_metrics": [
+      "transfer_accuracy",
+      "minimum_family_accuracy",
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "privileged_support_control": "privileged_tensor_support_v1",
+    "semantic_channel_alignment": "forbidden",
+    "shared_candidate": "shared_tensor_dynamics_v1",
+    "state_budget_bytes": 67108864,
+    "support_only_ablation": "support_only_tensor_dynamics_v1",
+    "tensor_contract_sha256": "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
+  },
+  "created_at": "2026-08-31T00:15:57Z",
+  "evaluator_sha256": "b035558e9ac636952c975f2e708032e55eedb1741de46c57cf96a754e93c2107",
+  "experiment_id": "EXP-20260831-0002",
+  "falsification_criteria": [
+    "Discard this exact ridge-0.001 prior-weight-0.25 residual-clip-0.25 state-clip-8 learner if either causal gain is non-positive in any family, any rollout is unstable or out of bounds, shared overall or minimum-family accuracy fails to exceed persistence, or a simpler implementable baseline dominates it."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0025",
+  "matrix": {
+    "knowledge_sizes": [
+      4,
+      9
+    ],
+    "queries_per_cell": 128,
+    "reasoning_depths": [
+      1
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "cross_family_transfer_gain": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "shared_vs_independent_gain": "maximize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Discard this exact bounded residual mechanism if a preregistered causal contrast fails in any family or persistence/simple control dominates; a crash rejects the implementation while integrity failure invalidates the experiment.",
+    "null": "Treat near-zero or mixed-sign causal gains as inconclusive-to-negative for this exact learner and do not tune its frozen constants against the observed seed.",
+    "positive": "Authorize only an unchanged three-seed screen of the exact learner and controls; do not mark promising, promote, claim scaling, general intelligence or an LLM successor."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The shared learner has strictly positive shared-versus-independent and cross-family-transfer gains overall and in every family, stable bounded rollouts, transfer accuracy and minimum-family accuracy above persistence, and implementable Pareto non-dominance after full cost; a valid negative is plausible.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "normalized_rmse",
+    "stable_rollout_rate",
+    "shared_vs_independent_gain",
+    "cross_family_transfer_gain",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. A valid one-seed conjunctive positive may authorize only an unchanged three-runner-seed screen."
+  ],
+  "research_question": "Can one channel-exchangeable bounded residual rule transfer across three unseen world families with better quality per fully charged cost than source-identical causal ablations and persistence?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Exchangeable bounded residual transfer around persistence"
+}

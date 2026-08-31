@@ -1,0 +1,75 @@
+{
+  "alternative_explanations": [
+    "Any log-K observation saving may be ordinary generalized binary search or adaptive-submodular greedy selection; any apparent query win may merely move work into supervised codebook acquisition, policy training, tree construction or stored routing state."
+  ],
+  "architecture_family": "active_information_acquisition",
+  "benchmark": "active_information_acquisition_v1",
+  "budget": "quick",
+  "candidates": [
+    "no_probe_guess",
+    "passive_observe_all",
+    "random_probe_policy",
+    "fixed_probe_order",
+    "entropy_greedy_probe",
+    "certified_decision_tree",
+    "learned_value_probe_policy",
+    "oracle_target_reader"
+  ],
+  "confounds": [
+    "The benchmark uses noiseless binary probes, a fully labeled episode-specific codebook during fit, power-of-two K, handcrafted balanced and singleton columns, and an inspectable local ProbeSession rather than a blind external environment, so it cannot establish open-world active perception."
+  ],
+  "created_at": "2026-08-30T07:31:39Z",
+  "experiment_id": "EXP-20260830-0029",
+  "falsification_criteria": [
+    "Kill the learned acquisition implementation if it is inexact, reuses a stale answer on a changed hidden target, forgets unchanged labels after a local codebook swap, or is matched or dominated by entropy-greedy or the certified decision tree after counting fit, every addressed probe, version-space scoring, policy construction, state, updates and repeated-use workload."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If the learned policy fails identification, changed-target safety or local retention while classical controls succeed, strengthen HYP-0012 modestly and discard the implementation without tuning.",
+    "null": "If classical entropy-greedy or a certified decision tree matches or dominates the learned policy, retain HYP-0012, discard this learned route and record active querying as a classical information-allocation principle rather than a new architecture.",
+    "positive": "If the learned policy is exact, safe, locally updateable and deterministically non-dominated in both probe and full-system scaling, lower HYP-0012 modestly and allocate one noisy adversarial multi-seed active-acquisition screen."
+  },
+  "parent_experiment_id": "EXP-20260830-0028",
+  "predicted_outcome": "No-probe guessing should fail; passive observe-all and random or fixed probing should be exact only after many observations; entropy-greedy generalized binary search, the certified balanced decision tree, the learned value policy and oracle should be exact and safe under local codebook swaps. The three active exact policies should use about log2 K probes, but the learned policy is expected to rediscover split balance and gain no unique full-system advantage once training, column scoring, policy construction, state, routing, updates and repeated-use workload are charged, supporting HYP-0012.",
+  "primary_metrics": [
+    "accuracy",
+    "near_equivalent_accuracy",
+    "continual_retention",
+    "mean_probe_count",
+    "mean_query_ops",
+    "fit_ops",
+    "policy_build_ops",
+    "update_ops",
+    "state_bytes",
+    "workload_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. The learned policy earns exactly one adversarial three-seed screen only if it is exact on cold, repeated and changed-target cases, has reuse precision one, retains unchanged labels after local swaps, and has a materially better deterministic K signature in both probes and full workload than every implementable classical active policy."
+  ],
+  "research_question": "Can a learned active-acquisition policy identify episode-specific hidden targets with exact safe local updates and a materially better full-system probe, policy-construction, hypothesis-scoring and workload scaling signature than generalized binary search, a certified decision tree and passive or random observation controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Active information acquisition under confusable hypothesis growth"
+}

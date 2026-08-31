@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "decision": "pass_for_protected_evaluator_migration",
+  "preregistration_sha256": "68fada2f74671792b2ddee12d312f443da724f9d8351b429dcfcadfa529accac",
+  "candidate_visible_nested_accuracy": {
+    "amplitude": 0.08333333333333333,
+    "histogram": 0.1111111111111111,
+    "lag": 0.06944444444444445,
+    "combined": 0.09722222222222222
+  },
+  "combined_correct": 7,
+  "combined_total": 72,
+  "combined_wilson_95": [
+    0.047896319973655774,
+    0.1873504579512686
+  ],
+  "chance_accuracy": 0.1111111111111111,
+  "visible_ceiling": 0.25,
+  "permutation_count": 5000,
+  "permutation_seed": 7601,
+  "permutation_null_q95": 0.16666666666666666,
+  "combined_decision_ceiling": 0.25,
+  "combined_permutation_p": 0.7068586282743451,
+  "privileged_session_accuracy_diagnostic_only": 0.1111111111111111,
+  "forbidden_access_count": 0,
+  "feature_dimensions": {
+    "amplitude": 60,
+    "histogram": 80,
+    "lag": 10,
+    "combined": 150
+  },
+  "visible_scalar_count_per_file_min": 10432,
+  "visible_scalar_count_per_file_max": 10432,
+  "files": 72,
+  "folds": 8,
+  "predictive_scoring_performed": false
+}

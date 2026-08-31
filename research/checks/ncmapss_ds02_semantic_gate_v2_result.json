@@ -1,0 +1,406 @@
+{
+  "schema": {
+    "A_dev": {
+      "shape": [
+        5263447,
+        4
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "A_test": {
+      "shape": [
+        1253743,
+        4
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "A_var": {
+      "shape": [
+        4
+      ],
+      "class": 3,
+      "size": 5,
+      "order": 4,
+      "sign": null
+    },
+    "T_dev": {
+      "shape": [
+        5263447,
+        10
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "T_test": {
+      "shape": [
+        1253743,
+        10
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "T_var": {
+      "shape": [
+        10
+      ],
+      "class": 3,
+      "size": 12,
+      "order": 4,
+      "sign": null
+    },
+    "W_dev": {
+      "shape": [
+        5263447,
+        4
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "W_test": {
+      "shape": [
+        1253743,
+        4
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "W_var": {
+      "shape": [
+        4
+      ],
+      "class": 3,
+      "size": 4,
+      "order": 4,
+      "sign": null
+    },
+    "X_s_dev": {
+      "shape": [
+        5263447,
+        14
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "X_s_test": {
+      "shape": [
+        1253743,
+        14
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "X_s_var": {
+      "shape": [
+        14
+      ],
+      "class": 3,
+      "size": 4,
+      "order": 4,
+      "sign": null
+    },
+    "X_v_dev": {
+      "shape": [
+        5263447,
+        14
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "X_v_test": {
+      "shape": [
+        1253743,
+        14
+      ],
+      "class": 1,
+      "size": 8,
+      "order": 0,
+      "sign": null
+    },
+    "X_v_var": {
+      "shape": [
+        14
+      ],
+      "class": 3,
+      "size": 5,
+      "order": 4,
+      "sign": null
+    },
+    "Y_dev": {
+      "shape": [
+        5263447,
+        1
+      ],
+      "class": 0,
+      "size": 8,
+      "order": 0,
+      "sign": 1
+    },
+    "Y_test": {
+      "shape": [
+        1253743,
+        1
+      ],
+      "class": 0,
+      "size": 8,
+      "order": 0,
+      "sign": 1
+    }
+  },
+  "variables": {
+    "A_var": [
+      "unit",
+      "cycle",
+      "Fc",
+      "hs"
+    ],
+    "T_var": [
+      "fan_eff_mod",
+      "fan_flow_mod",
+      "LPC_eff_mod",
+      "LPC_flow_mod",
+      "HPC_eff_mod",
+      "HPC_flow_mod",
+      "HPT_eff_mod",
+      "HPT_flow_mod",
+      "LPT_eff_mod",
+      "LPT_flow_mod"
+    ],
+    "W_var": [
+      "alt",
+      "Mach",
+      "TRA",
+      "T2"
+    ],
+    "X_s_var": [
+      "T24",
+      "T30",
+      "T48",
+      "T50",
+      "P15",
+      "P2",
+      "P21",
+      "P24",
+      "Ps30",
+      "P40",
+      "P50",
+      "Nf",
+      "Nc",
+      "Wf"
+    ],
+    "X_v_var": [
+      "T40",
+      "P30",
+      "P45",
+      "W21",
+      "W22",
+      "W25",
+      "W31",
+      "W32",
+      "W48",
+      "W50",
+      "SmFan",
+      "SmLPC",
+      "SmHPC",
+      "phi"
+    ]
+  },
+  "auxiliaries": {
+    "A_dev": {
+      "shape": [
+        5263447,
+        4
+      ],
+      "columns": [
+        "unit",
+        "cycle",
+        "Fc",
+        "hs"
+      ],
+      "unique": [
+        {
+          "values": [
+            2.0,
+            5.0,
+            10.0,
+            16.0,
+            18.0,
+            20.0
+          ]
+        },
+        {
+          "count": 89,
+          "minimum": 1.0,
+          "maximum": 89.0
+        },
+        {
+          "values": [
+            3.0
+          ]
+        },
+        {
+          "values": [
+            0.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "A_test": {
+      "shape": [
+        1253743,
+        4
+      ],
+      "columns": [
+        "unit",
+        "cycle",
+        "Fc",
+        "hs"
+      ],
+      "unique": [
+        {
+          "values": [
+            11.0,
+            14.0,
+            15.0
+          ]
+        },
+        {
+          "count": 76,
+          "minimum": 1.0,
+          "maximum": 76.0
+        },
+        {
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ]
+        },
+        {
+          "values": [
+            0.0,
+            1.0
+          ]
+        }
+      ]
+    }
+  },
+  "semantic_gate": {
+    "units": {
+      "development": [
+        2,
+        5,
+        10,
+        16,
+        18,
+        20
+      ],
+      "test": [
+        11,
+        14,
+        15
+      ]
+    },
+    "flight_classes": {
+      "development": {
+        "2": [
+          3.0
+        ],
+        "5": [
+          3.0
+        ],
+        "10": [
+          3.0
+        ],
+        "16": [
+          3.0
+        ],
+        "18": [
+          3.0
+        ],
+        "20": [
+          3.0
+        ]
+      },
+      "test": {
+        "11": [
+          3.0
+        ],
+        "14": [
+          1.0
+        ],
+        "15": [
+          2.0
+        ]
+      }
+    },
+    "router": {
+      "units": [
+        2,
+        5,
+        10,
+        16,
+        18,
+        20,
+        11,
+        14,
+        15
+      ],
+      "truth": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "predictions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "accuracy": 0.8888888888888888,
+      "pass_max_accuracy": 0.6666666666666666
+    },
+    "leakage": {
+      "exact_matches": [],
+      "maximum_absolute_correlation": 0.6830370369457524,
+      "pass_max_absolute_correlation": 0.999999
+    },
+    "no_adaptation_controls": {
+      "persistence_nrmse": 0.029881962917457653,
+      "development_pooled_no_adaptation_nrmse": 0.027947684703974622,
+      "per_engine_prefix_adaptation_nrmse": 0.029190580606327933
+    },
+    "pass": false
+  }
+}

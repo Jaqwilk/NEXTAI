@@ -1,0 +1,72 @@
+{
+  "alternative_explanations": [
+    "A fixed four-action hypothesis library may carry nearly all algorithmic structure, reducing learning to symbol grounding.",
+    "The hard-versus-dense cost gap may be predetermined entirely by a hand-provided address index rather than learned routing.",
+    "Supplying the ordered opaque program tokens tests execution of a new composition, not autonomous program synthesis."
+  ],
+  "architecture_family": "learned_virtual_machine",
+  "benchmark": "pointer_machine_composition_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_pointer_guess",
+    "pointer_trace_memorizer",
+    "dense_pointer_controller",
+    "learned_hard_pointer",
+    "oracle_pointer_machine"
+  ],
+  "confounds": [
+    "The benchmark is a visible synthetic micro-world with explicit addresses, no perception or language, one quick seed and operation counts defined by the harness.",
+    "K adds dormant cells while active program length stays fixed; this isolates irrelevant-memory scaling but not growing relevant working sets."
+  ],
+  "created_at": "2026-08-30T02:43:13Z",
+  "experiment_id": "EXP-20260830-0013",
+  "falsification_criteria": [
+    "Kill this learned-hard implementation if any held-out composition or adversarial cell is below 0.95 accuracy, its query-operation K slope exceeds 0.25, it beats the trace memorizer by less than 0.40 composition accuracy, or it saves less than 70% query operations versus dense scan at K=32 and D=4/6."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0009",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "The learned controller fails unseen composition, adversarial symmetry or K-independent access under full accounting; discard this implementation and reduce HYP-0009 confidence without post-result tuning.",
+    "null": "Exact composition is matched by the oracle and the hard/dense difference is fully explained by the supplied index; keep the implementation as a control and reduce novelty expectations without claiming the family falsified.",
+    "positive": "The controller learned reusable opaque instruction meanings that compose exactly on this pointer micro-world, and hard external access removed irrelevant-K query scans; retain only this bounded mechanism and replicate adversarially before any stronger status."
+  },
+  "parent_experiment_id": "EXP-20260830-0012",
+  "predicted_outcome": "Learned hard, dense and oracle controllers reach exact overall, composition and adversarial accuracy in every quick cell. The whole-trace memorizer remains below 0.50 composition accuracy. Learned-hard query K slope is at most 0.15; dense scan slope is at least 0.75; at K=32 and D=4/6 learned hard uses at least 70% fewer query operations. Learned hard pays nonzero instruction-inference cost and remains dominated by the oracle full-cost bound.",
+  "primary_metrics": [
+    "accuracy",
+    "composition_accuracy",
+    "adversarial_accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "fit_ops",
+    "state_bytes",
+    "amortized_ops"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote HYP-0009. A later screen is justified only if all exactness, composition, adversarial and K-scaling gates pass, the candidate adds capability beyond whole-trace memorization, supervision and fit are fully charged, and the result is described only as learned instruction reuse over explicit random-access memory."
+  ],
+  "research_question": "Can a compact controller infer opaque primitive semantics from input-output demonstrations and execute unseen instruction compositions with exact adversarial length extrapolation and memory access independent of irrelevant K, or is the effect only a hand-provided random-access index?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Learned opaque instructions on adversarial pointer memory"
+}

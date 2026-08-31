@@ -1,0 +1,74 @@
+{
+  "alternative_explanations": [
+    "Stable opaque sensor codes still provide equality and dictionary keys, so this may test causal ordering over symbols rather than representation learning from raw perception.",
+    "Nested intervention effect sets make target discovery algorithmically privileged and may encode the chain assumption.",
+    "The raw episode predictor may be too weak; an expressive dense nonlinear model could compose interventions better at higher fit cost."
+  ],
+  "architecture_family": "latent_causal_predictive_state",
+  "benchmark": "latent_causal_transfer_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_latent_guess",
+    "raw_episode_predictor",
+    "latent_factorized_causal",
+    "oracle_representation_causal",
+    "oracle_latent_causal"
+  ],
+  "confounds": [
+    "The world is a visible deterministic XOR chain with independent distractor roots, structured missingness, no measurement noise and one quick seed.",
+    "K deliberately increases both irrelevant latent roots and raw observation length, so a positive K slope measures the declared full input boundary rather than local causal execution alone."
+  ],
+  "created_at": "2026-08-30T02:57:47Z",
+  "experiment_id": "EXP-20260830-0014",
+  "falsification_criteria": [
+    "Kill the current learned factorization if any cell has accuracy or OOD intervention accuracy below 0.90, target mapping or active-chain structure accuracy below 0.95, or capability improves by less than 0.20 over the raw episode predictor.",
+    "Reject a full-system near-zero-K claim if learned-factorized knowledge-compute slope exceeds 0.25 after charging unordered observation parsing, even when local dynamics execution remains path-bounded."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0008",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Learned and oracle-representation factorization fail the partially observed unknown-target task or do not beat raw prediction; discard this transfer implementation and substantially reduce HYP-0008 without benchmark patching.",
+    "null": "Only oracle representation remains exact or learned factorization loses its cost advantage after parsing; reduce confidence that the prior causal result transfers beyond explicit latent IDs.",
+    "positive": "Unknown target and sensor-level causal structure were recovered sufficiently for exact unseen intervention composition; retain the transfer mechanism but report the positive K slope from perception and require a stronger multi-seed representation test."
+  },
+  "parent_experiment_id": "EXP-20260830-0013",
+  "predicted_outcome": "Learned factorized, oracle-representation and full-oracle candidates reach at least 0.95 overall and unseen paired-intervention accuracy in every quick cell; learned factorized recovers all opaque intervention targets and active-chain parent relations. The raw episode predictor stays at or below 0.75. Because every query is an unordered partial observation whose size grows with K, learned-factorized query K slope is predicted between 0.55 and 0.95 rather than zero, while its K=32 query operations are at least 80% below raw episode search. Oracle representation lowers fit cost but does not remove charged raw-observation parsing.",
+  "primary_metrics": [
+    "accuracy",
+    "ood_intervention_accuracy",
+    "target_mapping_accuracy",
+    "structure_accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "perception_ops",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote HYP-0008. A later transfer screen is justified only if the learned factorized candidate is exact, recovers unknown targets and structure, beats the black-box capability-cost frontier, survives multiple seeds, and does not conceal perception or routing work; positive local dynamics alone is insufficient."
+  ],
+  "research_question": "After removing latent variable IDs, intervention-target labels and complete ordered state, can learned causal factorization still predict unseen paired interventions more accurately and cheaply than a raw black-box episode predictor once observation parsing and routing are fully charged?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Latent causal transfer with unknown sensors and intervention targets"
+}

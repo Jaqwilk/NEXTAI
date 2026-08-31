@@ -1,0 +1,26 @@
+{
+  "benchmark_version": "successor_graph_v1",
+  "created_at": "2026-08-30T00:22:51Z",
+  "files": {
+    "config/research.toml": "595149659a01c0823234ebf52b7a5c6810353d3228023ecbf156ea35ae103fbd",
+    "schemas/experiment_plan.schema.json": "5b18e3661fc8a8c069f9568c044b6fa2f7d3b7ef26ed0b53e9e4a702b1883034",
+    "schemas/experiment_result.schema.json": "76b0b0a13c25a188e728a308b1f73348115201bb6c8973a98c92a398952c3167",
+    "schemas/hypothesis.schema.json": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
+    "schemas/research_state.schema.json": "01a8f12022a5d51322d74f497f419578565d283bf90b89784090e81274e8d40f",
+    "schemas/source.schema.json": "dbacf05397d719e2e8594af5c0061fc03b191df50f0985ea42b01d09464ae057",
+    "src/nextai_autoresearch/audit.py": "883674ecc030b29b0ae5752829cda4bee61efbca0041a89379fdff38d1115870",
+    "src/nextai_autoresearch/benchmarks/successor_graph_v1.py": "40ca861de2dfacafefc9b22e6e19a13bdf7cb657451adf56be0d7687a12f5df2",
+    "src/nextai_autoresearch/candidates/base.py": "4569d5001e4f2e70fadedc46763acc9d88d3a058199ad9fe19b2c2efbd29578b",
+    "src/nextai_autoresearch/candidates/compiled_jump.py": "b72888370ac29a392edfe2c53e42b03f0bcfb30f98fd4a5bfaf45d470e95a1b2",
+    "src/nextai_autoresearch/candidates/dense_recurrent.py": "22f3623853ee92697b5a2d39f67448e0e88329a258e5a0fc7f7ba808e23781fa",
+    "src/nextai_autoresearch/candidates/indexed_graph.py": "fb7e97a830879ce75605e409d225e75475a63b103edd4af2a7d49c601384ed3b",
+    "src/nextai_autoresearch/candidates/linear_scan.py": "8419b9705b96e435e1b06b11da6ed864bb754647c5b6633b34c772533af60f60",
+    "src/nextai_autoresearch/candidates/memoized_graph.py": "b9d39fcf8ea90f8a5e2092d0707dc99f91b54eda672f3266814ba9ecb3b501df",
+    "src/nextai_autoresearch/candidates/random_guess.py": "790f83cfa8e7702e76abb663d82576230cea18f4fb111961ee0a64b98b7be1c7",
+    "src/nextai_autoresearch/metrics.py": "0d3c7e4b8720d40c3a9536853ff1b256cca60c53eaf7065385260e7809e965a0",
+    "src/nextai_autoresearch/pareto.py": "b794930213a2dd3f32c49d24dbdb5285c0ead6608b788be1be86ab35a60c2c96",
+    "src/nextai_autoresearch/runner.py": "be3f083c5ab3a1a7918ba8118dc24885e01ac10779ed5e7d0b5692af03195077",
+    "src/nextai_autoresearch/worker.py": "ea360be99ad67a6eb061fc6d99be38b2d91ae4cc899ea89047277e571bac922c"
+  },
+  "schema_version": 1
+}

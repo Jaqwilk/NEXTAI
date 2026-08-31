@@ -1,0 +1,79 @@
+{
+  "alternative_explanations": [
+    "The learned relation graph is a sparse parity decoder or factored Hopfield memory, so any gain may come from discovered sparsity rather than energy-based reasoning.",
+    "Balanced low-rank training patterns make pairwise relation discovery exact and may carry the solution without representing realistic compositional ambiguity.",
+    "A synchronous parallel round may reduce iteration count while still touching all state variables, so sequential depth alone may overstate efficiency."
+  ],
+  "architecture_family": "energy_based_associative_relaxation",
+  "benchmark": "associative_relational_relaxation_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_attractor_guess",
+    "bit_majority_attractor",
+    "nearest_stored_attractor",
+    "classical_hopfield_attractor",
+    "sequential_energy_repair",
+    "learned_parallel_energy",
+    "oracle_relational_energy"
+  ],
+  "confounds": [
+    "The task uses fixed-length noiseless binary vectors with six equal latent components and deterministic one-error-per-component corruption.",
+    "K is the number of redundant compositional training attractors, not the number of independent open-world facts; fit, state and bytes scanned must remain separate from query K slope."
+  ],
+  "created_at": "2026-08-30T03:35:59Z",
+  "experiment_id": "EXP-20260830-0017",
+  "falsification_criteria": [
+    "Kill learned_parallel_energy and reduce HYP-0007 if any cell has exact or held-out accuracy below 0.95, spurious-attractor rate above 0, energy-monotonic rate below 1, or if the benchmark invariants on held-out targets, balance and corruption placement fail.",
+    "Treat the claimed distinct signature as null if classical Hopfield or sequential greedy matches exact accuracy and learned parallel fails either registered operation ratio, needs more than one relaxation round, or hides a positive query K slope above 0.05."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0007",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If learned energy fails held-out composition, converges to spurious states or loses its cost signature, reduce HYP-0007 after this one implementation and test a different architecture family.",
+    "null": "If exact cleanup is explained equally by Hopfield or sequential greedy, retain the apparatus as a control, keep HYP-0007 proposed or uncertain, and pivot rather than tune the toy.",
+    "positive": "Replicate only the narrow learned-local-energy signature in an adversarial multi-seed screen with imperfect correlations and unequal components; do not claim novelty over Hopfield, IREM or IRED."
+  },
+  "parent_experiment_id": "EXP-20260830-0016",
+  "predicted_outcome": "Every target is a valid six-component composition absent from training; every latent component is balanced in training and each query corrupts exactly D distinct components. Random, per-bit majority and nearest-stored controls have exact accuracy at most 0.125. Classical Hopfield, sequential learned-energy repair, learned parallel energy and oracle reach exact/held-out accuracy at least 0.95 in every cell. Learned parallel energy has monotonic-energy rate 1, spurious-attractor rate 0, one relaxation round, active updates D, absolute query K slope at most 0.05, at most 0.35 of classical Hopfield query ops, and at most 0.50 of sequential repair query ops for D=4/6. Its fit work remains explicitly positive and grows with K.",
+  "primary_metrics": [
+    "accuracy",
+    "heldout_composition_accuracy",
+    "bit_accuracy",
+    "spurious_attractor_rate",
+    "energy_monotonic_rate",
+    "mean_iterations",
+    "mean_active_updates",
+    "mean_bytes_scanned",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "fit_ops",
+    "state_bytes",
+    "update_ops"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote or mark HYP-0007 promising. A screen is justified only if learned parallel is exact, non-dominated by Hopfield and sequential controls, preserves the registered composition, monotonicity, round, operation and K-slope signatures, and prior art SRC-0025 through SRC-0029 is explicitly acknowledged."
+  ],
+  "research_question": "Can an energy model that learns latent local relations from whole patterns reconstruct unseen compositions and repair several simultaneous corruptions with fewer sequential steps and lower matched-capability end-to-end query work than whole-pattern recall, classical Hopfield relaxation and sequential greedy energy repair?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Local energy relaxation on held-out relational compositions"
+}

@@ -1,0 +1,73 @@
+{
+  "alternative_explanations": [
+    "Complete noiseless single-node interventions may make structure recovery a direct invariance lookup rather than learned latent causal representation.",
+    "The variable identities, full state observations, binary XOR mechanisms, and chain topology may carry most of the solution.",
+    "A stronger nearest-intervention or structural statistical baseline may compose the held-out queries without the proposed representation."
+  ],
+  "architecture_family": "causal_predictive_state",
+  "benchmark": "causal_intervention_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_causal_guess",
+    "observational_conditioning",
+    "intervention_memorizer",
+    "learned_dense_causal",
+    "learned_local_causal",
+    "oracle_local_causal"
+  ],
+  "confounds": [
+    "Every training episode exposes all variables and labels the intervened node; there are no latent confounders, perception costs, or ambiguous variable alignment.",
+    "The oracle is privileged and expected to dominate learning cost; this quick test isolates OOD composition and relevant-subgraph execution only."
+  ],
+  "created_at": "2026-08-30T02:07:16Z",
+  "experiment_id": "EXP-20260830-0011",
+  "falsification_criteria": [
+    "Kill the current learned causal implementation if structure recovery or OOD accuracy is below 1.0, its accuracy advantage over both non-causal controls is below 0.20, local query-operation K slope exceeds 0.25, visited nodes grow by more than 10% from K=8 to K=32 at fixed D, or local query cost fails to beat dense by at least 40% at K=32 and D=4/6."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0008",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "The learner cannot recover the mechanism or fails OOD interventions under this easiest identifiable setup; mark the implementation failed and sharply reduce HYP-0008 confidence without tuning after the result.",
+    "null": "Causal factorization is exact but correlation or memorization controls match it, or local execution provides no scaling advantage; reduce HYP-0008 priority and pivot.",
+    "positive": "The learned factorization composes unseen interventions and restricts query work to the relevant ancestry; move HYP-0008 to testing and preregister one adversarial multi-seed cohort with incomplete/noisy interventions and branching mechanisms, without claiming promotion."
+  },
+  "parent_experiment_id": "EXP-20260830-0010",
+  "predicted_outcome": "Learned dense causal, learned local causal, and oracle local causal recover accuracy and OOD intervention accuracy 1.0 in every cell; both learned models recover the entire chain structure. Observational conditioning and exact intervention memorization remain at or below 0.75 because all queries contain unseen double interventions and half contradict every observational trajectory. Learned local query-operation K slope is at most 0.15 with visited nodes equal to D+1 at both K values; learned dense K slope is at least 0.75. At K=32 and D=4/6, local query operations are at least 60% below dense.",
+  "primary_metrics": [
+    "accuracy",
+    "ood_intervention_accuracy",
+    "inconsistent_accuracy",
+    "structure_accuracy",
+    "mean_query_ops",
+    "mean_visited_nodes",
+    "knowledge_compute_slope",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick budget cannot promote HYP-0008. A screen is justified only if the learned factorization is exact, materially outperforms both correlation and memorization controls on OOD interventions, has near-zero query K slope, and the next adversarial cohort removes complete-intervention, deterministic-chain, and fully observed-state conveniences. Promising status additionally requires a prior-art check and non-dominance beyond the privileged oracle."
+  ],
+  "research_question": "Can a factorized causal state learned from observational and single-intervention episodes answer unseen double interventions with query work restricted to the target ancestry, unlike observational conditioning or intervention memorization?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "OOD composition of learned causal mechanisms"
+}

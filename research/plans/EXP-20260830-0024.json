@@ -1,0 +1,100 @@
+{
+  "alternative_explanations": [
+    "A complete additive normal form may perform all cross-structure transfer, leaving dependency traces as only a conventional Merkle-tree cache granularity trade-off.",
+    "Tree caches may recover enough repeated subexpressions that a specialized normal form adds no useful end-to-end advantage after its traversal and sorting costs.",
+    "The synthetic additive theory, stable semantic atom payloads and small exact changes may make equality much easier than program or language equivalence; a replicated win would not imply learned semantic abstraction."
+  ],
+  "architecture_family": "experience_driven_reasoning_compilation",
+  "benchmark": "semantic_trace_compilation_adversarial_v2",
+  "budget": "screen",
+  "candidates": [
+    "random_trace_guess",
+    "exact_key_trace_cache",
+    "indexed_dag_planner",
+    "canonical_result_cache",
+    "dependency_trace_compiler",
+    "rewrite_normal_form_result_cache",
+    "rewrite_normal_form_dependency_trace",
+    "oracle_equivalence_trace"
+  ],
+  "confounds": [
+    "The screen deliberately tests an interaction fixed in advance: harder semantic rewrites plus repeated updates. It isolates dependency versus whole-result granularity by giving both rewrite candidates the identical normalizer, but it cannot attribute failure of tree controls to one rewrite type.",
+    "K is redefined in this new cohort as the number of unreachable raw distractor records so every D fits every screen cell; raw graph size is K plus active representation size and is charged directly, so metrics are not numerically comparable to v1 as one cohort."
+  ],
+  "created_at": "2026-08-30T05:47:01Z",
+  "experiment_id": "EXP-20260830-0024",
+  "falsification_criteria": [
+    "Make HYP-0011 dormant if rewrite_normal_form_dependency_trace has accuracy, warm accuracy, near-equivalent accuracy, changed-fact accuracy or retention below 1 in any seed/cell; cross-structure hit rate below 1; any false cache hit on a target-changing near-equivalent graph; or any omitted raw scan, normalization, update, workload or peak-state charge.",
+    "Treat dependency granularity as null and make HYP-0011 dormant if rewrite_normal_form_result_cache matches or dominates it on exact capability, warm work, mean and cumulative update work, registered r1/r4/r16 workload operations, state and fit; or if dependency update does not use strictly fewer total operations for every D=4/6/8 cell despite identical normalization.",
+    "Reject a scaling signature if peak dependency state grows with irrelevant K at fixed D, cumulative r16 workload operations are not below indexed full evaluation in every D=4/6/8 seed/cell, or any apparent gain comes only from noisy latency, shared cold roots, stable node IDs, supplied node mappings or a target-valued cache key."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0011",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 12,
+    "reasoning_depths": [
+      1,
+      4,
+      6,
+      8
+    ],
+    "seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If topology transfer, near-equivalent discrimination, repeated-update correctness or integrity fails while controls pass, make HYP-0011 dormant, preserve the failure and force the portfolio to a radically different raw-representation family without tuning this DSL.",
+    "null": "If the strong whole-result normal-form cache matches or dominates dependency granularity after full accounting, or if extra trace state has no registered workload benefit, make HYP-0011 dormant and preserve semantic normalization only as a classical control.",
+    "positive": "Keep HYP-0011 testing at most, without promising status, only if the rewrite dependency trace is exact and false-reuse-free in all seeds, has cross-structure hit rate 1, lower total update and cumulative workload operations than the matched whole-result normal-form cache for every D=4/6/8 cell, K-invariant peak state at fixed D and a non-dominated exact Pareto trade-off. Interpret it as replicated classical incremental reuse that earns one future learned-representation test."
+  },
+  "parent_experiment_id": "EXP-20260830-0023",
+  "predicted_outcome": "K counts irrelevant raw distractors and D counts semantic additions. Every cold/warm pair has disjoint node IDs and changes topology through association, commutation and shared-subexpression split; D=6/8 also folds two constants and inserts a neutral zero. The complete additive rewrite normal form is a stronger exact control for this registered algebra than bounded generic saturation. All deterministic solvers should achieve exact cold, warm, near-equivalent, changed-fact and retention accuracy in every seed; random is near 1/251. Exact-key transfer hit rate is 0. Tree canonical caches may transfer only the D=1 commutative case and reuse occasional subtrees, while both rewrite-normal-form caches should have cross-structure hit rate 1 and false-reuse rate 0. Whole-result and dependency normal-form caches pay identical raw scanning and equivalence normalization and have identical warm work. After three successive semantic-variable changes with 1, 4 and 16 post-update reuses, dependency traces should recompute a strict subset of normalized reduction nodes for D=4/6/8 and therefore have lower exact update and cumulative workload operations than the normal-form whole-result cache in every K and seed, while using more peak state. Peak trace state should be independent of distractor K at fixed D. The expected outcome is a replicated classical memory-update trade-off, not learned equivalence or promotion.",
+  "primary_metrics": [
+    "accuracy",
+    "cold_accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "false_reuse_rate",
+    "cross_structure_hit_rate",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "mean_input_ops",
+    "mean_equivalence_ops",
+    "mean_execution_ops",
+    "mean_warm_execution_ops",
+    "update_ops",
+    "mean_update_execution_ops",
+    "cumulative_update_ops",
+    "workload_ops",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16",
+    "peak_state_bytes",
+    "state_bytes",
+    "mean_memory_reads",
+    "mean_bytes_loaded",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "fit_ops"
+  ],
+  "promotion_criteria": [
+    "This screen cannot promote or mark HYP-0011 promising because the additive equivalence theory and atom identity are hand supplied. A later representation-acquisition test is allowed only if this screen is exact in all three seeds, false-reuse-free, non-dominated on exact full-system axes, passes the repeated-update gates and remains explicitly bounded by SRC-0043 through SRC-0047."
+  ],
+  "research_question": "Does dependency-granular semantic reuse remain exact, false-reuse-free and full-system non-dominated after associative and topological rewrites, near-equivalent counterexamples, three seeds and repeated local updates, when both it and a strong whole-result control pay the identical complete rewrite-normal-form cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Adversarial rewrite-normal-form trace reuse under repeated local change"
+}

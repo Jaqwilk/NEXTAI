@@ -1,0 +1,64 @@
+{
+  "alternative_explanations": [
+    "Różnice mogą wynikać z definicji ręcznego licznika operacji lub specyfiki cyklu następników, a nie z uniwersalnej własności architektury."
+  ],
+  "architecture_family": "infrastructure_control",
+  "benchmark": "successor_graph_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_guess",
+    "linear_scan",
+    "indexed_graph",
+    "memoized_graph",
+    "compiled_jump",
+    "dense_recurrent"
+  ],
+  "confounds": [
+    "Mała macierz quick i szum czasu Windows czynią latency wskaźnikiem pomocniczym; wniosek opiera się głównie na dokładnych operations."
+  ],
+  "created_at": "2026-08-30T00:23:08Z",
+  "experiment_id": "EXP-20260830-0001",
+  "falsification_criteria": [
+    "Harness nie odróżnia co najmniej dwóch znanych klas skalowania operacji albo dokładny oracle i kontrole strukturalne nie osiągają pełnej poprawności."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0001",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      4,
+      16
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Infrastruktura nie nadaje się do autonomicznych badań architektury i automatyczne eksperymenty pozostają zablokowane.",
+    "null": "Nie wnioskujemy o hipotezie architektonicznej; najpierw poprawiamy instrumentację w nowej wersji benchmarku i ponawiamy baseline'y.",
+    "positive": "Akceptujemy successor_graph_v1 wyłącznie jako sprawdzony mechaniczny screening infrastruktury i przechodzimy do bardziej adversarialnego testu G0."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Random guess utraci dokładność; linear scan będzie rósł około liniowo z K i D; indexed graph będzie niezależny od K i liniowy w D; compiled jump obniży zależność od D kosztem stanu i aktualizacji; memoization obniży warm cost; dense recurrent będzie rósł około kwadratowo z K.",
+  "primary_metrics": [
+    "accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope"
+  ],
+  "promotion_criteria": [
+    "Infrastruktura kontrolna przechodzi, gdy dokładne kontrole mają accuracy 1, random pozostaje wyraźnie poniżej progu, a znaki i rząd nachyleń K/D zgadzają się z mechanizmem."
+  ],
+  "research_question": "Czy chroniony harness odtwarza znane jakościowo zależności kosztu od wielkości wiedzy K i głębokości rozumowania D?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Generation 0 control: recover known K/D scaling laws"
+}

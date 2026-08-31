@@ -1,0 +1,118 @@
+{
+  "alternative_explanations": [
+    "Any gain can arise from canonical atom addressing alone rather than pooled cross-family representation; the independent pointer ablation isolates sharing.",
+    "Failure can reflect insufficient structural information in fixed-width public serialization rather than impossibility of shared representation."
+  ],
+  "architecture_family": "cross_family_shared_representation",
+  "benchmark": "cross_family_shared_representation_v1",
+  "budget": "quick",
+  "candidates": [
+    "shared_cross_family_learner",
+    "independent_pointer_cross_family_learner",
+    "exp0041_shared_cross_family_learner",
+    "shared_empirical_joint",
+    "shared_autoregressive",
+    "specialist_empirical_joint_suite",
+    "specialist_autoregressive_suite",
+    "specialist_contextual_chow_liu_suite",
+    "oracle_cross_family_suite"
+  ],
+  "confounds": [
+    "Canonicalization treats every serialized integer payload as an atom, including numeric quantities; it must use one syntax-only rule without family branches.",
+    "Nearest-template decoding may limit capacity independently of pointer equivariance, so failure rejects this faithful minimal implementation rather than all possible shared learners."
+  ],
+  "created_at": "2026-08-30T12:39:15Z",
+  "evaluator_sha256": "c2b47e4a7a487ed130e01a7d13bcf25279bd0712a857b98c8329537d49e44699",
+  "experiment_id": "EXP-20260830-0042",
+  "falsification_criteria": [
+    "Kill this implementation and make HYP-0015 dormant if transfer is below 0.95, any family mean is below 0.90, or the shared pointer candidate does not beat its independent pointer ablation.",
+    "Kill the mechanism claim if a simpler shared control or fully charged specialist suite Pareto-dominates the shared pointer learner at the capability gate."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0015",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "data_acquisition_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A crash or failed metamorphic gate rejects only the implementation; leakage, seed collision or evaluator digest change invalidates the run and forbids scoring.",
+    "null": "A valid null or matched independent result makes HYP-0015 dormant without feature, rank, data or decoder tuning.",
+    "positive": "A valid one-seed success shows the pointer/equality output factor is worth a preregistered three-seed adversarial replication, not promotion."
+  },
+  "parent_experiment_id": "EXP-20260830-0041",
+  "predicted_outcome": "The pointer decoder will be exactly equivariant and improve opaque discrete transfer over EXP-0041, but will probably remain below 0.90 in at least one family or fail to beat its independent ablation; a large valid gain would authorize only replication.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "workload_ops_r16",
+    "state_bytes",
+    "meta_fit_ops",
+    "data_acquisition_ops"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; only authorize a three-seed adversarial screen if shared pointer transfer is at least 0.95, minimum-family accuracy at least 0.90, it beats the independent pointer ablation, and it is implementably non-dominated."
+  ],
+  "research_question": "Does replacing raw numeric target regression with one family-neutral equality-canonicalized pointer/probability decoder rescue cross-family transfer without changing the frozen evaluator, pooled SVD projection, world split, matrix or controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Equivariant pointer head across four unseen world families",
+  "transfer_protocol": {
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "context_specific_probabilistic_circuit_v1",
+      "action_conditioned_predictive_equivalence_v1",
+      "nonlinear_local_state_transfer_v1",
+      "behavioral_conjugacy_library_transfer_v1"
+    ],
+    "family_labels": "forbidden",
+    "family_specific_rules": "forbidden",
+    "invalidation_rules": [
+      "Invalidate on any derived training and scoring seed collision.",
+      "Invalidate if the shared candidate receives a family label or privileged native object.",
+      "Invalidate on candidate tuning after any scoring output is observed.",
+      "Invalidate if public serialization contains oracle-only fields or derived latent roles."
+    ],
+    "shared_candidate": "shared_cross_family_learner",
+    "specialist_baselines": [
+      "specialist_contextual_chow_liu_suite",
+      "specialist_empirical_joint_suite",
+      "specialist_autoregressive_suite",
+      "oracle_cross_family_suite"
+    ],
+    "test_tuning": "forbidden",
+    "test_world_seed_source": "runner_scoring_seeds",
+    "training_world_seeds": [
+      1103
+    ]
+  }
+}

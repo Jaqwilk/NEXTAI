@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "cycle": 88,
+  "proposal": "n_cmapss_ds02_shared_engine_representation",
+  "scoring_performed": false,
+  "download_performed": false,
+  "official_resource": "https://phm-datasets.s3.amazonaws.com/NASA/17.+Turbofan+Engine+Degradation+Simulation+Data+Set+2.zip",
+  "artifact_metadata": {
+    "head_status": 200,
+    "content_length_bytes": 15760443389,
+    "content_type": "application/zip",
+    "last_modified": "Sun, 18 Sep 2022 03:42:06 GMT",
+    "etag": "bc0e65c8560b05cec3f88f964c32c403-918",
+    "etag_is_content_digest": false,
+    "published_sha256": null,
+    "free_disk_bytes_at_gate": 68236333056,
+    "minimum_free_bytes_after_bounded_acquisition": 42949672960
+  },
+  "split": {
+    "development_units": [2, 5, 10, 16, 18, 20],
+    "test_units": [11, 14, 15],
+    "development_fault_support": ["HPT", "HPT+LPT"],
+    "test_fault_support": ["HPT+LPT"]
+  },
+  "candidate_visible_contract": ["chronology", "scenario_descriptors_W", "measured_sensors_X_s"],
+  "evaluator_only_contract": ["unit_identity", "development_or_test_membership", "fault_class", "health_parameters_theta", "RUL_and_health_targets", "paths_and_archive_metadata"],
+  "gates": {
+    "authoritative_provenance": "pass",
+    "explicit_dataset_license_cc0": "pass",
+    "official_artifact_endpoint": "pass",
+    "server_size_and_validator": "pass",
+    "published_cryptographic_digest": "fail",
+    "bounded_local_digest_possible": "pass",
+    "whole_engine_train_test_separation": "pass",
+    "common_candidate_visible_schema": "pass",
+    "unseen_engine_transfer": "pass",
+    "unseen_fault_combination": "fail",
+    "router_and_no_adaptation_negative_control": "pending_data",
+    "protected_evaluator_migration": "not_authorized"
+  },
+  "decision": "authorize_bounded_acquisition_only",
+  "confidence": 0.97,
+  "next_gate": "download the exact official archive once, verify length and SHA-256, extract only DS02, record member hashes/schema and run pre-scoring leakage/router/no-adaptation audits under a 40 GiB residual-free-space guard"
+}

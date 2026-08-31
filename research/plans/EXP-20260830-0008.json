@@ -1,0 +1,77 @@
+{
+  "alternative_explanations": [
+    "The v1 gain may require two macro uses and disappear on one-use tasks.",
+    "Global MDL frequency may select a competing fragment as irrelevant programs grow.",
+    "Grammar ordering rather than transferable abstraction may explain part of the operation reduction."
+  ],
+  "architecture_family": "program_induction",
+  "benchmark": "program_library_adversarial_v2",
+  "budget": "screen",
+  "candidates": [
+    "random_program_guess",
+    "primitive_program_search",
+    "exact_program_memo",
+    "mismatched_library_search",
+    "oracle_library_search",
+    "learned_library_search"
+  ],
+  "confounds": [
+    "Program length remains supplied to every solver.",
+    "The DSL and primitive permutations remain hand-provided.",
+    "The visible synthetic benchmark cannot establish open-domain transfer."
+  ],
+  "created_at": "2026-08-30T01:29:20Z",
+  "experiment_id": "EXP-20260830-0008",
+  "falsification_criteria": [
+    "Learned-library accuracy is below primitive-only accuracy or any seed loses exact held-out behavior.",
+    "Correct macro selection occurs in fewer than 8 of 9 seed-by-K corpora.",
+    "At K=128 the learned candidate fails to reduce amortized cold operations by 30 percent at both D=4 and D=6.",
+    "Across D=4/6/8 the learned candidate is slower than primitive search on average or the mismatch control reproduces its gain."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0002",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 12,
+    "reasoning_depths": [
+      1,
+      4,
+      6,
+      8
+    ],
+    "seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Failure under competing fragments or irrelevant programs identifies EXP-0007 as a clean-corpus artifact for this extractor; reduce confidence and preserve both outcomes.",
+    "null": "The clean v1 effect replicates only under dense reuse or small K, so HYP-0002 remains testing and this extractor is not exploited further.",
+    "positive": "A robust screen result supports reusable library search under bounded distractors and justifies a new task-family transfer test, subject to the Pareto gate."
+  },
+  "parent_experiment_id": "EXP-20260830-0007",
+  "predicted_outcome": "The unchanged extractor will select (0,1) in at least 8 of 9 seed-by-K corpora, preserve exact held-out accuracy, and reduce amortized cold operations by at least 30 percent versus primitive search at D=4/6; D=8 may be neutral when the macro appears only once, while mismatch will not reproduce the average gain.",
+  "primary_metrics": [
+    "accuracy",
+    "mean_query_ops",
+    "macro_selection_accuracy",
+    "amortized_cold_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Promising requires all three seeds, correct selection in at least 8 of 9 corpora, exact accuracy, at least 30 percent amortized reduction at D=4/6, seed CV at most 0.10, and inclusion on the declared accuracy-gated Pareto frontier."
+  ],
+  "research_question": "Does the EXP-0007 learned-library search advantage survive three seeds, competing frequent fragments, irrelevant solved programs, and held-out tasks where the useful macro appears only once or twice?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Adversarial multi-seed replication of induced program libraries"
+}

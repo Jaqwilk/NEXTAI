@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cycle": 95,
+  "proposal": "portable_ncmapss_ds08a_evaluator_component",
+  "experiment_id": null,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_cohort_activated": false,
+  "portable_export": {
+    "files": 6,
+    "bytes": 688671648,
+    "hdf5_runtime_required": false,
+    "minimum_valid_history32_horizon50_windows_per_unit": 299301,
+    "maximum_scaled_float32_cast_error": 5.959807531748752e-8
+  },
+  "gates": {
+    "source_and_contract_hashes": "pass",
+    "atomic_export": "pass",
+    "numpy_mmap_real_file_smoke": "pass",
+    "finite_shapes_dtypes_and_partition": "pass",
+    "protected_evaluator_implementation": "deferred_until_common_multi_family_interface",
+    "at_least_three_family_components": "fail_only_one_component_frozen"
+  },
+  "decision": "freeze_portable_component_defer_protected_activation",
+  "confidence": 0.99,
+  "next_gate": "design one lossless family-neutral sequence interface shared by this DS08a component, frozen DronePropA, nonlinear local-state transfer and continuous event predictive-state; reject before protected implementation if a simple family router exceeds its frozen ceiling"
+}

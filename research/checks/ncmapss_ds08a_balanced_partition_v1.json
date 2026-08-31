@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-30T22:59:45Z",
+  "status": "frozen_for_semantic_gate_only",
+  "source": {
+    "path": "research/data/ncmapss_ds08a_v1/N-CMAPSS_DS08a-009.h5",
+    "sha256": "10ddf52e5441a05e3d0d8d797a34e0e5a9ac73dce8ae35d7b22d1ef224d24836",
+    "metadata_result": "research/checks/ncmapss_ds08a_metadata_gate_v1_result.json",
+    "metadata_result_sha256": "dba60ecad21e1dcb354e4d282211f97a7f08c7b48234d4efc79a4de21021e026"
+  },
+  "selection_information": ["unit", "flight_class", "official_source_role"],
+  "forbidden_selection_information": [
+    "trajectory length",
+    "W values",
+    "X_s values",
+    "T values",
+    "Y values",
+    "health state",
+    "router result",
+    "predictive result"
+  ],
+  "rule": {
+    "class_constraint": "choose exactly three training and two holdout units from each flight class",
+    "source_balance_objective": "minimize the absolute difference between training and holdout proportions of units from the official development array",
+    "tie_break": "lexicographically smallest sorted training-unit tuple",
+    "feasible_partitions": 1000,
+    "minimum_source_proportion_gap": 0.11111111111111105
+  },
+  "resolved_partition": {
+    "training_units": [1, 2, 3, 4, 5, 10, 11, 12, 13],
+    "holdout_units": [6, 7, 8, 9, 14, 15],
+    "training_class_counts": {"1": 3, "2": 3, "3": 3},
+    "holdout_class_counts": {"1": 2, "2": 2, "3": 2},
+    "official_development_counts": {"training": 5, "holdout": 4},
+    "official_test_counts": {"training": 4, "holdout": 2}
+  },
+  "boundary": {
+    "whole_unit_disjoint": true,
+    "candidate_visible": ["chronology within anonymous unit", "W", "X_s"],
+    "evaluator_only": ["unit", "flight_class", "health_state", "T", "Y", "official_source_role", "partition_role"],
+    "normalization": "fit on training units only",
+    "no_test_unit_reuse": true
+  },
+  "next_gate": {
+    "wake": "separate service-only wake",
+    "required_before_evaluator": [
+      "exact source and partition hash verification",
+      "candidate-visible fixed-prefix train-versus-holdout router at or below the frozen majority ceiling",
+      "no exact or near-exact private-field leakage",
+      "finite persistence, pooled-no-adaptation and prefix-adaptation diagnostics"
+    ],
+    "forbidden_now": ["evaluator activation", "EXP-0060 plan", "seed realization", "scoring"]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "alternative_explanations": [
+    "Exact relational signatures, not learning, may perform all acquisition; a dictionary constraint solver can then be both safer and cheaper than pairwise attention.",
+    "The learned matcher may propose useful alignments but exact verification may perform the decisive work, reducing the architecture to propose-and-verify with no learned end-to-end advantage.",
+    "Independent per-atom statistics may suffice if the support generator accidentally gives unique frequencies; a frequency ablation is required to expose that shortcut."
+  ],
+  "architecture_family": "experience_driven_representation_acquisition",
+  "benchmark": "opaque_alias_acquisition_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_alias_guess",
+    "opaque_full_evaluator",
+    "opaque_exact_key_cache",
+    "independent_frequency_cache",
+    "soft_unification_result_cache",
+    "soft_unification_dependency_trace",
+    "exact_constraint_result_cache",
+    "exact_constraint_dependency_trace",
+    "mapping_oracle_dependency_trace"
+  ],
+  "confounds": [
+    "The support language, paired row correspondence and additive rewrite theory are supplied; only atom identity is acquired, so a positive result would not show open-world semantic learning.",
+    "Quick uses one visible seed and small K=8/32, D=1/4/6; it can kill or justify one adversarial replication but cannot promote.",
+    "Exact binary support makes the classical constraint control unusually favorable compared with noisy perception, while still providing a necessary identifiability and safety baseline."
+  ],
+  "created_at": "2026-08-30T06:12:31Z",
+  "experiment_id": "EXP-20260830-0025",
+  "falsification_criteria": [
+    "Make HYP-0011 dormant if either learned soft-unification candidate has answer, warm, near-equivalent, changed-fact or retention accuracy below 1, reuse precision below 1 on any accepted hit, any false near-equivalent reuse, or omitted support scan, pair scoring, verification, fallback, fit, state, update or workload work.",
+    "Treat the learned acquisition thesis as null and make HYP-0011 dormant if the exact constraint candidate matches or dominates the learned pairwise candidate on exact capability, reuse coverage and registered full-system cost axes, or if learned all-pairs alignment has a worse K slope without a compensating exact capability.",
+    "Reject the cohort as non-identifying rather than protecting the candidate if ground-truth mappings are not unique, aliases leak across fit and query episodes, support row correspondence directly contains the atom map, near-equivalent targets do not change, or any cache key contains the target."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0011",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Make HYP-0011 dormant if learned acquisition is unsafe, inexact, non-identifying or relies on leakage; preserve failures and move the portfolio to a radically different non-tabular representation family.",
+    "null": "Make HYP-0011 dormant if exact constraint acquisition matches or dominates learned matching, even if semantic reuse itself works; preserve the result as classical incremental-computation evidence and pivot away from this additive DSL.",
+    "positive": "Keep HYP-0011 testing without promotion and allow exactly one adversarial noisy-support screen only if learned matching is exact, collision-free, safely abstaining when uncertain and non-dominated against exact constraints after full accounting."
+  },
+  "parent_experiment_id": "EXP-20260830-0024",
+  "predicted_outcome": "K is the number of opaque episode atoms including relationally similar confusers; D is additive query depth. Every episode independently permutes reference and query aliases. Paired support rows make the bijection identifiable without exposing it, and query codebooks are disjoint from fit codebooks. Exact full evaluation, exact-key fallback, learned aligners, exact constraint aligners and the mapping oracle should remain answer-exact because uncertain learned reuse must abstain and recompute. Random accuracy is near 1/251 and exact-key reuse coverage is zero. Independent frequency signatures should collide and have low safe coverage. A fitted pairwise soft-unifier should learn exact incidence equality and reach reuse precision 1, coverage 1 and false-reuse rate 0, but its all-pairs alignment and exact verification should scale worse with K and be matched or dominated by the direct exact constraint dictionary. Exact constraint dependency traces may again trade more state for lower D=4/6 update work than their whole-result control. The expected outcome is null for a distinct learned acquisition advantage and therefore dormant HYP-0011, while preserving the classical acquisition and dependency controls.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "reuse_precision",
+    "reuse_coverage",
+    "false_reuse_rate",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "mean_input_ops",
+    "mean_alignment_ops",
+    "mean_verification_ops",
+    "mean_execution_ops",
+    "fit_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "update_ops",
+    "workload_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. One adversarial screen is permitted only if learned soft unification has exact answers, reuse precision 1, false reuse 0, positive coverage in every cell, disjoint fit/query codebooks and a non-dominated implementable cost signature against the exact constraint aligner; supplied additive theory must remain disclosed."
+  ],
+  "research_question": "Can a learned pairwise soft-unification mechanism infer an episode-specific opaque atom codebook from identifiable relational support and enable collision-free semantic reuse at a non-dominated full-system cost relative to an exact constraint aligner?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Opaque episode-specific atom acquisition with exact safe reuse"
+}

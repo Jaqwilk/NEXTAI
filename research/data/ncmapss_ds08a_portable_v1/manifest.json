@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-30T23:12:08Z",
+  "source_hdf5_sha256": "10ddf52e5441a05e3d0d8d797a34e0e5a9ac73dce8ae35d7b22d1ef224d24836",
+  "component_contract_path": "research/checks/ncmapss_ds08a_evaluator_component_v1.json",
+  "component_contract_sha256": "9923c39dd8b41a4104f4f952cc868e76c0709fd62079545ab36e95b6af5390ff",
+  "exporter_path": "research/audits/ncmapss_hdf5_audit.py",
+  "exporter_sha256": "47bda4d42ab50f82a81f6156dd2cf24db3b2d35265b490fe298e083a89499c44",
+  "total_bytes": 688671648,
+  "files": {
+    "A_dev.npy": {"shape": [4885389, 4], "dtype": "int16", "bytes": 39083240, "sha256": "720c93e8e05a7d79a801ec574e56843a8feb991d6bb2482f60f53efa0f7c0c11", "max_absolute_cast_error": 0.0, "max_scaled_cast_error": 0.0},
+    "A_test.npy": {"shape": [3722997, 4], "dtype": "int16", "bytes": 29784104, "sha256": "fb000fccf3c00035ac820f704be0f120ebd6f281295e90fefebd9086a94577ce", "max_absolute_cast_error": 0.0, "max_scaled_cast_error": 0.0},
+    "W_dev.npy": {"shape": [4885389, 4], "dtype": "float32", "bytes": 78166352, "sha256": "7ad1b15123fc3d1ef47ce1b584493203ea87398c843dcc77dd15ae08a7b71238", "max_absolute_cast_error": 0.000030517455570588936, "max_scaled_cast_error": 5.9583475484201415e-8},
+    "W_test.npy": {"shape": [3722997, 4], "dtype": "float32", "bytes": 59568080, "sha256": "cbbf40b443732d69e468e07c80eb2f3af5b9b27d46cf985816641f8684054a47", "max_absolute_cast_error": 0.000030517560276166478, "max_scaled_cast_error": 5.9575553636026945e-8},
+    "X_s_dev.npy": {"shape": [4885389, 14], "dtype": "float32", "bytes": 273581912, "sha256": "7c4cdf93ad7267b1c65f8660e1deb451ce8091e104153f5702e0c70b5f739d19", "max_absolute_cast_error": 0.00048828116996446624, "max_scaled_cast_error": 5.9597814919333366e-8},
+    "X_s_test.npy": {"shape": [3722997, 14], "dtype": "float32", "bytes": 208487960, "sha256": "67bcc25e07ffc6f4b8a7141dbbd23fe00279db4e5ac3c2d19369d26d279a3754", "max_absolute_cast_error": 0.00048828080980456434, "max_scaled_cast_error": 5.959807531748752e-8}
+  },
+  "verification": {
+    "numpy_mmap_without_hdf5": "pass",
+    "shapes_and_dtypes": "pass",
+    "all_values_finite": "pass",
+    "integer_metadata_lossless": "pass",
+    "whole_unit_partition_disjoint": "pass",
+    "minimum_valid_history32_horizon50_windows_per_unit": 299301,
+    "temporary_files_remaining": 0
+  },
+  "status": "portable_component_frozen_not_active"
+}

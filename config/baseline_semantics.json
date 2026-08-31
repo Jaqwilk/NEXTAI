@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "cohorts": ["heldout_parallel_masked_infilling_v2", "cross_family_shared_representation_v3", "cross_family_relation_fragment_transfer_v4", "heldout_dronepropa_factor_recombination_v2", "heldout_dronepropa_factor_recombination_v3", "heldout_dronepropa_factor_recombination_v4", "heldout_dronepropa_factor_recombination_v5", "heldout_dronepropa_factor_recombination_v6", "heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2"],
+  "baselines": {
+    "uniform_masked_byte": {
+      "baseline_id": "uniform_byte_v1",
+      "version": 1,
+      "specification": {"alphabet": 256, "probability": "1/256"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/uniform_masked_byte.py": "5c82a73a71f066911ca8744e2d29a589018b8f8e0d52c48f52236d5eed03b395",
+        "src/nextai_autoresearch/candidates/masked_byte_core.py": "7aa365c81ab6e26d989dd18c04d13421a76853ed1a17752fd25793d5f7ed9fa8"
+      },
+      "conformance_tests": [{"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_uniform_masked_byte_reference", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"}]
+    },
+    "empirical_unigram_masked_byte": {
+      "baseline_id": "kt_unigram_byte_v1",
+      "version": 1,
+      "specification": {"alphabet": 256, "estimator": "Dirichlet-1/2"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/empirical_unigram_masked_byte.py": "5d569da53dd9266fd99a46b0cfcc79b035fb9313b50bef5e1f1854fbfb58f503",
+        "src/nextai_autoresearch/candidates/masked_byte_core.py": "7aa365c81ab6e26d989dd18c04d13421a76853ed1a17752fd25793d5f7ed9fa8"
+      },
+      "conformance_tests": [{"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_empirical_unigram_masked_byte_reference", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"}]
+    },
+    "left_to_right_ppm_masked_byte": {
+      "baseline_id": "ppm_d_byte_order5_v1",
+      "version": 1,
+      "specification": {
+        "alphabet": "256 runner-permuted byte symbols",
+        "maximum_order": 5,
+        "escape": "PPM-D: distinct/(total+distinct)",
+        "backoff": "longest observed suffix through order 0, then uniform order -1",
+        "exclusion": "full; symbols seen at a higher context are removed from every lower context",
+        "training_update_order": "fix prior-byte context, increment context orders 1..5, then increment order-0 target count",
+        "inference_update_order": "trained counts frozen; append only the baseline's selected argmax to left-to-right public history"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/left_to_right_ppm_masked_byte.py": "7e702c8afa3e6ef4425e792cc1318072f6d0268590b89db5b52aa82626bbeb4c",
+        "src/nextai_autoresearch/candidates/masked_baselines.py": "0248fb90e43040349ed16d35cef026895ed444c926560bd11f4afd164d91b27f"
+      },
+      "conformance_tests": [
+        {"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_ppm_d_order5_reference_backoff_and_full_exclusion", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"},
+        {"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_first_order_markov_cannot_claim_ppm_or_ctw_conformance", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"}
+      ]
+    },
+    "context_tree_weighting_masked_byte": {
+      "baseline_id": "ctw_multinomial_byte_depth2_v1",
+      "version": 1,
+      "specification": {
+        "alphabet": "256 runner-permuted byte symbols",
+        "representation": "one raw byte symbol per step; context edges are preceding byte values, nearest first",
+        "depth": 2,
+        "kt_estimator": "symmetric Dirichlet-1/2 multinomial KT at every node",
+        "weighting_recursion": "P_w(node)=0.5*P_KT(node)+0.5*product_child P_w(child); prediction uses the resulting posterior local/child mixture",
+        "training_update_order": "skip the first depth symbols of each file; fix the complete preceding context, then increment target counts root-to-leaf; finalize weights bottom-up",
+        "inference_update_order": "tree and weights frozen; append only the selected argmax to left-to-right public history"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/context_tree_weighting_masked_byte.py": "a5020d1648b719f856bffe1931f02f43e3a3cb6aa53385f8417bda2e5e120a99",
+        "src/nextai_autoresearch/candidates/masked_baselines.py": "0248fb90e43040349ed16d35cef026895ed444c926560bd11f4afd164d91b27f"
+      },
+      "conformance_tests": [
+        {"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_ctw_byte_depth2_reference_recursive_mixture", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"},
+        {"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_first_order_markov_cannot_claim_ppm_or_ctw_conformance", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"}
+      ]
+    },
+    "dense_autoregressive_masked_byte": {
+      "baseline_id": "dense_lag_product_byte_v1",
+      "version": 1,
+      "specification": {"maximum_lags": 5, "estimator": "dense smoothed lag-conditionals", "decoding": "left-to-right argmax"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/dense_autoregressive_masked_byte.py": "704b16a5ac32988678673a02d2cf527e63725f49913efc213225f2cbadc6ee1b",
+        "src/nextai_autoresearch/candidates/masked_byte_core.py": "7aa365c81ab6e26d989dd18c04d13421a76853ed1a17752fd25793d5f7ed9fa8"
+      },
+      "conformance_tests": [{"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_dense_autoregressive_masked_byte_reference", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"}]
+    },
+    "bidirectional_markov_masked_byte": {
+      "baseline_id": "exact_first_order_forward_backward_v1",
+      "version": 1,
+      "specification": {"order": 1, "inference": "exact forward-backward conditioned on visible left/right boundaries"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/bidirectional_markov_masked_byte.py": "e49c5e0f374bc1b712f764c2128fba5fa571f676986c6b7ac8d61fe96b6a4c1d",
+        "src/nextai_autoresearch/candidates/masked_byte_core.py": "7aa365c81ab6e26d989dd18c04d13421a76853ed1a17752fd25793d5f7ed9fa8"
+      },
+      "conformance_tests": [{"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_bidirectional_markov_masked_byte_reference", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"}]
+    },
+    "parallel_markov_bp_masked_byte": {
+      "baseline_id": "binary_power_first_order_bp_v1",
+      "version": 1,
+      "specification": {"order": 1, "inference": "exact transition-power messages using precomputed binary matrix powers"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/parallel_markov_bp_masked_byte.py": "0522b7eda0bc12498af79896ffc4425204080f5e388312aa4aca94ee619ef25a",
+        "src/nextai_autoresearch/candidates/masked_byte_core.py": "7aa365c81ab6e26d989dd18c04d13421a76853ed1a17752fd25793d5f7ed9fa8"
+      },
+      "conformance_tests": [{"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_parallel_markov_bp_matches_exact_first_order_reference", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"}]
+    },
+    "oracle_conditional_masked_byte": {
+      "baseline_id": "privileged_conditional_oracle_v1",
+      "version": 1,
+      "specification": {"role": "privileged lower bound", "distribution": "one-hot true target"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/oracle_conditional_masked_byte.py": "763ba8652b12d93b04d38b60bae80f6d19f1eff473c78b5eee5a968f9c35be9e",
+        "src/nextai_autoresearch/candidates/masked_byte_core.py": "7aa365c81ab6e26d989dd18c04d13421a76853ed1a17752fd25793d5f7ed9fa8"
+      },
+      "conformance_tests": [{"path": "tests/test_baseline_semantics.py", "node_id": "tests/test_baseline_semantics.py::test_oracle_conditional_masked_byte_reference", "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb"}]
+    },
+    "specialist_contextual_chow_liu_suite_v2": {
+      "baseline_id": "native_four_family_contextual_chow_liu_suite_v2",
+      "version": 2,
+      "specification": {"probabilistic": "contextual Chow-Liu", "predictive": "CSSR", "local": "exact finite-state propagation", "program": "relational graph MDL", "accounting": "sum all four native specialists"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/specialist_contextual_chow_liu_suite_v2.py": "62766a7fdeaf63efd07e24a9ca497e3838f5f8afdcd6d9af816fd0b0dd92bd2d",
+        "src/nextai_autoresearch/candidates/cross_family_specialist_v2_core.py": "72dd408232b3c061c45c5311e072b42cd92a09b6def1bc1e07d4601f91e086bd"
+      },
+      "conformance_tests": [{"path": "tests/test_cross_family_baseline_semantics.py", "node_id": "tests/test_cross_family_baseline_semantics.py::test_specialist_contextual_chow_liu_suite_v2_semantics", "sha256": "28930f6bff2b14d135dbd2a18a412e4b01c39c5e06ae982d174ff41ce3de95e9"}]
+    },
+    "specialist_empirical_joint_suite_v2": {
+      "baseline_id": "native_four_family_empirical_joint_suite_v2",
+      "version": 2,
+      "specification": {"probabilistic": "empirical joint table", "predictive": "CSSR", "local": "exact finite-state propagation", "program": "relational graph MDL", "accounting": "sum all four native specialists"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/specialist_empirical_joint_suite_v2.py": "20ba0cca670901f5f1d0ecafbdd35e3270d1e2c29c6d018f304ec07dab72edcb",
+        "src/nextai_autoresearch/candidates/cross_family_specialist_v2_core.py": "72dd408232b3c061c45c5311e072b42cd92a09b6def1bc1e07d4601f91e086bd"
+      },
+      "conformance_tests": [{"path": "tests/test_cross_family_baseline_semantics.py", "node_id": "tests/test_cross_family_baseline_semantics.py::test_specialist_empirical_joint_suite_v2_semantics", "sha256": "28930f6bff2b14d135dbd2a18a412e4b01c39c5e06ae982d174ff41ce3de95e9"}]
+    },
+    "specialist_autoregressive_suite_v2": {
+      "baseline_id": "native_four_family_autoregressive_suite_v2",
+      "version": 2,
+      "specification": {"probabilistic": "empirical autoregressive table", "predictive": "CSSR", "local": "exact finite-state propagation", "program": "relational graph MDL", "accounting": "sum all four native specialists"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/specialist_autoregressive_suite_v2.py": "b8de752ffeeca5cdaa94927aa86fbf809e88038c80195e7c0e0ce8cc0da48a3d",
+        "src/nextai_autoresearch/candidates/cross_family_specialist_v2_core.py": "72dd408232b3c061c45c5311e072b42cd92a09b6def1bc1e07d4601f91e086bd"
+      },
+      "conformance_tests": [{"path": "tests/test_cross_family_baseline_semantics.py", "node_id": "tests/test_cross_family_baseline_semantics.py::test_specialist_autoregressive_suite_v2_semantics", "sha256": "28930f6bff2b14d135dbd2a18a412e4b01c39c5e06ae982d174ff41ce3de95e9"}]
+    },
+    "oracle_cross_family_suite_v2": {
+      "baseline_id": "native_four_family_privileged_oracle_suite_v2",
+      "version": 2,
+      "specification": {"role": "privileged lower bound", "probabilistic": "oracle context SPN", "predictive": "oracle predictive state", "local": "oracle local rule", "program": "oracle conjugacy library"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/oracle_cross_family_suite_v2.py": "f7370f29f8fe66e5e1a9d4e087222aa81021fb642043c5def27cfce91aec2079",
+        "src/nextai_autoresearch/candidates/cross_family_specialist_v2_core.py": "72dd408232b3c061c45c5311e072b42cd92a09b6def1bc1e07d4601f91e086bd"
+      },
+      "conformance_tests": [{"path": "tests/test_cross_family_baseline_semantics.py", "node_id": "tests/test_cross_family_baseline_semantics.py::test_oracle_cross_family_suite_v2_semantics", "sha256": "28930f6bff2b14d135dbd2a18a412e4b01c39c5e06ae982d174ff41ce3de95e9"}]
+    },
+    "unigram_recombination": {
+      "baseline_id": "global_target_mode_recombination_v1",
+      "version": 1,
+      "specification": {"estimator": "global empirical target mode", "backoff": "lowest target on ties"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/unigram_recombination.py": "b3506ecdb016330d488dd6287bb85e5b606830f61a703dffbb83b609b1592f94",
+        "src/nextai_autoresearch/candidates/mechanism_recombination_core.py": "b9313c4f4f0760740a459ba650dc9d302ea24c8b89dd86e434b31145323af77a"
+      },
+      "conformance_tests": [{"path": "tests/test_mechanism_recombination_semantics.py", "node_id": "tests/test_mechanism_recombination_semantics.py::test_unigram_recombination_is_global_target_mode", "sha256": "c41ab9687f39cfaff08c2225d43a238eb3441bba5b8bd7169ef0b502465161fc"}]
+    },
+    "markov5_recombination": {
+      "baseline_id": "observed_transition_map_rollout_order5_v1",
+      "version": 1,
+      "specification": {"maximum_rollout_order": 5, "estimator": "source-conditioned empirical target mode", "missing_transition": "global target mode"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/markov5_recombination.py": "f480aa8f02dd17bf0f8bca241a44c95dcd39ed4b3371d263c9cff6a5a2f03574",
+        "src/nextai_autoresearch/candidates/mechanism_recombination_core.py": "b9313c4f4f0760740a459ba650dc9d302ea24c8b89dd86e434b31145323af77a"
+      },
+      "conformance_tests": [{"path": "tests/test_mechanism_recombination_semantics.py", "node_id": "tests/test_mechanism_recombination_semantics.py::test_markov5_recombination_rolls_observed_transition_five_steps", "sha256": "c41ab9687f39cfaff08c2225d43a238eb3441bba5b8bd7169ef0b502465161fc"}]
+    },
+    "nearest_template_recombination": {
+      "baseline_id": "support_mismatch_complete_map_template_v1",
+      "version": 1,
+      "specification": {"selection": "minimum observed support mismatch then maximum overlap", "prediction": "selected complete-map entry with global-mode backoff"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/nearest_template_recombination.py": "8554968d48c2f90870682d1f8aca148f2bacb53ba539c5d1f55105919c01f367",
+        "src/nextai_autoresearch/candidates/mechanism_recombination_core.py": "b9313c4f4f0760740a459ba650dc9d302ea24c8b89dd86e434b31145323af77a"
+      },
+      "conformance_tests": [{"path": "tests/test_mechanism_recombination_semantics.py", "node_id": "tests/test_mechanism_recombination_semantics.py::test_nearest_template_uses_support_mismatch_not_world_order", "sha256": "c41ab9687f39cfaff08c2225d43a238eb3441bba5b8bd7169ef0b502465161fc"}]
+    },
+    "exact_mdl_module_library": {
+      "baseline_id": "exhaustive_two_map_mdl_library_v1",
+      "version": 1,
+      "specification": {"search": "all ordered pairs of merged deterministic maps", "objective": "lexicographic support errors unexplained support stored edges stable indices"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/exact_mdl_module_library.py": "bfdd6f8f496fe22b95a9954ec5aa8410ab1e95acfbd0f236986d2519e9cf712d",
+        "src/nextai_autoresearch/candidates/mechanism_recombination_core.py": "b9313c4f4f0760740a459ba650dc9d302ea24c8b89dd86e434b31145323af77a"
+      },
+      "conformance_tests": [{"path": "tests/test_mechanism_recombination_semantics.py", "node_id": "tests/test_mechanism_recombination_semantics.py::test_exact_mdl_search_finds_recursive_two_module_composition", "sha256": "c41ab9687f39cfaff08c2225d43a238eb3441bba5b8bd7169ef0b502465161fc"}]
+    },
+    "oracle_composition_graph": {
+      "baseline_id": "privileged_heldout_composition_graph_oracle_v1",
+      "version": 1,
+      "specification": {"role": "privileged lower bound", "prediction": "evaluator-held true composed target"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/oracle_composition_graph.py": "1c97f84acdcda0113fc01d23ebd8d1e03751ba2d802512c325fa868f1e01dd63"
+      },
+      "conformance_tests": [{"path": "tests/test_mechanism_recombination_semantics.py", "node_id": "tests/test_mechanism_recombination_semantics.py::test_oracle_composition_graph_is_privileged_and_exact", "sha256": "c41ab9687f39cfaff08c2225d43a238eb3441bba5b8bd7169ef0b502465161fc"}]
+    },
+    "operator_algebra_completion": {
+      "baseline_id": "hypothesis_candidate_operator_equation_closure_v1",
+      "version": 1,
+      "specification": {"role": "hypothesis candidate conformance", "inference": "strongest error-free observable composition per result map", "completion": "iterated unanimous partial-permutation equation consequences", "invariance": "opaque-state relabeling and anonymous world order"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/operator_algebra_completion.py": "a0d15d5acf7bbf6f9875ea8f890a1325935856a48bdfc11b17a697b0c58b9894",
+        "src/nextai_autoresearch/candidates/operator_algebra_core.py": "c4e1f3ea073a90eeea45cffef276220b2967a5de30917b646970930cdd8104a2"
+      },
+      "conformance_tests": [{"path": "tests/test_operator_algebra_completion.py", "node_id": "tests/test_operator_algebra_completion.py::test_relation_closure_recovers_two_missing_composition_edges_equivariantly", "sha256": "c95ad355bf8a4aab17e29233e0a403d3dce3ba7525649889aa1ca513b1adda99"}]
+    },
+    "persistence_state_v1": {
+      "baseline_id": "persistence_state_v1", "version": 1,
+      "specification": {"prediction": "repeat the last six observed state coordinates", "fit": "none", "rollout": "repeat recursively"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/persistence_state_v1.py": "26c4c3b0e42d659f762378bc03fd99ddbf66f16c9f1910960737b0728ac897e3", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_persistence_and_affine_ridge_reference","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_complete_same_synthetic_adapter_e2e","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "ridge_arx_v1": {
+      "baseline_id": "ridge_arx_v1", "version": 1,
+      "specification": {"history": 32, "features": "four controls plus six states, time-major flattening", "fit": "affine ridge lambda 0.001 with unpenalized intercept", "rollout": "recursive states with evaluator-supplied future controls"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/ridge_arx_v1.py": "1faeaa28b348cdd2d01d53ed6e2db8adc7b611e4469b519290ca7ad1fc84af6b", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_persistence_and_affine_ridge_reference","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_complete_same_synthetic_adapter_e2e","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "rls_arx_v1": {
+      "baseline_id": "rls_arx_v1", "version": 1,
+      "specification": {"forgetting": 1.0, "initial_covariance": "1000 I", "weights": "zero", "order": "predict then gain/error/weights/covariance update", "rollout": "recursive states with future controls"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/rls_arx_v1.py": "46ef94e7628447dffd432f38d10f8ddfaa645fb995ae9036224e386f9cb68d4d", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_rls_uses_predict_then_fixed_covariance_update","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_complete_same_synthetic_adapter_e2e","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "nearest_operator_template_v1": {
+      "baseline_id": "nearest_operator_template_v1", "version": 1,
+      "specification": {"templates": "one affine ridge ARX operator per anonymous train flight", "selection": "minimum Frobenius distance to adaptation-fitted operator", "ties": "lowest stable template index", "labels": "forbidden"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/nearest_operator_template_v1.py": "73e06a8f816fe08036922e364298cb08fa286bc831f52b6e036fe00a9a1fe6b5", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_nearest_template_uses_operator_not_label_or_order","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_complete_same_synthetic_adapter_e2e","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "source_identical_independent_arx_v1": {
+      "baseline_id": "source_identical_independent_arx_v1", "version": 1,
+      "specification": {"source": "same affine ridge implementation as pooled/shared modes", "fit": "full 320-to-6 operator from held-out adaptation examples only", "shared_state": "none"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/source_identical_independent_arx_v1.py": "dbe2b0a5fad9af383ccb3678d7869dd59ec080cf118fed05d0259b8922636a37", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_independent_and_no_sharing_are_distinct_source_identical_modes","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_complete_same_synthetic_adapter_e2e","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "no_sharing_pooled_arx_v1": {
+      "baseline_id": "no_sharing_pooled_arx_v1", "version": 1,
+      "specification": {"fit": "one affine ridge ARX over all anonymous train examples", "factorization": "none", "world_coefficients": "none", "adaptation": "charged sufficient-statistic update only"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/no_sharing_pooled_arx_v1.py": "d162974f0c0db1d2560fffb834cbc88ca0a47d2c271e731076da8ad3a2bf99ae", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_independent_and_no_sharing_are_distinct_source_identical_modes","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_complete_same_synthetic_adapter_e2e","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "empirical_gaussian_joint_v1": {
+      "baseline_id": "empirical_gaussian_joint_v1", "version": 1,
+      "specification": {"distribution": "empirical joint Gaussian over history features and next six-state target", "covariance_ridge": 0.001, "prediction": "exact Schur-complement Gaussian conditioning"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/empirical_gaussian_joint_v1.py": "b46f5cf7b7da323150e83b818d820efa93c46e7886c9981f6c9d05fadc32229f", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_empirical_gaussian_joint_matches_analytic_linear_conditional","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_complete_same_synthetic_adapter_e2e","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "contextual_gaussian_chow_liu_v1": {
+      "baseline_id": "contextual_gaussian_chow_liu_v1", "version": 1,
+      "specification": {"conditional_mean": "affine ridge ARX lambda 0.001", "residual_graph": "maximum Gaussian mutual-information spanning tree over six coordinates", "root": 0, "ties": "lexicographic parent then child", "variance_floor": 0.000001},
+      "implementation_files": {"src/nextai_autoresearch/candidates/contextual_gaussian_chow_liu_v1.py": "298cf2dc2afd60ae9b345b4f644dd7450b68a8575007a39cc26a3fca9f48f859", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_chow_liu_has_recursive_context_edge_and_markov_alias_cannot_pass","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_complete_same_synthetic_adapter_e2e","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_all_implementable_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "oracle_charged_condition_specialist_arx_v1": {
+      "baseline_id": "oracle_charged_condition_specialist_arx_v1", "version": 1,
+      "specification": {"role": "privileged diagnostic", "dispatch": "evaluator fault/severity condition", "fit": "one affine ridge ARX per condition", "cost": "sum all acquisition, fit, adaptation, query and state; excluded from implementable frontier"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/oracle_charged_condition_specialist_arx_v1.py": "1df9d324e937fdbfc1b7354263604d248711f491eff727487e8af79fbe05596a", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_specialist_and_oracle_require_privileged_condition","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "privileged_condition_oracle_arx_v1": {
+      "baseline_id": "privileged_condition_oracle_arx_v1", "version": 1,
+      "specification": {"role": "privileged upper bound", "equivalence": "evaluator same fault/severity training set", "queried_file_targets": "forbidden", "frontier": "excluded"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/privileged_condition_oracle_arx_v1.py": "26dbe0f9417e0592ec6a7b95795901eb5aaf8bd8a5596052a569f14f4a74f5c8", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_specialist_and_oracle_require_privileged_condition","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "oracle_charged_condition_specialist_arx_v2": {
+      "baseline_id": "oracle_charged_condition_specialist_arx_v2", "version": 2,
+      "specification": {"role": "privileged diagnostic", "support_role": "all 26 t4 privileged_oracle_support flights", "dispatch": "evaluator-private exact fault/severity condition", "fit": "one affine ridge ARX per support condition", "test_targets": "forbidden", "cost": "charge all support acquisition, preprocessing, fits, state and queries; exclude from implementable frontier"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/oracle_charged_condition_specialist_arx_v2.py": "1df9d324e937fdbfc1b7354263604d248711f491eff727487e8af79fbe05596a", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v1.py": "9d3871ae937c86988e5fdfd97c58b80efd73effc5b892a1f9675452232eccb4c", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v2.py": "76bb768a0496924204c771a2226009b5d75d670f018a61bd4a0074578bb4a970"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_use_t4_support_without_test_targets","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "privileged_same_condition_oracle_arx_v2": {
+      "baseline_id": "privileged_same_condition_oracle_arx_v2", "version": 2,
+      "specification": {"role": "privileged upper bound", "support_role": "only six t4 privileged_oracle_support flights matching the three test conditions", "dispatch": "evaluator-private exact fault/severity condition", "fit": "one affine ridge ARX per matching condition", "test_targets": "forbidden", "cost": "charge matching support acquisition, preprocessing, fits, state and queries; exclude from implementable frontier"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/privileged_same_condition_oracle_arx_v2.py": "26dbe0f9417e0592ec6a7b95795901eb5aaf8bd8a5596052a569f14f4a74f5c8", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v1.py": "9d3871ae937c86988e5fdfd97c58b80efd73effc5b892a1f9675452232eccb4c", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v2.py": "76bb768a0496924204c771a2226009b5d75d670f018a61bd4a0074578bb4a970"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_use_t4_support_without_test_targets","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "privileged_all_condition_support_arx_v3": {
+      "baseline_id": "privileged_all_condition_support_arx_v3", "version": 3,
+      "specification": {"role": "privileged support control; not an oracle or bound", "support_role": "all 26 frozen t4 support flights", "dispatch": "evaluator-private exact condition", "test_targets": "forbidden", "frontier": "excluded", "cost": "fully charged"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/privileged_all_condition_support_arx_v3.py": "1df9d324e937fdbfc1b7354263604d248711f491eff727487e8af79fbe05596a", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v1.py": "9d3871ae937c86988e5fdfd97c58b80efd73effc5b892a1f9675452232eccb4c", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v6.py": "9a78cfb51dccf7b95f67def40e52d96b37ed8fe88e79acba58cedf23dc5becdf"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_use_t4_support_without_test_targets","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "privileged_same_condition_support_arx_v3": {
+      "baseline_id": "privileged_same_condition_support_arx_v3", "version": 3,
+      "specification": {"role": "privileged support control; not an oracle or bound", "support_role": "six frozen t4 flights matching the three test conditions", "dispatch": "evaluator-private exact condition", "test_targets": "forbidden", "frontier": "excluded", "cost": "fully charged"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/privileged_same_condition_support_arx_v3.py": "26dbe0f9417e0592ec6a7b95795901eb5aaf8bd8a5596052a569f14f4a74f5c8", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v1.py": "9d3871ae937c86988e5fdfd97c58b80efd73effc5b892a1f9675452232eccb4c", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v6.py": "9a78cfb51dccf7b95f67def40e52d96b37ed8fe88e79acba58cedf23dc5becdf"},
+      "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_use_t4_support_without_test_targets","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
+    },
+    "tensor_persistence_v1": {
+      "baseline_id": "tensor_persistence_v1", "version": 1,
+      "specification": {"prediction": "repeat mechanically located trailing state coordinates", "fit": "none", "rollout": "recursive with public future coordinates"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/tensor_persistence_v1.py": "cb533a40bdddf1cd7b47cb99164e1bff96262057eb8522bd8edd5ae83e168784", "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd"},
+      "conformance_tests": [{"path":"tests/test_three_family_continuous_transfer.py","node_id":"tests/test_three_family_continuous_transfer.py::test_persistence_repeats_last_mechanically_located_state","sha256":"af91214290a2adcf8b56619086f7a0c2cc8441c8474f9b22ec68978687a1a433"}]
+    },
+    "tensor_ridge_arx_v1": {
+      "baseline_id": "tensor_ridge_arx_v1", "version": 1,
+      "specification": {"fit": "masked affine ridge lambda 0.001", "rollout": "recursive generic control/state layout", "finite_guard": "clip standardized prediction to +/-1e6 and report stability"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/tensor_ridge_arx_v1.py": "9633e6083388d8fdb401dc1742ae4f90974862eb115e7ddd5c9777c59b56fd74", "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd"},
+      "conformance_tests": [{"path":"tests/test_three_family_continuous_transfer.py","node_id":"tests/test_three_family_continuous_transfer.py::test_ridge_and_recursive_arx_match_affine_reference","sha256":"af91214290a2adcf8b56619086f7a0c2cc8441c8474f9b22ec68978687a1a433"}]
+    },
+    "tensor_rls_arx_v1": {
+      "baseline_id": "tensor_rls_arx_v1", "version": 1,
+      "specification": {"forgetting": 1.0, "initial_covariance": "1000 I", "order": "predict, gain, error, weights, covariance"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/tensor_rls_arx_v1.py": "709e422cdaf36a6cdbf1db103c3500c1df764182b8ae5bc94861757f9a1a481f", "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd"},
+      "conformance_tests": [{"path":"tests/test_three_family_continuous_transfer.py","node_id":"tests/test_three_family_continuous_transfer.py::test_rls_matches_scalar_predict_gain_update_reference","sha256":"af91214290a2adcf8b56619086f7a0c2cc8441c8474f9b22ec68978687a1a433"}]
+    },
+    "tensor_empirical_gaussian_joint_v1": {
+      "baseline_id": "tensor_empirical_gaussian_joint_v1", "version": 1,
+      "specification": {"distribution": "masked empirical joint Gaussian", "prediction": "exact Gaussian conditional mean", "covariance_ridge": 0.000001},
+      "implementation_files": {"src/nextai_autoresearch/candidates/tensor_empirical_gaussian_joint_v1.py": "33b2917d6515c5c27f79fa6efda8f8e47a2ce33030231fc297ec0623cfc2179d", "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd"},
+      "conformance_tests": [{"path":"tests/test_three_family_continuous_transfer.py","node_id":"tests/test_three_family_continuous_transfer.py::test_empirical_joint_matches_gaussian_conditional_reference","sha256":"af91214290a2adcf8b56619086f7a0c2cc8441c8474f9b22ec68978687a1a433"}]
+    },
+    "tensor_contextual_gaussian_chow_liu_v1": {
+      "baseline_id": "tensor_contextual_gaussian_chow_liu_v1", "version": 1,
+      "specification": {"tree": "maximum absolute-correlation spanning tree over input and output variables", "distribution": "Gaussian tree path-product covariance", "prediction": "exact conditional mean"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/tensor_contextual_gaussian_chow_liu_v1.py": "2e5e4f315d664bcd525cda1538325124fd33480e5a6f2d91649e5159789f79dc", "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd"},
+      "conformance_tests": [{"path":"tests/test_three_family_continuous_transfer.py","node_id":"tests/test_three_family_continuous_transfer.py::test_gaussian_chow_liu_propagates_context_through_tree","sha256":"af91214290a2adcf8b56619086f7a0c2cc8441c8474f9b22ec68978687a1a433"}]
+    },
+    "tensor_autoregressive_v1": {
+      "baseline_id": "tensor_autoregressive_v1", "version": 1,
+      "specification": {"fit": "masked affine ARX", "rollout": "predicted state recursively enters next generic input with evaluator-supplied future public coordinates"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/tensor_autoregressive_v1.py": "4e81e6c13a98c1625873facd0a9ca8c06ea85a940fc81862674ac129507e77dd", "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd"},
+      "conformance_tests": [{"path":"tests/test_three_family_continuous_transfer.py","node_id":"tests/test_three_family_continuous_transfer.py::test_ridge_and_recursive_arx_match_affine_reference","sha256":"af91214290a2adcf8b56619086f7a0c2cc8441c8474f9b22ec68978687a1a433"}]
+    },
+    "privileged_tensor_support_v1": {
+      "baseline_id": "privileged_tensor_support_v1", "version": 1,
+      "specification": {"role": "privileged support control; not oracle or bound", "support": "all test-world public support pairs; never query outputs", "frontier": "excluded", "cost": "fully charged"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/privileged_tensor_support_v1.py": "9633e6083388d8fdb401dc1742ae4f90974862eb115e7ddd5c9777c59b56fd74", "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd"},
+      "conformance_tests": [{"path":"tests/test_three_family_continuous_transfer.py","node_id":"tests/test_three_family_continuous_transfer.py::test_frozen_role_names_do_not_alias_causal_controls","sha256":"af91214290a2adcf8b56619086f7a0c2cc8441c8474f9b22ec68978687a1a433"}]
+    }
+  }
+}

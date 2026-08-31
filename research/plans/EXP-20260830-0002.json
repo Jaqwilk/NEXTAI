@@ -1,0 +1,71 @@
+{
+  "alternative_explanations": [
+    "Spadek warm cost może być zwykłą memoizacją identycznych zapytań bez transferu do równoważnych struktur lub nowych problemów."
+  ],
+  "architecture_family": "experience_compilation",
+  "benchmark": "successor_graph_v1",
+  "budget": "screen",
+  "candidates": [
+    "random_guess",
+    "linear_scan",
+    "indexed_graph",
+    "memoized_graph",
+    "compiled_jump"
+  ],
+  "confounds": [
+    "Losowanie zapytań z powtórzeniami powoduje więcej cache hits przy małym K, a D będące potęgami dwójki sztucznie faworyzuje binary lifting; latency i fit time są pomocnicze z powodu szumu systemowego."
+  ],
+  "created_at": "2026-08-30T00:29:04Z",
+  "experiment_id": "EXP-20260830-0002",
+  "falsification_criteria": [
+    "Silna wersja HYP-0011 traci priorytet, jeżeli warm_op_ratio memoized graph przekroczy 0.50, poprawność lub retention spadnie poniżej 1 na dowolnym seedzie, albo koszt invalidacji i stan rosną tak, że nie pozostaje użyteczna przewaga nad indexed graph."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0011",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256,
+      1024
+    ],
+    "queries_per_cell": 64,
+    "reasoning_depths": [
+      1,
+      4,
+      16,
+      64
+    ],
+    "seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Obniżamy priorytet dokładnej memoizacji lub kompilacji, zachowujemy indexed graph jako kontrolę i testujemy radykalnie inną rodzinę reprezentacji.",
+    "null": "Pozostawiamy hipotezę uncertain i projektujemy rozkład zapytań z kontrolowanym reuse, ponieważ obecny benchmark nie rozdziela braku efektu od zbyt małej liczby powtórzeń.",
+    "positive": "Zachowujemy experience compilation jako obiecujący mechanizm redukcji kosztu powtórzeń, ale kierujemy następny test na transfer makr i dependency-aware invalidation."
+  },
+  "parent_experiment_id": "EXP-20260830-0001",
+  "predicted_outcome": "Dokładne kontrole zachowają accuracy i retention równe 1 na trzech seedach. Memoized graph osiągnie warm_op_ratio co najwyżej 0.20 względem własnego cold pass, lecz wykaże koszt pełnej invalidacji cache; compiled jump utrzyma około jednej operacji dla prerejestrowanych potęg dwójki D kosztem większego stanu i aktualizacji; indexed graph pozostanie stabilną kontrolą liniową w D.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "warm_op_ratio",
+    "state_bytes",
+    "update_ops"
+  ],
+  "promotion_criteria": [
+    "Wynik może uzasadnić status promising, ale nie promoted, tylko jeśli efekt replikuje się na wszystkich trzech seedach, warm_op_ratio nie przekracza 0.20, wynik jest accuracy-gated non-dominated, a update cost rośnie podliniowo z K; promocja nadal wymaga adversarial update i transferu do innej rodziny zadań."
+  ],
+  "research_question": "Czy kompilacja powtarzanych ścieżek obniża koszt warm inference na trzech seedach i szerszej macierzy K/D przy pełnej poprawności, bez ukrycia przewagi w stanie oraz koszcie aktualizacji?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Screen replication of experience compilation trade-offs"
+}

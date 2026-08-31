@@ -1,0 +1,74 @@
+{
+  "alternative_explanations": [
+    "Any gain may come entirely from an explicit one-dimensional convergence coordinate already represented inside the learned transition rather than from transferable adaptive computation.",
+    "Dense transition accounting may make halting look favorable only because zero or low-rank weights are executed as a full matrix."
+  ],
+  "architecture_family": "shared_transition_adaptive_recurrence",
+  "benchmark": "shared_transition_adaptive_compute_v2",
+  "budget": "quick",
+  "candidates": [
+    "random_shared_halt",
+    "fixed_short_shared_transition",
+    "fixed_max_shared_transition",
+    "residual_shared_transition",
+    "transition_gate_halt",
+    "learned_adaptive_halt",
+    "act_ponder_halt",
+    "oracle_shared_halt"
+  ],
+  "confounds": [
+    "One visible synthetic low-rank attractor, one seed, train depths at most four, OOD depth six, exact event tokenization and deterministic convergence limit external validity.",
+    "The oracle receives true required depth and is a capability-cost bound only."
+  ],
+  "created_at": "2026-08-30T08:08:02Z",
+  "experiment_id": "EXP-20260830-0031",
+  "falsification_criteria": [
+    "The learned halt policy has below 0.95 accuracy on any registered depth, stops prematurely on D=6 OOD, or its transition calls fail to track required depth.",
+    "A residual, transition-gate or fixed control matches capability while dominating the learned policy in full workload, state and fit accounting."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0004",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Discard the tested controller without tuning if it halts prematurely, fails OOD length transfer, or loses the quality-work trade-off to fixed max.",
+    "null": "Preserve adaptive stopping as a classical implementation pattern but return HYP-0004 to dormant if the shared gate or residual achieves the same savings more cheaply.",
+    "positive": "Keep HYP-0004 testing and preregister a multi-seed adversarial screen only if learned halting is exact on D=6 and non-dominated by both transition-gate and residual controls."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Adaptive policies should make transition calls track true convergence depth and reduce balanced full workload versus fixed-max because every dense learned transition is expensive; the decisive uncertainty is whether a learned controller remains non-dominated after comparing with the shared transition's own gate and a residual stop.",
+  "primary_metrics": [
+    "accuracy",
+    "near_equivalent_accuracy",
+    "mean_query_ops",
+    "mean_transition_calls",
+    "workload_ops",
+    "state_bytes",
+    "knowledge_compute_slope",
+    "depth_compute_slope"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; only exact OOD capability and non-dominated full workload against transition-gate and residual controls may justify a three-seed adversarial screen."
+  ],
+  "research_question": "When fixed and adaptive solvers share exactly the same learned nonlinear recurrent transition and raw input, can a learned halt policy preserve train and longer-depth OOD capability while reducing full-system work beyond fixed-depth, residual and transition-gate controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Adaptive compute with an identical learned nonlinear transition"
+}

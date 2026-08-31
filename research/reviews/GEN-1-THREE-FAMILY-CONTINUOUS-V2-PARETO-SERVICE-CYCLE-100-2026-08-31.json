@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-31T00:10:33Z",
+  "cycle": 100,
+  "event": "three_family_continuous_v2_pareto_service_completed",
+  "benchmark": "heldout_three_family_continuous_transfer_v2",
+  "decision": "keep",
+  "scoring_performed": false,
+  "experiment_plan_created": false,
+  "scoring_seed_created": false,
+  "pytest_passed": 319,
+  "integrity_checked_files": 494,
+  "evaluator_sha256": "b035558e9ac636952c975f2e708032e55eedb1741de46c57cf96a754e93c2107",
+  "candidate_bundle_sha256": "527286f65943ac5cc65324a0361612fb16d217b9d9f8db686047354c951dc142",
+  "manifest_sha256": "ceeea7402fbaa99b81c63e8e1ca048ed69300a47ac76904f4809c981a804bf8d",
+  "preflight_certificate_sha256": "cde230bd44cec1867f9363536527106f1127613a257a10edbfe547f27ccb9bbb",
+  "artifact_counts": {"plans": 61, "results": 53, "plan_registry_events": 61, "ledger_lines": 384},
+  "next_discriminator": "Preregister one quick source-identical permutation-invariant bounded residual learner around persistence using the v2 universal capability frontier and both positive causal gates."
+}

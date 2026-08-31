@@ -1,0 +1,82 @@
+{
+  "alternative_explanations": [
+    "A finite binary gate library and repeated opaque sensor identities may still carry most of the ontology; robust aggregation could be ordinary symbolic system identification rather than a general learned predictive state.",
+    "The dense random-feature model may underfit combinatorial pairs because of its fixed local budget, so a factorized win would isolate compositional bias only against this declared nonlinear baseline, not against all neural predictors.",
+    "If both learned systems fail while oracle representation succeeds, unknown alignment rather than causal factorization is the binding problem."
+  ],
+  "architecture_family": "noisy_latent_causal_predictive_state",
+  "benchmark": "noisy_nonexhaustive_causal_transfer_v3",
+  "budget": "quick",
+  "candidates": [
+    "random_latent_independent",
+    "latent_majority_guess",
+    "dense_random_feature_causal",
+    "noisy_factorized_dense",
+    "noisy_factorized_local",
+    "oracle_representation_noisy",
+    "oracle_noisy_causal"
+  ],
+  "confounds": [
+    "All variables remain binary and the active DAG family is generated from a finite hand-written unary/binary gate set; no language or raw modality claim is permitted.",
+    "Training repeats make denoising possible, while independence and finite-sample noise variation can differ by cell; report actual noise, coverage and per-cell recovery."
+  ],
+  "created_at": "2026-08-30T04:26:48Z",
+  "experiment_id": "EXP-20260830-0020",
+  "falsification_criteria": [
+    "End causal-DAG toy exploitation and lower HYP-0008 if noisy_factorized_local has accuracy, OOD accuracy, target mapping, active structure or gate accuracy below 0.95 in any cell, or fails any seed-free control-integrity gate; do not patch or rescore this cohort.",
+    "Treat the architectural advantage as null and make HYP-0008 dormant if dense_random_feature_causal matches factorized accuracy within 0.10 while using no more state, or if noisy_factorized_dense matches local total operations after complete raw encoding so locality contributes no end-to-end advantage."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0008",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If exact recovery or clean OOD composition disappears under registered noise and incomplete intervention coverage, lower HYP-0008 and stop exploiting the causal-DAG toy family; preserve the failed result and pivot to another principle.",
+    "null": "If factorization is exact but dense learning matches capability-cost or oracle representation explains the whole gain, lower confidence and make the family dormant rather than tune another causal toy.",
+    "positive": "Keep HYP-0008 testing only if factorization is exact in every cell, exceeds the learned dense model by at least 0.15 accuracy, is non-dominated by learned controls and preserves a strictly lower local execution cost; then preregister an unchanged multi-seed screen."
+  },
+  "parent_experiment_id": "EXP-20260830-0019",
+  "predicted_outcome": "Training exposes every active opaque intervention token only as noisy single interventions in 8 of 32 contexts, with no scored pair present and no distractor interventions. Labels and observations have approximately 10 percent independent noise. Random and majority remain at or below 0.625. The nonlinear dense random-feature learner improves over chance but does not systematically compose held-out pairs. Robust factorization, its dense-execution ablation and both oracle controls are predicted to reach at least 0.95 clean OOD accuracy, mapping, active structure and gate accuracy; local execution is K-invariant but raw encoding makes full query cost grow with K. The local factorized candidate should exceed the learned dense predictor by at least 0.15 accuracy and use no more persistent state, while oracle representation exposes the cost of learning opaque alignment.",
+  "primary_metrics": [
+    "accuracy",
+    "ood_intervention_accuracy",
+    "target_mapping_accuracy",
+    "structure_accuracy",
+    "gate_accuracy",
+    "training_noise_rate",
+    "intervention_context_coverage",
+    "unseen_pair_rate",
+    "mean_encoding_ops",
+    "mean_representation_ops",
+    "mean_local_ops",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote HYP-0008. A later status increase would require an unchanged multi-seed adversarial screen, exact clean OOD composition, at least 0.15 accuracy over the learned dense baseline, non-domination by learned controls, stable uncertainty under genuinely independent noise, and explicit comparison with SRC-0018 through SRC-0021."
+  ],
+  "research_question": "When training observations and labels contain ten percent noise, only single interventions from a sparse context-target matrix are observed, intervention targets remain opaque and every scored pair is unseen, does learned factorization retain exact OOD composition and a capability-cost advantage over a nonlinear learned dense predictor?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Noisy non-exhaustive causal transfer versus a learned dense model"
+}

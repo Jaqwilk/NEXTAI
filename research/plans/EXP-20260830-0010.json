@@ -1,0 +1,71 @@
+{
+  "alternative_explanations": [
+    "The gain may come entirely from being handed the active source and random-access grid, making the event queue an ordinary BFS index rather than a learned cellular principle.",
+    "A monotone linearly separable rule may make scheduling trivial; richer learned dynamics could require revisiting dormant cells or global synchronization.",
+    "Operation counting may favor event execution even if irregular memory access is slower on hardware."
+  ],
+  "architecture_family": "sparse_neural_cellular",
+  "benchmark": "cellular_propagation_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_cellular_guess",
+    "learned_synchronous_ca",
+    "learned_event_queue_ca",
+    "oracle_event_queue_ca",
+    "sparse_grid_bfs"
+  ],
+  "confounds": [
+    "The local rule is learned from its complete four-case truth table, the corridor is synthetic and visible, and no raw perception or language interface is included.",
+    "K changes dense dormant area but not the size of the active causal corridor; this intentionally tests irrelevant-state scaling only."
+  ],
+  "created_at": "2026-08-30T01:55:07Z",
+  "experiment_id": "EXP-20260830-0010",
+  "falsification_criteria": [
+    "Kill the current event-queue implementation if it is inexact, fails either single-damage or double-block cases, has query-operation K slope above 0.25, grows mean cell updates by more than 25% from K=8 to K=32 at fixed depth, or fails to save at least 50% query operations versus the matched synchronous learner at K=32 and D=4/6."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0006",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "The event implementation loses correctness, damage behavior, or irrelevant-state scaling after full accounting; discard this implementation and reduce confidence in HYP-0006 without patching the benchmark.",
+    "null": "Event scheduling avoids the sweep but is cost-equivalent to or dominated by sparse BFS and supplies no distinct learned-cellular property; reduce HYP-0006 priority and test a different principle.",
+    "positive": "Sparse event scheduling preserves exact learned local propagation with near-zero irrelevant-state compute slope; retain only this bounded structural signature and use the BFS/oracle bounds to decide whether HYP-0006 merits an adversarial screen."
+  },
+  "parent_experiment_id": "EXP-20260830-0009",
+  "predicted_outcome": "All non-random candidates reach accuracy, single-damage accuracy, and double-block accuracy 1.0. Learned synchronous compute has K slope between 1.5 and 2.3, while learned event-queue K slope is at most 0.15 and its mean cell updates at K=32 differ by at most 10% from K=8 at each depth. At K=32 and D=4/6, learned event query operations are at least 80% below the learned synchronous sweep. The oracle event queue and sparse BFS expose whether learned rule evaluation or generic graph traversal accounts for the remaining cost.",
+  "primary_metrics": [
+    "accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "mean_cell_updates",
+    "damage_accuracy",
+    "blocked_accuracy",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick budget cannot promote HYP-0006. A later screen is justified only if exactness and the preregistered K-scaling signature hold, learning and dense input-state costs are fully charged, and event dynamics show a robustness or transfer property not already matched more cheaply by sparse BFS."
+  ],
+  "research_question": "With the same learned local transition rule and dense substrate representation, can event scheduling keep active computation independent of dormant grid size while preserving propagation and single-cell damage tolerance, or is the mechanism only sparse graph traversal?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Learned local rule: synchronous sweep versus event queue"
+}

@@ -1,0 +1,63 @@
+{
+  "alternative_explanations": [
+    "The learned energy may simply reconstruct a classical parity-check graph; exact minimum-distance decoding or Sipser-Spielman-style bit flipping may explain all recovery more cheaply."
+  ],
+  "architecture_family": "energy_based_cross_task_relaxation",
+  "benchmark": "ambiguous_cross_task_energy_transfer_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_parity_guess",
+    "nearest_code_memory",
+    "classical_hopfield_parity",
+    "exact_affine_span_decoder",
+    "sequential_factor_energy",
+    "learned_parallel_parity_energy",
+    "oracle_parallel_parity_energy"
+  ],
+  "confounds": [
+    "The 63-bit simplex family has large distance, six latent degrees of freedom and basis-spanning training even at K=8; K adds examples from one family rather than independent open-world facts. Hidden column permutation and affine polarity remove stable message IDs but do not make the task representative of language. All candidates receive the same corrupted raw bits and D budget; factor discovery, full span construction, scans, rounds, state, update and workload are charged."
+  ],
+  "created_at": "2026-08-30T08:39:37Z",
+  "experiment_id": "EXP-20260830-0033",
+  "falsification_criteria": [
+    "Make HYP-0007 dormant if learned parallel energy is below 0.95 accuracy in any cell, produces spurious non-codewords, differs materially from oracle factor behavior because factor learning fails, or is dominated in capability and full cost by exact affine decoding or sequential classical factor descent."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0007",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Failure on held-out codewords, deeper corruption or ambiguity would reject this implementation and make HYP-0007 dormant without tuning.",
+    "null": "Matched recovery with dominance by exact affine decoding or equivalence to classical bit flipping would show that energy is only an alternative description of known error correction and make HYP-0007 dormant.",
+    "positive": "Only a non-dominated learned parallel result distinct from exact and bit-flip controls would justify a broader overlapping-factor screen; no claim about LLM replacement is permitted."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Training examples span one hidden six-bit affine family but expose no message or task ID. Stored nearest and Hopfield should fail on held-out codewords. Exact affine decoding, learned parallel energy, sequential factor descent and oracle factors should recover most or all cells; learned parallel must use one update round, but exact decoding is predicted to match capability with lower state or full workload, making the likely outcome a classical-decoding null rather than an energy advantage.",
+  "primary_metrics": [
+    "accuracy"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. Advance only if learned parallel has at least 0.95 cold/warm/near accuracy in every cell, zero spurious rate, one monotonic round, a distinct non-dominated full-system signature versus exact affine and sequential controls, positive reusable structure learning, local update retention, integrity PASS, and a plausible distinction from SRC-0081 through SRC-0083."
+  ],
+  "research_question": "Can a learned third-order energy over densely overlapping hidden constraints recover held-out affine codewords from D=1/4/6 corruptions in one parallel relaxation while beating exact learned affine-span decoding, sequential factor descent, Hopfield retrieval and stored nearest neighbours after full fit/state/update/workload accounting?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Overlapping-factor energy transfer without task IDs"
+}

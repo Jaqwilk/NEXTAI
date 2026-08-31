@@ -1,0 +1,143 @@
+{
+  "alternative_explanations": [
+    "Any gain may be ordinary finite-map completion or evaluator-specific consistency closure already explained more cheaply by exact MDL, spectral weighted automata or constrained matrix completion."
+  ],
+  "architecture_family": "anonymous_operator_algebra_completion",
+  "benchmark": "heldout_mechanism_recombination_v3",
+  "budget": "quick",
+  "candidates": [
+    "operator_algebra_completion",
+    "operator_algebra_independent",
+    "operator_algebra_no_relations",
+    "unigram_recombination",
+    "markov5_recombination",
+    "nearest_template_recombination",
+    "exact_mdl_module_library",
+    "oracle_composition_graph"
+  ],
+  "confounds": [
+    "Invalidate on fixture failure, state-ID or world-order non-equivariance, train/test composition overlap, privileged labels or generator access, target or seed leakage, post-score tuning, semantic-baseline mismatch, state-budget breach or evaluator digest change."
+  ],
+  "created_at": "2026-08-30T18:21:31Z",
+  "evaluator_sha256": "c57762ee52133e5fa8cf732d8c5c844dd877bbdccabb58edb3cce4a0858ed553",
+  "experiment_id": "EXP-20260830-0057",
+  "falsification_criteria": [
+    "Discard this exact learner if the preregistered partial-permutation fixture is not solved exactly under state relabeling and world-order permutation, scored accuracy is below 0.95, minimum-combination accuracy is below 0.90, either causal ablation is within 0.10, or a simpler implementable control Pareto-dominates it."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0022",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "mechanism_recombination_protocol": {
+    "classical_baselines": [
+      "unigram_recombination",
+      "markov5_recombination",
+      "nearest_template_recombination",
+      "exact_mdl_module_library",
+      "oracle_composition_graph"
+    ],
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "equal_public_shapes": true,
+    "heldout_compositions": [
+      "CB"
+    ],
+    "independent_ablation": "operator_algebra_independent",
+    "invalidation_rules": [
+      "Invalidate on any overlap between registered training and held-out compositions.",
+      "Invalidate if module IDs, source families, native types, extraction paths or the composition graph reach an implementable candidate.",
+      "Invalidate if public support, query or target shapes identify a composition above chance plus 0.10.",
+      "Invalidate if scoring-state conjugation or support partitions are realized before integrity and source audit.",
+      "Invalidate on target access, scoring-seed leakage, post-score tuning, state-budget breach or evaluator-integrity change."
+    ],
+    "mechanism_source_seed": 1103,
+    "no_cross_mechanism_ablation": "operator_algebra_no_relations",
+    "runner_random_state_conjugation": true,
+    "shared_candidate": "operator_algebra_completion",
+    "source_mechanisms": [
+      "program_table",
+      "predictive_transition_outcome",
+      "local_dynamics_rule"
+    ],
+    "state_budget_bytes": 4194304,
+    "state_count": 144,
+    "train_compositions": [
+      "A",
+      "B",
+      "C",
+      "AA",
+      "AB",
+      "AC",
+      "BA",
+      "BB",
+      "BC",
+      "CA",
+      "CC"
+    ]
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_combination_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops": "minimize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A crash rejects only the implementation; fixture, leakage, seed, semantic-control or integrity failure invalidates the experiment and permits no scientific interpretation.",
+    "null": "A valid null makes this exact equation-propagation learner dormant without tuning the frozen split, support, role contract, controls or thresholds after observing scores.",
+    "positive": "A valid one-seed result meeting the fixture, quality, ablation and Pareto gates supports only preregistering unchanged adversarial replication; it is not promotion or evidence of general intelligence."
+  },
+  "parent_experiment_id": "EXP-20260830-0056",
+  "predicted_outcome": "The shared relation learner is unlikely but testably capable of exact partial-permutation completion and at least 0.95 held-out accuracy, 0.90 minimum-combination accuracy and 0.10 advantage over both source-identical ablations; exact MDL is the strongest implementable null.",
+  "primary_metrics": [
+    "accuracy",
+    "minimum_combination_accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; one valid positive seed may authorize only an unchanged three-seed adversarial replication with a new held-out composition and all semantic, integrity and full-cost gates intact."
+  ],
+  "research_question": "Can one permutation-equivariant operator-equation learner complete the unseen ordered CB map more accurately per fully charged cost than direct pair selection, independent fitting, no-relation propagation and frozen classical controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Anonymous operator-algebra completion on held-out recombination"
+}

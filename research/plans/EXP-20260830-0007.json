@@ -1,0 +1,71 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from a favorable grammar ordering rather than a reusable semantic abstraction.",
+    "Four input-output examples may admit a shorter semantically equivalent program.",
+    "The synthetic corpus may reveal the motif more cleanly than realistic program corpora."
+  ],
+  "architecture_family": "program_induction",
+  "benchmark": "program_library_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_program_guess",
+    "primitive_program_search",
+    "exact_program_memo",
+    "mismatched_library_search",
+    "oracle_library_search",
+    "learned_library_search"
+  ],
+  "confounds": [
+    "Program length is supplied to all solvers.",
+    "Primitive semantics and DSL are hand-provided, while only the macro is discovered.",
+    "Quick uses one seed and cannot establish robustness."
+  ],
+  "created_at": "2026-08-30T01:18:12Z",
+  "experiment_id": "EXP-20260830-0007",
+  "falsification_criteria": [
+    "Learned-library held-out accuracy is below primitive-only accuracy.",
+    "At D=4/6 the learned library reduces cold operations by less than 30 percent or is matched by exact memo.",
+    "Discovery plus library state cannot amortize within the preregistered eight-task cell."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0002",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "This extractor or corpus construction fails the discriminating transfer test; preserve it and change family or mechanism rather than tune after the result.",
+    "null": "Library extraction works mechanically but does not improve end-to-end held-out search enough to prioritize this implementation.",
+    "positive": "The minimal induced library shows a local held-out search-compression signal worth multi-seed adversarial replication, not evidence of general intelligence."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The learned library will recover the repeated fragment without a motif label, retain exact held-out accuracy, and reduce D=4/6 cold search operations by at least 30 percent versus primitive-only and exact memo; mismatch will not help and oracle bounds the attainable gain.",
+  "primary_metrics": [
+    "accuracy",
+    "mean_query_ops",
+    "fit_ops",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick evidence may only justify a screen replication when exact accuracy is preserved, D=4/6 operations fall by at least 30 percent, mismatch does not reproduce the gain, and total discovery cost amortizes within eight held-out tasks."
+  ],
+  "research_question": "Does an automatically extracted repeated program fragment reduce exact held-out synthesis search beyond primitive-only enumeration and exact-query memoization after charging discovery and state?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Held-out program search with an induced reusable library"
+}

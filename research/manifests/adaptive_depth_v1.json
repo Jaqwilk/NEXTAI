@@ -1,0 +1,31 @@
+{
+  "benchmark_version": "adaptive_depth_v1",
+  "created_at": "2026-08-30T00:46:22Z",
+  "files": {
+    "config/research.toml": "8b1404afde2e01a5f7c17568405fa12c704e0ea45957bb4db07699f8fee9016b",
+    "schemas/experiment_plan.schema.json": "5b18e3661fc8a8c069f9568c044b6fa2f7d3b7ef26ed0b53e9e4a702b1883034",
+    "schemas/experiment_result.schema.json": "76b0b0a13c25a188e728a308b1f73348115201bb6c8973a98c92a398952c3167",
+    "schemas/hypothesis.schema.json": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
+    "schemas/research_state.schema.json": "01a8f12022a5d51322d74f497f419578565d283bf90b89784090e81274e8d40f",
+    "schemas/source.schema.json": "dbacf05397d719e2e8594af5c0061fc03b191df50f0985ea42b01d09464ae057",
+    "src/nextai_autoresearch/audit.py": "883674ecc030b29b0ae5752829cda4bee61efbca0041a89379fdff38d1115870",
+    "src/nextai_autoresearch/benchmarks/adaptive_depth_v1.py": "680742fc572e3aabae7531fc972215fa6a7fc97b3cab9f212f5f632733ef65f5",
+    "src/nextai_autoresearch/benchmarks/successor_graph_v1.py": "40ca861de2dfacafefc9b22e6e19a13bdf7cb657451adf56be0d7687a12f5df2",
+    "src/nextai_autoresearch/candidates/adaptive_indexed.py": "6081be6ee3f64c991fea9219a6c49a027255f7145ff0d670b94d0dfa5d302c5a",
+    "src/nextai_autoresearch/candidates/adaptive_linear_scan.py": "08692356fc8294a57024af79c3c79aeea9ec7d262c6f9c2dfee0bbb36ba0185c",
+    "src/nextai_autoresearch/candidates/base.py": "4569d5001e4f2e70fadedc46763acc9d88d3a058199ad9fe19b2c2efbd29578b",
+    "src/nextai_autoresearch/candidates/compiled_jump.py": "b72888370ac29a392edfe2c53e42b03f0bcfb30f98fd4a5bfaf45d470e95a1b2",
+    "src/nextai_autoresearch/candidates/dense_recurrent.py": "22f3623853ee92697b5a2d39f67448e0e88329a258e5a0fc7f7ba808e23781fa",
+    "src/nextai_autoresearch/candidates/fixed_max_indexed.py": "25e0d11ebae46ba410fd180776e435902397bae37711726a97a0ef74374646ba",
+    "src/nextai_autoresearch/candidates/fixed_short_indexed.py": "91c9d02ffef1e75f0d1d2fe4bca8e08aac2f47540c4c276e0b1fc872a94633fd",
+    "src/nextai_autoresearch/candidates/indexed_graph.py": "fb7e97a830879ce75605e409d225e75475a63b103edd4af2a7d49c601384ed3b",
+    "src/nextai_autoresearch/candidates/linear_scan.py": "8419b9705b96e435e1b06b11da6ed864bb754647c5b6633b34c772533af60f60",
+    "src/nextai_autoresearch/candidates/memoized_graph.py": "b9d39fcf8ea90f8a5e2092d0707dc99f91b54eda672f3266814ba9ecb3b501df",
+    "src/nextai_autoresearch/candidates/random_guess.py": "790f83cfa8e7702e76abb663d82576230cea18f4fb111961ee0a64b98b7be1c7",
+    "src/nextai_autoresearch/metrics.py": "0d3c7e4b8720d40c3a9536853ff1b256cca60c53eaf7065385260e7809e965a0",
+    "src/nextai_autoresearch/pareto.py": "b794930213a2dd3f32c49d24dbdb5285c0ead6608b788be1be86ab35a60c2c96",
+    "src/nextai_autoresearch/runner.py": "c9b531ca69ed7a19981939c105e9df5e4e38825e2bf5830a63b10fe8138d8cae",
+    "src/nextai_autoresearch/worker.py": "0512b9a434104ac0b1f9bfbbe109a20aab776915a333a1150ebd56e9f63f4a38"
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,169 @@
+{
+  "alternative_explanations": [
+    "Any apparent gain may be ordinary shrinkage from a pooled linear prior, finite-sample regularization, closed-loop trajectory similarity or controller artifacts rather than transferable fault dynamics."
+  ],
+  "architecture_family": "shared_low_rank_dynamics_transfer",
+  "benchmark": "heldout_dronepropa_factor_recombination_v4",
+  "budget": "quick",
+  "candidates": [
+    "shared_operator_subspace_arx",
+    "persistence_state_v1",
+    "ridge_arx_v1",
+    "rls_arx_v1",
+    "nearest_operator_template_v1",
+    "source_identical_independent_arx_v1",
+    "no_sharing_pooled_arx_v1",
+    "empirical_gaussian_joint_v1",
+    "contextual_gaussian_chow_liu_v1",
+    "oracle_charged_condition_specialist_arx_v2",
+    "privileged_same_condition_oracle_arx_v2"
+  ],
+  "confounds": [
+    "Invalidate on any condition, trajectory, speed, drone, repetition, timestamp, path, filename, hash, test target or privileged-support access; train/test window overlap; post-score tuning; baseline semantic mismatch; state-budget breach; corpus mismatch; or evaluator digest change."
+  ],
+  "created_at": "2026-08-30T20:59:48Z",
+  "dronepropa_protocol": {
+    "adaptation_anchors_per_file": 32,
+    "candidate_metadata": "anonymous_slots_only",
+    "classical_baselines": [
+      "persistence_state_v1",
+      "ridge_arx_v1",
+      "rls_arx_v1",
+      "nearest_operator_template_v1",
+      "source_identical_independent_arx_v1",
+      "no_sharing_pooled_arx_v1",
+      "empirical_gaussian_joint_v1",
+      "contextual_gaussian_chow_liu_v1",
+      "oracle_charged_condition_specialist_arx_v2",
+      "privileged_same_condition_oracle_arx_v2"
+    ],
+    "corpus_id": "dronepropa_doi_10.17632_ftdyxrr3c5_v1",
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "evaluation_anchors_per_file": 128,
+    "future_controls": "evaluator_supplied_identically",
+    "future_targets": "forbidden",
+    "history_samples": 32,
+    "independent_ablation": "source_identical_independent_arx_v1",
+    "invalidation_rules": [
+      "Invalidate on any archive, file-manifest, split-manifest, raw MAT or numeric-payload hash mismatch.",
+      "Invalidate if any implementable candidate receives a source name, path, factor label, trajectory, speed, drone, repetition, timestamp or condition ID.",
+      "Invalidate if any file or history/target window crosses train, validation, test, OOD or privileged-oracle-support roles.",
+      "Invalidate if any candidate-visible feature reads outside the frozen adaptation boundary or if evaluation targets reach fit/adaptation.",
+      "Invalidate if normalization, rank, ridge, horizons, anchors, thresholds or baseline semantics change after scoring output.",
+      "Invalidate if a mandatory baseline hash or conformance test fails before runner seed realization.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "no_sharing_ablation": "no_sharing_pooled_arx_v1",
+    "rollout_horizons": [
+      10,
+      50
+    ],
+    "runner_random_evaluation_anchors": true,
+    "shared_candidate": "shared_operator_subspace_arx",
+    "split_manifest_sha256": "fddd1c98aae13460ec58af25dbbea94f6f25177486da59a1e94f6a25f844a0e4",
+    "split_unit": "whole_mat_file_sha256",
+    "state_budget_bytes": 67108864,
+    "teacher_forced_horizon": 1,
+    "test_tuning": "forbidden",
+    "train_anchors_per_file": 128
+  },
+  "evaluator_sha256": "ed1382186e00e9c6de1957ac23f0c20cd4e79dd14b52bab486c372e9d8a467f2",
+  "experiment_id": "EXP-20260830-0058",
+  "falsification_criteria": [
+    "Discard this exact learner if its preregistered semantic fixture fails or changes under anonymous flight permutation; if either minimum condition or trajectory transfer gain is non-positive; if oracle-gap closure is non-positive; if rollouts are non-finite; or if a simpler implementable control Pareto-dominates it."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0023",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 128,
+    "reasoning_depths": [
+      1
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "conditional_log_loss": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_condition_transfer_gain": "maximize",
+    "minimum_trajectory_transfer_gain": "maximize",
+    "normalized_rmse": "minimize",
+    "oracle_gap_closed": "maximize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "rollout_10_nrmse": "minimize",
+    "rollout_50_nrmse": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "teacher_forced_nrmse": "minimize",
+    "update_ops": "minimize",
+    "workload_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_condition_normalized_rmse": "minimize",
+    "worst_flight_normalized_rmse": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A candidate crash or numeric failure rejects only this implementation; leakage, semantic-control, corpus, seed, budget or integrity failure invalidates the experiment and contributes no scientific evidence.",
+    "null": "A valid null discards this exact rank-12 operator-subspace learner without tuning rank, ridge, history, anchors, split, horizons, thresholds or budgets against the observed seed.",
+    "positive": "A valid one-seed positive supports only that this fixed low-rank representation merits unchanged multi-seed replication on the same real cohort; it does not establish cross-benchmark transfer, a scaling law or an LLM successor."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The shared rank-12 learner may lower 1/10/50 NRMSE in every held-out condition and trajectory relative to independent and no-sharing ARX while retaining finite rollouts and positive oracle-gap closure; strong contextual Chow-Liu and empirical-joint controls may instead dominate after full cost.",
+  "primary_metrics": [
+    "normalized_rmse",
+    "teacher_forced_nrmse",
+    "rollout_10_nrmse",
+    "rollout_50_nrmse",
+    "worst_flight_normalized_rmse",
+    "worst_condition_normalized_rmse",
+    "stable_rollout_rate",
+    "conditional_log_loss",
+    "oracle_gap_closed",
+    "minimum_condition_transfer_gain",
+    "minimum_trajectory_transfer_gain",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. One valid seed with positive condition and trajectory transfer, positive oracle-gap closure, finite rollouts and implementable Pareto non-dominance may authorize only an unchanged three-seed screen with the same rank, split, anchors, horizons, thresholds and controls."
+  ],
+  "research_question": "Can one unchanged rank-12 operator-subspace learner transfer controlled dynamics to unseen fault-severity and trajectory worlds with better quality per fully charged cost than independent, pooled, probabilistic and privileged controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Shared rank-12 operator-subspace transfer on unseen DronePropA worlds"
+}

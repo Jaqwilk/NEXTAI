@@ -1,0 +1,21 @@
+{
+  "classification": "diagnostic_history_not_scientific_evidence",
+  "experiment_id": "EXP-20260830-0055",
+  "reason": "The final result schema rejected a preregistered summary field; the plan is terminally invalidated and these worker artifacts cannot be promoted into a scientific result.",
+  "runtime_plan": {
+    "path": "research/tmp/EXP-20260830-0055/runtime-plan.json",
+    "scoring_seeds": [1598672193],
+    "sha256": "93598633fd6ed32a3ef758f154b8bc7d8a3e6321208b1e3822b20fd7dcc134e7"
+  },
+  "schema_version": 1,
+  "worker_outputs": {
+    "exact_mdl_module_library": {"path": "research/tmp/EXP-20260830-0055/exact_mdl_module_library.json", "sha256": "a7466022a4b5e618afb6988cd477621e97b717305b40892a56b1d6e1cc49b78d"},
+    "independent_latent_mechanism_library": {"path": "research/tmp/EXP-20260830-0055/independent_latent_mechanism_library.json", "sha256": "949b494065aa663f8a1a7a04ce730815729c13dfbfad5a77d7345b9a45bd1b65"},
+    "markov5_recombination": {"path": "research/tmp/EXP-20260830-0055/markov5_recombination.json", "sha256": "14cc82467ae04550b8d7685ac5c7c373ddd1771a0301d5bee8443a7c18a5958c"},
+    "nearest_template_recombination": {"path": "research/tmp/EXP-20260830-0055/nearest_template_recombination.json", "sha256": "b834764cc5916f30b2dffc80875b48074d6b36dfc70995fc0f48653942eb9e91"},
+    "no_cross_mechanism_factorizer": {"path": "research/tmp/EXP-20260830-0055/no_cross_mechanism_factorizer.json", "sha256": "1f65db0dd57b7c6a018368879e8ffba287ad5a3a1ba3bb51bf3a7c699b4e032c"},
+    "oracle_composition_graph": {"path": "research/tmp/EXP-20260830-0055/oracle_composition_graph.json", "sha256": "7d4eb63f535bec1f694171388bd2ae35c21b8bcac1b2fd604c545f5ecadbfcb3"},
+    "shared_latent_mechanism_library": {"path": "research/tmp/EXP-20260830-0055/shared_latent_mechanism_library.json", "sha256": "c3aa88915a7385287ff13330e2c30fd4b24ea677434af263d35ad263580743b0"},
+    "unigram_recombination": {"path": "research/tmp/EXP-20260830-0055/unigram_recombination.json", "sha256": "a61e3866263babd0c9c11aec71be2e5d10a9fae516606b88d3a0421ca1d4d24c"}
+  }
+}

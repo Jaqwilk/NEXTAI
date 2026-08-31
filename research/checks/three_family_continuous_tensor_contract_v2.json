@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "contract_version": 2,
+  "created_at": "2026-08-30T23:22:17Z",
+  "parent_path": "research/checks/three_family_continuous_tensor_contract_v1.json",
+  "parent_sha256": "b7baac79b73658ff622e7527d1197d1691b198f34f9773289441ded3f879a3a2",
+  "parent_status": "invalid_pre_protected_implementation_misnamed_ablation",
+  "correction": "V1 called the leave-one-family-out control no_cross_family even though it receives only the other families. No predictive metric, scoring seed, candidate or protected implementation existed. V2 changes only that causal-control name and its success statement; all tensors, families, masks, padding, normalization, loss, costs and forbidden behavior inherit unchanged from V1.",
+  "inherit_all_parent_fields_except": ["status", "causal_candidates", "transfer_success_requires"],
+  "status": "frozen_shape_gate_passed_pending_protected_implementation",
+  "causal_candidates": {
+    "shared": "one source-identical learner and hyperparameter set slow-fitted on pooled training worlds from all three families",
+    "independent": "source-identical clones slow-fitted separately per evaluator-private family group; all clone fit/state/costs are summed",
+    "cross_family_only": "for each evaluated family, the same learner excludes all slow-fit worlds from that family, receives only the other two families, and adapts on identical public support",
+    "support_only": "same learner with no slow-fit worlds, adapted on identical public support"
+  },
+  "transfer_success_requires": [
+    "shared beats independent on overall and minimum-family capability",
+    "cross_family_only beats support_only in every family",
+    "shared is not Pareto-dominated by independent, pooled probabilistic or native specialist controls",
+    "family router accuracy is reported but never itself counted as transfer",
+    "all acquisition, serialization, normalization, slow fit, support adaptation, query, update, bytes, state and R1/R4/R16 costs are charged"
+  ]
+}

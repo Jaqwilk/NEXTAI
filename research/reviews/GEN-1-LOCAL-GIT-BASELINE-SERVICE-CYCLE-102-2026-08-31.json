@@ -1,0 +1,23 @@
+{
+  "benchmark_unchanged": "heldout_three_family_continuous_transfer_v2",
+  "candidate_bundle_sha256": "6d89cd44f610e40d1ec4d9b6a04b5751086520a3dcc4c094176b8db04a99a283",
+  "created_at": "2026-08-31T00:26:04Z",
+  "decision": "create_local_baseline_snapshot",
+  "evaluator_sha256": "b035558e9ac636952c975f2e708032e55eedb1741de46c57cf96a754e93c2107",
+  "event": "local_git_baseline_service_cycle",
+  "excluded_payload_extensions": ["zip", "h5", "npy", "mat"],
+  "git_head_before": null,
+  "hypothesis_created": false,
+  "integrity_checked_files": 494,
+  "large_payloads_deleted": false,
+  "plan_created": false,
+  "preflight_certificate_sha256": "d6c8b6ba63341495fdc78d505c1e5ccedb5d402bf9a2876151f4f15aa2f0ca99",
+  "publish_or_push_performed": false,
+  "pytest_passed": 319,
+  "remote_configured": false,
+  "review_path": "research/reviews/GEN-1-LOCAL-GIT-BASELINE-SERVICE-CYCLE-102-2026-08-31.md",
+  "schema_or_benchmark_changed": false,
+  "scoring_performed": false,
+  "snapshot_file_count_before_service_records": 884,
+  "snapshot_mebibytes_before_service_records": 14.65
+}

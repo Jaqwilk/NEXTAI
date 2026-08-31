@@ -1,0 +1,65 @@
+{
+  "alternative_explanations": [
+    "Lepszy wynik może wynikać z ręcznie nadanych losowych kodów encji i prostego zamkniętego świata, a gorszy wynik może wynikać wyłącznie ze zbyt małego wymiaru lub naiwnego globalnego cleanup, nie z całej rodziny HDC/VSA."
+  ],
+  "architecture_family": "hyperdimensional_computing",
+  "benchmark": "successor_graph_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_guess",
+    "linear_scan",
+    "indexed_graph",
+    "dense_recurrent",
+    "vsa_superposition"
+  ],
+  "confounds": [
+    "Benchmark daje dyskretne identyfikatory i gotową relację następstwa; codebook rośnie z K, cleanup skanuje wszystkie encje, a stały wymiar 2048 testuje tylko jeden punkt capacity-memory trade-off."
+  ],
+  "created_at": "2026-08-30T00:33:59Z",
+  "experiment_id": "EXP-20260830-0003",
+  "falsification_criteria": [
+    "Odrzucamy naiwną pojedynczą superpozycję z globalnym cleanup jako kandydata, jeżeli mean accuracy spadnie poniżej 0.50, accuracy D=1 dla K=256 spadnie poniżej 0.50 albo jej query operations rosną liniowo z K bez przewagi jakościowo-kosztowej nad indexed graph."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0005",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      4,
+      16
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Odrzucamy tę naiwną implementację VSA, obniżamy confidence HYP-0005 tylko umiarkowanie i kierujemy następny eksperyment do innej reprezentacji lub lokalnego cleanup.",
+    "null": "Wynik uznajemy za niejednoznaczny i projektujemy ablacją wymiaru oraz sposobu cleanup bez dostrajania po seedach.",
+    "positive": "Zachowujemy ten mechanizm do prerejestrowanej replikacji wymiarowej i testu learned/hashed cleanup, bez twierdzenia o ogólnej reprezentacji."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Przy wymiarze 2048 rolowane role źródłowe powinny dać wysoką dokładność D=1 dla K=64, ale interferencja i błędy cleanup obniżą dokładność dla K=256 oraz będą kumulować się z D. Operacje cleanup będą rosły około liniowo z K i D, a stan codebook około liniowo z K; naiwny VSA prawdopodobnie nie przejdzie accuracy gate 0.95 w agregacie.",
+  "primary_metrics": [
+    "accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Quick może jedynie skierować VSA do screen, jeśli accuracy i warm accuracy są co najmniej 0.95 we wszystkich komórkach, knowledge_compute_slope jest wyraźnie poniżej 1, a state_bytes i ops są niższe od dense recurrent przy porównywalnej jakości; nie może promować rodziny."
+  ],
+  "research_question": "Czy stałowymiarowa bipolarna pamięć VSA z superpozycją relacji i cleanup przez podobieństwo zachowuje wielokrokową poprawność przy rosnącym K lepiej niż random, a jednocześnie oferuje korzystniejszy koszt niż gęsta rekurencja?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Quick falsification of fixed-width VSA successor memory"
+}

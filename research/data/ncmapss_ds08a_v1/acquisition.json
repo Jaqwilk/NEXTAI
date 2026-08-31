@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "acquired_at": "2026-08-30T22:55:24Z",
+  "source_url": "https://phm-datasets.s3.amazonaws.com/NASA/17.+Turbofan+Engine+Degradation+Simulation+Data+Set+2.zip",
+  "license": "CC0-1.0",
+  "outer_archive": {
+    "path": "research/data/ncmapss_ds02_v1/dataset-17.zip",
+    "size_bytes": 15760443389,
+    "sha256": "d1271732485dc1ed354e8c7d950edc196aa78ec48d78f38f2d9681dc82fb61c2"
+  },
+  "nested_archive": {
+    "member": "17. Turbofan Engine Degradation Simulation Data Set 2/data_set.zip",
+    "materialized": false
+  },
+  "ds08a": {
+    "archive_member": "data_set/N-CMAPSS_DS08a-009.h5",
+    "path": "research/data/ncmapss_ds08a_v1/N-CMAPSS_DS08a-009.h5",
+    "size_bytes": 3236762200,
+    "compressed_size_bytes": 1801568073,
+    "crc32": "b823a8fe",
+    "sha256": "10ddf52e5441a05e3d0d8d797a34e0e5a9ac73dce8ae35d7b22d1ef224d24836"
+  },
+  "storage": {
+    "minimum_free_bytes": 42949672960,
+    "free_gib_after_acquisition": 129.61,
+    "nested_archive_duplicate_created": false,
+    "other_dataset_members_extracted": false
+  },
+  "status": "acquired_rejected_by_class_balance_gate"
+}

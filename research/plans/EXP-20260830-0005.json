@@ -1,0 +1,66 @@
+{
+  "alternative_explanations": [
+    "Any D=16 success may come entirely from the hand-designed self-loop feature and supervised label construction rather than learned difficulty estimation."
+  ],
+  "architecture_family": "adaptive_recurrence",
+  "benchmark": "adaptive_depth_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_guess",
+    "fixed_short_indexed",
+    "fixed_max_indexed",
+    "adaptive_indexed",
+    "learned_local_halt"
+  ],
+  "confounds": [
+    "Operation accounting charges perceptron arithmetic explicitly while older controls count their declared graph operations, so absolute cross-candidate constants remain an instrumentation convention."
+  ],
+  "created_at": "2026-08-30T00:54:20Z",
+  "experiment_id": "EXP-20260830-0005",
+  "falsification_criteria": [
+    "Treat the learned implementation as invalid if it fails D<=4 despite correctly separated frozen controls or if its recorded source audit fails.",
+    "Count the quality-cost claim against HYP-0004 if D=16 accuracy is below 0.95 or if the exact learned controller uses at least as many mean operations as exact fixed max."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0004",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      4,
+      16
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "Failure on trained depths or D=16 would reject this minimal learned halt implementation and reduce confidence in easy length extrapolation.",
+    "null": "Exact D=16 transfer without an operation advantage would show local rule generalization but no end-to-end efficiency benefit at this depth distribution.",
+    "positive": "Exact D=16 transfer plus lower mean operations would support a learned local halting mechanism worth replicated screen testing."
+  },
+  "parent_experiment_id": "EXP-20260830-0004",
+  "predicted_outcome": "The learned local halt rule should reach exact accuracy at D=1,4,16 with K slope near 0 and operation counts 10,25,85, giving mean 40 and depth slope near 0.77. It should therefore generalize the local decision to D=16 but be dominated in mean operations by exact fixed max at 16; adaptive indexed remains the mechanical oracle at mean 7.",
+  "primary_metrics": [
+    "accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "Advance learned halting only if accuracy is 1.0 in every cell, K slope is near 0, D-dependent operations are below fixed max on average, and the candidate is on the accuracy-gated Pareto frontier; quick cannot promote the family."
+  ],
+  "research_question": "Can a one-feature perceptron trained only on a terminal and at most four predecessor transitions preserve exact D=16 traversal without receiving D and remain cheaper than a fixed-depth solver after all halt-decision operations are charged?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Learned local halting with charged controller overhead"
+}

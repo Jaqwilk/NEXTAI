@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "cycle": 92,
+  "proposal": "n_cmapss_ds08a_shared_engine_representation",
+  "experiment_id": null,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "extraction_performed": true,
+  "dataset": {
+    "path": "research/data/ncmapss_ds08a_v1/N-CMAPSS_DS08a-009.h5",
+    "size_bytes": 3236762200,
+    "crc32": "b823a8fe",
+    "sha256": "10ddf52e5441a05e3d0d8d797a34e0e5a9ac73dce8ae35d7b22d1ef224d24836"
+  },
+  "observed_split": {
+    "development_units": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "test_units": [10, 11, 12, 13, 14, 15],
+    "development_class_counts": {"1": 3, "2": 4, "3": 2},
+    "test_class_counts": {"1": 2, "2": 1, "3": 3}
+  },
+  "gates": {
+    "length_crc_sha256": "pass",
+    "authoritative_unit_split": "pass",
+    "at_least_two_development_and_two_test_engines_per_class": "fail_class_2_test_count_1",
+    "early_prefix_split_router": "not_run_after_prerequisite_failure",
+    "leakage": "not_run_after_prerequisite_failure",
+    "no_adaptation_controls": "not_run_after_prerequisite_failure"
+  },
+  "decision": "reject_before_semantic_metrics_and_evaluator",
+  "confidence": 1.0,
+  "next_gate": "metadata-only search for an existing source-identical dataset or an immutable class-balanced partition that does not reuse test engines; do not activate DS08a or preregister EXP-0060"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "cycle": 97,
+  "audit_id": "three_family_continuous_tensor_shape_gate_v2",
+  "experiment_id": null,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "families": ["ncmapss_ds08a_portable_v1", "heldout_dronepropa_factor_recombination_v6", "continuous_event_predictive_state_v1"],
+  "v1_status": "invalid_pre_protected_implementation_misnamed_ablation",
+  "shape_gate": "pass",
+  "loss_gate": "pass",
+  "causal_assignment_gate": "pass",
+  "family_identity_hidden": false,
+  "decision": "authorize_protected_three_family_evaluator_design_only",
+  "confidence": 0.93,
+  "next_gate": "one protected service-only migration implementing only the v2 tensor adapter, masks, four causal assignments, full cost contract and semantic fixtures; freeze manifest/preflight but do not create EXP-0060 or score"
+}

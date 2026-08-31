@@ -1,0 +1,65 @@
+{
+  "alternative_explanations": [
+    "A hand-written terminal sentinel, not learned difficulty estimation, can fully explain a positive adaptive result."
+  ],
+  "architecture_family": "adaptive_recurrence",
+  "benchmark": "adaptive_depth_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_guess",
+    "fixed_short_indexed",
+    "fixed_max_indexed",
+    "adaptive_linear_scan",
+    "adaptive_indexed"
+  ],
+  "confounds": [
+    "Exact operation counts omit cache behavior, bytes touched and hardware-dependent latency constants."
+  ],
+  "created_at": "2026-08-30T00:47:33Z",
+  "experiment_id": "EXP-20260830-0004",
+  "falsification_criteria": [
+    "Treat the apparatus as invalid if the exact positive controls fail or the negative and fixed-depth controls are not separated in the predicted direction.",
+    "Reject the mechanical adaptive mechanism if adaptive indexed is not exact or does not use fewer operations than fixed max at the same accuracy."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0004",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      4,
+      16
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "The control ordering fails, so this benchmark version or the mechanical adaptive premise must be rejected before learned testing.",
+    "null": "Controls are valid but adaptive traversal provides no matched-accuracy operation advantage over fixed maximum depth.",
+    "positive": "The benchmark recovers the intended mechanical adaptive-compute signature and is ready for a learned-halting candidate."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Adaptive indexed should be exact with mean operations 7 across D=1,4,16, K slope near 0 and D slope near 1; fixed max should be exact at 16 operations, fixed short should reach about 2/3 accuracy at 4 operations, adaptive linear scan should be exact with K and D slopes near 1, and random guessing should stay near chance.",
+  "primary_metrics": [
+    "accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "depth_compute_slope"
+  ],
+  "promotion_criteria": [
+    "Advance only to a learned-halting screen if adaptive indexed is exact, K-independent, D-proportional and non-dominated by fixed max; this quick control cannot promote HYP-0004 itself."
+  ],
+  "research_question": "Can a solver that is not given D preserve exact answers while measured operations follow hidden causal depth rather than total knowledge or the allowed maximum?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Mechanical calibration of adaptive hidden-depth computation"
+}

@@ -1,0 +1,113 @@
+{
+  "alternative_explanations": [
+    "Ordinary variable-order context mixing rather than reusable hierarchical motifs may explain any gain.",
+    "Repository boilerplate or file-style overlap may create apparent transfer without semantic generalization."
+  ],
+  "architecture_family": "hierarchical_adaptive_sequence_compression",
+  "benchmark": "heldout_repository_sequence_compression_v1",
+  "budget": "quick",
+  "candidates": [
+    "hierarchical_motif_compressor",
+    "uniform_byte",
+    "empirical_unigram_byte",
+    "ppm_byte",
+    "context_tree_weighting_byte",
+    "lz_dictionary_byte",
+    "dense_autoregressive_byte",
+    "oracle_test_table_byte"
+  ],
+  "compression_protocol": {
+    "classical_baselines": [
+      "uniform_byte",
+      "empirical_unigram_byte",
+      "ppm_byte",
+      "context_tree_weighting_byte",
+      "lz_dictionary_byte",
+      "dense_autoregressive_byte",
+      "oracle_test_table_byte"
+    ],
+    "corpus_id": "nextai_local_repository_sha256_v1",
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "invalidation_rules": [
+      "Invalidate on any frozen corpus hash or byte-length mismatch.",
+      "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
+      "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
+      "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent."
+    ],
+    "predict_then_reveal": true,
+    "shared_candidate": "hierarchical_motif_compressor",
+    "shared_slow_state_updates": "forbidden",
+    "split_unit": "whole_files_sha256",
+    "state_budget_bytes": 4194304,
+    "test_file_access": "evaluator_only",
+    "test_tuning": "forbidden"
+  },
+  "confounds": [
+    "One visible local repository and one scoring seed provide weak external validity and no independent replication.",
+    "Online slot-local adaptation can improve prequential loss without demonstrating cold offline transfer."
+  ],
+  "created_at": "2026-08-30T13:27:05Z",
+  "evaluator_sha256": "41e9c37c5c1472424597e2cd26a4ffbea11d36d79d2e06f52b15ee1bcb97bd74",
+  "experiment_id": "EXP-20260830-0044",
+  "falsification_criteria": [
+    "Kill this implementation if any mandatory PPM, CTW, LZ or dense autoregressive baseline matches or improves its mean or worst-file bits per byte.",
+    "Kill transfer if improvement appears only after test updates while cold bits per byte does not improve.",
+    "Invalidate rather than score on corpus mismatch, test leakage, shared slow-state mutation, state-budget breach, missing mandatory control or evaluator digest change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0016",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "bits_per_byte": "minimize",
+    "cold_bits_per_byte": "minimize",
+    "state_bytes": "minimize",
+    "workload_ops_r16": "minimize",
+    "worst_file_bits_per_byte": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Discard the failed hierarchical implementation, preserve all outcomes, and choose a radically different real-data principle rather than benchmark tuning.",
+    "null": "Make HYP-0016 dormant without local patches if strong classical compressors match it after full cost.",
+    "positive": "Keep HYP-0016 proposed and preregister a separately frozen multi-seed replication; do not tune on this test split."
+  },
+  "parent_experiment_id": "EXP-20260830-0043",
+  "predicted_outcome": "The hierarchical learner is expected to beat unigram but probably remain matched or dominated by PPM or context-tree weighting; a genuine signal requires at least 0.05 lower mean and worst-file bits per byte, lower cold bits per byte, and implementable Pareto non-dominance.",
+  "primary_metrics": [
+    "bits_per_byte",
+    "worst_file_bits_per_byte",
+    "cold_bits_per_byte",
+    "workload_ops_r16",
+    "state_bytes"
+  ],
+  "promotion_criteria": [
+    "A quick cannot promote; a positive may only authorize a three-seed screen on a separately frozen hidden corpus split."
+  ],
+  "research_question": "Does one bounded hierarchical motif learner transfer reusable byte structure from whole training files to unseen repository files with lower cold and prequential bits per byte per fully charged cost than strong universal compressors?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Held-out repository hierarchical compression quick"
+}

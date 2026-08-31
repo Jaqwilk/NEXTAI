@@ -1,0 +1,87 @@
+{
+  "alternative_explanations": [
+    "Canonical recursive expression keys may perform the entire transfer, making dependency traces merely a classical cache-granularity choice rather than a new architecture.",
+    "The synthetic commutative DAG grammar may make isomorphism much easier than semantic equivalence in language or general programs; exact reuse would not establish open-world reasoning compilation.",
+    "Operation proxies and Python object state are declared accounting models rather than hardware timings; latency is secondary and no accelerator locality claim is licensed."
+  ],
+  "architecture_family": "experience_driven_reasoning_compilation",
+  "benchmark": "semantic_trace_compilation_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_trace_guess",
+    "exact_key_trace_cache",
+    "indexed_dag_planner",
+    "canonical_result_cache",
+    "dependency_trace_compiler",
+    "oracle_trace_compiler"
+  ],
+  "confounds": [
+    "K includes unreachable distractor nodes that every real candidate must parse, while D controls active operators; this deliberately separates mandatory input cost from semantic execution but does not test compressed input transport.",
+    "Only one deterministic local leaf mutation is scored in one quick seed, so the test distinguishes local from global invalidation but cannot establish long-horizon cache stability."
+  ],
+  "created_at": "2026-08-30T05:23:20Z",
+  "experiment_id": "EXP-20260830-0023",
+  "falsification_criteria": [
+    "Lower HYP-0011 if dependency_trace_compiler loses exact cold, warm, changed-fact or unaffected retention accuracy; if cross-structure hit rate is below 1; if renamed node IDs, raw tuple order or argument order act as stable names; or if input parsing, canonicalization, cache memory, invalidation and recomputation are not fully charged.",
+    "Treat semantic trace compilation as null and make HYP-0011 dormant if canonical_result_cache matches or dominates it on exact capability, mean warm operations, update operations, persistent state, reads, bytes and fit, or if dependency traces cannot invalidate a strictly smaller semantic region and update more cheaply after the local mutation.",
+    "Reject an amortized scaling claim if warm dependency work exceeds 0.55 of indexed_dag_planner at D=4 or D=6, knowledge-size slope is materially positive beyond mandatory raw input scanning, or any gain depends on repeated cold roots, omitted serialization, an oracle mutation map or uncharged preprocessing."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0011",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If semantic transfer, correctness after mutation, or locality fails while controls pass, lower HYP-0011 and stop tuning this toy; record whether failure arose from canonical identity, stale dependencies or accounting.",
+    "null": "If canonical whole-result caching matches or dominates dependency traces, or raw parsing and canonicalization erase the warm benefit, make HYP-0011 dormant and retain canonical caching as the sufficient classical control.",
+    "positive": "Keep HYP-0011 testing, without promotion, only if the dependency compiler is exact, has cross-structure hit rate 1, warm work at most 0.55 of indexed evaluation for D=4/6, invalidates at most 0.25 of stored semantic entries, updates more cheaply than canonical whole-result caching, and retains an unaffected query exactly. Interpret this as evidence for amortized semantic reuse and a reason for an adversarial screen, not novelty over prior art."
+  },
+  "parent_experiment_id": "EXP-20260830-0022",
+  "predicted_outcome": "Cold and warm inputs encode the same commutative arithmetic DAG semantics but rename every node, shuffle tuple order and swap commutative arguments, while Q=8 distinct roots prevent within-phase duplicate shortcuts. Random accuracy is near 1/251; every deterministic baseline, dependency compiler and oracle should be exact. Exact-key transfer hit rate is 0 and indexed full evaluation pays approximately 2K+32D warm operations. Canonical whole-result cache and dependency compiler should reach transfer hit rate 1 with warm work approximately 2K+4(D+2)+1, no hidden preprocessing, and at D=4/6 at most 0.55 of indexed warm work even for K=32. After one leaf mutation, canonical whole-result maintenance recomputes all D active operations, whereas dependency traces should invalidate no more than 0.25 of stored entries across eight tasks and recompute only the changed branch plus root, producing lower update work while retaining an unaffected query exactly. The expected result is useful experience-based reuse but probably a classical incremental-computation instance, not promotion.",
+  "primary_metrics": [
+    "accuracy",
+    "cold_accuracy",
+    "warm_accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "cross_structure_hit_rate",
+    "mean_query_ops",
+    "mean_cold_query_ops",
+    "mean_warm_query_ops",
+    "mean_input_ops",
+    "mean_canonical_ops",
+    "mean_execution_ops",
+    "mean_memory_reads",
+    "mean_bytes_loaded",
+    "knowledge_compute_slope",
+    "depth_compute_slope",
+    "fit_ops",
+    "state_bytes",
+    "update_ops",
+    "invalidated_fraction",
+    "retention_ops"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote HYP-0011. A later screen is allowed only if dependency traces pass all exact transfer and local-invalidation gates, are non-dominated on declared full-system axes, preserve the advantage across at least three seeds and adversarial associative rewrites, and explicitly acknowledge classical self-adjusting computation, naming, canonical labeling, message-passing expressiveness and e-graphs in SRC-0043 through SRC-0047."
+  ],
+  "research_question": "Can an experience-built semantic dependency trace transfer across byte-different isomorphic arithmetic DAGs, remain exact after a local mutation, and reduce fully charged warm and update work beyond exact-key caching, full indexed evaluation, and canonical whole-result caching?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Cross-structure semantic trace reuse with local invalidation"
+}

@@ -1,0 +1,94 @@
+{
+  "benchmark_proposal": "heldout_dronepropa_factor_recombination_v1",
+  "created_at": "2026-08-30T19:20:20Z",
+  "cycle_type": "design_and_identifiability_gate_only_no_scoring",
+  "decision": "reject_before_implementation",
+  "decision_reason": "The preregistered easy-router ceiling was 0.35. A leave-one-trajectory-out nearest-centroid router using adaptation-available length, session, amplitude and normalized-histogram summaries reached 0.361111; the threshold is not changed after observation.",
+  "dataset": {
+    "doi": "10.17632/ftdyxrr3c5.1",
+    "archive_bytes": 4438911840,
+    "archive_sha256": "a7255dc4393a2314ba2a684beb3684106dbb6de23ba141eaa0529bd21ba3d825",
+    "extracted_bytes": 4537694153,
+    "file_count": 130,
+    "files_manifest": "research/data/dronepropa_v1/files.jsonl",
+    "files_manifest_sha256": "76a27c66b38b634cbee362a8a2af250b02b2a1dea44eb9328d1d731472b24f53",
+    "reuse": "The existing archive and extraction are reused in place; no redownload and no second 4.44 GB copy."
+  },
+  "observable_interface": {
+    "sampling_hz": 1000,
+    "input_qdrone_rows_1based": [47, 49, 51, 53],
+    "state_and_target_qdrone_rows_1based": [27, 28, 29, 30, 31, 32],
+    "time_validation_only_qdrone_row_1based": 1,
+    "uniformly_excluded_bad_esc_rows_1based": [48, 50, 52, 54],
+    "candidate_visible_metadata": "anonymous file boundaries and ten numeric channels only",
+    "forbidden": "source names/paths, fault, severity, speed, trajectory, drone, repetition, timestamps, reference trajectory, position, height, battery and flight mode",
+    "normalization": "Per-channel mean/std from train anchors only; variance floor 1e-8; no test refit, clipping or imputation."
+  },
+  "proposed_split": {
+    "unit": "whole MAT file identified by source SHA-256",
+    "anonymous_manifest": "research/checks/dronepropa_anonymous_split_v1.jsonl",
+    "anonymous_manifest_sha256": "8381cc9d8e245059cf6ce49a5ba988bb50a588a14de445e73cb72709fdaffed0",
+    "scored_trajectories": ["t1", "t2", "t3", "t5"],
+    "train_fault_severity_pairs": ["F1_SV1", "F1_SV2", "F2_SV1", "F2_SV3", "F3_SV2"],
+    "train_healthy": "D1, t1/t2/t3/t5, both speeds and all three repetitions",
+    "validation_pairs": ["F3_SV3"],
+    "test_pairs": ["F1_SV3", "F2_SV2", "F3_SV1"],
+    "counts": {"train": 64, "validation": 8, "test": 24, "ood_healthy_diagnostic": 8, "reserved_adversarial_t4": 26},
+    "leakage_guards": "No file or window crosses roles. D2/D3 healthy files are diagnostic-only. All t4 files stay adversarial. The candidate never receives factor labels or original names."
+  },
+  "proposed_prediction_contract_if_reconsidered": {
+    "learner": "shared_operator_subspace_arx",
+    "one_unchanged_learner": "Fit anonymous per-train-file ridge ARX operators from 32-sample histories of ten channels to the next six state values; learn one rank-12 SVD basis of flattened operators; fit only basis coefficients from 32 adaptation anchors on each unseen file.",
+    "ridge_lambda": 0.001,
+    "history_samples": 32,
+    "teacher_forced_horizon_samples": 1,
+    "open_loop_rollout_horizons_samples": [10, 50],
+    "rollout_control": "The evaluator supplies future four-channel motor commands identically to all controlled-dynamics models; predicted state is recursively fed back. Future sensor targets remain hidden.",
+    "anchors": "Central 80% only; 128 deterministic train anchors/file, 32 adaptation anchors from the first fifth, and 128 seed-realized evaluation anchors from the remaining interval, with non-overlapping history/target windows.",
+    "status": "design sketch only; no candidate was implemented because the gate rejected the protocol"
+  },
+  "mandatory_future_baselines": [
+    {"id":"persistence_state_v1","spec":"repeat the last six states","conformance":"constant-state hand fixture"},
+    {"id":"ridge_arx_v1","spec":"pooled affine ridge one-step ARX, history 32, lambda 0.001, recursive rollouts","conformance":"closed-form scalar fixture"},
+    {"id":"rls_arx_v1","spec":"online RLS ARX, forgetting 1.0, initial covariance 1000 I, fixed update order","conformance":"two-update scalar fixture"},
+    {"id":"nearest_operator_template_v1","spec":"select the training-file ARX operator nearest to adaptation sufficient statistics without labels","conformance":"three-template tie/order fixture"},
+    {"id":"source_identical_independent_arx_v1","spec":"fit the full operator from the held-out prefix with the candidate's source-identical feature/update code and no shared basis","conformance":"shared-code-path and rank-disabled fixture"},
+    {"id":"no_sharing_pooled_arx_v1","spec":"one pooled ARX operator with no factorization or per-file coefficients","conformance":"two-file pooled sufficient-statistic fixture"},
+    {"id":"empirical_gaussian_joint_v1","spec":"empirical Gaussian joint over history and next state, ridge 0.001, exact Gaussian conditioning","conformance":"2D analytic conditional fixture"},
+    {"id":"contextual_gaussian_chow_liu_v1","spec":"ridge-ARX conditional mean plus maximum-MI Chow-Liu tree over six Gaussian residual coordinates","conformance":"known three-node tree and conditional-density fixture"},
+    {"id":"charged_condition_specialist_arx_v1","spec":"evaluator-labeled per-condition ARX with full acquisition/fit/query/state charge; privileged diagnostic","conformance":"label dispatch and full-cost fixture"},
+    {"id":"privileged_condition_oracle_arx_v1","spec":"same-condition training equivalence supplied only by evaluator; upper bound excluded from implementable frontier","conformance":"equivalence-set exclusion fixture"}
+  ],
+  "baseline_semantic_gate": "Before any scoring, every mandatory baseline must have its exact ID, version, full specification, implementation path and SHA-256 plus passing conformance-test path and SHA-256. A missing/change-mismatched/nonconformant row stops before seed realization.",
+  "metrics_if_reconsidered": {
+    "quality": ["mean and worst-flight normalized RMSE per channel for teacher-forced one-step and open-loop 10/50", "worst held-out pair", "finite/stable rollout rate", "conditional log loss where a density is defined"],
+    "transfer": ["gain over source-identical independent", "gain over no-sharing pooled", "gain in all three test pairs and at least three of four trajectories", "oracle-gap closed"],
+    "cost": ["data acquisition", "preprocessing", "fit", "adaptation/update", "query", "state", "peak state", "bytes touched", "total at R1", "total at R4", "total at R16"],
+    "success": "At least 2% NRMSE and 0.02 nats/target gain over the source-identical independent ablation, positive transfer in every held-out pair and at least three trajectories, at least 25% oracle-gap closure, and no Pareto domination by a simpler implementable baseline. One seed cannot promote."
+  },
+  "identifiability_gate": {
+    "script": "research/checks/dronepropa_protocol_gate.py",
+    "script_sha256": "cd93d3f3d328c41b3e04d433685b474cb717eef1802969baebac5100850104b0",
+    "result": "research/checks/dronepropa_protocol_gate_cycle75.json",
+    "result_sha256": "4f81e6089924e8ce21bed4709df80f695ddc490b70f89ad90def482618ad10c7",
+    "router_chance": 0.1111111111111111,
+    "router_threshold_frozen_before_run": 0.35,
+    "router_accuracies": {"length":0.09722222222222222,"session":0.1111111111111111,"amplitude":0.3472222222222222,"histogram":0.25,"combined":0.3611111111111111},
+    "synthetic_shared_subspace_max_abs_error": 1.4210854715202004e-14,
+    "synthetic_exact_rate": 1.0,
+    "timing_failures": 0,
+    "nonfinite_failures_after_esc_exclusion": 0,
+    "verified_zlib_exception": "F0_SV0_SP1_t3_D1_R1.mat has one incomplete trailer but an exact inner miMATRIX boundary and previously verified archive CRC/raw/numeric hashes."
+  },
+  "scientific_status": {
+    "experiment_id_created": false,
+    "hypothesis_created": false,
+    "seed_realized": false,
+    "scoring_performed": false,
+    "candidate_implemented": false,
+    "protected_evaluator_changed": false,
+    "active_benchmark_unchanged": "heldout_mechanism_recombination_v3",
+    "confidence": "0.97 that the preregistered gate was executed faithfully; 0.65 that the excess routing signal is practically meaningful because it exceeds the ceiling by only 1/72."
+  },
+  "exact_next_discriminating_step": "In a later design-only wake, preregister an independent routing-sensitivity audit before execution: nested leave-one-trajectory-and-speed-out evaluation, permutation confidence interval, and a stricter candidate-visible feature audit. Do not migrate an evaluator, create HYP-0023/EXP-0058, implement a learner or score unless that new gate independently passes."
+}

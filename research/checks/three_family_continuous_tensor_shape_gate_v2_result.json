@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-30T23:22:17Z",
+  "contract_path": "research/checks/three_family_continuous_tensor_contract_v2.json",
+  "scientific_scoring": false,
+  "families": {
+    "ncmapss_ds08a_portable_v1": {
+      "native_shapes": [[108, 18], [108, 14], [32, 18], [50, 4], [50, 14]],
+      "common_shapes": [[108, 32], [108, 32], [32, 32], [50, 32], [50, 32]],
+      "mask_true_counts": [1944, 1512, 576, 200, 700],
+      "finite": true,
+      "float32_cast_roundtrip": true,
+      "unit_and_cycle_boundary": "pass"
+    },
+    "heldout_dronepropa_factor_recombination_v6": {
+      "native_shapes": [[108, 10], [108, 6], [32, 10], [50, 4], [50, 6]],
+      "common_shapes": [[108, 32], [108, 32], [32, 32], [50, 32], [50, 32]],
+      "mask_true_counts": [1080, 648, 320, 200, 300],
+      "finite": true,
+      "float32_cast_roundtrip": true,
+      "whole_flight_boundary": "pass"
+    },
+    "continuous_event_predictive_state_v1": {
+      "native_shapes": [[108, 32], [108, 1], [32, 32], [50, 32], [50, 1]],
+      "common_shapes": [[108, 32], [108, 32], [32, 32], [50, 32], [50, 32]],
+      "mask_true_counts": [3456, 108, 1024, 1600, 50],
+      "finite": true,
+      "float32_cast_roundtrip": true,
+      "fixed_development_seed": 1103
+    }
+  },
+  "causal_assignment_gate": {
+    "shared": "constructible",
+    "independent": "constructible with three source-identical clones and summed costs",
+    "cross_family_only": "constructible as leave-one-family-out slow fit for A on B+C, B on A+C and C on A+B",
+    "support_only": "constructible with empty slow fit and identical support"
+  },
+  "common_masked_normalized_loss": "constructible_without_candidate_family_label",
+  "family_identity_hidden": false,
+  "family_identity_policy": "measured confound; never positive transfer evidence",
+  "pass": true,
+  "decision": "authorize_protected_three_family_evaluator_design_only"
+}

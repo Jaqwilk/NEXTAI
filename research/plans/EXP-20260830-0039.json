@@ -1,0 +1,95 @@
+{
+  "alternative_explanations": [
+    "Contextual Chow-Liu is itself a tractable conditional circuit and may recover exactly the same decomposition with less structure-learning overhead, eliminating any distinct SPN advantage.",
+    "Any apparent query benefit may be compilation amortization that disappears once raw-sample reading, selector search, circuit state and local rebuilding are charged."
+  ],
+  "architecture_family": "learned_tractable_probabilistic_circuits",
+  "benchmark": "context_specific_probabilistic_circuit_v1",
+  "budget": "quick",
+  "candidates": [
+    "uniform_conditional",
+    "empirical_joint_table",
+    "empirical_autoregressive_table",
+    "chow_liu_tree",
+    "pairwise_factor_elimination",
+    "contextual_chow_liu",
+    "fixed_region_spn",
+    "learned_decomposable_spn",
+    "oracle_context_spn"
+  ],
+  "confounds": [
+    "The generator is exactly representable by a tiny two-context pair circuit, uses complete synthetic samples at K=8/32, and cannot establish open-world generality, asymptotic scaling or an LLM successor."
+  ],
+  "created_at": "2026-08-30T11:42:07Z",
+  "evaluator_sha256": "1b6b1b365deda05a686887d8cb13cd7f3fabe47a8b5789ad5409f79f2f218af3",
+  "experiment_id": "EXP-20260830-0039",
+  "falsification_criteria": [
+    "Discard the learned route if learned_decomposable_spn has accuracy or near-equivalent accuracy below 0.95 in any cell, is miscalibrated, loses unrelated-context retention, grows superlinearly in circuit nodes over K=8/32 without compensating capability, or is matched in capability with equal-or-lower fit/state/update/R16 cost by contextual_chow_liu or pairwise_factor_elimination."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0013",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "calibration_error": "minimize",
+    "circuit_nodes": "minimize",
+    "conditional_log_loss": "minimize",
+    "conditional_probability_mae": "minimize",
+    "continual_retention": "maximize",
+    "fit_ops": "minimize",
+    "mean_query_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "If learned structure misses conditionals, calibration or retention, or requires unfavorable circuit growth, discard this implementation and return HYP-0013 to dormant while preserving all failures.",
+    "null": "If contextual Chow-Liu or generic pairwise elimination matches capability with equal-or-lower full workload, retain probabilistic compilation only as established classical structure and return HYP-0013 to dormant without tuning this cohort.",
+    "positive": "Retain HYP-0013 as testing and permit one adversarial screen only if the preregistered learned-SPN capability, calibration, retention and implementable Pareto gates all pass."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Uniform and single-tree controls should miss hidden-selector conditionals; empirical tables should pay high state or sparse-coverage error; contextual Chow-Liu, pairwise elimination and learned decomposable SPN should recover the two context-specific matchings. The learned SPN is expected to match rather than dominate contextual Chow-Liu after structure search, circuit size, local update and R16 accounting; oracle is a separate lower bound.",
+  "primary_metrics": [
+    "accuracy",
+    "near_equivalent_accuracy",
+    "continual_retention",
+    "conditional_probability_mae",
+    "conditional_log_loss",
+    "calibration_error",
+    "mean_query_ops",
+    "fit_ops",
+    "state_bytes",
+    "circuit_nodes",
+    "update_ops",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. Permit one adversarial multi-seed screen only if learned_decomposable_spn is at least 0.95 accurate in every cell, calibrated on hidden-selector near queries, retains the unrelated context after update, and lies on the implementable full-system Pareto frontier against contextual Chow-Liu and pairwise elimination."
+  ],
+  "research_question": "Can a learned smooth decomposable circuit recover context-specific independence from raw samples and answer unseen conditional queries with a better capability-cost-update tradeoff than contextual Chow-Liu and generic factor elimination?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Learned context-specific probabilistic circuit compilation"
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "cycle": 91,
+  "proposal": "n_cmapss_ds08a_shared_engine_representation",
+  "experiment_id": null,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "extraction_performed": false,
+  "primary_descriptor": {
+    "total_sets": 8,
+    "total_units": 128,
+    "common_schema": ["W", "X_s", "X_v", "T", "Y", "A"],
+    "ds08a_units": 15,
+    "ds08a_flight_classes": [1, 2, 3],
+    "ds08a_failure_support": "all ten fan/LPC/HPC/HPT/LPT efficiency and flow modifiers"
+  },
+  "official_archive_member": {
+    "name": "data_set/N-CMAPSS_DS08a-009.h5",
+    "size_bytes": 3236762200,
+    "compressed_size_bytes": 1801568073,
+    "crc32": "b823a8fe"
+  },
+  "secondary_split_metadata": {
+    "development_units": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "test_units": [10, 11, 12, 13, 14, 15],
+    "authoritative_real_file_verification": "pending"
+  },
+  "gates": {
+    "single_source_identical_subset": "pass",
+    "common_candidate_schema": "pass",
+    "at_least_six_test_engines": "pass_secondary_pending_real_file",
+    "all_three_flight_classes": "pass_aggregate",
+    "at_least_two_development_and_two_test_engines_per_class": "pending_real_file",
+    "fault_source_router": "pass_by_single_subset_design",
+    "early_prefix_split_router": "pending_real_file",
+    "disk_guard_after_extraction": "pass"
+  },
+  "decision": "authorize_ds08a_only_extraction",
+  "confidence": 0.91,
+  "next_gate": "extract only DS08a-009 from the already verified nested archive, verify SHA-256 and exact unit/class counts, then preregister and run the same leakage, early-prefix split-router and no-adaptation diagnostics before any evaluator migration"
+}

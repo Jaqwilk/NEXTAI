@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "cycle": 94,
+  "proposal": "n_cmapss_ds08a_balanced_whole_unit_partition",
+  "experiment_id": null,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "spec_sha256": "ecd4df7c5018eb7c23c903ca115d6608e2cccca35292843ef0b468ee87562dd9",
+  "result_sha256": "d037450b6eab6ea693a3297afabda13b36254c2259dc5e68e91ed6932b6aafa1",
+  "audit_sha256": "254ae61e844e0ba1f5880bf6a605df5a28f60afa5e98a15190ec8477fab84a47",
+  "observations": {
+    "router_accuracy": 0.4666666666666667,
+    "router_pass_max_accuracy": 0.6,
+    "exact_private_field_matches": [],
+    "maximum_absolute_private_field_correlation": 0.6312520629346509,
+    "persistence_nrmse": 0.010944430800296502,
+    "training_pooled_no_adaptation_nrmse": 0.010158034330783338,
+    "per_unit_prefix_adaptation_nrmse": 0.010651942488852765,
+    "deterministic_rerun_hash_match": true
+  },
+  "gates": {
+    "source_partition_and_reader_hashes": "pass",
+    "candidate_visible_router": "pass",
+    "exact_and_near_exact_leakage": "pass",
+    "finite_no_adaptation_controls": "pass",
+    "overall": "pass"
+  },
+  "decision": "authorize_protected_evaluator_design_only",
+  "confidence": 0.98,
+  "next_gate": "in a separate service-only wake specify the protected DS08a evaluator component and its full-cost shared, independent, pooled and privileged-support controls without activating EXP-0060 or scoring"
+}

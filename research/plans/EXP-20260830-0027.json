@@ -1,0 +1,73 @@
+{
+  "alternative_explanations": [
+    "Any apparent gain may be ordinary stable feature selection, switching autoregression, predictive-state estimation, or event-triggered Kalman filtering rather than a successor principle."
+  ],
+  "architecture_family": "continuous_event_predictive_state",
+  "benchmark": "continuous_event_predictive_state_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_continuous_guess",
+    "last_value_forecaster",
+    "dense_linear_state_space",
+    "echo_state_forecaster",
+    "exhaustive_switching_ar",
+    "screened_switching_ar",
+    "variance_triggered_kalman",
+    "event_predictive_state",
+    "oracle_sparse_dynamics"
+  ],
+  "confounds": [
+    "Stable channel identity within each episode and a closed synthetic regime set may make routing substantially easier than open-world continuous inputs."
+  ],
+  "created_at": "2026-08-30T06:54:43Z",
+  "experiment_id": "EXP-20260830-0027",
+  "falsification_criteria": [
+    "Kill the learned event route if it is inexact, unsafe under changed valid regimes, or matched or dominated by an implementable screened switching-AR or variance-triggered Kalman control at the same forecast accuracy once channel scan, trigger, fit, state, forecast, update, and total workload are counted."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If the event route fails changed-regime forecasting or safety while classical controls succeed, strengthen HYP-0012 modestly and discard this implementation family.",
+    "null": "If classical switching or variance-triggered controls match or dominate capability and full cost, retain HYP-0012 and make this event route dormant without tuning.",
+    "positive": "Treat an accurate non-dominated event route as counterevidence to HYP-0012 in this continuous family and allocate exactly one adversarial multi-seed screen."
+  },
+  "parent_experiment_id": "EXP-20260830-0026",
+  "predicted_outcome": "Screened and exhaustive switching AR, variance-triggered Kalman, the event-predictive route, and the oracle should meet the accuracy threshold. Dense linear and echo-state controls may degrade under held-out regime order and confusable background. The event route is expected to collapse into classical regime detection plus local state and gain no unique capability or cost advantage once channel-side detection, fit, update, forecast, and workload are fully counted, supporting HYP-0012.",
+  "primary_metrics": [
+    "accuracy",
+    "near_equivalent_accuracy",
+    "continual_retention",
+    "mean_query_ops",
+    "fit_seconds",
+    "peak_state_bytes",
+    "update_ops",
+    "workload_ops",
+    "knowledge_compute_slope"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. The event route earns exactly one three-seed adversarial screen only if it has matched multi-horizon accuracy, exact changed-regime behavior, retention, no unsafe reuse, is non-dominated, and has a materially better full-workload K signature and local update cost than every implementable classical control."
+  ],
+  "research_question": "Can a learned event-triggered predictive state identify a stable low-dimensional sufficient state from noisy multichannel continuous streams and preserve matched multi-horizon forecast accuracy with lower full-system K scaling and local update cost than dense linear state-space, echo-state, exhaustive/screened switching AR, and variance-triggered Kalman controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Continuous event-triggered predictive state under hidden switching dynamics"
+}

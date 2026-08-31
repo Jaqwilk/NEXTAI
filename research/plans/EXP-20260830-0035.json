@@ -1,0 +1,68 @@
+{
+  "alternative_explanations": [
+    "Positive pairs may hand the system the essential ontology; invariant-coordinate selection plus a dictionary may explain all success, and classic record linkage or LSH may solve the same problem without a learned embedding."
+  ],
+  "architecture_family": "learned_latent_entity_index",
+  "benchmark": "latent_entity_binding_retrieval_v1",
+  "budget": "quick",
+  "candidates": [
+    "random_view_binding",
+    "raw_view_nearest",
+    "raw_sign_lsh",
+    "probabilistic_linkage_scan",
+    "paired_stability_index",
+    "contrastive_hash_index",
+    "oracle_identity_index"
+  ],
+  "confounds": [
+    "The data are synthetic 12-dimensional views with six invariant sign coordinates, paired augmentations are supplied, K is only 8/32, and public edge payloads are prevented from serving as source identities. This tests representation acquisition under controlled nuisance, not language understanding or a successor to LLMs."
+  ],
+  "created_at": "2026-08-30T09:06:53Z",
+  "experiment_id": "EXP-20260830-0035",
+  "falsification_criteria": [
+    "Keep HYP-0001 dormant if contrastive hashing has accuracy below 0.95 in any cell, produces any false binding or retention failure, has query work that scales materially with K, or is matched or dominated in capability and registered fit/state/update/R16 workload by analytic paired-stability hashing or probabilistic linkage."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0001",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seeds": [
+      1103
+    ]
+  },
+  "outcome_policy": {
+    "negative": "If learned binding is inaccurate, collision-prone or K-dependent, reject the implementation and return HYP-0001 to dormant while preserving the result.",
+    "null": "If analytic stability hashing or probabilistic linkage matches or dominates the learned route, retain indexing as a classical control and return HYP-0001 to dormant without tuning this cohort.",
+    "positive": "Keep HYP-0001 testing only if learned contrastive binding uniquely improves the full-system frontier while transferring to unseen views and retaining local updates."
+  },
+  "parent_experiment_id": "EXP-20260830-0002",
+  "predicted_outcome": "Raw nearest scanning and raw sign LSH should fail on fresh nuisance views. Probabilistic linkage should recover most or all identities but scan K prototypes per traversal step. Both the analytic paired-stability index and learned contrastive hash are expected to identify six invariant coordinates, reach exact cold/warm/near and continual accuracy, and use direct hash traversal with near-zero query K slope. The learned contrastive fit is predicted to add cost without capability beyond analytic stability selection, making the likely result a classical feature-selection-plus-index null rather than a distinct learned advantage; oracle identity supplies the lower bound.",
+  "primary_metrics": [
+    "accuracy",
+    "near_equivalent_accuracy",
+    "mean_query_ops",
+    "knowledge_compute_slope",
+    "state_bytes",
+    "workload_ops"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. A screen is allowed only if contrastive hashing reaches at least 0.95 cold, warm, near and continual accuracy in every cell, has no false binding, preserves near-zero K query slope, is non-dominated by analytic stability, linkage and oracle controls under full accounting, and demonstrates representation acquisition not available from a supplied identity or stable raw key."
+  ],
+  "research_question": "Can paired-view representation learning bind variable noisy continuous observations to persistent entities and enable exact local relation traversal with query work nearly independent of adversarial entity count, without being dominated by probabilistic record linkage or an analytic stability hash?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Latent entity binding and local retrieval from unseen noisy views"
+}

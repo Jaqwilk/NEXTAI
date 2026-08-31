@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-30T19:37:38Z",
+  "status": "preregistered_before_implementation_and_result",
+  "cycle_type": "design_only_identifiability_sensitivity_no_predictive_scoring",
+  "proposal": "heldout_dronepropa_factor_recombination_v1",
+  "research_question": "Can fault/severity world identity still be routed from exactly the information available during held-out adaptation when both trajectory and speed are unseen by the router?",
+  "prior_result": {
+    "path": "research/checks/dronepropa_protocol_gate_cycle75.json",
+    "sha256": "4f81e6089924e8ce21bed4709df80f695ddc490b70f89ad90def482618ad10c7",
+    "decision": "reject_before_implementation",
+    "frozen_threshold": 0.35,
+    "combined_accuracy": 0.3611111111111111,
+    "identified_scope_mismatch": "The diagnostic combined feature used source-header session time and whole-flight statistics. Both exceed the proposed candidate-visible adaptation boundary. This new audit does not edit or reinterpret the prior observation; it tests a separately preregistered, stricter visibility contract."
+  },
+  "immutable_inputs": {
+    "files_manifest_sha256": "76a27c66b38b634cbee362a8a2af250b02b2a1dea44eb9328d1d731472b24f53",
+    "anonymous_split_sha256": "8381cc9d8e245059cf6ce49a5ba988bb50a588a14de445e73cb72709fdaffed0",
+    "audited_files": "72 faulty files from t1,t2,t3,t5, nine fault/severity labels, two speeds",
+    "selected_qdrone_rows_1based": [47, 49, 51, 53, 27, 28, 29, 30, 31, 32],
+    "forbidden": ["MAT header/session time", "original path or filename", "trajectory/speed/fault/severity metadata as router input", "samples outside adaptation anchors", "validation/test prediction targets", "future evaluation samples"]
+  },
+  "adaptation_view": {
+    "usable_interval": "central 80 percent after a 32-sample history and one-step target guard",
+    "zone": "first 20 percent of the usable interval",
+    "anchors_per_file": 32,
+    "anchor_rule": "deterministic equal-bin centers; no random seed",
+    "visible_samples": "union of each anchor's 32-sample history for all ten channels plus the one-step six-state adaptation target",
+    "length_feature": "number of visible adaptation scalars only, not raw whole-flight length"
+  },
+  "feature_groups": {
+    "amplitude": "per visible channel mean, standard deviation, 10/50/90 percentiles and range",
+    "histogram": "per-channel counts after normalization by that adaptation view only, with fixed bins [-inf,-2,-1,-0.5,0,0.5,1,2,inf]",
+    "lag": "per-channel lag-1 correlation within each anchor history, averaged across 32 anchors; zero when variance is below 1e-12",
+    "combined": "concatenate amplitude, histogram and lag; standardize from the training fold only",
+    "prohibited_ablation": "A source-header session feature is computed only as a privileged diagnostic and cannot affect pass/fail."
+  },
+  "cross_validation": {
+    "folds": 8,
+    "rule": "For each held-out (trajectory, speed) cell, test its nine worlds and train only on the other speed and other three trajectories. Thus neither the held-out trajectory nor speed appears in training.",
+    "classifier": "nearest class centroid with Euclidean distance, deterministic smallest-label tie break",
+    "predictions": 72,
+    "chance_accuracy": 0.1111111111111111
+  },
+  "uncertainty": {
+    "observed_interval": "two-sided Wilson 95 percent interval over 72 held-out predictions",
+    "permutations": 5000,
+    "permutation_seed": 7601,
+    "null": "Independently permute the nine world labels inside each trajectory-speed cell, preserving exact balance; rerun the complete nested classifier.",
+    "p_value": "(1 + count(null combined accuracy >= observed))/(5001)",
+    "null_q95": "higher interpolation 95th percentile"
+  },
+  "decision_rule": {
+    "pass_for_protected_evaluator_migration": "All candidate-visible feature groups have accuracy <= 0.25, combined accuracy <= max(0.25, null_q95), combined permutation p >= 0.05, and the visible-view audit has zero forbidden access.",
+    "reject_before_implementation": "Any candidate-visible group exceeds 0.25, combined exceeds max(0.25, null_q95), combined p < 0.05, or any visibility/integrity check fails.",
+    "threshold_rationale": "0.25 is fixed before implementation, is stricter than the prior 0.35 ceiling, and is more than twice the 1/9 chance level. It is not chosen from the new result.",
+    "privileged_session_rule": "Privileged session accuracy is reported diagnostically but never used to pass or reject."
+  },
+  "invalidation": [
+    "Invalidate if the code reads any selected-channel value outside the frozen adaptation view for a candidate-visible feature.",
+    "Invalidate if labels enter feature construction or standardization, except class-centroid aggregation after the fold is frozen.",
+    "Invalidate if a fold trains on the held-out trajectory or speed.",
+    "Invalidate if the permutation count, seed, p-value, quantile rule, 0.25 ceiling or feature definition changes after any output is observed.",
+    "Invalidate on corpus/hash mismatch, STOP/PAUSE, external model/API use, predictive scoring or protected evaluator mutation."
+  ],
+  "outcome_policy": {
+    "pass": "Authorize only a later protected service migration with no scoring; do not create a hypothesis or experiment in this wake.",
+    "reject": "Abandon this exact DronePropA transfer protocol and choose a different corpus or causal question rather than tune the router gate.",
+    "uncertainty": "A boundary result is governed mechanically by the frozen inequalities and reported with the Wilson interval and permutation p-value."
+  },
+  "scientific_actions_forbidden_this_cycle": ["HYP-0023", "EXP-20260830-0058", "runner seed", "candidate learner implementation", "predictive loss", "scoring", "evaluator migration"]
+}

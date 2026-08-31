@@ -1,0 +1,145 @@
+{
+  "alternative_explanations": [
+    "Any apparent shared gain may come from reconstructing the finite evaluator map or exploiting the common Feistel interface rather than discovering generally transferable mechanisms.",
+    "Exact MDL enumeration may recover the same finite module library more cheaply, making the learned parameterization scientifically redundant."
+  ],
+  "architecture_family": "heldout_latent_mechanism_recombination",
+  "benchmark": "heldout_mechanism_recombination_v2",
+  "budget": "quick",
+  "candidates": [
+    "shared_latent_mechanism_library",
+    "independent_latent_mechanism_library",
+    "no_cross_mechanism_factorizer",
+    "unigram_recombination",
+    "markov5_recombination",
+    "nearest_template_recombination",
+    "exact_mdl_module_library",
+    "oracle_composition_graph"
+  ],
+  "confounds": [
+    "Any train/test composition overlap, public-shape leakage, module/source/native labels, oracle graph access, target access, seed leakage, post-score tuning, semantic-baseline mismatch, state-budget breach or evaluator digest change invalidates the cohort."
+  ],
+  "created_at": "2026-08-30T16:56:47Z",
+  "evaluator_sha256": "0f3be05e3843e424be4e3a98a115000972a729ef49c25f6c5d671da70c78e3b0",
+  "experiment_id": "EXP-20260830-0056",
+  "falsification_criteria": [
+    "Discard the exact shared mechanism if held-out accuracy is below 0.95, minimum-combination accuracy is below 0.90, or either source-identical independent/no-cross ablation is within 0.10 accuracy.",
+    "Discard the exact shared mechanism if an implementable finite-order, nearest-template or exact-MDL control matches its capability while no worse on every declared acquisition, fit/search, query, update, state, bytes and R16 axis."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": null,
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0021",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "mechanism_recombination_protocol": {
+    "classical_baselines": [
+      "unigram_recombination",
+      "markov5_recombination",
+      "nearest_template_recombination",
+      "exact_mdl_module_library",
+      "oracle_composition_graph"
+    ],
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "equal_public_shapes": true,
+    "heldout_compositions": [
+      "CB"
+    ],
+    "independent_ablation": "independent_latent_mechanism_library",
+    "invalidation_rules": [
+      "Invalidate on any overlap between registered training and held-out compositions.",
+      "Invalidate if module IDs, source families, native types, extraction paths or the composition graph reach an implementable candidate.",
+      "Invalidate if public support, query or target shapes identify a composition above chance plus 0.10.",
+      "Invalidate if scoring-state conjugation or support partitions are realized before integrity and source audit.",
+      "Invalidate on target access, scoring-seed leakage, post-score tuning, state-budget breach or evaluator-integrity change."
+    ],
+    "mechanism_source_seed": 1103,
+    "no_cross_mechanism_ablation": "no_cross_mechanism_factorizer",
+    "runner_random_state_conjugation": true,
+    "shared_candidate": "shared_latent_mechanism_library",
+    "source_mechanisms": [
+      "program_table",
+      "predictive_transition_outcome",
+      "local_dynamics_rule"
+    ],
+    "state_budget_bytes": 4194304,
+    "state_count": 144,
+    "train_compositions": [
+      "A",
+      "B",
+      "C",
+      "AA",
+      "AB",
+      "AC",
+      "BA",
+      "BB",
+      "BC",
+      "CA",
+      "CC"
+    ]
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_combination_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops": "minimize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A crash rejects only the implementation; a leakage, semantic-control, seed or integrity failure invalidates the experiment and permits no scientific interpretation.",
+    "null": "A valid null makes this exact shared learner dormant without tuning the frozen interface, composition split, support size, state cap or controls.",
+    "positive": "A valid one-seed result meeting every quality, ablation and Pareto gate justifies only preregistering a three-seed adversarial replication; it does not support promotion or broad successor claims."
+  },
+  "parent_experiment_id": "EXP-20260830-0055",
+  "predicted_outcome": "The shared learner will probably recover some reusable structure but exact MDL search may match it; a scientifically positive quick requires at least 0.95 held-out accuracy, 0.90 minimum-combination accuracy, at least 0.10 accuracy advantage over both causal ablations, and implementable Pareto non-dominance.",
+  "primary_metrics": [
+    "accuracy",
+    "minimum_combination_accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; a valid positive result may authorize only a three-seed adversarial screen with a new held-out ordered combination and intact semantic/integrity gates."
+  ],
+  "research_question": "Can one shared family-blind module-induction rule recover the unseen ordered CB composition with better held-out accuracy per fully charged cost than source-identical independent and no-sharing ablations plus finite-order, template and exact-MDL controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Shared latent mechanism library on held-out ordered recombination"
+}
