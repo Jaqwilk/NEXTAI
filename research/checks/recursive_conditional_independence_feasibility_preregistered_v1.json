@@ -1,0 +1,59 @@
+{
+  "audit_id": "recursive_conditional_independence_feasibility_v1",
+  "created_at": "2026-08-31T20:06:04Z",
+  "decision_scope": "service diagnostic only; no scientific evidence, hypothesis, plan, scoring seed, candidate, benchmark, schema or scoring",
+  "frozen_inputs": {
+    "research/data/wt_changepoints_v1/manifest.json": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "src/nextai_autoresearch/benchmarks/heldout_three_family_continuous_transfer_v1.py": "63a04b28951e0a384269fd5ae54e83bd6591a9545bd5349278e09e8117f8b5a5",
+    "src/nextai_autoresearch/benchmarks/heldout_wt_changepoints_prequential_v1.py": "ddfb3c376c2f7eaf3b56e0825e313afcb56169d5d5e784888de280f37abdce9a",
+    "src/nextai_autoresearch/three_family_tensor_contract.py": "dc2a4b2712f21560f4df8d02d52853cbc4a8d09e34baf3bc6a8b6e0e5d12b690",
+    "src/nextai_autoresearch/wt_prequential_contract.py": "12b36743d024db342f9e25255238bd9c1f10864e60e711d0a85955817b47149c"
+  },
+  "prior_evidence": {
+    "EXP-20260830-0040": "a one-selector learned SPN was numerically identical to contextual Chow-Liu and strictly more costly; revival requires at least two recursive levels and stronger classical controls",
+    "SRC-SPN": "smooth/decomposable circuits support tractable conditional inference but circuit compactness alone is not a learned advantage",
+    "SRC-structure-learning": "published SPN structure learning motivates data-driven recursive partitions, not exemption from mixture-tree and decision-diagram controls"
+  },
+  "prohibited_shortcuts": [
+    "WT test files 8-9 or any three-family test target",
+    "family labels, native types, paths, semantic response-channel names or three-family mask/native-width routing",
+    "post-diagnostic changes to response signature, split rule, ridge, variance floor or thresholds"
+  ],
+  "wt_development_diagnostic": {
+    "allowed_files": {"fit": [0, 1, 2, 3, 4, 5], "development": [6, 7], "forbidden_test": [8, 9]},
+    "diagnostic_seed": 132031,
+    "response_signature": "mean(target rows 0:16) minus mean(history rows 16:32), retaining all ten anonymous coordinates",
+    "observable_context": "sort the four normalized public control values; root split is lower two versus upper two and the second level separates the two values within each branch",
+    "models": {
+      "depth0": "one Gaussian Chow-Liu tree for all fit signatures",
+      "depth1": "one Gaussian Chow-Liu tree for each root branch",
+      "depth2": "one Gaussian Chow-Liu tree for each of the four control leaves"
+    },
+    "tree_fit": "maximum absolute-correlation spanning tree, rooted at anonymous coordinate 0; each child is a ridge-0.001 conditional Gaussian on its parent, with variance floor 0.001",
+    "development_metric": "mean Gaussian negative log likelihood per anonymous coordinate, overall and separately in files 6 and 7",
+    "structure_hierarchy": {
+      "root_shared_edges": "intersection of all four leaf edge sets",
+      "branch_specific_edges": "within-branch leaf intersection excluding root-shared edges",
+      "split_stability": "mean Jaccard agreement of root-shared and both branch-specific edge sets between fit files 0-2 and 3-5"
+    },
+    "pass_thresholds": {
+      "control_levels_present_in_fit_and_development": 4,
+      "minimum_depth2_relative_nll_gain_over_depth1_overall_and_each_development_file": 0.05,
+      "minimum_root_shared_edges": 2,
+      "minimum_branch_specific_edges_per_branch": 1,
+      "minimum_split_hierarchy_jaccard": 0.5
+    }
+  },
+  "contract_gates": {
+    "wt_depth2_is_exact_four_component_chow_liu_mixture": true,
+    "wt_flat_mixture_or_decision_tree_is_mandatory_control": true,
+    "three_family_common_scope_without_masks": false,
+    "three_family_scope_signatures": {"ncmapss_ds08a": "18->14", "dronepropa": "10->6", "continuous_event": "32->1"},
+    "required_distinction": "a future recursive PC must be smaller or cheaper at matched calibrated likelihood than a flat mixture with parameter sharing, a decision diagram/tensor train and generic variable elimination; merely nesting four Chow-Liu leaves cannot pass"
+  },
+  "overall_pass_rule": "all WT numerical gates pass and an existing frozen contract expresses a recursive circuit distinction that is not exactly a flat mixture/decision tree and does not use mask routing; otherwise keep HYP-0013 dormant and create no hypothesis",
+  "outcomes": {
+    "pass": "a later wake may create one low-confidence hypothesis before implementation or scoring",
+    "fail": "record no_recursive_pc_structure_contract and create no hypothesis, candidate, plan, benchmark or schema"
+  }
+}

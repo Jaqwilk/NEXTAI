@@ -1,0 +1,47 @@
+{
+  "audit_id": "recursive_conditional_independence_feasibility_v1",
+  "completed_at": "2026-08-31T20:08:42Z",
+  "decision": "no_recursive_pc_structure_contract",
+  "hypothesis_created": false,
+  "plan_created": false,
+  "preregistration_path": "research/checks/recursive_conditional_independence_feasibility_preregistered_v1.json",
+  "preregistration_sha256": "bce9a832d7b496306f0e1158ba074559f60b4ad569d265a4929b823f18371b9e",
+  "scientific_evidence": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "test_targets_read": false,
+  "wt_prequential_v1": {
+    "diagnostic_seed": 132031,
+    "train_episodes": 54,
+    "development_episodes": 18,
+    "control_levels": [-0.9984713182871867, -0.4812429603321014, 0.09345521279475183, 1.8175496893569616],
+    "negative_log_likelihood_per_coordinate": {
+      "overall": {"depth0": -0.5427291829036127, "depth1": -0.5958438137362325, "depth2": -0.5259526711026382, "depth2_relative_gain_over_depth1": -0.11729775659722405},
+      "development_file_6": {"depth0": -0.5897957863429372, "depth1": -0.6452291082943757, "depth2": -0.5671660962876078, "depth2_relative_gain_over_depth1": -0.12098495093180588},
+      "development_file_7": {"depth0": -0.49566257946428827, "depth1": -0.5464585191780892, "depth2": -0.4847392459176689, "depth2_relative_gain_over_depth1": -0.11294411395260202}
+    },
+    "hierarchy": {
+      "root_shared_edges": [[0, 3], [4, 6]],
+      "branch_specific_edges": [[[0, 6], [2, 3], [2, 7], [5, 8]], [[4, 8], [5, 7]]],
+      "half_split_jaccards": [1.0, 0.3333333333333333, 0.0],
+      "mean_split_hierarchy_jaccard": 0.4444444444444444
+    },
+    "gate_results": {
+      "control_levels_present": true,
+      "depth2_gain_all_cells": false,
+      "root_shared_edges": true,
+      "branch_specific_edges": true,
+      "split_hierarchy_jaccard": false
+    },
+    "all_numeric_gates_pass": false
+  },
+  "contract_results": {
+    "wt_depth2_is_exact_four_component_chow_liu_mixture": true,
+    "wt_flat_mixture_or_decision_tree_represents_same_partition": true,
+    "three_family_common_scope_without_masks": false,
+    "three_family_scope_signatures": {"ncmapss_ds08a": "18->14", "dronepropa": "10->6", "continuous_event": "32->1"},
+    "distinct_recursive_pc_signature_expressible": false
+  },
+  "interpretation": "WT has some shared and branch-specific correlation-tree edges, but the second context split worsens held-out density fit by 11.3-12.1 percent and the hierarchy is not split-stable. Even a positive result would instantiate exactly a four-leaf Chow-Liu mixture or decision tree, not a distinct recursive circuit. V7 cannot share circuit scopes across its three native widths without the prohibited masks. Existing frozen contracts therefore do not meet HYP-0013's revival condition.",
+  "next_cycle": "One no-scoring nonaxis_identity_acquisition_feasibility audit for HYP-0001 over candidate-visible DronePropA training/validation support and WT fit/development streams only. Require naturally available positive views without stable IDs or semantic labels, pair-breaking and identity-shuffle controls, nonlinear/non-axis-aligned variation, and exact clustering, record-linkage and ANN baselines; otherwise keep HYP-0001 dormant and create no hypothesis."
+}
