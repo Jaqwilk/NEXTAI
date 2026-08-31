@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_three_family_continuous_transfer_v5"
+benchmark_version = "heldout_wt_changepoints_prequential_v1"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -231,6 +231,42 @@ invalidation_rules = [
   "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change.",
 ]
 
+[wt_prequential]
+corpus_id = "causal_chambers_wt_changepoints_v1"
+manifest_sha256 = "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e"
+train_files = [0, 1, 2, 3, 4, 5]
+development_files = [6, 7]
+test_files = [8, 9]
+shared_candidate = "wt_candidate_under_test"
+classical_baselines = [
+  "wt_persistence_v1",
+  "wt_pooled_mean_v1",
+  "wt_control_level_bank_v1",
+  "wt_lms_v1",
+  "wt_rls_v1",
+  "wt_transition_bank_v1",
+  "wt_bounded_replay_v1",
+  "wt_ridge_fir_v1",
+]
+knowledge_sizes = [18, 36, 54]
+horizons = [16, 32, 96]
+fit_depth = 32
+fit_horizon = 32
+state_budget_bytes = 16777216
+declared_reuses = [1, 4, 16]
+saturation_nrmse = 0.50
+saturation_worst_file_nrmse = 0.75
+invalidation_rules = [
+  "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+  "Invalidate if train, development or test whole-file roles overlap.",
+  "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+  "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+  "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+  "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+  "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+  "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+]
+
 [execution]
 mode = "audited_subprocess"
 allow_network_in_candidate = false
@@ -350,6 +386,11 @@ minimize = [
   "worst_span_bits_per_byte",
   "conditional_log_loss",
   "normalized_rmse",
+  "worst_file_normalized_rmse",
+  "worst_transition_normalized_rmse",
+  "rollout_16_nrmse",
+  "rollout_32_nrmse",
+  "rollout_96_nrmse",
   "worst_flight_normalized_rmse",
   "worst_condition_normalized_rmse",
   "teacher_forced_nrmse",

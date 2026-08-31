@@ -208,6 +208,26 @@ def run_doctor(root: Path | None = None) -> DoctorReport:
             report.facts.append(f"semantic_baselines={len(checked['required'])}")
         except Exception as exc:
             report.errors.append(f"dronepropa maintenance: {exc}")
+    elif config.benchmark_version.startswith("heldout_wt_changepoints_"):
+        try:
+            module = __import__(
+                f"nextai_autoresearch.benchmarks.{config.benchmark_version}",
+                fromlist=["verify_static_contract"],
+            )
+            static = module.verify_static_contract(base)
+            required = list(config.raw["wt_prequential"]["classical_baselines"])
+            checked = verify_required_baselines(
+                {
+                    "candidates": required,
+                    "wt_prequential_protocol": {"classical_baselines": required},
+                },
+                base,
+                run_tests=False,
+            )
+            report.facts.append(f"wt_changepoints_files={static['files']}")
+            report.facts.append(f"semantic_baselines={len(checked['required'])}")
+        except Exception as exc:
+            report.errors.append(f"WT changepoints maintenance: {exc}")
 
     pyproject = (base / "pyproject.toml").read_text(encoding="utf-8").lower()
     for dependency in ("openai", "anthropic", "google-generativeai"):

@@ -262,6 +262,42 @@ Allowed early claim:
 Forbidden early claim:
 
 > Candidate X proves knowledge and computation are decoupled or replaces LLMs.
+
+## Held-out WT changepoint prequential v1 cohort
+
+This local-visible screening cohort uses the frozen Causal Chambers
+`wt_changepoints_v1` archive. Whole files 0--5 are fit-only, 6--7 are
+development-only and 8--9 are test-only. The archive, manifest and all ten CSV
+hashes are immutable. Test files remain locally inspectable, so results are
+screening evidence rather than an independent hidden holdout.
+
+A train-only mechanical rule selects the sole control channel and ten varying
+response channels. Candidate-visible values are normalized with train-only
+statistics and then consistently permuted into anonymous channels. A query
+contains only a 32-sample prechange history, the current anonymous control,
+an anonymous slot and horizon 16, 32 or 96. File identity, channel names,
+timestamps, intervention markers, future controls and targets are forbidden.
+The evaluator validates, copies, freezes and hashes the complete prediction
+artifact before it reads the corresponding target and issues a reveal/update.
+Updates may mutate only slot-local fast state.
+
+Plans freeze K=18/36/54 training episodes, fit depth and fit horizon 32, the
+three test horizons, a 16 MiB state limit and persistence, pooled mean, exact
+control-level residual bank, normalized LMS, RLS, prechange transition bank,
+bounded replay and fixed ridge FIR controls. Each named control requires an
+exact implementation hash and a discriminating semantic test before runner
+seed realization. Channel-permutation equivariance and the query--artifact--
+reveal--update ordering are mandatory fixtures.
+
+Report overall, worst-file, worst-transition and per-horizon normalized RMSE,
+rollout stability, acquisition and preprocessing, fit, every query and update,
+bytes touched, resident state and R1/R4/R16 workload. The implementable Pareto
+frontier uses the plan-frozen universal capability and cost axes. Incomplete
+mandatory controls block promotion without deleting complete candidates from
+the frontier. Horizon 96 tests evaluator-created depth extrapolation beyond the
+32 fitted target samples; it is not claimed as naturally occurring response-
+length OOD. One seed may discard an implementation or authorize replication,
+never promote.
 ## Three-family continuous transfer v2 Pareto contract
 
 Version 2 preserves every world, split, tensor, normalization, causal assignment, baseline, metric value and budget from `heldout_three_family_continuous_transfer_v1`. It changes only prospective decision semantics. Historical v1 plans and results remain immutable and are never recomputed.

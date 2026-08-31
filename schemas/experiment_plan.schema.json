@@ -456,6 +456,59 @@
         "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 7}
       }
     },
+    "wt_prequential_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "corpus_id", "manifest_sha256", "split_unit", "train_files",
+        "development_files", "test_files", "candidate_metadata",
+        "predict_then_atomic_artifact_then_reveal", "shared_candidate",
+        "classical_baselines", "knowledge_sizes", "fit_depth", "fit_horizon",
+        "declared_horizons", "runner_random_channel_permutation",
+        "normalization", "state_budget_bytes", "declared_reuses",
+        "minimum_meaningful_nrmse_effect", "saturation_nrmse",
+        "saturation_worst_file_nrmse", "pareto_capability_metrics",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "corpus_id": {"const": "causal_chambers_wt_changepoints_v1"},
+        "manifest_sha256": {"const": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e"},
+        "split_unit": {"const": "whole_csv_file_sha256"},
+        "train_files": {"const": [0, 1, 2, 3, 4, 5]},
+        "development_files": {"const": [6, 7]},
+        "test_files": {"const": [8, 9]},
+        "candidate_metadata": {"const": "anonymous_permuted_tensors_and_random_slot_only"},
+        "predict_then_atomic_artifact_then_reveal": {"const": true},
+        "shared_candidate": {"const": "wt_candidate_under_test"},
+        "classical_baselines": {"const": [
+          "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+          "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+          "wt_bounded_replay_v1", "wt_ridge_fir_v1"
+        ]},
+        "knowledge_sizes": {"const": [18, 36, 54]},
+        "fit_depth": {"const": 32},
+        "fit_horizon": {"const": 32},
+        "declared_horizons": {"const": [16, 32, 96]},
+        "runner_random_channel_permutation": {"const": true},
+        "normalization": {"const": "train_files_only_mechanical_partition"},
+        "state_budget_bytes": {"const": 16777216},
+        "declared_reuses": {"const": [1, 4, 16]},
+        "minimum_meaningful_nrmse_effect": {"const": 0.1325268421060828},
+        "saturation_nrmse": {"const": 0.5},
+        "saturation_worst_file_nrmse": {"const": 0.75},
+        "pareto_capability_metrics": {"const": [
+          "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
+          "worst_transition_normalized_rmse", "rollout_16_nrmse", "rollout_32_nrmse",
+          "rollout_96_nrmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+          "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+          "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+          "workload_ops_r4", "workload_ops_r16"
+        ]},
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 8
+        }
+      }
+    },
     "predicted_outcome": {"type": "string", "minLength": 20},
     "falsification_criteria": {
       "type": "array",
@@ -641,6 +694,87 @@
           },
           "continuous_transfer_protocol": {
             "required": ["pareto_capability_metrics", "causal_promotion_gates"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_wt_changepoints_prequential_v1"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["wt_prequential_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [18, 36, 54]},
+            "reasoning_depths": {"const": [16, 32, 96]},
+            "queries_per_cell": {"const": 18}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "wt_candidate_under_test"}},
+            {"contains": {"const": "wt_persistence_v1"}},
+            {"contains": {"const": "wt_pooled_mean_v1"}},
+            {"contains": {"const": "wt_control_level_bank_v1"}},
+            {"contains": {"const": "wt_lms_v1"}},
+            {"contains": {"const": "wt_rls_v1"}},
+            {"contains": {"const": "wt_transition_bank_v1"}},
+            {"contains": {"const": "wt_bounded_replay_v1"}},
+            {"contains": {"const": "wt_ridge_fir_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "worst_file_normalized_rmse"}},
+            {"contains": {"const": "worst_transition_normalized_rmse"}},
+            {"contains": {"const": "rollout_16_nrmse"}},
+            {"contains": {"const": "rollout_32_nrmse"}},
+            {"contains": {"const": "rollout_96_nrmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "preprocessing_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "adaptation_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]},
+          "metric_directions": {
+            "required": [
+              "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
+              "worst_transition_normalized_rmse", "rollout_16_nrmse", "rollout_32_nrmse",
+              "rollout_96_nrmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+              "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+              "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+              "workload_ops_r4", "workload_ops_r16"
+            ],
+            "properties": {
+              "stable_rollout_rate": {"const": "maximize"},
+              "normalized_rmse": {"const": "minimize"},
+              "worst_file_normalized_rmse": {"const": "minimize"},
+              "worst_transition_normalized_rmse": {"const": "minimize"},
+              "rollout_16_nrmse": {"const": "minimize"},
+              "rollout_32_nrmse": {"const": "minimize"},
+              "rollout_96_nrmse": {"const": "minimize"},
+              "data_acquisition_ops": {"const": "minimize"},
+              "preprocessing_ops": {"const": "minimize"},
+              "fit_ops": {"const": "minimize"},
+              "adaptation_ops": {"const": "minimize"},
+              "mean_query_ops": {"const": "minimize"},
+              "update_ops": {"const": "minimize"},
+              "state_bytes": {"const": "minimize"},
+              "peak_state_bytes": {"const": "minimize"},
+              "mean_bytes_touched": {"const": "minimize"},
+              "workload_ops_r1": {"const": "minimize"},
+              "workload_ops_r4": {"const": "minimize"},
+              "workload_ops_r16": {"const": "minimize"}
+            }
           }
         }
       }

@@ -1,10 +1,17 @@
 from argparse import Namespace
+from copy import deepcopy
 
 from nextai_autoresearch import cli
+from nextai_autoresearch.config import ResearchConfig, load_config
+from nextai_autoresearch.utils import project_root
 
 
 def test_plan_new_emits_v5_pareto_contract(monkeypatch) -> None:
     captured = {}
+    configured = load_config(project_root())
+    raw = deepcopy(configured.raw)
+    raw["project"]["benchmark_version"] = "heldout_three_family_continuous_transfer_v5"
+    monkeypatch.setattr(cli, "load_config", lambda root: ResearchConfig(raw, configured.path))
     monkeypatch.setattr(cli, "ensure_layout", lambda root: None)
     monkeypatch.setattr(cli, "ensure_can_create_plan", lambda root: None)
     monkeypatch.setattr(cli, "latest_hypotheses", lambda root: {"HYP-9999": {}})

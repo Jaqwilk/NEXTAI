@@ -358,13 +358,13 @@ def _frontier(
         if is_privileged_candidate(str(candidate["candidate"])):
             continue
         loss_cohort = str(plan.get("benchmark", "")).startswith(
-            "heldout_parallel_masked_"
+            ("heldout_parallel_masked_", "heldout_wt_changepoints_")
         )
         if accuracy is None or (not loss_cohort and float(accuracy) < minimum_accuracy):
             continue
         rows.append({"candidate": candidate["candidate"], **summary})
     directions = plan.get("metric_directions", {})
-    protocol = plan.get("continuous_transfer_protocol", {})
+    protocol = plan.get("continuous_transfer_protocol", {}) or plan.get("wt_prequential_protocol", {})
     primary_metrics = list(
         protocol.get("pareto_capability_metrics", plan.get("primary_metrics", ()))
     )

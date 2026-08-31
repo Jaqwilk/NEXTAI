@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "cohorts": ["heldout_parallel_masked_infilling_v2", "cross_family_shared_representation_v3", "cross_family_relation_fragment_transfer_v4", "heldout_dronepropa_factor_recombination_v2", "heldout_dronepropa_factor_recombination_v3", "heldout_dronepropa_factor_recombination_v4", "heldout_dronepropa_factor_recombination_v5", "heldout_dronepropa_factor_recombination_v6", "heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"],
+  "cohorts": ["heldout_wt_changepoints_prequential_v1", "heldout_parallel_masked_infilling_v2", "cross_family_shared_representation_v3", "cross_family_relation_fragment_transfer_v4", "heldout_dronepropa_factor_recombination_v2", "heldout_dronepropa_factor_recombination_v3", "heldout_dronepropa_factor_recombination_v4", "heldout_dronepropa_factor_recombination_v5", "heldout_dronepropa_factor_recombination_v6", "heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"],
   "baselines": {
     "uniform_masked_byte": {
       "baseline_id": "uniform_byte_v1",
@@ -359,6 +359,54 @@
       "specification": {"role": "privileged support control; not oracle or bound", "support": "all test-world public support pairs; never query outputs", "frontier": "excluded", "cost": "fully charged"},
       "implementation_files": {"src/nextai_autoresearch/candidates/privileged_tensor_support_v1.py": "9633e6083388d8fdb401dc1742ae4f90974862eb115e7ddd5c9777c59b56fd74", "src/nextai_autoresearch/candidates/tensor_baseline_core.py": "4c8cd1c80388bf456592d6cde861d1a498cadeb825216207d9d464681499ebfd"},
       "conformance_tests": [{"path":"tests/test_three_family_continuous_transfer.py","node_id":"tests/test_three_family_continuous_transfer.py::test_frozen_role_names_do_not_alias_causal_controls","sha256":"a296572d6091820513df916a57597e72489920ab24dcc21dba1ffb2bd2950176"}]
+    },
+    "wt_persistence_v1": {
+      "baseline_id": "wt_persistence_v1", "version": 1,
+      "specification": {"prediction": "repeat the final anonymous response vector through H=96", "fit": "none", "update": "none"},
+"implementation_files": {"src/nextai_autoresearch/candidates/wt_persistence_v1.py":"bf3f486a59ca997582cd97f93efdd1bc8f7a3e51964b80d20b21b896e0e3c2b0","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877","src/nextai_autoresearch/wt_prequential_contract.py":"12b36743d024db342f9e25255238bd9c1f10864e60e711d0a85955817b47149c"},
+      "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_persistence_reference_and_depth_extension","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
+    },
+    "wt_pooled_mean_v1": {
+      "baseline_id": "wt_pooled_mean_v1", "version": 1,
+      "specification": {"fit": "mean normalized H32 target across frozen training episodes", "H96": "hold H32 final value", "update": "none"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_pooled_mean_v1.py":"8805d01a95b7363081403bf0fbc400d541df9cd6abba1ed6dcd67153ca4da898","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877"},
+      "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_pooled_and_exact_control_level_semantics","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
+    },
+    "wt_control_level_bank_v1": {
+      "baseline_id": "wt_exact_control_level_residual_bank_v1", "version": 1,
+      "specification": {"key": "rounded anonymous public control level", "value": "mean H32 residual from final history state", "update": "none"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_control_level_bank_v1.py":"eabd1c477bd7ef59afd9c4a4dc2ea4780b86e516f71840c03520c5241bfd82ae","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877"},
+      "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_pooled_and_exact_control_level_semantics","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
+    },
+    "wt_lms_v1": {
+      "baseline_id": "wt_normalized_lms_v1", "version": 1,
+      "specification": {"features": "bias, final/mean/delta anonymous responses, public control", "step": "0.5/(1+x'x)", "update": "predict then target-revealed slot-local LMS"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_lms_v1.py":"0738f0a74114844a063af7a8c76013f6f21a3804bda3713d15717e68662e8fcc","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877"},
+      "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_adaptive_linear_update_is_slot_local[wt_lms_v1]","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
+    },
+    "wt_rls_v1": {
+      "baseline_id": "wt_rls_v1", "version": 1,
+      "specification": {"features": "bias, final/mean/delta anonymous responses, public control", "initial_precision": "ridge-0.001 inverse Gram", "update": "predict then target-revealed slot-local RLS, forgetting 1"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_rls_v1.py":"52b4830743243d94bfa802c6d896e7789f9dc5d1591c4ca1d4da36f1a11d3cf8","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877"},
+      "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_adaptive_linear_update_is_slot_local[wt_rls_v1]","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
+    },
+    "wt_transition_bank_v1": {
+      "baseline_id": "wt_prechange_transition_residual_bank_v1", "version": 1,
+      "specification": {"prior_regime": "nearest train-only response prototype from public prechange history", "key": "prior regime and current public control", "update": "target-revealed incremental mean in anonymous slot-local bank"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_transition_bank_v1.py":"b401c5be84170ea2361c9bad0de2cc7fcfed900ceaf94892cbe033ce4c6851dd","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877"},
+      "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_transition_bank_uses_prechange_signature_and_local_update","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
+    },
+    "wt_bounded_replay_v1": {
+      "baseline_id": "wt_bounded_nearest_replay_v1", "version": 1,
+      "specification": {"capacity": 16, "selection": "nearest anonymous history plus public-control distance", "prediction": "stored residual relative to current final state", "update": "append reveal to slot-local FIFO"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_bounded_replay_v1.py":"27101f8388f2fbdf6e4252453201e27df25505e407b734a6c1bda71840be46a5","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877"},
+      "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_bounded_replay_has_hard_cap_and_slot_local_state","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
+    },
+    "wt_ridge_fir_v1": {
+      "baseline_id": "wt_fixed_ridge_fir_v1", "version": 1,
+      "specification": {"features": "bias, final/mean/delta anonymous responses, public control", "ridge": 0.001, "fit_horizon": 32, "H96": "hold H32 final value", "update": "none"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_ridge_fir_v1.py":"031b4ccf415f1831773e1ce3aea531474932f481f3502abbff58fd8405d05494","src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py":"8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877"},
+      "conformance_tests": [{"path":"tests/test_wt_changepoints_prequential_v1.py","node_id":"tests/test_wt_changepoints_prequential_v1.py::test_wt_ridge_fir_is_fixed_and_extends_only_by_hold_last","sha256":"8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03"}]
     }
   }
 }
