@@ -467,13 +467,13 @@
       "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
     },
     "wt_candidate_under_test": {
-      "baseline_id": "hypothesis_candidate_bounded_recurrent_residual_transition_v1", "version": 1,
-      "specification": {"role":"hypothesis candidate semantic registration; not a baseline","transition":"affine recurrent response-increment model with ridge 0.001","features":"bias, current anonymous response, response increment, public control","correction_bound":"plus or minus four standardized units relative to query origin","update":"post-artifact slot-local RLS initialized by train-fit covariance","invariance":"consistent anonymous-channel permutation"},
-      "implementation_files": {"src/nextai_autoresearch/candidates/wt_candidate_under_test.py":"4471f2a999f9432e9d2e6fb56d309ebe7af52cca6dff246ab1b439b38f035104"},
+      "baseline_id": "hypothesis_candidate_event_sparse_associative_plasticity_v1", "version": 1,
+      "specification": {"role":"hypothesis candidate semantic registration; not a baseline","population":"two signed units per anonymous response plus two signed public-control units","activation":"all exact maximum-magnitude latest response-change ties and one public-control sign","emission":"direct constant-velocity trajectory from active-row mean; no residual forecaster recurrence or replay","update":"post-artifact slot-local count-normalized running mean on active rows only","invariance":"consistent anonymous-channel permutation including exact ties"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/wt_candidate_under_test.py":"881b255e07bda112e7cfa99422a18967c4cd532f43b37a302db318b79daeb953"},
       "conformance_tests": [
-        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_recurrent_residual_extrapolates_and_respects_bound","sha256":"bf61de13e8470d429fafb716311a1582e51015eceb0cf51f3a9ec907c96e6d2e"},
-        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_recurrent_residual_is_channel_permutation_equivariant","sha256":"bf61de13e8470d429fafb716311a1582e51015eceb0cf51f3a9ec907c96e6d2e"},
-        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_reveal_updates_only_one_slot","sha256":"bf61de13e8470d429fafb716311a1582e51015eceb0cf51f3a9ec907c96e6d2e"}
+        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_event_population_emits_direct_trajectory_with_sparse_state_touch","sha256":"4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754"},
+        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_event_population_is_permutation_equivariant_even_on_ties","sha256":"4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754"},
+        {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_event_reveal_updates_only_active_rows_in_one_slot","sha256":"4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754"}
       ]
     }
   }

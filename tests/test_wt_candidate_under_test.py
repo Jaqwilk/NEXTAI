@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from nextai_autoresearch.candidates.wt_candidate_under_test import Candidate, RESIDUAL_BOUND
+from nextai_autoresearch.candidates.wt_candidate_under_test import Candidate, POPULATION
 from nextai_autoresearch.wt_prequential_contract import WTEpisode, WTQuery, WTReveal, WTTraining
 
 
@@ -14,51 +14,51 @@ def _training(permutation=None) -> WTTraining:
         velocity = np.linspace(0.004, 0.02, 10)
         history = np.stack([base + (time - 31) * velocity for time in range(32)])
         target = np.stack([base + (time + 1) * velocity for time in range(32)])
-        episodes.append(WTEpisode(
-            tuple(map(tuple, history[:, permutation])), float(index % 3 - 1),
-            tuple(map(tuple, target[:, permutation])),
-        ))
+        episodes.append(WTEpisode(tuple(map(tuple, history[:, permutation])), float(index % 3 - 1),
+                                  tuple(map(tuple, target[:, permutation]))))
     return WTTraining(tuple(episodes), 1, 1)
 
 
-def _query(permutation=None, slot=101, horizon=96) -> WTQuery:
+def _query(permutation=None, slot=101, horizon=96, tied=False) -> WTQuery:
     permutation = np.arange(10) if permutation is None else np.asarray(permutation)
     base = np.linspace(-0.25, 0.35, 10)
-    velocity = np.linspace(0.005, 0.018, 10)
+    velocity = np.full(10, 0.01) if tied else np.linspace(0.005, 0.018, 10)
     history = np.stack([base + (time - 31) * velocity for time in range(32)])
     return WTQuery(slot, tuple(map(tuple, history[:, permutation])), 0.0, horizon)
 
 
-def test_wt_recurrent_residual_extrapolates_and_respects_bound() -> None:
+def test_wt_event_population_emits_direct_trajectory_with_sparse_state_touch() -> None:
     candidate = Candidate(7)
     candidate.fit(_training(), 18, 96)
     query = _query()
     prediction = np.asarray(candidate.query(query, 96))
-    origin = np.asarray(query.history)[-1]
     assert prediction.shape == (96, 10)
-    assert not np.allclose(prediction[31], prediction[95])
-    assert np.max(np.abs(prediction - origin)) <= RESIDUAL_BOUND + 1e-12
+    assert not np.allclose(prediction[0], prediction[-1])
+    assert candidate._weights.shape == (POPULATION, 10)
+    assert candidate.last_update_bytes == 0.0
 
 
-def test_wt_recurrent_residual_is_channel_permutation_equivariant() -> None:
+def test_wt_event_population_is_permutation_equivariant_even_on_ties() -> None:
     permutation = np.array([7, 2, 9, 0, 4, 1, 8, 5, 3, 6])
     plain, permuted = Candidate(1), Candidate(1)
     plain.fit(_training(), 18, 96)
     permuted.fit(_training(permutation), 18, 96)
-    expected = np.asarray(plain.query(_query(slot=202, horizon=32), 32))[:, permutation]
-    observed = np.asarray(permuted.query(_query(permutation, slot=202, horizon=32), 32))
-    assert np.allclose(observed, expected, atol=1e-8)
+    expected = np.asarray(plain.query(_query(slot=202, horizon=32, tied=True), 32))[:, permutation]
+    observed = np.asarray(permuted.query(_query(permutation, slot=202, horizon=32, tied=True), 32))
+    assert np.allclose(observed, expected, atol=1e-12)
 
 
-def test_wt_reveal_updates_only_one_slot() -> None:
+def test_wt_event_reveal_updates_only_active_rows_in_one_slot() -> None:
     candidate = Candidate(2)
     candidate.fit(_training(), 18, 96)
     first, other = _query(slot=303, horizon=32), _query(slot=404, horizon=32)
-    before_first = np.asarray(candidate.query(first, 32))
-    before_other = np.asarray(candidate.query(other, 32))
+    candidate.query(first, 32)
+    candidate.query(other, 32)
+    first_before = candidate._slots[first.slot][0].copy()
+    other_before = candidate._slots[other.slot][0].copy()
     target = np.asarray(first.history)[-1] + np.linspace(0.02, 0.2, 32)[:, None]
     candidate.update(WTReveal(first.slot, first.history, first.control, tuple(map(tuple, target))))
-    after_first = np.asarray(candidate.query(first, 32))
-    after_other = np.asarray(candidate.query(other, 32))
-    assert not np.allclose(after_first, before_first)
-    assert np.allclose(after_other, before_other)
+    changed = np.flatnonzero(np.any(candidate._slots[first.slot][0] != first_before, axis=1))
+    assert 0 < len(changed) <= 11
+    assert np.array_equal(candidate._slots[other.slot][0], other_before)
+    assert candidate.last_update_bytes < 24 * 960 * 8

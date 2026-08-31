@@ -1,12 +1,12 @@
 {
   "benchmark_version": "heldout_wt_changepoints_prequential_v1",
-  "candidate_bundle_sha256": "efa21218eac9da24fe9c3d9cc3167ec1c68ff3f567a26a24cbcc1fedfc84649c",
-  "created_at": "2026-08-31T23:14:12Z",
+  "candidate_bundle_sha256": "0a1c52dd4b4624fcfb70f56f2f5ff2547ce5e8093868818810f2f3ffd0dd138d",
+  "created_at": "2026-08-31T23:04:32Z",
   "evaluator_sha256": "adccdf4e88676cc164865a6673e12e20f8771b9953a98179ff0680e2153d8aa8",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
-    "config/baseline_semantics.json": "1d0b6ef0c9b8fe7443132a3b07e297e0e427cc60b36b50f73272917d09219904",
+    "config/baseline_semantics.json": "84a65ddcd3b61f728a369867d7dfdd9441b6d776bc43a8e51e79899a618c6372",
     "config/research.toml": "79a38fce52a006548c4d06e82d956d6754b34557987f906278ef080538cd1f99",
     "docs/SCIENTIFIC_PROTOCOL.md": "31cdaad45b82c8f692c9d0ed7cf2d31df5ffe27e09a3e068d34e7c7d6b4b5b11",
     "program.md": "e50270647d6d2eba47958f0a3ffcad24f72e276fdf18256b9906b43295640948",
@@ -431,7 +431,7 @@
     "src/nextai_autoresearch/candidates/variance_triggered_kalman.py": "23c8384dc7825d288d6cd908e6a2dc41c80f0b7e63e36b2097a5497d847a2bc8",
     "src/nextai_autoresearch/candidates/vsa_superposition.py": "2cfc1449e75dfb6b10b6fe75008d14c15681f68f719e9277740e206f68f936c1",
     "src/nextai_autoresearch/candidates/wt_bounded_replay_v1.py": "27101f8388f2fbdf6e4252453201e27df25505e407b734a6c1bda71840be46a5",
-    "src/nextai_autoresearch/candidates/wt_candidate_under_test.py": "881b255e07bda112e7cfa99422a18967c4cd532f43b37a302db318b79daeb953",
+    "src/nextai_autoresearch/candidates/wt_candidate_under_test.py": "4471f2a999f9432e9d2e6fb56d309ebe7af52cca6dff246ab1b439b38f035104",
     "src/nextai_autoresearch/candidates/wt_control_level_bank_v1.py": "eabd1c477bd7ef59afd9c4a4dc2ea4780b86e516f71840c03520c5241bfd82ae",
     "src/nextai_autoresearch/candidates/wt_lms_v1.py": "0738f0a74114844a063af7a8c76013f6f21a3804bda3713d15717e68662e8fcc",
     "src/nextai_autoresearch/candidates/wt_persistence_v1.py": "bf3f486a59ca997582cd97f93efdd1bc8f7a3e51964b80d20b21b896e0e3c2b0",
@@ -554,7 +554,7 @@
     "tests/test_three_family_continuous_transfer.py": "d4245fc3522155fda737313f3f6b2f7133b0b898db32b96ba63d4acd50ebfdde",
     "tests/test_v2_migration_integrity.py": "a99b512824583c1e475ab3b1661381dfba15380e3a9d606d2b0851b826c29725",
     "tests/test_vsa_superposition.py": "52a0c1d5fad17b36a9521cbc22410a5ebfe8074fbb33944052e8c9320c672ea9",
-    "tests/test_wt_candidate_under_test.py": "4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754",
+    "tests/test_wt_candidate_under_test.py": "bf61de13e8470d429fafb716311a1582e51015eceb0cf51f3a9ec907c96e6d2e",
     "tests/test_wt_changepoints_prequential_v1.py": "8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03",
     "uv.lock": "b7f6ba1ae659ff3388728bfca0ec87b9d7477a36ae718aec86d81a1128e79942"
   },

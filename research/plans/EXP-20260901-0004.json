@@ -1,0 +1,197 @@
+{
+  "alternative_explanations": [
+    "The direct constant-velocity emission is too weak and persistence or a frozen adaptive filter matches quality at lower total cost."
+  ],
+  "architecture_family": "event_sparse_associative_plasticity",
+  "benchmark": "heldout_wt_changepoints_prequential_v1",
+  "budget": "quick",
+  "candidates": [
+    "wt_candidate_under_test",
+    "wt_persistence_v1",
+    "wt_pooled_mean_v1",
+    "wt_control_level_bank_v1",
+    "wt_lms_v1",
+    "wt_rls_v1",
+    "wt_transition_bank_v1",
+    "wt_bounded_replay_v1",
+    "wt_ridge_fir_v1"
+  ],
+  "confounds": [
+    "Only two locally visible physical test files are available and one runner-random seed mainly changes anonymous channel permutation, so the result is screening evidence only."
+  ],
+  "created_at": "2026-08-31T23:11:12Z",
+  "evaluator_sha256": "adccdf4e88676cc164865a6673e12e20f8771b9953a98179ff0680e2153d8aa8",
+  "experiment_id": "EXP-20260901-0004",
+  "falsification_criteria": [
+    "Discard if stability is below 1; overall or worst-file NRMSE loses to the strongest complete implementable control by more than 0.1325268421060828; update operations or bytes are not strictly below both LMS and RLS at every K; query work varies with K; isolation or permutation fails; state exceeds 16777216 bytes; or a simpler implementable control Pareto-dominates it. Invalidate on frozen artifact, semantic gate, artifact ordering, leakage, tuning, external model/API, cost, or integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "a0badde8a9e28742ed82e1fd1eadd462cb7c1b15",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0031",
+  "matrix": {
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "queries_per_cell": 18,
+    "reasoning_depths": [
+      16,
+      32,
+      96
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "rollout_16_nrmse": "minimize",
+    "rollout_32_nrmse": "minimize",
+    "rollout_96_nrmse": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_normalized_rmse": "minimize",
+    "worst_transition_normalized_rmse": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify this exact event circuit, preserve the failure, and return to breadth selection rather than tuning.",
+    "null": "End this exact event circuit without changing activation, population, emission, or local learning rule.",
+    "positive": "Keep only as a scout-selected mechanism and preregister an unchanged replication; do not tune or promote."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "At every K, the fixed event circuit remains stable, stays within 0.1325268421060828 NRMSE of the strongest complete control overall and on worst file, touches strictly fewer update operations and bytes than both LMS and RLS, keeps query work K-independent, and is implementably Pareto non-dominated.",
+  "primary_metrics": [
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "worst_file_normalized_rmse",
+    "worst_transition_normalized_rmse",
+    "rollout_16_nrmse",
+    "rollout_32_nrmse",
+    "rollout_96_nrmse",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed breadth scout cannot promote or become promising; a full conjunctive positive may only select the unchanged circuit for later independent replication and an adversarial cohort."
+  ],
+  "research_question": "Can a fixed anonymous winner-event population with strictly local count-normalized synapses preserve useful WT changepoint forecasts while touching less update state than dense LMS and RLS?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Event-sparse associative plasticity WT quick",
+  "wt_prequential_protocol": {
+    "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
+    "classical_baselines": [
+      "wt_persistence_v1",
+      "wt_pooled_mean_v1",
+      "wt_control_level_bank_v1",
+      "wt_lms_v1",
+      "wt_rls_v1",
+      "wt_transition_bank_v1",
+      "wt_bounded_replay_v1",
+      "wt_ridge_fir_v1"
+    ],
+    "corpus_id": "causal_chambers_wt_changepoints_v1",
+    "declared_horizons": [
+      16,
+      32,
+      96
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "development_files": [
+      6,
+      7
+    ],
+    "fit_depth": 32,
+    "fit_horizon": 32,
+    "invalidation_rules": [
+      "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+      "Invalidate if train, development or test whole-file roles overlap.",
+      "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+      "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+      "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+      "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+      "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+    "normalization": "train_files_only_mechanical_partition",
+    "pareto_capability_metrics": [
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "worst_file_normalized_rmse",
+      "worst_transition_normalized_rmse",
+      "rollout_16_nrmse",
+      "rollout_32_nrmse",
+      "rollout_96_nrmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_atomic_artifact_then_reveal": true,
+    "runner_random_channel_permutation": true,
+    "saturation_nrmse": 0.5,
+    "saturation_worst_file_nrmse": 0.75,
+    "shared_candidate": "wt_candidate_under_test",
+    "split_unit": "whole_csv_file_sha256",
+    "state_budget_bytes": 16777216,
+    "test_files": [
+      8,
+      9
+    ],
+    "train_files": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}
