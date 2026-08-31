@@ -420,10 +420,10 @@
       "properties": {
         "families": {"const": ["ncmapss_ds08a", "dronepropa", "continuous_event"]},
         "tensor_contract_sha256": {"const": "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"},
-        "shared_candidate": {"enum": ["shared_tensor_dynamics_v1", "shared_predictive_index_v1"]},
-        "independent_ablation": {"enum": ["independent_tensor_dynamics_v1", "independent_predictive_index_v1"]},
-        "cross_family_only_ablation": {"enum": ["cross_family_only_tensor_dynamics_v1", "cross_family_only_predictive_index_v1"]},
-        "support_only_ablation": {"enum": ["support_only_tensor_dynamics_v1", "support_only_predictive_index_v1"]},
+        "shared_candidate": {"enum": ["shared_tensor_dynamics_v1", "shared_predictive_index_v1", "shared_bounded_recurrent_residual_v1"]},
+        "independent_ablation": {"enum": ["independent_tensor_dynamics_v1", "independent_predictive_index_v1", "independent_bounded_recurrent_residual_v1"]},
+        "cross_family_only_ablation": {"enum": ["cross_family_only_tensor_dynamics_v1", "cross_family_only_predictive_index_v1", "cross_family_only_bounded_recurrent_residual_v1"]},
+        "support_only_ablation": {"enum": ["support_only_tensor_dynamics_v1", "support_only_predictive_index_v1", "support_only_bounded_recurrent_residual_v1"]},
         "classical_baselines": {"oneOf": [
           {"const": [
             "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
@@ -554,7 +554,7 @@
   "allOf": [
     {
       "if": {
-        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"]}},
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5", "heldout_three_family_continuous_transfer_v6"]}},
         "required": ["benchmark"]
       },
       "then": {
@@ -682,7 +682,38 @@
     },
     {
       "if": {
-        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"]}},
+        "properties": {"benchmark": {"const": "heldout_three_family_continuous_transfer_v6"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {"properties": {"knowledge_sizes": {"const": [4, 6, 9]}}},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_bounded_recurrent_residual_v1"}},
+            {"contains": {"const": "independent_bounded_recurrent_residual_v1"}},
+            {"contains": {"const": "cross_family_only_bounded_recurrent_residual_v1"}},
+            {"contains": {"const": "support_only_bounded_recurrent_residual_v1"}},
+            {"contains": {"const": "tensor_raw_window_local_linear_v1"}},
+            {"contains": {"const": "tensor_random_projection_hash_v1"}}
+          ]},
+          "continuous_transfer_protocol": {"properties": {
+            "shared_candidate": {"const": "shared_bounded_recurrent_residual_v1"},
+            "independent_ablation": {"const": "independent_bounded_recurrent_residual_v1"},
+            "cross_family_only_ablation": {"const": "cross_family_only_bounded_recurrent_residual_v1"},
+            "support_only_ablation": {"const": "support_only_bounded_recurrent_residual_v1"},
+            "classical_baselines": {"const": [
+              "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
+              "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
+              "tensor_autoregressive_v1", "tensor_raw_window_local_linear_v1",
+              "tensor_random_projection_hash_v1", "privileged_tensor_support_v1"
+            ]}
+          }}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5", "heldout_three_family_continuous_transfer_v6"]}},
         "required": ["benchmark"]
       },
       "then": {
@@ -782,7 +813,7 @@
     {
       "if": {
         "properties": {
-          "benchmark": {"not": {"pattern": "^(heldout_dronepropa_|heldout_three_family_continuous_transfer_v[12345]$)"}}
+          "benchmark": {"not": {"pattern": "^(heldout_dronepropa_|heldout_three_family_continuous_transfer_v[123456]$)"}}
         },
         "required": ["benchmark"]
       },

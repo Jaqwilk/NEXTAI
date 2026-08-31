@@ -8,8 +8,14 @@ import pytest
 
 from nextai_autoresearch.audit import audit_candidate
 from nextai_autoresearch.benchmarks.heldout_three_family_continuous_transfer_v1 import (
-    FAMILIES, ROLE, _assignment, build_worlds,
+    BASE_IMPLEMENTATION, FAMILIES, ROLE, _assignment, build_worlds,
 )
+from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v6 as v6_benchmark
+from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v1 as shared_evaluator
+from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v2 as v2_benchmark
+from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v3 as v3_benchmark
+from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v4 as v4_benchmark
+from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v5 as v5_benchmark
 from nextai_autoresearch.config import load_config
 from nextai_autoresearch.candidates.tensor_indexed_local_operator_core import (
     BUCKET_CAP, BUCKET_COUNT, CODE_BITS, RIDGE,
@@ -73,6 +79,84 @@ def test_four_causal_assignments_are_exact_and_family_private() -> None:
     assert len(_assignment("independent", FAMILIES[0], worlds)) == 1
     assert len(_assignment("cross_family_only", FAMILIES[0], worlds)) == 2
     assert _assignment("support_only", FAMILIES[0], worlds) == ()
+
+
+def test_v6_registers_four_source_identical_recurrent_residual_roles() -> None:
+    roles = {
+        "shared_bounded_recurrent_residual_v1": "shared",
+        "independent_bounded_recurrent_residual_v1": "independent",
+        "cross_family_only_bounded_recurrent_residual_v1": "cross_family_only",
+        "support_only_bounded_recurrent_residual_v1": "support_only",
+    }
+    assert v6_benchmark.BENCHMARK_VERSION == "heldout_three_family_continuous_transfer_v6"
+    assert {name: ROLE[name] for name in roles} == roles
+    assert {
+        BASE_IMPLEMENTATION[name] for name in roles if name != "shared_bounded_recurrent_residual_v1"
+    } == {"shared_bounded_recurrent_residual_v1"}
+
+
+def test_v6_role_extension_preserves_all_v1_through_v5_role_semantics() -> None:
+    expected = {
+        "shared_tensor_dynamics_v1": "shared",
+        "independent_tensor_dynamics_v1": "independent",
+        "cross_family_only_tensor_dynamics_v1": "cross_family_only",
+        "support_only_tensor_dynamics_v1": "support_only",
+        "tensor_persistence_v1": "shared",
+        "tensor_ridge_arx_v1": "shared",
+        "tensor_rls_arx_v1": "shared",
+        "tensor_empirical_gaussian_joint_v1": "shared",
+        "tensor_contextual_gaussian_chow_liu_v1": "shared",
+        "tensor_autoregressive_v1": "shared",
+        "privileged_tensor_support_v1": "privileged",
+        "tensor_raw_window_local_linear_v1": "shared",
+        "tensor_random_projection_hash_v1": "shared",
+        "shared_predictive_index_v1": "shared",
+        "independent_predictive_index_v1": "independent",
+        "cross_family_only_predictive_index_v1": "cross_family_only",
+        "support_only_predictive_index_v1": "support_only",
+    }
+    assert {name: ROLE[name] for name in expected} == expected
+    assert {name: BASE_IMPLEMENTATION[name] for name in BASE_IMPLEMENTATION if name in expected} == {
+        "independent_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
+        "cross_family_only_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
+        "support_only_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
+        "independent_predictive_index_v1": "shared_predictive_index_v1",
+        "cross_family_only_predictive_index_v1": "shared_predictive_index_v1",
+        "support_only_predictive_index_v1": "shared_predictive_index_v1",
+    }
+    assert all(
+        benchmark.run_suite is shared_evaluator.run_suite
+        for benchmark in (v2_benchmark, v3_benchmark, v4_benchmark, v5_benchmark, v6_benchmark)
+    )
+
+
+def test_v6_roles_resolve_one_candidate_and_only_assignment_scope_differs(monkeypatch) -> None:
+    loaded = []
+
+    class Module:
+        class Candidate:
+            CONSTANTS = (0.001, 4.0)
+
+            def __init__(self, seed):
+                self.seed = seed
+
+    def fake_import(name):
+        loaded.append(name)
+        return Module
+
+    monkeypatch.setattr(shared_evaluator.importlib, "import_module", fake_import)
+    names = (
+        "shared_bounded_recurrent_residual_v1",
+        "independent_bounded_recurrent_residual_v1",
+        "cross_family_only_bounded_recurrent_residual_v1",
+        "support_only_bounded_recurrent_residual_v1",
+    )
+    candidates = [shared_evaluator._load(name, 17) for name in names]
+    assert len(set(loaded)) == 1
+    assert loaded[0].endswith(".shared_bounded_recurrent_residual_v1")
+    assert {candidate.CONSTANTS for candidate in candidates} == {(0.001, 4.0)}
+    worlds = {family: [_synthetic()] for family in FAMILIES}
+    assert [len(_assignment(ROLE[name], FAMILIES[0], worlds)) for name in names] == [3, 1, 2, 0]
 
 
 @pytest.mark.parametrize("name", BASELINES + INDEX_BASELINES)
@@ -384,6 +468,25 @@ def test_future_plan_schema_locks_causal_roles_costs_and_matrix() -> None:
         classical_baselines=[*BASELINES[:-1], *INDEX_BASELINES, BASELINES[-1]],
     )
     validate_document("experiment_plan", v3, root)
+
+    v6 = copy.deepcopy(v3)
+    v6["benchmark"] = "heldout_three_family_continuous_transfer_v6"
+    v6_roles = [
+        "shared_bounded_recurrent_residual_v1",
+        "independent_bounded_recurrent_residual_v1",
+        "cross_family_only_bounded_recurrent_residual_v1",
+        "support_only_bounded_recurrent_residual_v1",
+    ]
+    v6["candidates"] = [*v6_roles, *BASELINES[:-1], *INDEX_BASELINES, BASELINES[-1]]
+    v6["continuous_transfer_protocol"].update(
+        shared_candidate=v6_roles[0], independent_ablation=v6_roles[1],
+        cross_family_only_ablation=v6_roles[2], support_only_ablation=v6_roles[3],
+    )
+    validate_document("experiment_plan", v6, root)
+    v6["candidates"].remove(v6_roles[2])
+    with pytest.raises(Exception, match="does not contain"):
+        validate_document("experiment_plan", v6, root)
+
     v3["candidates"].remove("tensor_random_projection_hash_v1")
     with pytest.raises(Exception, match="does not contain"):
         validate_document("experiment_plan", v3, root)

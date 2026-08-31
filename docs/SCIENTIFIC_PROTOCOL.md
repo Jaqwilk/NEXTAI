@@ -353,3 +353,18 @@ the immutable result `pareto_metrics` written by the audited runner, never from 
 never enter universal dominance. If a scientifically valid legacy result lacks `pareto_metrics`,
 or valid results in one benchmark/budget cohort disagree, the report shows the exact problem and
 computes no frontier for that cohort instead of guessing, intersecting or silently deleting axes.
+
+## Three-family continuous transfer v6 recurrent-residual roles
+
+Version 6 is a service-only successor to v5. It preserves every real world, split, anonymous
+tensor, training-only normalization, K value, metric, direction, threshold, baseline, full-cost
+boundary, seed policy, Pareto axis and causal promotion gate. Historical v1-v5 plans, results,
+analyses, manifests and hashes remain immutable and cohort-separated.
+
+V6 changes only the four prospective causal role identifiers to shared, independent,
+cross-family-only and support-only bounded recurrent residual roles. All four resolve to one
+source-identical implementation with frozen constants and update law; only the evaluator-private
+training-data assignment may differ. Family labels, native types, paths, semantic channel names,
+handwritten ontologies and test outputs remain forbidden. The candidate is intentionally neither
+implemented nor scored in this migration: implementation may begin only after a later immutable
+experiment plan preregisters its exact constants and success, invalidation and seed rules.

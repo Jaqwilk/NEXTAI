@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-31T17:14:22Z",
+  "cycle": 122,
+  "service_only": true,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "reason_for_version": "The v5 plan schema hard-codes predictive-index causal roles, so it cannot honestly evaluate a recurrent-residual learner or derive its source-identical causal gains.",
+  "benchmark_before": "heldout_wt_changepoints_prequential_v1",
+  "benchmark_after": "heldout_three_family_continuous_transfer_v6",
+  "inherits_execution_from": "heldout_three_family_continuous_transfer_v5",
+  "preserved": [
+    "all v5 world generators and whole-world splits",
+    "anonymous tensor contract and training-only normalization",
+    "K values 4, 6 and 9 and reasoning depth 1",
+    "all nine frozen classical and privileged controls",
+    "all capability, stability, causal-gain and full-cost metrics",
+    "metric directions, state boundary, R1/R4/R16 reuse workloads and runner-random seed policy",
+    "immutable v1-v5 plans, results, analyses and reports"
+  ],
+  "changed": [
+    "new benchmark version identifier v6",
+    "four prospective source-identical causal role names for the bounded recurrent-residual learner",
+    "schema and plan synthesis allow only those four new roles in v6"
+  ],
+  "frozen_source_hashes_before": {
+    "src/nextai_autoresearch/benchmarks/heldout_three_family_continuous_transfer_v1.py": "e6d4ec74c0eed401ef04b127f9a9617659b74610224bc9a94ed6259f846b2685",
+    "src/nextai_autoresearch/benchmarks/heldout_three_family_continuous_transfer_v5.py": "8994eefd055772e9378cb41f34ab4dc8168b27669eb42fe9a44420f364715fee",
+    "schemas/experiment_plan.schema.json": "abc3083c7fe7003daded456b917262abf9470c29f93094ebeed0bfedf91b9e62",
+    "config/research.toml": "6a0960a61e57ef129d4b0f6e1abdd9f566f1a4d849b5a807746781c4383b9484"
+  }
+}

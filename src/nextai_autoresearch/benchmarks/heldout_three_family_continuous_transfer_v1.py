@@ -53,6 +53,10 @@ ROLE = {
     "independent_predictive_index_v1": "independent",
     "cross_family_only_predictive_index_v1": "cross_family_only",
     "support_only_predictive_index_v1": "support_only",
+    "shared_bounded_recurrent_residual_v1": "shared",
+    "independent_bounded_recurrent_residual_v1": "independent",
+    "cross_family_only_bounded_recurrent_residual_v1": "cross_family_only",
+    "support_only_bounded_recurrent_residual_v1": "support_only",
 }
 BASE_IMPLEMENTATION = {
     "independent_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
@@ -61,6 +65,9 @@ BASE_IMPLEMENTATION = {
     "independent_predictive_index_v1": "shared_predictive_index_v1",
     "cross_family_only_predictive_index_v1": "shared_predictive_index_v1",
     "support_only_predictive_index_v1": "shared_predictive_index_v1",
+    "independent_bounded_recurrent_residual_v1": "shared_bounded_recurrent_residual_v1",
+    "cross_family_only_bounded_recurrent_residual_v1": "shared_bounded_recurrent_residual_v1",
+    "support_only_bounded_recurrent_residual_v1": "shared_bounded_recurrent_residual_v1",
 }
 DS_BYTES = 688_671_648
 

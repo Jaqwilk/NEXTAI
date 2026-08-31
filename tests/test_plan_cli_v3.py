@@ -1,16 +1,33 @@
 from argparse import Namespace
 from copy import deepcopy
 
+import pytest
+
 from nextai_autoresearch import cli
 from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.utils import project_root
 
 
-def test_plan_new_emits_v5_pareto_contract(monkeypatch) -> None:
+@pytest.mark.parametrize(("benchmark", "roles"), [
+    ("heldout_three_family_continuous_transfer_v5", (
+        "shared_predictive_index_v1", "independent_predictive_index_v1",
+        "cross_family_only_predictive_index_v1", "support_only_predictive_index_v1",
+    )),
+    ("heldout_three_family_continuous_transfer_v6", (
+        "shared_bounded_recurrent_residual_v1", "independent_bounded_recurrent_residual_v1",
+        "cross_family_only_bounded_recurrent_residual_v1", "support_only_bounded_recurrent_residual_v1",
+    )),
+])
+def test_plan_new_emits_three_family_pareto_contract(monkeypatch, benchmark, roles) -> None:
     captured = {}
     configured = load_config(project_root())
     raw = deepcopy(configured.raw)
-    raw["project"]["benchmark_version"] = "heldout_three_family_continuous_transfer_v5"
+    raw["project"]["benchmark_version"] = benchmark
+    for key, value in zip((
+        "shared_candidate", "independent_ablation",
+        "cross_family_only_ablation", "support_only_ablation",
+    ), roles):
+        raw["three_family_continuous"][key] = value
     monkeypatch.setattr(cli, "load_config", lambda root: ResearchConfig(raw, configured.path))
     monkeypatch.setattr(cli, "ensure_layout", lambda root: None)
     monkeypatch.setattr(cli, "ensure_can_create_plan", lambda root: None)
@@ -28,8 +45,7 @@ def test_plan_new_emits_v5_pareto_contract(monkeypatch) -> None:
         "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
     ]
     candidates = [
-        "shared_predictive_index_v1", "independent_predictive_index_v1",
-        "cross_family_only_predictive_index_v1", "support_only_predictive_index_v1",
+        *roles,
         "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
         "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
         "tensor_autoregressive_v1", "tensor_raw_window_local_linear_v1",
@@ -50,7 +66,8 @@ def test_plan_new_emits_v5_pareto_contract(monkeypatch) -> None:
     ))
 
     protocol = captured["plan"]["continuous_transfer_protocol"]
-    assert captured["plan"]["benchmark"] == "heldout_three_family_continuous_transfer_v5"
+    assert captured["plan"]["benchmark"] == benchmark
+    assert protocol["shared_candidate"] == roles[0]
     assert protocol["causal_promotion_gates"] == [
         "shared_vs_independent_gain", "cross_family_transfer_gain"
     ]
