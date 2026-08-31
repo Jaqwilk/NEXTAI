@@ -1,7 +1,7 @@
 {
   "benchmark_version": "heldout_three_family_continuous_transfer_v7",
   "candidate_bundle_sha256": "ee7762bced902fc2547510f21e34575d99c6f965b0e017b69ebb82e8fa09f2ed",
-  "created_at": "2026-08-31T21:47:38Z",
+  "created_at": "2026-08-31T18:58:21Z",
   "evaluator_sha256": "b642acabc10510aa991f0e1fc16de0d9f578e05ac275ed0e0d7a59948addc29d",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",

@@ -1,11 +1,11 @@
 {
   "benchmark_version": "heldout_three_family_continuous_transfer_v7",
-  "certificate_sha256": "40721480651dbc14285ccd666c956e94c39f27d87ed863bc12d9c85eace84645",
-  "created_at": "2026-08-31T18:58:21Z",
+  "certificate_sha256": "e667f142db2f6ee107d81824ad8a3638db72c7ea231792f0f9c479cc2e779784",
+  "created_at": "2026-08-31T21:47:38Z",
   "evaluator_sha256": "b642acabc10510aa991f0e1fc16de0d9f578e05ac275ed0e0d7a59948addc29d",
   "files": {
     "baseline_registry": "fe422f83e54d35c863196a2757030925ad429a7c98dfc3791031a3ac8d2438c2",
-    "manifest": "9711f6390e67c3ccb21e624163eccc0fcb3efdf20401414a4aeec34de1ccedb8",
+    "manifest": "26568fd7c9a8e35a0ad29a71fd55b5e8f7002f766d3c5261cdb81d5b110f0972",
     "runner": "3bb954e555a14ab3754f2df8349bbbf45879548c2df358c9967561cfad8b8186",
     "schema:experiment_plan": "7e93b91d2f1273607613550b01f5b27d345cb867f2a6f276fbeae65af84ef790",
     "schema:experiment_result": "7dede71490ff672611ad4c168b8bf672214417a35043f4ca0945679d20b62180",
