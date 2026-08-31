@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-08-31T19:50:33Z
+Generated: 2026-08-31T20:02:06Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.

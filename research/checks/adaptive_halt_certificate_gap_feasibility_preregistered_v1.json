@@ -1,0 +1,60 @@
+{
+  "audit_id": "adaptive_halt_certificate_gap_feasibility_v1",
+  "created_at": "2026-08-31T19:56:25Z",
+  "decision_scope": "service diagnostic only; no scientific evidence, hypothesis, plan, scoring seed, candidate, benchmark, schema or scoring",
+  "frozen_inputs": {
+    "config/research.toml": "5eb3aab62a88b271f2586885d363e637eb90122ef1e0c81a3d1bd028bbbd9bc4",
+    "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v1.py": "d2c6b00c34a2888838146e2161621121726e415c33dafd67278def627dd526f3",
+    "src/nextai_autoresearch/benchmarks/heldout_wt_changepoints_prequential_v1.py": "ddfb3c376c2f7eaf3b56e0825e313afcb56169d5d5e784888de280f37abdce9a",
+    "src/nextai_autoresearch/candidates/iterative_masked_learner.py": "175126f9184bfa7baf7fa492fabf1da7be6f026b962f3045766c8e31409e4867",
+    "src/nextai_autoresearch/candidates/masked_byte_core.py": "7aa365c81ab6e26d989dd18c04d13421a76853ed1a17752fd25793d5f7ed9fa8",
+    "src/nextai_autoresearch/masked_refinement_contract.py": "0f818cb7d289367aa4a6924cfd8101e16c72be698791ec60b412b6a2c5e5ae66"
+  },
+  "prior_art_gates": {
+    "SRC-0003": "ACT establishes learned variable recurrent computation but not superiority over a transition-internal certificate",
+    "SRC-0172": "PonderNet establishes learned compute-quality halting and therefore requires an explicit learned-versus-certificate contrast",
+    "SRC-0173": "DEQ establishes fixed-point/root-finding computation, making residual or convergence stopping a mandatory control"
+  },
+  "prohibited_shortcuts": [
+    "any masked-infilling test-role file or target, WT test files 8-9 or any three-family test target",
+    "file paths, semantic names, target bytes at decision time or post-diagnostic threshold selection",
+    "treating the evaluator's fixed confidence scheduler as a candidate-learned halt policy"
+  ],
+  "masked_validation_diagnostic": {
+    "corpus_roles_read": ["train", "validation"],
+    "corpus_roles_forbidden": ["test"],
+    "diagnostic_seed": 131031,
+    "knowledge_size": 32,
+    "maximum_rounds": 4,
+    "context_bytes": 64,
+    "span_lengths": [8, 32, 128],
+    "cases_per_span": 8,
+    "candidate": "iterative_masked_learner with its frozen train-only transition estimator",
+    "scheduler": "the frozen evaluator rule: select highest maximum-probability positions and reveal ceil(remaining/(rounds-round_index)) predictions",
+    "observations": "for each still-masked position at rounds 1 and 2, compare its current distribution with the previous round and the next-round distribution after other positions are filled",
+    "uncertainty_signal": "Shannon entropy divided by 8 bits",
+    "classical_certificate": "total-variation distance between the current and previous 256-way distributions",
+    "future_benefit_label": "one iff next-round true-byte log loss improves by at least 0.25 bits; target is used only offline after both public distributions are frozen",
+    "auc": "pairwise Mann-Whitney probability that a positive signal exceeds a negative signal, with half credit for ties",
+    "per_span_pass": {
+      "minimum_observations": 50,
+      "positive_fraction_range": [0.05, 0.95],
+      "minimum_uncertainty_auc": 0.65,
+      "minimum_auc_margin_over_classical_certificate": 0.10
+    }
+  },
+  "contract_gates": {
+    "masked_candidate_controls_global_halting": false,
+    "masked_reason": "the evaluator fixes the number of rounds, reveal quota and completion; a candidate only returns per-position distributions",
+    "wt_has_three_horizons": true,
+    "wt_difficulty_independent_of_public_horizon": false,
+    "wt_reason": "the public 16/32/96 horizon specifies output length and no frozen target-free variable independently certifies how many internal iterations are required",
+    "three_family_has_three_reasoning_depths": false,
+    "three_family_reason": "the active contract has reasoning_depths=[1] and fixed native rollouts"
+  },
+  "overall_pass_rule": "every masked span passes all numerical gates and at least one frozen contract gives the candidate an auditable halt action at three difficulty levels independent of public output length; otherwise keep HYP-0004 dormant and create no hypothesis",
+  "outcomes": {
+    "pass": "a later wake may create one low-confidence hypothesis before implementation or scoring",
+    "fail": "record no_adaptive_halt_certificate_gap_contract and create no hypothesis, candidate, plan, benchmark or schema"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "audit_id": "adaptive_halt_certificate_gap_feasibility_v1",
+  "completed_at": "2026-08-31T19:59:21Z",
+  "decision": "no_adaptive_halt_certificate_gap_contract",
+  "hypothesis_created": false,
+  "plan_created": false,
+  "preregistration_path": "research/checks/adaptive_halt_certificate_gap_feasibility_preregistered_v1.json",
+  "preregistration_sha256": "340bf874266dbdefed7593b207385200d59025e2b878e5fe56adb5e6108ef307",
+  "scientific_evidence": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "test_targets_read": false,
+  "masked_validation_diagnostic": {
+    "diagnostic_seed": 131031,
+    "train_files_read": 35,
+    "validation_files_read": 4,
+    "test_files_read": false,
+    "fit_bytes": 32768,
+    "validation_bytes": 4096,
+    "spans": {
+      "8": {
+        "observations": 48,
+        "positives": 9,
+        "positive_fraction": 0.1875,
+        "uncertainty_auc": 0.6680911680911681,
+        "certificate_auc": 0.5014245014245015,
+        "auc_margin": 0.16666666666666663,
+        "mean_future_logloss_gain_bits": -1.3634750058780567,
+        "gates": {"minimum_observations": false, "positive_fraction": true, "uncertainty_auc": true, "auc_margin": true},
+        "pass": false
+      },
+      "32": {
+        "observations": 192,
+        "positives": 35,
+        "positive_fraction": 0.18229166666666666,
+        "uncertainty_auc": 0.4119199272065514,
+        "certificate_auc": 0.6451319381255687,
+        "auc_margin": -0.23321201091901728,
+        "mean_future_logloss_gain_bits": -0.602452890714564,
+        "gates": {"minimum_observations": true, "positive_fraction": true, "uncertainty_auc": false, "auc_margin": false},
+        "pass": false
+      },
+      "128": {
+        "observations": 768,
+        "positives": 58,
+        "positive_fraction": 0.07552083333333333,
+        "uncertainty_auc": 0.3530475959203497,
+        "certificate_auc": 0.6148980087421079,
+        "auc_margin": -0.2618504128217582,
+        "mean_future_logloss_gain_bits": -0.19610594779977616,
+        "gates": {"minimum_observations": true, "positive_fraction": true, "uncertainty_auc": false, "auc_margin": false},
+        "pass": false
+      }
+    },
+    "all_spans_pass": false
+  },
+  "contract_results": {
+    "masked_candidate_controls_global_halting": false,
+    "masked_scheduler_is_evaluator_fixed": true,
+    "wt_has_three_public_horizons": true,
+    "wt_has_target_free_difficulty_independent_of_horizon": false,
+    "three_family_has_three_reasoning_depths": false,
+    "auditable_halt_action_at_three_independent_difficulties": false
+  },
+  "prior_art_mapping": {
+    "SRC-0003": "the existing EXP-0031 already tested ACT-style learned halting against identical transitions",
+    "SRC-0172": "PonderNet motivates a learned compute-quality trade-off, but the current validation uncertainty does not predict refinement benefit beyond the residual certificate",
+    "SRC-0173": "the distribution-change residual is the available fixed-point-style convergence control and is stronger than entropy on spans 32 and 128"
+  },
+  "interpretation": "The only frozen contract with observable multi-round uncertainty assigns round count and reveal quota to the evaluator rather than the candidate. Its entropy signal is worse than a distribution-residual certificate on the two adequately sized longer-span cells, and another round increases mean true-byte log loss at all three scales. WT and the three-family cohort do not provide three target-free difficulty levels independent of a public output horizon. The exact HYP-0004 revival condition is therefore absent.",
+  "next_cycle": "One no-scoring recursive_conditional_independence_feasibility audit over existing WT fit/development data and three-family training worlds. Retain HYP-0013 only if a source-identical observable rule exposes at least two nested context/independence levels that a single or mixture Chow-Liu control cannot represent, without mask routing; otherwise keep it dormant and create no hypothesis."
+}
