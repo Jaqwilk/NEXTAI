@@ -501,7 +501,7 @@
   "allOf": [
     {
       "if": {
-        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4"]}},
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"]}},
         "required": ["benchmark"]
       },
       "then": {
@@ -598,7 +598,7 @@
     },
     {
       "if": {
-        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4"]}},
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"]}},
         "required": ["benchmark"]
       },
       "then": {
@@ -629,7 +629,7 @@
     },
     {
       "if": {
-        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4"]}},
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"]}},
         "required": ["benchmark"]
       },
       "then": {
@@ -648,7 +648,7 @@
     {
       "if": {
         "properties": {
-          "benchmark": {"not": {"pattern": "^(heldout_dronepropa_|heldout_three_family_continuous_transfer_v[1234]$)"}}
+          "benchmark": {"not": {"pattern": "^(heldout_dronepropa_|heldout_three_family_continuous_transfer_v[12345]$)"}}
         },
         "required": ["benchmark"]
       },

@@ -192,6 +192,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
         "heldout_three_family_continuous_transfer_v2",
         "heldout_three_family_continuous_transfer_v3",
         "heldout_three_family_continuous_transfer_v4",
+        "heldout_three_family_continuous_transfer_v5",
     }:
         protocol = config.raw["three_family_continuous"]
         plan["matrix"]["knowledge_sizes"] = list(protocol["knowledge_sizes"])
@@ -213,7 +214,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "declared_reuses": list(protocol["declared_reuses"]),
             "invalidation_rules": list(protocol["invalidation_rules"]),
         }
-        if config.benchmark_version.endswith(("_v2", "_v3", "_v4")):
+        if config.benchmark_version.endswith(("_v2", "_v3", "_v4", "_v5")):
             plan["continuous_transfer_protocol"].update({
                 "pareto_capability_metrics": [
                     "transfer_accuracy", "minimum_family_accuracy",

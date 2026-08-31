@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-08-31T14:18:27Z
+Generated: 2026-08-31T14:05:59Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -9,15 +9,15 @@ Append-only scientific-validity corrections exclude 3 result(s) from every front
 
 ## action_conditioned_predictive_equivalence_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0030.
+Pareto axes: maximize `accuracy, continual_retention, near_equivalent_accuracy`; minimize `mean_query_ops, state_bytes, workload_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0030 | random_history_policy | implementable | complete | 0.02083 | 1 | 27.67 | 23 | - | 810.7 | 0.6701 (2; screening) | 0 |  |
-| EXP-20260830-0030 | context_tree_state | implementable | complete | 1 | 1 | 485 | 23 | - | 1.147e+04 | 0.0357 (2; screening) | 896 |  |
-| EXP-20260830-0030 | cssr_state_reconstructor | implementable | complete | 1 | 1 | 485 | 23 | - | 1.147e+04 | 0.0357 (2; screening) | 576 |  |
+| EXP-20260830-0030 | context_tree_state | implementable | complete | 1 | 1 | 485 | 23 | - | 1.147e+04 | 0.0357 (2; screening) | 896 | yes |
+| EXP-20260830-0030 | cssr_state_reconstructor | implementable | complete | 1 | 1 | 485 | 23 | - | 1.147e+04 | 0.0357 (2; screening) | 576 | yes |
 | EXP-20260830-0030 | spectral_psr_state | implementable | complete | 1 | 1 | 485 | 23 | - | 1.224e+04 | 0.0357 (2; screening) | 832 |  |
-| EXP-20260830-0030 | empirical_bisimulation_state | implementable | complete | 1 | 1 | 485 | 23 | - | 1.147e+04 | 0.0357 (2; screening) | 576 |  |
+| EXP-20260830-0030 | empirical_bisimulation_state | implementable | complete | 1 | 1 | 485 | 23 | - | 1.147e+04 | 0.0357 (2; screening) | 576 | yes |
 | EXP-20260830-0030 | recurrent_history_encoder | implementable | complete | 0.5208 | 1 | 2.567e+06 | 23 | - | 4.295e+07 | 0.6653 (2; screening) | 9280 |  |
 | EXP-20260830-0030 | contrastive_predictive_state | implementable | complete | 1 | 1 | 485 | 23 | - | 1.378e+04 | 0.0357 (2; screening) | 832 |  |
 | EXP-20260830-0030 | information_bottleneck_state | implementable | complete | 1 | 1 | 485 | 23 | - | 1.301e+04 | 0.0357 (2; screening) | 576 |  |
@@ -25,57 +25,57 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-003
 
 ## active_information_acquisition_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0029.
+Pareto axes: maximize `accuracy, continual_retention, near_equivalent_accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, update_ops, workload_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0029 | no_probe_guess | implementable | complete | 0.04167 | 1 | 3.667 | 0 | - | 63.33 | 0 (2; screening) | 64 |  |
 | EXP-20260830-0029 | passive_observe_all | implementable | complete | 1 | 1 | 2673 | 190.7 | - | 4.549e+04 | 1.67 (2; screening) | 1312 |  |
-| EXP-20260830-0029 | random_probe_policy | implementable | complete | 1 | 1 | 620.8 | 84.67 | - | 1.104e+04 | 1.386 (2; screening) | 1312 |  |
-| EXP-20260830-0029 | fixed_probe_order | implementable | complete | 1 | 1 | 581.4 | 80.17 | - | 1.282e+04 | 1.484 (2; screening) | 1312 |  |
+| EXP-20260830-0029 | random_probe_policy | implementable | complete | 1 | 1 | 620.8 | 84.67 | - | 1.104e+04 | 1.386 (2; screening) | 1312 | yes |
+| EXP-20260830-0029 | fixed_probe_order | implementable | complete | 1 | 1 | 581.4 | 80.17 | - | 1.282e+04 | 1.484 (2; screening) | 1312 | yes |
 | EXP-20260830-0029 | entropy_greedy_probe | implementable | complete | 1 | 1 | 5230 | 29.33 | - | 8.897e+04 | 1.756 (2; screening) | 1312 |  |
-| EXP-20260830-0029 | certified_decision_tree | implementable | complete | 1 | 1 | 183.3 | 29.33 | - | 4521 | 0.8716 (2; screening) | 1624 |  |
-| EXP-20260830-0029 | learned_value_probe_policy | implementable | complete | 1 | 1 | 198 | 29.33 | - | 5615 | 0.8286 (2; screening) | 1936 |  |
+| EXP-20260830-0029 | certified_decision_tree | implementable | complete | 1 | 1 | 183.3 | 29.33 | - | 4521 | 0.8716 (2; screening) | 1624 | yes |
+| EXP-20260830-0029 | learned_value_probe_policy | implementable | complete | 1 | 1 | 198 | 29.33 | - | 5615 | 0.8286 (2; screening) | 1936 | yes |
 | EXP-20260830-0029 | oracle_target_reader | privileged support control | complete | 1 | 1 | 3.667 | 0 | - | 63.33 | 0 (2; screening) | 64 |  |
 
 ## adaptive_depth_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0004, EXP-20260830-0005, EXP-20260830-0006.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0004 | random_guess | implementable | complete | 0.01042 | 1 | 1 | - | - | - | 0 (2; screening) | 64 |  |
 | EXP-20260830-0004 | fixed_short_indexed | implementable | complete | 0.6667 | 1 | 4 | - | - | - | 0 (2; screening) | 18568 |  |
-| EXP-20260830-0004 | fixed_max_indexed | implementable | complete | 1 | 1 | 16 | - | - | - | 0 (2; screening) | 18568 |  |
+| EXP-20260830-0004 | fixed_max_indexed | implementable | complete | 1 | 1 | 16 | - | - | - | 0 (2; screening) | 18568 | yes |
 | EXP-20260830-0004 | adaptive_linear_scan | implementable | complete | 1 | 1 | 594.3 | - | - | - | 1.27 (2; screening) | 29136 |  |
-| EXP-20260830-0004 | adaptive_indexed | implementable | complete | 1 | 1 | 7 | - | - | - | 0 (2; screening) | 18856 |  |
+| EXP-20260830-0004 | adaptive_indexed | implementable | complete | 1 | 1 | 7 | - | - | - | 0 (2; screening) | 18856 | yes |
 | EXP-20260830-0005 | random_guess | implementable | complete | 0.01042 | 1 | 1 | - | - | - | 0 (2; screening) | 64 |  |
 | EXP-20260830-0005 | fixed_short_indexed | implementable | complete | 0.6667 | 1 | 4 | - | - | - | 0 (2; screening) | 18568 |  |
-| EXP-20260830-0005 | fixed_max_indexed | implementable | complete | 1 | 1 | 16 | - | - | - | 0 (2; screening) | 18568 |  |
-| EXP-20260830-0005 | adaptive_indexed | implementable | complete | 1 | 1 | 7 | - | - | - | 0 (2; screening) | 18856 |  |
+| EXP-20260830-0005 | fixed_max_indexed | implementable | complete | 1 | 1 | 16 | - | - | - | 0 (2; screening) | 18568 | yes |
+| EXP-20260830-0005 | adaptive_indexed | implementable | complete | 1 | 1 | 7 | - | - | - | 0 (2; screening) | 18856 | yes |
 | EXP-20260830-0005 | learned_local_halt | implementable | complete | 1 | 1 | 40 | - | - | - | 0 (2; screening) | 23240 |  |
 | EXP-20260830-0006 | random_guess | implementable | complete | 0.01042 | 1 | 1 | - | - | - | 0 (2; screening) | 64 |  |
 | EXP-20260830-0006 | adaptive_linear_scan | implementable | complete | 1 | 1 | 594.3 | - | - | - | 1.27 (2; screening) | 29136 |  |
-| EXP-20260830-0006 | adaptive_indexed | implementable | complete | 1 | 1 | 7 | - | - | - | 0 (2; screening) | 18856 |  |
+| EXP-20260830-0006 | adaptive_indexed | implementable | complete | 1 | 1 | 7 | - | - | - | 0 (2; screening) | 18856 | yes |
 | EXP-20260830-0006 | oracle_modular_router | privileged support control | complete | 1 | 1 | 14 | - | - | - | 0 (2; screening) | 38448 |  |
 
 ## ambiguous_cross_task_energy_transfer_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0033.
+Pareto axes: maximize `accuracy`; minimize `none`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0033 | random_parity_guess | implementable | complete | 0 | 1 | 63 | 63 | - | - | 0 (2; screening) | 128 |  |
 | EXP-20260830-0033 | nearest_code_memory | implementable | complete | 0 | 1 | 2520 | 63 | - | - | 1 (2; screening) | 520 |  |
 | EXP-20260830-0033 | classical_hopfield_parity | implementable | complete | 0 | 1 | 8064 | 63 | - | - | 0 (2; screening) | 31752 |  |
-| EXP-20260830-0033 | exact_affine_span_decoder | implementable | complete | 1 | 1 | 4160 | 63 | - | - | 0 (2; screening) | 824 |  |
-| EXP-20260830-0033 | sequential_factor_energy | implementable | complete | 1 | 1 | 1.121e+04 | 63 | - | - | 8.577e-05 (2; screening) | 10924 |  |
-| EXP-20260830-0033 | learned_parallel_parity_energy | implementable | complete | 1 | 1 | 3133 | 63 | - | - | 0.000307 (2; screening) | 10924 |  |
+| EXP-20260830-0033 | exact_affine_span_decoder | implementable | complete | 1 | 1 | 4160 | 63 | - | - | 0 (2; screening) | 824 | yes |
+| EXP-20260830-0033 | sequential_factor_energy | implementable | complete | 1 | 1 | 1.121e+04 | 63 | - | - | 8.577e-05 (2; screening) | 10924 | yes |
+| EXP-20260830-0033 | learned_parallel_parity_energy | implementable | complete | 1 | 1 | 3133 | 63 | - | - | 0.000307 (2; screening) | 10924 | yes |
 | EXP-20260830-0033 | oracle_parallel_parity_energy | privileged support control | complete | 1 | 1 | 3133 | 63 | - | - | 0.000307 (2; screening) | 10924 |  |
 
 ## associative_relational_relaxation_adversarial_v2 / screen
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0018.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, knowledge_compute_slope, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -84,13 +84,13 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-001
 | EXP-20260830-0018 | nearest_stored_attractor | implementable | complete | 0 | 3 | 4032 | - | - | - | 1 (3) | 43968 |  |
 | EXP-20260830-0018 | classical_hopfield_attractor | implementable | complete | 0.2245 | 3 | 2664 | - | - | - | -1.026e-31 (3) | 62120 |  |
 | EXP-20260830-0018 | learned_parallel_energy | implementable | complete | 0.1852 | 3 | 244 | - | - | - | 0 (3) | 48480 |  |
-| EXP-20260830-0018 | incremental_sequential_energy | implementable | complete | 1 | 3 | 185.5 | - | - | - | 0 (3) | 50280 |  |
-| EXP-20260830-0018 | robust_parallel_energy | implementable | complete | 1 | 3 | 212 | - | - | - | 0 (3) | 50280 |  |
+| EXP-20260830-0018 | incremental_sequential_energy | implementable | complete | 1 | 3 | 185.5 | - | - | - | 0 (3) | 50280 | yes |
+| EXP-20260830-0018 | robust_parallel_energy | implementable | complete | 1 | 3 | 212 | - | - | - | 0 (3) | 50280 | yes |
 | EXP-20260830-0018 | oracle_relational_energy | privileged support control | complete | 1 | 3 | 212 | - | - | - | 0 (3) | 3352 |  |
 
 ## associative_relational_relaxation_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0017.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, update_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -99,12 +99,12 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-001
 | EXP-20260830-0017 | nearest_stored_attractor | implementable | complete | 0 | 1 | 1200 | - | - | - | 1 (2; screening) | 10288 |  |
 | EXP-20260830-0017 | classical_hopfield_attractor | implementable | complete | 1 | 1 | 1860 | - | - | - | 0 (2; screening) | 19016 |  |
 | EXP-20260830-0017 | sequential_energy_repair | implementable | complete | 1 | 1 | 8212 | - | - | - | 0 (2; screening) | 14016 |  |
-| EXP-20260830-0017 | learned_parallel_energy | implementable | complete | 1 | 1 | 174 | - | - | - | 0 (2; screening) | 14016 |  |
+| EXP-20260830-0017 | learned_parallel_energy | implementable | complete | 1 | 1 | 174 | - | - | - | 0 (2; screening) | 14016 | yes |
 | EXP-20260830-0017 | oracle_relational_energy | privileged support control | complete | 1 | 1 | 174 | - | - | - | 0 (2; screening) | 2504 |  |
 
 ## asynchronous_temporal_binding_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0028.
+Pareto axes: maximize `accuracy, continual_retention, near_equivalent_accuracy, reuse_precision`; minimize `mean_query_ops, fit_seconds, update_ops, workload_ops, peak_state_bytes, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -112,15 +112,15 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-002
 | EXP-20260830-0028 | rate_code_classifier | implementable | complete | 0.25 | 1 | 451 | 223.7 | - | 7668 | 0.9675 (2; screening) | 80 |  |
 | EXP-20260830-0028 | nearest_timed_trace | implementable | complete | 0.08333 | 1 | 255.3 | 223.7 | - | 3931 | 0.8255 (2; screening) | 112 |  |
 | EXP-20260830-0028 | clocked_spike_reservoir | implementable | complete | 0.0625 | 1 | 6.975e+04 | 3.476e+04 | - | 1.141e+06 | 0.5706 (2; screening) | 7440 |  |
-| EXP-20260830-0028 | heap_event_transducer | implementable | complete | 1 | 1 | 2121 | 223.7 | - | 3.612e+04 | 1.114 (2; screening) | 272 |  |
-| EXP-20260830-0028 | timed_automaton_matcher | implementable | complete | 1 | 1 | 256.7 | 223.7 | - | 4424 | 0.8202 (2; screening) | 272 |  |
+| EXP-20260830-0028 | heap_event_transducer | implementable | complete | 1 | 1 | 2121 | 223.7 | - | 3.612e+04 | 1.114 (2; screening) | 272 | yes |
+| EXP-20260830-0028 | timed_automaton_matcher | implementable | complete | 1 | 1 | 256.7 | 223.7 | - | 4424 | 0.8202 (2; screening) | 272 | yes |
 | EXP-20260830-0028 | calendar_event_transducer | implementable | complete | 1 | 1 | 492 | 223.7 | - | 8414 | 0.8648 (2; screening) | 336 |  |
-| EXP-20260830-0028 | learned_polychronous_binder | implementable | complete | 1 | 1 | 294 | 223.7 | - | 5083 | 0.6974 (2; screening) | 368 |  |
+| EXP-20260830-0028 | learned_polychronous_binder | implementable | complete | 1 | 1 | 294 | 223.7 | - | 5083 | 0.6974 (2; screening) | 368 | yes |
 | EXP-20260830-0028 | oracle_temporal_binder | privileged support control | complete | 1 | 1 | 256.7 | 223.7 | - | 4364 | 0.8202 (2; screening) | 80 |  |
 
 ## behavioral_conjugacy_library_transfer_v1 / quick
 
-Pareto axes: maximize `accuracy, near_equivalent_accuracy`; minimize `mean_query_ops, workload_ops_r16, state_bytes`.
+Pareto axes: maximize `accuracy, near_equivalent_accuracy`; minimize `mean_query_ops, state_bytes, workload_ops_r16`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -136,7 +136,7 @@ Pareto axes: maximize `accuracy, near_equivalent_accuracy`; minimize `mean_query
 
 ## causal_intervention_adversarial_v2 / screen
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0012.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, knowledge_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -144,13 +144,13 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-001
 | EXP-20260830-0012 | adversarial_observational | implementable | complete | 0.5972 | 3 | 256 | - | - | - | 0 (3) | 38960 |  |
 | EXP-20260830-0012 | nearest_intervention | implementable | complete | 0.4861 | 3 | 2408 | - | - | - | 0 (3) | 222000 |  |
 | EXP-20260830-0012 | robust_dense_causal | implementable | complete | 1 | 3 | 543.4 | - | - | - | 0.7917 (3) | 48532 |  |
-| EXP-20260830-0012 | robust_local_causal | implementable | complete | 1 | 3 | 25.5 | - | - | - | 0 (3) | 48532 |  |
+| EXP-20260830-0012 | robust_local_causal | implementable | complete | 1 | 3 | 25.5 | - | - | - | 0 (3) | 48532 | yes |
 | EXP-20260830-0012 | noninvariant_local_causal | implementable | complete | 0.08333 | 3 | 1.833 | - | - | - | 0 (3) | 47972 |  |
 | EXP-20260830-0012 | oracle_adversarial_causal | privileged support control | complete | 1 | 3 | 25.5 | - | - | - | 0 (3) | 11248 |  |
 
 ## causal_intervention_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0011.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -158,12 +158,12 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-001
 | EXP-20260830-0011 | observational_conditioning | implementable | complete | 0.6667 | 1 | 7 | - | - | - | 0 (2; screening) | 576 |  |
 | EXP-20260830-0011 | intervention_memorizer | implementable | complete | 0.6667 | 1 | 2 | - | - | - | 0 (2; screening) | 37776 |  |
 | EXP-20260830-0011 | learned_dense_causal | implementable | complete | 1 | 1 | 78.92 | - | - | - | 1.019 (2; screening) | 39456 |  |
-| EXP-20260830-0011 | learned_local_causal | implementable | complete | 1 | 1 | 27.58 | - | - | - | 0 (2; screening) | 39456 |  |
+| EXP-20260830-0011 | learned_local_causal | implementable | complete | 1 | 1 | 27.58 | - | - | - | 0 (2; screening) | 39456 | yes |
 | EXP-20260830-0011 | oracle_local_causal | privileged support control | complete | 1 | 1 | 27.58 | - | - | - | 0 (2; screening) | 896 |  |
 
 ## cellular_propagation_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0010.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -171,11 +171,11 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-001
 | EXP-20260830-0010 | learned_synchronous_ca | implementable | complete | 1 | 1 | 2236 | - | - | - | 1.543 (2; screening) | 8664 |  |
 | EXP-20260830-0010 | learned_event_queue_ca | implementable | complete | 1 | 1 | 143 | - | - | - | 0 (2; screening) | 8488 |  |
 | EXP-20260830-0010 | oracle_event_queue_ca | privileged support control | complete | 1 | 1 | 117.7 | - | - | - | 0 (2; screening) | 8464 |  |
-| EXP-20260830-0010 | sparse_grid_bfs | implementable | complete | 1 | 1 | 117.7 | - | - | - | 0 (2; screening) | 8464 |  |
+| EXP-20260830-0010 | sparse_grid_bfs | implementable | complete | 1 | 1 | 117.7 | - | - | - | 0 (2; screening) | 8464 | yes |
 
 ## context_specific_probabilistic_circuit_v1 / quick
 
-Pareto axes: maximize `accuracy, near_equivalent_accuracy, continual_retention`; minimize `conditional_probability_mae, conditional_log_loss, calibration_error, mean_query_ops, fit_ops, state_bytes, circuit_nodes, update_ops, workload_ops_r16`.
+Pareto axes: maximize `accuracy, continual_retention, near_equivalent_accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, update_ops, workload_ops_r16, conditional_probability_mae, conditional_log_loss, calibration_error, circuit_nodes`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -191,7 +191,7 @@ Pareto axes: maximize `accuracy, near_equivalent_accuracy, continual_retention`;
 
 ## continuous_event_predictive_state_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0027.
+Pareto axes: maximize `accuracy, continual_retention, near_equivalent_accuracy`; minimize `mean_query_ops, fit_seconds, update_ops, workload_ops, peak_state_bytes`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -199,15 +199,15 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-002
 | EXP-20260830-0027 | last_value_forecaster | implementable | complete | 0 | 1 | 4.667 | 1 | - | 115.3 | 0 (2; screening) | 72 |  |
 | EXP-20260830-0027 | dense_linear_state_space | implementable | complete | 0 | 1 | 220 | 73.33 | - | 3.996e+04 | 1 (2; screening) | 336 |  |
 | EXP-20260830-0027 | echo_state_forecaster | implementable | complete | 0 | 1 | 1525 | 73.33 | - | 4.667e+04 | 0.5688 (2; screening) | 4424 |  |
-| EXP-20260830-0027 | exhaustive_switching_ar | implementable | complete | 1 | 1 | 25.67 | 4.667 | - | 823 | 0 (2; screening) | 216 |  |
-| EXP-20260830-0027 | screened_switching_ar | implementable | complete | 1 | 1 | 25.67 | 4.667 | - | 823 | 0 (2; screening) | 216 |  |
-| EXP-20260830-0027 | variance_triggered_kalman | implementable | complete | 1 | 1 | 27.67 | 4.667 | - | 1289 | 0 (2; screening) | 312 |  |
-| EXP-20260830-0027 | event_predictive_state | implementable | complete | 1 | 1 | 30.67 | 4.667 | - | 932 | 0 (2; screening) | 280 |  |
+| EXP-20260830-0027 | exhaustive_switching_ar | implementable | complete | 1 | 1 | 25.67 | 4.667 | - | 823 | 0 (2; screening) | 216 | yes |
+| EXP-20260830-0027 | screened_switching_ar | implementable | complete | 1 | 1 | 25.67 | 4.667 | - | 823 | 0 (2; screening) | 216 | yes |
+| EXP-20260830-0027 | variance_triggered_kalman | implementable | complete | 1 | 1 | 27.67 | 4.667 | - | 1289 | 0 (2; screening) | 312 | yes |
+| EXP-20260830-0027 | event_predictive_state | implementable | complete | 1 | 1 | 30.67 | 4.667 | - | 932 | 0 (2; screening) | 280 | yes |
 | EXP-20260830-0027 | oracle_sparse_dynamics | privileged support control | complete | 1 | 1 | 25.67 | 4.667 | - | 393 | 0 (2; screening) | 96 |  |
 
 ## cross_family_relation_fragment_transfer_v4 / quick
 
-Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, near_equivalent_accuracy`; minimize `data_acquisition_ops, fit_ops, meta_fit_ops, mean_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r16`.
+Pareto axes: maximize `near_equivalent_accuracy, transfer_accuracy, minimum_family_accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, meta_fit_ops, data_acquisition_ops, mean_bytes_touched, update_ops, workload_ops_r16, peak_state_bytes`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -226,7 +226,7 @@ Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, near_equivale
 
 ## cross_family_shared_representation_v1 / quick
 
-Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy`; minimize `workload_ops_r16, state_bytes, meta_fit_ops, data_acquisition_ops`.
+Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy`; minimize `state_bytes, meta_fit_ops, data_acquisition_ops, workload_ops_r16`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -251,7 +251,7 @@ Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy`; minimize `wo
 
 ## cross_family_shared_representation_v2 / quick
 
-Pareto axes unavailable: no scientifically valid immutable result.
+Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy`; minimize `state_bytes, meta_fit_ops, data_acquisition_ops, workload_ops_r16`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -267,13 +267,13 @@ Pareto axes unavailable: no scientifically valid immutable result.
 
 ## cross_family_shared_representation_v3 / quick
 
-Pareto axes unavailable: inconsistent immutable pareto_metrics across experiments.
+Pareto axes: maximize `transfer_accuracy`; minimize `none`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0048 | shared_recurrent_predictive_state | implementable | complete | 0.01562 | 1 | 2023 | 96.71 | 1.018e+04 | 5.949e+06 | 0.2089 (2; screening) | 16064 |  |
 | EXP-20260830-0048 | independent_recurrent_predictive_state | implementable | complete | 0.07292 | 1 | 994.9 | 96.71 | 1954 | 5.291e+06 | 0.4921 (2; screening) | 17280 |  |
-| EXP-20260830-0048 | specialist_contextual_chow_liu_suite_v2 | implementable | complete | 1 | 1 | 401 | 96.71 | 2239 | 7.038e+07 | 0.09727 (2; screening) | 5800 |  |
+| EXP-20260830-0048 | specialist_contextual_chow_liu_suite_v2 | implementable | complete | 1 | 1 | 401 | 96.71 | 2239 | 7.038e+07 | 0.09727 (2; screening) | 5800 | yes |
 | EXP-20260830-0048 | specialist_empirical_joint_suite_v2 | implementable | complete | 0.9219 | 1 | 1737 | 96.71 | 2239 | 2.215e+06 | 1.211 (2; screening) | 88679 |  |
 | EXP-20260830-0048 | specialist_autoregressive_suite_v2 | implementable | complete | 0.8177 | 1 | 537.9 | 96.71 | 2239 | 9.802e+05 | 0.257 (2; screening) | 72336 |  |
 | EXP-20260830-0048 | oracle_cross_family_suite_v2 | privileged support control | complete | 1 | 1 | 104 | 96.71 | 751.8 | 4.91e+05 | 0.3833 (2; screening) | 2472 |  |
@@ -286,7 +286,7 @@ Pareto axes unavailable: inconsistent immutable pareto_metrics across experiment
 
 ## heldout_dronepropa_factor_recombination_v5 / quick
 
-Pareto axes: maximize `none`; minimize `none`.
+Pareto axes: maximize `stable_rollout_rate, oracle_gap_closed, minimum_condition_transfer_gain, minimum_trajectory_transfer_gain`; minimize `mean_query_ops, state_bytes, fit_ops, meta_fit_ops, data_acquisition_ops, mean_bytes_touched, update_ops, workload_ops, workload_ops_r1, workload_ops_r4, workload_ops_r16, peak_state_bytes, conditional_log_loss, normalized_rmse, worst_flight_normalized_rmse, worst_condition_normalized_rmse, teacher_forced_nrmse, rollout_10_nrmse, rollout_50_nrmse, preprocessing_ops, adaptation_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -304,7 +304,7 @@ Pareto axes: maximize `none`; minimize `none`.
 
 ## heldout_mechanism_recombination_v2 / quick
 
-Pareto axes: maximize `none`; minimize `none`.
+Pareto axes: maximize `accuracy, minimum_combination_accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, meta_fit_ops, data_acquisition_ops, mean_bytes_touched, update_ops, workload_ops, workload_ops_r16, peak_state_bytes`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -319,7 +319,7 @@ Pareto axes: maximize `none`; minimize `none`.
 
 ## heldout_mechanism_recombination_v3 / quick
 
-Pareto axes: maximize `none`; minimize `none`.
+Pareto axes: maximize `accuracy, minimum_combination_accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, meta_fit_ops, data_acquisition_ops, mean_bytes_touched, update_ops, workload_ops, workload_ops_r16, peak_state_bytes`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -334,7 +334,7 @@ Pareto axes: maximize `none`; minimize `none`.
 
 ## heldout_parallel_masked_infilling_v1 / quick
 
-Pareto axes unavailable: no scientifically valid immutable result.
+Pareto axes: maximize `exact_span_accuracy`; minimize `state_bytes, workload_ops_r16, bits_per_byte, critical_path_steps, worst_span_bits_per_byte`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -351,7 +351,7 @@ Pareto axes unavailable: no scientifically valid immutable result.
 
 ## heldout_parallel_masked_infilling_v2 / quick
 
-Pareto axes: maximize `exact_span_accuracy`; minimize `bits_per_byte, worst_span_bits_per_byte, critical_path_steps, data_acquisition_ops, fit_ops, mean_query_ops, update_ops, workload_ops, workload_ops_r16, state_bytes, peak_state_bytes, mean_bytes_touched`.
+Pareto axes: maximize `exact_span_accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, data_acquisition_ops, mean_bytes_touched, update_ops, workload_ops, workload_ops_r16, peak_state_bytes, bits_per_byte, critical_path_steps, worst_span_bits_per_byte`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -368,7 +368,7 @@ Pareto axes: maximize `exact_span_accuracy`; minimize `bits_per_byte, worst_span
 
 ## heldout_repository_sequence_compression_v1 / quick
 
-Pareto axes: maximize `none`; minimize `none`.
+Pareto axes: maximize `none`; minimize `state_bytes, workload_ops_r16, bits_per_byte, cold_bits_per_byte, worst_file_bits_per_byte`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -383,7 +383,7 @@ Pareto axes: maximize `none`; minimize `none`.
 
 ## heldout_three_family_continuous_transfer_v1 / quick
 
-Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollout_rate, shared_vs_independent_gain, cross_family_transfer_gain`; minimize `normalized_rmse, data_acquisition_ops, preprocessing_ops, fit_ops, adaptation_ops, mean_query_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollout_rate, shared_vs_independent_gain, cross_family_transfer_gain`; minimize `mean_query_ops, state_bytes, fit_ops, data_acquisition_ops, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16, peak_state_bytes, normalized_rmse, preprocessing_ops, adaptation_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -401,9 +401,7 @@ Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollou
 
 ## heldout_three_family_continuous_transfer_v2 / quick
 
-Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollout_rate`; minimize `normalized_rmse, data_acquisition_ops, preprocessing_ops, fit_ops, adaptation_ops, mean_query_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
-
-Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_family_transfer_gain`.
+Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollout_rate, shared_vs_independent_gain, cross_family_transfer_gain`; minimize `mean_query_ops, state_bytes, fit_ops, data_acquisition_ops, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16, peak_state_bytes, normalized_rmse, preprocessing_ops, adaptation_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -432,9 +430,7 @@ Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_famil
 
 ## heldout_three_family_continuous_transfer_v3 / quick
 
-Pareto axes unavailable: no scientifically valid immutable result.
-
-Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_family_transfer_gain`.
+Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollout_rate, shared_vs_independent_gain, cross_family_transfer_gain`; minimize `mean_query_ops, state_bytes, fit_ops, data_acquisition_ops, mean_bytes_touched, update_ops, workload_ops_r1, workload_ops_r4, workload_ops_r16, peak_state_bytes, normalized_rmse, preprocessing_ops, adaptation_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -454,9 +450,7 @@ Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_famil
 
 ## heldout_three_family_continuous_transfer_v4 / quick
 
-Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollout_rate`; minimize `normalized_rmse, data_acquisition_ops, preprocessing_ops, fit_ops, adaptation_ops, mean_query_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
-
-Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_family_transfer_gain`.
+Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollout_rate, shared_vs_independent_gain, cross_family_transfer_gain`; minimize `mean_query_ops, state_bytes, fit_ops, data_acquisition_ops, mean_bytes_touched, update_ops, workload_ops_r1, workload_ops_r4, workload_ops_r16, peak_state_bytes, normalized_rmse, preprocessing_ops, adaptation_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -476,21 +470,21 @@ Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_famil
 
 ## heterogeneous_module_composition_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0021.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, update_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0021 | random_module_router | implementable | complete | 0 | 1 | 75.17 | - | - | - | -0.005598 (2; screening) | 11936 |  |
 | EXP-20260830-0021 | primitive_demo_memorizer | implementable | complete | 0 | 1 | 63.33 | - | - | - | 0 (2; screening) | 17472 |  |
 | EXP-20260830-0021 | dense_shared_transform | implementable | complete | 0 | 1 | 3.013e+04 | - | - | - | 0 (2; screening) | 33792 |  |
-| EXP-20260830-0021 | dense_expert_sweep | implementable | complete | 1 | 1 | 2570 | - | - | - | 0.9684 (2; screening) | 1024 |  |
-| EXP-20260830-0021 | direct_program_index | implementable | complete | 1 | 1 | 70.96 | - | - | - | 0 (2; screening) | 11360 |  |
+| EXP-20260830-0021 | dense_expert_sweep | implementable | complete | 1 | 1 | 2570 | - | - | - | 0.9684 (2; screening) | 1024 | yes |
+| EXP-20260830-0021 | direct_program_index | implementable | complete | 1 | 1 | 70.96 | - | - | - | 0 (2; screening) | 11360 | yes |
 | EXP-20260830-0021 | learned_sparse_modules | implementable | complete | 1 | 1 | 74.62 | - | - | - | 0 (2; screening) | 11936 |  |
 | EXP-20260830-0021 | oracle_sparse_modules | privileged support control | complete | 1 | 1 | 74.62 | - | - | - | 0 (2; screening) | 11936 |  |
 
 ## latent_causal_transfer_adversarial_v2 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0015.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -498,13 +492,13 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-001
 | EXP-20260830-0015 | latent_majority_guess | implementable | complete | 0.5 | 1 | 1 | - | - | - | 0 (2; screening) | 2832 |  |
 | EXP-20260830-0015 | latent_parity_shortcut | implementable | complete | 0.5417 | 1 | 5 | - | - | - | 0 (2; screening) | 2832 |  |
 | EXP-20260830-0015 | raw_episode_predictor | implementable | complete | 0.4792 | 1 | 7.116e+04 | - | - | - | 0.9895 (2; screening) | 1.03002e+06 |  |
-| EXP-20260830-0015 | latent_factorized_mixed | implementable | complete | 1 | 1 | 73.67 | - | - | - | 0.4878 (2; screening) | 2.03774e+06 |  |
+| EXP-20260830-0015 | latent_factorized_mixed | implementable | complete | 1 | 1 | 73.67 | - | - | - | 0.4878 (2; screening) | 2.03774e+06 | yes |
 | EXP-20260830-0015 | oracle_representation_mixed | privileged support control | complete | 1 | 1 | 73.67 | - | - | - | 0.4878 (2; screening) | 2.04219e+06 |  |
 | EXP-20260830-0015 | oracle_latent_mixed | privileged support control | complete | 1 | 1 | 73.67 | - | - | - | 0.4878 (2; screening) | 8576 |  |
 
 ## latent_causal_transfer_adversarial_v2 / screen
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0016.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, knowledge_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -512,25 +506,25 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-001
 | EXP-20260830-0016 | latent_majority_guess | implementable | complete | 0.5 | 3 | 1 | - | - | - | 0 (3) | 2880 |  |
 | EXP-20260830-0016 | latent_parity_shortcut | implementable | complete | 0.3333 | 3 | 5 | - | - | - | 0 (3) | 2880 |  |
 | EXP-20260830-0016 | raw_episode_predictor | implementable | complete | 0.5278 | 3 | 6.234e+05 | - | - | - | 1.182 (3) | 1.35316e+07 |  |
-| EXP-20260830-0016 | latent_factorized_mixed | implementable | complete | 1 | 3 | 149.1 | - | - | - | 0.6161 (3) | 1.79323e+07 |  |
+| EXP-20260830-0016 | latent_factorized_mixed | implementable | complete | 1 | 3 | 149.1 | - | - | - | 0.6161 (3) | 1.79323e+07 | yes |
 | EXP-20260830-0016 | oracle_representation_mixed | privileged support control | complete | 1 | 3 | 149.1 | - | - | - | 0.6161 (3) | 1.79416e+07 |  |
 | EXP-20260830-0016 | oracle_latent_mixed | privileged support control | complete | 1 | 3 | 149.1 | - | - | - | 0.6161 (3) | 17504 |  |
 
 ## latent_causal_transfer_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0014.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0014 | random_latent_guess | implementable | complete | 0.6667 | 1 | 1 | - | - | - | 0 (2; screening) | 64 |  |
 | EXP-20260830-0014 | raw_episode_predictor | implementable | complete | 0 | 1 | 7.111e+04 | - | - | - | 0.9904 (2; screening) | 1.02945e+06 |  |
-| EXP-20260830-0014 | latent_factorized_causal | implementable | complete | 1 | 1 | 88.33 | - | - | - | 0.4021 (2; screening) | 2.03784e+06 |  |
+| EXP-20260830-0014 | latent_factorized_causal | implementable | complete | 1 | 1 | 88.33 | - | - | - | 0.4021 (2; screening) | 2.03784e+06 | yes |
 | EXP-20260830-0014 | oracle_representation_causal | privileged support control | complete | 1 | 1 | 88.33 | - | - | - | 0.4021 (2; screening) | 2.04224e+06 |  |
 | EXP-20260830-0014 | oracle_latent_causal | privileged support control | complete | 1 | 1 | 88.33 | - | - | - | 0.4021 (2; screening) | 8576 |  |
 
 ## latent_entity_binding_retrieval_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0035.
+Pareto axes: maximize `accuracy, near_equivalent_accuracy`; minimize `mean_query_ops, state_bytes, workload_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -538,13 +532,13 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-003
 | EXP-20260830-0035 | raw_view_nearest | implementable | complete | 0.1458 | 1 | 3532 | 12 | 7136 | - | 0.9954 (2; screening) | 13288 |  |
 | EXP-20260830-0035 | raw_sign_lsh | implementable | complete | 0.02083 | 1 | 19.33 | 12 | 184 | - | 0 (2; screening) | 1408 |  |
 | EXP-20260830-0035 | probabilistic_linkage_scan | implementable | complete | 1 | 1 | 3532 | 12 | 7136 | - | 0.9954 (2; screening) | 13288 |  |
-| EXP-20260830-0035 | paired_stability_index | implementable | complete | 1 | 1 | 19.33 | 12 | 184 | - | 0 (2; screening) | 1360 |  |
+| EXP-20260830-0035 | paired_stability_index | implementable | complete | 1 | 1 | 19.33 | 12 | 184 | - | 0 (2; screening) | 1360 | yes |
 | EXP-20260830-0035 | contrastive_hash_index | implementable | complete | 0.5417 | 1 | 19.33 | 12 | 184 | - | 0 (2; screening) | 1360 |  |
 | EXP-20260830-0035 | oracle_identity_index | privileged support control | complete | 1 | 1 | 15.67 | 12 | 154.7 | - | 0 (2; screening) | 984 |  |
 
 ## noisy_nonexhaustive_causal_transfer_v3 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0020.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, knowledge_compute_slope, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -558,20 +552,20 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-002
 
 ## nonlinear_local_state_transfer_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0034.
+Pareto axes: maximize `accuracy, near_equivalent_accuracy`; minimize `mean_query_ops, state_bytes, workload_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0034 | random_local_state | implementable | complete | 0 | 1 | 123 | 120 | - | - | 0.9675 (2; screening) | 1664 |  |
 | EXP-20260830-0034 | stateless_graph_bfs | implementable | complete | 0.2917 | 1 | 175 | 120 | - | - | 0.6309 (2; screening) | 2132 |  |
-| EXP-20260830-0034 | exact_finite_state_propagation | implementable | complete | 1 | 1 | 186 | 120 | - | - | 0.5892 (2; screening) | 4888 |  |
+| EXP-20260830-0034 | exact_finite_state_propagation | implementable | complete | 1 | 1 | 186 | 120 | - | - | 0.5892 (2; screening) | 4888 | yes |
 | EXP-20260830-0034 | learned_dense_nca | implementable | complete | 1 | 1 | 1.692e+05 | 120 | - | - | 1 (2; screening) | 12112 |  |
 | EXP-20260830-0034 | learned_sparse_event_nca | implementable | complete | 1 | 1 | 8597 | 120 | - | - | 0.01208 (2; screening) | 12112 |  |
 | EXP-20260830-0034 | oracle_local_state_rule | privileged support control | complete | 1 | 1 | 193.3 | 120 | - | - | 0.5644 (2; screening) | 1728 |  |
 
 ## nonstationary_online_update_battery_v1 / quick
 
-Pareto axes: maximize `none`; minimize `none`.
+Pareto axes: maximize `accuracy, minimum_family_accuracy, worst_phase_accuracy, post_switch_recovery, recurrence_retention`; minimize `state_bytes, meta_fit_ops, data_acquisition_ops, workload_ops_r16, prequential_loss, distractor_interference`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -590,61 +584,61 @@ Pareto axes: maximize `none`; minimize `none`.
 
 ## opaque_alias_acquisition_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0025.
+Pareto axes: maximize `accuracy, continual_retention, warm_accuracy, near_equivalent_accuracy, reuse_precision, reuse_coverage`; minimize `mean_query_ops, mean_warm_query_ops, state_bytes, fit_ops, mean_input_ops, update_ops, workload_ops, peak_state_bytes, false_reuse_rate, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0025 | random_alias_guess | implementable | complete | 0 | 1 | 173.7 | 172.7 | - | 3021 | 0.8979 (2; screening) | 64 |  |
-| EXP-20260830-0025 | opaque_full_evaluator | implementable | complete | 1 | 1 | 268.7 | 172.7 | - | 5292 | 0.5393 (2; screening) | 64 |  |
-| EXP-20260830-0025 | opaque_exact_key_cache | implementable | complete | 1 | 1 | 268.7 | 172.7 | - | 3314 | 0.5393 (2; screening) | 44480 |  |
-| EXP-20260830-0025 | independent_frequency_cache | implementable | complete | 1 | 1 | 1497 | 172.7 | - | 2.88e+04 | 1.443 (2; screening) | 104 |  |
-| EXP-20260830-0025 | soft_unification_result_cache | implementable | complete | 1 | 1 | 1.873e+04 | 172.7 | - | 3.542e+05 | 2.602 (2; screening) | 2144 |  |
-| EXP-20260830-0025 | soft_unification_dependency_trace | implementable | complete | 1 | 1 | 1.873e+04 | 172.7 | - | 3.542e+05 | 2.594 (2; screening) | 9816 |  |
-| EXP-20260830-0025 | exact_constraint_result_cache | implementable | complete | 1 | 1 | 3173 | 172.7 | - | 5.87e+04 | 1.623 (2; screening) | 1856 |  |
-| EXP-20260830-0025 | exact_constraint_dependency_trace | implementable | complete | 1 | 1 | 3183 | 172.7 | - | 5.866e+04 | 1.611 (2; screening) | 9720 |  |
+| EXP-20260830-0025 | opaque_full_evaluator | implementable | complete | 1 | 1 | 268.7 | 172.7 | - | 5292 | 0.5393 (2; screening) | 64 | yes |
+| EXP-20260830-0025 | opaque_exact_key_cache | implementable | complete | 1 | 1 | 268.7 | 172.7 | - | 3314 | 0.5393 (2; screening) | 44480 | yes |
+| EXP-20260830-0025 | independent_frequency_cache | implementable | complete | 1 | 1 | 1497 | 172.7 | - | 2.88e+04 | 1.443 (2; screening) | 104 | yes |
+| EXP-20260830-0025 | soft_unification_result_cache | implementable | complete | 1 | 1 | 1.873e+04 | 172.7 | - | 3.542e+05 | 2.602 (2; screening) | 2144 | yes |
+| EXP-20260830-0025 | soft_unification_dependency_trace | implementable | complete | 1 | 1 | 1.873e+04 | 172.7 | - | 3.542e+05 | 2.594 (2; screening) | 9816 | yes |
+| EXP-20260830-0025 | exact_constraint_result_cache | implementable | complete | 1 | 1 | 3173 | 172.7 | - | 5.87e+04 | 1.623 (2; screening) | 1856 | yes |
+| EXP-20260830-0025 | exact_constraint_dependency_trace | implementable | complete | 1 | 1 | 3183 | 172.7 | - | 5.866e+04 | 1.611 (2; screening) | 9720 | yes |
 | EXP-20260830-0025 | mapping_oracle_dependency_trace | privileged support control | complete | 1 | 1 | 342.7 | 172.7 | - | 4702 | 0.4092 (2; screening) | 9720 |  |
 
 ## pointer_machine_composition_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0013.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0013 | random_pointer_guess | implementable | complete | 0.04167 | 1 | 1 | - | - | - | 0 (2; screening) | 64 |  |
 | EXP-20260830-0013 | pointer_trace_memorizer | implementable | complete | 0 | 1 | 24.67 | - | - | - | 0.7667 (2; screening) | 5056 |  |
 | EXP-20260830-0013 | dense_pointer_controller | implementable | complete | 1 | 1 | 82.5 | - | - | - | 0.8581 (2; screening) | 960 |  |
-| EXP-20260830-0013 | learned_hard_pointer | implementable | complete | 1 | 1 | 12.83 | - | - | - | 0 (2; screening) | 808 |  |
+| EXP-20260830-0013 | learned_hard_pointer | implementable | complete | 1 | 1 | 12.83 | - | - | - | 0 (2; screening) | 808 | yes |
 | EXP-20260830-0013 | oracle_pointer_machine | privileged support control | complete | 1 | 1 | 9.167 | - | - | - | 0 (2; screening) | 272 |  |
 
 ## program_induction_from_whole_io_v2 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0022.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, mean_warm_query_ops, state_bytes, fit_ops, update_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0022 | random_whole_io | implementable | complete | 0.5417 | 1 | 5.667 | - | - | - | 0 (2; screening) | 64 |  |
 | EXP-20260830-0022 | nearest_whole_io | implementable | complete | 0.6667 | 1 | 306.3 | - | - | - | 0 (2; screening) | 64 |  |
 | EXP-20260830-0022 | dense_whole_io | implementable | complete | 0.5417 | 1 | 5373 | - | - | - | 0.4126 (2; screening) | 24192 |  |
-| EXP-20260830-0022 | enumerative_mdl_vm | implementable | complete | 1 | 1 | 1.284e+05 | - | - | - | 0 (2; screening) | 1448 |  |
+| EXP-20260830-0022 | enumerative_mdl_vm | implementable | complete | 1 | 1 | 1.284e+05 | - | - | - | 0 (2; screening) | 1448 | yes |
 | EXP-20260830-0022 | learned_latent_vm | implementable | complete | 0.9375 | 1 | 6.1e+05 | - | - | - | -0.0007844 (2; screening) | 1576 |  |
 | EXP-20260830-0022 | oracle_latent_vm | privileged support control | complete | 1 | 1 | 23 | - | - | - | 0 (2; screening) | 72 |  |
 
 ## program_library_adversarial_v2 / screen
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0008.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0008 | random_program_guess | implementable | complete | 0.01389 | 3 | 1 | - | - | - | 0 (3) | 1504 |  |
-| EXP-20260830-0008 | primitive_program_search | implementable | complete | 0.9931 | 3 | 8.212e+04 | - | - | - | 0 (3) | 1504 |  |
+| EXP-20260830-0008 | primitive_program_search | implementable | complete | 0.9931 | 3 | 8.212e+04 | - | - | - | 0 (3) | 1504 | yes |
 | EXP-20260830-0008 | exact_program_memo | implementable | complete | 0.9931 | 3 | 8.212e+04 | - | - | - | 0 (3) | 2336 |  |
 | EXP-20260830-0008 | mismatched_library_search | implementable | complete | 0.9861 | 3 | 1.695e+05 | - | - | - | -2.052e-31 (3) | 1504 |  |
 | EXP-20260830-0008 | oracle_library_search | privileged support control | complete | 0.9931 | 3 | 3.35e+04 | - | - | - | 0 (3) | 1504 |  |
-| EXP-20260830-0008 | learned_library_search | implementable | complete | 0.9931 | 3 | 3.35e+04 | - | - | - | 0 (3) | 25624 |  |
+| EXP-20260830-0008 | learned_library_search | implementable | complete | 0.9931 | 3 | 3.35e+04 | - | - | - | 0 (3) | 25624 | yes |
 
 ## program_library_identifiable_v3 / screen
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0009.
+Pareto axes: maximize `none`; minimize `none`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -657,51 +651,51 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-000
 
 ## program_library_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0007.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops, state_bytes, fit_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0007 | random_program_guess | implementable | complete | 0.04167 | 1 | 1 | - | - | - | 0 (2; screening) | 800 |  |
-| EXP-20260830-0007 | primitive_program_search | implementable | complete | 1 | 1 | 4718 | - | - | - | 0 (2; screening) | 800 |  |
+| EXP-20260830-0007 | primitive_program_search | implementable | complete | 1 | 1 | 4718 | - | - | - | 0 (2; screening) | 800 | yes |
 | EXP-20260830-0007 | exact_program_memo | implementable | complete | 1 | 1 | 4718 | - | - | - | 0 (2; screening) | 1696 |  |
 | EXP-20260830-0007 | mismatched_library_search | implementable | complete | 1 | 1 | 9134 | - | - | - | 0 (2; screening) | 800 |  |
 | EXP-20260830-0007 | oracle_library_search | privileged support control | complete | 1 | 1 | 198.6 | - | - | - | 0 (2; screening) | 800 |  |
-| EXP-20260830-0007 | learned_library_search | implementable | complete | 1 | 1 | 198.6 | - | - | - | 0 (2; screening) | 6780 |  |
+| EXP-20260830-0007 | learned_library_search | implementable | complete | 1 | 1 | 198.6 | - | - | - | 0 (2; screening) | 6780 | yes |
 
 ## raw_byte_motif_composition_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0026.
+Pareto axes: maximize `accuracy, near_equivalent_accuracy, reuse_precision, reuse_coverage`; minimize `mean_query_ops, fit_seconds, update_ops, workload_ops, peak_state_bytes`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0026 | random_byte_guess | implementable | complete | 0 | 1 | 30.62 | 26.96 | - | 613.7 | 0 (2; screening) | 64 |  |
-| EXP-20260830-0026 | raw_support_rescan | implementable | complete | 1 | 1 | 9005 | 26.96 | - | 1.532e+05 | 0.3529 (2; screening) | 1684 |  |
-| EXP-20260830-0026 | fixed_trigram_composer | implementable | complete | 1 | 1 | 221.4 | 26.96 | - | 6439 | 0 (2; screening) | 236 |  |
+| EXP-20260830-0026 | raw_support_rescan | implementable | complete | 1 | 1 | 9005 | 26.96 | - | 1.532e+05 | 0.3529 (2; screening) | 1684 | yes |
+| EXP-20260830-0026 | fixed_trigram_composer | implementable | complete | 1 | 1 | 221.4 | 26.96 | - | 6439 | 0 (2; screening) | 236 | yes |
 | EXP-20260830-0026 | lz_phrase_composer | implementable | complete | 1 | 1 | 210.6 | 26.96 | - | 4.71e+05 | 0 (2; screening) | 246 |  |
 | EXP-20260830-0026 | sequitur_grammar_composer | implementable | complete | 0.6458 | 1 | 205.5 | 26.96 | - | 1.695e+05 | -0.03569 (2; screening) | 246 |  |
 | EXP-20260830-0026 | dense_recurrent_composer | implementable | complete | 0.04167 | 1 | 4665 | 26.96 | - | 1.61e+05 | 0 (2; screening) | 31408 |  |
-| EXP-20260830-0026 | contrastive_motif_composer | implementable | complete | 1 | 1 | 210.6 | 26.96 | - | 3.59e+04 | 0 (2; screening) | 246 |  |
-| EXP-20260830-0026 | exact_suffix_composer | implementable | complete | 1 | 1 | 59.62 | 26.96 | - | 1.01e+04 | 0 (2; screening) | 608 |  |
+| EXP-20260830-0026 | contrastive_motif_composer | implementable | complete | 1 | 1 | 210.6 | 26.96 | - | 3.59e+04 | 0 (2; screening) | 246 | yes |
+| EXP-20260830-0026 | exact_suffix_composer | implementable | complete | 1 | 1 | 59.62 | 26.96 | - | 1.01e+04 | 0 (2; screening) | 608 | yes |
 | EXP-20260830-0026 | oracle_motif_composer | privileged support control | complete | 1 | 1 | 59.62 | 26.96 | - | 1219 | 0 (2; screening) | 608 |  |
 
 ## routed_vsa_capacity_scaling_v2 / screen
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0032.
+Pareto axes: maximize `accuracy`; minimize `none`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0032 | random_vsa_capacity | implementable | complete | 0.05787 | 3 | 2 | 1 | 8 | - | 0 (3) | 128 |  |
-| EXP-20260830-0032 | exact_tuple_store_vsa | implementable | complete | 1 | 3 | 4.75 | 1 | 76 | - | 2.565e-32 (3) | 2304 |  |
+| EXP-20260830-0032 | exact_tuple_store_vsa | implementable | complete | 1 | 3 | 4.75 | 1 | 76 | - | 2.565e-32 (3) | 2304 | yes |
 | EXP-20260830-0032 | global_vsa_r8 | implementable | complete | 0.2801 | 3 | 4.469e+05 | 1 | 2.32e+05 | - | 1.96 (3) | 137728 |  |
 | EXP-20260830-0032 | global_vsa_r32 | implementable | complete | 0.9907 | 3 | 1.788e+06 | 1 | 9.278e+05 | - | 1.96 (3) | 543232 |  |
 | EXP-20260830-0032 | bucketed_vsa_r32 | implementable | complete | 0.4815 | 3 | 3.528e+05 | 1 | 4.768e+05 | - | 1.452 (3) | 740864 |  |
-| EXP-20260830-0032 | learned_routed_vsa_r32 | implementable | complete | 1 | 3 | 3.526e+05 | 1 | 4.767e+05 | - | 1.452 (3) | 740864 |  |
-| EXP-20260830-0032 | dense_associative_vsa_r32 | implementable | complete | 1 | 3 | 1.779e+06 | 1 | 8.938e+05 | - | 1.98 (3) | 1.05114e+06 |  |
+| EXP-20260830-0032 | learned_routed_vsa_r32 | implementable | complete | 1 | 3 | 3.526e+05 | 1 | 4.767e+05 | - | 1.452 (3) | 740864 | yes |
+| EXP-20260830-0032 | dense_associative_vsa_r32 | implementable | complete | 1 | 3 | 1.779e+06 | 1 | 8.938e+05 | - | 1.98 (3) | 1.05114e+06 | yes |
 | EXP-20260830-0032 | oracle_routed_vsa_r32 | privileged support control | complete | 1 | 3 | 1.751e+05 | 1 | 1.216e+05 | - | 1.409 (3) | 544256 |  |
 
 ## semantic_reaction_composition_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0019.
+Pareto axes: maximize `accuracy, continual_retention`; minimize `mean_query_ops, state_bytes, fit_ops, update_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -709,56 +703,56 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-001
 | EXP-20260830-0019 | reaction_trajectory_memorizer | implementable | complete | 0 | 1 | 60 | - | - | - | 1 (2; screening) | 25184 |  |
 | EXP-20260830-0019 | learned_reaction_sweep | implementable | complete | 1 | 1 | 106.3 | - | - | - | 0.635 (2; screening) | 2464 |  |
 | EXP-20260830-0019 | learned_reaction_recurrent | implementable | complete | 1 | 1 | 133.3 | - | - | - | 0.08057 (2; screening) | 2464 |  |
-| EXP-20260830-0019 | rete_reaction_engine | implementable | complete | 1 | 1 | 53 | - | - | - | 0.3324 (2; screening) | 2464 |  |
-| EXP-20260830-0019 | learned_semantic_reactor | implementable | complete | 1 | 1 | 53 | - | - | - | 0.3324 (2; screening) | 2464 |  |
+| EXP-20260830-0019 | rete_reaction_engine | implementable | complete | 1 | 1 | 53 | - | - | - | 0.3324 (2; screening) | 2464 | yes |
+| EXP-20260830-0019 | learned_semantic_reactor | implementable | complete | 1 | 1 | 53 | - | - | - | 0.3324 (2; screening) | 2464 | yes |
 | EXP-20260830-0019 | oracle_reaction_engine | privileged support control | complete | 1 | 1 | 53 | - | - | - | 0.3324 (2; screening) | 2464 |  |
 
 ## semantic_trace_compilation_adversarial_v2 / screen
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0024.
+Pareto axes: maximize `accuracy, continual_retention, warm_accuracy, near_equivalent_accuracy`; minimize `mean_query_ops, mean_warm_query_ops, state_bytes, fit_ops, mean_input_ops, update_ops, workload_ops, workload_ops_r1, workload_ops_r4, workload_ops_r16, peak_state_bytes, false_reuse_rate, knowledge_compute_slope, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0024 | random_trace_guess | implementable | complete | 0.002315 | 3 | 129.5 | 128.5 | - | 2279 | 0.7573 (3) | 64 |  |
-| EXP-20260830-0024 | exact_key_trace_cache | implementable | complete | 1 | 3 | 256.5 | 128.5 | - | 2716 | 0.3298 (3) | 5008 |  |
-| EXP-20260830-0024 | indexed_dag_planner | implementable | complete | 1 | 3 | 256.5 | 128.5 | - | 5130 | 0.3298 (3) | 64 |  |
-| EXP-20260830-0024 | canonical_result_cache | implementable | complete | 1 | 3 | 289.5 | 128.5 | - | 3494 | 0.2909 (3) | 12736 |  |
-| EXP-20260830-0024 | dependency_trace_compiler | implementable | complete | 1 | 3 | 289.5 | 128.5 | - | 3430 | 0.2909 (3) | 44800 |  |
-| EXP-20260830-0024 | rewrite_normal_form_result_cache | implementable | complete | 1 | 3 | 333.2 | 128.5 | - | 4154 | 0.2521 (3) | 3520 |  |
-| EXP-20260830-0024 | rewrite_normal_form_dependency_trace | implementable | complete | 1 | 3 | 341.2 | 128.5 | - | 4098 | 0.2461 (3) | 20128 |  |
+| EXP-20260830-0024 | exact_key_trace_cache | implementable | complete | 1 | 3 | 256.5 | 128.5 | - | 2716 | 0.3298 (3) | 5008 | yes |
+| EXP-20260830-0024 | indexed_dag_planner | implementable | complete | 1 | 3 | 256.5 | 128.5 | - | 5130 | 0.3298 (3) | 64 | yes |
+| EXP-20260830-0024 | canonical_result_cache | implementable | complete | 1 | 3 | 289.5 | 128.5 | - | 3494 | 0.2909 (3) | 12736 | yes |
+| EXP-20260830-0024 | dependency_trace_compiler | implementable | complete | 1 | 3 | 289.5 | 128.5 | - | 3430 | 0.2909 (3) | 44800 | yes |
+| EXP-20260830-0024 | rewrite_normal_form_result_cache | implementable | complete | 1 | 3 | 333.2 | 128.5 | - | 4154 | 0.2521 (3) | 3520 | yes |
+| EXP-20260830-0024 | rewrite_normal_form_dependency_trace | implementable | complete | 1 | 3 | 341.2 | 128.5 | - | 4098 | 0.2461 (3) | 20128 | yes |
 | EXP-20260830-0024 | oracle_equivalence_trace | privileged support control | complete | 1 | 3 | 1 | 0 | - | 18 | 0 (3) | 64 |  |
 
 ## semantic_trace_compilation_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0023.
+Pareto axes: maximize `accuracy, continual_retention, warm_accuracy`; minimize `mean_query_ops, mean_warm_query_ops, state_bytes, fit_ops, mean_input_ops, update_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0023 | random_trace_guess | implementable | complete | 0 | 1 | 41 | 40 | - | - | 0.9675 (2; screening) | 64 |  |
 | EXP-20260830-0023 | exact_key_trace_cache | implementable | complete | 1 | 1 | 157.3 | 40 | - | - | 0.2218 (2; screening) | 1328 |  |
-| EXP-20260830-0023 | indexed_dag_planner | implementable | complete | 1 | 1 | 157.3 | 40 | - | - | 0.2218 (2; screening) | 64 |  |
-| EXP-20260830-0023 | canonical_result_cache | implementable | complete | 1 | 1 | 180 | 40 | - | - | 0.1935 (2; screening) | 2240 |  |
-| EXP-20260830-0023 | dependency_trace_compiler | implementable | complete | 1 | 1 | 180 | 40 | - | - | 0.1935 (2; screening) | 6400 |  |
+| EXP-20260830-0023 | indexed_dag_planner | implementable | complete | 1 | 1 | 157.3 | 40 | - | - | 0.2218 (2; screening) | 64 | yes |
+| EXP-20260830-0023 | canonical_result_cache | implementable | complete | 1 | 1 | 180 | 40 | - | - | 0.1935 (2; screening) | 2240 | yes |
+| EXP-20260830-0023 | dependency_trace_compiler | implementable | complete | 1 | 1 | 180 | 40 | - | - | 0.1935 (2; screening) | 6400 | yes |
 | EXP-20260830-0023 | oracle_trace_compiler | privileged support control | complete | 1 | 1 | 1 | 0 | - | - | 0 (2; screening) | 64 |  |
 
 ## shared_transition_adaptive_compute_v2 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0031.
+Pareto axes: maximize `accuracy, near_equivalent_accuracy`; minimize `mean_query_ops, state_bytes, workload_ops, depth_compute_slope`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0031 | random_shared_halt | implementable | complete | 0.4583 | 1 | 1967 | 20 | - | 3.794e+04 | 1.148 (2; screening) | 4160 |  |
 | EXP-20260830-0031 | fixed_short_shared_transition | implementable | complete | 0.6667 | 1 | 2692 | 20 | - | 4.579e+04 | 0.984 (2; screening) | 4160 |  |
-| EXP-20260830-0031 | fixed_max_shared_transition | implementable | complete | 1 | 1 | 4028 | 20 | - | 6.717e+04 | 0.984 (2; screening) | 4160 |  |
-| EXP-20260830-0031 | residual_shared_transition | implementable | complete | 1 | 1 | 3324 | 20 | - | 5.59e+04 | 0.9849 (2; screening) | 4160 |  |
-| EXP-20260830-0031 | transition_gate_halt | implementable | complete | 1 | 1 | 2794 | 20 | - | 4.742e+04 | 0.9837 (2; screening) | 4160 |  |
-| EXP-20260830-0031 | learned_adaptive_halt | implementable | complete | 1 | 1 | 2873 | 20 | - | 4.869e+04 | 0.9478 (2; screening) | 4232 |  |
-| EXP-20260830-0031 | act_ponder_halt | implementable | complete | 1 | 1 | 2901 | 20 | - | 4.914e+04 | 0.9358 (2; screening) | 4232 |  |
+| EXP-20260830-0031 | fixed_max_shared_transition | implementable | complete | 1 | 1 | 4028 | 20 | - | 6.717e+04 | 0.984 (2; screening) | 4160 | yes |
+| EXP-20260830-0031 | residual_shared_transition | implementable | complete | 1 | 1 | 3324 | 20 | - | 5.59e+04 | 0.9849 (2; screening) | 4160 | yes |
+| EXP-20260830-0031 | transition_gate_halt | implementable | complete | 1 | 1 | 2794 | 20 | - | 4.742e+04 | 0.9837 (2; screening) | 4160 | yes |
+| EXP-20260830-0031 | learned_adaptive_halt | implementable | complete | 1 | 1 | 2873 | 20 | - | 4.869e+04 | 0.9478 (2; screening) | 4232 | yes |
+| EXP-20260830-0031 | act_ponder_halt | implementable | complete | 1 | 1 | 2901 | 20 | - | 4.914e+04 | 0.9358 (2; screening) | 4232 | yes |
 | EXP-20260830-0031 | oracle_shared_halt | privileged support control | complete | 1 | 1 | 2469 | 20 | - | 4.223e+04 | 0.984 (2; screening) | 4160 |  |
 
 ## successor_graph_v1 / quick
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0001, EXP-20260830-0003.
+Pareto axes: maximize `accuracy`; minimize `mean_query_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -766,7 +760,7 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-000
 | EXP-20260830-0001 | linear_scan | implementable | complete | 1 | 1 | 577.4 | - | - | - | 0.9938 (2; screening) | 28840 |  |
 | EXP-20260830-0001 | indexed_graph | implementable | complete | 1 | 1 | 7 | - | - | - | 0 (2; screening) | 18568 |  |
 | EXP-20260830-0001 | memoized_graph | implementable | complete | 1 | 1 | 6.625 | - | - | - | 0.08175 (2; screening) | 19640 |  |
-| EXP-20260830-0001 | compiled_jump | implementable | complete | 1 | 1 | 1 | - | - | - | 0 (2; screening) | 92584 |  |
+| EXP-20260830-0001 | compiled_jump | implementable | complete | 1 | 1 | 1 | - | - | - | 0 (2; screening) | 92584 | yes |
 | EXP-20260830-0001 | dense_recurrent | implementable | complete | 1 | 1 | 4.874e+05 | - | - | - | 2 (2; screening) | 264196 |  |
 | EXP-20260830-0003 | random_guess | implementable | complete | 0.01042 | 1 | 1 | - | - | - | 0 (2; screening) | 64 |  |
 | EXP-20260830-0003 | linear_scan | implementable | complete | 1 | 1 | 577.4 | - | - | - | 0.9938 (2; screening) | 28840 |  |
@@ -776,12 +770,14 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-000
 
 ## successor_graph_v1 / screen
 
-Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-0002.
+Pareto axes: maximize `accuracy, warm_accuracy`; minimize `mean_query_ops, mean_warm_query_ops, state_bytes, update_ops`.
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0002 | random_guess | implementable | complete | 0.006076 | 3 | 1 | - | - | - | 0 (3) | 64 |  |
 | EXP-20260830-0002 | linear_scan | implementable | complete | 1 | 3 | 4755 | - | - | - | 0.9938 (3) | 114856 |  |
-| EXP-20260830-0002 | indexed_graph | implementable | complete | 1 | 3 | 21.25 | - | - | - | 0 (3) | 73864 |  |
-| EXP-20260830-0002 | memoized_graph | implementable | complete | 1 | 3 | 18.01 | - | - | - | 0.1434 (3) | 74936 |  |
-| EXP-20260830-0002 | compiled_jump | implementable | complete | 1 | 3 | 1 | - | - | - | 0 (3) | 516664 |  |
+| EXP-20260830-0002 | indexed_graph | implementable | complete | 1 | 3 | 21.25 | - | - | - | 0 (3) | 73864 | yes |
+| EXP-20260830-0002 | memoized_graph | implementable | complete | 1 | 3 | 18.01 | - | - | - | 0.1434 (3) | 74936 | yes |
+| EXP-20260830-0002 | compiled_jump | implementable | complete | 1 | 3 | 1 | - | - | - | 0 (3) | 516664 | yes |
+
+

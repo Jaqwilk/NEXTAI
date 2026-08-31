@@ -19,6 +19,35 @@ def _fmt(value: Any, digits: int = 4) -> str:
     return str(value)
 
 
+def _cohort_pareto_contract(
+    cohort: list[dict[str, Any]],
+) -> tuple[list[str], list[str], str | None]:
+    by_experiment: dict[str, Any] = {}
+    for row in cohort:
+        if row.get("scientifically_valid", True):
+            by_experiment[str(row["experiment_id"])] = row.get("pareto_metrics")
+    if not by_experiment:
+        return [], [], "no scientifically valid immutable result"
+    missing = sorted(
+        experiment_id
+        for experiment_id, contract in by_experiment.items()
+        if not isinstance(contract, dict)
+    )
+    if missing:
+        return [], [], "immutable result lacks pareto_metrics: " + ", ".join(missing)
+    contracts: dict[tuple[tuple[str, ...], tuple[str, ...]], list[str]] = defaultdict(list)
+    for experiment_id, contract in by_experiment.items():
+        signature = (
+            tuple(str(value) for value in contract.get("maximize", ())),
+            tuple(str(value) for value in contract.get("minimize", ())),
+        )
+        contracts[signature].append(experiment_id)
+    if len(contracts) != 1:
+        return [], [], "inconsistent immutable pareto_metrics across experiments"
+    (maximize, minimize), _ = next(iter(contracts.items()))
+    return list(maximize), list(minimize), None
+
+
 def collect_rows(root: Path) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     invalid = invalid_experiment_ids(root)
@@ -46,8 +75,12 @@ def collect_rows(root: Path) -> list[dict[str, Any]]:
                     "matrix_seed_count": len(matrix.get("seeds", ())),
                     "matrix_knowledge_points": len(matrix.get("knowledge_sizes", ())),
                     "matrix_depth_points": len(matrix.get("reasoning_depths", ())),
-                    "primary_metrics": tuple(plan.get("primary_metrics", ())),
-                    "metric_directions": dict(plan.get("metric_directions", {})),
+                    "pareto_metrics": result.get("pareto_metrics"),
+                    "promotion_gates": tuple(
+                        plan.get("continuous_transfer_protocol", {}).get(
+                            "causal_promotion_gates", ()
+                        )
+                    ),
                     "integrity_ok": integrity_ok,
                     "scientifically_valid": result["experiment_id"] not in invalid,
                     **display_summary,
@@ -77,7 +110,6 @@ def write_report(root: Path | None = None) -> Path:
     ]
     if not grouped:
         lines.extend(["No completed experiment results yet.", ""])
-    metrics = config.raw["metrics"]
     minimum_accuracy = float(config.raw["decision"]["minimum_screen_accuracy"])
     for (benchmark, budget), cohort in sorted(grouped.items()):
         eligible = [
@@ -90,34 +122,10 @@ def write_report(root: Path | None = None) -> Path:
             and float(row.get("accuracy") or 0.0) >= minimum_accuracy
             and not row["is_privileged"]
         ]
-        declared_sets = [set(row["primary_metrics"]) for row in cohort if row["primary_metrics"]]
-        declared = set.intersection(*declared_sets) if declared_sets else set()
-        maximize_requested = [
-            metric for metric in metrics["maximize"] if metric in declared
-        ]
-        minimize_requested = [
-            metric for metric in metrics["minimize"] if metric in declared
-        ]
+        maximize, minimize, contract_problem = _cohort_pareto_contract(cohort)
         minimum_points = int(config.raw["decision"].get("minimum_scaling_points", 3))
-        if any(
-            int(row.get("knowledge_compute_slope_points") or row.get("matrix_knowledge_points") or 0)
-            < minimum_points
-            for row in eligible
-        ):
-            minimize_requested = [
-                metric
-                for metric in minimize_requested
-                if metric != "knowledge_compute_slope"
-            ]
-        if any(
-            int(row.get("depth_compute_slope_points") or row.get("matrix_depth_points") or 0)
-            < minimum_points
-            for row in eligible
-        ):
-            minimize_requested = [
-                metric for metric in minimize_requested if metric != "depth_compute_slope"
-            ]
-        maximize, minimize = maximize_requested, minimize_requested
+        if contract_problem:
+            eligible = []
         eligible = [row for row in eligible if all(row.get(metric) is not None for metric in [*maximize, *minimize])]
         frontier = {
             (row["experiment_id"], row["candidate"])
@@ -127,12 +135,22 @@ def write_report(root: Path | None = None) -> Path:
                 else []
             )
         }
+        axes_line = (
+            f"Pareto axes unavailable: {contract_problem}."
+            if contract_problem
+            else f"Pareto axes: maximize `{', '.join(maximize) or 'none'}`; minimize `{', '.join(minimize) or 'none'}`."
+        )
+        promotion_gates = list(dict.fromkeys(
+            str(gate) for row in cohort for gate in row.get("promotion_gates", ())
+        ))
+        lines.extend([f"## {benchmark} / {budget}", "", axes_line, ""])
+        if promotion_gates:
+            lines.extend([
+                f"Promotion-only gates (not Pareto axes): `{', '.join(promotion_gates)}`.",
+                "",
+            ])
         lines.extend(
             [
-                f"## {benchmark} / {budget}",
-                "",
-                f"Pareto axes: maximize `{', '.join(maximize) or 'none'}`; minimize `{', '.join(minimize) or 'none'}`.",
-                "",
                 "| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |",
                 "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|",
             ]

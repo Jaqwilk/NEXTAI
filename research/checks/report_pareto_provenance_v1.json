@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "generation": 1,
+  "cycle": 110,
+  "created_at": "2026-08-31T14:18:45Z",
+  "benchmark_before": "heldout_three_family_continuous_transfer_v4",
+  "benchmark_after": "heldout_three_family_continuous_transfer_v5",
+  "archived_report": "research/reports/REPORT-PRE-PARETO-PROVENANCE-FIX-CYCLE-109-2026-08-31.md",
+  "archived_report_sha256": "7fdbea44584e80c4785f005200ef4cf755cfd8c25e6282d7cb174ae6ba18e102",
+  "authoritative_v4_contract": {
+    "maximize": ["transfer_accuracy", "minimum_family_accuracy", "stable_rollout_rate"],
+    "minimize": ["normalized_rmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops", "adaptation_ops", "mean_query_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"],
+    "promotion_only": ["shared_vs_independent_gain", "cross_family_transfer_gain"]
+  },
+  "legacy_fail_closed": {
+    "results_without_pareto_metrics": 35,
+    "inconsistent_cohorts": ["cross_family_shared_representation_v3/quick"],
+    "frontier_policy": "unavailable with explicit diagnostic; never infer from plan primary_metrics"
+  },
+  "focused_tests": "PASS",
+  "pytest_collected": 338,
+  "pytest": "PASS",
+  "semantic_baselines": "PASS",
+  "integrity": "PASS",
+  "integrity_checked_files": 509,
+  "doctor": "PASS",
+  "report_sha256": "ee816e3d27ec5fcd1ec669914fa6e45950702ab64bced77db62238aefc8acbd6",
+  "report_implementation_sha256": "e389b22205b752c06c88ed7e02dc1e32dbfb950ff85e064521ae2768874c81de",
+  "report_test_sha256": "28e8bb7d047f8fa536179de891c2ff6597e9e14cda93605a3515a4a6cb303f13",
+  "evaluator_sha256": "b6f103415a7500e943008057c0bcb5b2708e1f5f1f76a8f0fa8a55afb09cc683",
+  "candidate_bundle_sha256": "c9f3bc45fc089dae6bfc5832ac6fa37d3da11d1e9705eaf50538bc3797d41fef",
+  "manifest_sha256": "0f7b830ecac9fd251587df0b5c14f4306df93abbf783c24ed20255e3bcfb7ea0",
+  "preflight_certificate_sha256": "8f69959910194735e63c37bad79d911a0a503430f9393e1820e851417b9768d2",
+  "hypothesis_created": false,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false
+}

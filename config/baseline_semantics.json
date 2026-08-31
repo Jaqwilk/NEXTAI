@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "cohorts": ["heldout_parallel_masked_infilling_v2", "cross_family_shared_representation_v3", "cross_family_relation_fragment_transfer_v4", "heldout_dronepropa_factor_recombination_v2", "heldout_dronepropa_factor_recombination_v3", "heldout_dronepropa_factor_recombination_v4", "heldout_dronepropa_factor_recombination_v5", "heldout_dronepropa_factor_recombination_v6", "heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4"],
+  "cohorts": ["heldout_parallel_masked_infilling_v2", "cross_family_shared_representation_v3", "cross_family_relation_fragment_transfer_v4", "heldout_dronepropa_factor_recombination_v2", "heldout_dronepropa_factor_recombination_v3", "heldout_dronepropa_factor_recombination_v4", "heldout_dronepropa_factor_recombination_v5", "heldout_dronepropa_factor_recombination_v6", "heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"],
   "baselines": {
     "uniform_masked_byte": {
       "baseline_id": "uniform_byte_v1",

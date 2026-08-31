@@ -304,3 +304,16 @@ changes a bucket key or operator, or adds fit/query dependence on dormant knowle
 can be realized, a real-file continuous-event fixture with 32 visible input/control coordinates,
 at least one required output coordinate and a deliberately emptied selected bucket must complete
 for the true random-hash control and all four source-identical predictive-index roles.
+
+## Three-family continuous transfer v5 report provenance contract
+
+Version 5 is a service-only successor to v4. It preserves every world, split, tensor,
+normalization, candidate, control, metric, direction, threshold, K value, budget, seed policy,
+Pareto axis and causal promotion gate. Historical v4 and EXP-20260831-0005 remain immutable.
+
+V5 corrects only evidence-report provenance. A report cohort obtains universal Pareto axes from
+the immutable result `pareto_metrics` written by the audited runner, never from the broader plan
+`primary_metrics`. Candidate-specific causal contrasts remain visible as promotion-only gates and
+never enter universal dominance. If a scientifically valid legacy result lacks `pareto_metrics`,
+or valid results in one benchmark/budget cohort disagree, the report shows the exact problem and
+computes no frontier for that cohort instead of guessing, intersecting or silently deleting axes.
