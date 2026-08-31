@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "contract_id": "wt_changepoints_prequential_contract_gate_v1",
+  "created_at": "2026-08-31T15:22:42Z",
+  "dataset_manifest": "research/data/wt_changepoints_v1/manifest.json",
+  "status": "contract_feasible_pending_dev_baseline_gate",
+  "scientific_scope": "visible local screening only",
+  "scoring_authorized": false,
+  "fixed_whole_file_split": {
+    "train": [0, 1, 2, 3, 4, 5],
+    "development": [6, 7],
+    "test": [8, 9],
+    "selection_rule": "simple contiguous seed split fixed before transition-coverage inspection",
+    "search_for_favorable_split_forbidden": true
+  },
+  "coverage_audit": {
+    "train_valid_transition_episodes": 54,
+    "development_valid_transition_episodes": 18,
+    "test_valid_transition_episodes": 18,
+    "train_segment_length_range": [100, 297],
+    "development_segment_length_range": [103, 275],
+    "test_segment_length_range": [112, 294],
+    "train_off_diagonal_ordered_level_transitions": 12,
+    "development_transitions_unseen_in_train": 0,
+    "test_transitions_unseen_in_train": 0,
+    "natural_transition_ood": false,
+    "natural_response_length_ood": false
+  },
+  "mechanical_partition": {
+    "fit_on": "train files only",
+    "control_rule": "the unique numeric column changing at every noninitial train marker and never between markers",
+    "control_count": 1,
+    "private_metadata": ["timestamp", "config", "counter", "flag", "intervention"],
+    "response_rule": "numeric nonmetadata columns with non-marker within-segment variation in train",
+    "response_count": 10,
+    "constant_or_protocol_columns_excluded": 21,
+    "native_names_hidden_from_candidate": true,
+    "partition_result": "pass"
+  },
+  "prospective_boundary": {
+    "exclude_event_index_zero": true,
+    "fit_depth": 32,
+    "evaluation_horizons": [16, 32, 96],
+    "query": "last 32 anonymous response vectors before intervention, current anonymous scalar control and requested horizon",
+    "prediction": "complete horizon-by-10 response matrix emitted before any target reveal",
+    "reveal": "frozen target response matrix revealed only after the complete prediction artifact is atomic",
+    "update": "charged slot-local update after reveal; global refit is forbidden",
+    "candidate_forbidden_inputs": [
+      "current or future response",
+      "intervention marker",
+      "timestamp or absolute time",
+      "file or seed identity",
+      "native column names",
+      "future control schedule",
+      "candidate filesystem access"
+    ],
+    "depth_ood_label": "evaluator-created rollout-depth extrapolation, not natural transition OOD"
+  },
+  "history_scales": {
+    "episode_order": "event index 1 through 9 outer, train seed 0 through 5 inner",
+    "K": [18, 36, 54],
+    "K18_coverage": {"train_files": 6, "target_levels": 4, "ordered_transitions": 9},
+    "K36_coverage": {"train_files": 6, "target_levels": 4, "ordered_transitions": 12},
+    "K54_coverage": {"train_files": 6, "target_levels": 4, "ordered_transitions": 12},
+    "selection_after_test_forbidden": true
+  },
+  "mandatory_controls": [
+    "persistence response curve",
+    "no-update pooled conditional mean",
+    "exact public control-level model bank",
+    "LMS or delta linear ARX",
+    "RLS or Kalman",
+    "change-point transition model bank",
+    "bounded nearest-transition replay",
+    "pooled ridge or FIR impulse response"
+  ],
+  "declared_measurements": {
+    "quality": ["train-normalized NRMSE overall", "worst file", "worst transition or level", "NRMSE at horizons 16, 32 and 96"],
+    "stability": ["finite complete rollout rate", "worst-horizon stability"],
+    "update_locality": ["update operations", "changed state bytes", "global refit hard failure"],
+    "full_cost": ["acquisition and archive verification", "parse and partition discovery", "normalization", "fit", "query", "update", "bytes touched", "resident and peak state", "R1/R4/R16 workload"]
+  },
+  "required_invalidation_fixtures": [
+    "raw-row or current-outcome leakage",
+    "marker timestamp file seed or native-name leakage",
+    "future-control-schedule leakage",
+    "public control-level router diagnostic",
+    "file or seed classifier diagnostic",
+    "consistent channel-permutation equivariance",
+    "chronological predict-then-reveal ordering",
+    "slot-local update without global retraining",
+    "candidate filesystem isolation"
+  ],
+  "activation_gate": {
+    "required_cycle": "separate no-scoring development-only baseline feasibility service",
+    "test_data_use": "forbidden",
+    "must_freeze": ["minimum meaningful effect above development noise", "all control implementations and costs"],
+    "reject_if": "persistence, control-level model bank or adaptive linear control solves the development task trivially or saturates declared quality",
+    "protected_evaluator_creation_before_pass": "forbidden"
+  },
+  "decision_reasons": [
+    "anonymous control and response partition is mechanically identifiable from train files",
+    "three history scales and leakage-safe prequential ordering are feasible",
+    "the fixed split contains no unseen transition pair and test response lengths remain inside train range",
+    "horizon 96 can test depth extrapolation but must not be represented as natural OOD",
+    "baseline nontriviality is unknown and blocks benchmark activation"
+  ]
+}
