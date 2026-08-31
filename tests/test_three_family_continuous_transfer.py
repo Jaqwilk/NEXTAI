@@ -11,6 +11,7 @@ from nextai_autoresearch.benchmarks.heldout_three_family_continuous_transfer_v1 
     BASE_IMPLEMENTATION, FAMILIES, ROLE, _assignment, build_worlds,
 )
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v6 as v6_benchmark
+from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v7 as v7_benchmark
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v1 as shared_evaluator
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v2 as v2_benchmark
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v3 as v3_benchmark
@@ -95,6 +96,29 @@ def test_v6_registers_four_source_identical_recurrent_residual_roles() -> None:
     } == {"shared_bounded_recurrent_residual_v1"}
 
 
+def test_v7_registers_four_source_identical_local_update_law_roles() -> None:
+    roles = {
+        "shared_local_update_law_v1": "shared",
+        "independent_local_update_law_v1": "independent",
+        "cross_family_only_local_update_law_v1": "cross_family_only",
+        "support_only_local_update_law_v1": "support_only",
+    }
+    assert v7_benchmark.BENCHMARK_VERSION == "heldout_three_family_continuous_transfer_v7"
+    assert {name: ROLE[name] for name in roles} == roles
+    assert {
+        BASE_IMPLEMENTATION[name] for name in roles if name != "shared_local_update_law_v1"
+    } == {"shared_local_update_law_v1"}
+    worlds = {family: [_synthetic()] for family in FAMILIES}
+    assert [len(_assignment(ROLE[name], FAMILIES[0], worlds)) for name in roles] == [3, 1, 2, 0]
+
+
+def test_v7_reports_local_adaptation_as_update_without_changing_old_roles() -> None:
+    assert shared_evaluator._reported_update_ops("shared_local_update_law_v1", 36.0, 9) == 4.0
+    for name in tuple(ROLE):
+        if name not in shared_evaluator.UPDATE_LAW_ROLES:
+            assert shared_evaluator._reported_update_ops(name, 36.0, 9) == 0.0
+
+
 def test_v6_role_extension_preserves_all_v1_through_v5_role_semantics() -> None:
     expected = {
         "shared_tensor_dynamics_v1": "shared",
@@ -126,7 +150,10 @@ def test_v6_role_extension_preserves_all_v1_through_v5_role_semantics() -> None:
     }
     assert all(
         benchmark.run_suite is shared_evaluator.run_suite
-        for benchmark in (v2_benchmark, v3_benchmark, v4_benchmark, v5_benchmark, v6_benchmark)
+        for benchmark in (
+            v2_benchmark, v3_benchmark, v4_benchmark, v5_benchmark, v6_benchmark,
+            v7_benchmark,
+        )
     )
 
 

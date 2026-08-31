@@ -194,6 +194,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
         "heldout_three_family_continuous_transfer_v4",
         "heldout_three_family_continuous_transfer_v5",
         "heldout_three_family_continuous_transfer_v6",
+        "heldout_three_family_continuous_transfer_v7",
     }:
         protocol = config.raw["three_family_continuous"]
         plan["matrix"]["knowledge_sizes"] = list(protocol["knowledge_sizes"])
@@ -215,16 +216,19 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "declared_reuses": list(protocol["declared_reuses"]),
             "invalidation_rules": list(protocol["invalidation_rules"]),
         }
-        if config.benchmark_version.endswith(("_v2", "_v3", "_v4", "_v5", "_v6")):
+        if config.benchmark_version.endswith(("_v2", "_v3", "_v4", "_v5", "_v6", "_v7")):
+            pareto_metrics = [
+                "transfer_accuracy", "minimum_family_accuracy",
+                "stable_rollout_rate", "normalized_rmse",
+                "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+                "adaptation_ops", "mean_query_ops", "state_bytes",
+                "peak_state_bytes", "mean_bytes_touched",
+                "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+            ]
+            if config.benchmark_version.endswith("_v7"):
+                pareto_metrics.insert(pareto_metrics.index("state_bytes"), "update_ops")
             plan["continuous_transfer_protocol"].update({
-                "pareto_capability_metrics": [
-                    "transfer_accuracy", "minimum_family_accuracy",
-                    "stable_rollout_rate", "normalized_rmse",
-                    "data_acquisition_ops", "preprocessing_ops", "fit_ops",
-                    "adaptation_ops", "mean_query_ops", "state_bytes",
-                    "peak_state_bytes", "mean_bytes_touched",
-                    "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
-                ],
+                "pareto_capability_metrics": pareto_metrics,
                 "causal_promotion_gates": [
                     "shared_vs_independent_gain", "cross_family_transfer_gain",
                 ],

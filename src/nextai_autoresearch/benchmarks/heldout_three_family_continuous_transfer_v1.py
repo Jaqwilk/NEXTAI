@@ -57,6 +57,10 @@ ROLE = {
     "independent_bounded_recurrent_residual_v1": "independent",
     "cross_family_only_bounded_recurrent_residual_v1": "cross_family_only",
     "support_only_bounded_recurrent_residual_v1": "support_only",
+    "shared_local_update_law_v1": "shared",
+    "independent_local_update_law_v1": "independent",
+    "cross_family_only_local_update_law_v1": "cross_family_only",
+    "support_only_local_update_law_v1": "support_only",
 }
 BASE_IMPLEMENTATION = {
     "independent_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
@@ -68,7 +72,14 @@ BASE_IMPLEMENTATION = {
     "independent_bounded_recurrent_residual_v1": "shared_bounded_recurrent_residual_v1",
     "cross_family_only_bounded_recurrent_residual_v1": "shared_bounded_recurrent_residual_v1",
     "support_only_bounded_recurrent_residual_v1": "shared_bounded_recurrent_residual_v1",
+    "independent_local_update_law_v1": "shared_local_update_law_v1",
+    "cross_family_only_local_update_law_v1": "shared_local_update_law_v1",
+    "support_only_local_update_law_v1": "shared_local_update_law_v1",
 }
+UPDATE_LAW_ROLES = frozenset({
+    "shared_local_update_law_v1", "independent_local_update_law_v1",
+    "cross_family_only_local_update_law_v1", "support_only_local_update_law_v1",
+})
 DS_BYTES = 688_671_648
 
 
@@ -186,6 +197,12 @@ def _assignment(role: str, family: str, training: dict[str, list[World]]) -> tup
     return tuple(world for item in selected for world in training[item])
 
 
+def _reported_update_ops(candidate_name: str, adaptation_ops: float, sessions: int) -> float:
+    if candidate_name not in UPDATE_LAW_ROLES:
+        return 0.0
+    return adaptation_ops / sessions if sessions else 0.0
+
+
 def _run_cell(candidate_name: str, knowledge: int, depth: int, count: int, seed: int) -> list[dict[str, Any]]:
     role = ROLE[candidate_name]
     training, testing = build_worlds(knowledge, count, seed)
@@ -260,7 +277,8 @@ def _run_cell(candidate_name: str, knowledge: int, depth: int, count: int, seed:
             "p95_latency_us": percentile(latencies, .95), "state_bytes": total_state,
             "peak_state_bytes": total_state, "mean_input_ops": 4096.0,
             "mean_bytes_touched": float(getattr(candidate, "last_bytes_touched", 0)),
-            "update_ops": 0.0, "update_latency_us": 0.0,
+            "update_ops": _reported_update_ops(candidate_name, adaptation_ops, len(errors)),
+            "update_latency_us": 0.0,
             "workload_ops": workloads[1], "workload_ops_r1": workloads[1],
             "workload_ops_r4": workloads[4], "workload_ops_r16": workloads[16],
         })

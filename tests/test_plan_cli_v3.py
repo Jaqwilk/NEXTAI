@@ -17,6 +17,10 @@ from nextai_autoresearch.utils import project_root
         "shared_bounded_recurrent_residual_v1", "independent_bounded_recurrent_residual_v1",
         "cross_family_only_bounded_recurrent_residual_v1", "support_only_bounded_recurrent_residual_v1",
     )),
+    ("heldout_three_family_continuous_transfer_v7", (
+        "shared_local_update_law_v1", "independent_local_update_law_v1",
+        "cross_family_only_local_update_law_v1", "support_only_local_update_law_v1",
+    )),
 ])
 def test_plan_new_emits_three_family_pareto_contract(monkeypatch, benchmark, roles) -> None:
     captured = {}
@@ -72,3 +76,4 @@ def test_plan_new_emits_three_family_pareto_contract(monkeypatch, benchmark, rol
         "shared_vs_independent_gain", "cross_family_transfer_gain"
     ]
     assert "mean_query_ops" in protocol["pareto_capability_metrics"]
+    assert ("update_ops" in protocol["pareto_capability_metrics"]) == benchmark.endswith("_v7")

@@ -1,0 +1,28 @@
+{
+  "benchmark_after": "heldout_three_family_continuous_transfer_v7",
+  "benchmark_before": "heldout_three_family_continuous_transfer_v6",
+  "candidate_implemented": false,
+  "data_changed": false,
+  "evaluator_sha256": "b642acabc10510aa991f0e1fc16de0d9f578e05ac275ed0e0d7a59948addc29d",
+  "experiment_plan_created": false,
+  "hypothesis_created": false,
+  "metrics_changed_for_existing_roles": false,
+  "maintenance_v7_manifest_file_sha256": "366d56a79e287bb59807ecdc64a871a457ba14aa4a3927225b7f74975a83ecf9",
+  "pre_final_v7_manifest_file_sha256": "95f90756100f1f51c7a4d915c628f8f999bdee73c1e9dbca0eef0e801f1147b9",
+  "new_roles": {
+    "cross_family_only_local_update_law_v1": "cross_family_only",
+    "independent_local_update_law_v1": "independent",
+    "shared_local_update_law_v1": "shared",
+    "support_only_local_update_law_v1": "support_only"
+  },
+  "normalization_changed": false,
+  "preflight_certificate_sha256": "1a12a1c397c5ff574f36b6f8b8540580fbdc4b0b6683564554818447c7032d5e",
+  "previous_evaluator_sha256": "3e219128c0a00030c60529e1f2549f834b1dc395f78425d2d7e2652c9d61ac5c",
+  "previous_manifest_file_sha256": "b8b1681d493896219372b5635083a3491cb05df1418a0dedf049d84bac3cee39",
+  "scoring_performed": false,
+  "seed_realized": false,
+  "source_identical_base": "shared_local_update_law_v1",
+  "split_changed": false,
+  "update_accounting": "For the four new roles only, update_ops is mean support-adaptation work per test-world session; adaptation_ops and R1/R4/R16 workloads retain the already charged complete adaptation work.",
+  "v7_active_manifest_file_sha256": "7f342d6932d822b80bd2cf83f9571660ffc61e06ddeff4240240a03da5e9b604"
+}
