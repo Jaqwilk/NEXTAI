@@ -1,0 +1,114 @@
+{
+  "artifact_type": "no_scoring_local_contract_feasibility",
+  "benchmark_unchanged": "heldout_three_family_continuous_transfer_v7",
+  "checked_at": "2026-08-31T21:23:41Z",
+  "cycle": 138,
+  "data_archive_downloaded": false,
+  "decision": "tahoe_100m_local_contract_infeasible",
+  "disk_gate": {
+    "free_bytes": 129784401920,
+    "minimum_residual_free_bytes": 42949672960,
+    "pseudobulk_and_obs_residual_bytes": 38630705044,
+    "pseudobulk_only_residual_bytes": 40924686617,
+    "pseudobulk_only_shortfall_bytes": 2024986343,
+    "raw_expression_residual_bytes": -207860368750,
+    "status": "fail"
+  },
+  "hypothesis_created": false,
+  "manifest": {
+    "commit": "2dc57900b7981cfcf5e211527169a0b006546a95",
+    "content_addressed_files": 4419,
+    "data_bytes": 337644770670,
+    "data_files": 3388,
+    "license": "CC0-1.0",
+    "license_sha256": "82fe759ab83e7619dfe956bb8b295b0ce640ed3706b68b871c15645a0f695a6b",
+    "manifest_sha256": "3811015df8da65f672a9505a22167773b4deb8deb5653162310234721f35e7ad",
+    "metadata_bytes": 91161683653,
+    "metadata_files": 1033,
+    "obs_metadata_bytes": 2293981573,
+    "pseudobulk_bytes": 88859715303,
+    "pseudobulk_files": 1026,
+    "pseudobulk_manifest_sha256": "339c390781bdda772e5e9260012afe4147a34f34158c0769e44ca15642938d80",
+    "raw_data_manifest_sha256": "30ff1ada3c95b751ff9743ed2acd0f368b98f85fcb0831f4f0e7bf7c9a436fd3",
+    "total_bytes": 428806855684,
+    "total_files": 4427
+  },
+  "metadata_observations": {
+    "cell_line_reference_unique_ids": 102,
+    "cell_line_reference_warning": "The small reference table is overinclusive relative to the 50 published experimental cell lines, so the eligible context universe cannot be frozen without scanning observation metadata.",
+    "dmso_samples": 28,
+    "expression_examples_full_filter": 95624334,
+    "gene_tokens": 62710,
+    "plates": 14,
+    "pseudobulk_rows": 4089820780,
+    "sample_drugs_including_dmso": 380,
+    "samples": 1344
+  },
+  "outcome_blind_split_proposal": {
+    "activation_status": "proposal_only_not_frozen",
+    "context_eligibility": "Use only pre-outcome observation metadata: at least 100000 full-filter cells and at least 32 drug-dose conditions with at least 128 treated cells and 128 plate-matched DMSO cells each.",
+    "context_partition": "Sort eligible Cellosaurus IDs by SHA256('nextai-tahoe-contract-v1|context|' + id); first 32 are the source pool, next 7 development, remaining at least 8 unseen test contexts; fail if fewer than 47 contexts qualify.",
+    "intervention_partition": "For development and test contexts, sort eligible anonymous drug-dose keys by the same salted hash; use the first 20 percent as public support and the remainder as unseen context-by-intervention queries. Query drug-dose keys must occur in source contexts.",
+    "source_scales": [
+      8,
+      16,
+      32
+    ],
+    "scale_rule": "Nested prefixes of the hashed source-context order; all qualifying cells and conditions from each selected context are included, never row-sampled.",
+    "semantic_exclusions": [
+      "cell-line names",
+      "organs",
+      "driver mutations",
+      "drug names",
+      "targets",
+      "mechanism-of-action labels",
+      "SMILES",
+      "gene symbols",
+      "pathways and gene ontology"
+    ],
+    "shared_coordinates": "Cohort-local anonymous permutations of the stable integer gene-token coordinates, numeric dose and anonymous intervention keys only."
+  },
+  "plan_created": false,
+  "protected_files_changed": false,
+  "required_gates": [
+    {
+      "gate": "immutable_manifest_license_and_size",
+      "observation": "The pinned repository exposes 4427 files and 428806855684 bytes; 4419 large files have content-addressed Xet hashes. The complete path-size-object manifest and pinned CC0 license were hashed locally from metadata.",
+      "status": "pass"
+    },
+    {
+      "gate": "shared_mechanical_feature_coordinates",
+      "observation": "All expression records use one 62710-token gene vocabulary. A cohort-local anonymous token permutation can preserve alignment without gene names or biological enrichment.",
+      "status": "pass"
+    },
+    {
+      "gate": "negative_controls_and_replicates",
+      "observation": "The 1344-row sample table has two DMSO samples on each of 14 plates. Exact per-context treated/control counts require the 2.29 GB observation table.",
+      "status": "partial"
+    },
+    {
+      "gate": "outcome_blind_unseen_context_split_and_three_scales",
+      "observation": "A deterministic identifier-hash rule for 8/16/32 whole source contexts, seven development contexts and at least eight test contexts was specified before outcomes. Eligibility and coverage cannot be materialized from the overinclusive small reference table without scanning observation metadata.",
+      "status": "unverified"
+    },
+    {
+      "gate": "source_identical_classical_controls",
+      "observation": "Zero-response, per-intervention source mean, nearest-context support, ridge/PLS, low-rank matrix completion and an empirical Gaussian control can share the anonymous token-dose-intervention interface. Their matched runtime has not been demonstrated on the full contract.",
+      "status": "design_only"
+    },
+    {
+      "gate": "bounded_local_acquisition_and_disk",
+      "observation": "Raw shards exceed free disk by 207860368750 bytes. The 88859715303-byte pseudobulk collection alone leaves 38.114 GiB, 2024986343 bytes below the established 40 GiB residual guard; adding obs metadata leaves 35.978 GiB before any derived cohort or logs.",
+      "status": "fail"
+    },
+    {
+      "gate": "bounded_local_compute_and_parser",
+      "observation": "The alternative pseudobulk path contains 4089820780 rows in 1026 generic shards, not context-partitioned files. The current environment has no pyarrow, polars, duckdb or fastparquet, and autonomous dependency installation is forbidden. The official Arc access is plate-organized, Requester Pays, and explicitly warns that local streaming is typically prohibitively slow.",
+      "status": "fail"
+    }
+  ],
+  "scientific_evidence_changed": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "test_targets_read": false
+}
