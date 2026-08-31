@@ -1,0 +1,67 @@
+{
+  "artifact_type": "no_scoring_public_metadata_contract_review",
+  "benchmark_unchanged": "heldout_three_family_continuous_transfer_v7",
+  "checked_at": "2026-08-31T20:47:33Z",
+  "cycle": 135,
+  "data_archive_downloaded": false,
+  "dataset": {
+    "archive_bytes_head": 2763884276,
+    "archive_md5_published": "8ec492afffd0142abd70b1fa7082b104",
+    "archive_url": "https://causalchamber.s3.eu-central-1.amazonaws.com/downloadables/lt_crl_benchmark_v1.zip",
+    "dataset_repository_commit": "2f059123f4ac6f4724338154825630bf4ab74ac0",
+    "license": "CC BY 4.0",
+    "name": "lt_crl_benchmark_v1",
+    "official_implementation_commit": "2532cd4998695cccf566803b2061cb13be72496e",
+    "version": "v1.0"
+  },
+  "decision": "no_existing_real_multiview_contract",
+  "gates": [
+    {
+      "gate": "synchronized_views_interventions_and_evaluator_only_factors",
+      "observation": "Each row links a 64x64 image to numeric sensors and actuator factors. Buchholz environments and CITRIS flags identify interventions. A future evaluator could expose opaque environment IDs while withholding R,G,B,pol_1,pol_2.",
+      "status": "pass_with_required_visibility_boundary"
+    },
+    {
+      "gate": "frozen_unseen_intervention_or_environment_split",
+      "observation": "Official CCRL and multiview splits are random 80/10/10 splits retaining the same environment proportions. CITRIS uses consecutive segments of one process and a uniform factor-recovery evaluation. No public split holds out a physical world or mixing function.",
+      "status": "fail"
+    },
+    {
+      "gate": "three_scientifically_meaningful_common_scales",
+      "observation": "The 60K interventional, 100K temporal and 2K uniform protocols are different tasks and sampling processes, not three scales of one transfer contrast. Sample subsizing would be an evaluator-created scale and would not add worlds.",
+      "status": "fail"
+    },
+    {
+      "gate": "ontology_free_negative_controls",
+      "observation": "Row/image pairing and opaque environment IDs permit pair-breaking, intervention-shuffle and consistent channel/permutation controls without exposing semantic variable names.",
+      "status": "pass"
+    },
+    {
+      "gate": "matched_classical_controls_and_full_cost",
+      "observation": "PCA, ICA and CCA apply to paired views; adaptive linear and autoregressive controls apply only to the temporal protocol; causal controls apply to intervention environments. They do not share one task/input contract, though acquisition, fit, query, state and workload can be charged.",
+      "status": "partial_fail"
+    },
+    {
+      "gate": "license_checksum_size_and_storage",
+      "observation": "The dataset page publishes CC BY 4.0 and MD5 8ec492afffd0142abd70b1fa7082b104. HTTP HEAD returned 2763884276 bytes; local C: free space was 130193059840 bytes. The archive was not downloaded.",
+      "status": "pass"
+    },
+    {
+      "gate": "source_identical_interface_without_semantic_ontology",
+      "observation": "The official multiview experiment groups image and sensor variables using the known causal graph and relies on ground-truth content selection during training. Image, scalar-view and temporal interfaces are method-specific rather than one frozen source-identical learner contract.",
+      "status": "fail"
+    },
+    {
+      "gate": "transfer_to_unseen_worlds_not_exposed_label_recovery",
+      "observation": "All real protocols use one Light Tunnel Mk1 camera configuration and one physical mixing system. Metrics recover the five actuator factors or their graph; train/test partitions do not test transfer to a new physical world or mixing function.",
+      "status": "fail"
+    }
+  ],
+  "hypothesis_created": false,
+  "plan_created": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "test_targets_read": false
+}
