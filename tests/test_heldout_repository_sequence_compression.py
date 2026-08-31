@@ -6,9 +6,13 @@ import pytest
 from jsonschema.exceptions import ValidationError
 
 from nextai_autoresearch.benchmarks import heldout_repository_sequence_compression_v1 as bench
+from nextai_autoresearch.benchmarks import heldout_repository_sequence_compression_v2 as bench_v2
 from nextai_autoresearch.cli import _compression_protocol
 from nextai_autoresearch.config import load_config
+from nextai_autoresearch.candidates.masked_baselines import CTWByteModel, PPMDModel
+from nextai_autoresearch.repository_sequence_contract import ByteContext
 from nextai_autoresearch.metrics import aggregate_trials
+from nextai_autoresearch.runner import _frontier
 from nextai_autoresearch.schemas import validate_document
 from nextai_autoresearch.utils import project_root
 
@@ -50,6 +54,26 @@ def _plan() -> dict:
                            "negative": "Make the motif route dormant without tuning."},
         "git_before": {"commit": None, "branch": "master", "dirty": True},
     }
+
+
+def _v2_plan() -> dict:
+    plan = _plan()
+    config = load_config(project_root())
+    plan["benchmark"] = bench_v2.BENCHMARK_VERSION
+    plan["matrix"].update({"knowledge_sizes": [8, 20, 32],
+                           "reasoning_depths": [4, 16, 64], "queries_per_cell": 8})
+    plan["candidates"] = [
+        "layer_local_goodness_byte", "source_identical_end_to_end_gradient_byte",
+        "source_identical_frozen_hidden_byte", *config.raw["compression"]["classical_baselines"],
+    ]
+    plan["compression_protocol"] = _compression_protocol(config)
+    plan["primary_metrics"] = list(plan["compression_protocol"]["pareto_capability_metrics"])
+    maximize = set(config.raw["metrics"]["maximize"])
+    plan["metric_directions"] = {
+        metric: "maximize" if metric in maximize else "minimize"
+        for metric in plan["primary_metrics"]
+    }
+    return plan
 
 
 def test_corpus_is_whole_file_disjoint_and_matches_hashes() -> None:
@@ -124,3 +148,73 @@ def test_uniform_sanity_is_eight_bits_and_predicts_before_update(monkeypatch) ->
     assert len(rows) == 5
     assert all(row["bits_per_byte"] == 8.0 for row in rows)
     assert rows[0]["workload_ops_r16"] > rows[0]["workload_ops_r1"]
+
+
+def test_v2_preserves_v1_corpus_and_freezes_credit_assignment_contract() -> None:
+    assert bench_v2.CORPUS == bench.CORPUS
+    assert bench_v2.SEGMENT_MULTIPLIER == bench.SEGMENT_MULTIPLIER == 128
+    assert bench_v2.verify_static_contract()["acquisition_bytes"] == 367_255
+    plan = _v2_plan()
+    validate_document("experiment_plan", plan, project_root())
+    assert plan["compression_protocol"]["credit_assignment_roles"] == plan["candidates"][:3]
+    invalid = copy.deepcopy(plan)
+    invalid["matrix"]["reasoning_depths"] = [4, 16, 63]
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", invalid, project_root())
+
+
+@pytest.mark.parametrize("name,model_type", [
+    ("ppm_d_order5_byte", PPMDModel),
+    ("ctw_depth2_byte", CTWByteModel),
+])
+def test_registered_repository_coders_use_reference_models_and_real_bytes(name, model_type) -> None:
+    module = __import__(f"nextai_autoresearch.candidates.{name}", fromlist=["Candidate"])
+    candidate = module.Candidate(7)
+    training, testing = bench_v2.make_training(8, 1_500_003)
+    candidate.fit(training, 8, 64)
+    assert isinstance(candidate.model, model_type)
+    history = tuple(testing[0][1][:64])
+    row = candidate.query(ByteContext(91, history), 1)
+    assert len(row) == 256
+    assert sum(row) == pytest.approx(1.0, abs=1e-12)
+    before = candidate.state_bytes()
+    candidate.update(ByteContext(91, history), testing[0][1][64])
+    assert candidate.state_bytes() == before
+    assert candidate.update_ops == 0
+
+
+def test_repository_uniform_unigram_lz_and_dense_controls_have_distinct_semantics() -> None:
+    training, testing = bench_v2.make_training(8, 1_500_003)
+    data = testing[0][1]
+    rows = {}
+    instances = {}
+    for name in ("uniform_byte", "empirical_unigram_byte", "lz_dictionary_byte",
+                 "dense_autoregressive_byte"):
+        module = __import__(f"nextai_autoresearch.candidates.{name}", fromlist=["Candidate"])
+        instances[name] = module.Candidate(11)
+        instances[name].fit(training, 8, 4)
+        rows[name] = instances[name].query(ByteContext(77, tuple(data[:4])), 1)
+        assert sum(rows[name]) == pytest.approx(1.0, abs=1e-12)
+    assert rows["uniform_byte"] == [1 / 256] * 256
+    assert max(rows["empirical_unigram_byte"]) > min(rows["empirical_unigram_byte"])
+    assert instances["lz_dictionary_byte"].phrases
+    dense_other = instances["dense_autoregressive_byte"].query(
+        ByteContext(78, tuple(reversed(data[:4]))), 1
+    )
+    assert rows["dense_autoregressive_byte"] != dense_other
+
+
+def test_v2_real_file_final_schema_and_timeout_safe_frontier() -> None:
+    plan, config = _v2_plan(), load_config(project_root())
+    complete = []
+    for name in config.raw["compression"]["classical_baselines"]:
+        trials = bench._run_trial(name, 8, 4, 1, 1103, 4_194_304)
+        complete.append({"candidate": name, "status": "complete",
+                         "summary": aggregate_trials(trials)})
+    frontier, axes = _frontier(complete, plan, config)
+    assert frontier
+    assert axes["maximize"] == ["accuracy"]
+    assert "bits_per_byte" in axes["minimize"]
+    with_timeout = [*complete, {"candidate": "timed_out_probe", "status": "timeout",
+                                "summary": {"status": "timeout"}}]
+    assert _frontier(with_timeout, plan, config)[0] == frontier

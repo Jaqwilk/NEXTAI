@@ -15,6 +15,7 @@ PREFLIGHT_CERTIFICATE_PATH = Path("research/checks/preflight_certificate.json")
 def required_baseline_names(plan: dict[str, Any]) -> list[str]:
     for protocol_name, key in (
         ("masked_refinement_protocol", "classical_baselines"),
+        ("compression_protocol", "classical_baselines"),
         ("transfer_protocol", "specialist_baselines"),
         ("mechanism_recombination_protocol", "classical_baselines"),
         ("dronepropa_protocol", "classical_baselines"),

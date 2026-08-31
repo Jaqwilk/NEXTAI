@@ -99,7 +99,7 @@ def command_integrity_verify(args: argparse.Namespace) -> int:
 
 def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
     compression = config.raw["compression"]
-    return {
+    protocol = {
         "corpus_id": str(compression["corpus_id"]),
         "split_unit": "whole_files_sha256",
         "test_file_access": "evaluator_only",
@@ -112,6 +112,23 @@ def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
         "state_budget_bytes": int(compression["state_budget_bytes"]),
         "invalidation_rules": list(compression["invalidation_rules"]),
     }
+    if config.benchmark_version == "heldout_repository_sequence_compression_v2":
+        protocol.update({
+            "credit_assignment_roles": [
+                str(compression["shared_candidate"]),
+                str(compression["global_credit_ablation"]),
+                str(compression["frozen_hidden_ablation"]),
+            ],
+            "source_identical_contract": "topology_constants_initialization_data_order_update_count_input_output_identical_v1",
+            "pareto_capability_metrics": [
+                "bits_per_byte", "worst_file_bits_per_byte", "cold_bits_per_byte",
+                "accuracy", "data_acquisition_ops", "fit_ops", "meta_fit_ops",
+                "mean_query_ops", "update_ops", "state_bytes", "peak_state_bytes",
+                "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4",
+                "workload_ops_r16",
+            ],
+        })
+    return protocol
 
 
 def command_plan_new(args: argparse.Namespace) -> int:
@@ -311,7 +328,18 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "invalidation_rules": list(online["invalidation_rules"]),
         }
     if config.benchmark_version.startswith("heldout_repository_sequence_"):
+        if config.benchmark_version == "heldout_repository_sequence_compression_v2":
+            compression = config.raw["compression"]
+            plan["matrix"]["knowledge_sizes"] = list(compression["knowledge_sizes"])
+            plan["matrix"]["reasoning_depths"] = list(compression["context_depths"])
+            plan["matrix"]["queries_per_cell"] = int(compression["queries_per_cell"])
         plan["compression_protocol"] = _compression_protocol(config)
+        if config.benchmark_version == "heldout_repository_sequence_compression_v2":
+            metrics = list(plan["compression_protocol"]["pareto_capability_metrics"])
+            plan["primary_metrics"] = metrics
+            plan["metric_directions"] = {
+                name: configured_directions[name] for name in metrics
+            }
     if config.benchmark_version.startswith("heldout_parallel_masked_"):
         masked = config.raw["masked_refinement"]
         plan["masked_refinement_protocol"] = {

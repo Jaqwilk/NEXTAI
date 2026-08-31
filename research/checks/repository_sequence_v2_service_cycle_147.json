@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "cycle": 147,
+  "created_at": "2026-08-31T23:41:23Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "benchmark_before": "heldout_wt_changepoints_prequential_v1",
+  "benchmark_after": "heldout_repository_sequence_compression_v2",
+  "preserved_v1_contract": {
+    "corpus_id": "nextai_local_repository_sha256_v1",
+    "files": 43,
+    "acquisition_bytes": 367255,
+    "train_files": 33,
+    "validation_files": 5,
+    "test_files": 5,
+    "whole_file_hashes_unchanged": true,
+    "predict_then_reveal_unchanged": true,
+    "metric_formulas_unchanged": true,
+    "segment_multiplier": 128
+  },
+  "v2_contract": {
+    "knowledge_sizes_kib": [8, 20, 32],
+    "context_depths": [4, 16, 64],
+    "queries_per_cell": 8,
+    "credit_assignment_roles": [
+      "layer_local_goodness_byte",
+      "source_identical_end_to_end_gradient_byte",
+      "source_identical_frozen_hidden_byte"
+    ],
+    "source_identical_contract": "topology_constants_initialization_data_order_update_count_input_output_identical_v1",
+    "classical_baselines": [
+      "uniform_byte",
+      "empirical_unigram_byte",
+      "ppm_d_order5_byte",
+      "ctw_depth2_byte",
+      "lz_dictionary_byte",
+      "dense_autoregressive_byte"
+    ],
+    "historical_approximation_policy": "The immutable v1 ppm_byte and context_tree_weighting_byte results remain historical. V2 does not reuse those names; registered PPM-D order 5 and multinomial CTW depth 2 wrappers use the existing hand-checked reference models."
+  },
+  "semantic_gates": {
+    "registered_baselines": 6,
+    "ppm_variable_order_backoff": "pass",
+    "ctw_recursive_context_mixture": "pass",
+    "first_order_markov_rejected_as_ppm_or_ctw": "pass",
+    "real_file_final_schema_smoke": "pass",
+    "timeout_safe_complete_frontier": "pass"
+  },
+  "validation": {
+    "pytest_passed": 388,
+    "integrity_checked_files": 557,
+    "integrity": "pass",
+    "doctor": "pass",
+    "evaluator_sha256": "a5207b25760a74c1bd18839e40baba4069370ecbf8fbaf89920b2d086423ff7e",
+    "candidate_bundle_sha256": "73529cf171af023faba4100466e06c92e9a5f6c297f44079490cd915b88180f4",
+    "manifest_sha256": "80bb43c6d8ce96d5ee3ece68604ddb995608c1c28fb2e578e889ad6a1cdf9a3a",
+    "preflight_certificate_sha256": "ab92b6b0d8c4c1010aa3ee1cadca665c85e32d63d2abdd8d5a4261106cc882ef",
+    "prior_manifest_archive": "research/manifests/heldout_wt_changepoints_prequential_v1-protocol-v2-6094bd9c9f41.json",
+    "prior_manifest_archive_sha256": "6479105a5750a2e902c032ef49030bca6747b65ef424487ab84ee4fe4ca551fa"
+  },
+  "consecutive_no_scoring_cycles": {
+    "count": 2,
+    "maximum": 3,
+    "next_cycle_must_score_unless_gate_failure": true
+  }
+}

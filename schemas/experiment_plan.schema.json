@@ -251,11 +251,19 @@
           "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
           "minItems": 5,
           "uniqueItems": true,
-          "allOf": [
-            {"contains": {"const": "ppm_byte"}},
-            {"contains": {"const": "context_tree_weighting_byte"}},
-            {"contains": {"const": "lz_dictionary_byte"}},
-            {"contains": {"const": "dense_autoregressive_byte"}}
+          "anyOf": [
+            {"allOf": [
+              {"contains": {"const": "ppm_byte"}},
+              {"contains": {"const": "context_tree_weighting_byte"}},
+              {"contains": {"const": "lz_dictionary_byte"}},
+              {"contains": {"const": "dense_autoregressive_byte"}}
+            ]},
+            {"allOf": [
+              {"contains": {"const": "ppm_d_order5_byte"}},
+              {"contains": {"const": "ctw_depth2_byte"}},
+              {"contains": {"const": "lz_dictionary_byte"}},
+              {"contains": {"const": "dense_autoregressive_byte"}}
+            ]}
           ]
         },
         "shared_slow_state_updates": {"const": "forbidden"},
@@ -267,6 +275,20 @@
           "uniqueItems": true
         },
         "state_budget_bytes": {"type": "integer", "minimum": 65536},
+        "credit_assignment_roles": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true
+        },
+        "source_identical_contract": {"type": "string", "minLength": 24},
+        "pareto_capability_metrics": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3},
+          "minItems": 1,
+          "uniqueItems": true
+        },
         "invalidation_rules": {
           "type": "array",
           "items": {"type": "string", "minLength": 12},
@@ -1076,6 +1098,58 @@
         "required": ["benchmark"]
       },
       "then": {"required": ["online_update_protocol"]}
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_repository_sequence_compression_v2"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 20, 32]},
+              "reasoning_depths": {"const": [4, 16, 64]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "layer_local_goodness_byte"}},
+            {"contains": {"const": "source_identical_end_to_end_gradient_byte"}},
+            {"contains": {"const": "source_identical_frozen_hidden_byte"}},
+            {"contains": {"const": "uniform_byte"}},
+            {"contains": {"const": "empirical_unigram_byte"}},
+            {"contains": {"const": "ppm_d_order5_byte"}},
+            {"contains": {"const": "ctw_depth2_byte"}},
+            {"contains": {"const": "lz_dictionary_byte"}},
+            {"contains": {"const": "dense_autoregressive_byte"}}
+          ]},
+          "compression_protocol": {
+            "required": ["credit_assignment_roles", "source_identical_contract", "pareto_capability_metrics"],
+            "properties": {
+              "shared_candidate": {"const": "layer_local_goodness_byte"},
+              "classical_baselines": {"const": [
+                "uniform_byte", "empirical_unigram_byte", "ppm_d_order5_byte",
+                "ctw_depth2_byte", "lz_dictionary_byte", "dense_autoregressive_byte"
+              ]},
+              "credit_assignment_roles": {"const": [
+                "layer_local_goodness_byte", "source_identical_end_to_end_gradient_byte",
+                "source_identical_frozen_hidden_byte"
+              ]},
+              "source_identical_contract": {"const": "topology_constants_initialization_data_order_update_count_input_output_identical_v1"},
+              "pareto_capability_metrics": {"const": [
+                "bits_per_byte", "worst_file_bits_per_byte", "cold_bits_per_byte",
+                "accuracy", "data_acquisition_ops", "fit_ops", "meta_fit_ops",
+                "mean_query_ops", "update_ops", "state_bytes", "peak_state_bytes",
+                "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4",
+                "workload_ops_r16"
+              ]}
+            }
+          }
+        }
+      }
     },
     {
       "if": {
