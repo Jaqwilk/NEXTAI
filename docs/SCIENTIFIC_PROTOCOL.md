@@ -269,3 +269,22 @@ Version 2 preserves every world, split, tensor, normalization, causal assignment
 The implementable Pareto frontier uses only capability and full-cost fields present for every complete implementable row: transfer accuracy, minimum-family accuracy, rollout stability, normalized RMSE, acquisition, preprocessing, fit, adaptation, query work, resident/peak state, bytes touched and R1/R4/R16 workloads. Candidate-specific causal contrasts are not universal dominance axes.
 
 `shared_vs_independent_gain` on the shared row and `cross_family_transfer_gain` on the cross-family-only row remain mandatory hard gates. Both summaries are minima over all family/K/seed cells and must be strictly positive before `promising` or `promoted` is admissible. Missing, zero, negative or incomplete causal controls block promotion. Timeouts remain durable failures; a timed-out mandatory control also blocks promotion but does not erase the capability frontier of completed candidates.
+
+## Three-family continuous transfer v3 predictive-index controls
+
+Version 3 preserves the v2 real worlds, train/test separation, anonymous tensor mapping,
+training-only normalization, metrics, directions, causal contrasts, budgets, Pareto axes and
+promotion semantics. Historical v1/v2 plans, results and analyses remain immutable. V3 adds
+only two mandatory implementable controls needed to distinguish a learned predictive binding
+from classical indexing: exact raw-window nearest-prototype lookup and a frozen random-projection
+hash. Both use the same 32-bucket limit, eight samples per bucket, masked affine ridge operator
+with lambda 0.001, touched-bucket-only public-support update and 64 MiB state boundary.
+
+The prospective learned candidate and its independent, cross-family-only and support-only
+ablations must use one source and frozen constants. The comparison matrix is K=4/6/9. Query
+work and bytes touched must remain structurally independent of dormant training-window count;
+representation fit, index construction, collision handling, local inserts, state and R1/R4/R16
+work are charged. Candidate code may not read family labels, native types, paths, semantic
+channel names or test outputs. Semantic conformance includes a future-equivalence counterexample
+to raw proximity plus slot relabeling, world-order and consistent channel-permutation fixtures.
+V3 was activated in a service-only cycle with no hypothesis, plan, scoring seed or scored result.

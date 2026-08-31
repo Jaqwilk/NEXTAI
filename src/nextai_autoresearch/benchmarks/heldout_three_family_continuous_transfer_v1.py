@@ -47,11 +47,20 @@ ROLE = {
     "tensor_contextual_gaussian_chow_liu_v1": "shared",
     "tensor_autoregressive_v1": "shared",
     "privileged_tensor_support_v1": "privileged",
+    "tensor_raw_window_local_linear_v1": "shared",
+    "tensor_random_projection_hash_v1": "shared",
+    "shared_predictive_index_v1": "shared",
+    "independent_predictive_index_v1": "independent",
+    "cross_family_only_predictive_index_v1": "cross_family_only",
+    "support_only_predictive_index_v1": "support_only",
 }
 BASE_IMPLEMENTATION = {
     "independent_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
     "cross_family_only_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
     "support_only_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
+    "independent_predictive_index_v1": "shared_predictive_index_v1",
+    "cross_family_only_predictive_index_v1": "shared_predictive_index_v1",
+    "support_only_predictive_index_v1": "shared_predictive_index_v1",
 }
 DS_BYTES = 688_671_648
 

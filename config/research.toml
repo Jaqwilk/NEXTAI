@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_three_family_continuous_transfer_v2"
+benchmark_version = "heldout_three_family_continuous_transfer_v3"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -201,10 +201,10 @@ invalidation_rules = [
 [three_family_continuous]
 families = ["ncmapss_ds08a", "dronepropa", "continuous_event"]
 tensor_contract_sha256 = "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
-shared_candidate = "shared_tensor_dynamics_v1"
-independent_ablation = "independent_tensor_dynamics_v1"
-cross_family_only_ablation = "cross_family_only_tensor_dynamics_v1"
-support_only_ablation = "support_only_tensor_dynamics_v1"
+shared_candidate = "shared_predictive_index_v1"
+independent_ablation = "independent_predictive_index_v1"
+cross_family_only_ablation = "cross_family_only_predictive_index_v1"
+support_only_ablation = "support_only_predictive_index_v1"
 classical_baselines = [
   "tensor_persistence_v1",
   "tensor_ridge_arx_v1",
@@ -212,10 +212,12 @@ classical_baselines = [
   "tensor_empirical_gaussian_joint_v1",
   "tensor_contextual_gaussian_chow_liu_v1",
   "tensor_autoregressive_v1",
+  "tensor_raw_window_local_linear_v1",
+  "tensor_random_projection_hash_v1",
   "privileged_tensor_support_v1",
 ]
 privileged_support_control = "privileged_tensor_support_v1"
-knowledge_sizes = [4, 9]
+knowledge_sizes = [4, 6, 9]
 reasoning_depths = [1]
 state_budget_bytes = 67108864
 declared_reuses = [1, 4, 16]

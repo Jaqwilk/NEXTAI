@@ -11,6 +11,9 @@ from nextai_autoresearch.benchmarks.heldout_three_family_continuous_transfer_v1 
     FAMILIES, ROLE, _assignment, build_worlds,
 )
 from nextai_autoresearch.config import load_config
+from nextai_autoresearch.candidates.tensor_indexed_local_operator_core import (
+    BUCKET_CAP, BUCKET_COUNT, CODE_BITS, RIDGE,
+)
 from nextai_autoresearch.three_family_tensor_contract import (
     Training, World, fit_normalizer, masked_mse, pad,
 )
@@ -23,6 +26,9 @@ BASELINES = (
     "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
     "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
     "tensor_autoregressive_v1", "privileged_tensor_support_v1",
+)
+INDEX_BASELINES = (
+    "tensor_raw_window_local_linear_v1", "tensor_random_projection_hash_v1",
 )
 
 
@@ -69,7 +75,7 @@ def test_four_causal_assignments_are_exact_and_family_private() -> None:
     assert _assignment("support_only", FAMILIES[0], worlds) == ()
 
 
-@pytest.mark.parametrize("name", BASELINES)
+@pytest.mark.parametrize("name", BASELINES + INDEX_BASELINES)
 def test_tensor_baselines_are_auditable_and_complete_reference_contract(name: str) -> None:
     audit = audit_candidate(name, load_config())
     assert audit.ok, audit.problems
@@ -176,6 +182,137 @@ def test_frozen_role_names_do_not_alias_causal_controls() -> None:
     assert ROLE["support_only_tensor_dynamics_v1"] == "support_only"
 
 
+def _index_arrays() -> tuple[np.ndarray, ...]:
+    x = np.zeros((40, 32), dtype=np.float64)
+    x[:, :4] = np.column_stack((
+        np.linspace(-2, 2, 40), np.sin(np.linspace(-2, 2, 40)),
+        np.cos(np.linspace(-2, 2, 40)), np.linspace(1, 3, 40),
+    ))
+    y = np.zeros((40, 32), dtype=np.float64)
+    y[:, :2] = np.column_stack((x[:, 0] + x[:, 2], 2 * x[:, 1] - x[:, 3]))
+    xm, ym = np.zeros_like(x, dtype=bool), np.zeros_like(y, dtype=bool)
+    xm[:, :4], ym[:, :2] = True, True
+    return x, y, xm, ym
+
+
+@pytest.mark.parametrize("name,variant", [
+    ("tensor_raw_window_local_linear_v1", "raw"),
+    ("tensor_random_projection_hash_v1", "random"),
+])
+def test_index_controls_share_cap_operator_and_reference_key(name: str, variant: str) -> None:
+    candidate = importlib.import_module(f"nextai_autoresearch.candidates.{name}").Candidate(17)
+    x, y, xm, ym = _index_arrays()
+    model = candidate._build(x, y, xm, ym)
+    assert (BUCKET_COUNT, BUCKET_CAP, CODE_BITS, RIDGE) == (32, 8, 5, 1e-3)
+    assert len(model["buckets"]) == BUCKET_COUNT
+    assert max(len(bucket["x"]) for bucket in model["buckets"]) <= BUCKET_CAP
+    query, mask = x[11], xm[11]
+    bucket = candidate._bucket(query, mask, model)
+    if variant == "raw":
+        distances = np.square(np.where(model["prototype_masks"] & mask,
+                                       model["prototypes"] - query, 0.0)).sum(axis=1)
+        distances += 1e6 * np.logical_xor(model["prototype_masks"], mask).sum(axis=1)
+        assert bucket == int(np.argmin(distances))
+    else:
+        key = np.sort(np.where(mask, query, np.inf))
+        key = np.where(np.isfinite(key), key, 0.0)
+        bits = model["projection"] @ key >= 0.0
+        assert bucket == sum((1 << index) for index, value in enumerate(bits) if value)
+
+
+@pytest.mark.parametrize("name", INDEX_BASELINES)
+def test_index_controls_ignore_slots_world_order_and_equivariantly_permute_channels(name: str) -> None:
+    module = importlib.import_module(f"nextai_autoresearch.candidates.{name}")
+    first, second = _synthetic(), _synthetic()
+    second = World(999, second.support_input, second.support_target, second.history,
+                   second.future_public, second.output)
+    left, right = module.Candidate(23), module.Candidate(23)
+    left.fit(Training((first, second)))
+    right.fit(Training((second, first)))
+    assert np.array_equal(left._model["prototypes"], right._model["prototypes"])
+    for a, b in zip(left._model["buckets"], right._model["buckets"]):
+        assert np.allclose(a["weights"], b["weights"])
+
+    x, y, xm, ym = _index_arrays()
+    input_perm = np.r_[np.array([2, 0, 3, 1]), np.arange(4, 32)]
+    output_perm = np.r_[np.array([1, 0]), np.arange(2, 32)]
+    base, permuted = module.Candidate(23), module.Candidate(23)
+    base_model = base._build(x, y, xm, ym)
+    permuted_model = permuted._build(x[:, input_perm], y[:, output_perm],
+                                     xm[:, input_perm], ym[:, output_perm])
+    query = x[13]
+    base_bucket = base._bucket(query, xm[13], base_model)
+    permuted_bucket = permuted._bucket(query[input_perm], xm[13, input_perm], permuted_model)
+    assert base_bucket == permuted_bucket
+    base_prediction = np.r_[1.0, query] @ base_model["buckets"][base_bucket]["weights"]
+    permuted_prediction = (np.r_[1.0, query[input_perm]]
+                           @ permuted_model["buckets"][permuted_bucket]["weights"])
+    assert np.allclose(permuted_prediction, base_prediction[output_perm], atol=1e-8)
+
+
+def test_predictive_equivalence_fixture_defeats_raw_proximity() -> None:
+    observations = np.array([[0.0], [0.1], [2.0]])
+    future_operator = np.array([1, -1, 1])
+    query = np.array([0.06])
+    raw_choice = int(np.argmin(np.square(observations - query).sum(axis=1)))
+    equivalent = np.flatnonzero(future_operator == future_operator[0])
+    assert raw_choice == 1
+    assert set(equivalent) == {0, 2}
+    assert raw_choice not in equivalent
+
+
+@pytest.mark.parametrize("name", INDEX_BASELINES)
+def test_index_support_insert_is_local_bounded_and_global_model_is_unchanged(name: str) -> None:
+    candidate = importlib.import_module(f"nextai_autoresearch.candidates.{name}").Candidate(31)
+    world = _synthetic()
+    candidate.fit(Training((world,)))
+    before = [bucket["weights"].copy() for bucket in candidate._model["buckets"]]
+    session = candidate.adapt(world.support_input, world.support_target)
+    assert all(np.array_equal(weight, bucket["weights"])
+               for weight, bucket in zip(before, candidate._model["buckets"]))
+    assert max(len(bucket["x"]) for bucket in session["buckets"]) <= BUCKET_CAP
+    assert candidate.state_bytes() < 67_108_864
+    prediction = candidate.predict(session, world.history, world.future_public)
+    assert np.isfinite(prediction).all()
+    first_ops = candidate.last_ops
+    candidate.fit(Training((world,) * 9))
+    session = candidate.adapt(world.support_input, world.support_target)
+    candidate.predict(session, world.history, world.future_public)
+    assert candidate.last_ops == first_ops
+
+
+def test_index_candidate_source_has_no_private_routing_tokens() -> None:
+    root = project_root()
+    forbidden = ("ncmapss", "dronepropa", "continuous_event", "world_family",
+                 "source_path", "native_type", "semantic_channel", "test_output")
+    for relative in (
+        "src/nextai_autoresearch/candidates/tensor_indexed_local_operator_core.py",
+        "src/nextai_autoresearch/candidates/tensor_raw_window_local_linear_v1.py",
+        "src/nextai_autoresearch/candidates/tensor_random_projection_hash_v1.py",
+    ):
+        source = (root / relative).read_text(encoding="utf-8").lower()
+        assert not any(token in source for token in forbidden)
+
+
+def test_index_controls_real_file_smoke_and_fixed_query_work() -> None:
+    training, testing = build_worlds(4, 1, 1_500_003)
+    pooled = Training(tuple(world for family in FAMILIES for world in training[family]))
+    for name in INDEX_BASELINES:
+        candidate = importlib.import_module(f"nextai_autoresearch.candidates.{name}").Candidate(41)
+        candidate.fit(pooled)
+        observed = []
+        for family in FAMILIES:
+            world = testing[family][0]
+            prediction = candidate.predict(
+                candidate.adapt(world.support_input, world.support_target),
+                world.history, world.future_public,
+            )
+            assert prediction.shape == (50, 32) and np.isfinite(prediction).all()
+            observed.append(candidate.last_ops)
+        assert all(value > 0 for value in observed)
+        assert candidate.state_bytes() < 67_108_864
+
+
 def test_future_plan_schema_locks_causal_roles_costs_and_matrix() -> None:
     root = project_root()
     plan = copy.deepcopy(load_json(root / "research/plans/EXP-20260830-0057.json"))
@@ -229,6 +366,27 @@ def test_future_plan_schema_locks_causal_roles_costs_and_matrix() -> None:
     invalid["continuous_transfer_protocol"]["cross_family_only_ablation"] = "support_only_tensor_dynamics_v1"
     with pytest.raises(Exception, match="cross_family_only_tensor_dynamics_v1"):
         validate_document("experiment_plan", invalid, root)
+
+    v3 = copy.deepcopy(plan)
+    v3["benchmark"] = "heldout_three_family_continuous_transfer_v3"
+    v3["matrix"]["knowledge_sizes"] = [4, 6, 9]
+    v3["candidates"] = [
+        "shared_predictive_index_v1", "independent_predictive_index_v1",
+        "cross_family_only_predictive_index_v1", "support_only_predictive_index_v1",
+        *BASELINES[:-1], *INDEX_BASELINES, BASELINES[-1],
+    ]
+    protocol = v3["continuous_transfer_protocol"]
+    protocol.update(
+        shared_candidate="shared_predictive_index_v1",
+        independent_ablation="independent_predictive_index_v1",
+        cross_family_only_ablation="cross_family_only_predictive_index_v1",
+        support_only_ablation="support_only_predictive_index_v1",
+        classical_baselines=[*BASELINES[:-1], *INDEX_BASELINES, BASELINES[-1]],
+    )
+    validate_document("experiment_plan", v3, root)
+    v3["candidates"].remove("tensor_random_projection_hash_v1")
+    with pytest.raises(Exception, match="does not contain"):
+        validate_document("experiment_plan", v3, root)
 
 
 def test_cross_candidate_gains_are_derived_per_family_before_aggregation() -> None:

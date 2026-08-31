@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "benchmark": "heldout_three_family_continuous_transfer_v3",
+  "created_at": "2026-08-31T11:56:08Z",
+  "purpose": "Pre-hypothesis semantic registration of matched classical index controls; no learned candidate or scored evidence.",
+  "shared_contract": {
+    "bucket_count": 32,
+    "bucket_cap": 8,
+    "code_bits": 5,
+    "local_operator": "masked_affine_ridge",
+    "ridge": 0.001,
+    "support_update": "recompute_touched_buckets_only",
+    "state_limit_bytes": 67108864,
+    "knowledge_scales": [4, 6, 9]
+  },
+  "controls": {
+    "tensor_raw_window_local_linear_v1": "exact_squared_euclidean_nearest_capped_prototype",
+    "tensor_random_projection_hash_v1": "five_frozen_sign_projections_of_sorted_anonymous_numeric_window"
+  },
+  "predictive_equivalence_fixture": {
+    "observations": [[0.0], [0.1], [2.0]],
+    "future_operator_ids": [1, -1, 1],
+    "query": [0.06],
+    "raw_nearest_index": 1,
+    "predictively_equivalent_indices": [0, 2],
+    "separates_raw_proximity": true
+  },
+  "conformance": {
+    "candidate_source_audit": "PASS",
+    "reference_keys": "PASS",
+    "world_order_and_slot_relabeling": "PASS",
+    "consistent_channel_permutation": "PASS",
+    "bounded_local_support_insert": "PASS",
+    "fixed_query_work_across_knowledge_size": "PASS",
+    "real_file_three_family_smoke": "PASS",
+    "private_routing_token_scan": "PASS"
+  },
+  "hashes": {
+    "core": "4f4bd2e3235a1dd73e5c48513222c8f7dfc47f9f55f7d865f1b034989d100fc5",
+    "raw_control": "dd106902b4deb3f4ad8e448dc42d05c5ee4b495c01ab59b359897f80af17382f",
+    "random_control": "87c39d8c7bb0706aa6ecc8384ec21807e32732def3f375c60506c6727e22aa84",
+    "benchmark_v3": "3f0791c639fd7ae62dd7ec1e5164b4459d8e26d5699b07157f70ec715b388f5a",
+    "semantic_tests": "a296572d6091820513df916a57597e72489920ab24dcc21dba1ffb2bd2950176",
+    "baseline_registry": "1960e75c31aa4d71817c598c41b00f2dc9cc1c8f50e2c5120b5b3b288ed7645a"
+  },
+  "hypothesis_created": false,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false
+}

@@ -274,12 +274,15 @@ def _implementable_front(result: dict[str, Any], config: ResearchConfig) -> set[
 def _continuous_transfer_promotion_problems(
     result: dict[str, Any], plan: dict[str, Any], candidate_name: str
 ) -> list[str]:
-    if result.get("benchmark") != "heldout_three_family_continuous_transfer_v2":
+    if result.get("benchmark") not in {
+        "heldout_three_family_continuous_transfer_v2",
+        "heldout_three_family_continuous_transfer_v3",
+    }:
         return []
     protocol = plan.get("continuous_transfer_protocol", {})
     shared = str(protocol.get("shared_candidate", ""))
     if candidate_name != shared:
-        return ["three-family v2 can promote only its shared candidate"]
+        return ["three-family v2/v3 can promote only its shared candidate"]
     candidates = {str(item.get("candidate")): item for item in result.get("candidates", ())}
     metric_sources = {
         "shared_vs_independent_gain": shared,

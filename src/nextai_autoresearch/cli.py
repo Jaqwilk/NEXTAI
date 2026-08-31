@@ -190,6 +190,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
     if config.benchmark_version in {
         "heldout_three_family_continuous_transfer_v1",
         "heldout_three_family_continuous_transfer_v2",
+        "heldout_three_family_continuous_transfer_v3",
     }:
         protocol = config.raw["three_family_continuous"]
         plan["matrix"]["knowledge_sizes"] = list(protocol["knowledge_sizes"])
