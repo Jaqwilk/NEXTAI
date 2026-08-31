@@ -287,6 +287,23 @@
       "implementation_files": {"src/nextai_autoresearch/candidates/privileged_same_condition_support_arx_v3.py": "26dbe0f9417e0592ec6a7b95795901eb5aaf8bd8a5596052a569f14f4a74f5c8", "src/nextai_autoresearch/candidates/dronepropa_baselines.py": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v1.py": "9d3871ae937c86988e5fdfd97c58b80efd73effc5b892a1f9675452232eccb4c", "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v6.py": "9a78cfb51dccf7b95f67def40e52d96b37ed8fe88e79acba58cedf23dc5becdf"},
       "conformance_tests": [{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_use_t4_support_without_test_targets","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"},{"path":"tests/test_dronepropa_factor_recombination.py","node_id":"tests/test_dronepropa_factor_recombination.py::test_v2_privileged_controls_real_file_one_step_smoke","sha256":"09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b"}]
     },
+    "shared_predictive_index_v1": {
+      "baseline_id": "shared_predictive_index_v1", "version": 1,
+      "specification": {"role": "tested candidate semantic registration; not a baseline", "code": "five sign bits from ridge-0.125 prediction of five permutation-invariant target moments using sorted anonymous inputs and squares", "bucket_count": 32, "bucket_cap": 8, "local_operator": "masked affine ridge lambda 0.001", "support_update": "touched bucket only; global code frozen", "query_scaling": "fixed cap independent of dormant training-window count"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/predictive_equivalence_index_core.py": "54a4ace2ed93d6af527c87709690e342425abf4efa3c87fd3476d8d97a29c5a6",
+        "src/nextai_autoresearch/candidates/shared_predictive_index_v1.py": "4c687bf5922d972697f2c64358d2a362b2f7a65a7f9d5b2e45a51e188a3f830a",
+        "src/nextai_autoresearch/candidates/independent_predictive_index_v1.py": "7f000782fcff4cea5c97f92df6456047baa887cae7c0229de5f22153bd84e1fa",
+        "src/nextai_autoresearch/candidates/cross_family_only_predictive_index_v1.py": "7f000782fcff4cea5c97f92df6456047baa887cae7c0229de5f22153bd84e1fa",
+        "src/nextai_autoresearch/candidates/support_only_predictive_index_v1.py": "7f000782fcff4cea5c97f92df6456047baa887cae7c0229de5f22153bd84e1fa"
+      },
+      "conformance_tests": [
+        {"path":"tests/test_predictive_equivalence_index.py","node_id":"tests/test_predictive_equivalence_index.py::test_learned_code_solves_frozen_future_equivalence_counterexample","sha256":"ce3760c9b25edf791475f8041f445ddd20505d63d24d238da29a2d78f54726ff"},
+        {"path":"tests/test_predictive_equivalence_index.py","node_id":"tests/test_predictive_equivalence_index.py::test_roles_are_source_identical_auditable_and_family_blind","sha256":"ce3760c9b25edf791475f8041f445ddd20505d63d24d238da29a2d78f54726ff"},
+        {"path":"tests/test_predictive_equivalence_index.py","node_id":"tests/test_predictive_equivalence_index.py::test_world_order_channel_permutation_and_local_update_contract","sha256":"ce3760c9b25edf791475f8041f445ddd20505d63d24d238da29a2d78f54726ff"},
+        {"path":"tests/test_predictive_equivalence_index.py","node_id":"tests/test_predictive_equivalence_index.py::test_query_work_is_fixed_across_dormant_knowledge","sha256":"ce3760c9b25edf791475f8041f445ddd20505d63d24d238da29a2d78f54726ff"}
+      ]
+    },
     "tensor_persistence_v1": {
       "baseline_id": "tensor_persistence_v1", "version": 1,
       "specification": {"prediction": "repeat mechanically located trailing state coordinates", "fit": "none", "rollout": "recursive with public future coordinates"},

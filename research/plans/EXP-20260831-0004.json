@@ -1,0 +1,179 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from quadratic feature expansion or collision luck rather than transferable predictive equivalence; raw and random matched controls isolate this.",
+    "The learned key may merely route support examples while the local ridge operator does all useful work; cross-family-only versus support-only is decisive."
+  ],
+  "architecture_family": "self_supervised_predictive_equivalence_index",
+  "benchmark": "heldout_three_family_continuous_transfer_v3",
+  "budget": "quick",
+  "candidates": [
+    "shared_predictive_index_v1",
+    "independent_predictive_index_v1",
+    "cross_family_only_predictive_index_v1",
+    "support_only_predictive_index_v1",
+    "tensor_persistence_v1",
+    "tensor_ridge_arx_v1",
+    "tensor_rls_arx_v1",
+    "tensor_empirical_gaussian_joint_v1",
+    "tensor_contextual_gaussian_chow_liu_v1",
+    "tensor_autoregressive_v1",
+    "tensor_raw_window_local_linear_v1",
+    "tensor_random_projection_hash_v1",
+    "privileged_tensor_support_v1"
+  ],
+  "confounds": [
+    "Thresholds are frozen from development training-role worlds with seeds 1103/2207/3301 and cannot be altered after scoring.",
+    "The evaluator privately identifies families only for balanced metrics; candidate code receives no family labels, paths, native types, semantic channel names or test outputs."
+  ],
+  "continuous_transfer_protocol": {
+    "causal_promotion_gates": [
+      "shared_vs_independent_gain",
+      "cross_family_transfer_gain"
+    ],
+    "classical_baselines": [
+      "tensor_persistence_v1",
+      "tensor_ridge_arx_v1",
+      "tensor_rls_arx_v1",
+      "tensor_empirical_gaussian_joint_v1",
+      "tensor_contextual_gaussian_chow_liu_v1",
+      "tensor_autoregressive_v1",
+      "tensor_raw_window_local_linear_v1",
+      "tensor_random_projection_hash_v1",
+      "privileged_tensor_support_v1"
+    ],
+    "cross_family_only_ablation": "cross_family_only_predictive_index_v1",
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "ncmapss_ds08a",
+      "dronepropa",
+      "continuous_event"
+    ],
+    "family_labels": "evaluator_private",
+    "independent_ablation": "independent_predictive_index_v1",
+    "invalidation_rules": [
+      "Invalidate if any candidate receives a family label, source path, native type or semantic channel name.",
+      "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
+      "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
+      "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+      "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
+      "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
+      "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change."
+    ],
+    "loss": "family_balanced_masked_normalized_mse",
+    "normalization": "masked_training_worlds_only",
+    "pareto_capability_metrics": [
+      "transfer_accuracy",
+      "minimum_family_accuracy",
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "privileged_support_control": "privileged_tensor_support_v1",
+    "semantic_channel_alignment": "forbidden",
+    "shared_candidate": "shared_predictive_index_v1",
+    "state_budget_bytes": 67108864,
+    "support_only_ablation": "support_only_predictive_index_v1",
+    "tensor_contract_sha256": "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
+  },
+  "created_at": "2026-08-31T12:38:56Z",
+  "evaluator_sha256": "6d721631f70dd384b0cd66c6b193df1a7f33842cde64332bac6c6efa925fa4d6",
+  "experiment_id": "EXP-20260831-0004",
+  "falsification_criteria": [
+    "Discard if the learned code fails the frozen future-equivalence, permutation, source-identity, bounded-state or local-update fixtures before scoring.",
+    "Discard if any family/K shared NRMSE advantage over raw-window, random-hash or persistence is <=0.03806855146519833.",
+    "Discard if any family/K shared_vs_independent_gain or cross_family_transfer_gain is <=0.03806855146519833.",
+    "Discard if worst-family accuracy trails persistence by more than 0.008823017208322348, stability is below 1.0, query work grows with K under the fixed cap, or a simpler implementable baseline dominates after full cost.",
+    "Invalidate on threshold hash mismatch, source/hyperparameter mismatch across roles, family/path/native-type/semantic-channel/test-output access, post-score tuning, external model/API, omitted cost, baseline/preflight failure or evaluator-integrity change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "2c2ef6c7eec61f494b7bd52a586a06b944b375c3",
+    "dirty": false
+  },
+  "hypothesis_id": "HYP-0027",
+  "matrix": {
+    "knowledge_sizes": [
+      4,
+      6,
+      9
+    ],
+    "queries_per_cell": 128,
+    "reasoning_depths": [
+      1
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "cross_family_transfer_gain": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "shared_vs_independent_gain": "maximize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Discard this exact predictive-equivalence index without tuning, preserve all evidence, and redirect to a fundamentally different learned mechanism.",
+    "null": "Treat any mixed-sign, below-threshold or Pareto-dominated pattern as negative for this exact design and do not tune bits, moments, ridge, bucket cap or thresholds.",
+    "positive": "Authorize only unchanged three-seed replication of the exact five-bit code, features, target moments, bucket cap and local operator; do not mark promising or claim a scaling law."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Conjunctive positive requires every family and K=4/6/9 learned shared NRMSE advantage over raw-window, random-hash and persistence to exceed 0.03806855146519833; every shared-versus-independent and cross-family-versus-support gain to exceed 0.03806855146519833; worst-family accuracy within 0.008823017208322348 of persistence; stability 1.0; local bounded updates; K-independent capped lookup; and implementable full-cost Pareto non-dominance. Threshold artifact SHA-256 is 6e6da320c92b39a1f427f1a0c19c7ae69c42e239c0df56d25c52679d500d7fab.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "normalized_rmse",
+    "stable_rollout_rate",
+    "shared_vs_independent_gain",
+    "cross_family_transfer_gain",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; a conjunctive one-seed positive can only authorize an unchanged three-runner-seed replication in a later wake."
+  ],
+  "research_question": "Can one family-blind learned predictive code transfer future-equivalent local operators across unseen heterogeneous worlds better per full cost than raw proximity, random hashing, persistence and source-identical no-transfer controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Self-supervised predictive-equivalence index quick"
+}
