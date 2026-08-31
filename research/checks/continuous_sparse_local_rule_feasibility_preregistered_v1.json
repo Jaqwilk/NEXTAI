@@ -1,0 +1,49 @@
+{
+  "audit_id": "continuous_sparse_local_rule_feasibility_v1",
+  "created_at": "2026-08-31T19:44:50Z",
+  "decision_scope": "service diagnostic only; no scientific evidence, hypothesis, plan, scoring seed, candidate, benchmark, schema or scoring",
+  "frozen_inputs": {
+    "research/data/wt_changepoints_v1/manifest.json": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "src/nextai_autoresearch/benchmarks/heldout_three_family_continuous_transfer_v1.py": "63a04b28951e0a384269fd5ae54e83bd6591a9545bd5349278e09e8117f8b5a5",
+    "src/nextai_autoresearch/benchmarks/heldout_wt_changepoints_prequential_v1.py": "ddfb3c376c2f7eaf3b56e0825e313afcb56169d5d5e784888de280f37abdce9a",
+    "src/nextai_autoresearch/three_family_tensor_contract.py": "dc2a4b2712f21560f4df8d02d52853cbc4a8d09e34baf3bc6a8b6e0e5d12b690",
+    "src/nextai_autoresearch/wt_prequential_contract.py": "12b36743d024db342f9e25255238bd9c1f10864e60e711d0a85955817b47149c"
+  },
+  "prohibited_shortcuts": [
+    "WT test files 8 and 9 or any three-family test target",
+    "family labels, native types, paths, semantic channel names, mask/native-width routing or supplied adjacency",
+    "post-diagnostic changes to features, ridge, edge selection, random seed or thresholds"
+  ],
+  "wt_development_diagnostic": {
+    "allowed_files": {"fit": [0, 1, 2, 3, 4, 5], "development": [6, 7], "forbidden_test": [8, 9]},
+    "examples": "teacher-forced transitions from the last history row through the first 32 target rows of every episode; the scalar public control is constant within an episode",
+    "normalization": "existing fit-only WT normalization and one fixed anonymous channel permutation from PCG64 seed 130031",
+    "ridge": 0.001,
+    "controls": {
+      "dense_var": "intercept, public control and all ten current coordinates",
+      "sparse_var": "per output: intercept, public control, self and the one other linear parent selected by absolute fit residual correlation",
+      "static_tree": "per output: intercept, public control, self and neighbors in a fit-only maximum-absolute-correlation spanning tree",
+      "random_graph": "same sparse linear form with one other parent drawn per output from PCG64 seed 130032"
+    },
+    "tested_local_rule": "per output, start from self plus public control; select on fit only one other parent and one of x_parent, square(x_parent), x_self*x_parent or tanh(x_parent) by absolute residual correlation; refit that local ridge rule without changing the basis on development",
+    "permutation_equivariance": "repeat after a second consistent channel permutation; inverse-mapped selected edges and predictions must agree within 1e-9",
+    "edge_stability": "repeat selection independently on fit files 0-2 and 3-5; compare exact output-parent-basis triples",
+    "pass_thresholds": {
+      "minimum_relative_nrmse_gain_over_each_control_on_each_development_file": 0.05,
+      "minimum_exact_edge_basis_stability": 0.5,
+      "permutation_max_absolute_prediction_difference": 1e-9
+    }
+  },
+  "contract_gates": {
+    "one_source_identical_permutation_equivariant_rule": true,
+    "three_scales_and_full_cost_fields": true,
+    "local_post_reveal_update_expressible": true,
+    "depth_extrapolation_expressible": true,
+    "mandatory_distinction": "a future learner must beat the frozen nonlinear local-basis diagnostic as well as dense/sparse VAR, static-tree, random-graph, persistence, RLS and transition controls; graph discovery alone is not a distinct principle"
+  },
+  "overall_pass_rule": "all WT numerical gates pass and the same causal discriminator is expressible without mask routing in the three-family contract; otherwise create no hypothesis and keep HYP-0006 dormant",
+  "outcomes": {
+    "pass": "a later wake may create one low-confidence hypothesis before implementation or scoring",
+    "fail": "record no_distinct_sparse_local_rule_contract and create no hypothesis, candidate, plan, benchmark or schema"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "audit_id": "continuous_sparse_local_rule_feasibility_v1",
+  "completed_at": "2026-08-31T19:47:27Z",
+  "decision": "no_distinct_sparse_local_rule_contract",
+  "hypothesis_created": false,
+  "plan_created": false,
+  "preregistration_path": "research/checks/continuous_sparse_local_rule_feasibility_preregistered_v1.json",
+  "preregistration_sha256": "7ce5fa86907c851108847f244e85d91d0d5df9504af1475452c7c66ebfe37825",
+  "scientific_evidence": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "test_targets_read": false,
+  "wt_prequential_v1": {
+    "fit_examples": 1728,
+    "development_examples_per_file": 288,
+    "diagnostic_seeds": {"channel_permutation": 130031, "random_graph": 130032, "equivariance_permutation": 130033},
+    "selected_edges": [
+      {"output": 0, "parent": 5, "basis": "squared_parent"},
+      {"output": 1, "parent": 3, "basis": "tanh_parent"},
+      {"output": 2, "parent": 5, "basis": "linear_parent"},
+      {"output": 3, "parent": 6, "basis": "squared_parent"},
+      {"output": 4, "parent": 3, "basis": "tanh_parent"},
+      {"output": 5, "parent": 0, "basis": "tanh_parent"},
+      {"output": 6, "parent": 9, "basis": "self_times_parent"},
+      {"output": 7, "parent": 5, "basis": "linear_parent"},
+      {"output": 8, "parent": 4, "basis": "tanh_parent"},
+      {"output": 9, "parent": 6, "basis": "tanh_parent"}
+    ],
+    "edge_basis_stability": 0.5,
+    "permutation_max_absolute_prediction_difference": 0.0,
+    "development_files": [
+      {
+        "file": 6,
+        "nrmse": {"local": 0.6792090890334868, "dense_var": 0.6838132257670096, "sparse_var": 0.6857728648963294, "static_tree": 0.6864908215728133, "random_graph": 0.6911073506401046},
+        "local_relative_gains": {"dense_var": 0.006733032588479974, "sparse_var": 0.009571355471807553, "static_tree": 0.010607181204030373, "random_graph": 0.017216227834355547}
+      },
+      {
+        "file": 7,
+        "nrmse": {"local": 0.6442096229889686, "dense_var": 0.6508928535196952, "sparse_var": 0.6491272177543621, "static_tree": 0.6507184188000114, "random_graph": 0.6579641294380584},
+        "local_relative_gains": {"dense_var": 0.01026778907555541, "sparse_var": 0.0075757026217539245, "static_tree": 0.010002476682688126, "random_graph": 0.020904644848704763}
+      }
+    ],
+    "minimum_control_file_gain": 0.006733032588479974,
+    "gate_results": {
+      "all_control_file_gains_at_least_0_05": false,
+      "edge_basis_stability_at_least_0_5": true,
+      "permutation_equivariance_at_1e_9": true
+    }
+  },
+  "three_family_v7": {
+    "one_common_padded_container": true,
+    "source_identical_per_world_graph_induction_expressible": true,
+    "one_shared_graph_without_native_width_or_mask_routing_expressible": false,
+    "reason": "the three families have different candidate-visible input/output masks and no registered cross-family node identity; a per-world graph is a generic estimator, while sharing graph coordinates would use the prohibited family/native-width signature",
+    "existing_controls": ["RLS/ARX", "empirical Gaussian joint", "contextual Gaussian Chow-Liu", "autoregressive", "random-projection and raw-window controls"],
+    "three_scales_and_full_cost_contract": true
+  },
+  "overall_gate_results": {
+    "one_source_identical_permutation_equivariant_rule": true,
+    "nonlinear_local_gain_exceeds_every_control_on_each_development_file": false,
+    "stable_learned_local_structure": true,
+    "shared_cross_family_graph_without_routing": false,
+    "three_scales_and_full_cost_available": true
+  },
+  "interpretation": "WT contains a small reproducible nonlinear local regression signal, but its 0.67-2.09% development gain is below the frozen 5% floor and is already represented by an explicit one-edge basis regression. Graph induction alone therefore collapses to a sparse VAR/Granger-style feature-selection control. V7 can run the same estimator separately per world, but cannot transfer graph coordinates without native-width routing. Neither contract currently supplies the distinct causal signature required to revive HYP-0006.",
+  "next_cycle": "One no-scoring adaptive_halt_certificate_gap_feasibility audit over existing sequential contracts. Retain HYP-0004 only if candidate-visible uncertainty predicts required extra computation where transition residual/convergence certificates do not, at three depths/scales and without target leakage; otherwise keep it dormant and create no hypothesis."
+}
