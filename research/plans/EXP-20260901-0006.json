@@ -1,0 +1,158 @@
+{
+  "alternative_explanations": [
+    "Any apparent benefit may arise from random label embeddings or ordinary 256-label global fitting rather than layer-local credit."
+  ],
+  "architecture_family": "layer_local_goodness_credit_assignment",
+  "benchmark": "heldout_repository_sequence_compression_v2",
+  "budget": "quick",
+  "candidates": [
+    "layer_local_goodness_byte",
+    "source_identical_end_to_end_gradient_byte",
+    "source_identical_frozen_hidden_byte",
+    "uniform_byte",
+    "empirical_unigram_byte",
+    "ppm_d_order5_byte",
+    "ctw_depth2_byte",
+    "lz_dictionary_byte",
+    "dense_autoregressive_byte"
+  ],
+  "compression_protocol": {
+    "classical_baselines": [
+      "uniform_byte",
+      "empirical_unigram_byte",
+      "ppm_d_order5_byte",
+      "ctw_depth2_byte",
+      "lz_dictionary_byte",
+      "dense_autoregressive_byte"
+    ],
+    "corpus_id": "nextai_local_repository_sha256_v1",
+    "credit_assignment_roles": [
+      "layer_local_goodness_byte",
+      "source_identical_end_to_end_gradient_byte",
+      "source_identical_frozen_hidden_byte"
+    ],
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "invalidation_rules": [
+      "Invalidate on any frozen corpus hash or byte-length mismatch.",
+      "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
+      "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
+      "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
+      "Invalidate if the three neural roles differ in topology, constants, initialization, data order, update count, input representation or output rule beyond credit assignment.",
+      "Invalidate if layer_local_goodness_byte executes a reverse gradient or reads later-layer weights during an earlier-layer update."
+    ],
+    "pareto_capability_metrics": [
+      "bits_per_byte",
+      "worst_file_bits_per_byte",
+      "cold_bits_per_byte",
+      "accuracy",
+      "data_acquisition_ops",
+      "fit_ops",
+      "meta_fit_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_reveal": true,
+    "shared_candidate": "layer_local_goodness_byte",
+    "shared_slow_state_updates": "forbidden",
+    "source_identical_contract": "topology_constants_initialization_data_order_update_count_input_output_identical_v1",
+    "split_unit": "whole_files_sha256",
+    "state_budget_bytes": 4194304,
+    "test_file_access": "evaluator_only",
+    "test_tuning": "forbidden"
+  },
+  "confounds": [
+    "The visible single-repository corpus is small; one wrong label per positive is weak supervision and exhaustive 256-label query scoring may dominate cost."
+  ],
+  "created_at": "2026-08-31T23:48:24Z",
+  "evaluator_sha256": "a5207b25760a74c1bd18839e40baba4069370ecbf8fbaf89920b2d086423ff7e",
+  "experiment_id": "EXP-20260901-0006",
+  "falsification_criteria": [
+    "Discard if any K/D cell has layer-local mean, cold or worst-file bpb more than 0.1671047931063159 above source-identical global credit.",
+    "Discard if layer-local does not strictly improve mean, cold and worst-file bpb over frozen hidden in every K/D cell.",
+    "Discard unless layer-local fit ops or fit peak bytes are strictly lower than global credit while query ops and resident state are no higher.",
+    "Discard if any complete simpler control Pareto-dominates layer-local on frozen quality and full-cost axes."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "14cdcb40c582db98fcb527fadf04a6258e598fb1",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0032",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      20,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      16,
+      64
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "bits_per_byte": "minimize",
+    "cold_bits_per_byte": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_bits_per_byte": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify this exact Forward-Forward byte rule without changing width, initialization, epoch, batch, learning rate, threshold, negative construction or query rule.",
+    "null": "End the exact rule if both neural training routes fail or simpler universal coders dominate capability and full cost.",
+    "positive": "Authorize only an unchanged three-seed adversarial replication in a later wake."
+  },
+  "parent_experiment_id": "EXP-20260901-0005",
+  "predicted_outcome": "At identical PCG64(seed xor 0x46465744) normal-scale-0.05 initialization, chronological one epoch, batch 128, learning rate 0.02, tanh, goodness threshold 0.5 and deterministic wrong=(target+1+((sum(context)+17*len(context)) mod 255)) mod 256, layer-local is expected to reduce fit work but lose more than 0.1671047931063159 bpb to global credit or be dominated by PPM-D/CTW.",
+  "primary_metrics": [
+    "bits_per_byte",
+    "worst_file_bits_per_byte",
+    "cold_bits_per_byte",
+    "accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "One seed cannot promote; only the full conjunction can authorize unchanged three-seed adversarial replication."
+  ],
+  "research_question": "With one source-identical model using a 64-byte left-padded context represented by 64 byte/255 scalars plus 64 presence bits, tanh widths 8/8, 256 label embeddings and a shared sum-of-squared-layer-goodness softmax query, can layer-local positive/negative training preserve global-credit capability at lower fit work?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Explicit layer-local goodness credit assignment quick"
+}
