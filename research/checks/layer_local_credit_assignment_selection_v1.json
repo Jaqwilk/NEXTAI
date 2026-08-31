@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "cycle": 146,
+  "created_at": "2026-08-31T23:26:06Z",
+  "decision": "select_forward_forward_layer_local_credit_scout",
+  "scientific_evidence_changed": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "consecutive_no_scoring_cycles": {
+    "after_last_scored_cycle_145": 1,
+    "maximum": 3,
+    "intended_service_cycle": 147,
+    "intended_scoring_cycle": 148,
+    "scoring_mandatory_no_later_than_cycle": 149
+  },
+  "selected_mechanism": {
+    "family": "layer_local_goodness_learning",
+    "principle": "each hidden layer learns from positive and mechanically corrupted negative examples using its own goodness loss; no reverse gradient, transported weight transpose, replay memory, ontology or external model",
+    "primary_source": "SRC-0187",
+    "not_claimed_as_novel": true
+  },
+  "rejected_nearby_mechanisms": [
+    {
+      "family": "equilibrium_propagation",
+      "reason": "iterative free/nudged relaxation and energy inference change multiple causal factors and revisit an already tested energy family"
+    },
+    {
+      "family": "feedback_alignment",
+      "reason": "fixed random feedback still transports a global downstream error and is a smaller departure from backpropagation"
+    }
+  ],
+  "prospective_cohort": {
+    "benchmark_version": "heldout_repository_sequence_compression_v2",
+    "reason": "real whole-file next-byte prediction supplies natural positive/negative labels and strong universal-coding controls, while historical v1 lacks three K scales, a modern universal Pareto contract and source-identical credit-assignment ablations",
+    "preserve": [
+      "nextai_local_repository_sha256_v1 corpus and every whole-file train validation test hash",
+      "anonymous evaluator-fed bytes and predict-then-reveal boundary",
+      "bits_per_byte worst_file_bits_per_byte cold_bits_per_byte accuracy and full cost formulas",
+      "state budget and slot-local test updates",
+      "uniform unigram true PPM true CTW LZ dictionary and dense autoregressive controls"
+    ],
+    "minimal_changes": [
+      "three nested training-byte budgets K=8/20/32 KiB",
+      "three public context lengths D=4/16/64 with identical fixed architecture and constants",
+      "queries_per_cell=8 using the historical 128-byte multiplier",
+      "main Forward-Forward role plus source-identical end-to-end-gradient and frozen-random-hidden ablations",
+      "fit operations fit peak memory query/update work bytes state peak and R1/R4/R16 universal Pareto axes from the final result contract",
+      "candidate semantic fixtures proving no reverse gradient in the main role and exact topology/constants identity across all three neural roles"
+    ],
+    "forbidden_changes": [
+      "corpus files roles offsets targets metric formulas or classical baseline algorithms",
+      "byte semantics paths filenames extensions family labels or hand ontology",
+      "post-score tuning external model API or uncharged preprocessing",
+      "reuse of hierarchical motif compressor or tuning PPM CTW LZ context depth from EXP-0044"
+    ]
+  },
+  "future_immutable_plan_contract": {
+    "budget": "quick_one_runner_random_seed",
+    "causal_question": "can layer-local positive/negative credit assignment approach the quality of the source-identical globally trained network with lower fully charged fit work and peak training state while remaining competitive with universal compressors",
+    "negative_generation": "one deterministic wrong byte per positive training example derived only from its public context and true training byte; exact arithmetic and ordering must be frozen in the plan before candidate implementation",
+    "matched_neural_roles": [
+      "layer_local_goodness_byte",
+      "source_identical_end_to_end_gradient_byte",
+      "source_identical_frozen_hidden_byte"
+    ],
+    "required_classical_controls": [
+      "uniform_byte",
+      "empirical_unigram_byte",
+      "ppm_byte",
+      "context_tree_weighting_byte",
+      "lz_dictionary_byte",
+      "dense_autoregressive_byte"
+    ],
+    "success": [
+      "layer-local mean worst-file and cold bits per byte are within one development-frozen meaningful effect of the matched global-credit role in every K/D cell",
+      "layer-local strictly improves all three capability measures over the frozen-hidden ablation",
+      "layer-local fit operations or fit peak state are strictly lower than the matched global-credit role without higher query or resident-state cost",
+      "layer-local is on the implementable universal Pareto frontier after acquisition fit query update bytes state peak and R1/R4/R16 accounting"
+    ],
+    "negative": "if matched global credit passes quality but layer-local fails, reject this exact local credit rule without tuning",
+    "null": "if both neural roles fail or true PPM CTW LZ or another simpler complete control dominates matched capability and full cost, end the exact direction without architecture search",
+    "positive": "one seed only selects an unchanged three-seed adversarial replication and cannot change status to promising or promoted",
+    "invalidation": [
+      "neural roles differ in topology width initialization data order update count input representation or output rule beyond the declared credit assignment",
+      "main role executes a reverse gradient or reads later-layer weights during an earlier-layer update",
+      "test targets enter fit or query before reveal",
+      "negative examples use test data or semantic byte labels",
+      "mandatory semantic baseline preflight evaluator manifest or integrity gate fails"
+    ]
+  }
+}
