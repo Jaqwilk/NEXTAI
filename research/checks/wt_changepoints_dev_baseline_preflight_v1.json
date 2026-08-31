@@ -1,0 +1,69 @@
+{
+  "accessed_data": [
+    "load_in_seed_0.csv",
+    "load_in_seed_1.csv",
+    "load_in_seed_2.csv",
+    "load_in_seed_3.csv",
+    "load_in_seed_4.csv",
+    "load_in_seed_5.csv",
+    "load_in_seed_6.csv",
+    "load_in_seed_7.csv"
+  ],
+  "artifact": "wt_changepoints_dev_baseline_preflight_v1",
+  "cost_estimates": {
+    "exact_control_level_bank": {
+      "fit_ops_estimate": 51840,
+      "query_ops_per_episode_estimate": 960,
+      "state_bytes": 30720
+    },
+    "persistence": {
+      "fit_ops_estimate": 0,
+      "query_ops_per_episode_estimate": 960,
+      "state_bytes": 0
+    },
+    "slot_local_rls": {
+      "fit_ops_estimate": 1714176,
+      "query_ops_per_episode_estimate": 61440,
+      "state_bytes_per_slot": 253952,
+      "update_ops_per_episode_estimate": 65536
+    }
+  },
+  "created_at": "2026-08-31T15:36:46Z",
+  "decision": "pass_for_later_protected_benchmark_service",
+  "development_episode_count": 18,
+  "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+  "note": "Development-only feasibility diagnostic; never hypothesis evidence, replication or promotion input.",
+  "preregistration_path": "research/checks/wt_changepoints_dev_baseline_gate_preregistered_v1.json",
+  "preregistration_sha256": "1897d63d790b575a892b04a7eb45c99927d7a46eeebd4c0399bd9740b69e60ff",
+  "results": {
+    "exact_control_level_bank": {
+      "finite_rollout_rate": 1.0,
+      "nrmse_h16": 0.9430165807817579,
+      "nrmse_h32": 0.951046663535049,
+      "nrmse_h96": 0.9890937661913335,
+      "worst_file_nrmse_h96": 1.0556847020477667
+    },
+    "persistence": {
+      "finite_rollout_rate": 1.0,
+      "nrmse_h16": 0.9739275670926387,
+      "nrmse_h32": 1.0284519569910633,
+      "nrmse_h96": 1.0965236373154443,
+      "worst_file_nrmse_h96": 1.1670730459858596
+    },
+    "slot_local_rls": {
+      "finite_rollout_rate": 1.0,
+      "nrmse_h16": 0.8552943727820235,
+      "nrmse_h32": 0.8705628721053289,
+      "nrmse_h96": 0.8766607487302355,
+      "worst_file_nrmse_h96": 0.9261060092933703
+    }
+  },
+  "saturating_baselines": [],
+  "schema_version": 1,
+  "scientific_evidence": false,
+  "script_sha256": "8a1ea01ff897b82679c501a418b798998547b04304c8ee13bf833466548ffd33",
+  "unread_test_files": [
+    "load_in_seed_8.csv",
+    "load_in_seed_9.csv"
+  ]
+}

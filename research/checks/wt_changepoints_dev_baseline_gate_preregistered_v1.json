@@ -1,0 +1,50 @@
+{
+  "anonymous_control_count": 1,
+  "anonymous_response_count": 10,
+  "artifact": "wt_changepoints_dev_baseline_gate_preregistered_v1",
+  "baselines": {
+    "exact_control_level_bank": "mean train residual curve grouped by rounded public control level",
+    "persistence": "repeat final normalized pre-event response",
+    "slot_local_rls": "fixed ridge-0.001 32-feature pooled linear initialization with forgetting 1 slot-local reveal updates"
+  },
+  "control_discovery": "unique numeric column changing at every noninitial marker and never between markers",
+  "created_at": "2026-08-31T15:35:35Z",
+  "decision_rule": "reject_before_benchmark on trivial solution; otherwise permit only a later protected benchmark service",
+  "fit_depth": 32,
+  "forbidden_inputs": [
+    "development outcomes before this artifact",
+    "seed 8",
+    "seed 9",
+    "scored results"
+  ],
+  "horizons": [
+    16,
+    32,
+    96
+  ],
+  "input_sha256": {
+    "load_in_seed_0.csv": "e3dcd01d9bd69a9dd9ab31cb1ca902acaaf2a1b0c243fe8aa04e3044cbc75b96",
+    "load_in_seed_1.csv": "cc00af188420d70dd1cc085d0157365096c03439d388cb4b72a1c3332dd57137",
+    "load_in_seed_2.csv": "83bd66c7ee06cc12585ae23b98dc7d27d1f445aa06911dcd6df0d05a98952a43",
+    "load_in_seed_3.csv": "c5e61841cca86f8079048f886938090944f0bdbac3c5cd2e2248173dd9fd4395",
+    "load_in_seed_4.csv": "2c7fe52505a17f17efca9cc905233e3d4e112e0df784049a3a27f232678e0b6f",
+    "load_in_seed_5.csv": "833203eaeecb7bbf5bf017e56582905eca0b796f21e8cda8aac4aecda8eaacc9"
+  },
+  "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+  "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+  "response_discovery": "numeric nonmetadata columns varying within a non-marker segment",
+  "schema_version": 1,
+  "scope": "train seeds 0-5 only; development seeds 6-7 and test seeds 8-9 unread",
+  "script_sha256": "8a1ea01ff897b82679c501a418b798998547b04304c8ee13bf833466548ffd33",
+  "train_normalization": "per-response mean and population standard deviation over all train rows",
+  "train_persistence_bootstrap_null_p95": {
+    "16": 0.11121541907309784,
+    "32": 0.1156366748481954,
+    "96": 0.1325268421060828
+  },
+  "trivial_solution_rule": {
+    "and_finite_rollout_rate": 1.0,
+    "and_worst_file_nrmse_h96_at_most": 0.75,
+    "reject_if_any_baseline_has_nrmse_h96_at_most": 0.5
+  }
+}
