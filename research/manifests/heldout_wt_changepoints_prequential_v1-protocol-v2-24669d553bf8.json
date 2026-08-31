@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_wt_changepoints_prequential_v1",
   "candidate_bundle_sha256": "5af42b37621c335f008a44a30885a4611bcc59407f72f69c2954351bc7606021",
-  "created_at": "2026-08-31T16:50:12Z",
-  "evaluator_sha256": "e2249a64b9c0a5b477cd2652cdae23af6f142c8744b70efca7b94615ee854012",
+  "created_at": "2026-08-31T16:31:25Z",
+  "evaluator_sha256": "1d16aef7d6e18632528dddf1a6f70715531dc5bc53ade5e79fce8b94e9b9aa0e",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -448,7 +448,7 @@
     "src/nextai_autoresearch/predictive_state_core.py": "5ef38f51147dbc691080b23d771fee890b008db4c0135f5988f5002f4c17df52",
     "src/nextai_autoresearch/program_search.py": "88a4b41a38ba250610ab1165944f5e275a7042cbab2d1af0f9afc6aa9b817a8a",
     "src/nextai_autoresearch/reaction_core.py": "bd4bb4a1d449fc4299df28878f3470326e2eb59a602b2fcde3ba26415324e362",
-    "src/nextai_autoresearch/report.py": "1a033356146d1248a32eecc103f8d5d4eb49cfc92c69d40c206cad532c5ab31d",
+    "src/nextai_autoresearch/report.py": "e389b22205b752c06c88ed7e02dc1e32dbfb950ff85e064521ae2768874c81de",
     "src/nextai_autoresearch/repository_sequence_contract.py": "8014ed43e6020184ea04e96ec474a247069cc2326c187e8bb15ae40c917e5907",
     "src/nextai_autoresearch/runner.py": "3bb954e555a14ab3754f2df8349bbbf45879548c2df358c9967561cfad8b8186",
     "src/nextai_autoresearch/schemas.py": "37eb7fd22425b05a53bc93267b0d4bf542948ef0b624d5ea76c39d3d590b1dd2",
@@ -514,7 +514,7 @@
     "tests/test_program_library_identifiable.py": "e1de767a065c3f8429ac32a2b9a20ce960ea684ae9000fc0ce3f36ec9aacfc17",
     "tests/test_protocol_v2.py": "0441f1d62ebefdca35226bf47a52f0af64acb16f07b3fa50ac2cb52c3fcb73b2",
     "tests/test_raw_byte_motif_composition.py": "22d6b385d34ec784888e7f5ec9b76690ba3814dd42e0f15f66f876ac8aec670f",
-    "tests/test_report_pareto_provenance.py": "ef70a886b911906f73418cdc2d847f47d90854f0accc8824dffabc5c454ff6cb",
+    "tests/test_report_pareto_provenance.py": "28e8bb7d047f8fa536179de891c2ff6597e9e14cda93605a3515a4a6cb303f13",
     "tests/test_routed_vsa_capacity_scaling.py": "3022c3d90620080e681f4f109133a67d925fa9017e14805ccb2824f862d5817b",
     "tests/test_runner_postseed_durability.py": "abf68a4e14883a1efe4915e019bdabd032de896b04464c0d045b73cc637be51c",
     "tests/test_semantic_reaction_composition.py": "a9d73e5a9c446d4642daabe5def64658ee8bd7d7cd9ddc605f651b0a9b93d4d0",

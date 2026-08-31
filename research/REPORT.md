@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-08-31T16:37:57Z
+Generated: 2026-08-31T16:45:04Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -356,10 +356,10 @@ Pareto axes: maximize `exact_span_accuracy`; minimize `bits_per_byte, worst_span
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
 | EXP-20260830-0053 | iterative_masked_learner | implementable | complete | 0.1867 | 1 | 3817 | 674.7 | 1.324e+06 | 8.276e+07 | 0 (2; screening) | 526848 |  |
-| EXP-20260830-0053 | one_pass_masked_learner | implementable | complete | 0.193 | 1 | 1798 | 184 | 5.734e+05 | 3.935e+07 | 0 (2; screening) | 526848 |  |
-| EXP-20260830-0053 | uniform_masked_byte | implementable | complete | 0.002604 | 1 | 863.3 | 674.7 | 129.3 | 1.92e+07 | 0 (2; screening) | 526848 |  |
-| EXP-20260830-0053 | empirical_unigram_masked_byte | implementable | complete | 0.1315 | 1 | 1452 | 674.7 | 2.649e+05 | 3.19e+07 | 0 (2; screening) | 526848 |  |
-| EXP-20260830-0053 | left_to_right_ppm_masked_byte | implementable | complete | 0.203 | 1 | 1.15e+04 | 674.7 | 4.768e+06 | 2.481e+08 | 0 (2; screening) | 1.43851e+06 |  |
+| EXP-20260830-0053 | one_pass_masked_learner | implementable | complete | 0.193 | 1 | 1798 | 184 | 5.734e+05 | 3.935e+07 | 0 (2; screening) | 526848 | yes |
+| EXP-20260830-0053 | uniform_masked_byte | implementable | complete | 0.002604 | 1 | 863.3 | 674.7 | 129.3 | 1.92e+07 | 0 (2; screening) | 526848 | yes |
+| EXP-20260830-0053 | empirical_unigram_masked_byte | implementable | complete | 0.1315 | 1 | 1452 | 674.7 | 2.649e+05 | 3.19e+07 | 0 (2; screening) | 526848 | yes |
+| EXP-20260830-0053 | left_to_right_ppm_masked_byte | implementable | complete | 0.203 | 1 | 1.15e+04 | 674.7 | 4.768e+06 | 2.481e+08 | 0 (2; screening) | 1.43851e+06 | yes |
 | EXP-20260830-0053 | context_tree_weighting_masked_byte | implementable | complete | 0.1715 | 1 | 1.15e+04 | 674.7 | 4.768e+06 | 2.481e+08 | 0 (2; screening) | 652328 |  |
 | EXP-20260830-0053 | dense_autoregressive_masked_byte | implementable | complete | 0.1455 | 1 | 1.15e+04 | 674.7 | 4.768e+06 | 2.481e+08 | 0 (2; screening) | 1.83757e+06 |  |
 | EXP-20260830-0053 | bidirectional_markov_masked_byte | implementable | complete | 0.1634 | 1 | 3.036e+05 | 674.7 | 1.356e+08 | 6.529e+09 | 0 (2; screening) | 526848 |  |
@@ -480,10 +480,10 @@ Pareto axes: maximize `stable_rollout_rate`; minimize `normalized_rmse, worst_fi
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
-| EXP-20260831-0006 | wt_candidate_under_test | implementable | complete | 0.5979 | 1 | 2.256e+04 | 321 | 2.406e+04 | 1.668e+07 | 0 (3) | 16896 |  |
-| EXP-20260831-0006 | wt_persistence_v1 | implementable | complete | 0.4816 | 1 | 960 | 321 | 1.024e+04 | 7.599e+06 | 0 (3) | 0 |  |
-| EXP-20260831-0006 | wt_pooled_mean_v1 | implementable | complete | 0.4882 | 1 | 960 | 321 | 1.024e+04 | 7.61e+06 | 0 (3) | 2560 |  |
-| EXP-20260831-0006 | wt_control_level_bank_v1 | implementable | complete | 0.4988 | 1 | 1920 | 321 | 1.024e+04 | 7.887e+06 | 0 (3) | 10240 |  |
+| EXP-20260831-0006 | wt_candidate_under_test | implementable | complete | 0.5979 | 1 | 2.256e+04 | 321 | 2.406e+04 | 1.668e+07 | 0 (3) | 16896 | yes |
+| EXP-20260831-0006 | wt_persistence_v1 | implementable | complete | 0.4816 | 1 | 960 | 321 | 1.024e+04 | 7.599e+06 | 0 (3) | 0 | yes |
+| EXP-20260831-0006 | wt_pooled_mean_v1 | implementable | complete | 0.4882 | 1 | 960 | 321 | 1.024e+04 | 7.61e+06 | 0 (3) | 2560 | yes |
+| EXP-20260831-0006 | wt_control_level_bank_v1 | implementable | complete | 0.4988 | 1 | 1920 | 321 | 1.024e+04 | 7.887e+06 | 0 (3) | 10240 | yes |
 | EXP-20260831-0006 | wt_lms_v1 | implementable | complete | 0.4237 | 1 | 6.144e+04 | 321 | 9.216e+04 | 2.573e+07 | 0 (3) | 253952 |  |
 | EXP-20260831-0006 | wt_rls_v1 | implementable | complete | 0.4251 | 1 | 6.144e+04 | 321 | 1.004e+05 | 2.58e+07 | 0 (3) | 270336 |  |
 | EXP-20260831-0006 | wt_transition_bank_v1 | implementable | complete | 0.49 | 1 | 2040 | 321 | 1.237e+04 | 7.944e+06 | -6.39e-31 (3) | 105168 |  |

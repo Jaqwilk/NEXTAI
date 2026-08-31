@@ -19,6 +19,10 @@ def _fmt(value: Any, digits: int = 4) -> str:
     return str(value)
 
 
+def _is_loss_benchmark(benchmark: str) -> bool:
+    return benchmark.startswith(("heldout_parallel_masked_", "heldout_wt_changepoints_"))
+
+
 def _cohort_pareto_contract(
     cohort: list[dict[str, Any]],
 ) -> tuple[list[str], list[str], str | None]:
@@ -112,6 +116,7 @@ def write_report(root: Path | None = None) -> Path:
         lines.extend(["No completed experiment results yet.", ""])
     minimum_accuracy = float(config.raw["decision"]["minimum_screen_accuracy"])
     for (benchmark, budget), cohort in sorted(grouped.items()):
+        loss_cohort = _is_loss_benchmark(benchmark)
         eligible = [
             row
             for row in cohort
@@ -119,7 +124,8 @@ def write_report(root: Path | None = None) -> Path:
             and row.get("scientifically_valid", True)
             and row.get("candidate_status") == "complete"
             and row.get("status") == "complete"
-            and float(row.get("accuracy") or 0.0) >= minimum_accuracy
+            and row.get("accuracy") is not None
+            and (loss_cohort or float(row["accuracy"]) >= minimum_accuracy)
             and not row["is_privileged"]
         ]
         maximize, minimize, contract_problem = _cohort_pareto_contract(cohort)

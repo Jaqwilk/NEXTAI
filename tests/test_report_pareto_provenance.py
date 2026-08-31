@@ -1,6 +1,8 @@
 from types import SimpleNamespace
 
 from nextai_autoresearch import report
+from nextai_autoresearch.config import load_config
+from nextai_autoresearch.utils import project_root
 
 
 UNIVERSAL = {
@@ -73,3 +75,66 @@ def test_report_refuses_missing_or_inconsistent_immutable_contracts() -> None:
     ])
     assert (maximize, minimize) == ([], [])
     assert problem == "inconsistent immutable pareto_metrics across experiments"
+
+
+def test_exp_0006_loss_frontier_is_rendered_from_immutable_result(
+    tmp_path, monkeypatch
+) -> None:
+    root = project_root()
+    rows = [
+        row for row in report.collect_rows(root)
+        if row["experiment_id"] == "EXP-20260831-0006"
+    ]
+    expected = {
+        "wt_candidate_under_test",
+        "wt_persistence_v1",
+        "wt_pooled_mean_v1",
+        "wt_control_level_bank_v1",
+    }
+    (tmp_path / "research").mkdir()
+    monkeypatch.setattr(report, "collect_rows", lambda unused: rows)
+    monkeypatch.setattr(report, "invalid_experiment_ids", lambda unused: set())
+    monkeypatch.setattr(report, "load_config", lambda unused: load_config(root))
+
+    rendered = report.write_report(tmp_path).read_text(encoding="utf-8")
+    marked = {
+        line.split(" | ")[1]
+        for line in rendered.splitlines()
+        if line.startswith("| EXP-20260831-0006 |") and line.endswith("| yes |")
+    }
+    assert marked == expected
+
+
+def test_loss_report_excludes_invalid_incomplete_and_privileged_rows(
+    tmp_path, monkeypatch
+) -> None:
+    complete = {
+        **_row("EXP-complete"),
+        "benchmark": "heldout_parallel_masked_infilling_v2",
+        "candidate": "complete_loss_candidate",
+        "accuracy": 0.5,
+    }
+    rows = [
+        complete,
+        {**complete, "experiment_id": "EXP-invalid", "candidate": "invalid", "scientifically_valid": False},
+        {**complete, "experiment_id": "EXP-timeout", "candidate": "timeout", "candidate_status": "timeout"},
+        {**complete, "experiment_id": "EXP-privileged", "candidate": "privileged_control", "is_privileged": True},
+    ]
+    (tmp_path / "research").mkdir()
+    monkeypatch.setattr(report, "collect_rows", lambda unused: rows)
+    monkeypatch.setattr(report, "invalid_experiment_ids", lambda unused: {"EXP-invalid"})
+    monkeypatch.setattr(
+        report,
+        "load_config",
+        lambda unused: SimpleNamespace(raw={"decision": {
+            "minimum_screen_accuracy": 0.95, "minimum_scaling_points": 3,
+        }}),
+    )
+
+    rendered = report.write_report(tmp_path).read_text(encoding="utf-8")
+    marked = [
+        line for line in rendered.splitlines()
+        if line.startswith("| EXP-") and line.endswith("| yes |")
+    ]
+    assert len(marked) == 1
+    assert "complete_loss_candidate" in marked[0]

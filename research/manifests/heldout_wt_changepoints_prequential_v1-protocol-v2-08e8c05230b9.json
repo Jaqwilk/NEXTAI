@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_wt_changepoints_prequential_v1",
   "candidate_bundle_sha256": "5af42b37621c335f008a44a30885a4611bcc59407f72f69c2954351bc7606021",
-  "created_at": "2026-08-31T16:50:12Z",
-  "evaluator_sha256": "e2249a64b9c0a5b477cd2652cdae23af6f142c8744b70efca7b94615ee854012",
+  "created_at": "2026-08-31T16:46:45Z",
+  "evaluator_sha256": "303607c513778ad18a5b93bbd07aaa740e13778f02da2e4a8640f714a66f23e2",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -514,7 +514,7 @@
     "tests/test_program_library_identifiable.py": "e1de767a065c3f8429ac32a2b9a20ce960ea684ae9000fc0ce3f36ec9aacfc17",
     "tests/test_protocol_v2.py": "0441f1d62ebefdca35226bf47a52f0af64acb16f07b3fa50ac2cb52c3fcb73b2",
     "tests/test_raw_byte_motif_composition.py": "22d6b385d34ec784888e7f5ec9b76690ba3814dd42e0f15f66f876ac8aec670f",
-    "tests/test_report_pareto_provenance.py": "ef70a886b911906f73418cdc2d847f47d90854f0accc8824dffabc5c454ff6cb",
+    "tests/test_report_pareto_provenance.py": "01b01b27e9e65d4d4b3c8895f6be84351f1bf6f51f5877c68682dbbd0a48cedb",
     "tests/test_routed_vsa_capacity_scaling.py": "3022c3d90620080e681f4f109133a67d925fa9017e14805ccb2824f862d5817b",
     "tests/test_runner_postseed_durability.py": "abf68a4e14883a1efe4915e019bdabd032de896b04464c0d045b73cc637be51c",
     "tests/test_semantic_reaction_composition.py": "a9d73e5a9c446d4642daabe5def64658ee8bd7d7cd9ddc605f651b0a9b93d4d0",
