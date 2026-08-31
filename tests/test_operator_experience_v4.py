@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from argparse import Namespace
+from copy import deepcopy
 
 from nextai_autoresearch import cli
 from nextai_autoresearch.benchmarks import heldout_mechanism_recombination_v4 as bench
+from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.schemas import validate_document
 from nextai_autoresearch.utils import project_root
 from nextai_autoresearch.operator_experience_contract import Query, canonical_table
@@ -65,6 +67,10 @@ def test_all_mandatory_controls_complete_tiny_real_evaluator_cell() -> None:
 
 def test_v4_plan_generator_freezes_three_exposure_counts_and_all_controls(monkeypatch) -> None:
     captured = {}
+    configured = load_config()
+    raw = deepcopy(configured.raw)
+    raw["project"]["benchmark_version"] = "heldout_mechanism_recombination_v5"
+    monkeypatch.setattr(cli, "load_config", lambda root: ResearchConfig(raw, configured.path))
     monkeypatch.setattr(cli, "ensure_layout", lambda root: None)
     monkeypatch.setattr(cli, "ensure_can_create_plan", lambda root: None)
     monkeypatch.setattr(cli, "latest_hypotheses", lambda root: {"HYP-9999": {}})
