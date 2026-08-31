@@ -1,0 +1,186 @@
+{
+  "alternative_explanations": [
+    "A small behavioral probe set may collide on the unseen near operator and cause false reuse.",
+    "Exact canonical-table caching or direct interpretation may remain cheaper once probe acquisition, cache compilation and state are fully charged."
+  ],
+  "architecture_family": "counterexample_learned_operator_compilation",
+  "benchmark": "heldout_mechanism_recombination_v5",
+  "budget": "quick",
+  "candidates": [
+    "experience_operator_compiler",
+    "experience_operator_independent",
+    "experience_operator_no_pairing",
+    "operator_interpreter",
+    "operator_exact_key_cache",
+    "operator_structural_result_cache",
+    "operator_canonical_table_cache",
+    "operator_anti_unification_cache",
+    "operator_nearest_canonical",
+    "operator_random"
+  ],
+  "confounds": [
+    "The evaluator exposes executable finite tables, so success could be finite-domain amortization rather than open-world representation discovery.",
+    "One runner-random seed estimates no seed variance and the local-visible synthetic cohort is screening evidence only."
+  ],
+  "created_at": "2026-08-31T22:55:13Z",
+  "evaluator_sha256": "62a12fd340bfb536ad37c9cf02930cf839b88d75c20440078385dbf2d73b1db4",
+  "experiment_id": "EXP-20260901-0003",
+  "falsification_criteria": [
+    "Discard if any shared warm, near-equivalent, new-fact or retention accuracy is below 1, or false reuse is nonzero, in any cell.",
+    "Discard unless shared mean warm query operations strictly decrease from exposure 1 to 4 and from 4 to 16 at each K without increasing with K.",
+    "Discard if either source-identical ablation matches the full qualitative conjunction, state exceeds 4194304 bytes, or an implementable control Pareto-dominates shared after full cost.",
+    "Invalidate on evaluator, manifest, preflight, baseline or source-identity mismatch; primitive labels, target leakage, post-score tuning, external model/API use, or omitted cost."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "543b984d772b92c8a5fcb4db2dd2f8927b0fc7e6",
+    "dirty": false
+  },
+  "hypothesis_id": "HYP-0030",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "mechanism_recombination_protocol": {
+    "classical_baselines": [
+      "operator_interpreter",
+      "operator_exact_key_cache",
+      "operator_structural_result_cache",
+      "operator_canonical_table_cache",
+      "operator_anti_unification_cache",
+      "operator_nearest_canonical",
+      "operator_random"
+    ],
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "equal_public_shapes": true,
+    "heldout_compositions": [
+      "CBAC"
+    ],
+    "independent_ablation": "experience_operator_independent",
+    "invalidation_rules": [
+      "Invalidate on any overlap between the length-one/two training programs and the held-out length-four composition.",
+      "Invalidate if primitive labels, native source families or evaluator canonical tables reach an implementable candidate.",
+      "Invalidate unless positive re-encodings are raw-distinct and exact-equivalent and pair-breaking negatives change the operator.",
+      "Invalidate if scoring conjugation or any runner-random program is realized before integrity and source audit.",
+      "Invalidate on target access before prediction, post-score tuning, state-budget breach or evaluator-integrity change.",
+      "Invalidate if exposure 1, 4 and 16 costs are extrapolated instead of measured through fresh re-encodings."
+    ],
+    "mechanism_source_seed": 1103,
+    "no_cross_mechanism_ablation": "experience_operator_no_pairing",
+    "pareto_capability_metrics": [
+      "accuracy",
+      "warm_accuracy",
+      "near_equivalent_accuracy",
+      "minimum_combination_accuracy",
+      "continual_new_fact_accuracy",
+      "continual_retention",
+      "false_reuse_rate",
+      "data_acquisition_ops",
+      "fit_ops",
+      "meta_fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "runner_random_state_conjugation": true,
+    "shared_candidate": "experience_operator_compiler",
+    "source_mechanisms": [
+      "program_table",
+      "predictive_transition_outcome",
+      "local_dynamics_rule"
+    ],
+    "state_budget_bytes": 4194304,
+    "state_count": 144,
+    "train_compositions": [
+      "A",
+      "B",
+      "C",
+      "AB",
+      "BC",
+      "CA"
+    ]
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "false_reuse_rate": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_combination_accuracy": "maximize",
+    "near_equivalent_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "reuse_coverage": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify this exact counterexample-probe compiler and end the direction without tuning.",
+    "null": "Return HYP-0030 to dormant and do not vary probe count, cache thresholds or fingerprint rule.",
+    "positive": "Keep only as a scout-selected mechanism and design an unchanged stronger adversarial replication; do not promote or tune."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Shared compiler is exact on warm, near-equivalent, mutation and retention checks with zero false reuse in all nine K-by-exposure cells; its warm operations strictly fall from exposure 1 to 4 to 16 at every K, remain bounded with K, and are Pareto non-dominated.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "minimum_combination_accuracy",
+    "false_reuse_rate",
+    "reuse_coverage",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "A one-seed visible synthetic scout cannot promote or mark promising; a conjunctive positive can only select the unchanged mechanism for a later stronger preregistered cohort."
+  ],
+  "research_question": "Can labeled behavioral counterexamples teach one anonymous compiler a bounded reusable fingerprint that preserves exactness and lowers warm inference work with experience on an unseen length-four composition?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Counterexample-learned operator compiler v5 quick"
+}
