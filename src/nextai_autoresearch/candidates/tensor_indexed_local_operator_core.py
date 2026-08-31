@@ -159,6 +159,8 @@ class IndexedLocalOperator:
                 prediction = np.r_[1.0, current] @ weights[:, :output_width]
             else:
                 prediction = current[controls:controls + output_width]
+                if len(prediction) < output_width:
+                    prediction = np.pad(prediction, (0, output_width - len(prediction)))
             stable = bool(np.isfinite(prediction).all() and np.max(np.abs(prediction), initial=0.0) <= 1e6)
             self.last_stable = self.last_stable and stable
             prediction = np.clip(np.nan_to_num(prediction, nan=0.0, posinf=1e6, neginf=-1e6), -1e6, 1e6)

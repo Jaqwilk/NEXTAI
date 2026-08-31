@@ -277,12 +277,13 @@ def _continuous_transfer_promotion_problems(
     if result.get("benchmark") not in {
         "heldout_three_family_continuous_transfer_v2",
         "heldout_three_family_continuous_transfer_v3",
+        "heldout_three_family_continuous_transfer_v4",
     }:
         return []
     protocol = plan.get("continuous_transfer_protocol", {})
     shared = str(protocol.get("shared_candidate", ""))
     if candidate_name != shared:
-        return ["three-family v2/v3 can promote only its shared candidate"]
+        return ["three-family v2/v3/v4 can promote only its shared candidate"]
     candidates = {str(item.get("candidate")): item for item in result.get("candidates", ())}
     metric_sources = {
         "shared_vs_independent_gain": shared,

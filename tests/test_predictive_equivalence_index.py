@@ -5,6 +5,9 @@ import importlib
 import numpy as np
 
 from nextai_autoresearch.audit import audit_candidate
+from nextai_autoresearch.benchmarks.heldout_three_family_continuous_transfer_v1 import (
+    FAMILIES, _assignment, build_worlds,
+)
 from nextai_autoresearch.config import load_config
 from nextai_autoresearch.candidates.predictive_equivalence_index_core import (
     Candidate, REPRESENTATION_RIDGE,
@@ -97,3 +100,32 @@ def test_query_work_is_fixed_across_dormant_knowledge() -> None:
         assert prediction.shape == (50, 32) and np.isfinite(prediction).all()
         observed.append((candidate.last_ops, candidate.last_bytes_touched))
     assert len(set(observed)) == 1
+
+
+def test_real_file_full_width_empty_bucket_fallback_is_output_safe() -> None:
+    training, testing = build_worlds(4, 1, 1_500_003)
+    family = "continuous_event"
+    world = testing[family][0]
+    assert int(world.history.mask.any(axis=0).sum()) == 32
+    assert int(world.future_public.mask.any(axis=0).sum()) == 32
+    assert int(world.output.mask.any(axis=0).sum()) >= 1
+
+    roles = {"tensor_random_projection_hash_v1": "shared", **dict(zip(ROLES, (
+        "shared", "independent", "cross_family_only", "support_only",
+    )))}
+    for name, role in roles.items():
+        candidate = importlib.import_module(
+            f"nextai_autoresearch.candidates.{name}"
+        ).Candidate(41)
+        candidate.fit(Training(_assignment(role, family, training)))
+        session = candidate.adapt(world.support_input, world.support_target)
+        bucket_id = candidate._bucket(
+            world.history.values[-1], session["input_mask"], session
+        )
+        bucket = session["buckets"][bucket_id]
+        for key in ("x", "y", "xm", "ym"):
+            bucket[key] = bucket[key][:0]
+        assert len(bucket["x"]) == 0
+        prediction = candidate.predict(session, world.history, world.future_public)
+        assert prediction.shape == (50, 32)
+        assert np.isfinite(prediction).all()

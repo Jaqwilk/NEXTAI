@@ -288,3 +288,19 @@ work are charged. Candidate code may not read family labels, native types, paths
 channel names or test outputs. Semantic conformance includes a future-equivalence counterexample
 to raw proximity plus slot relabeling, world-order and consistent channel-permutation fixtures.
 V3 was activated in a service-only cycle with no hypothesis, plan, scoring seed or scored result.
+
+## Three-family continuous transfer v4 empty-bucket contract
+
+Version 4 is a maintenance-only successor to v3. It preserves every real world, split, anonymous
+tensor, training-only normalization, learner bit, target moment, bucket count and cap, local ridge
+operator, support update, metric, direction, threshold, K value, budget, seed policy, Pareto axis
+and causal promotion gate. Historical v3 and EXP-20260831-0004 remain immutable and cohort-separated.
+
+V4 corrects only the inherited fallback when a selected index bucket has no stored rows and all
+32 current input coordinates are evaluator-public controls. The fallback is the same padded
+persistence rule already used by the tensor baseline: copy any mechanically available trailing
+state coordinates and zero-pad the remainder to the declared output width. It never reads a target,
+changes a bucket key or operator, or adds fit/query dependence on dormant knowledge. Before a seed
+can be realized, a real-file continuous-event fixture with 32 visible input/control coordinates,
+at least one required output coordinate and a deliberately emptied selected bucket must complete
+for the true random-hash control and all four source-identical predictive-index roles.

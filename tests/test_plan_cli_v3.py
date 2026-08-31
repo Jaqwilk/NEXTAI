@@ -3,7 +3,7 @@ from argparse import Namespace
 from nextai_autoresearch import cli
 
 
-def test_plan_new_emits_v3_pareto_contract(monkeypatch) -> None:
+def test_plan_new_emits_v4_pareto_contract(monkeypatch) -> None:
     captured = {}
     monkeypatch.setattr(cli, "ensure_layout", lambda root: None)
     monkeypatch.setattr(cli, "ensure_can_create_plan", lambda root: None)
@@ -29,8 +29,8 @@ def test_plan_new_emits_v3_pareto_contract(monkeypatch) -> None:
         "tensor_random_projection_hash_v1", "privileged_tensor_support_v1",
     ]
     cli.command_plan_new(Namespace(
-        hypothesis="HYP-9999", parent=None, title="v3 synthesis regression",
-        question="Does v3 retain the universal Pareto contract?", family="test",
+        hypothesis="HYP-9999", parent=None, title="v4 synthesis regression",
+        question="Does v4 retain the universal Pareto contract?", family="test",
         candidates=candidates, budget="quick", primary_metric=metrics,
         prediction="No score; schema synthesis regression only.",
         kill_criterion=["Reject malformed protocol."],
@@ -43,6 +43,7 @@ def test_plan_new_emits_v3_pareto_contract(monkeypatch) -> None:
     ))
 
     protocol = captured["plan"]["continuous_transfer_protocol"]
+    assert captured["plan"]["benchmark"] == "heldout_three_family_continuous_transfer_v4"
     assert protocol["causal_promotion_gates"] == [
         "shared_vs_independent_gain", "cross_family_transfer_gain"
     ]
