@@ -1,0 +1,220 @@
+{
+  "artifact": "three_family_predictive_index_noise_floor_v1",
+  "benchmark": "heldout_three_family_continuous_transfer_v3",
+  "bootstraps_per_seed_and_cell": 512,
+  "created_at": "2026-08-31T12:14:37Z",
+  "cross_family_transfer_gain_minimum_effect": 0.03806855146519833,
+  "deterministic_repeat_match": true,
+  "development_seeds": [
+    1103,
+    2207,
+    3301
+  ],
+  "development_world_scores": {
+    "continuous_event/K4": [
+      0.49266348007205996,
+      0.4438995058285235,
+      0.4314125909162382,
+      0.44005597043582784
+    ],
+    "continuous_event/K6": [
+      0.49618814819453566,
+      0.4470753012772701,
+      0.43449905108295206,
+      0.44320426803416696,
+      0.461634087746808,
+      0.5105206224224037
+    ],
+    "continuous_event/K9": [
+      0.49481608324113757,
+      0.44583904371117455,
+      0.43329756950294074,
+      0.4419787146919946,
+      0.4603575720634003,
+      0.5091089251528064,
+      0.41052047717658413,
+      0.3719427447024627,
+      0.4694913975015251
+    ],
+    "dronepropa/K4": [
+      0.8106214703780599,
+      0.7658090984933825,
+      0.7943527719932963,
+      0.8265212293203379
+    ],
+    "dronepropa/K6": [
+      0.7977237075041949,
+      0.7544909818515382,
+      0.7812972940098267,
+      0.8096577700567197,
+      0.7685650051941729,
+      0.7316526488809911
+    ],
+    "dronepropa/K9": [
+      0.7906457025375099,
+      0.7509916376037529,
+      0.781704706077718,
+      0.8017367709516403,
+      0.7618374844709499,
+      0.7318566561419663,
+      0.756658126602039,
+      0.7656486376840352,
+      0.7297874620826709
+    ],
+    "ncmapss_ds08a/K4": [
+      0.05497339762497926,
+      0.07584926946680187,
+      0.054941549130432095,
+      0.012792090747312345
+    ],
+    "ncmapss_ds08a/K6": [
+      0.05888766343197671,
+      0.08115872996667048,
+      0.05885415984838023,
+      0.013422755121481013,
+      0.013423789116364038,
+      0.05893029774894376
+    ],
+    "ncmapss_ds08a/K9": [
+      0.06100497704908708,
+      0.08414884855465424,
+      0.060968142479430734,
+      0.013320071404903811,
+      0.013321238123353589,
+      0.06105528700795054,
+      0.02000546892421476,
+      0.02705683544697436,
+      0.08500589197337126
+    ]
+  },
+  "forbidden_inputs": [
+    "EXP-20260831-0001",
+    "EXP-20260831-0002",
+    "EXP-20260831-0003",
+    "runner scoring seeds",
+    "v3 test worlds"
+  ],
+  "input_identity": [
+    {
+      "declared_files": {
+        "A_dev.npy": {
+          "bytes": 39083240,
+          "dtype": "int16",
+          "max_absolute_cast_error": 0.0,
+          "max_scaled_cast_error": 0.0,
+          "sha256": "720c93e8e05a7d79a801ec574e56843a8feb991d6bb2482f60f53efa0f7c0c11",
+          "shape": [
+            4885389,
+            4
+          ]
+        },
+        "A_test.npy": {
+          "bytes": 29784104,
+          "dtype": "int16",
+          "max_absolute_cast_error": 0.0,
+          "max_scaled_cast_error": 0.0,
+          "sha256": "fb000fccf3c00035ac820f704be0f120ebd6f281295e90fefebd9086a94577ce",
+          "shape": [
+            3722997,
+            4
+          ]
+        },
+        "W_dev.npy": {
+          "bytes": 78166352,
+          "dtype": "float32",
+          "max_absolute_cast_error": 3.0517455570588936e-05,
+          "max_scaled_cast_error": 5.9583475484201415e-08,
+          "sha256": "7ad1b15123fc3d1ef47ce1b584493203ea87398c843dcc77dd15ae08a7b71238",
+          "shape": [
+            4885389,
+            4
+          ]
+        },
+        "W_test.npy": {
+          "bytes": 59568080,
+          "dtype": "float32",
+          "max_absolute_cast_error": 3.0517560276166478e-05,
+          "max_scaled_cast_error": 5.9575553636026945e-08,
+          "sha256": "cbbf40b443732d69e468e07c80eb2f3af5b9b27d46cf985816641f8684054a47",
+          "shape": [
+            3722997,
+            4
+          ]
+        },
+        "X_s_dev.npy": {
+          "bytes": 273581912,
+          "dtype": "float32",
+          "max_absolute_cast_error": 0.00048828116996446624,
+          "max_scaled_cast_error": 5.9597814919333366e-08,
+          "sha256": "7c4cdf93ad7267b1c65f8660e1deb451ce8091e104153f5702e0c70b5f739d19",
+          "shape": [
+            4885389,
+            14
+          ]
+        },
+        "X_s_test.npy": {
+          "bytes": 208487960,
+          "dtype": "float32",
+          "max_absolute_cast_error": 0.00048828080980456434,
+          "max_scaled_cast_error": 5.959807531748752e-08,
+          "sha256": "67bcc25e07ffc6f4b8a7141dbbd23fe00279db4e5ac3c2d19369d26d279a3754",
+          "shape": [
+            3722997,
+            14
+          ]
+        }
+      },
+      "path": "research/data/ncmapss_ds08a_portable_v1/manifest.json",
+      "sha256": "b6230349d186c159faf19af2539627dc0d472f4d0917cf2ef5ce81e73f29e66e"
+    }
+  ],
+  "knowledge_sizes": [
+    4,
+    6,
+    9
+  ],
+  "method": "independent world-level bootstrap null on fixed persistence-resolution scores",
+  "minimum_nrmse_advantage": 0.03806855146519833,
+  "minimum_nrmse_advantage_applies_individually_to": [
+    "tensor_raw_window_local_linear_v1",
+    "tensor_random_projection_hash_v1",
+    "tensor_persistence_v1"
+  ],
+  "null_quantile": 0.95,
+  "parent_development_extractor_sha256": "989af718bd40cac9fa45c4186d0e47f9f9bb9d5f4bace829c3f5ed0c058f2a13",
+  "per_cell_null_p95": {
+    "continuous_event/K4/seed1103": 0.030625444577910832,
+    "continuous_event/K4/seed2207": 0.030625444577910887,
+    "continuous_event/K4/seed3301": 0.031586328426084775,
+    "continuous_event/K6/seed1103": 0.03272030098134271,
+    "continuous_event/K6/seed2207": 0.03327101296738144,
+    "continuous_event/K6/seed3301": 0.031644322094865784,
+    "continuous_event/K9/seed1103": 0.03806855146519833,
+    "continuous_event/K9/seed2207": 0.03508732327099434,
+    "continuous_event/K9/seed3301": 0.036623053991068244,
+    "dronepropa/K4/seed1103": 0.033424809192265204,
+    "dronepropa/K4/seed2207": 0.03126226137025967,
+    "dronepropa/K4/seed3301": 0.030356065413477684,
+    "dronepropa/K6/seed1103": 0.02998677601569344,
+    "dronepropa/K6/seed2207": 0.03187948077322167,
+    "dronepropa/K6/seed3301": 0.029941133597522263,
+    "dronepropa/K9/seed1103": 0.021399146810217817,
+    "dronepropa/K9/seed2207": 0.021503862379237293,
+    "dronepropa/K9/seed3301": 0.02151130259622469,
+    "ncmapss_ds08a/K4/seed1103": 0.03153655148338155,
+    "ncmapss_ds08a/K4/seed2207": 0.03153655148338156,
+    "ncmapss_ds08a/K4/seed3301": 0.031628018034613396,
+    "ncmapss_ds08a/K6/seed1103": 0.026456471230349214,
+    "ncmapss_ds08a/K6/seed2207": 0.03014328101757134,
+    "ncmapss_ds08a/K6/seed3301": 0.030168832650239695,
+    "ncmapss_ds08a/K9/seed1103": 0.025577584960456805,
+    "ncmapss_ds08a/K9/seed2207": 0.024580699219032935,
+    "ncmapss_ds08a/K9/seed3301": 0.025298451511378994
+  },
+  "schema_version": 1,
+  "scope": "development training-role worlds only; no v3 test world, scored result or scoring seed access",
+  "script_sha256": "a31eecf656954d1a005e581c733d44cde36a8a3c706436ffdda5dc06f347b5e1",
+  "shared_vs_independent_gain_minimum_effect": 0.03806855146519833,
+  "world_score": "persistence NRMSE of training-role support targets after training-role scale normalization",
+  "worst_family_accuracy_tolerance": 0.008823017208322348
+}

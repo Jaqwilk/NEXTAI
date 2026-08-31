@@ -212,7 +212,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "declared_reuses": list(protocol["declared_reuses"]),
             "invalidation_rules": list(protocol["invalidation_rules"]),
         }
-        if config.benchmark_version.endswith("_v2"):
+        if config.benchmark_version.endswith(("_v2", "_v3")):
             plan["continuous_transfer_protocol"].update({
                 "pareto_capability_metrics": [
                     "transfer_accuracy", "minimum_family_accuracy",

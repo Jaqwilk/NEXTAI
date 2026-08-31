@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_three_family_continuous_transfer_v3",
   "candidate_bundle_sha256": "9c0200578f484919ee15f066e4ab88dc7656b2fcfe4ed0b2ff09a8dffb16eec5",
-  "created_at": "2026-08-31T12:24:48Z",
-  "evaluator_sha256": "6d721631f70dd384b0cd66c6b193df1a7f33842cde64332bac6c6efa925fa4d6",
+  "created_at": "2026-08-31T11:59:51Z",
+  "evaluator_sha256": "d8c0e482498d087f072959d3de7ee680af25c0e2f346c99f79a0865aa1614aa9",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -402,7 +402,7 @@
     "src/nextai_autoresearch/causal_adversarial_core.py": "0cc1e96741d37c5d4bf30e93de120295cd2abd7a65f6fb7bce539081947b74f5",
     "src/nextai_autoresearch/causal_core.py": "d6e44726970374cef3ce3575550894dc5bc40df7cfd3920655bd809cd14fa17c",
     "src/nextai_autoresearch/cellular_core.py": "d17bbc79aad8f32c6f72df0289600129cf54761ae6a4c46acb963ac04afd3404",
-    "src/nextai_autoresearch/cli.py": "f87e2ea33522096a197e122f74954c89bd9ba6aade405e3634f7de4d51f5081a",
+    "src/nextai_autoresearch/cli.py": "e703e056b433e619d86a29506698e10e694c6174651c5988b092b22f1bce061f",
     "src/nextai_autoresearch/config.py": "bd661f0d6bf936ea20ab53bd7f335ccc9e6e7acc2b88280c9d720f3636376650",
     "src/nextai_autoresearch/continuous_event_core.py": "7098ddca8eb6b52b5fe4f3a05ed967676be6ae513ab0dc62e07aa1d83c96c4b3",
     "src/nextai_autoresearch/cross_family_contract.py": "7a7100712b42a073db5139c5164573b9ff8bf062b5c40b5f95e58e9701ae45ff",
@@ -485,7 +485,6 @@
     "tests/test_opaque_alias_acquisition.py": "febfdb79a21285a32b341498a561e91d651042c6b6c7bb73a846e53f3d7ac734",
     "tests/test_operator_algebra_completion.py": "c95ad355bf8a4aab17e29233e0a403d3dce3ba7525649889aa1ca513b1adda99",
     "tests/test_parallel_masked_infilling.py": "36c2407891d8e7930bf9bd912d650bc95da11e144e00fab55a227ab4aef73eba",
-    "tests/test_plan_cli_v3.py": "5ca3f534bb2ca7dcd76746ab4748faba39de27d01eb67a9b26b7506ad198e49d",
     "tests/test_pointer_machine_composition.py": "eee79afe28fc66639d3721737fbe30767b0b498cfebee1ed270138c891adcf84",
     "tests/test_preflight_contract.py": "f1cec13ad96d00b66ce570cada0578de069e05a4db657100dabbfb386a66c8cf",
     "tests/test_program_induction_whole_io.py": "6eb79494b17586ee7abb3cfeb28355cfd41d9d835754542a4b014f6c24487fd5",

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "generation": 1,
+  "cycle": 106,
+  "kind": "protected_service_only",
+  "benchmark": "heldout_three_family_continuous_transfer_v3",
+  "decision": "keep",
+  "hypothesis_created": false,
+  "plan_created": false,
+  "scoring_performed": false,
+  "defect": "v3 plan synthesis omitted required universal Pareto axes and causal promotion gates",
+  "correction": "apply the existing v2 continuous-transfer decision contract to v3 plan generation",
+  "scientific_semantics_changed": false,
+  "pytest_passed": 331,
+  "integrity_checked_files": 500,
+  "evaluator_sha256": "6d721631f70dd384b0cd66c6b193df1a7f33842cde64332bac6c6efa925fa4d6",
+  "candidate_bundle_sha256": "9c0200578f484919ee15f066e4ab88dc7656b2fcfe4ed0b2ff09a8dffb16eec5",
+  "manifest_sha256": "c341b89b146cc0e3d7aacf91a72571ebe0d7c6c19b981961959c48cf4579b243",
+  "preflight_certificate_sha256": "1c859f615eeef7ef27a20874f4aab9367b6c14217b510de65690ecdc97b0624f",
+  "development_threshold_artifact": "research/checks/three_family_predictive_index_noise_floor_v1.json",
+  "development_threshold_sha256": "6e6da320c92b39a1f427f1a0c19c7ae69c42e239c0df56d25c52679d500d7fab",
+  "next_experiment": "Next wake create HYP-0027 and preregister EXP-20260831-0004 quick at K=4/6/9; implement only after registration and run exactly one runner-random seed through the audited harness."
+}
