@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_mechanism_recombination_v5",
   "candidate_bundle_sha256": "727eda632cf916340916b4e8ceff7fb0dae176480bd96949371058c159c4e4b8",
-  "created_at": "2026-08-31T22:49:44Z",
-  "evaluator_sha256": "62a12fd340bfb536ad37c9cf02930cf839b88d75c20440078385dbf2d73b1db4",
+  "created_at": "2026-08-31T22:48:26Z",
+  "evaluator_sha256": "44d2e0a7cc406888e37baca07d412a2272a50a7fdb03eeea7a8c03993c981252",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -16,7 +16,7 @@
     "research/data/dronepropa_v1/acquisition.json": "f8a14fdc240aef5cc343316486345f3e86b0ef84b943b76034f3bcaf98d200a2",
     "research/data/dronepropa_v1/files.jsonl": "76a27c66b38b634cbee362a8a2af250b02b2a1dea44eb9328d1d731472b24f53",
     "schemas/experiment_plan.schema.json": "3a3f1ff73c37c6c5f2cd720b798f7370f9852033af75f81dad094a98db903133",
-    "schemas/experiment_result.schema.json": "a82f720ed0c6f32b99ae4761e582e831047aa9680de7fcfbc569f02c0ef0d74f",
+    "schemas/experiment_result.schema.json": "7dede71490ff672611ad4c168b8bf672214417a35043f4ca0945679d20b62180",
     "schemas/hypothesis.schema.json": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
     "schemas/research_state.schema.json": "f155fb268b3ef422b9e1547a450222c2bdf040ef7d2d28a9025eec8281bb41bd",
     "schemas/source.schema.json": "dbacf05397d719e2e8594af5c0061fc03b191df50f0985ea42b01d09464ae057",

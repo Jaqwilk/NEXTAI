@@ -1,0 +1,53 @@
+{
+  "benchmark_after": "heldout_mechanism_recombination_v5",
+  "benchmark_before": "heldout_mechanism_recombination_v4",
+  "candidate_bundle_sha256": "727eda632cf916340916b4e8ceff7fb0dae176480bd96949371058c159c4e4b8",
+  "cycle": 142,
+  "evaluator_sha256": "62a12fd340bfb536ad37c9cf02930cf839b88d75c20440078385dbf2d73b1db4",
+  "experiment_created": false,
+  "historical_invalid_experiment": "EXP-20260901-0002",
+  "historical_result_modified": false,
+  "hypothesis_created": false,
+  "integrity_files_verified": 553,
+  "manifest_sha256": "74805ebd4462df5677dad510d16542e12594cc6edb0c2cca0c294317e84a54aa",
+  "pareto_capability_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "minimum_combination_accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "false_reuse_rate",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "plan_created": false,
+  "preflight_certificate_sha256": "a56a4c911fdb4e4409b7dd0342f960b2e7178099885ed28f06422284d1db205f",
+  "pytest_passed": 383,
+  "reuse_coverage_is_diagnostic_only": true,
+  "same_run_suite_as_v4": true,
+  "same_static_control_gate_as_v4": true,
+  "schema_version": 1,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "semantic_baselines_passed": 7,
+  "service_only": true,
+  "summary_metric_added": "continual_new_fact_accuracy",
+  "universal_axes_complete_in_development_matrix": true,
+  "universal_frontier_contains": [
+    "operator_interpreter"
+  ],
+  "universal_frontier_excludes": [
+    "experience_operator_compiler"
+  ]
+}

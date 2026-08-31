@@ -58,6 +58,7 @@
         "reuse_precision": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
         "reuse_coverage": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
         "false_reuse_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "continual_new_fact_accuracy": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
         "continual_retention": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
         "conditional_probability_mae": {"type": ["number", "null"], "minimum": 0},
         "conditional_log_loss": {"type": ["number", "null"]},

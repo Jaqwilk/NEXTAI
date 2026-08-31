@@ -73,7 +73,8 @@ def test_v4_plan_generator_freezes_three_exposure_counts_and_all_controls(monkey
     monkeypatch.setattr(cli, "atomic_write_json", lambda path, value: captured.update(plan=value))
     monkeypatch.setattr(cli, "register_plan", lambda plan, path, root: "test-digest")
     metrics = [
-        "accuracy", "warm_accuracy", "near_equivalent_accuracy", "false_reuse_rate",
+        "accuracy", "warm_accuracy", "near_equivalent_accuracy",
+        "minimum_combination_accuracy", "false_reuse_rate",
         "continual_new_fact_accuracy", "continual_retention", "data_acquisition_ops",
         "fit_ops", "meta_fit_ops", "mean_query_ops", "mean_warm_query_ops",
         "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
@@ -100,4 +101,5 @@ def test_v4_plan_generator_freezes_three_exposure_counts_and_all_controls(monkey
     assert plan["matrix"]["reasoning_depths"] == [1, 4, 16]
     assert plan["matrix"]["queries_per_cell"] == 8
     assert plan["mechanism_recombination_protocol"]["classical_baselines"] == list(bench.BASELINES)
+    assert "reuse_coverage" not in plan["mechanism_recombination_protocol"]["pareto_capability_metrics"]
     validate_document("experiment_plan", plan, project_root())

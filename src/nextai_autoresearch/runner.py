@@ -364,7 +364,11 @@ def _frontier(
             continue
         rows.append({"candidate": candidate["candidate"], **summary})
     directions = plan.get("metric_directions", {})
-    protocol = plan.get("continuous_transfer_protocol", {}) or plan.get("wt_prequential_protocol", {})
+    protocol = (
+        plan.get("continuous_transfer_protocol", {})
+        or plan.get("wt_prequential_protocol", {})
+        or plan.get("mechanism_recombination_protocol", {})
+    )
     primary_metrics = list(
         protocol.get("pareto_capability_metrics", plan.get("primary_metrics", ()))
     )

@@ -428,43 +428,43 @@
       "baseline_id": "operator_interpreter_v1", "version": 1,
       "specification": {"input":"full anonymous operator term", "prediction":"recursive left-then-right table application", "cache":"none", "update":"no learned state"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_interpreter.py":"5787282e956fce41bf4a1202608345e3e3ecfa40bc2785adc61ab0b5850aac78", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"dbd1ad9ad664896c15034dd4b34ec082e98869f03e6c93aea224e7aa116ef347"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"00355fd63f92f76260f9acfdb0b21afa1bfd6411a2a9ef7e0ad9836c9d37c69d"}]
     },
     "operator_exact_key_cache": {
       "baseline_id": "operator_exact_key_cache_v1", "version": 1,
       "specification": {"key":"complete raw recursive term including node IDs", "miss":"compile exact composite table", "hit":"one table lookup"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_exact_key_cache.py":"bbbc4cb5db6db26d0bf6a5fed9b6c0ac602d56cb06af1682b2279dec2bf03b9a", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"dbd1ad9ad664896c15034dd4b34ec082e98869f03e6c93aea224e7aa116ef347"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"00355fd63f92f76260f9acfdb0b21afa1bfd6411a2a9ef7e0ad9836c9d37c69d"}]
     },
     "operator_structural_result_cache": {
       "baseline_id": "operator_structural_result_cache_v1", "version": 1,
       "specification": {"key":"ordered non-identity leaf tables after syntax flattening", "invariance":"node IDs and reassociation only", "fusion":"not invariant"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_structural_result_cache.py":"4450cf25dcbf42d51475eeeabef0879e9169efc99be3c30bb369345468817b2e", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"dbd1ad9ad664896c15034dd4b34ec082e98869f03e6c93aea224e7aa116ef347"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"00355fd63f92f76260f9acfdb0b21afa1bfd6411a2a9ef7e0ad9836c9d37c69d"}]
     },
     "operator_canonical_table_cache": {
       "baseline_id": "operator_canonical_table_cache_v1", "version": 1,
       "specification": {"key":"exact composed 144-state table", "normalization":"full table composition charged on every query", "invariance":"IDs reassociation identity insertion and adjacent fusion"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_canonical_table_cache.py":"93c6cd757781689b053be75a84d7a3d4c5cc7f467baa8a2af089c5ee73c129d4", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"dbd1ad9ad664896c15034dd4b34ec082e98869f03e6c93aea224e7aa116ef347"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"00355fd63f92f76260f9acfdb0b21afa1bfd6411a2a9ef7e0ad9836c9d37c69d"}]
     },
     "operator_anti_unification_cache": {
       "baseline_id": "operator_anti_unification_cache_v1", "version": 1,
       "specification": {"pattern":"first-order least-general generalization of flattened positive pairs", "negative_filter":"matching broken-pair patterns block reuse", "safety":"exact canonical verification before reuse"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_anti_unification_cache.py":"4e2358c043d9c017600c4c7c25a933c020cb73e7b4ede7042c49ce774b86661f", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_anti_unification_uses_labeled_pairs_and_never_merges_broken_pair","sha256":"dbd1ad9ad664896c15034dd4b34ec082e98869f03e6c93aea224e7aa116ef347"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_anti_unification_uses_labeled_pairs_and_never_merges_broken_pair","sha256":"00355fd63f92f76260f9acfdb0b21afa1bfd6411a2a9ef7e0ad9836c9d37c69d"}]
     },
     "operator_nearest_canonical": {
       "baseline_id": "operator_nearest_canonical_v1", "version": 1,
       "specification": {"representation":"exact composite tables from all training pair sides", "distance":"full Hamming distance", "safety":"exact current table is used as fallback"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_nearest_canonical.py":"07e46025756ad6de8d279810db52165bd661e4125a4d1f1376fe38c701ba4c21", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"dbd1ad9ad664896c15034dd4b34ec082e98869f03e6c93aea224e7aa116ef347"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"00355fd63f92f76260f9acfdb0b21afa1bfd6411a2a9ef7e0ad9836c9d37c69d"}]
     },
     "operator_random": {
       "baseline_id": "operator_random_v1", "version": 1,
       "specification": {"prediction":"deterministic seed/state/node-ID random state", "fit":"none", "role":"negative leakage control"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_random.py":"ad53bd609e53c926596827c753ca428c8244332e2dc36527f77542f1468b33e1", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"dbd1ad9ad664896c15034dd4b34ec082e98869f03e6c93aea224e7aa116ef347"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"00355fd63f92f76260f9acfdb0b21afa1bfd6411a2a9ef7e0ad9836c9d37c69d"}]
     },
     "wt_candidate_under_test": {
       "baseline_id": "hypothesis_candidate_bounded_recurrent_residual_transition_v1", "version": 1,

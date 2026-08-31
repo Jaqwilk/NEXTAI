@@ -331,7 +331,10 @@ def command_plan_new(args: argparse.Namespace) -> int:
         }
     if config.benchmark_version.startswith("heldout_mechanism_recombination_"):
         recombination = config.raw["recombination"]
-        if config.benchmark_version == "heldout_mechanism_recombination_v4":
+        if config.benchmark_version in {
+            "heldout_mechanism_recombination_v4",
+            "heldout_mechanism_recombination_v5",
+        }:
             plan["matrix"]["knowledge_sizes"] = list(recombination["knowledge_sizes"])
             plan["matrix"]["reasoning_depths"] = list(recombination["exposure_counts"])
             plan["matrix"]["queries_per_cell"] = int(recombination["queries_per_cell"])
@@ -351,6 +354,10 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "state_budget_bytes": int(recombination["state_budget_bytes"]),
             "invalidation_rules": list(recombination["invalidation_rules"]),
         }
+        if "pareto_capability_metrics" in recombination:
+            plan["mechanism_recombination_protocol"]["pareto_capability_metrics"] = list(
+                recombination["pareto_capability_metrics"]
+            )
     if config.benchmark_version.startswith("heldout_dronepropa_"):
         drone = config.raw["dronepropa"]
         plan["dronepropa_protocol"] = {

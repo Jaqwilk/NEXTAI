@@ -130,6 +130,7 @@ def aggregate_trials(trials: list[dict[str, Any]]) -> dict[str, Any]:
         "reuse_precision": optional_mean("reuse_precision"),
         "reuse_coverage": optional_mean("reuse_coverage"),
         "false_reuse_rate": optional_mean("false_reuse_rate"),
+        "continual_new_fact_accuracy": optional_mean("continual_new_fact_accuracy"),
         "continual_retention": _mean(
             [float(trial["continual_retention"]) for trial in complete]
         ),

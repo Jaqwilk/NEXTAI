@@ -366,6 +366,12 @@
         ]},
         "declared_horizons": {"const": [1, 4, 16]},
         "state_budget_bytes": {"type": "integer", "minimum": 65536},
+        "pareto_capability_metrics": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3},
+          "minItems": 1,
+          "uniqueItems": true
+        },
         "invalidation_rules": {
           "type": "array",
           "items": {"type": "string", "minLength": 12},
@@ -1314,6 +1320,69 @@
             {"contains": {"const": "accuracy"}},
             {"contains": {"const": "warm_accuracy"}},
             {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "false_reuse_rate"}},
+            {"contains": {"const": "continual_new_fact_accuracy"}},
+            {"contains": {"const": "continual_retention"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "meta_fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "mean_warm_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_mechanism_recombination_v5"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["mechanism_recombination_protocol"],
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32, 128]},
+              "reasoning_depths": {"const": [1, 4, 16]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "mechanism_recombination_protocol": {
+            "required": ["pareto_capability_metrics"],
+            "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AB", "BC", "CA"]},
+              "heldout_compositions": {"const": ["CBAC"]},
+              "shared_candidate": {"const": "experience_operator_compiler"},
+              "independent_ablation": {"const": "experience_operator_independent"},
+              "no_cross_mechanism_ablation": {"const": "experience_operator_no_pairing"},
+              "classical_baselines": {"const": ["operator_interpreter", "operator_exact_key_cache", "operator_structural_result_cache", "operator_canonical_table_cache", "operator_anti_unification_cache", "operator_nearest_canonical", "operator_random"]},
+              "pareto_capability_metrics": {"const": ["accuracy", "warm_accuracy", "near_equivalent_accuracy", "minimum_combination_accuracy", "continual_new_fact_accuracy", "continual_retention", "false_reuse_rate", "data_acquisition_ops", "fit_ops", "meta_fit_ops", "mean_query_ops", "mean_warm_query_ops", "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"]}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "experience_operator_compiler"}},
+            {"contains": {"const": "experience_operator_independent"}},
+            {"contains": {"const": "experience_operator_no_pairing"}},
+            {"contains": {"const": "operator_interpreter"}},
+            {"contains": {"const": "operator_exact_key_cache"}},
+            {"contains": {"const": "operator_structural_result_cache"}},
+            {"contains": {"const": "operator_canonical_table_cache"}},
+            {"contains": {"const": "operator_anti_unification_cache"}},
+            {"contains": {"const": "operator_nearest_canonical"}},
+            {"contains": {"const": "operator_random"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "warm_accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "minimum_combination_accuracy"}},
             {"contains": {"const": "false_reuse_rate"}},
             {"contains": {"const": "continual_new_fact_accuracy"}},
             {"contains": {"const": "continual_retention"}},
