@@ -1,0 +1,173 @@
+{
+  "alternative_explanations": [
+    "Any apparent gain may be support-only expert selection rather than transferred prior; the cross-family-only versus support-only contrast is decisive.",
+    "The fixed three-atom pool may be dominated by persistence or another frozen probabilistic control even when weights transfer."
+  ],
+  "architecture_family": "support_calibrated_algorithmic_prior_mixture",
+  "benchmark": "heldout_three_family_continuous_transfer_v2",
+  "budget": "quick",
+  "candidates": [
+    "shared_tensor_dynamics_v1",
+    "independent_tensor_dynamics_v1",
+    "cross_family_only_tensor_dynamics_v1",
+    "support_only_tensor_dynamics_v1",
+    "tensor_persistence_v1",
+    "tensor_ridge_arx_v1",
+    "tensor_rls_arx_v1",
+    "tensor_empirical_gaussian_joint_v1",
+    "tensor_contextual_gaussian_chow_liu_v1",
+    "tensor_autoregressive_v1",
+    "privileged_tensor_support_v1"
+  ],
+  "confounds": [
+    "Noise thresholds use only training-role development worlds with seeds 1103/2207/3301 and cannot be altered after scoring.",
+    "No family names, paths, native types, semantic channel names, manual ontology, test outputs, family branching, post-score tuning or external model/API are permitted."
+  ],
+  "continuous_transfer_protocol": {
+    "causal_promotion_gates": [
+      "shared_vs_independent_gain",
+      "cross_family_transfer_gain"
+    ],
+    "classical_baselines": [
+      "tensor_persistence_v1",
+      "tensor_ridge_arx_v1",
+      "tensor_rls_arx_v1",
+      "tensor_empirical_gaussian_joint_v1",
+      "tensor_contextual_gaussian_chow_liu_v1",
+      "tensor_autoregressive_v1",
+      "privileged_tensor_support_v1"
+    ],
+    "cross_family_only_ablation": "cross_family_only_tensor_dynamics_v1",
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "ncmapss_ds08a",
+      "dronepropa",
+      "continuous_event"
+    ],
+    "family_labels": "evaluator_private",
+    "independent_ablation": "independent_tensor_dynamics_v1",
+    "invalidation_rules": [
+      "Invalidate if any candidate receives a family label, source path, native type or semantic channel name.",
+      "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
+      "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
+      "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+      "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
+      "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
+      "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change."
+    ],
+    "loss": "family_balanced_masked_normalized_mse",
+    "normalization": "masked_training_worlds_only",
+    "pareto_capability_metrics": [
+      "transfer_accuracy",
+      "minimum_family_accuracy",
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "privileged_support_control": "privileged_tensor_support_v1",
+    "semantic_channel_alignment": "forbidden",
+    "shared_candidate": "shared_tensor_dynamics_v1",
+    "state_budget_bytes": 67108864,
+    "support_only_ablation": "support_only_tensor_dynamics_v1",
+    "tensor_contract_sha256": "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
+  },
+  "created_at": "2026-08-31T10:09:39Z",
+  "evaluator_sha256": "a27bf2308e5f514c77e9d1b9a87fce850e93d097a4cc0ab8a2a0b6de24d9d7d2",
+  "experiment_id": "EXP-20260831-0003",
+  "falsification_criteria": [
+    "Discard if any family/K shared_vs_independent_gain is <=0.038356913184640073.",
+    "Discard if any family/K cross_family_transfer_gain is <=0.03806855146519833.",
+    "Discard if shared minimum-family accuracy trails persistence by more than 0.008339792353794562, stability is below 1.0, or a simpler implementable baseline dominates after full cost.",
+    "Invalidate if the development artifact hash differs from 590c96921270c65423c4f8260d1cfaf0b6b63e5b80e651f8170f5f7b6d7d296e, roles differ in source/hyperparameters, family/test-output access occurs, any cost is omitted, or baseline/preflight/integrity gates fail."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "c19070caf881e01fbd14db5f996fd97f93e0d8ed",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0026",
+  "matrix": {
+    "knowledge_sizes": [
+      4,
+      9
+    ],
+    "queries_per_cell": 128,
+    "reasoning_depths": [
+      1
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "cross_family_transfer_gain": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "shared_vs_independent_gain": "maximize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Discard this exact support-calibrated convex algorithmic-prior mixture without tuning; preserve all failures and redirect to a fundamentally different learned mechanism.",
+    "null": "Treat any mixed-sign or below-threshold causal pattern as negative for this exact mixture and do not tune weights, atoms, ridge, calibration split, temperature or blending.",
+    "positive": "Authorize only an unchanged three-seed replication of this exact atom set, 72/36 calibration split, temperature 1.0 and prior blend 0.5; do not mark promising or claim scaling."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Conjunctive positive requires every family/K shared gain >0.038356913184640073, every family/K cross-family gain >0.03806855146519833, shared worst-family accuracy within 0.008339792353794562 of persistence, stability 1.0, shared on implementable Pareto, and no simpler full-cost domination; thresholds are frozen in SHA-256 590c96921270c65423c4f8260d1cfaf0b6b63e5b80e651f8170f5f7b6d7d296e.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "normalized_rmse",
+    "stable_rollout_rate",
+    "shared_vs_independent_gain",
+    "cross_family_transfer_gain",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; a conjunctive one-seed positive can only authorize unchanged three-runner-seed replication in a later wake."
+  ],
+  "research_question": "Does a shared family-blind prior over convex weights of persistence, local ridge ARX and local RLS transfer useful algorithm selection to unseen heterogeneous worlds after support-only recalibration?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Support-calibrated convex algorithmic-prior mixture quick"
+}

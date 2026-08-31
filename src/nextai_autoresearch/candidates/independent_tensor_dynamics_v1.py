@@ -1,4 +1,4 @@
-from .shared_tensor_dynamics_core import Candidate as SharedCandidate
+from .support_calibrated_algorithmic_prior_core import Candidate as SharedCandidate
 
 
 class Candidate(SharedCandidate):

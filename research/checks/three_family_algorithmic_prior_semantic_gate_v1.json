@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-31T10:12:00Z",
+  "experiment_id": "EXP-20260831-0003",
+  "plan_sha256": "5ef5bae2d944521cac338ebf6a0e79e90e52c5de219cea7daa1f06f53827c1b8",
+  "noise_floor_sha256": "590c96921270c65423c4f8260d1cfaf0b6b63e5b80e651f8170f5f7b6d7d296e",
+  "candidate_core": {
+    "path": "src/nextai_autoresearch/candidates/support_calibrated_algorithmic_prior_core.py",
+    "sha256": "5a767cd9d12ef5fa247810f412df11ab4fd5bd87a2492dc3d5fbcb6bdab80174"
+  },
+  "causal_entry_sha256": "9bffec816be7ab50e3d7c0d0afd308775ade39e3b69fd07ee4d8170b13f45bd7",
+  "causal_entries_source_identical": true,
+  "candidate_audit_passed": [
+    "shared_tensor_dynamics_v1",
+    "independent_tensor_dynamics_v1",
+    "cross_family_only_tensor_dynamics_v1",
+    "support_only_tensor_dynamics_v1"
+  ],
+  "candidate_visible_fit_fields": ["support_input", "support_target"],
+  "family_label_or_path_access": false,
+  "test_output_access": false,
+  "world_order_error": 0.0,
+  "deterministic_error": 0.0,
+  "adapted_convex_weights": [
+    0.333319732216618,
+    0.33334013389169104,
+    0.33334013389169104
+  ],
+  "adapted_weight_sum": 1.0,
+  "weights_finite_and_nonnegative": true,
+  "rollout_steps": 50,
+  "rollout_finite": true,
+  "rollout_stable": true,
+  "cost_fixture": {
+    "fit_ops": 44427.0,
+    "adaptation_ops": 36198.0,
+    "query_ops": 10050.0,
+    "bytes_touched": 121112.0,
+    "state_bytes": 25368.0,
+    "update_ops": 0.0
+  },
+  "scoring_seed_realized": false
+}

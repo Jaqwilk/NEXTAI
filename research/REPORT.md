@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-08-31T09:49:50Z
+Generated: 2026-08-31T10:25:16Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -416,6 +416,17 @@ Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollou
 | EXP-20260831-0002 | tensor_contextual_gaussian_chow_liu_v1 | implementable | complete | 0.4112 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (2; screening) | 746496 |  |
 | EXP-20260831-0002 | tensor_autoregressive_v1 | implementable | complete | 0.2663 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (2; screening) | 746496 |  |
 | EXP-20260831-0002 | privileged_tensor_support_v1 | privileged support control | complete | 0.3294 | 1 | 6083 | 4096 | 2.33e+04 | 9.695e+09 | 0 (2; screening) | 1.13633e+07 |  |
+| EXP-20260831-0003 | shared_tensor_dynamics_v1 | implementable | complete | 0.3729 | 1 | 2.785e+04 | 4096 | 1.211e+05 | 9.906e+09 | 0 (2; screening) | 25368 |  |
+| EXP-20260831-0003 | independent_tensor_dynamics_v1 | implementable | complete | 0.1377 | 1 | 2.785e+04 | 4096 | 1.211e+05 | 9.906e+09 | 0 (2; screening) | 76104 |  |
+| EXP-20260831-0003 | cross_family_only_tensor_dynamics_v1 | implementable | complete | 0.1675 | 1 | 2.785e+04 | 4096 | 1.211e+05 | 9.907e+09 | 0 (2; screening) | 76104 |  |
+| EXP-20260831-0003 | support_only_tensor_dynamics_v1 | implementable | complete | 0.3266 | 1 | 2.785e+04 | 4096 | 1.211e+05 | 9.906e+09 | 0 (2; screening) | 76032 |  |
+| EXP-20260831-0003 | tensor_persistence_v1 | implementable | complete | 0.5264 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (2; screening) | 746496 |  |
+| EXP-20260831-0003 | tensor_ridge_arx_v1 | implementable | complete | 0.2661 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (2; screening) | 746496 |  |
+| EXP-20260831-0003 | tensor_rls_arx_v1 | implementable | complete | 0.2661 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (2; screening) | 746496 |  |
+| EXP-20260831-0003 | tensor_empirical_gaussian_joint_v1 | implementable | complete | 0.2641 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (2; screening) | 746496 |  |
+| EXP-20260831-0003 | tensor_contextual_gaussian_chow_liu_v1 | implementable | complete | 0.4112 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (2; screening) | 746496 |  |
+| EXP-20260831-0003 | tensor_autoregressive_v1 | implementable | complete | 0.2661 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (2; screening) | 746496 |  |
+| EXP-20260831-0003 | privileged_tensor_support_v1 | privileged support control | complete | 0.328 | 1 | 6083 | 4096 | 2.33e+04 | 9.695e+09 | 0 (2; screening) | 1.13633e+07 |  |
 
 ## heterogeneous_module_composition_v1 / quick
 
