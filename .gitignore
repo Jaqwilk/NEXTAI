@@ -16,3 +16,10 @@ research/logs/*.log
 STOP
 PAUSE
 
+# Keep large benchmark payloads local; acquisition metadata and manifests stay tracked.
+research/data/*/archive/
+research/data/*/extracted/
+research/data/**/*.zip
+research/data/**/*.h5
+research/data/**/*.npy
+research/data/**/*.mat
