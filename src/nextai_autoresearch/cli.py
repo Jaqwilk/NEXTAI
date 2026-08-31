@@ -331,6 +331,10 @@ def command_plan_new(args: argparse.Namespace) -> int:
         }
     if config.benchmark_version.startswith("heldout_mechanism_recombination_"):
         recombination = config.raw["recombination"]
+        if config.benchmark_version == "heldout_mechanism_recombination_v4":
+            plan["matrix"]["knowledge_sizes"] = list(recombination["knowledge_sizes"])
+            plan["matrix"]["reasoning_depths"] = list(recombination["exposure_counts"])
+            plan["matrix"]["queries_per_cell"] = int(recombination["queries_per_cell"])
         plan["mechanism_recombination_protocol"] = {
             "state_count": int(recombination["state_count"]),
             "mechanism_source_seed": int(recombination["mechanism_source_seed"]),

@@ -159,7 +159,33 @@ def run_doctor(root: Path | None = None) -> DoctorReport:
             )
     report.facts.append(f"audited_candidates={audited}")
 
-    if config.benchmark_version.startswith("heldout_parallel_masked_"):
+    if config.benchmark_version.startswith("heldout_mechanism_recombination_"):
+        try:
+            module = __import__(
+                f"nextai_autoresearch.benchmarks.{config.benchmark_version}",
+                fromlist=["static_control_gate"],
+            )
+            if hasattr(module, "static_control_gate"):
+                static = module.static_control_gate()
+                required_flags = (
+                    "raw_reencoding_differs", "positive_canonical_match",
+                    "pair_breaking_changes_operator",
+                )
+                if not all(static.get(name) for name in required_flags):
+                    raise RuntimeError(f"operator experience static gate failed: {static}")
+            required = list(config.raw["recombination"]["classical_baselines"])
+            checked = verify_required_baselines(
+                {
+                    "candidates": required,
+                    "mechanism_recombination_protocol": {"classical_baselines": required},
+                },
+                base,
+                run_tests=False,
+            )
+            report.facts.append(f"semantic_baselines={len(checked['required'])}")
+        except Exception as exc:
+            report.errors.append(f"mechanism recombination maintenance: {exc}")
+    elif config.benchmark_version.startswith("heldout_parallel_masked_"):
         try:
             required = list(config.raw["masked_refinement"]["classical_baselines"])
             checked = verify_required_baselines(

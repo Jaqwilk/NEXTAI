@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-31T22:17:05Z",
+  "cycle": 140,
+  "service_only": true,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_under_test_implemented": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "benchmark_before": "heldout_three_family_continuous_transfer_v7",
+  "benchmark_after": "heldout_mechanism_recombination_v4",
+  "purpose": "Measure whether repeated raw-distinct views of one executable operator permit declining exact inference cost, safe local change and transfer to a longer unseen composition beyond classical caches and full canonicalization.",
+  "source_boundary": {
+    "state_count": 144,
+    "mechanism_source_seed": 1103,
+    "source_mechanisms": ["program_table", "predictive_transition_outcome", "local_dynamics_rule"],
+    "train_compositions": ["A", "B", "C", "AB", "BC", "CA"],
+    "heldout_composition": "CBAC",
+    "candidate_visible_labels": false,
+    "scoring_state_conjugation": "runner_random_after_integrity_only"
+  },
+  "measurement": {
+    "knowledge_sizes": [8, 32, 128],
+    "measured_exposure_counts": [1, 4, 16],
+    "queries_per_cell": 8,
+    "positive_pair": "raw-distinct reassociation, identity insertion or adjacent-table fusion with identical exact composite table",
+    "pair_breaking_negative": "same public shape with one primitive replaced and a different exact composite table",
+    "local_mutation": "replace one leaf operator, then test changed program and retained original",
+    "full_costs": ["acquisition", "fit", "meta_fit", "input scan", "query", "update", "bytes touched", "state", "peak state", "R1", "R4", "R16"]
+  },
+  "mandatory_controls": [
+    "operator_interpreter",
+    "operator_exact_key_cache",
+    "operator_structural_result_cache",
+    "operator_canonical_table_cache",
+    "operator_anti_unification_cache",
+    "operator_nearest_canonical",
+    "operator_random"
+  ],
+  "development_smoke": {
+    "seed": 1501103,
+    "cells_per_control": 9,
+    "exact_control_minimum_combination_accuracy": 1.0,
+    "random_minimum_combination_accuracy": 0.0,
+    "maximum_state_bytes": 40320,
+    "state_budget_bytes": 4194304,
+    "semantic_gate_required_baselines": 7,
+    "semantic_gate_conformance_nodes": 3,
+    "candidate_audits": "PASS",
+    "benchmark_boundary_audit": "PASS"
+  },
+  "frozen_bundle": {
+    "evaluator_sha256": "2a2f97b330afccc05ea60fa5137586ffb8c496616f14fe5fa1186d7b2f4ca279",
+    "candidate_bundle_sha256": "14ffe617ec532b53e58bb0a6f0cbc7c3027042b1c15b752a62755f0df25ce5e5",
+    "manifest_sha256": "6706d79d49de2527d9f83ad374de1302c0a75e995f84ac3cf19e73a36998f4bb",
+    "preflight_certificate_sha256": "207076c100b786eb1b123b2f21bc076454d86589bb771939e4ac8b7a672a9fe1",
+    "preflight_file_sha256": "636b98bbac50aae7c33ce461b9621b46674989d3c0ce76eb3f265f28d3ac3408",
+    "protected_files": 546,
+    "pytest_passed": 377,
+    "integrity": "PASS",
+    "doctor": "PASS"
+  },
+  "scientific_limits": [
+    "This is a visible synthetic scout cohort and cannot support promising or promoted status.",
+    "The evaluator supplies executable finite tables; a positive result would concern amortized representation and compilation, not open-world operator discovery.",
+    "One quick seed may only select or discard the direction and cannot raise hypothesis confidence."
+  ]
+}

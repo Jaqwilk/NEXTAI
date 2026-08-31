@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_three_family_continuous_transfer_v7"
+benchmark_version = "heldout_mechanism_recombination_v4"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -129,26 +129,32 @@ invalidation_rules = [
 state_count = 144
 mechanism_source_seed = 1103
 source_mechanisms = ["program_table", "predictive_transition_outcome", "local_dynamics_rule"]
-train_compositions = ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]
-heldout_compositions = ["CB"]
-shared_candidate = "operator_algebra_completion"
-independent_ablation = "operator_algebra_independent"
-no_cross_mechanism_ablation = "operator_algebra_no_relations"
+train_compositions = ["A", "B", "C", "AB", "BC", "CA"]
+heldout_compositions = ["CBAC"]
+shared_candidate = "experience_operator_compiler"
+independent_ablation = "experience_operator_independent"
+no_cross_mechanism_ablation = "experience_operator_no_pairing"
 classical_baselines = [
-  "unigram_recombination",
-  "markov5_recombination",
-  "nearest_template_recombination",
-  "exact_mdl_module_library",
-  "oracle_composition_graph",
+  "operator_interpreter",
+  "operator_exact_key_cache",
+  "operator_structural_result_cache",
+  "operator_canonical_table_cache",
+  "operator_anti_unification_cache",
+  "operator_nearest_canonical",
+  "operator_random",
 ]
 declared_horizons = [1, 4, 16]
+knowledge_sizes = [8, 32, 128]
+exposure_counts = [1, 4, 16]
+queries_per_cell = 8
 state_budget_bytes = 4194304
 invalidation_rules = [
-  "Invalidate on any overlap between registered training and held-out compositions.",
-  "Invalidate if module IDs, source families, native types, extraction paths or the composition graph reach an implementable candidate.",
-  "Invalidate if public support, query or target shapes identify a composition above chance plus 0.10.",
-  "Invalidate if scoring-state conjugation or support partitions are realized before integrity and source audit.",
-  "Invalidate on target access, scoring-seed leakage, post-score tuning, state-budget breach or evaluator-integrity change.",
+  "Invalidate on any overlap between the length-one/two training programs and the held-out length-four composition.",
+  "Invalidate if primitive labels, native source families or evaluator canonical tables reach an implementable candidate.",
+  "Invalidate unless positive re-encodings are raw-distinct and exact-equivalent and pair-breaking negatives change the operator.",
+  "Invalidate if scoring conjugation or any runner-random program is realized before integrity and source audit.",
+  "Invalidate on target access before prediction, post-score tuning, state-budget breach or evaluator-integrity change.",
+  "Invalidate if exposure 1, 4 and 16 costs are extrapolated instead of measured through fresh re-encodings.",
 ]
 
 [dronepropa]
@@ -336,6 +342,7 @@ minimum_scaling_points = 3
 [metrics]
 maximize = [
   "accuracy",
+  "continual_new_fact_accuracy",
   "continual_retention",
   "warm_accuracy",
   "near_equivalent_accuracy",

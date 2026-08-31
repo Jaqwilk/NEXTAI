@@ -350,14 +350,20 @@
         "state_count": {"const": 144},
         "mechanism_source_seed": {"const": 1103},
         "source_mechanisms": {"const": ["program_table", "predictive_transition_outcome", "local_dynamics_rule"]},
-        "train_compositions": {"const": ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]},
-        "heldout_compositions": {"const": ["CB"]},
+        "train_compositions": {"oneOf": [
+          {"const": ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]},
+          {"const": ["A", "B", "C", "AB", "BC", "CA"]}
+        ]},
+        "heldout_compositions": {"oneOf": [{"const": ["CB"]}, {"const": ["CBAC"]}]},
         "runner_random_state_conjugation": {"const": true},
         "equal_public_shapes": {"const": true},
-        "shared_candidate": {"enum": ["shared_latent_mechanism_library", "operator_algebra_completion"]},
-        "independent_ablation": {"enum": ["independent_latent_mechanism_library", "operator_algebra_independent"]},
-        "no_cross_mechanism_ablation": {"enum": ["no_cross_mechanism_factorizer", "operator_algebra_no_relations"]},
-        "classical_baselines": {"const": ["unigram_recombination", "markov5_recombination", "nearest_template_recombination", "exact_mdl_module_library", "oracle_composition_graph"]},
+        "shared_candidate": {"enum": ["shared_latent_mechanism_library", "operator_algebra_completion", "experience_operator_compiler"]},
+        "independent_ablation": {"enum": ["independent_latent_mechanism_library", "operator_algebra_independent", "experience_operator_independent"]},
+        "no_cross_mechanism_ablation": {"enum": ["no_cross_mechanism_factorizer", "operator_algebra_no_relations", "experience_operator_no_pairing"]},
+        "classical_baselines": {"oneOf": [
+          {"const": ["unigram_recombination", "markov5_recombination", "nearest_template_recombination", "exact_mdl_module_library", "oracle_composition_graph"]},
+          {"const": ["operator_interpreter", "operator_exact_key_cache", "operator_structural_result_cache", "operator_canonical_table_cache", "operator_anti_unification_cache", "operator_nearest_canonical", "operator_random"]}
+        ]},
         "declared_horizons": {"const": [1, 4, 16]},
         "state_budget_bytes": {"type": "integer", "minimum": 65536},
         "invalidation_rules": {
@@ -1221,6 +1227,9 @@
         "properties": {
           "mechanism_recombination_protocol": {
             "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]},
+              "heldout_compositions": {"const": ["CB"]},
+              "classical_baselines": {"const": ["unigram_recombination", "markov5_recombination", "nearest_template_recombination", "exact_mdl_module_library", "oracle_composition_graph"]},
               "shared_candidate": {"const": "shared_latent_mechanism_library"},
               "independent_ablation": {"const": "independent_latent_mechanism_library"},
               "no_cross_mechanism_ablation": {"const": "no_cross_mechanism_factorizer"}
@@ -1246,6 +1255,9 @@
         "properties": {
           "mechanism_recombination_protocol": {
             "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]},
+              "heldout_compositions": {"const": ["CB"]},
+              "classical_baselines": {"const": ["unigram_recombination", "markov5_recombination", "nearest_template_recombination", "exact_mdl_module_library", "oracle_composition_graph"]},
               "shared_candidate": {"const": "operator_algebra_completion"},
               "independent_ablation": {"const": "operator_algebra_independent"},
               "no_cross_mechanism_ablation": {"const": "operator_algebra_no_relations"}
@@ -1258,6 +1270,66 @@
               {"contains": {"const": "operator_algebra_no_relations"}}
             ]
           }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_mechanism_recombination_v4"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["mechanism_recombination_protocol"],
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32, 128]},
+              "reasoning_depths": {"const": [1, 4, 16]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "mechanism_recombination_protocol": {
+            "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AB", "BC", "CA"]},
+              "heldout_compositions": {"const": ["CBAC"]},
+              "shared_candidate": {"const": "experience_operator_compiler"},
+              "independent_ablation": {"const": "experience_operator_independent"},
+              "no_cross_mechanism_ablation": {"const": "experience_operator_no_pairing"},
+              "classical_baselines": {"const": ["operator_interpreter", "operator_exact_key_cache", "operator_structural_result_cache", "operator_canonical_table_cache", "operator_anti_unification_cache", "operator_nearest_canonical", "operator_random"]}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "experience_operator_compiler"}},
+            {"contains": {"const": "experience_operator_independent"}},
+            {"contains": {"const": "experience_operator_no_pairing"}},
+            {"contains": {"const": "operator_interpreter"}},
+            {"contains": {"const": "operator_exact_key_cache"}},
+            {"contains": {"const": "operator_structural_result_cache"}},
+            {"contains": {"const": "operator_canonical_table_cache"}},
+            {"contains": {"const": "operator_anti_unification_cache"}},
+            {"contains": {"const": "operator_nearest_canonical"}},
+            {"contains": {"const": "operator_random"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "warm_accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "false_reuse_rate"}},
+            {"contains": {"const": "continual_new_fact_accuracy"}},
+            {"contains": {"const": "continual_retention"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "meta_fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "mean_warm_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
         }
       }
     }
