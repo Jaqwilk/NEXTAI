@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-08-31T17:30:21Z
+Generated: 2026-08-31T17:54:55Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -473,6 +473,28 @@ Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_famil
 | EXP-20260831-0005 | tensor_raw_window_local_linear_v1 | implementable | complete | 0.38 | 1 | 1.652e+05 | 4096 | 8.32e+05 | 1.028e+10 | 0 (3) | 427712 |  |
 | EXP-20260831-0005 | tensor_random_projection_hash_v1 | implementable | complete | 0.3627 | 1 | 2.755e+04 | 4096 | 4.864e+05 | 9.791e+09 | 0 (3) | 296960 |  |
 | EXP-20260831-0005 | privileged_tensor_support_v1 | privileged support control | complete | 0.3269 | 1 | 6083 | 4096 | 2.33e+04 | 9.695e+09 | 0 (3) | 1.13633e+07 |  |
+
+## heldout_three_family_continuous_transfer_v6 / quick
+
+Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, stable_rollout_rate`; minimize `normalized_rmse, data_acquisition_ops, preprocessing_ops, fit_ops, adaptation_ops, mean_query_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+Promotion-only gates (not Pareto axes): `shared_vs_independent_gain, cross_family_transfer_gain`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260831-0008 | shared_bounded_recurrent_residual_v1 | implementable | complete | 0.325 | 1 | 2.45e+04 | 4096 | 3.174e+04 | 1.198e+10 | 0 (3) | 287232 |  |
+| EXP-20260831-0008 | independent_bounded_recurrent_residual_v1 | implementable | complete | 0.1532 | 1 | 2.45e+04 | 4096 | 3.174e+04 | 1.198e+10 | 0 (3) | 861696 |  |
+| EXP-20260831-0008 | cross_family_only_bounded_recurrent_residual_v1 | implementable | complete | 0.1939 | 1 | 2.45e+04 | 4096 | 3.174e+04 | 1.2e+10 | 0 (3) | 861696 |  |
+| EXP-20260831-0008 | support_only_bounded_recurrent_residual_v1 | implementable | complete | 0.3126 | 1 | 2.45e+04 | 4096 | 3.174e+04 | 1.197e+10 | 0 (3) | 861696 |  |
+| EXP-20260831-0008 | tensor_persistence_v1 | implementable | complete | 0.526 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (3) | 746496 |  |
+| EXP-20260831-0008 | tensor_ridge_arx_v1 | implementable | complete | 0.2856 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (3) | 746496 |  |
+| EXP-20260831-0008 | tensor_rls_arx_v1 | implementable | timeout | - | 1 | - | - | - | - | - (3) | - |  |
+| EXP-20260831-0008 | tensor_empirical_gaussian_joint_v1 | implementable | complete | 0.2821 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (3) | 746496 |  |
+| EXP-20260831-0008 | tensor_contextual_gaussian_chow_liu_v1 | implementable | complete | 0.3854 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (3) | 746496 |  |
+| EXP-20260831-0008 | tensor_autoregressive_v1 | implementable | complete | 0.2856 | 1 | 6083 | 4096 | 2.33e+04 | 9.692e+09 | 0 (3) | 746496 |  |
+| EXP-20260831-0008 | tensor_raw_window_local_linear_v1 | implementable | complete | 0.3766 | 1 | 1.652e+05 | 4096 | 8.32e+05 | 1.028e+10 | 0 (3) | 427712 |  |
+| EXP-20260831-0008 | tensor_random_projection_hash_v1 | implementable | complete | 0.3629 | 1 | 2.755e+04 | 4096 | 4.864e+05 | 9.782e+09 | 0 (3) | 285440 |  |
+| EXP-20260831-0008 | privileged_tensor_support_v1 | privileged support control | complete | 0.3255 | 1 | 6083 | 4096 | 2.33e+04 | 9.695e+09 | 0 (3) | 1.13633e+07 |  |
 
 ## heldout_wt_changepoints_prequential_v1 / quick
 

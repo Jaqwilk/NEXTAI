@@ -1,0 +1,178 @@
+{
+  "alternative_explanations": [
+    "Any advantage may come only from bounded persistence regularization or local support ridge rather than cross-world representation transfer; the independent, cross-family-only and support-only source-identical roles discriminate these explanations.",
+    "Dense affine recurrence may be a classical DMDc/ARX effect rather than a novel principle; strong ridge, RLS and autoregressive controls constrain the claim."
+  ],
+  "architecture_family": "bounded_recurrent_residual_transition",
+  "benchmark": "heldout_three_family_continuous_transfer_v6",
+  "budget": "quick",
+  "candidates": [
+    "shared_bounded_recurrent_residual_v1",
+    "independent_bounded_recurrent_residual_v1",
+    "cross_family_only_bounded_recurrent_residual_v1",
+    "support_only_bounded_recurrent_residual_v1",
+    "tensor_persistence_v1",
+    "tensor_ridge_arx_v1",
+    "tensor_rls_arx_v1",
+    "tensor_empirical_gaussian_joint_v1",
+    "tensor_contextual_gaussian_chow_liu_v1",
+    "tensor_autoregressive_v1",
+    "tensor_raw_window_local_linear_v1",
+    "tensor_random_projection_hash_v1",
+    "privileged_tensor_support_v1"
+  ],
+  "confounds": [
+    "The three locally visible benchmark families are screening evidence, not a hidden evaluator; no LLM-successor or scaling-law claim is admissible.",
+    "Thresholds are frozen from development-only artifacts before implementation, runner seed realization or v6 scoring."
+  ],
+  "continuous_transfer_protocol": {
+    "causal_promotion_gates": [
+      "shared_vs_independent_gain",
+      "cross_family_transfer_gain"
+    ],
+    "classical_baselines": [
+      "tensor_persistence_v1",
+      "tensor_ridge_arx_v1",
+      "tensor_rls_arx_v1",
+      "tensor_empirical_gaussian_joint_v1",
+      "tensor_contextual_gaussian_chow_liu_v1",
+      "tensor_autoregressive_v1",
+      "tensor_raw_window_local_linear_v1",
+      "tensor_random_projection_hash_v1",
+      "privileged_tensor_support_v1"
+    ],
+    "cross_family_only_ablation": "cross_family_only_bounded_recurrent_residual_v1",
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "ncmapss_ds08a",
+      "dronepropa",
+      "continuous_event"
+    ],
+    "family_labels": "evaluator_private",
+    "independent_ablation": "independent_bounded_recurrent_residual_v1",
+    "invalidation_rules": [
+      "Invalidate if any candidate receives a family label, source path, native type or semantic channel name.",
+      "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
+      "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
+      "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+      "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
+      "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
+      "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change."
+    ],
+    "loss": "family_balanced_masked_normalized_mse",
+    "normalization": "masked_training_worlds_only",
+    "pareto_capability_metrics": [
+      "transfer_accuracy",
+      "minimum_family_accuracy",
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "privileged_support_control": "privileged_tensor_support_v1",
+    "semantic_channel_alignment": "forbidden",
+    "shared_candidate": "shared_bounded_recurrent_residual_v1",
+    "state_budget_bytes": 67108864,
+    "support_only_ablation": "support_only_bounded_recurrent_residual_v1",
+    "tensor_contract_sha256": "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
+  },
+  "created_at": "2026-08-31T17:36:41Z",
+  "evaluator_sha256": "3e219128c0a00030c60529e1f2549f834b1dc395f78425d2d7e2652c9d61ac5c",
+  "experiment_id": "EXP-20260831-0008",
+  "falsification_criteria": [
+    "Discard if any family/K shared-versus-independent or cross-family-only-versus-support-only NRMSE gain is <= 0.03806855146519833.",
+    "Discard if shared fails to beat persistence and the strongest complete implementable control by > 0.03806855146519833 in any family/K cell.",
+    "Discard if worst-family accuracy trails persistence by > 0.008823017208322348, stability is below 1.0, query work grows with K, adaptation mutates global state, or a simpler implementable baseline Pareto-dominates.",
+    "Invalidate on source/constant mismatch across roles, correction beyond +/-4 standardized units, ridge mismatch, channel-permutation failure, family/path/native-type/semantic-name access, post-score tuning, external model/API, omitted cost, semantic baseline, preflight or integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "49145f99d099e71e974a7247280c0c282782610f",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0028",
+  "matrix": {
+    "knowledge_sizes": [
+      4,
+      6,
+      9
+    ],
+    "queries_per_cell": 128,
+    "reasoning_depths": [
+      1
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "cross_family_transfer_gain": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "shared_vs_independent_gain": "maximize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Conclude the WT success does not transfer through this exact source-identical recurrent residual rule; preserve the failure and abandon this exact mechanism.",
+    "null": "Treat any mixed-sign, below-threshold or Pareto-dominated pattern as negative and do not tune ridge, bound, features or update law.",
+    "positive": "Keep the exact mechanism only for unchanged replication; do not mark promising from one seed."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Conjunctive positive requires in every family and K=4/6/9: shared over independent and cross-family-only over support-only NRMSE gains greater than 0.03806855146519833, shared advantage over persistence and strongest complete implementable control greater than 0.03806855146519833, worst-family accuracy within 0.008823017208322348 of persistence, stability 1.0, permutation equivariance, session-local adaptation, K-independent query work and universal full-cost Pareto non-dominance. Threshold artifact is research/checks/three_family_recurrent_residual_v6_preregistered_thresholds.json.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "normalized_rmse",
+    "stable_rollout_rate",
+    "shared_vs_independent_gain",
+    "cross_family_transfer_gain",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed quick cannot promote; a full conjunctive positive can only authorize an unchanged multi-seed replication in a later wake."
+  ],
+  "research_question": "Can one source-identical family-blind bounded recurrent residual learner transfer across unseen N-CMAPSS, DronePropA and continuous-event worlds better per full cost than independent, cross-family-null and classical controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Three-family bounded recurrent residual adversarial quick"
+}

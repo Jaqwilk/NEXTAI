@@ -306,6 +306,22 @@
         {"path":"tests/test_predictive_equivalence_index.py","node_id":"tests/test_predictive_equivalence_index.py::test_real_file_full_width_empty_bucket_fallback_is_output_safe","sha256":"5b54315fe917e2955544ff4e0c1c4cf5e9f50f5c3fd1d5ff71ed020b7a552467"}
       ]
     },
+    "shared_bounded_recurrent_residual_v1": {
+      "baseline_id": "shared_bounded_recurrent_residual_v1", "version": 1,
+      "specification": {"role":"hypothesis candidate semantic registration; not a baseline","fit":"ridge-0.001 affine next-state predictor over assigned anonymous support pairs","adapt":"session-local sufficient-statistic addition from public support; global state immutable","rollout":"recursive persistence plus coordinatewise clipped learned correction","correction_bound":"plus or minus four standardized units per step","source_identity":"shared, independent, cross-family-only and support-only roles use one implementation and constants","invariance":"consistent anonymous state/output permutation"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/shared_bounded_recurrent_residual_v1.py":"28fdb4079c8ec2bf32db128606608f758149edb9cacf55bb53f1fdcf7c30bd73",
+        "src/nextai_autoresearch/candidates/independent_bounded_recurrent_residual_v1.py":"076fbfd16a321830d9243be683e3287523db3d9462dc4b6245bf3cbdd955130d",
+        "src/nextai_autoresearch/candidates/cross_family_only_bounded_recurrent_residual_v1.py":"076fbfd16a321830d9243be683e3287523db3d9462dc4b6245bf3cbdd955130d",
+        "src/nextai_autoresearch/candidates/support_only_bounded_recurrent_residual_v1.py":"076fbfd16a321830d9243be683e3287523db3d9462dc4b6245bf3cbdd955130d"
+      },
+      "conformance_tests": [
+        {"path":"tests/test_bounded_recurrent_residual.py","node_id":"tests/test_bounded_recurrent_residual.py::test_all_causal_roles_inherit_exact_shared_source_and_constants","sha256":"0392bed9a2794f065054a1897ad83d409b842465cacb89786d6552cdcdfe05ca"},
+        {"path":"tests/test_bounded_recurrent_residual.py","node_id":"tests/test_bounded_recurrent_residual.py::test_frozen_constants_bound_and_session_local_adaptation","sha256":"0392bed9a2794f065054a1897ad83d409b842465cacb89786d6552cdcdfe05ca"},
+        {"path":"tests/test_bounded_recurrent_residual.py","node_id":"tests/test_bounded_recurrent_residual.py::test_consistent_state_output_permutation_is_equivariant","sha256":"0392bed9a2794f065054a1897ad83d409b842465cacb89786d6552cdcdfe05ca"},
+        {"path":"tests/test_bounded_recurrent_residual.py","node_id":"tests/test_bounded_recurrent_residual.py::test_fit_order_and_query_work_do_not_depend_on_world_count","sha256":"0392bed9a2794f065054a1897ad83d409b842465cacb89786d6552cdcdfe05ca"}
+      ]
+    },
     "tensor_persistence_v1": {
       "baseline_id": "tensor_persistence_v1", "version": 1,
       "specification": {"prediction": "repeat mechanically located trailing state coordinates", "fit": "none", "rollout": "recursive with public future coordinates"},

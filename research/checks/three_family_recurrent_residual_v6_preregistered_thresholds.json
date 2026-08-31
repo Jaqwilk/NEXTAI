@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "artifact": "three_family_recurrent_residual_v6_preregistered_thresholds",
+  "created_at": "2026-08-31T17:34:49Z",
+  "benchmark": "heldout_three_family_continuous_transfer_v6",
+  "scope": "development training-role worlds and previously preregistered WT training-only stability bound; no v6 scoring result or runner scoring seed access",
+  "source_artifacts": {
+    "research/checks/three_family_predictive_index_noise_floor_v1.json": "6e6da320c92b39a1f427f1a0c19c7ae69c42e239c0df56d25c52679d500d7fab",
+    "research/checks/wt_changepoints_dev_baseline_gate_preregistered_v1.json": "1897d63d790b575a892b04a7eb45c99927d7a46eeebd4c0399bd9740b69e60ff"
+  },
+  "development_seeds": [1103, 2207, 3301],
+  "knowledge_sizes": [4, 6, 9],
+  "ridge": 0.001,
+  "maximum_absolute_residual_correction_standardized": 4.0,
+  "minimum_meaningful_nrmse_effect": 0.03806855146519833,
+  "minimum_shared_vs_independent_gain": 0.03806855146519833,
+  "minimum_cross_family_vs_support_only_gain": 0.03806855146519833,
+  "worst_family_accuracy_tolerance": 0.008823017208322348,
+  "application": "Each threshold applies separately in every evaluator-private family and K cell; no averaging can rescue a failed cell.",
+  "learner_contract": {
+    "base_prediction": "mechanical persistence from history coordinates not present in future_public mask",
+    "learned_quantity": "one affine next-state predictor whose correction relative to persistence is clipped coordinatewise to +/-4 standardized units",
+    "fit": "ridge-0.001 sufficient statistics over assigned anonymous support_input/support_target pairs",
+    "adapt": "add only the current test world's public support pairs to a session-local copy of sufficient statistics",
+    "rollout": "recursive 50-step prediction with evaluator-public future coordinates and predicted state",
+    "source_identity": "one implementation, constants and update law for shared, independent, cross-family-only and support-only roles",
+    "permutation_equivariance": "consistent permutation of anonymous input coordinates and corresponding output/state coordinates commutes with fit, adapt and predict"
+  },
+  "forbidden_inputs": [
+    "family labels",
+    "source paths or native types",
+    "semantic channel names or handwritten ontology",
+    "holdout outputs before prediction",
+    "v6 runner scoring seed or score",
+    "external model or API"
+  ]
+}
