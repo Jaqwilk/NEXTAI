@@ -668,6 +668,40 @@ made before candidate implementation or seed realization because the v6
 prior-art gate identified Sequitur/Re-Pair as a mandatory alternative. No
 hypothesis, experiment plan, seed or score is created by this migration.
 
+## Parallel masked infilling v8 learned pushdown depth transfer
+
+Version 8 is a service-only successor that reuses the v1 immutable whole-file
+corpus and masked-byte public interface but creates a separate comparison
+cohort. It does not reinterpret any v1-v7 plan, result, analysis or manifest.
+The evaluator tokenizes the already hashed Python files with the standard
+library solely to construct balanced delimiter-event traces; strings and
+comments are excluded. Paths, token kinds, original byte identities and the
+evaluator's delimiter ontology are never candidate-visible. Every runner seed
+applies a fresh 256-byte permutation before fit or query.
+
+Training and validation contain only real traces whose maximum nesting depth
+is at most two. Whole test files remain disjoint and evaluator-only. Scoring
+masks exactly one closing event at its deepest point in traces of exact depths
+three, four and five. The frozen corpus contains respectively 54, 21 and 6
+such test traces, so all three OOD scales exist before candidate design. The
+matrix is K=`8/32` KiB, depth=`3/4/5`, Q=`8`; acquisition, tokenization, fit,
+query, probabilities, state, bytes and R1/R4/R16 workload are charged.
+
+The prospective main role must learn opener/closer transitions and an
+unbounded-by-training-depth pushdown update from the permuted shallow traces.
+Its source-identical bounded-finite-state and frozen-transition ablations must
+share representation, constants, initialization, fit order, query alignment,
+output and accounting. Handwritten bracket identities, source paths and token
+labels are forbidden. All nine v7 controls remain mandatory, including true
+PPM, CTW, dense autoregressive, bidirectional/parallel Markov, Re-Pair and the
+privileged conditional support control. One quick seed may only reject the
+exact learned rule or authorize unchanged replication; it cannot promote.
+
+This migration creates no hypothesis, immutable experiment plan, scoring seed,
+candidate implementation or scientific result. Those actions are reserved for
+the next bounded wake after the protected evaluator, schema, manifest,
+preflight certificate, integrity and doctor all pass.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.

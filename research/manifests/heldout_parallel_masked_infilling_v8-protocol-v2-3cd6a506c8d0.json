@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_parallel_masked_infilling_v8",
   "candidate_bundle_sha256": "c9c0da1692508943a61340dbc2328337ccf7d8a9c59c2a6ffc8fd39cfda55c23",
-  "created_at": "2026-09-01T10:21:08Z",
-  "evaluator_sha256": "f9ba5a988720180337ca05c2d52f05e1cf59cfd0132ee75fccb203f7da7f80a8",
+  "created_at": "2026-09-01T10:17:13Z",
+  "evaluator_sha256": "1f201bb356a76c19a8cff5fe35c409502ebc766610fc849ec3d02f4d96e422c7",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -68,7 +68,7 @@
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v5.py": "e2469bc1c31df22b66e8af11d449e4037bf026ddbd68823de59f816ab539dacf",
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v6.py": "e9a09307f4f25ddf799018de38857300bddff96b6a87b4ed428018e37495c2ab",
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v7.py": "b04b0842c6a0cbb35431f959fb1b25e666de101e3515120bbf8783cb34fd9c3e",
-    "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v8.py": "b7ef854648f817ff6e6262f6a545332a3b49f4fc927e7d65e2c174603a41a073",
+    "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v8.py": "94a27a5a8f2fe945400047f4c783f9e302bca3f95140be562c2fa98064b968f8",
     "src/nextai_autoresearch/benchmarks/heldout_raw_sensor_active_identification_v1.py": "5054cc6532e34be9791cb844707dd8f738e6119819e10984fd0b3de137c151bf",
     "src/nextai_autoresearch/benchmarks/heldout_raw_sensor_active_identification_v2.py": "e103083521d3ce2aa33cc43f31cb6de939e0864eae99063694e88bb5be04bfd2",
     "src/nextai_autoresearch/benchmarks/heldout_repository_sequence_compression_v1.py": "10faab20c6a6e009dcb9ddcca8e71cbf291b9e10c1b8ae258a199487a0e77b84",
@@ -693,7 +693,7 @@
     "tests/test_semantic_trace_compilation_adversarial.py": "8a46ea5df4d1d39b8e66920ea29c94a61630407a0bb7f08fe490dce7ddd2521e",
     "tests/test_shared_transition_adaptive_compute.py": "3312e5aa7e757617ec7f890705ae7d5d0fad2c0cc7ab74763822837e2c622636",
     "tests/test_sparse_energy_factor_graph_masked_byte.py": "8a813d9e2463176a3b6d4740f544d2aa712f63581d016748efd87cfdfe4f65a7",
-    "tests/test_stack_depth_masked_infilling_v8.py": "39fa7492c907b659b9ab2beb1f4e1c52350d6153ba7b207ef5d21b9274252264",
+    "tests/test_stack_depth_masked_infilling_v8.py": "c1a90d7b0d2b7778c672f6387a7dab96e69223354211146389bd7ca620977c16",
     "tests/test_tensor_rls_equivalence.py": "2847af3d4b6f4c50f83f171aec99858253837204dfde903e25621a8b273f45ee",
     "tests/test_three_family_continuous_transfer.py": "ed26dd323be80436652f42c2fe4b25d0fc0cf6f9f7e7f56753ce5a2e18511884",
     "tests/test_v2_migration_integrity.py": "a99b512824583c1e475ab3b1661381dfba15380e3a9d606d2b0851b826c29725",

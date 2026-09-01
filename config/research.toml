@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_three_family_continuous_transfer_v8"
+benchmark_version = "heldout_parallel_masked_infilling_v8"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -174,6 +174,25 @@ invalidation_rules = [
   "Invalidate if the three equality-grammar roles differ in byte representation, grammar extractor, initialization, training data/order, constants, query alignment or output probabilities beyond the preregistered recursive, flat and frozen-grammar interventions.",
   "Invalidate unless preregistered semantic fixtures prove that recursive completion requires at least two learned grammar levels, the flat ablation cannot solve that fixture, consistent byte relabeling preserves probabilities, no target is accessible and rule discovery, indexing, alignment and expansion work are explicit.",
   "Invalidate unless the mandatory Re-Pair control passes its registered recursive-rule, completion and byte-relabeling semantic fixtures before seed realization.",
+  "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
+]
+
+[stack_depth]
+corpus_id = "nextai_real_python_stack_traces_sha256_v1"
+knowledge_sizes = [8, 32]
+stack_depths = [3, 4, 5]
+training_max_depth = 2
+queries_per_cell = 8
+shared_candidate = "learned_pushdown_masked_byte"
+causal_ablation_1 = "source_identical_finite_state_pushdown_masked_byte"
+causal_ablation_2 = "source_identical_frozen_pushdown_masked_byte"
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any frozen corpus mismatch or overlap between whole-file train, validation and test roles.",
+  "Invalidate unless training traces have maximum delimiter depth two and held-out scoring traces have exact depths three, four and five.",
+  "Invalidate if an implementable role receives source paths, unpermuted delimiters, token kinds or hand-written opener/closer identities.",
+  "Invalidate unless all pushdown roles share code and constants and differ only in learned stack state, bounded finite state or frozen transition learning.",
+  "Invalidate if a public query exposes the masked closer, another test slot, or an evaluator-private delimiter identity.",
   "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
 ]
 

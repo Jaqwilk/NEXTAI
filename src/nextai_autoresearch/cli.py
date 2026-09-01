@@ -437,37 +437,56 @@ def command_plan_new(args: argparse.Namespace) -> int:
             }
     if config.benchmark_version.startswith("heldout_parallel_masked_"):
         masked = config.raw["masked_refinement"]
+        stack = config.raw.get("stack_depth", {})
+        active = stack if config.benchmark_version.endswith("_v8") else masked
         if config.benchmark_version in {
             "heldout_parallel_masked_infilling_v3",
             "heldout_parallel_masked_infilling_v4",
             "heldout_parallel_masked_infilling_v5",
             "heldout_parallel_masked_infilling_v6",
             "heldout_parallel_masked_infilling_v7",
+            "heldout_parallel_masked_infilling_v8",
         }:
-            plan["matrix"]["knowledge_sizes"] = list(masked["knowledge_sizes"])
-            plan["matrix"]["reasoning_depths"] = list(masked["refinement_rounds"])
-            plan["matrix"]["queries_per_cell"] = int(masked["queries_per_cell"])
+            plan["matrix"]["knowledge_sizes"] = list(active["knowledge_sizes"])
+            plan["matrix"]["reasoning_depths"] = list(
+                active["stack_depths"]
+                if config.benchmark_version.endswith("_v8")
+                else masked["refinement_rounds"]
+            )
+            plan["matrix"]["queries_per_cell"] = int(active["queries_per_cell"])
         protocol = {
-            "corpus_id": str(masked["corpus_id"]),
+            "corpus_id": str(active["corpus_id"]),
             "split_unit": "whole_files_sha256",
             "test_file_access": "evaluator_only",
             "simultaneous_snapshot_rounds": True,
             "span_lengths": list(masked["span_lengths"]),
             "context_bytes": int(masked["context_bytes"]),
             "runner_random_masks_and_permutation": True,
-            "shared_candidate": str(masked["shared_candidate"]),
+            "shared_candidate": str(active["shared_candidate"]),
             "classical_baselines": list(masked["classical_baselines"]),
             "declared_horizons": list(masked["declared_horizons"]),
-            "state_budget_bytes": int(masked["state_budget_bytes"]),
-            "invalidation_rules": list(masked["invalidation_rules"]),
+            "state_budget_bytes": int(active["state_budget_bytes"]),
+            "invalidation_rules": list(active["invalidation_rules"]),
         }
         if config.benchmark_version in {
             "heldout_parallel_masked_infilling_v4",
             "heldout_parallel_masked_infilling_v5",
             "heldout_parallel_masked_infilling_v6",
             "heldout_parallel_masked_infilling_v7",
+            "heldout_parallel_masked_infilling_v8",
         }:
-            if config.benchmark_version.endswith(("_v6", "_v7")):
+            if config.benchmark_version.endswith("_v8"):
+                contract = (
+                    "delimiter_trace_representation_constants_initialization_"
+                    "training_order_query_alignment_and_output_identical_except_"
+                    "learned_pushdown_finite_state_and_frozen_transition_v1"
+                )
+                protocol.update({
+                    "training_max_depth": int(stack["training_max_depth"]),
+                    "test_depths": list(stack["stack_depths"]),
+                    "task_unit": "balanced_real_python_delimiter_trace",
+                })
+            elif config.benchmark_version.endswith(("_v6", "_v7")):
                 contract = (
                     "equality_byte_representation_grammar_extractor_constants_"
                     "initialization_training_order_query_alignment_and_output_"
@@ -487,8 +506,8 @@ def command_plan_new(args: argparse.Namespace) -> int:
                     "preregistered_contraction_schedule_and_tensor_learning_v1"
                 )
             protocol.update({
-                "causal_ablation_1": str(masked["causal_ablation_1"]),
-                "causal_ablation_2": str(masked["causal_ablation_2"]),
+                "causal_ablation_1": str(active["causal_ablation_1"]),
+                "causal_ablation_2": str(active["causal_ablation_2"]),
                 "source_identical_contract": contract,
             })
         else:

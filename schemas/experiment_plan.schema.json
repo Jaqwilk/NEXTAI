@@ -321,7 +321,7 @@
         "invalidation_rules"
       ],
       "properties": {
-        "corpus_id": {"const": "nextai_disjoint_masked_corpus_sha256_v1"},
+        "corpus_id": {"enum": ["nextai_disjoint_masked_corpus_sha256_v1", "nextai_real_python_stack_traces_sha256_v1"]},
         "split_unit": {"const": "whole_files_sha256"},
         "test_file_access": {"const": "evaluator_only"},
         "simultaneous_snapshot_rounds": {"const": true},
@@ -340,7 +340,8 @@
             "local_sparse_predictive_code_masked_byte",
             "parallel_born_mps_masked_byte",
             "sparse_learned_energy_factor_graph_masked_byte",
-            "recursive_equality_grammar_masked_byte"
+            "recursive_equality_grammar_masked_byte",
+            "learned_pushdown_masked_byte"
           ]
         },
         "one_pass_ablation": {
@@ -354,17 +355,25 @@
             "source_identical_frozen_code_predictive_byte",
             "source_identical_frozen_born_mps_masked_byte",
             "source_identical_frozen_energy_factor_graph_masked_byte",
-            "source_identical_frozen_equality_grammar_masked_byte"
+            "source_identical_frozen_equality_grammar_masked_byte",
+            "source_identical_frozen_pushdown_masked_byte"
           ]
         },
         "causal_ablation_1": {
           "enum": [
             "source_identical_sequential_born_mps_masked_byte",
             "source_identical_one_sweep_energy_factor_graph_masked_byte",
-            "source_identical_flat_equality_grammar_masked_byte"
+            "source_identical_flat_equality_grammar_masked_byte",
+            "source_identical_finite_state_pushdown_masked_byte"
           ]
         },
         "source_identical_contract": {"type": "string", "minLength": 24},
+        "training_max_depth": {"type": "integer", "minimum": 1},
+        "test_depths": {
+          "type": "array", "items": {"type": "integer", "minimum": 2},
+          "minItems": 3, "uniqueItems": true
+        },
+        "task_unit": {"type": "string", "minLength": 16},
         "classical_baselines": {
           "type": "array",
           "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
@@ -1766,6 +1775,45 @@
                   {"contains": {"const": "re_pair_grammar_masked_byte"}}
                 ]
               }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v8"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [3, 4, 5]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "learned_pushdown_masked_byte"}},
+              {"contains": {"const": "source_identical_finite_state_pushdown_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_pushdown_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract", "training_max_depth", "test_depths", "task_unit"],
+            "properties": {
+              "corpus_id": {"const": "nextai_real_python_stack_traces_sha256_v1"},
+              "shared_candidate": {"const": "learned_pushdown_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_finite_state_pushdown_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_pushdown_masked_byte"},
+              "training_max_depth": {"const": 2},
+              "test_depths": {"const": [3, 4, 5]},
+              "task_unit": {"const": "balanced_real_python_delimiter_trace"},
+              "source_identical_contract": {"const": "delimiter_trace_representation_constants_initialization_training_order_query_alignment_and_output_identical_except_learned_pushdown_finite_state_and_frozen_transition_v1"}
             }
           }
         }
