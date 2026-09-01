@@ -30,17 +30,40 @@ RELATIONAL_PRIVATE_IDENTIFIERS = frozenset(
         "q",
         "latent",
         "latent_records",
+        "stable_latent",
+        "nuisance_latent",
+        "probe_latent",
         "source_id",
         "source_ids",
         "nuisance",
         "oracle",
         "role",
+        "first_basis",
+        "second_basis",
+        "probe_basis",
+        "m_s",
+        "m_n",
+        "world_identity",
+        "twin_world",
+        "matching_type",
         "coordinate_permutation",
         "inverse_permutation",
+        "inverse_mixer",
     }
 )
 RELATIONAL_ROLE_LITERALS = frozenset(
-    {"correct", "shuffled", "passive", "random", "classical", "oracle"}
+    {
+        "correct",
+        "shuffled",
+        "passive",
+        "random",
+        "classical",
+        "oracle",
+        "w_swap",
+        "m_s",
+        "m_n",
+        "orthogonal_double_matching_source_swap_v1",
+    }
 )
 
 
@@ -95,10 +118,18 @@ def audit_relational_candidate_source(source: str) -> tuple[str, ...]:
                     problems.append(
                         f"line {node.lineno}: candidate-owned randomness import {alias.name!r} is forbidden"
                     )
+                if alias.name.startswith("nextai_autoresearch.benchmarks"):
+                    problems.append(
+                        f"line {node.lineno}: importing a protected evaluator {alias.name!r} is forbidden"
+                    )
         elif isinstance(node, ast.ImportFrom):
             if (node.module or "").split(".", 1)[0] in {"random", "secrets"}:
                 problems.append(
                     f"line {node.lineno}: candidate-owned randomness import {node.module!r} is forbidden"
+                )
+            if (node.module or "").startswith("nextai_autoresearch.benchmarks"):
+                problems.append(
+                    f"line {node.lineno}: importing a protected evaluator {node.module!r} is forbidden"
                 )
     return tuple(dict.fromkeys(problems))
 

@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "cycle": 242,
+  "created_at": "2026-09-01T23:54:38Z",
+  "service_only": true,
+  "contract": "RID-CONTRACT-001",
+  "benchmark": "orthogonal_double_matching_source_swap_v1",
+  "benchmark_status": "maintenance",
+  "development_fixture_seed": 242001,
+  "runner_random_scoring_seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "architecture_selected": false,
+  "scoring_performed": false,
+  "exp_99_created": false,
+  "contract_modified_after_diagnostics": false,
+  "contract_hashes": {
+    "evaluator_file_sha256": "87ba587b8e972ac1a89e2d84469c28e8c7b72901f9389a2b98b5dbb54dc35c7d",
+    "public_contract_sha256": "f69e72e42fe4d2ebf86d09d1612b48d62011be16e6f30e0624c06569979333f7",
+    "evaluator_bundle_sha256": "1b3f47c0a37db8baa361723e66470a4abb12e19ff285d9cd0c90be0e53b8093b",
+    "manifest_file_sha256": "021e26dba598bbe3a9ffe34c4620132a9d56e9ad904df818554de4286971dad8"
+  },
+  "hard_gates": {
+    "mixer": true,
+    "matching": true,
+    "twin_world": true,
+    "exact_ambiguity": true,
+    "ood_discriminator": true,
+    "correct_relation": true,
+    "null_relation": true,
+    "role_bit_identity": true,
+    "target_leakage": true,
+    "ontology_firewall": true,
+    "passive_identifiability": true,
+    "classical_control": false,
+    "scale": true,
+    "cost": true,
+    "determinism": true
+  },
+  "twin_world": {
+    "pass": true,
+    "maximum_swapped_reconstruction_error": 8.881784197001252e-16,
+    "train_targets_byte_identical": true,
+    "iid_targets_byte_identical": true,
+    "public_payload_hashes": {
+      "records": "f2df07f6e5d3515fb2b199304268fc635f600c55f3cc6971e4e247f3360eff05",
+      "targets": "3033b1566c9ec837f34f73cbe66f404d8203a611fcb698ef4a8a0306fc6a508c",
+      "label_mask": "b2d8e18e4a0441cebf1d75ad255e4ea781918a4624d1ae370d04a1308ca56bf6",
+      "relation_edges": "1559e1f84b2b52d7219343e4d90483a2c629bc7271a509a2a62fe0177ee2d052",
+      "relation_mask": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "batch_order": "b83e23eb1db808bf694ae4894d62b50c9840bcd869ba7ac2456f40ddf0530bf3",
+      "iid_queries": "c49e31fb57cdee9f96ca835b385c3c9c15e74e5eb24f721b8db52fde4641ee39",
+      "ood_queries": "b5b86449af5ee1fe7650115eec39b190c1b4b2c6309185472695d03bbf76ae36",
+      "candidate_visible_metadata": "dd16b4cea75f7225137ac23a888d4f5a60a758e0171ddb0e8f2c5647957a5d17"
+    }
+  },
+  "exact_ambiguity": {
+    "pass": true,
+    "train_first_second_latent_max_error": 0.0,
+    "train_h1_h2_max_error": 0.0,
+    "train_h1_target_max_error": 0.0,
+    "iid_h1_h2_max_error": 0.0
+  },
+  "ood_discriminator": {
+    "pass": true,
+    "fixture_count": 65536,
+    "h1_nrmse": 0.0,
+    "h2_nrmse": 1.4202597270552346,
+    "symmetric_nrmse": 0.7101298635276173,
+    "first_second_cross_moment_normalized": 0.0163325760063648
+  },
+  "correct_relation": {
+    "pass": true,
+    "replicates_per_scale": 6,
+    "first_overlap": {"64": 0.7147811074656155, "256": 0.930021885660289, "1024": 0.9837369120326379},
+    "relative_error": {"64": 1.1100719163368424, "256": 0.5571497132460046, "1024": 0.28178397203459754},
+    "k1024_second_overlap": 0.00838834041020283,
+    "k1024_probe_overlap": 0.00787474755715926,
+    "k1024_cca_first_overlap": 0.9999999999999819
+  },
+  "null_relation": {
+    "pass": true,
+    "shuffled_operator_norm": {"64": 1.0646455806638082, "256": 0.5310734697375681, "1024": 0.270539869821153},
+    "random_operator_norm": {"64": 1.0598201471066915, "256": 0.5341952230552881, "1024": 0.26640514460586323},
+    "first_second_edge_disjoint": true,
+    "shuffled_collisions": 0,
+    "random_collisions": 0
+  },
+  "role_bit_identity": {
+    "pass": true,
+    "roles": ["correct", "shuffled", "random", "passive"],
+    "shared_tensor_hashes": {
+      "records": "f2df07f6e5d3515fb2b199304268fc635f600c55f3cc6971e4e247f3360eff05",
+      "train_targets": "3033b1566c9ec837f34f73cbe66f404d8203a611fcb698ef4a8a0306fc6a508c",
+      "label_mask": "b2d8e18e4a0441cebf1d75ad255e4ea781918a4624d1ae370d04a1308ca56bf6",
+      "query_records": "d6b613607b73ddd9898f2b692d6284eeee7c92d511ae8fdfa4650407d282e8f2",
+      "query_targets": "de577c1f38ca92069b5f8a12397a5e535c37a3fc83b7c35dedbf093f9ad2751a",
+      "batch_order": "b83e23eb1db808bf694ae4894d62b50c9840bcd869ba7ac2456f40ddf0530bf3",
+      "counts": "480c3fb02352dba64cd389a2643da5c24481e480fa441649ed4ac0eca846f3b8",
+      "public_constants": "8c15c8e58f28af5c70c317c4dcd87f74527a33c74d4a8a05fcfb3bdfd42ce918",
+      "code_path_requirements": "28e1e728bde1cecd6903d85b08e6211bfe5c477050634679a408341995a7843a",
+      "future_limits": "767630042da190a049afae14a7a2dbf10778604ccbc828994d9ef58ba3caee08"
+    },
+    "relation_hashes": {
+      "correct": {"endpoints": "e0412cc7e64a4cba196e6268e5b6a6ca750d4f014fbeca4e923a6da3cb449838", "active_mask": "5a648d8015900d89664e00e125df179636301a2d8fa191c1aa2bd9358ea53a69"},
+      "shuffled": {"endpoints": "9c036daed479e3b75e5dc186205914136feca1ef3527313ebc5cd9126e1b7c29", "active_mask": "5a648d8015900d89664e00e125df179636301a2d8fa191c1aa2bd9358ea53a69"},
+      "random": {"endpoints": "1559e1f84b2b52d7219343e4d90483a2c629bc7271a509a2a62fe0177ee2d052", "active_mask": "5a648d8015900d89664e00e125df179636301a2d8fa191c1aa2bd9358ea53a69"},
+      "passive": {"endpoints": "1559e1f84b2b52d7219343e4d90483a2c629bc7271a509a2a62fe0177ee2d052", "active_mask": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"}
+    }
+  },
+  "target_leakage": {
+    "pass": true,
+    "target_target_correlation": 0.020749511092322554,
+    "target_gap_edge_truth_correlation": 0.015227242118446928,
+    "edge_truth_target_pair_mi_proxy_bits": 0.0024525140519887057,
+    "paired_endpoint_target_prediction_gain": -0.001576769165970937,
+    "endpoint_index_degree_position_prediction_gain": -0.003413109958971816
+  },
+  "ontology_firewall": {
+    "pass": true,
+    "benchmark_boundary_problems": [],
+    "public_query_fields": ["records"],
+    "private_semantics_in_public_metadata": false,
+    "unsafe_fixture_problem_count": 5
+  },
+  "passive_identifiability": {
+    "pass": true,
+    "degree2_train_nrmse": 2.7192271553919724e-10,
+    "degree2_iid_nrmse": 3.8519130230682303e-10,
+    "degree2_ood_h1_nrmse": 0.7023035080391559,
+    "degree2_ood_h2_nrmse": 0.7131831510824784,
+    "finite_sample_world_preference": 0.010879643043322562,
+    "finite_sample_swap_preference": -0.010879643043322562,
+    "same_public_prediction_in_both_worlds": true
+  },
+  "classical_control": {
+    "pass": false,
+    "legal_visible_boundary_only": true,
+    "rank": 16,
+    "ridge_regularization": 1e-6,
+    "cca_regularization": 1e-6,
+    "eigensolver_tolerance": 1e-10,
+    "frozen_quality_gates": {"spectral_iid_nrmse_maximum": 0.2, "spectral_ood_nrmse_maximum": 0.4, "cca_ood_nrmse_maximum": 0.45},
+    "k1024": {
+      "spectral_basis_first_overlap": 0.9842477875193943,
+      "spectral_iid_nrmse": 0.09973495648937221,
+      "spectral_ood_nrmse": 1.5397512306567207,
+      "cca_basis_first_overlap": 0.9999999999999822,
+      "cca_iid_nrmse": 1.0638015270478648e-7,
+      "cca_ood_nrmse": 1.8061333994884266e-6
+    },
+    "failure_reason": "frozen spectral OOD NRMSE gate failed despite legal CCA control passing"
+  },
+  "scale_sanity": {
+    "pass": true,
+    "scales": [64, 256, 1024],
+    "auxiliary_records": [128, 512, 2048],
+    "labeled_train_records": 2048,
+    "iid_queries": 4096,
+    "ood_queries": 4096
+  },
+  "cost_accounting": {
+    "pass": true,
+    "fields": ["acquisition_ops", "acquisition_bytes", "relation_construction_ops", "relation_synchronization_ops", "preprocessing_ops", "spectral_ops", "fit_ops", "query_ops", "update_ops", "bytes_touched", "state_bytes", "peak_bytes", "wall_time_seconds", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"],
+    "wall_time_diagnostic_only": true
+  },
+  "validation": {
+    "dedicated_tests_passed": 19,
+    "dedicated_tests_failed": 2,
+    "full_pytest_collected": 660,
+    "full_pytest_passed": 658,
+    "full_pytest_failed": 2,
+    "preflight_passed": false,
+    "preflight_failure": "certificate does not match the failed new evaluator/manifest; no new certificate was issued",
+    "integrity_passed": true,
+    "integrity_files_verified": 802,
+    "doctor_passed": false,
+    "doctor_failure": "RID-CONTRACT-001 falsification gate: K_CONTRACT_FAIL_OTHER"
+  },
+  "decision": "K_CONTRACT_FAIL_OTHER",
+  "next_cycle_preregistration_authorized": false,
+  "review_path": "research/reviews/GEN-1-RID-CONTRACT-001-FALSIFICATION-CYCLE-242-2026-09-02.md",
+  "review_sha256": "0a67ddaecc584c7ea0f4eb5dbc0d14027312f541251be174066677a3f53cc295",
+  "next_action": "No experiment is authorized. In a separate no-scoring wake, either close the RID branch or prospectively define a distinct contract; do not edit or reinterpret v1."
+}

@@ -295,6 +295,25 @@ def run_doctor(root: Path | None = None) -> DoctorReport:
             report.facts.append(f"raw_sensor_baselines={len(checked['required'])}")
         except Exception as exc:
             report.errors.append(f"raw sensor maintenance: {exc}")
+    elif config.benchmark_version == "orthogonal_double_matching_source_swap_v1":
+        try:
+            module = __import__(
+                "nextai_autoresearch.benchmarks.orthogonal_double_matching_source_swap_v1",
+                fromlist=["contract_audit"],
+            )
+            audit = module.contract_audit()
+            if audit.get("decision") != "A_RID_EVALUATOR_CERTIFIED":
+                raise RuntimeError(
+                    f"RID-CONTRACT-001 falsification gate: {audit.get('decision')}"
+                )
+            if audit.get("scoring_performed") or audit.get(
+                "runner_random_scoring_seed_realized"
+            ):
+                raise RuntimeError("service-only cycle realized forbidden scoring state")
+            report.facts.append(f"rid_contract={audit['contract']}")
+            report.facts.append(f"rid_decision={audit['decision']}")
+        except Exception as exc:
+            report.errors.append(f"relational identifiability maintenance: {exc}")
 
     pyproject = (base / "pyproject.toml").read_text(encoding="utf-8").lower()
     for dependency in ("openai", "anthropic", "google-generativeai"):

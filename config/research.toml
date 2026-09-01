@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "anonymous_repeated_measurement_ood_v1"
+benchmark_version = "orthogonal_double_matching_source_swap_v1"
 benchmark_status = "maintenance"
 timezone = "Europe/Warsaw"
 
@@ -30,6 +30,35 @@ cost_fields = [
   "relation_synchronization_ops", "preprocessing_ops", "fit_ops",
   "query_ops", "update_ops", "bytes_touched", "state_bytes", "peak_bytes",
   "wall_time_seconds", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
+
+[relational_identifiability]
+contract = "RID-CONTRACT-001"
+latent_dimension = 16
+input_dimension = 48
+acquisition_scales = [64, 256, 1024]
+labeled_train_records = 2048
+queries_per_split = 4096
+roles = ["correct", "shuffled", "random", "passive"]
+record_law = "x=A*s+B*n+D*q with orthogonal [A B D]"
+train_iid_constraint = "n=s"
+ood_constraint = "s and n independent with unchanged sphere marginals"
+target = "q^T*s/sqrt(d)"
+correct_relation = "first hidden perfect matching only"
+null_relations = "degree-matched and collision-free against both hidden matchings"
+scoring_authorized = false
+maintenance_decision = "pending_falsification_audit"
+runner_random_seed_realized = false
+spectral_rank = 16
+ridge_regularization = 0.000001
+cca_regularization = 0.000001
+eigensolver_tolerance = 0.0000000001
+cost_fields = [
+  "acquisition_ops", "acquisition_bytes", "relation_construction_ops",
+  "relation_synchronization_ops", "preprocessing_ops", "spectral_ops",
+  "fit_ops", "query_ops", "update_ops", "bytes_touched", "state_bytes",
+  "peak_bytes", "wall_time_seconds", "workload_ops_r1", "workload_ops_r4",
+  "workload_ops_r16",
 ]
 
 [codex]

@@ -1193,3 +1193,47 @@ stopped, no hypothesis or experiment plan was created, no runner-random seed
 was realized, and EXP-99 was not created. This result must not be repaired by
 changing the target, thresholds, corruption, scales or controls, and no v2 may
 be opened in this cycle.
+
+## Orthogonal double-matching source-swap v1 falsification contract
+
+`RID-CONTRACT-001` is a distinct protected, service-only successor to the
+failed repeated-measurement discriminator; it does not reinterpret or mutate
+that cohort. It fixes latent dimension 16, anonymous input dimension 48 and
+auxiliary relation scales K=`64/256/1024`. A Haar-orthogonal block mixer
+`[A B D]` produces `x=A*s+B*n+D*q`, with `s,n` uniform on the radius-`sqrt(16)`
+sphere and `q` standard Gaussian. Labeled train and IID queries enforce `n=s`;
+OOD queries draw `s,n` independently without changing either marginal. The
+target is `q^T*s/sqrt(16)`. Consequently the two hidden interpretations are
+pointwise identical on train/IID, while their population OOD NRMSEs are zero
+and `sqrt(2)`; the symmetric passive extension has NRMSE `1/sqrt(2)`.
+
+Each auxiliary pool contains two symmetric, edge-disjoint hidden perfect
+matchings. Correct exposes only the first; shuffled and random preserve degree
+and edge count while colliding with neither hidden matching; passive exposes
+the same slot shape with every relation inactive. The candidate boundary
+contains only anonymous flat records, legal labeled targets, label masks and
+anonymous relation endpoints/masks. Bases, latent blocks, matching identities,
+twin-world identity, OOD identity, semantic names and inverse transforms remain
+evaluator-private. A paired world exchange `A<->B`, `s<->n` and `M_s<->M_n`
+must leave the full passive public transcript byte-identical while swapping the
+scientifically correct OOD interpretation.
+
+Certification requires exact twin-world and train/IID ambiguity checks; the
+analytic OOD discriminator; convergence of the correct symmetrized relation
+operator to `A*A^T`; convergence of collision-free null operators to zero;
+role bit-identity outside endpoints and masks; target-leakage and ontology
+firewalls; paired finite-sample symmetry; all three fixed scales; and a strong
+legal spectral/regularized-CCA projected quadratic control. The control fixes
+rank 16, ridge and CCA regularization `1e-6`, eigensolver tolerance `1e-10` and
+subspace-projector orientation handling before diagnostics. Accounting includes
+acquisition operations/bytes, relation construction/synchronization,
+preprocessing, spectral work, fit, query, update, bytes touched, state, peak
+memory, wall-time diagnostics and R1/R4/R16 workloads.
+
+Cycle 242 may only implement and try to falsify this contract. Candidate
+execution is hard stopped. It creates no hypothesis, immutable experiment plan,
+learned candidate, architecture selection, runner-random scoring seed, score or
+EXP-99. A result other than `A_RID_EVALUATOR_CERTIFIED` stops the branch without
+same-cycle repair, threshold changes or a v2. Even decision A only permits a
+later wake to preregister one frozen generic learner after independently
+justifying why it is not a hard-coded spectral/CCA control.
