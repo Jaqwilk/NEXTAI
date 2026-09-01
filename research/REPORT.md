@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T14:35:58Z
+Generated: 2026-09-01T14:53:49Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -264,6 +264,21 @@ Pareto axes: maximize `accuracy, warm_accuracy, near_equivalent_accuracy, stable
 | EXP-20260901-0037 | continuous_local_quantized_fsm | implementable | complete | 0 | 1 | 1699 | 7 | 1.676e+04 | 2.569e+05 | 0 (3) | 58280 |  |
 | EXP-20260901-0037 | continuous_local_kernel_event | implementable | complete | 0 | 1 | 1.865e+06 | 7 | 6.435e+06 | 2.686e+08 | 0 (3) | 49344 |  |
 | EXP-20260901-0037 | privileged_continuous_local_support | privileged support control | complete | 1 | 1 | 3168 | 7 | 2.534e+04 | 4.623e+05 | 0 (3) | 128 |  |
+
+## continuous_local_cellular_v5 / quick
+
+Pareto axes: maximize `accuracy, warm_accuracy, near_equivalent_accuracy, stable_rollout_rate, continual_new_fact_accuracy, continual_retention`; minimize `normalized_rmse, data_acquisition_ops, fit_ops, mean_query_ops, mean_warm_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0049 | error_novelty_split_local_expert_tree_v1 | implementable | complete | 0.3472 | 1 | 9103 | 7 | 7.036e+04 | 1.946e+07 | 6.12e-05 (3) | 7024 |  |
+| EXP-20260901-0049 | source_identical_shuffled_split_local_expert_tree_v1 | implementable | complete | 0.4722 | 1 | 9182 | 7 | 7.161e+04 | 2.046e+07 | -7.362e-05 (3) | 7024 |  |
+| EXP-20260901-0049 | source_identical_frozen_partition_local_expert_tree_v1 | implementable | complete | 0.2083 | 1 | 8889 | 7 | 6.693e+04 | 4.04e+06 | 0 (3) | 528 |  |
+| EXP-20260901-0049 | continuous_local_persistence | implementable | complete | 0 | 1 | 4 | 7 | 32 | 6720 | 0 (3) | 64 |  |
+| EXP-20260901-0049 | continuous_local_ridge | implementable | complete | 0.2083 | 1 | 8363 | 7 | 6.693e+04 | 1.298e+06 | 0 (3) | 480 |  |
+| EXP-20260901-0049 | continuous_local_quantized_fsm | implementable | complete | 0 | 1 | 1699 | 7 | 1.676e+04 | 2.569e+05 | 0 (3) | 58128 |  |
+| EXP-20260901-0049 | continuous_local_kernel_event | implementable | complete | 0 | 1 | 1.865e+06 | 7 | 6.435e+06 | 2.686e+08 | 0 (3) | 49344 |  |
+| EXP-20260901-0049 | privileged_continuous_local_support | privileged support control | complete | 1 | 1 | 3168 | 7 | 2.534e+04 | 4.623e+05 | 0 (3) | 128 |  |
 
 ## cross_family_relation_fragment_transfer_v4 / quick
 

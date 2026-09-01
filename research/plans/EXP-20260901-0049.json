@@ -1,0 +1,153 @@
+{
+  "alternative_explanations": [
+    "Any apparent gain may be axis-aligned partitioning of the random anonymous encoding rather than reusable operator discovery, while exhaustive child-ridge evaluation may dominate full cost."
+  ],
+  "architecture_family": "adaptive_local_operator_partitioning",
+  "benchmark": "continuous_local_cellular_v5",
+  "budget": "quick",
+  "candidates": [
+    "error_novelty_split_local_expert_tree_v1",
+    "source_identical_shuffled_split_local_expert_tree_v1",
+    "source_identical_frozen_partition_local_expert_tree_v1",
+    "continuous_local_persistence",
+    "continuous_local_ridge",
+    "continuous_local_quantized_fsm",
+    "continuous_local_kernel_event",
+    "privileged_continuous_local_support"
+  ],
+  "confounds": [
+    "This one-seed locally visible synthetic family cannot establish cross-family transfer, general conditional computation or an LLM successor."
+  ],
+  "continuous_local_protocol": {
+    "classical_baselines": [
+      "continuous_local_persistence",
+      "continuous_local_ridge",
+      "continuous_local_quantized_fsm",
+      "continuous_local_kernel_event",
+      "privileged_continuous_local_support"
+    ],
+    "dense_ablation": "source_identical_shuffled_split_local_expert_tree_v1",
+    "frozen_ablation": "source_identical_frozen_partition_local_expert_tree_v1",
+    "invalidation_rules": [
+      "Invalidate if training latent amplitudes overlap the held-out scoring amplitude interval.",
+      "Invalidate if an implementable role receives latent coordinates, encoder permutation/signs, targets before prediction or privileged local coefficients.",
+      "Invalidate unless all three prospective roles share anonymous inputs, program language, initial population, constants, proposal order, execution, output bounds and accounting, differing only in true-fitness, preregistered shuffled-fitness or frozen-population selection.",
+      "Invalidate if dormant zero cells are omitted from dense-control cost or implicitly scanned without charging operations and bytes.",
+      "Invalidate if corruption is generated after the clean target is exposed or if repair uses evaluator-private channel semantics.",
+      "Invalidate if the program language, population size, mutation/recombination operators, selection rule, generation count, clipping or tie rule changes after any scoring output.",
+      "Invalidate if candidate fitness uses scoring worlds, scoring targets, family labels, native mechanism names or evaluator-private coefficients.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+      "For continuous_local_cellular_v5, invalidate unless all three tree roles use identical anonymous inputs, features, constants, initialization, fit order, prediction, update, output bounds and accounting and differ only in error/novelty-aligned, preregistered shuffled, or frozen partition decisions.",
+      "For continuous_local_cellular_v5, invalidate if a split threshold, tree capacity, leaf model, novelty rule, shuffle, clipping or tie rule is selected from scoring worlds or changed after scoring output."
+    ],
+    "minimum_nrmse_gain": 0.01,
+    "pareto_capability_metrics": [
+      "accuracy",
+      "warm_accuracy",
+      "near_equivalent_accuracy",
+      "stable_rollout_rate",
+      "continual_new_fact_accuracy",
+      "continual_retention",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "shared_candidate": "error_novelty_split_local_expert_tree_v1",
+    "source_identical_contract": "anonymous_inputs_features_constants_initialization_fit_prediction_update_accounting_identical_except_error_novelty_split_shuffled_split_or_frozen_partition_v5",
+    "state_budget_bytes": 16777216
+  },
+  "created_at": "2026-09-01T14:41:07Z",
+  "evaluator_sha256": "af865df28ad29228ae185f24972b2320e1bd9dbb03973906a21e6e25455b99fa",
+  "experiment_id": "EXP-20260901-0049",
+  "falsification_criteria": [
+    "Discard if main misses any frozen aggregate or per-K D8/D16 0.01 NRMSE margin, stability, worst-scale, damaged-input, sparse-slope, state, accounting or Pareto gate; invalidate on role mismatch, scoring-data split creation, metadata leakage, nonlocal update, missing control, preflight or integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "6978ab826ce6bab953c3a82a220db8764de9f715",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0053",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256,
+      1024
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      8,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A valid failure ends this exact eight-leaf median-split ridge, gain threshold, shuffle and local-update rule without tuning or replication.",
+    "null": "If aligned splitting beats its source-identical ablations but ridge or kernel matches capability at lower full cost, preserve the causal split effect and falsify the registered capability-cost conjunction.",
+    "positive": "Keep HYP-0053 only as one-seed scout evidence and authorize unchanged three-seed adversarial replication without tuning or promotion."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The frozen eight-leaf median-split learner with ridge 0.001, minimum leaf 48, minimum child 24, novelty span 0.20, relative gain gate 0.05 and local NLMS 0.05 will lower aggregate NRMSE by at least 0.01 versus both source-identical roles and the strongest complete implementable control, preserve that margin at every K for D8/D16, remain stable with effectively zero K query slope, and be implementably Pareto non-dominated after all proposal fits and repeated-use costs.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "stable_rollout_rate",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "normalized_rmse",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; complete passage of every causal, quality, stability, scaling, full-cost and Pareto gate may authorize only an unchanged three-seed adversarial replication."
+  ],
+  "research_question": "Can a bounded observation-grown tree of routed local affine operators improve unseen-amplitude rollout quality per full cost beyond shuffled and frozen source-identical partitions plus ridge and kernel controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Error-novelty split local expert tree scout"
+}

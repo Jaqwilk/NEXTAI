@@ -802,6 +802,32 @@
         {"path":"tests/test_invariant_residual_module.py","node_id":"tests/test_invariant_residual_module.py::test_consistent_channel_permutation_commutes_with_adaptation_and_prediction","sha256":"b26d2fa7d9713cca30c2f0de5424d7b17b708a7422831b6a9a8f61cfa67cddfa"},
         {"path":"tests/test_invariant_residual_module.py","node_id":"tests/test_invariant_residual_module.py::test_all_modes_share_constants_and_account_finite_bounded_work","sha256":"b26d2fa7d9713cca30c2f0de5424d7b17b708a7422831b6a9a8f61cfa67cddfa"}
       ]
+    },
+    "error_novelty_split_local_expert_tree_v1": {
+      "baseline_id": "hypothesis_error_novelty_split_local_expert_tree_v1",
+      "version": 1,
+      "specification": {
+        "role": "tested scout candidate; not a classical baseline",
+        "features": "bias plus twelve anonymous left-center-right coordinates",
+        "leaf_model": "four-output affine ridge 0.001 clipped to [-1.5,1.5]",
+        "partition": "best-first at most eight leaves; median coordinate threshold; minimum leaf 48 and child 24; coordinate span at least 0.20; relative SSE gain at least 0.05",
+        "ablation": "identical gain vector deterministically reassigned with seed xor 0x51E17, or partition frozen at one root",
+        "update": "route one reveal and apply leaf-only normalized LMS eta 0.05 without split or refit",
+        "source_identity": "three wrappers share one core, constants, inputs, fit, prediction, update and accounting"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/local_expert_tree_core.py": "9dae9ef2bfe551208c5d2b2cfc8b6f655bbff9f8944d5d2db9468da2feb0c291",
+        "src/nextai_autoresearch/candidates/error_novelty_split_local_expert_tree_v1.py": "b3a93cac67d9a9c54dbcf1fb80ed9a55d78b1b11a26f3f3534e055862471a5b9",
+        "src/nextai_autoresearch/candidates/source_identical_shuffled_split_local_expert_tree_v1.py": "58cb388f665c43241e70988943c79eda58be20b7662cc427a63704251bdd15ef",
+        "src/nextai_autoresearch/candidates/source_identical_frozen_partition_local_expert_tree_v1.py": "c15b7bbcfdd92b3f9befe79a240b2fad873b3b20ebd6607fd397a6994bdf8e88"
+      },
+      "conformance_tests": [
+        {"path": "tests/test_local_expert_tree.py", "node_id": "tests/test_local_expert_tree.py::test_aligned_piecewise_error_triggers_a_bounded_split", "sha256": "8cfacf2cee0b83671148e6e837ea17287bf6f87df3b60b51c56bb12d824b14e6"},
+        {"path": "tests/test_local_expert_tree.py", "node_id": "tests/test_local_expert_tree.py::test_source_identical_wrappers_share_core_and_frozen_stays_one_leaf", "sha256": "8cfacf2cee0b83671148e6e837ea17287bf6f87df3b60b51c56bb12d824b14e6"},
+        {"path": "tests/test_local_expert_tree.py", "node_id": "tests/test_local_expert_tree.py::test_shuffled_mode_reassigns_only_the_complete_gain_vector", "sha256": "8cfacf2cee0b83671148e6e837ea17287bf6f87df3b60b51c56bb12d824b14e6"},
+        {"path": "tests/test_local_expert_tree.py", "node_id": "tests/test_local_expert_tree.py::test_row_reordering_preserves_aligned_tree_and_predictions", "sha256": "8cfacf2cee0b83671148e6e837ea17287bf6f87df3b60b51c56bb12d824b14e6"},
+        {"path": "tests/test_local_expert_tree.py", "node_id": "tests/test_local_expert_tree.py::test_update_changes_exactly_one_routed_leaf", "sha256": "8cfacf2cee0b83671148e6e837ea17287bf6f87df3b60b51c56bb12d824b14e6"}
+      ]
     }
   }
 }
