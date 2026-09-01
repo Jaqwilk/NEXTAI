@@ -339,7 +339,8 @@
             "iterative_masked_learner",
             "local_sparse_predictive_code_masked_byte",
             "parallel_born_mps_masked_byte",
-            "sparse_learned_energy_factor_graph_masked_byte"
+            "sparse_learned_energy_factor_graph_masked_byte",
+            "recursive_equality_grammar_masked_byte"
           ]
         },
         "one_pass_ablation": {
@@ -352,13 +353,15 @@
           "enum": [
             "source_identical_frozen_code_predictive_byte",
             "source_identical_frozen_born_mps_masked_byte",
-            "source_identical_frozen_energy_factor_graph_masked_byte"
+            "source_identical_frozen_energy_factor_graph_masked_byte",
+            "source_identical_frozen_equality_grammar_masked_byte"
           ]
         },
         "causal_ablation_1": {
           "enum": [
             "source_identical_sequential_born_mps_masked_byte",
-            "source_identical_one_sweep_energy_factor_graph_masked_byte"
+            "source_identical_one_sweep_energy_factor_graph_masked_byte",
+            "source_identical_flat_equality_grammar_masked_byte"
           ]
         },
         "source_identical_contract": {"type": "string", "minLength": 24},
@@ -1619,6 +1622,41 @@
               "causal_ablation_1": {"const": "source_identical_one_sweep_energy_factor_graph_masked_byte"},
               "causal_ablation_2": {"const": "source_identical_frozen_energy_factor_graph_masked_byte"},
               "source_identical_contract": {"const": "factor_graph_byte_representation_constants_initialization_training_order_update_rule_and_output_identical_except_preregistered_factor_learning_one_sweep_and_freeze_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v6"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "recursive_equality_grammar_masked_byte"}},
+              {"contains": {"const": "source_identical_flat_equality_grammar_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_equality_grammar_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "recursive_equality_grammar_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_flat_equality_grammar_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_equality_grammar_masked_byte"},
+              "source_identical_contract": {"const": "equality_byte_representation_grammar_extractor_constants_initialization_training_order_query_alignment_and_output_identical_except_preregistered_recursion_flattening_and_grammar_learning_v1"}
             }
           }
         }

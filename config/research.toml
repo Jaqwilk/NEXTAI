@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_raw_sensor_active_identification_v2"
+benchmark_version = "heldout_parallel_masked_infilling_v6"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -149,10 +149,10 @@ refinement_rounds = [1, 4, 6]
 queries_per_cell = 8
 span_lengths = [8, 32, 128]
 context_bytes = 64
-shared_candidate = "sparse_learned_energy_factor_graph_masked_byte"
+shared_candidate = "recursive_equality_grammar_masked_byte"
 one_pass_ablation = "source_identical_one_pass_predictive_code_masked_byte"
-causal_ablation_1 = "source_identical_one_sweep_energy_factor_graph_masked_byte"
-causal_ablation_2 = "source_identical_frozen_energy_factor_graph_masked_byte"
+causal_ablation_1 = "source_identical_flat_equality_grammar_masked_byte"
+causal_ablation_2 = "source_identical_frozen_equality_grammar_masked_byte"
 classical_baselines = [
   "uniform_masked_byte",
   "empirical_unigram_masked_byte",
@@ -170,8 +170,8 @@ invalidation_rules = [
   "Invalidate if a public query exposes a path, target byte, uncorrupted span or future refinement snapshot.",
   "Invalidate if predictions within one round observe another prediction from that same round.",
   "Invalidate if candidate critical-path work is sequentially hidden inside a declared simultaneous step.",
-  "Invalidate if the three energy-factor roles differ in byte representation, factor graph, initialization, training data/order, constants, update rule or output probabilities beyond the preregistered learned-factor, one-sweep and frozen-factor interventions.",
-  "Invalidate unless preregistered semantic fixtures prove multi-factor completion, nonincreasing reported energy across accepted relaxation steps, byte-relabeling equivariance, no target access and explicit factor-by-iteration work accounting.",
+  "Invalidate if the three equality-grammar roles differ in byte representation, grammar extractor, initialization, training data/order, constants, query alignment or output probabilities beyond the preregistered recursive, flat and frozen-grammar interventions.",
+  "Invalidate unless preregistered semantic fixtures prove that recursive completion requires at least two learned grammar levels, the flat ablation cannot solve that fixture, consistent byte relabeling preserves probabilities, no target is accessible and rule discovery, indexing, alignment and expansion work are explicit.",
   "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
 ]
 

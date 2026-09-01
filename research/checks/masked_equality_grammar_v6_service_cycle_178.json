@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "cycle": 178,
+  "created_at": "2026-09-01T06:24:23Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "seed_realized": false,
+  "candidate_implemented": false,
+  "benchmark_before": "heldout_raw_sensor_active_identification_v2",
+  "benchmark_after": "heldout_parallel_masked_infilling_v6",
+  "decision": "reject_parity_alias_and_activate_recursive_equality_grammar_v6",
+  "parity_gate": {
+    "xor_equivariant_under_arbitrary_byte_permutation": false,
+    "learned_pair_table_is_distinct_from_v5_energy_factor": false,
+    "soft_pair_message_not_covered_by_parallel_markov_bp": false,
+    "passed": false
+  },
+  "preserved_contract": {
+    "v6_reexports_v5_run_suite": true,
+    "corpus_hashes_and_roles": 48,
+    "knowledge_sizes": [8, 32],
+    "refinement_rounds": [1, 4, 6],
+    "span_lengths": [8, 32, 128],
+    "queries_per_cell": 8,
+    "semantic_baselines": 8,
+    "semantic_test_nodes": 9,
+    "historical_v5_plan_validates": true
+  },
+  "prospective_roles": [
+    "recursive_equality_grammar_masked_byte",
+    "source_identical_flat_equality_grammar_masked_byte",
+    "source_identical_frozen_equality_grammar_masked_byte"
+  ],
+  "archived_manifests": {
+    "research/manifests/heldout_raw_sensor_active_identification_v2-protocol-v2-3f7ec5c4cfdb.json": "e6d8b7b1d673a262f876dc7cdcfc9d8095871fc22c03a613e4d0836599a8e00a",
+    "research/manifests/heldout_parallel_masked_infilling_v6-protocol-v2-f028d8baa149.json": "04929b41bdd99cbd206724377dbb0c7e5c472eff42943cc33e9f1f790f9c1efa"
+  },
+  "final_manifest_file_sha256": "ef97e2c4e4a736497af1bdffcc8d56b5535198c2b5be5a3a63abee697dcb36fc",
+  "evaluator_sha256": "f3848f39185875be0df91f9cbbccc8c3e71c0401252b933217a3c58f7daf4e23",
+  "candidate_bundle_sha256": "697023e2759f9949d11d9511e635e521549026dc4c554b0544d24ad66e5ae8e6",
+  "preflight_certificate_digest": "064b9528869a56df58b3ddb7a0e313c462135a4c828c6d61717403b3587c7f70",
+  "preflight_file_sha256": "a57f3b3c87be7b32c1d969daf2fa1b438a28b2ef47ebcfad19c355f545aa1c6c",
+  "pytest": {"collected": 483, "passed": 483},
+  "integrity": {"status": "pass", "checked_files": 659},
+  "doctor": "pass",
+  "next_cycle": "Mandatory scoring cycle 179: create a new low-confidence equality-grammar hypothesis and immutable EXP-20260901-0032 before candidate implementation, then execute exactly one runner-random quick seed on the unchanged v6 matrix against both source-identical ablations and all eight controls."
+}

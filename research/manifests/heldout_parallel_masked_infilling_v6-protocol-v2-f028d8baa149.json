@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_parallel_masked_infilling_v6",
   "candidate_bundle_sha256": "697023e2759f9949d11d9511e635e521549026dc4c554b0544d24ad66e5ae8e6",
-  "created_at": "2026-09-01T06:23:13Z",
-  "evaluator_sha256": "f3848f39185875be0df91f9cbbccc8c3e71c0401252b933217a3c58f7daf4e23",
+  "created_at": "2026-09-01T06:21:18Z",
+  "evaluator_sha256": "6a7d04d0b24fa936ce20a92e330ff82bf6e166cab240053dfaa94d53b6d34ef6",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -640,7 +640,7 @@
     "tests/test_protocol_v2.py": "0441f1d62ebefdca35226bf47a52f0af64acb16f07b3fa50ac2cb52c3fcb73b2",
     "tests/test_raw_byte_motif_composition.py": "22d6b385d34ec784888e7f5ec9b76690ba3814dd42e0f15f66f876ac8aec670f",
     "tests/test_raw_sensor_active_identification_v1.py": "fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634",
-    "tests/test_raw_sensor_active_identification_v2.py": "c8b550d3fd902aa3d126089c5aec59b577f383d27bb48fd136c286758e9a7b3e",
+    "tests/test_raw_sensor_active_identification_v2.py": "f606fd859af57ed0b005d4da6b87006655e7191e54d841c4653b0dd6c1b6b0d1",
     "tests/test_report_pareto_provenance.py": "ef70a886b911906f73418cdc2d847f47d90854f0accc8824dffabc5c454ff6cb",
     "tests/test_repository_sequence_compression_v4.py": "46c8e2b6fe6797771969a3bb8b538fe0a4fee3f297937d2eaa9c51b7f08d746f",
     "tests/test_repository_sequence_compression_v5.py": "089089a552b828b67e331f1b867075d30ccbc401eac75ffc78770ba1e2307bc0",

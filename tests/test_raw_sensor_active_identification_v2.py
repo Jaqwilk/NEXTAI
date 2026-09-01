@@ -45,6 +45,7 @@ def test_plan_new_emits_schema_valid_v2_role_contract(monkeypatch) -> None:
     captured = {}
     configured = load_config(project_root())
     raw = deepcopy(configured.raw)
+    raw["project"]["benchmark_version"] = "heldout_raw_sensor_active_identification_v2"
     monkeypatch.setattr(cli, "load_config", lambda root: ResearchConfig(raw, configured.path))
     monkeypatch.setattr(cli, "ensure_layout", lambda root: None)
     monkeypatch.setattr(cli, "ensure_can_create_plan", lambda root: None)

@@ -271,6 +271,33 @@ and run exactly one cheap HYP-0007 revival scout; a valid negative ends this
 exact energy-factor rule without tuning, while a positive only authorizes an
 unchanged replication cohort.
 
+Version 6 is a service-only successor to v5. It re-exports the unchanged v5
+evaluator and therefore preserves all 48 file hashes and roles, whole-file
+splits, runner-random byte relabeling, masks, K=`8/32`, rounds=`1/4/6`,
+spans=`8/32/128`, eight cases per cell, immutable-snapshot execution, metrics,
+cost formulas, state boundary, Pareto axes, seed policy and all eight semantic
+controls. Historical v1-v5 plans, results, analyses, candidates and manifests
+remain immutable and cohort-separated.
+
+V6 changes only the three prospective role identifiers to a recursive learned
+equality grammar, its source-identical grammar flattened to one learned rule
+level and its source-identical grammar with rule learning frozen. Every role
+must share byte representation, grammar extractor, constants, initialization,
+training files/order, query alignment and output probabilities. Only recursive
+rule composition, flattening and grammar learning may differ as preregistered.
+The mechanism may use symbol equality and learned repeated motifs but no byte
+arithmetic, supplied token ontology, path, file role or target. Before scoring,
+semantic fixtures must require at least two grammar levels, defeat the flat
+ablation, commute with a consistent byte relabeling and charge rule discovery,
+indexing, alignment and expansion. No candidate, hypothesis, plan, seed or
+score exists in this migration cycle.
+
+The rejected parity/factor proposal is not a v6 role. XOR is not equivariant
+under the cohort's arbitrary 256-symbol permutation. Replacing XOR with learned
+pair tables is observationally the already-scored v5 energy-factor graph, while
+soft local messages are covered by parallel Markov BP. This rejection is a
+pre-seed identifiability decision, not evidence from a new experiment.
+
 ## Held-out repository sequence-compression cohorts
 
 A real-sequence screening cohort uses immutable, hashed, whole-file train/validation/test roles. An implementable candidate receives only evaluator-supplied anonymous bytes: never paths, roles, file names, extensions, hashes, test offsets, future bytes or filesystem access. Corpus mismatch, fragment-level splitting or cross-slot test-state leakage invalidates the cohort. Local visible source is screening evidence only.
