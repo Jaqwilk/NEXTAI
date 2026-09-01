@@ -1,0 +1,22 @@
+{
+  "active_benchmark": "latent_entity_binding_retrieval_v3",
+  "candidate_bundle_sha256": "cf3ee0106678325c826c2567ae9cf36424335a9f875b1a12211a04174373a2e8",
+  "completed_experiments": 93,
+  "cycle": 219,
+  "evaluator_sha256": "a30135accad58a76883fd0f5415902558d1e30501e130ac09ba95c89ec394f88",
+  "experiment_id": "EXP-20260901-0055",
+  "full_pytest_passed": 593,
+  "integrity_files_verified": 767,
+  "main_candidate_created_after_plan": true,
+  "plan_sha256": "607fc9f3bfe776e9367a030818fa79fb79377c657d725d1d9b07e53c2df48eba",
+  "plan_status": "invalidated_pre_seed_infrastructure",
+  "preflight_certificate_digest": "f39b0910e27409e7919ac1dd349fec8095c11e2a5a642dee15ee615dd5f53b62",
+  "registry_sha256": "cde6c80446a6459467a5555f944c465047c688713d637ba1c752e1ec1e7ea433",
+  "result_created": false,
+  "scientific_evidence_changed": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "semantic_baseline_nodes_passed": 6,
+  "service_only_after_pre_seed_rejection": true,
+  "test_sha256": "b49711a37d6257f525b377bf92a55688d3f0e63faca6278d768a3575615c7844"
+}

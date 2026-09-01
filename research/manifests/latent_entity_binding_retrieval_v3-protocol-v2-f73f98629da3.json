@@ -1,12 +1,12 @@
 {
   "benchmark_version": "latent_entity_binding_retrieval_v3",
-  "candidate_bundle_sha256": "cf3ee0106678325c826c2567ae9cf36424335a9f875b1a12211a04174373a2e8",
-  "created_at": "2026-09-01T17:29:17Z",
+  "candidate_bundle_sha256": "decdd8d459acd9bcc81bee48daf95c06255af736ce7c731d6bd5f85397e5e5b1",
+  "created_at": "2026-09-01T17:27:27Z",
   "evaluator_sha256": "a30135accad58a76883fd0f5415902558d1e30501e130ac09ba95c89ec394f88",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
-    "config/baseline_semantics.json": "cde6c80446a6459467a5555f944c465047c688713d637ba1c752e1ec1e7ea433",
+    "config/baseline_semantics.json": "6d6c8549173ee081a0ab5611dffbe2cb9a6471a2ff0492e464abea940e03208b",
     "config/research.toml": "befbca0bfb6286e8555d42bbac5de4b0077c949c5c11bbec2593c45ea12a31ca",
     "docs/SCIENTIFIC_PROTOCOL.md": "363747f7d17b2b30ff8c0ced4fdb77b028a16b98ad140f896a67cd51ad6e1254",
     "program.md": "e50270647d6d2eba47958f0a3ffcad24f72e276fdf18256b9906b43295640948",
