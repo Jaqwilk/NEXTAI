@@ -396,6 +396,25 @@ synthetic cohort tests whether representation acquisition changes active
 measurement economics; it is not a real-world perception holdout or evidence
 of general intelligence.
 
+Version 2 is a service-only successor to raw-sensor v1. It preserves the exact
+world generator, three fixed meta-world seeds, runner-random held-out transform,
+anonymous support and single-use probe boundary, K=`8/32/128`, probe budgets
+`4/8/16`, 32 queries per cell, metrics, directions, full-cost formulas, state
+limit, seed policy, Pareto axes and all seven semantic controls. Historical v1
+plans, results, analyses, candidates and manifests remain immutable and are not
+reinterpreted.
+
+V2 changes only the three prospective causal role identifiers to a learned
+posterior-partition decision DAG, its source-identical support-only DAG and its
+source-identical frozen-policy DAG. The three roles must resolve to one core,
+constants, support order, charged probe boundary, query traversal and output
+rule; only the preregistered meta-world, held-out-support or frozen source of the
+compiled partition policy may differ. A mixed v1/v2 role contract is rejected
+before scoring. This migration creates no hypothesis, plan, seed, candidate
+implementation or score. The next immutable quick plan must freeze DAG growth,
+split objective, leaf rule, tie handling, stopping and every numerical constant
+before implementation.
+
 ## Claims language
 
 Allowed early claim:

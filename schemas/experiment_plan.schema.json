@@ -482,9 +482,9 @@
         "training_world_seeds": {"const": [1103, 2207, 3301]},
         "test_world_seed_source": {"const": "runner_scoring_seeds"},
         "raw_sensor_values": {"const": "anonymous_continuous_single_probe_access"},
-        "shared_candidate": {"const": "shared_raw_sensor_probe_learner_v1"},
-        "support_only_ablation": {"const": "source_identical_support_only_raw_sensor_probe_v1"},
-        "frozen_representation_ablation": {"const": "source_identical_frozen_raw_sensor_probe_v1"},
+        "shared_candidate": {"enum": ["shared_raw_sensor_probe_learner_v1", "shared_posterior_partition_decision_dag_v1"]},
+        "support_only_ablation": {"enum": ["source_identical_support_only_raw_sensor_probe_v1", "source_identical_support_only_partition_dag_v1"]},
+        "frozen_representation_ablation": {"enum": ["source_identical_frozen_raw_sensor_probe_v1", "source_identical_frozen_partition_dag_v1"]},
         "classical_baselines": {"const": [
           "raw_sensor_no_probe_prior_v1", "raw_sensor_observe_all_v1",
           "raw_sensor_random_probe_v1", "raw_sensor_fisher_fixed_probe_v1",
@@ -494,7 +494,7 @@
         "sensor_count": {"const": 48},
         "support_repetitions": {"const": 3},
         "noise_std": {"const": 0.2},
-        "source_identical_contract": {"const": "encoder_probe_policy_constants_support_order_query_update_output_identical_except_meta_world_access_and_preregistered_representation_learning_or_freezing_v1"},
+        "source_identical_contract": {"enum": ["encoder_probe_policy_constants_support_order_query_update_output_identical_except_meta_world_access_and_preregistered_representation_learning_or_freezing_v1", "probe_boundary_constants_support_order_query_output_identical_except_meta_support_or_frozen_partition_policy_v1"]},
         "state_budget_bytes": {"const": 16777216},
         "pareto_capability_metrics": {"const": [
           "accuracy", "minimum_family_accuracy", "mean_probe_count",

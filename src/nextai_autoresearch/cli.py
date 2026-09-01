@@ -226,8 +226,10 @@ def _active_sensor_protocol(config: ResearchConfig) -> dict[str, Any]:
         "sensor_count": int(active["sensor_count"]),
         "support_repetitions": int(active["support_repetitions"]),
         "noise_std": float(active["noise_std"]),
-        "source_identical_contract":
+        "source_identical_contract": str(active.get(
+            "source_identical_contract",
             "encoder_probe_policy_constants_support_order_query_update_output_identical_except_meta_world_access_and_preregistered_representation_learning_or_freezing_v1",
+        )),
         "state_budget_bytes": int(active["state_budget_bytes"]),
         "pareto_capability_metrics": list(active["pareto_capability_metrics"]),
         "scout_only_no_promotion": True,
@@ -308,7 +310,10 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "dirty": bool(_git_value(root, "status", "--porcelain")),
         },
     }
-    if config.benchmark_version == "heldout_raw_sensor_active_identification_v1":
+    if config.benchmark_version in {
+        "heldout_raw_sensor_active_identification_v1",
+        "heldout_raw_sensor_active_identification_v2",
+    }:
         active = config.raw["active_sensor"]
         plan["matrix"]["knowledge_sizes"] = list(active["knowledge_sizes"])
         plan["matrix"]["reasoning_depths"] = list(active["probe_budgets"])

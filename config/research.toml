@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_raw_sensor_active_identification_v1"
+benchmark_version = "heldout_raw_sensor_active_identification_v2"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -24,9 +24,10 @@ queries_per_cell = 32
 sensor_count = 48
 support_repetitions = 3
 noise_std = 0.20
-shared_candidate = "shared_raw_sensor_probe_learner_v1"
-support_only_ablation = "source_identical_support_only_raw_sensor_probe_v1"
-frozen_representation_ablation = "source_identical_frozen_raw_sensor_probe_v1"
+shared_candidate = "shared_posterior_partition_decision_dag_v1"
+support_only_ablation = "source_identical_support_only_partition_dag_v1"
+frozen_representation_ablation = "source_identical_frozen_partition_dag_v1"
+source_identical_contract = "probe_boundary_constants_support_order_query_output_identical_except_meta_support_or_frozen_partition_policy_v1"
 classical_baselines = [
   "raw_sensor_no_probe_prior_v1",
   "raw_sensor_observe_all_v1",
@@ -48,6 +49,7 @@ invalidation_rules = [
   "Invalidate if an implementable candidate receives latent codes, sensor weights, label permutations, hidden targets or unprobed sensor values.",
   "Invalidate unless every sensor access passes through the charged single-use probe interface.",
   "Invalidate if the three source-identical causal roles differ outside meta-world access and preregistered representation learning versus freezing.",
+  "Invalidate unless the three v2 decision-DAG roles resolve to one implementation and frozen constants, differing only in the preregistered meta, support-only or frozen partition-policy source.",
   "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change.",
 ]
 
