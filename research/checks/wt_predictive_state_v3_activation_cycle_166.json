@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "cycle": 166,
+  "created_at": "2026-09-01T03:42:35Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "baseline_candidate_implementations_created": 2,
+  "completed_experiments_before": 72,
+  "completed_experiments_after": 72,
+  "benchmark_before": "continuous_local_cellular_v1",
+  "benchmark_after": "heldout_wt_changepoints_prequential_v3",
+  "evaluator_sha256": "5c5666eee87257e241c833639d394ba9c074c5a104ebbfcf4b3ffc2a1027dde3",
+  "candidate_bundle_sha256": "a2a7561d51b0ce5129fa0d12a816fd89eeb5bac294ddd69ae24c405403965809",
+  "activation_preflight_certificate": "832446c46019d41ac6eb6e0034b91fad0bbe0c12b10afd6456ddd0538deed346",
+  "semantic_baselines": 10,
+  "frozen_wt_files": 10,
+  "corpus_manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+  "specifications": {
+    "wt_coverage_aware_spectral_psr_v1": {
+      "rank": 4,
+      "ridge": 0.001,
+      "coverage": "equal total mass per exact train-only control level",
+      "state": "left singular subspace of weighted history-future cross moment",
+      "readout": "bias plus state plus control plus state-times-control",
+      "update": "post-artifact slot-local normalized LMS eta 0.25"
+    },
+    "wt_train_only_discretized_cssr_v1": {
+      "alphabet": "per-channel train-history quartiles and train-control quartiles",
+      "maximum_suffix": 3,
+      "morph_distance": "total variation",
+      "equivalence_threshold": 0.15,
+      "determinization": "split by empirically supported symbol-labelled successors until stable",
+      "update": "post-artifact slot-local residual-state mean; partition frozen"
+    }
+  },
+  "hashes": {
+    "research_config": "167a3a94052a1b29469a0a7547d723594835cfb5985f846650a620384b4a78ad",
+    "baseline_registry": "47f96426913793d9663ea26844e2038bf2ffcf42972f7bf0de56f63020126085",
+    "control_core": "0ac4334fab835b5f83eaf6b3516a6ead22c3485c77317d470026eb77ca160513",
+    "spectral_wrapper": "4c4120b010c408ba0fac5b4e0d3006be37d747716e456dd3cb486f0521bd6237",
+    "cssr_wrapper": "f92f91d99e4585d0849998a0a6ca4e7fd34da255516adc3f31e4dbf720d8f99d",
+    "semantic_tests": "f11ba5efd8e9e7e2650d418cf70e0051756ed789f9678fce54cbc0ec6ef4ded0",
+    "v3_benchmark": "225f28d33a3865e1e6cad63870a56d809428de60c21deda3eb0df37100918563"
+  },
+  "gates": {
+    "source_audit": "PASS",
+    "focused_semantic_tests": 6,
+    "real_file_development_smoke": "PASS",
+    "semantic_registry_gate": "PASS",
+    "full_pytest_before_activation": 447,
+    "integrity_at_activation": "PASS",
+    "doctor_at_activation": "PASS"
+  },
+  "next_cycle": "Mandatory scoring wake: preregister HYP-0040 as the exact HYP-0008 WT predictive-state rule, create one immutable quick plan before candidate implementation, then execute exactly one runner-random seed."
+}

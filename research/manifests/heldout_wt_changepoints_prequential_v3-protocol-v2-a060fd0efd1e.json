@@ -1,7 +1,7 @@
 {
   "benchmark_version": "heldout_wt_changepoints_prequential_v3",
   "candidate_bundle_sha256": "a2a7561d51b0ce5129fa0d12a816fd89eeb5bac294ddd69ae24c405403965809",
-  "created_at": "2026-09-01T03:43:41Z",
+  "created_at": "2026-09-01T03:42:20Z",
   "evaluator_sha256": "5c5666eee87257e241c833639d394ba9c074c5a104ebbfcf4b3ffc2a1027dde3",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",

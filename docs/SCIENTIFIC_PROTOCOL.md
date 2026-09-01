@@ -392,10 +392,10 @@ discretized CSSR as mandatory implementable controls. All three causal roles
 must share windows, rank, features, control conditioning, constants,
 initialization, fit order, update schedule and output code except for the
 preregistered state-learning, freeze and history-projection interventions.
-No candidate, hypothesis, plan, seed or score is created by this prospective
-contract. V3 remains inactive maintenance until both added controls have exact
-semantic registrations and discriminating tests; only then may a separate
-service wake activate and freeze the cohort.
+No hypothesis, plan, seed or score was created by the prospective contract.
+V3 became active only after both added controls received exact semantic
+registrations, transitive source audits, hand-checkable discriminating tests,
+real-file development smoke, and the complete repository test gate.
 
 ## Three-family continuous transfer v2 Pareto contract
 
