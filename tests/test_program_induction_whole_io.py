@@ -1,3 +1,7 @@
+import copy
+
+import pytest
+
 from nextai_autoresearch.benchmarks.program_induction_from_whole_io_v2 import (
     make_tasks,
     meta_programs,
@@ -7,6 +11,8 @@ from nextai_autoresearch.benchmarks.program_induction_from_whole_io_v2 import (
 from nextai_autoresearch.benchmarks import program_induction_from_whole_io_v3 as v3
 from nextai_autoresearch.baseline_semantics import required_baseline_names
 from nextai_autoresearch.config import load_config
+from nextai_autoresearch.metrics import aggregate_trials
+from nextai_autoresearch.runner import _frontier
 from nextai_autoresearch.schemas import validate_document
 from nextai_autoresearch.utils import load_json, project_root
 from nextai_autoresearch.whole_io_vm_core import PROGRAMS, active_bits, run_program
@@ -103,3 +109,30 @@ def test_v3_plan_contract_freezes_roles_matrix_and_exact_controls() -> None:
     }
     validate_document("experiment_plan", plan, root)
     assert required_baseline_names(plan) == list(config["classical_baselines"])
+
+
+def test_exp_0036_shaped_complete_trials_form_an_exact_capability_frontier() -> None:
+    root = project_root()
+    plan = load_json(root / "research" / "plans" / "EXP-20260901-0036.json")
+    immutable = load_json(root / "research" / "results" / "EXP-20260901-0036.json")
+    candidates = copy.deepcopy(immutable["candidates"])
+    for candidate in candidates:
+        candidate["summary"] = aggregate_trials(candidate["trials"])
+
+    frontier, axes = _frontier(candidates, plan, load_config(root))
+    assert frontier
+    assert axes["maximize"] == [
+        "accuracy", "program_induction_accuracy", "length_extrapolation_accuracy",
+    ]
+    assert "mean_search_ops" in axes["minimize"]
+    assert all(
+        candidate["summary"][metric] is not None
+        for candidate in candidates
+        for metric in (*axes["maximize"], *axes["minimize"])
+    )
+    assert immutable["pareto_front"] == []
+
+    broken = copy.deepcopy(candidates)
+    del broken[0]["summary"]["mean_search_ops"]
+    with pytest.raises(RuntimeError, match="omitted declared Pareto metrics"):
+        _frontier(broken, plan, load_config(root))

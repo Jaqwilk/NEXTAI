@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T08:27:29Z
+Generated: 2026-09-01T08:41:27Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1036,13 +1036,13 @@ Pareto axes: maximize `accuracy, program_induction_accuracy, length_extrapolatio
 
 | Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
-| EXP-20260901-0036 | learned_amortized_constraint_order_vm | implementable | complete | 1 | 1 | 2.766e+04 | - | 127 | 7.113e+06 | 0.04289 (3) | 1768 |  |
+| EXP-20260901-0036 | learned_amortized_constraint_order_vm | implementable | complete | 1 | 1 | 2.766e+04 | - | 127 | 7.113e+06 | 0.04289 (3) | 1768 | yes |
 | EXP-20260901-0036 | source_identical_support_only_constraint_order_vm | implementable | complete | 1 | 1 | 4.798e+04 | - | 127 | 7.799e+06 | -0.003972 (3) | 1768 |  |
-| EXP-20260901-0036 | source_identical_frozen_constraint_order_vm | implementable | complete | 1 | 1 | 3.232e+04 | - | 127 | 5.278e+06 | -0.005899 (3) | 1768 |  |
+| EXP-20260901-0036 | source_identical_frozen_constraint_order_vm | implementable | complete | 1 | 1 | 3.232e+04 | - | 127 | 5.278e+06 | -0.005899 (3) | 1768 | yes |
 | EXP-20260901-0036 | random_whole_io | implementable | complete | 0.4444 | 1 | 5.667 | - | 4.667 | 5.83e+04 | 0 (3) | 64 |  |
 | EXP-20260901-0036 | nearest_whole_io | implementable | complete | 0.5833 | 1 | 306.3 | - | 127 | 1.449e+05 | 0 (3) | 64 |  |
 | EXP-20260901-0036 | dense_whole_io | implementable | complete | 0.4722 | 1 | 5207 | - | 535.1 | 2.354e+06 | 0.4126 (3) | 24192 |  |
-| EXP-20260901-0036 | enumerative_mdl_vm | implementable | complete | 1 | 1 | 1.284e+05 | - | 127 | 2.075e+07 | 0 (3) | 1448 |  |
+| EXP-20260901-0036 | enumerative_mdl_vm | implementable | complete | 1 | 1 | 1.284e+05 | - | 127 | 2.075e+07 | 0 (3) | 1448 | yes |
 | EXP-20260901-0036 | oracle_latent_vm | privileged support control | complete | 1 | 1 | 23 | - | 4.667 | 6.33e+04 | 0 (3) | 72 |  |
 
 ## program_library_adversarial_v2 / screen

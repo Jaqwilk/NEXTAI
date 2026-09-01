@@ -124,6 +124,12 @@ Promotion requires all configured gates and at least one unusual property:
 
 The result must be on the accuracy-gated **implementable** Pareto frontier. Oracle candidates are reported separately as attainable lower bounds and can never be promoted. Missing metric values never count as favorable comparisons; only axes measured for every row in the cohort enter dominance.
 
+Aggregation must preserve every declared Pareto metric present in all complete
+raw trials. If a candidate's complete summary omits such a field, the runner
+stops before Pareto computation instead of silently deleting the candidate or
+axis. A genuinely missing raw metric or failed/timeout outcome remains recorded
+and is excluded from the frontier without erasing complete candidates.
+
 The CLI enforces the configured minimum seed count, maximum seed CV, minimum per-cell accuracy, integrity, analysis presence, primary-source prior-art linkage and non-dominance. `promoted` additionally requires multiple qualifying cohorts, an adversarial or transfer variant and at least one deep result.
 
 ## Benchmark evolution

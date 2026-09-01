@@ -349,21 +349,6 @@ def _frontier(
     config: ResearchConfig,
 ) -> tuple[list[str], dict[str, list[str]]]:
     minimum_accuracy = float(config.raw["decision"]["minimum_screen_accuracy"])
-    rows: list[dict[str, Any]] = []
-    for candidate in candidate_results:
-        summary = candidate.get("summary", {})
-        accuracy = summary.get("accuracy")
-        if candidate.get("status") != "complete" or summary.get("status") != "complete":
-            continue
-        if is_privileged_candidate(str(candidate["candidate"])):
-            continue
-        loss_cohort = str(plan.get("benchmark", "")).startswith(
-            ("heldout_parallel_masked_", "heldout_wt_changepoints_",
-             "heldout_repository_sequence_")
-        )
-        if accuracy is None or (not loss_cohort and float(accuracy) < minimum_accuracy):
-            continue
-        rows.append({"candidate": candidate["candidate"], **summary})
     directions = plan.get("metric_directions", {})
     protocol = (
         plan.get("continuous_transfer_protocol", {})
@@ -372,6 +357,7 @@ def _frontier(
         or plan.get("compression_protocol", {})
         or plan.get("continuous_local_protocol", {})
         or plan.get("active_sensor_protocol", {})
+        or plan.get("whole_io_search_protocol", {})
     )
     primary_metrics = list(
         protocol.get("pareto_capability_metrics", plan.get("primary_metrics", ()))
@@ -395,7 +381,37 @@ def _frontier(
             if metric in primary_metrics
         ]
     maximize, minimize = maximize_requested, minimize_requested
-    rows = [row for row in rows if all(row.get(metric) is not None for metric in [*maximize, *minimize])]
+    required = [*maximize, *minimize]
+    rows: list[dict[str, Any]] = []
+    for candidate in candidate_results:
+        summary = candidate.get("summary", {})
+        if candidate.get("status") != "complete" or summary.get("status") != "complete":
+            continue
+        missing = [metric for metric in required if summary.get(metric) is None]
+        complete_trials = [
+            trial for trial in candidate.get("trials", ())
+            if trial.get("status") == "complete"
+        ]
+        aggregation_losses = [
+            metric for metric in missing
+            if complete_trials
+            and all(trial.get(metric) is not None for trial in complete_trials)
+        ]
+        if aggregation_losses:
+            raise RuntimeError(
+                f"Complete summary for {candidate['candidate']} omitted declared "
+                f"Pareto metrics present in every raw trial: {aggregation_losses}"
+            )
+        if missing or is_privileged_candidate(str(candidate["candidate"])):
+            continue
+        accuracy = summary.get("accuracy")
+        loss_cohort = str(plan.get("benchmark", "")).startswith(
+            ("heldout_parallel_masked_", "heldout_wt_changepoints_",
+             "heldout_repository_sequence_")
+        )
+        if accuracy is None or (not loss_cohort and float(accuracy) < minimum_accuracy):
+            continue
+        rows.append({"candidate": candidate["candidate"], **summary})
     front = (
         [
             str(row["candidate"])
