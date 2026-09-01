@@ -1,12 +1,17 @@
+import copy
+import json
 from pathlib import Path
 
 import numpy as np
+import pytest
+from jsonschema import ValidationError
 
 from nextai_autoresearch.baseline_semantics import required_baseline_names
 from nextai_autoresearch.benchmarks import latent_entity_binding_retrieval_v3 as v3
 from nextai_autoresearch.benchmarks.successor_graph_v1 import load_candidate
 from nextai_autoresearch.config import load_config
 from nextai_autoresearch.entity_addressing_contract import HIERARCHICAL_ROLE_CONTRACT, RawQuery
+from nextai_autoresearch.schemas import validate_document
 
 
 def _valid_hierarchical_bundle(paths: tuple[Path, ...]) -> bool:
@@ -39,6 +44,23 @@ def test_v3_plan_contract_is_hierarchical_not_flat_addressing() -> None:
     assert protocol["shared_candidate"] == tuple(HIERARCHICAL_ROLE_CONTRACT)[0]
     assert "key_bits" not in protocol and "probes" not in protocol
     assert required_baseline_names({"entity_addressing_protocol": protocol}) == list(tuple(HIERARCHICAL_ROLE_CONTRACT)[-4:])
+
+
+def test_plan_schema_accepts_v2_and_v3_but_rejects_mixed_addressing() -> None:
+    root = Path(__file__).parents[1]
+    v2 = json.loads((root / "research/plans/EXP-20260901-0054.json").read_text(encoding="utf-8"))
+    validate_document("experiment_plan", v2, root)
+    v3_plan = copy.deepcopy(v2)
+    v3_plan["benchmark"] = "latent_entity_binding_retrieval_v3"
+    v3_plan["candidates"] = list(HIERARCHICAL_ROLE_CONTRACT)
+    protocol = dict(load_config().raw["hierarchical_addressing"])
+    for key in ("knowledge_sizes", "reasoning_depths", "queries_per_cell"):
+        protocol.pop(key)
+    v3_plan["entity_addressing_protocol"] = protocol
+    validate_document("experiment_plan", v3_plan, root)
+    v3_plan["entity_addressing_protocol"]["shared_candidate"] = "learned_discrete_address_index_v1"
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", v3_plan, root)
 
 
 def test_hierarchical_roles_are_absent_or_one_complete_shared_core(tmp_path: Path) -> None:

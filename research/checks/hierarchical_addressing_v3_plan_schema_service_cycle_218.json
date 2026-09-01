@@ -1,0 +1,22 @@
+{
+  "active_benchmark": "latent_entity_binding_retrieval_v3",
+  "completed_experiments": 93,
+  "cycle": 218,
+  "evaluator_sha256": "a30135accad58a76883fd0f5415902558d1e30501e130ac09ba95c89ec394f88",
+  "experiment_created": false,
+  "failed_preregistration_wrote_plan": false,
+  "full_pytest_passed": 593,
+  "hypothesis_created": false,
+  "integrity_files_verified": 762,
+  "main_candidate_created": false,
+  "manifest_sha256": "595ea1b2772fe504e726e18503935858efe02a2925ab2813608951d3b095dc4d",
+  "plan_created": false,
+  "plan_registry_last_experiment": "EXP-20260901-0054",
+  "preflight_certificate_digest": "57ce90b7e5041bf0c89486b9b0132034725584017760b156b88f728622268a31",
+  "schema_sha256": "17cba0a5fb89159a6cabfe1ac77c800ba7ec884a7ff409df2db891f2f18a576f",
+  "scientific_evidence_changed": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "service_only": true,
+  "test_sha256": "b49711a37d6257f525b377bf92a55688d3f0e63faca6278d768a3575615c7844"
+}

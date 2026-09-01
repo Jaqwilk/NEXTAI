@@ -741,8 +741,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "observation_dimension", "encoder_widths", "key_bits", "probes",
-        "bucket_capacity", "verifier_candidates", "fallback_candidates",
+        "observation_dimension", "encoder_widths", "fallback_candidates",
         "fit_epochs", "batch_size", "optimizer", "learning_rate",
         "meaningful_quality_margin", "maximum_k_cost_slope", "state_budget_bytes",
         "declared_reuses", "shared_candidate", "dense_ablation", "frozen_ablation",
@@ -752,11 +751,15 @@
       "properties": {
         "observation_dimension": {"const": 24},
         "encoder_widths": {"const": [24, 32, 16]},
-        "key_bits": {"const": 16},
-        "probes": {"const": 4},
-        "bucket_capacity": {"const": 8},
-        "verifier_candidates": {"const": 8},
-        "fallback_candidates": {"const": 32},
+        "key_bits": {"const": 16}, "probes": {"const": 4},
+        "bucket_capacity": {"const": 8}, "verifier_candidates": {"const": 8},
+        "tree_depth_rule": {"const": "balanced_recursive_median_until_singleton"},
+        "split_objective": {"const": "node_local_maximum_source_variance"},
+        "split_ties": {"const": "lowest_coordinate_then_fit_index"},
+        "beam_width": {"const": 4}, "visited_node_cap": {"const": 64},
+        "verifier": {"const": "squared_learned_distance_with_fit_index_tie"},
+        "update": {"const": "single_search_path_leaf_insert_without_rebalance_or_encoder_refit"},
+        "fallback_candidates": {"enum": [0, 32]},
         "fit_epochs": {"const": 32},
         "batch_size": {"const": 64},
         "optimizer": {"const": "adam"},
@@ -765,17 +768,38 @@
         "maximum_k_cost_slope": {"const": 0.3},
         "state_budget_bytes": {"const": 67108864},
         "declared_reuses": {"const": [1, 4, 16, 256, 4096]},
-        "shared_candidate": {"const": "learned_discrete_address_index_v1"},
-        "dense_ablation": {"const": "source_identical_dense_scan_v1"},
-        "frozen_ablation": {"const": "source_identical_frozen_encoder_index_v1"},
-        "shuffled_ablation": {"const": "source_identical_shuffled_representation_index_v1"},
-        "classical_baselines": {"const": [
-          "raw_nearest_neighbour_scan_v1", "local_dense_transition_gru_v1",
-          "privileged_exact_entity_key_v1"
-        ]},
-        "source_identical_contract": {"const": "encoder_architecture_initialization_data_order_output_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_addressing_v1"},
+        "shared_candidate": {"type": "string"}, "dense_ablation": {"type": "string"},
+        "frozen_ablation": {"type": "string"}, "shuffled_ablation": {"type": "string"},
+        "classical_baselines": {"type": "array", "items": {"type": "string"}},
+        "source_identical_contract": {"type": "string"},
         "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5}
-      }
+      },
+      "oneOf": [
+        {
+          "required": ["key_bits", "probes", "bucket_capacity", "verifier_candidates"],
+          "properties": {
+            "fallback_candidates": {"const": 32},
+            "shared_candidate": {"const": "learned_discrete_address_index_v1"},
+            "dense_ablation": {"const": "source_identical_dense_scan_v1"},
+            "frozen_ablation": {"const": "source_identical_frozen_encoder_index_v1"},
+            "shuffled_ablation": {"const": "source_identical_shuffled_representation_index_v1"},
+            "classical_baselines": {"const": ["raw_nearest_neighbour_scan_v1", "local_dense_transition_gru_v1", "privileged_exact_entity_key_v1"]},
+            "source_identical_contract": {"const": "encoder_architecture_initialization_data_order_output_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_addressing_v1"}
+          }
+        },
+        {
+          "required": ["tree_depth_rule", "split_objective", "split_ties", "beam_width", "visited_node_cap", "verifier", "update"],
+          "properties": {
+            "fallback_candidates": {"const": 0},
+            "shared_candidate": {"const": "learned_balanced_hierarchical_router_v1"},
+            "dense_ablation": {"const": "source_identical_dense_hierarchical_representation_v1"},
+            "frozen_ablation": {"const": "source_identical_frozen_hierarchical_router_v1"},
+            "shuffled_ablation": {"const": "source_identical_shuffled_hierarchical_router_v1"},
+            "classical_baselines": {"const": ["raw_balanced_kd_tree_v1", "raw_nearest_neighbour_scan_v1", "local_dense_transition_gru_v1", "privileged_exact_entity_key_v1"]},
+            "source_identical_contract": {"const": "encoder_architecture_initialization_pair_loss_data_order_tree_builder_query_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_hierarchical_routing_v1"}
+          }
+        }
+      ]
     },
     "predicted_outcome": {"type": "string", "minLength": 20},
     "falsification_criteria": {
@@ -838,6 +862,45 @@
             {"contains": {"const": "source_identical_dense_scan_v1"}},
             {"contains": {"const": "source_identical_frozen_encoder_index_v1"}},
             {"contains": {"const": "source_identical_shuffled_representation_index_v1"}},
+            {"contains": {"const": "raw_nearest_neighbour_scan_v1"}},
+            {"contains": {"const": "local_dense_transition_gru_v1"}},
+            {"contains": {"const": "privileged_exact_entity_key_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "continual_new_fact_accuracy"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}},
+            {"contains": {"const": "workload_ops_r256"}},
+            {"contains": {"const": "workload_ops_r4096"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "latent_entity_binding_retrieval_v3"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["entity_addressing_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [32, 320, 3200]},
+            "reasoning_depths": {"const": [1, 4, 8]},
+            "queries_per_cell": {"const": 16}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_balanced_hierarchical_router_v1"}},
+            {"contains": {"const": "source_identical_dense_hierarchical_representation_v1"}},
+            {"contains": {"const": "source_identical_frozen_hierarchical_router_v1"}},
+            {"contains": {"const": "source_identical_shuffled_hierarchical_router_v1"}},
+            {"contains": {"const": "raw_balanced_kd_tree_v1"}},
             {"contains": {"const": "raw_nearest_neighbour_scan_v1"}},
             {"contains": {"const": "local_dense_transition_gru_v1"}},
             {"contains": {"const": "privileged_exact_entity_key_v1"}}

@@ -1042,3 +1042,13 @@ slope below `0.30`, a prospectively declared matched-quality break-even and no
 implementable Pareto dominance by either raw classical access control or the
 dense neural control. A valid negative closes the exact tree rule without
 tuning; one positive seed only authorizes unchanged three-seed replication.
+
+#### V3 pre-seed plan-schema correction
+
+The first EXP-0055 preregistration attempt was rejected before file creation,
+registry mutation or seed realization because the protected plan schema still
+accepted only the flat v2 addressing fields. The corrected schema keeps that
+historical v2 object valid and adds one disjoint v3 object requiring the frozen
+hierarchical fields, roles and four controls. A mixed flat/hierarchical object
+is invalid. This service correction changes no evaluator, world, metric, cost,
+candidate, result or evidence. EXP-0055 remains reserved for a later wake.
