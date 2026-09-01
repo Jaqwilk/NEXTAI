@@ -1,0 +1,149 @@
+{
+  "alternative_explanations": [
+    "Raw nonlinear geometry may already make nearest-neighbour exact, so any learned index gain may be ordinary locality-sensitive hashing rather than learned semantic routing.",
+    "The finite synthetic renderer may make change-point splitting or entity matching easier than open-world learned addressing even without explicit identifiers."
+  ],
+  "architecture_family": "learned_discrete_addressing",
+  "benchmark": "latent_entity_binding_retrieval_v2",
+  "budget": "quick",
+  "candidates": [
+    "learned_discrete_address_index_v1",
+    "source_identical_dense_scan_v1",
+    "source_identical_frozen_encoder_index_v1",
+    "source_identical_shuffled_representation_index_v1",
+    "raw_nearest_neighbour_scan_v1",
+    "local_dense_transition_gru_v1",
+    "privileged_exact_entity_key_v1"
+  ],
+  "confounds": [
+    "This is one locally visible synthetic family and one runner-random seed; even a positive result cannot establish open-world routing, cross-family transfer, general intelligence or an LLM successor."
+  ],
+  "created_at": "2026-09-01T16:10:28Z",
+  "entity_addressing_protocol": {
+    "batch_size": 64,
+    "bucket_capacity": 8,
+    "classical_baselines": [
+      "raw_nearest_neighbour_scan_v1",
+      "local_dense_transition_gru_v1",
+      "privileged_exact_entity_key_v1"
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16,
+      256,
+      4096
+    ],
+    "dense_ablation": "source_identical_dense_scan_v1",
+    "encoder_widths": [
+      24,
+      32,
+      16
+    ],
+    "fallback_candidates": 32,
+    "fit_epochs": 32,
+    "frozen_ablation": "source_identical_frozen_encoder_index_v1",
+    "invalidation_rules": [
+      "Invalidate if an implementable role receives entity IDs, ready keys, latent coordinates, family/class labels, paths, scoring targets or privileged routing.",
+      "Invalidate if encoder fitting sees runner-random test queries or outcomes, or if any constant changes after scoring output.",
+      "Invalidate unless the four causal roles share encoder source, architecture, initialization, data order, outputs, verifier, update, constants and accounting outside the registered representation/access intervention.",
+      "Invalidate if fallback examines more than 32 records or grows with K, if local insertion triggers global encoder refit, or if encoder/routing/index/verifier/fallback cost or bytes are omitted.",
+      "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change."
+    ],
+    "key_bits": 16,
+    "learning_rate": 0.001,
+    "maximum_k_cost_slope": 0.3,
+    "meaningful_quality_margin": 0.02,
+    "observation_dimension": 24,
+    "optimizer": "adam",
+    "probes": 4,
+    "shared_candidate": "learned_discrete_address_index_v1",
+    "shuffled_ablation": "source_identical_shuffled_representation_index_v1",
+    "source_identical_contract": "encoder_architecture_initialization_data_order_output_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_addressing_v1",
+    "state_budget_bytes": 67108864,
+    "verifier_candidates": 8
+  },
+  "evaluator_sha256": "e01c9361294c6f8eea2c1d29644a7dc6a3fa3b60037131e107ee269c053890e6",
+  "experiment_id": "EXP-20260901-0052",
+  "falsification_criteria": [
+    "Discard the exact rule if learned-address accuracy is more than 0.02 below dense scan, fails to exceed either frozen or shuffled representation, fails confusable held-out views or local insertion, has K-cost slope at least 0.30, scans more than 32 fallback records, globally refits on insertion, breaches state or is Pareto-dominated by raw nearest-neighbour or dense GRU at matched quality.",
+    "Invalidate on role-source or constant mismatch, entity/key/latent/scoring leakage, scoring-seed access during fit, post-score tuning, missing mandatory control, external model/API/network use, preflight mismatch or evaluator-integrity change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "99c22a2d7aa8fd821fea3cfacd05b9f8977a6101",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      320,
+      3200
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      4,
+      8
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r256": "minimize",
+    "workload_ops_r4": "minimize",
+    "workload_ops_r4096": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Discard this exact encoder/key/probe/verifier/fallback rule without tuning and record which matched-quality or full-cost gate strengthened HYP-0012, without claiming general impossibility.",
+    "null": "Treat the mechanism as inconclusive only if a technically complete result lies within preregistered uncertainty yet does not satisfy the full conjunction; do not tune it in this cohort.",
+    "positive": "Keep only the unchanged learned-address rule for a three-seed adversarial or disjoint-corpus screen; do not mark promising or promote."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The learned address will remain within 0.02 accuracy of source-identical dense scan, exceed frozen and shuffled representations, keep bounded fallback and local insertion, and show full three-point K-cost slope below 0.30 after charging encoding, fit, routing, verifier, fallback, bytes and R1/R4/R16/R256/R4096.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16",
+    "workload_ops_r256",
+    "workload_ops_r4096"
+  ],
+  "promotion_criteria": [
+    "No promotion is permitted from this one-seed quick; a complete positive conjunction may only authorize an unchanged three-seed adversarial or disjoint-corpus screen."
+  ],
+  "research_question": "Can one locally learned encoder create a discrete verifiable address that preserves dense-scan quality while total access cost grows sublinearly over a 100-fold increase in confusable knowledge and new records are inserted without global retraining?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Learned discrete addressing from raw nonlinear observations"
+}

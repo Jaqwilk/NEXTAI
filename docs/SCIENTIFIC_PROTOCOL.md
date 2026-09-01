@@ -982,3 +982,21 @@ This migration contains no HYP revision, experiment plan, runner seed, main
 candidate implementation or score. A later wake may preregister one quick
 under HYP-0012. A valid negative ends this exact learned-address rule without
 tuning; one positive seed can only authorize an unchanged three-seed screen.
+
+### V2 prospective candidate lifecycle correction
+
+The initial v2 regression required all four prospective learned-address files
+to remain absent unconditionally. That made the contract impossible to execute:
+after a valid immutable plan, the required candidate implementation would fail
+the frozen full-test gate. EXP-20260901-0052 and its fully specified child
+EXP-20260901-0053 were therefore append-only invalidated before candidate code,
+runner-seed realization or scoring.
+
+The corrected fixture accepts exactly two lifecycle states: all four role
+wrappers absent before implementation, or all four present and importing one
+shared `learned_addressing_v1` implementation after preregistration. A partial
+bundle or a wrapper outside that common core fails. The correction changes no
+world, observation, target, metric, cost, threshold, control or scientific
+result. This service cycle creates no candidate or score; the next wake must
+use a new immutable child plan and may not add another design-only cycle unless
+integrity itself fails.

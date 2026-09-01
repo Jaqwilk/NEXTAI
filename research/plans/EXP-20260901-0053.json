@@ -1,0 +1,149 @@
+{
+  "alternative_explanations": [
+    "Raw-space nearest-neighbour may already be exact and cheaper at low reuse; a learned win could be ordinary balanced binary hashing rather than transferable semantic routing.",
+    "Median-threshold hashing may give sublinear lookup while its acquisition and encoder fit prevent complete-work break-even at every declared reuse."
+  ],
+  "architecture_family": "learned_discrete_addressing",
+  "benchmark": "latent_entity_binding_retrieval_v2",
+  "budget": "quick",
+  "candidates": [
+    "learned_discrete_address_index_v1",
+    "source_identical_dense_scan_v1",
+    "source_identical_frozen_encoder_index_v1",
+    "source_identical_shuffled_representation_index_v1",
+    "raw_nearest_neighbour_scan_v1",
+    "local_dense_transition_gru_v1",
+    "privileged_exact_entity_key_v1"
+  ],
+  "confounds": [
+    "The locally visible synthetic renderer, one family and one scoring seed limit any conclusion to this exact rule and cohort; no LLM-successor or open-world claim is permitted."
+  ],
+  "created_at": "2026-09-01T16:13:58Z",
+  "entity_addressing_protocol": {
+    "batch_size": 64,
+    "bucket_capacity": 8,
+    "classical_baselines": [
+      "raw_nearest_neighbour_scan_v1",
+      "local_dense_transition_gru_v1",
+      "privileged_exact_entity_key_v1"
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16,
+      256,
+      4096
+    ],
+    "dense_ablation": "source_identical_dense_scan_v1",
+    "encoder_widths": [
+      24,
+      32,
+      16
+    ],
+    "fallback_candidates": 32,
+    "fit_epochs": 32,
+    "frozen_ablation": "source_identical_frozen_encoder_index_v1",
+    "invalidation_rules": [
+      "Invalidate if an implementable role receives entity IDs, ready keys, latent coordinates, family/class labels, paths, scoring targets or privileged routing.",
+      "Invalidate if encoder fitting sees runner-random test queries or outcomes, or if any constant changes after scoring output.",
+      "Invalidate unless the four causal roles share encoder source, architecture, initialization, data order, outputs, verifier, update, constants and accounting outside the registered representation/access intervention.",
+      "Invalidate if fallback examines more than 32 records or grows with K, if local insertion triggers global encoder refit, or if encoder/routing/index/verifier/fallback cost or bytes are omitted.",
+      "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change."
+    ],
+    "key_bits": 16,
+    "learning_rate": 0.001,
+    "maximum_k_cost_slope": 0.3,
+    "meaningful_quality_margin": 0.02,
+    "observation_dimension": 24,
+    "optimizer": "adam",
+    "probes": 4,
+    "shared_candidate": "learned_discrete_address_index_v1",
+    "shuffled_ablation": "source_identical_shuffled_representation_index_v1",
+    "source_identical_contract": "encoder_architecture_initialization_data_order_output_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_addressing_v1",
+    "state_budget_bytes": 67108864,
+    "verifier_candidates": 8
+  },
+  "evaluator_sha256": "e01c9361294c6f8eea2c1d29644a7dc6a3fa3b60037131e107ee269c053890e6",
+  "experiment_id": "EXP-20260901-0053",
+  "falsification_criteria": [
+    "Discard if learned-address accuracy is more than 0.02 below dense scan, is not strictly above both frozen and shuffled, fails continual new-fact accuracy or confusable held-out views, has three-point workload_ops_r4096 slope at least 0.30, examines more than eight verifier plus 32 fallback records per traversal step, changes encoder/thresholds on insertion, breaches 64 MiB, or is Pareto-dominated by raw nearest-neighbour or dense GRU at matched quality.",
+    "Invalidate if any of the exact split, pair, loss coefficient, batching, shuffle roll, threshold, key, probe, collision, verifier, fallback, update or break-even rules changes after this registration; also invalidate on role-source mismatch, entity/key/latent/target leakage, scoring-result tuning, missing mandatory control, external model/API/network use, preflight mismatch or evaluator-integrity change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "99c22a2d7aa8fd821fea3cfacd05b9f8977a6101",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      320,
+      3200
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      4,
+      8
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r256": "minimize",
+    "workload_ops_r4": "minimize",
+    "workload_ops_r4096": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Discard the exact registered rule without changing key bits, loss, probes, thresholds, buckets, verifier or fallback; update HYP-0012 only by the observed matched-quality/full-cost evidence and do not infer universal impossibility.",
+    "null": "If technically complete but the conjunction is unresolved, mark inconclusive and do not tune this cohort; a new mechanism would require a new prospective rule.",
+    "positive": "Retain the exact source and constants only for unchanged three-seed adversarial or disjoint-corpus replication; do not mark promising or promote."
+  },
+  "parent_experiment_id": "EXP-20260901-0052",
+  "predicted_outcome": "Exact rule: split each seven-view burst at its largest adjacent squared raw-distance jump; form cyclic adjacent-view pairs independently inside both segments. Use one seed-initialized tanh MLP 24-32-16. For learned roles train 32 epochs in fixed consecutive batches of 64 with Adam 0.001 and loss MSE(z1,z2)+0.1*mean(z)^2+0.1*mean(relu(0.5-std(z))^2)+0.01*mean(offdiag(cov(z))^2)+0.01*mean((abs(z)-1)^2). Shuffled representation uses identical code but circularly rolls every second-pair view by floor(pair_count/2); frozen performs zero optimizer steps. Freeze coordinatewise medians over all encoded source and target centroids as bit thresholds. A 16-bit key uses threshold comparisons; four probes are the exact key plus flips of the three smallest absolute-margin bits. Fit-order buckets keep the first eight indices; local insertion appends and evicts the oldest only in its exact bucket. The verifier stable-deduplicates probe entries, ranks squared encoded distance with index tie-break, examines at most eight and accepts below max(1e-6,9 times the fit-pair median squared distance); otherwise it compares only the first 32 fit-order records not already examined. Dense scan uses the same learned encoder and squared-distance verifier over all sources. Encoder and thresholds remain frozen on insertion. The learned address is predicted to stay within 0.02 accuracy of dense scan, strictly exceed frozen and shuffled accuracy, preserve new-fact accuracy and have three-point R4096 workload slope below 0.30. Prospective break-even is the first of R1/R4/R16/R256/R4096 where its complete workload is below dense scan while accuracy is within 0.02; report none if absent.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16",
+    "workload_ops_r256",
+    "workload_ops_r4096"
+  ],
+  "promotion_criteria": [
+    "No promotion is permitted from this quick. The full conjunction only authorizes byte-identical three-seed replication with an adversarial or disjoint corpus."
+  ],
+  "research_question": "Can the preregistered locally learned binary address preserve dense encoded-neighbour quality while complete R4096 access cost scales below slope 0.30 across a 100-fold K range and insertion remains local?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Fully specified learned discrete addressing from raw nonlinear observations"
+}

@@ -9,6 +9,15 @@ from nextai_autoresearch.entity_addressing_contract import KNOWLEDGE_SIZES, ROLE
 from nextai_autoresearch.entity_addressing_core import split_burst
 
 
+def _valid_prospective_bundle(paths: tuple[Path, ...]) -> bool:
+    if not any(path.exists() for path in paths):
+        return True
+    shared_import = "from nextai_autoresearch.candidates.learned_addressing_v1 import"
+    return all(path.exists() for path in paths) and all(
+        shared_import in path.read_text(encoding="utf-8") for path in paths
+    )
+
+
 def test_raw_contract_has_no_key_or_entity_field() -> None:
     world = make_world(32, 1103)
     assert set(world.records[0].__dataclass_fields__) == {"observations", "value"}
@@ -48,14 +57,29 @@ def test_local_dense_neural_control_completes_without_external_index() -> None:
     assert result["mean_comparisons"] == 0
 
 
-def test_future_roles_are_frozen_but_main_sources_do_not_exist() -> None:
-    assert tuple(ROLE_CONTRACT) == (
+def test_future_roles_are_absent_or_complete_source_identical_bundle() -> None:
+    roles = tuple(ROLE_CONTRACT)
+    assert roles == (
         "learned_discrete_address_index_v1", "source_identical_dense_scan_v1",
         "source_identical_frozen_encoder_index_v1", "source_identical_shuffled_representation_index_v1",
         "raw_nearest_neighbour_scan_v1", "local_dense_transition_gru_v1", "privileged_exact_entity_key_v1",
     )
     candidates = Path(__file__).parents[1] / "src/nextai_autoresearch/candidates"
-    assert not any((candidates / f"{name}.py").exists() for name in tuple(ROLE_CONTRACT)[:4])
+    paths = tuple(candidates / f"{name}.py" for name in roles[:4])
+    assert _valid_prospective_bundle(paths)
+
+
+def test_prospective_bundle_fixture_accepts_absent_or_complete_only(tmp_path: Path) -> None:
+    paths = tuple(tmp_path / f"role_{index}.py" for index in range(4))
+    assert _valid_prospective_bundle(paths)
+    paths[0].write_text("pass\n", encoding="utf-8")
+    assert not _valid_prospective_bundle(paths)
+    source = "from nextai_autoresearch.candidates.learned_addressing_v1 import Base\n"
+    for path in paths:
+        path.write_text(source, encoding="utf-8")
+    assert _valid_prospective_bundle(paths)
+    paths[-1].write_text("pass\n", encoding="utf-8")
+    assert not _valid_prospective_bundle(paths)
 
 
 def test_entity_addressing_controls_are_required_by_pre_seed_gate() -> None:

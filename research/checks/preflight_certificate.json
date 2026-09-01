@@ -1,11 +1,11 @@
 {
   "benchmark_version": "latent_entity_binding_retrieval_v2",
-  "certificate_sha256": "af877b93a54566c6b061bfd622040926905ad7f34d80e0d98bfe7bbbfff9357d",
-  "created_at": "2026-09-01T16:01:35Z",
-  "evaluator_sha256": "e01c9361294c6f8eea2c1d29644a7dc6a3fa3b60037131e107ee269c053890e6",
+  "certificate_sha256": "ffd275c1177c1a5a90652fd6904fdb7326cfd258732f72010cab5411bfaa0581",
+  "created_at": "2026-09-01T16:17:38Z",
+  "evaluator_sha256": "ed0c9083cf224bafb6bdd75d2a5ce496f7f084b264efc239517b2b9a43189795",
   "files": {
-    "baseline_registry": "8efb22afc0dd85db13d4eaeafaa61741af896036bd8e3488f189a53ffc7ba886",
-    "manifest": "b2a19b33f1031891d42905f9d325325e2f9c6ec37dfb7f5d5ff370966ea1d423",
+    "baseline_registry": "eec6700aef98c350b8ae12e49078a8ebc9e20770bf5f35e1d8c72b9673cf6fc0",
+    "manifest": "332e2f1eb3838fbc5c1a15f3735a54fcfb6c83a6bcae4fbb313a5b214ec24ed2",
     "runner": "bb1f82412745bc62c995e98180cdcf7400a8bcac1e1d171c4bff10deb3d91d8b",
     "schema:experiment_plan": "e77d9b6d862b5cf353d5c86bc94683bea4e9c126731a7858b29c65a2dee32c0c",
     "schema:experiment_result": "e0b9213d09a59d334b954e051f008430c427eb3bb6371d3f31c3cacb0a1ea364",
