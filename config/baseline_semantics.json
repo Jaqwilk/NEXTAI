@@ -530,6 +530,23 @@
         {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_event_reveal_updates_only_active_rows_in_one_slot","sha256":"4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754"}
       ]
     },
+    "learned_factorized_flux_reaction_local_rule": {
+      "baseline_id": "hypothesis_factorized_flux_reaction_local_rule_v1", "version": 1,
+      "specification": {"role":"tested candidate semantic registration; not a baseline","input":"anonymous left-center-right four-channel transitions","features":{"center_reaction":15,"directed_pair_field":24,"total":39},"factorized_exchange":"one half G(a,b)-G(b,a), summed over both neighbors","monolithic_ablation":"direct G(left,center)+G(right,center)","frozen_ablation":"factorized features with zero residual weights","fit":"ridge 0.001 over all 384 rows","update":"normalized LMS 0.05/(1+x'x)","execution":"sparse radius-one causal cone","repair":"none","output_clip":[-1.5,1.5]},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/factorized_flux_reaction_core.py":"98854719aea9cc4d06b906410d09eea248410d6f97d1eda2eecf89cb2f365670",
+        "src/nextai_autoresearch/candidates/learned_factorized_flux_reaction_local_rule.py":"7c25cad1638dab4bd138e8ade3dcda71fcd812066197500fd4517addee8bdb33",
+        "src/nextai_autoresearch/candidates/source_identical_monolithic_local_flow_rule.py":"c9516b2a7dc35d29325951b019e24cef8afb31f121ae587c3073aa4f31d1771f",
+        "src/nextai_autoresearch/candidates/source_identical_frozen_flux_reaction_local_rule.py":"86fff175759c0164a7c7d4331ca94d9cbb530889fd276ff77386c67257a604fd"
+      },
+      "conformance_tests": [
+        {"path":"tests/test_factorized_flux_reaction.py","node_id":"tests/test_factorized_flux_reaction.py::test_exchange_is_exactly_antisymmetric_and_monolithic_field_is_not","sha256":"53f579179fb96b35ce0e72214574613cd412b891f95de873dd2ccad7a24858c2"},
+        {"path":"tests/test_factorized_flux_reaction.py","node_id":"tests/test_factorized_flux_reaction.py::test_all_roles_share_one_core_and_frozen_constants","sha256":"53f579179fb96b35ce0e72214574613cd412b891f95de873dd2ccad7a24858c2"},
+        {"path":"tests/test_factorized_flux_reaction.py","node_id":"tests/test_factorized_flux_reaction.py::test_shared_fit_and_query_commute_with_signed_channel_permutation","sha256":"53f579179fb96b35ce0e72214574613cd412b891f95de873dd2ccad7a24858c2"},
+        {"path":"tests/test_factorized_flux_reaction.py","node_id":"tests/test_factorized_flux_reaction.py::test_sparse_query_work_is_independent_of_dormant_world_size","sha256":"53f579179fb96b35ce0e72214574613cd412b891f95de873dd2ccad7a24858c2"},
+        {"path":"tests/test_factorized_flux_reaction.py","node_id":"tests/test_factorized_flux_reaction.py::test_frozen_role_is_finite_and_update_does_not_learn","sha256":"53f579179fb96b35ce0e72214574613cd412b891f95de873dd2ccad7a24858c2"}
+      ]
+    },
     "learned_sparse_continuous_local_rule": {
       "baseline_id": "hypothesis_candidate_continuous_local_rule_v1", "version": 1,
       "specification": {"role":"hypothesis candidate semantic registration; not a baseline","input":"anonymous left-center-right four-channel observations","repair":"four leave-one-out affine maps, ridge 0.001, unique standardized residual above 6","features":"bias, 12 linear and 78 upper-triangle quadratic terms","dynamics":"ridge 0.001 then normalized LMS 0.05/(1+x'x)","execution":"sparse active causal cone","output_clip":[-1.5,1.5]},

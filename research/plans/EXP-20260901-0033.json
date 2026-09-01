@@ -1,0 +1,151 @@
+{
+  "alternative_explanations": [
+    "Any apparent benefit may be ordinary constrained ridge regression rather than reusable exchange structure; the monolithic source-identical role and local ridge are direct nulls.",
+    "Exact antisymmetry may be false in anonymous redundant observation coordinates even if latent dynamics contain local transport."
+  ],
+  "architecture_family": "factorized_local_reaction_exchange",
+  "benchmark": "continuous_local_cellular_v2",
+  "budget": "quick",
+  "candidates": [
+    "learned_factorized_flux_reaction_local_rule",
+    "source_identical_monolithic_local_flow_rule",
+    "source_identical_frozen_flux_reaction_local_rule",
+    "continuous_local_persistence",
+    "continuous_local_ridge",
+    "continuous_local_quantized_fsm",
+    "continuous_local_kernel_event",
+    "privileged_continuous_local_support"
+  ],
+  "confounds": [
+    "One runner-random world transform is screening evidence and cannot establish seed stability or cross-family transfer.",
+    "The visible synthetic evaluator may favor or disfavor the structural constraint in ways that do not generalize."
+  ],
+  "continuous_local_protocol": {
+    "classical_baselines": [
+      "continuous_local_persistence",
+      "continuous_local_ridge",
+      "continuous_local_quantized_fsm",
+      "continuous_local_kernel_event",
+      "privileged_continuous_local_support"
+    ],
+    "dense_ablation": "source_identical_monolithic_local_flow_rule",
+    "frozen_ablation": "source_identical_frozen_flux_reaction_local_rule",
+    "invalidation_rules": [
+      "Invalidate if training latent amplitudes overlap the held-out scoring amplitude interval.",
+      "Invalidate if an implementable role receives latent coordinates, encoder permutation/signs, targets before prediction or privileged local coefficients.",
+      "Invalidate unless all three prospective roles share anonymous inputs, constants, training rows, initialization, update order and output bounds, differing only in factorized exchange, monolithic flow or frozen learning.",
+      "Invalidate if dormant zero cells are omitted from dense-control cost or implicitly scanned without charging operations and bytes.",
+      "Invalidate if corruption is generated after the clean target is exposed or if repair uses evaluator-private channel semantics.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "minimum_nrmse_gain": 0.01,
+    "pareto_capability_metrics": [
+      "accuracy",
+      "warm_accuracy",
+      "near_equivalent_accuracy",
+      "stable_rollout_rate",
+      "continual_new_fact_accuracy",
+      "continual_retention",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "shared_candidate": "learned_factorized_flux_reaction_local_rule",
+    "source_identical_contract": "anonymous_inputs_constants_rows_initialization_update_order_output_bounds_identical_except_factorized_monolithic_or_frozen_learning_v2",
+    "state_budget_bytes": 16777216
+  },
+  "created_at": "2026-09-01T07:09:44Z",
+  "evaluator_sha256": "2037fdebd9dbca996bb9a61bd668ab3007293c19adb9d5780ff19a0ff41b28cf",
+  "experiment_id": "EXP-20260901-0033",
+  "falsification_criteria": [
+    "Discard unless shared lowers aggregate NRMSE by at least 0.01 versus both source-identical roles and the strongest complete implementable control, repeats that margin at D8 and D16 versus both ablations, remains stable with no worst-depth or damaged-input regression, has query K slope at most 0.10 and is implementably Pareto non-dominated."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "58edfc6de54e5f622f4f8f2a10d51648991f101e",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0045",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256,
+      1024
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      8,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify and discard this exact 39-feature reaction-exchange rule without tuning features, ridge, LMS, clipping or schedule, then return to breadth.",
+    "null": "Return the hypothesis to dormant and end this exact factorization if it is stable and structurally active but does not clear the frozen quality margins.",
+    "positive": "Keep HYP-0045 testing at cautious confidence and preregister only an unchanged three-seed adversarial replication; do not promote."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Use one exact 39-feature residual core: 15 center reaction features and 24 directed pair-field features. Shared sums half G(a,b)-G(b,a), monolithic sums direct G(a,b), frozen keeps zero weights. All share ridge 0.001, LMS 0.05, clipping 1.5, sparse causal-cone execution, no repair and full accounting. Predict at least 0.01 lower aggregate NRMSE for shared versus both ablations and the strongest implementable control, stable OOD D8/D16 rollout, signed-permutation equivariance and K query slope at most 0.10.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "stable_rollout_rate",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "normalized_rmse",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed locally visible quick cannot promote or mark HYP-0045 promising; a fully conjunctive pass may only authorize an unchanged three-seed adversarial replication."
+  ],
+  "research_question": "Can learned antisymmetric neighbor exchange plus center reaction improve anonymous continuous OOD rollout per full cost beyond the same monolithic field, frozen learning and classical local controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Factorized local reaction-exchange quick"
+}
