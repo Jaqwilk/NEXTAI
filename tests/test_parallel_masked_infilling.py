@@ -8,6 +8,7 @@ from jsonschema.exceptions import ValidationError
 
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v1 as bench
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v3 as bench_v3
+from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v4 as bench_v4
 from nextai_autoresearch import cli
 from nextai_autoresearch.benchmarks.heldout_repository_sequence_compression_v1 import CORPUS as OLD
 from nextai_autoresearch.config import ResearchConfig, load_config
@@ -156,6 +157,11 @@ def test_v3_preserves_evaluator_and_versions_only_future_causal_roles() -> None:
     active = load_config()
     raw = copy.deepcopy(active.raw)
     raw["project"]["benchmark_version"] = "heldout_parallel_masked_infilling_v3"
+    raw["masked_refinement"].update({
+        "shared_candidate": "local_sparse_predictive_code_masked_byte",
+        "one_pass_ablation": "source_identical_one_pass_predictive_code_masked_byte",
+        "causal_ablation_2": "source_identical_frozen_code_predictive_byte",
+    })
     config = ResearchConfig(raw, active.path)
     masked = config.raw["masked_refinement"]
     assert bench_v3.run_suite is bench.run_suite
@@ -197,6 +203,11 @@ def test_v3_plan_generator_freezes_discriminating_matrix(monkeypatch) -> None:
     active = load_config()
     raw = copy.deepcopy(active.raw)
     raw["project"]["benchmark_version"] = "heldout_parallel_masked_infilling_v3"
+    raw["masked_refinement"].update({
+        "shared_candidate": "local_sparse_predictive_code_masked_byte",
+        "one_pass_ablation": "source_identical_one_pass_predictive_code_masked_byte",
+        "causal_ablation_2": "source_identical_frozen_code_predictive_byte",
+    })
     configured = ResearchConfig(raw, active.path)
     monkeypatch.setattr(
         cli, "load_config", lambda root: ResearchConfig(
@@ -240,6 +251,60 @@ def test_v3_plan_generator_freezes_discriminating_matrix(monkeypatch) -> None:
         },
     }
     validate_document("experiment_plan", plan, project_root())
+
+
+def test_v4_preserves_evaluator_and_separates_only_declared_mps_roles() -> None:
+    masked = load_config().raw["masked_refinement"]
+    assert bench_v4.run_suite is bench_v3.run_suite
+    assert masked["shared_candidate"] == "parallel_born_mps_masked_byte"
+    assert masked["causal_ablation_1"] == (
+        "source_identical_sequential_born_mps_masked_byte"
+    )
+    assert masked["causal_ablation_2"] == (
+        "source_identical_frozen_born_mps_masked_byte"
+    )
+    protocol = {
+        "causal_ablation_1": masked["causal_ablation_1"],
+        "causal_ablation_2": masked["causal_ablation_2"],
+    }
+    for name in (
+        masked["shared_candidate"],
+        masked["causal_ablation_1"],
+        masked["causal_ablation_2"],
+    ):
+        assert bench._effective_rounds(name, protocol, 6) == 6
+
+
+def test_v4_schema_locks_source_identity_without_historical_one_pass_role() -> None:
+    plan = _masked_plan()
+    masked = load_config().raw["masked_refinement"]
+    plan["benchmark"] = "heldout_parallel_masked_infilling_v4"
+    plan["matrix"] = {
+        "knowledge_sizes": [8, 32],
+        "reasoning_depths": [1, 4, 6],
+        "queries_per_cell": 8,
+        "seed_policy": plan["matrix"]["seed_policy"],
+    }
+    plan["candidates"] = [
+        masked["shared_candidate"], masked["causal_ablation_1"],
+        masked["causal_ablation_2"], *masked["classical_baselines"],
+    ]
+    protocol = plan["masked_refinement_protocol"]
+    protocol.pop("one_pass_ablation")
+    protocol.update({
+        "shared_candidate": masked["shared_candidate"],
+        "causal_ablation_1": masked["causal_ablation_1"],
+        "causal_ablation_2": masked["causal_ablation_2"],
+        "source_identical_contract": (
+            "tensor_rank_token_representation_initialization_training_order_"
+            "update_count_and_probabilities_identical_except_preregistered_"
+            "contraction_schedule_and_tensor_learning_v1"
+        ),
+    })
+    validate_document("experiment_plan", plan, project_root())
+    protocol["shared_candidate"] = "local_sparse_predictive_code_masked_byte"
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", plan, project_root())
 
 
 def test_v3_sparse_code_roles_share_source_constants_and_only_frozen_skips_learning() -> None:

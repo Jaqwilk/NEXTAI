@@ -388,11 +388,14 @@ def command_plan_new(args: argparse.Namespace) -> int:
             }
     if config.benchmark_version.startswith("heldout_parallel_masked_"):
         masked = config.raw["masked_refinement"]
-        if config.benchmark_version == "heldout_parallel_masked_infilling_v3":
+        if config.benchmark_version in {
+            "heldout_parallel_masked_infilling_v3",
+            "heldout_parallel_masked_infilling_v4",
+        }:
             plan["matrix"]["knowledge_sizes"] = list(masked["knowledge_sizes"])
             plan["matrix"]["reasoning_depths"] = list(masked["refinement_rounds"])
             plan["matrix"]["queries_per_cell"] = int(masked["queries_per_cell"])
-        plan["masked_refinement_protocol"] = {
+        protocol = {
             "corpus_id": str(masked["corpus_id"]),
             "split_unit": "whole_files_sha256",
             "test_file_access": "evaluator_only",
@@ -401,16 +404,25 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "context_bytes": int(masked["context_bytes"]),
             "runner_random_masks_and_permutation": True,
             "shared_candidate": str(masked["shared_candidate"]),
-            "one_pass_ablation": str(masked["one_pass_ablation"]),
             "classical_baselines": list(masked["classical_baselines"]),
             "declared_horizons": list(masked["declared_horizons"]),
             "state_budget_bytes": int(masked["state_budget_bytes"]),
             "invalidation_rules": list(masked["invalidation_rules"]),
         }
+        if config.benchmark_version == "heldout_parallel_masked_infilling_v4":
+            protocol.update({
+                "causal_ablation_1": str(masked["causal_ablation_1"]),
+                "causal_ablation_2": str(masked["causal_ablation_2"]),
+                "source_identical_contract":
+                    "tensor_rank_token_representation_initialization_training_order_update_count_and_probabilities_identical_except_preregistered_contraction_schedule_and_tensor_learning_v1",
+            })
+        else:
+            protocol["one_pass_ablation"] = str(masked["one_pass_ablation"])
         if config.benchmark_version == "heldout_parallel_masked_infilling_v3":
-            plan["masked_refinement_protocol"]["causal_ablation_2"] = str(
+            protocol["causal_ablation_2"] = str(
                 masked["causal_ablation_2"]
             )
+        plan["masked_refinement_protocol"] = protocol
     if config.benchmark_version.startswith("heldout_mechanism_recombination_"):
         recombination = config.raw["recombination"]
         if config.benchmark_version in {

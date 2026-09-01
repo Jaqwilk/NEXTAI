@@ -315,7 +315,6 @@
         "context_bytes",
         "runner_random_masks_and_permutation",
         "shared_candidate",
-        "one_pass_ablation",
         "classical_baselines",
         "declared_horizons",
         "state_budget_bytes",
@@ -338,7 +337,8 @@
         "shared_candidate": {
           "enum": [
             "iterative_masked_learner",
-            "local_sparse_predictive_code_masked_byte"
+            "local_sparse_predictive_code_masked_byte",
+            "parallel_born_mps_masked_byte"
           ]
         },
         "one_pass_ablation": {
@@ -348,8 +348,15 @@
           ]
         },
         "causal_ablation_2": {
-          "const": "source_identical_frozen_code_predictive_byte"
+          "enum": [
+            "source_identical_frozen_code_predictive_byte",
+            "source_identical_frozen_born_mps_masked_byte"
+          ]
         },
+        "causal_ablation_1": {
+          "const": "source_identical_sequential_born_mps_masked_byte"
+        },
+        "source_identical_contract": {"type": "string", "minLength": 24},
         "classical_baselines": {
           "type": "array",
           "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
@@ -1280,6 +1287,7 @@
       "then": {
         "properties": {
           "masked_refinement_protocol": {
+            "required": ["one_pass_ablation"],
             "properties": {
               "shared_candidate": {"const": "iterative_masked_learner"},
               "one_pass_ablation": {"const": "one_pass_masked_learner"}
@@ -1312,11 +1320,46 @@
             ]
           },
           "masked_refinement_protocol": {
-            "required": ["causal_ablation_2"],
+            "required": ["one_pass_ablation", "causal_ablation_2"],
             "properties": {
               "shared_candidate": {"const": "local_sparse_predictive_code_masked_byte"},
               "one_pass_ablation": {"const": "source_identical_one_pass_predictive_code_masked_byte"},
               "causal_ablation_2": {"const": "source_identical_frozen_code_predictive_byte"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v4"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "parallel_born_mps_masked_byte"}},
+              {"contains": {"const": "source_identical_sequential_born_mps_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_born_mps_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "parallel_born_mps_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_sequential_born_mps_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_born_mps_masked_byte"},
+              "source_identical_contract": {"const": "tensor_rank_token_representation_initialization_training_order_update_count_and_probabilities_identical_except_preregistered_contraction_schedule_and_tensor_learning_v1"}
             }
           }
         }

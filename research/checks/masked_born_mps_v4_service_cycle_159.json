@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "cycle": 159,
+  "created_at": "2026-09-01T02:01:41Z",
+  "service_only": true,
+  "benchmark_before": "heldout_wt_changepoints_prequential_v2",
+  "benchmark_after": "heldout_parallel_masked_infilling_v4",
+  "preserved_contract": {
+    "evaluator_execution": "exact_v3_run_suite_reexport",
+    "whole_file_hashes": 48,
+    "knowledge_sizes": [8, 32],
+    "refinement_rounds": [1, 4, 6],
+    "queries_per_cell": 8,
+    "classical_baselines": 8,
+    "data_metrics_costs_budgets_seed_policy_pareto_changed": false
+  },
+  "prospective_roles": [
+    "parallel_born_mps_masked_byte",
+    "source_identical_sequential_born_mps_masked_byte",
+    "source_identical_frozen_born_mps_masked_byte"
+  ],
+  "source_identical_contract": "tensor_rank_token_representation_initialization_training_order_update_count_and_probabilities_identical_except_preregistered_contraction_schedule_and_tensor_learning_v1",
+  "historical_regression": {
+    "masked_v1_v3_semantics_preserved": true,
+    "wt_v2_fixture_isolated_from_active_cohort": true,
+    "candidate_created": false,
+    "plan_created": false,
+    "hypothesis_created": false,
+    "seed_realized": false,
+    "scoring_performed": false
+  },
+  "validation": {
+    "pytest_passed": 416,
+    "semantic_baselines_passed": 8,
+    "integrity_ok": true,
+    "integrity_files_verified": 588,
+    "doctor_passed": true,
+    "evaluator_sha256": "2105257e4ce45319309bf2e04f187c75464e4e0d3e6f1cea27c5347836399c1e",
+    "candidate_bundle_sha256": "f82fdc570187cef215372eef61ba0b8c228a2a6c3ebc2336e510b9716b989073",
+    "manifest_sha256": "dade6fdfd41352aec7cae610e129bb3581368caba37d25a58bc82668bd10cbd5",
+    "preflight_certificate_digest": "e286ceabc8cba0f0ecff7a2b78113070dc718b4c70d5eccea59970f8dd12946f",
+    "preflight_file_sha256": "cd81a6a3509de8da11c403a4fac73d49014c004e69bfb559ea7633361f760758"
+  },
+  "prior_manifest_archive": "research/manifests/heldout_wt_changepoints_prequential_v2-protocol-v2-0c3bad07875e.json",
+  "prior_manifest_archive_sha256": "c7fbd7ee261e14959ff283bd593e081ca95d9fb1efbd5f854430421e437f4949",
+  "intermediate_v4_manifest_archive": "research/manifests/heldout_parallel_masked_infilling_v4-protocol-v2-e495feefdf3f.json",
+  "intermediate_v4_manifest_archive_sha256": "9385966a09e45827039fede293f544709bfef7009fa3a5a8dee9e09bce7ba241",
+  "review_path": "research/reviews/GEN-1-MASKED-BORN-MPS-V4-SERVICE-CYCLE-159-2026-09-01.md",
+  "review_sha256": "21c8539f8076aa38655619b887cdbe635dd3d4fabc744ae9dffba1b11bd96388",
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "consecutive_no_scoring_cycles": 1,
+  "max_consecutive_no_scoring_cycles": 3,
+  "next_wake_must_score": true,
+  "next_cycle": "Preregister one low-confidence Born-MPS quick before candidate implementation; freeze all constants, implement the three source-identical roles minimally, and score exactly one runner-random seed against all eight frozen controls. A negative ends the exact rule without tuning; a positive only authorizes unchanged replication."
+}

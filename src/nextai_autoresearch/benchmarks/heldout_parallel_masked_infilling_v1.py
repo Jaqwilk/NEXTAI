@@ -198,7 +198,7 @@ def _run_case(candidate: Any, candidate_name: str, case, rounds: int):
 
 
 def _effective_rounds(candidate_name: str, protocol: dict[str, Any], rounds: int) -> int:
-    return 1 if candidate_name == protocol["one_pass_ablation"] else rounds
+    return 1 if candidate_name == protocol.get("one_pass_ablation") else rounds
 
 
 def _run_cell(candidate_name: str, size: int, rounds: int, count: int, seed: int,

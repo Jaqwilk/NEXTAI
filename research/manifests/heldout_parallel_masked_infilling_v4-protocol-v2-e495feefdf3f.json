@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_parallel_masked_infilling_v4",
   "candidate_bundle_sha256": "f82fdc570187cef215372eef61ba0b8c228a2a6c3ebc2336e510b9716b989073",
-  "created_at": "2026-09-01T02:00:40Z",
-  "evaluator_sha256": "2105257e4ce45319309bf2e04f187c75464e4e0d3e6f1cea27c5347836399c1e",
+  "created_at": "2026-09-01T01:59:36Z",
+  "evaluator_sha256": "83fec4c870fce982d45784715bd8dbc613ff4aced69006a4a9858eae28a7eb7b",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -589,7 +589,7 @@
     "tests/test_vsa_superposition.py": "52a0c1d5fad17b36a9521cbc22410a5ebfe8074fbb33944052e8c9320c672ea9",
     "tests/test_wt_candidate_under_test.py": "4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754",
     "tests/test_wt_changepoints_prequential_v1.py": "8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03",
-    "tests/test_wt_changepoints_prequential_v2.py": "f73ef3af9ebe41e86d13e8d298ec2501fb874f2730bd49edabf5db9775fe17c4",
+    "tests/test_wt_changepoints_prequential_v2.py": "92fa5b8d132b6258e3dbacd28c9c7a52077e2a2607fd3b113303dad34c364b7f",
     "tests/test_wt_multiresolution_lifting.py": "74a39daf9ef455e933d4869c747f5760af6b123fd4a78595535c8f0997467b44",
     "uv.lock": "b7f6ba1ae659ff3388728bfca0ec87b9d7477a36ae718aec86d81a1128e79942"
   },

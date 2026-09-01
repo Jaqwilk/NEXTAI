@@ -228,6 +228,26 @@ and eight cases per K/round cell. A single-round global quick default is invalid
 because it makes the learned iterative role observationally identical to its
 forced-one-pass ablation.
 
+Version 4 is a service-only successor to masked infilling v3. It preserves all
+48 whole-file hashes and roles, runner-random byte relabeling, masks, spans,
+rounds, immutable-snapshot execution, metrics, cost formulas, state boundary,
+seed policy, Pareto axes and eight classical controls. It changes only the
+prospective causal roles to a learned fixed-rank Born uniform matrix-product
+state with tree contraction, the same learned tensor contracted sequentially,
+and the same initialized tensor with learning disabled. Historical cohorts and
+their plans, results, analyses, manifests and hashes remain immutable.
+
+The three v4 roles must share token representation, tensor rank, initialization,
+training examples and order, update count, normalization and output
+probabilities. Only the preregistered contraction schedule and tensor-learning
+interventions may differ. The parallel role must charge its real contraction
+critical path and may not hide a sequential scan; conversely, the sequential
+role may not report tree depth. Before candidate implementation, the next
+immutable quick plan freezes rank, initialization, normalization, fit/update
+rule and every numerical constant. This migration creates no hypothesis, plan,
+seed, candidate or scored result. One subsequent scout seed may discard the
+exact mechanism or authorize unchanged replication, never promotion.
+
 ## Held-out repository sequence-compression cohorts
 
 A real-sequence screening cohort uses immutable, hashed, whole-file train/validation/test roles. An implementable candidate receives only evaluator-supplied anonymous bytes: never paths, roles, file names, extensions, hashes, test offsets, future bytes or filesystem access. Corpus mismatch, fragment-level splitting or cross-slot test-state leakage invalidates the cohort. Local visible source is screening evidence only.

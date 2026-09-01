@@ -8,7 +8,7 @@ from jsonschema.exceptions import ValidationError
 from nextai_autoresearch.benchmarks import heldout_wt_changepoints_prequential_v1 as v1
 from nextai_autoresearch.benchmarks import heldout_wt_changepoints_prequential_v2 as v2
 from nextai_autoresearch.cli import _wt_prequential_protocol
-from nextai_autoresearch.config import load_config
+from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.schemas import validate_document
 from nextai_autoresearch.utils import project_root
 
@@ -92,7 +92,12 @@ def test_v2_reexports_v1_numerics_and_freezes_only_future_roles() -> None:
     plan = _plan()
     validate_document("experiment_plan", plan, project_root())
     assert plan["wt_prequential_protocol"]["causal_roles"] == ROLES
-    assert _wt_prequential_protocol(load_config(project_root())) == plan["wt_prequential_protocol"]
+    active = load_config(project_root())
+    raw = copy.deepcopy(active.raw)
+    raw["project"]["benchmark_version"] = v2.BENCHMARK_VERSION
+    assert _wt_prequential_protocol(ResearchConfig(raw, active.path)) == (
+        plan["wt_prequential_protocol"]
+    )
 
 
 def test_v2_schema_rejects_missing_or_mislabeled_causal_role() -> None:
