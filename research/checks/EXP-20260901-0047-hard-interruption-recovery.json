@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "cycle": 208,
+  "experiment_id": "EXP-20260901-0047",
+  "scientific_status": "invalid_infrastructure_hard_interruption",
+  "scoring_seed": 389123087,
+  "planned_candidates": 14,
+  "completed_supervisor_artifacts": 2,
+  "result_written": false,
+  "scientific_evidence": false,
+  "confidence_changed": false,
+  "second_scoring_run_started": false,
+  "plan_sha256": "ce93becdd88961c1931cc3a0bba7704323c40f0c24ba98e90dbd3b266c88e482",
+  "runtime_plan_sha256": "bda616510e3cef98392a527da25601cfb8433997fa38e729be47f7a5f243a852",
+  "analysis_file_sha256": "16712c29bc72566d1231a44134b111604d88cb8b13ba2df51d800276446acac8",
+  "stale_lock_archive_sha256": "c03b572464b3c09a299b76a3896b0dcbecd67fe5daa1ab9e687e001b99901b22",
+  "supervisor_artifacts": {
+    "wt_error_triggered_eligibility_trace_v1": "a089d76071badbed9f839e62fd29a1a54893779c17055f6cb9752ba45c37f57f",
+    "wt_source_identical_frozen_eligibility_trace_v1": "1dda9a3ffbbdc854a94684dec17a420a8edcc2fe05575138b6017b8d9112804c"
+  },
+  "pytest_collected_and_passed": 561,
+  "semantic_baseline_nodes_passed": 13,
+  "integrity_files_verified": 731,
+  "evaluator_sha256": "d66142584db0b25412dfcdb1e3dba460560d91d42d73288e1fc2e26e4e387959",
+  "candidate_bundle_sha256": "d5eed7dd55bb14c8a09bab2122e73bf3b564e5c56971ea01fdef4b0c75988cde",
+  "preflight_certificate_sha256": "db649aff1dee29debc4016c9e87e98d2ac94914815b674818b87580ce1bdda64",
+  "integrity_passed": true,
+  "doctor_passed": true,
+  "next_experiment": "One unchanged one-seed HYP-0052 quick on heldout_wt_changepoints_prequential_v4 in the next wake; no tuning and no runner bypass."
+}
