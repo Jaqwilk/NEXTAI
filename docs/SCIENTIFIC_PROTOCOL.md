@@ -755,6 +755,27 @@ learner or scientific result. After activation, a separate wake may
 preregister one unchanged HYP-0050 quick; a one-seed outcome still cannot
 promote.
 
+### Parallel masked infilling v11 privileged-routing correction
+
+V11 is a service-only successor to v10. It preserves every frozen corpus,
+split, trace, closure-chain target, permutation, K/depth/query cell, metric,
+direction, cost, state boundary, learner, ablation and implementable control.
+All historical plans, results, analyses, manifests and hashes remain immutable.
+
+The only scientific-contract change is explicit evaluator routing of
+`privileged_conditional_masked_byte_v2` through `PrivilegedMaskedQuery`. All
+pre-v2 roles continue through the exact v9 evaluator path. The versioned
+control path reuses the historical scoring and accounting function and changes
+only the name-based private-query dispatch required by its registered semantic
+contract.
+
+A hand-checkable real delimiter trace `([{}])` must complete all three
+noncontiguous closure targets through `_run_case`. A separate one-cell smoke
+must load the immutable real-file corpus and complete through the same
+`run_suite` entry point used by scoring. This migration creates no hypothesis,
+experiment plan, seed or score. Only a later wake may preregister the unchanged
+HYP-0050 quick, and one seed still cannot promote.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.

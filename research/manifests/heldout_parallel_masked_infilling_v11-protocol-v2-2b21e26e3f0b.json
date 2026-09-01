@@ -1,13 +1,13 @@
 {
   "benchmark_version": "heldout_parallel_masked_infilling_v11",
   "candidate_bundle_sha256": "d3fea2fead3b255e4872352c2aa81cb8f3096f9adcd39b557e9f578e3d106244",
-  "created_at": "2026-09-01T11:23:32Z",
-  "evaluator_sha256": "1bf1d8b95aab825e236d646811e46e55c67c51978e805956b8cc3196f57c5f88",
+  "created_at": "2026-09-01T11:22:09Z",
+  "evaluator_sha256": "2e9b40622feef33ea91250ba3b0d4e7929e44f2f5a32a299327557f58ba7e8a9",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
     "config/baseline_semantics.json": "5e0853ced3aaf35002f91ce4c6bd757247e4c4b6de9448bd0f0b1907866624e0",
-    "config/research.toml": "1f9bd97c1c48f167c691c8d1b1ab02a30b3ff162c6995671f01a1c4b92b3841b",
+    "config/research.toml": "9564fa0fd69379611b87974789777464d5ed32e1b98ec3da267a4bc2a20ab86b",
     "docs/SCIENTIFIC_PROTOCOL.md": "6111ec44ef66717562526b0dc87bdf29ad37eed8751c492b27f53170d2cfccce",
     "program.md": "e50270647d6d2eba47958f0a3ffcad24f72e276fdf18256b9906b43295640948",
     "pyproject.toml": "13b054136f7cdc6dc5e5e0fc9375ced1cb049685727fb3e2001751e52b2fe87c",
