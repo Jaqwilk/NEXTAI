@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_parallel_masked_infilling_v9"
+benchmark_version = "heldout_parallel_masked_infilling_v10"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -161,7 +161,7 @@ classical_baselines = [
   "dense_autoregressive_masked_byte",
   "bidirectional_markov_masked_byte",
   "parallel_markov_bp_masked_byte",
-  "oracle_conditional_masked_byte",
+  "privileged_conditional_masked_byte_v2",
   "re_pair_grammar_masked_byte",
 ]
 declared_horizons = [1, 4, 16]

@@ -7,6 +7,7 @@ import pytest
 from nextai_autoresearch import cli
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v8 as v8
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v9 as v9
+from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v10 as v10
 from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.masked_refinement_contract import MASK
 from nextai_autoresearch.utils import project_root
@@ -39,6 +40,7 @@ def test_stack_cases_hide_one_permuted_closer() -> None:
 @pytest.mark.parametrize(("benchmark", "task_unit"), [
     ("heldout_parallel_masked_infilling_v8", "balanced_real_python_delimiter_trace"),
     ("heldout_parallel_masked_infilling_v9", "balanced_real_python_closure_chain"),
+    ("heldout_parallel_masked_infilling_v10", "balanced_real_python_closure_chain"),
 ])
 def test_plan_new_freezes_stack_depth_contract(monkeypatch, benchmark, task_unit) -> None:
     captured = {}
@@ -110,3 +112,8 @@ def test_v9_masks_one_matching_close_at_every_depth() -> None:
         ):
             assert len(positions) == len(target) == depth
             assert all(snapshot[position] == MASK for position in positions)
+
+
+def test_v10_changes_only_the_privileged_adapter_cohort() -> None:
+    assert v10.run_suite is v9.run_suite
+    assert v10.BENCHMARK_VERSION == "heldout_parallel_masked_infilling_v10"

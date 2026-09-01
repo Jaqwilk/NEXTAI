@@ -730,6 +730,31 @@ v9; another no-scoring design cycle is forbidden unless integrity itself
 fails. One seed can only reject the exact learner or authorize unchanged
 replication.
 
+### Parallel masked infilling v10 privileged-target alignment correction
+
+V10 is a service-only successor to v9. It preserves the hashed whole-file
+corpus, split, tokenization, shallow training traces, runner-random byte
+permutation, closure-chain cases and targets, K/depth/query matrix, metrics,
+directions, costs, state boundary, learned roles and eight implementable
+controls. Historical v9, EXP-20260901-0039, its plan, result, analysis and
+control crash remain immutable and are not recomputed or reinterpreted.
+
+V10 replaces only the failed historical privileged conditional adapter with
+`privileged_conditional_masked_byte_v2`. The control receives the same
+evaluator-private target tuple, but maps it in the declared order of
+`zip(public.masked_positions, target)`. It rejects unequal tuple lengths and
+unmasked target positions before producing one-hot probabilities. The new ID
+prevents the corrected implementation from changing the meaning or registered
+hash of `oracle_conditional_masked_byte` v1, and its privileged prefix keeps it
+outside implementable Pareto evidence.
+
+A hand-checkable noncontiguous fixture must map positions `(1, 3, 6)` to three
+distinct target bytes in the same order, while a length mismatch must fail.
+This migration creates no hypothesis, experiment plan, scoring seed, candidate
+learner or scientific result. After activation, a separate wake may
+preregister one unchanged HYP-0050 quick; a one-seed outcome still cannot
+promote.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.
