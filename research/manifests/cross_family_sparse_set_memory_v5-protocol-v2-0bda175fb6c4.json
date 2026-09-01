@@ -1,7 +1,7 @@
 {
   "benchmark_version": "cross_family_sparse_set_memory_v5",
-  "candidate_bundle_sha256": "c36f1069e0e42a5e045a451ea5db2523d86009d259a0e53fac93ca2bad629fdf",
-  "created_at": "2026-09-01T18:25:16Z",
+  "candidate_bundle_sha256": "219e53d9b2e8b38d724d2b2a3849a648c03c688d8f30fd204e9bbb7522056425",
+  "created_at": "2026-09-01T18:23:38Z",
   "evaluator_sha256": "e4687fa8412a0dca72c0bc776032d8d077e66f3d08cac5405435e64e560a5b50",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
@@ -552,7 +552,7 @@
     "src/nextai_autoresearch/candidates/sparse_energy_factor_graph_core.py": "3da8a5ff8a4bf212b13ce2f0645230e23c312f7a939959a2cfc377d6eff11819",
     "src/nextai_autoresearch/candidates/sparse_grid_bfs.py": "626651d6361872402c541f32918a613e992f5c197e88c3bd85bb6ec0d0928cfe",
     "src/nextai_autoresearch/candidates/sparse_learned_energy_factor_graph_masked_byte.py": "a9aedd2373cd203def944f2e552cb4151a0fee31cca778248bf925e7bd66b190",
-    "src/nextai_autoresearch/candidates/sparse_set_memory_core_v1.py": "e4db30222cab38fc4e0310cb3b19f041d707a5a8eff77ed1d5d0bec090590b8e",
+    "src/nextai_autoresearch/candidates/sparse_set_memory_core_v1.py": "3b358d078cb4d71543d0d0b375b660745c772bffd74b85314e0334cde7050263",
     "src/nextai_autoresearch/candidates/specialist_autoregressive_suite.py": "745c8efd4686b05151a53b1984fb7e5d2db61a82da684181d116041a1f7837a5",
     "src/nextai_autoresearch/candidates/specialist_autoregressive_suite_v2.py": "b8de752ffeeca5cdaa94927aa86fbf809e88038c80195e7c0e0ce8cc0da48a3d",
     "src/nextai_autoresearch/candidates/specialist_contextual_chow_liu_suite.py": "91788731b702a0d5942c0b621ff0f925bd85b90b206f7742262ce1de3b583ba8",

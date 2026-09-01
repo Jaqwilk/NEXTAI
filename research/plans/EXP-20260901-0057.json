@@ -1,0 +1,157 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from generic pooled supervision or support-shape clustering rather than transferable sparse routing; independent, dense and frozen-router source-identical roles separate these accounts.",
+    "Native specialist suites may retain better quality per full cost because the anonymous common representation must cover incompatible output structures."
+  ],
+  "architecture_family": "permutation_equivariant_sparse_set_memory",
+  "benchmark": "cross_family_sparse_set_memory_v5",
+  "budget": "quick",
+  "candidates": [
+    "shared_sparse_set_memory_v1",
+    "independent_sparse_set_memory_v1",
+    "source_identical_dense_set_attention_v1",
+    "source_identical_frozen_sparse_router_v1",
+    "specialist_contextual_chow_liu_suite_v2",
+    "specialist_empirical_joint_suite_v2",
+    "specialist_autoregressive_suite_v2",
+    "oracle_cross_family_suite_v2"
+  ],
+  "confounds": [
+    "One runner seed estimates within-seed cell heterogeneity but not replication uncertainty; no positive claim may exceed quick screening evidence.",
+    "All constants, initialization, training order, output rule, top-k access, dense all-slot access and accounting are frozen; any post-output change invalidates rather than repairs this experiment."
+  ],
+  "created_at": "2026-09-01T18:19:52Z",
+  "evaluator_sha256": "e4687fa8412a0dca72c0bc776032d8d077e66f3d08cac5405435e64e560a5b50",
+  "experiment_id": "EXP-20260901-0057",
+  "falsification_criteria": [
+    "Discard this exact width-32, 32-slot, top-k-four, one-head, 24-epoch rule without tuning unless overall transfer is at least 0.95 and minimum-family transfer at least 0.90.",
+    "Discard unless shared exceeds independent by at least 0.05 on overall and minimum-family accuracy and strictly exceeds the frozen sparse router.",
+    "Discard unless shared is within 0.02 of dense-attention accuracy, has lower mean query operations and bytes, no greater R16 workload, remains within 4194304 bytes and is implementably Pareto non-dominated."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "6f66310c37616c0c435d9abd289ada5a70972908",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0055",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "near_equivalent_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r16": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A crash rejects only the implementation; leakage, role mismatch, semantic failure, seed collision, missing control, preflight mismatch or evaluator change invalidates the experiment rather than providing architectural evidence.",
+    "null": "A valid mixed or threshold-missing result closes this exact sparse set-memory rule without tuning and leaves the broader possibility of other generic shared learners unresolved.",
+    "positive": "A valid complete conjunction authorizes only an unchanged three-seed adversarial replication under HYP-0055; it does not justify promising or promotion status."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The pooled sparse role may reduce query work and bytes relative to dense attention, but given prior cross-family collapse it will probably fail either the 0.95/0.90 quality gates or the 0.05 shared-transfer gains; satisfying the complete conjunction would authorize unchanged replication only.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "near_equivalent_accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; only the complete preregistered conjunction with every role complete, intact semantics and integrity may authorize an unchanged three-runner-seed adversarial replication."
+  ],
+  "research_question": "Can one source-identical permutation-equivariant 32-slot set-memory learner pooled across four anonymous training families transfer to runner-random unseen worlds better than the identical independently fitted and frozen-router roles, remain within 0.02 of dense source-identical attention, and achieve lower fully charged sparse-access cost without Pareto dominance by native specialist suites?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Cross-family induced sparse set memory quick",
+  "transfer_protocol": {
+    "attention_heads": 1,
+    "batch_size": 32,
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "embedding_width": 32,
+    "families": [
+      "context_specific_probabilistic_circuit_v1",
+      "action_conditioned_predictive_equivalence_v1",
+      "nonlinear_local_state_transfer_v1",
+      "behavioral_conjugacy_library_transfer_v1"
+    ],
+    "family_labels": "forbidden",
+    "family_specific_rules": "forbidden",
+    "fit_epochs": 24,
+    "independent_ablation": "independent_sparse_set_memory_v1",
+    "invalidation_rules": [
+      "Invalidate on any derived training and scoring seed collision.",
+      "Invalidate if the shared candidate receives a family label or privileged native object.",
+      "Invalidate if any training or test value is truncated, sampled or encoded by a family-specific rule.",
+      "Invalidate if test results, targets or oracle fields are available during pooled meta-fit.",
+      "Invalidate on candidate tuning after any scoring output is observed.",
+      "Invalidate if the shared source dispatches on family, native type, slot identity or a hand-written ontology.",
+      "Invalidate unless the four causal roles resolve to one implementation and frozen constants, differing only in pooled versus independent fit, sparse versus dense access, or learned versus frozen routing keys.",
+      "Invalidate if sparse access touches more than four of the 32 memory slots per query, if dense access touches fewer than all slots, or if routing, serialization, memory traffic, update or fallback work is omitted."
+    ],
+    "learner_contract": "permutation_equivariant_induced_sparse_set_memory_v1",
+    "learning_rate": 0.001,
+    "memory_slots": 32,
+    "optimizer": "adam",
+    "permutation_equivariance": "consistent_anonymous_token_and_world_permutation",
+    "representation_interface": "lossless_family_neutral_structural_tokens_v2",
+    "role_implementation": "sparse_set_memory_core_v1",
+    "routing_distance": "squared_euclidean",
+    "shared_candidate": "shared_sparse_set_memory_v1",
+    "shared_slow_fit_scope": "pooled_training_worlds_only",
+    "source_identical_contract": "tokenization_embedding_set_encoder_memory_initialization_fit_order_query_update_output_constants_and_accounting_identical_except_pooled_independent_sparse_dense_or_frozen_routing_v1",
+    "source_identical_dense_ablation": "source_identical_dense_set_attention_v1",
+    "source_identical_frozen_router_ablation": "source_identical_frozen_sparse_router_v1",
+    "sparse_top_k": 4,
+    "specialist_baselines": [
+      "specialist_contextual_chow_liu_suite_v2",
+      "specialist_empirical_joint_suite_v2",
+      "specialist_autoregressive_suite_v2",
+      "oracle_cross_family_suite_v2"
+    ],
+    "state_budget_bytes": 4194304,
+    "test_result_access_during_fit": "forbidden",
+    "test_support_adaptation": "same_frozen_set_encoder_and_memory_rule_charged",
+    "test_tuning": "forbidden",
+    "test_world_seed_source": "runner_scoring_seeds",
+    "training_world_seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  }
+}

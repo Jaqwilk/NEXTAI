@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T18:15:35Z
+Generated: 2026-09-01T18:31:57Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -373,6 +373,21 @@ Pareto axes unavailable: inconsistent immutable pareto_metrics across experiment
 | EXP-20260830-0050 | specialist_empirical_joint_suite_v2 | implementable | complete | 0.9271 | 1 | 1747 | 96.71 | 2267 | 2.225e+06 | 1.194 (2; screening) | 88720 |  |
 | EXP-20260830-0050 | specialist_autoregressive_suite_v2 | implementable | complete | 0.8177 | 1 | 546.2 | 96.71 | 2267 | 9.889e+05 | 0.2755 (2; screening) | 72336 |  |
 | EXP-20260830-0050 | oracle_cross_family_suite_v2 | privileged support control | complete | 1 | 1 | 104 | 96.71 | 751.8 | 4.91e+05 | 0.3833 (2; screening) | 2472 |  |
+
+## cross_family_sparse_set_memory_v5 / quick
+
+Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, near_equivalent_accuracy`; minimize `data_acquisition_ops, fit_ops, meta_fit_ops, mean_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0057 | shared_sparse_set_memory_v1 | implementable | complete | 0.01042 | 1 | 3780 | 96.71 | 9478 | 1.396e+07 | 0.08252 (2; screening) | 12752 |  |
+| EXP-20260901-0057 | independent_sparse_set_memory_v1 | implementable | complete | 0 | 1 | 3780 | 96.71 | 9478 | 1.701e+07 | 0.08252 (2; screening) | 108848 |  |
+| EXP-20260901-0057 | source_identical_dense_set_attention_v1 | implementable | complete | 0.01042 | 1 | 4004 | 96.71 | 1.127e+04 | 1.419e+07 | 0.0779 (2; screening) | 12752 |  |
+| EXP-20260901-0057 | source_identical_frozen_sparse_router_v1 | implementable | complete | 0 | 1 | 3780 | 96.71 | 9478 | 1.341e+07 | 0.08252 (2; screening) | 10832 |  |
+| EXP-20260901-0057 | specialist_contextual_chow_liu_suite_v2 | implementable | complete | 0.9844 | 1 | 396.8 | 96.71 | 2222 | 7.037e+07 | 0.09832 (2; screening) | 5800 | yes |
+| EXP-20260901-0057 | specialist_empirical_joint_suite_v2 | implementable | complete | 0.9271 | 1 | 1734 | 96.71 | 2222 | 2.212e+06 | 1.214 (2; screening) | 88720 |  |
+| EXP-20260901-0057 | specialist_autoregressive_suite_v2 | implementable | complete | 0.8073 | 1 | 551 | 96.71 | 2222 | 9.941e+05 | 0.3181 (2; screening) | 72336 |  |
+| EXP-20260901-0057 | oracle_cross_family_suite_v2 | privileged support control | complete | 1 | 1 | 104 | 96.71 | 751.8 | 4.91e+05 | 0.3833 (2; screening) | 2472 |  |
 
 ## heldout_dronepropa_factor_recombination_v5 / quick
 
