@@ -591,6 +591,25 @@ handwritten ontologies and test outputs remain forbidden. The candidate is inten
 implemented nor scored in this migration: implementation may begin only after a later immutable
 experiment plan preregisters its exact constants and success, invalidation and seed rules.
 
+## Parallel masked infilling v7 grammar-control correction
+
+Version 7 is a service-only successor to v6. It preserves the frozen corpus,
+whole-file split, evaluator, masks, permutation policy, simultaneous rounds,
+matrix, metrics, directions, costs, budgets, seed policy, eight historical
+controls and three prospective equality-grammar roles. Historical v1-v6 plans,
+results, analyses, manifests and hashes remain immutable and cohort-separated.
+
+V7 adds one mandatory implementable control: a genuine batch Re-Pair grammar
+transform with most-frequent-digram replacement, first-occurrence tie breaking,
+non-overlapping left-to-right replacement and recursive nonterminal expansion.
+Its frozen masked-completion adapter may use only public anchors and charges rule
+discovery, replacement, expansion, alignment, query and state work. Semantic
+fixtures require recursive rules, finite normalized completion, consistent byte
+relabeling equivariance and rejection of a flat-digram alias. The correction was
+made before candidate implementation or seed realization because the v6
+prior-art gate identified Sequitur/Re-Pair as a mandatory alternative. No
+hypothesis, experiment plan, seed or score is created by this migration.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.

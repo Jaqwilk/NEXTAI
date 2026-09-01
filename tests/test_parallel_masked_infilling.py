@@ -11,6 +11,7 @@ from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v3 
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v4 as bench_v4
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v5 as bench_v5
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v6 as bench_v6
+from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v7 as bench_v7
 from nextai_autoresearch import cli
 from nextai_autoresearch.benchmarks.heldout_repository_sequence_compression_v1 import CORPUS as OLD
 from nextai_autoresearch.config import ResearchConfig, load_config
@@ -355,9 +356,13 @@ def _v6_plan() -> dict:
         "knowledge_sizes": [8, 32], "reasoning_depths": [1, 4, 6],
         "queries_per_cell": 8, "seed_policy": plan["matrix"]["seed_policy"],
     }
+    historical_baselines = [
+        item for item in masked["classical_baselines"]
+        if item != "re_pair_grammar_masked_byte"
+    ]
     plan["candidates"] = [
         masked["shared_candidate"], masked["causal_ablation_1"],
-        masked["causal_ablation_2"], *masked["classical_baselines"],
+        masked["causal_ablation_2"], *historical_baselines,
     ]
     protocol = plan["masked_refinement_protocol"]
     protocol.pop("one_pass_ablation")
@@ -371,7 +376,17 @@ def _v6_plan() -> dict:
             "identical_except_preregistered_recursion_flattening_and_"
             "grammar_learning_v1"
         ),
+        "classical_baselines": historical_baselines,
     })
+    return plan
+
+
+def _v7_plan() -> dict:
+    plan = _v6_plan()
+    baselines = list(load_config().raw["masked_refinement"]["classical_baselines"])
+    plan["benchmark"] = "heldout_parallel_masked_infilling_v7"
+    plan["masked_refinement_protocol"]["classical_baselines"] = baselines
+    plan["candidates"] = [*plan["candidates"][:3], *baselines]
     return plan
 
 
@@ -433,6 +448,21 @@ def test_v6_contract_rejects_parity_alias_and_requires_recursive_equality() -> N
     assert "equality" in contract and "recursion" in contract
     assert "factor" not in contract and "parity" not in contract
     assert len(plan["masked_refinement_protocol"]["classical_baselines"]) == 8
+
+
+def test_v7_adds_only_mandatory_re_pair_control_to_v6() -> None:
+    assert bench_v7.run_suite is bench_v6.run_suite
+    assert bench_v7.BENCHMARK_VERSION == "heldout_parallel_masked_infilling_v7"
+    validate_document("experiment_plan", _v6_plan(), project_root())
+    plan = _v7_plan()
+    validate_document("experiment_plan", plan, project_root())
+    assert plan["candidates"][:3] == _v6_plan()["candidates"][:3]
+    assert plan["masked_refinement_protocol"]["classical_baselines"][-1] == (
+        "re_pair_grammar_masked_byte"
+    )
+    plan["masked_refinement_protocol"]["classical_baselines"].pop()
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", plan, project_root())
 
 
 def test_v5_frozen_energy_fixture_requires_two_factors_and_is_relabel_equivariant() -> None:

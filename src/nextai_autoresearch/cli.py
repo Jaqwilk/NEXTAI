@@ -441,6 +441,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_parallel_masked_infilling_v4",
             "heldout_parallel_masked_infilling_v5",
             "heldout_parallel_masked_infilling_v6",
+            "heldout_parallel_masked_infilling_v7",
         }:
             plan["matrix"]["knowledge_sizes"] = list(masked["knowledge_sizes"])
             plan["matrix"]["reasoning_depths"] = list(masked["refinement_rounds"])
@@ -463,8 +464,9 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_parallel_masked_infilling_v4",
             "heldout_parallel_masked_infilling_v5",
             "heldout_parallel_masked_infilling_v6",
+            "heldout_parallel_masked_infilling_v7",
         }:
-            if config.benchmark_version.endswith("_v6"):
+            if config.benchmark_version.endswith(("_v6", "_v7")):
                 contract = (
                     "equality_byte_representation_grammar_extractor_constants_"
                     "initialization_training_order_query_alignment_and_output_"

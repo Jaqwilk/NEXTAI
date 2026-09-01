@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_parallel_masked_infilling_v6"
+benchmark_version = "heldout_parallel_masked_infilling_v7"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -162,6 +162,7 @@ classical_baselines = [
   "bidirectional_markov_masked_byte",
   "parallel_markov_bp_masked_byte",
   "oracle_conditional_masked_byte",
+  "re_pair_grammar_masked_byte",
 ]
 declared_horizons = [1, 4, 16]
 state_budget_bytes = 4194304
@@ -172,6 +173,7 @@ invalidation_rules = [
   "Invalidate if candidate critical-path work is sequentially hidden inside a declared simultaneous step.",
   "Invalidate if the three equality-grammar roles differ in byte representation, grammar extractor, initialization, training data/order, constants, query alignment or output probabilities beyond the preregistered recursive, flat and frozen-grammar interventions.",
   "Invalidate unless preregistered semantic fixtures prove that recursive completion requires at least two learned grammar levels, the flat ablation cannot solve that fixture, consistent byte relabeling preserves probabilities, no target is accessible and rule discovery, indexing, alignment and expansion work are explicit.",
+  "Invalidate unless the mandatory Re-Pair control passes its registered recursive-rule, completion and byte-relabeling semantic fixtures before seed realization.",
   "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
 ]
 
