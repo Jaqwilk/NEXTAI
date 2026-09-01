@@ -1,0 +1,144 @@
+{
+  "alternative_explanations": [
+    "The admissible possible-output bound, rather than learned ordering, may account for all savings versus exhaustive MDL; the support-only and frozen source-identical roles isolate this.",
+    "Uniform held-out program sampling may make meta priorities statistically uninformative, so support-local ordering can match or beat meta learning."
+  ],
+  "architecture_family": "amortized_complete_constraint_search",
+  "benchmark": "program_induction_from_whole_io_v3",
+  "budget": "quick",
+  "candidates": [
+    "learned_amortized_constraint_order_vm",
+    "source_identical_support_only_constraint_order_vm",
+    "source_identical_frozen_constraint_order_vm",
+    "random_whole_io",
+    "nearest_whole_io",
+    "dense_whole_io",
+    "enumerative_mdl_vm",
+    "oracle_latent_vm"
+  ],
+  "confounds": [
+    "The visible finite 256-program benchmark measures amortized exact search in a small class and cannot establish open-ended program synthesis or an LLM successor.",
+    "K changes both meta-training corpus size and padded tape capacity; full acquisition and fit accounting is required before interpreting a near-zero query slope."
+  ],
+  "created_at": "2026-09-01T08:18:00Z",
+  "evaluator_sha256": "0380cfd6972a676b50685004640be799d190041d9c0052b673fda1fd186cb1b4",
+  "experiment_id": "EXP-20260901-0036",
+  "falsification_criteria": [
+    "Discard unless meta-role accuracy, length extrapolation accuracy and program induction accuracy are exactly 1.0 in every cell.",
+    "Discard unless meta-role mean cold search nodes and search operations are strictly below support-only, frozen and complete enumerative MDL overall and at D6.",
+    "Discard unless meta-role workload_ops_r1, workload_ops_r4 and workload_ops_r16 are below complete enumerative MDL and neither source-identical ablation Pareto-dominates it at exact capability.",
+    "Invalidate if roles differ beyond priority source, return a different optimum than exhaustive MDL, access a hidden program or trace, omit fit/search/state/bytes work, exceed 16777216 bytes, tune after score or fail baseline/preflight/integrity gates."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "94212bcf5c57a675f358540be9a26f47ab4f1745",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0047",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      16,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "length_extrapolation_accuracy": "maximize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_search_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "program_induction_accuracy": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify the implementation and exact rule if any exactness, source-identity, audit, state or integrity gate fails; do not tune ordering after seeing the seed.",
+    "null": "Falsify this exact priority learner if all roles are exact but meta ordering fails to improve fully charged work over source-identical or exhaustive controls; preserve branch-and-bound as a classical solver.",
+    "positive": "Keep HYP-0047 testing only if exact capability is preserved and meta ordering strictly improves node, search and all declared workload costs without Pareto dominance; then preregister unchanged multi-seed adversarial replication."
+  },
+  "parent_experiment_id": "EXP-20260901-0035",
+  "predicted_outcome": "All three causal roles must recover the identical exact MDL program in every K=8/16/32 and D=1/4/6 cell. The meta-learned order is predicted to visit fewer branch nodes and use fewer cold search operations than support-only, frozen and exhaustive MDL, including at D6, while query work has near-zero K slope. The expected outcome is a stringent null because the program distribution is uniform and charged meta-fit may erase search savings.",
+  "primary_metrics": [
+    "accuracy",
+    "program_induction_accuracy",
+    "length_extrapolation_accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "mean_search_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. A positive only authorizes an unchanged three-seed adversarial screen with new support corruption positions and a larger program class after prior-art review; promotion still requires replicated non-dominance."
+  ],
+  "research_question": "Can meta-experience lower the fully charged node and operation cost of exact noisy whole-I/O program induction by changing only branch and constraint visitation order while preserving the identical complete MDL optimum on every unseen program?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Amortized exact constraint-search ordering scout",
+  "whole_io_search_protocol": {
+    "classical_baselines": [
+      "random_whole_io",
+      "nearest_whole_io",
+      "dense_whole_io",
+      "enumerative_mdl_vm",
+      "oracle_latent_vm"
+    ],
+    "frozen_ablation": "source_identical_frozen_constraint_order_vm",
+    "invalidation_rules": [
+      "Invalidate if any implementable role receives the hidden program, execution trace or task identity.",
+      "Invalidate unless all three causal roles share the exact complete branch-and-bound solver, objective, tie handling, constants, support parsing, execution and output code.",
+      "Invalidate if the learned role differs from its ablations beyond the preregistered source of branch and constraint priorities.",
+      "Invalidate if a role stops before proving the same minimum-error MDL optimum returned by complete enumeration.",
+      "Invalidate if acquisition, meta-fit, every visited node, program execution, query, update, state or bytes touched is omitted from full cost.",
+      "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change."
+    ],
+    "pareto_capability_metrics": [
+      "accuracy",
+      "program_induction_accuracy",
+      "length_extrapolation_accuracy",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "mean_search_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "shared_candidate": "learned_amortized_constraint_order_vm",
+    "source_identical_contract": "complete_solver_objective_ties_support_execution_output_identical_except_meta_support_or_frozen_search_priority_v1",
+    "state_budget_bytes": 16777216,
+    "support_only_ablation": "source_identical_support_only_constraint_order_vm"
+  }
+}
