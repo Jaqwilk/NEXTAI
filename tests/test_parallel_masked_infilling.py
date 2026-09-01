@@ -356,14 +356,21 @@ def test_v5_is_role_only_and_preserves_all_historical_evaluator_semantics() -> N
     }
 
 
-def test_v5_schema_rejects_role_substitution_and_candidate_does_not_exist_yet() -> None:
+def test_v5_schema_rejects_role_substitution_and_implemented_roles_share_core() -> None:
     import importlib.util
+    from nextai_autoresearch.candidates.sparse_energy_factor_graph_core import (
+        Candidate as EnergyCore,
+    )
 
     plan = _v5_plan()
     roles = plan["candidates"][:3]
     assert all(importlib.util.find_spec(
         f"nextai_autoresearch.candidates.{role}"
-    ) is None for role in roles)
+    ) is not None for role in roles)
+    modules = [__import__(
+        f"nextai_autoresearch.candidates.{role}", fromlist=["Candidate"]
+    ) for role in roles]
+    assert all(module.Candidate.__mro__[1] is EnergyCore for module in modules)
     plan["masked_refinement_protocol"]["causal_ablation_1"] = (
         "source_identical_sequential_born_mps_masked_byte"
     )

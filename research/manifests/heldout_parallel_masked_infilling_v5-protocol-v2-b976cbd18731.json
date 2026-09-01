@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_parallel_masked_infilling_v5",
   "candidate_bundle_sha256": "df3b5fae8edc534d5f62743074bb06dfaadcfcfa8ae87f884ca598d258679d47",
-  "created_at": "2026-09-01T04:21:59Z",
-  "evaluator_sha256": "b278124657f65b7d42ec41de88f195ac05d70e477bd8ba4e088458dd2a517f5f",
+  "created_at": "2026-09-01T04:20:21Z",
+  "evaluator_sha256": "3693b1508ae86d6b8b168b3c160f9ae91f6cd59bcba4d22a0dc892d7e99b76b3",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -602,7 +602,7 @@
     "tests/test_operator_experience_v5.py": "e4c8cf98f29d27184d6364ad619601b07ccc8b9673e8fc6935e19cfdf613b7e0",
     "tests/test_operator_experience_v6.py": "aff9dfbd0004872526db867b93c14c5ae0c8245c87d93f416ee6365c39d5b3fd",
     "tests/test_orthogonal_reservoir_byte.py": "7783818d53b2c85645cc002757a75cf0954f59585ba35fe269e11c0deb45cee4",
-    "tests/test_parallel_masked_infilling.py": "d0d72a90048ed8db39eb5d1f1a60e16ac9579115c30303894b02c2401059248a",
+    "tests/test_parallel_masked_infilling.py": "9af01eeb1fd339ca26b9ce109f742c238a6422d9a622a000aa81a2f80910b8f9",
     "tests/test_plan_cli_v3.py": "465083cc20ea4e4434709a3813f2f9d1c4a5e90d9c9903340c955ae32fecdfc5",
     "tests/test_pointer_machine_composition.py": "eee79afe28fc66639d3721737fbe30767b0b498cfebee1ed270138c891adcf84",
     "tests/test_predictive_equivalence_index.py": "5b54315fe917e2955544ff4e0c1c4cf5e9f50f5c3fd1d5ff71ed020b7a552467",
