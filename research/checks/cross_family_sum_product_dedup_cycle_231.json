@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "cycle": 231,
+  "created_at": "2026-09-01T20:28:54Z",
+  "proposed_successor": "cross_family_tractable_sum_product_circuit_v6",
+  "active_benchmark_unchanged": "heldout_wt_changepoints_prequential_v5",
+  "decision": "reject_before_protected_migration",
+  "scientific_evidence_changed": false,
+  "protected_files_changed": false,
+  "hypothesis_created": false,
+  "experiment_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "g1_qualifying_experiment_count": 1,
+  "deduplication_evidence": [
+    {
+      "path": "research/analyses/EXP-20260830-0040.md",
+      "sha256": "a2fdce5d2d9a49dedaab64133d76e6cbb4776be04a24d85003c7d69a69d2a683",
+      "finding": "learned_decomposable_spn matched contextual_chow_liu capability exactly and paid higher fit and R16 cost"
+    },
+    {
+      "path": "research/reviews/GEN-1-RECURSIVE-CONTEXT-PC-V2-GATE-CYCLE-175-2026-09-01.md",
+      "sha256": "2cb676c2e1304f23614c6004a5e2cf3b57f950ea3a3370b6cf7cb1086e488834",
+      "finding": "recursive circuit structure was not identifiable against flat sum-product, decision-diagram and variable-elimination representations without a privileged generator or compiler"
+    },
+    {
+      "path": "research/analyses/EXP-20260901-0057.md",
+      "finding": "the same four-family lossless evaluator exposed output binding as the bottleneck while contextual Chow-Liu remained the sole implementable Pareto point"
+    }
+  ],
+  "identifiability_failures": [
+    "Only one of the four worlds has native probabilistic-circuit semantics; a shared circuit over all four anonymous token-to-target tasks requires an output-binding rule whose effect is inseparable from factorization.",
+    "Finite observational behavior does not identify recursive sum-product structure, circuit sharing, variable order or a unique compiler.",
+    "The frozen v5 test support contains public world support but no labeled test query-target pairs, so a support-only learned structure ablation cannot isolate supervised factorization transfer.",
+    "Reusing the existing learned SPN or renaming contextual Chow-Liu would be an alias of a completed null, not a genuinely distinct G1 mechanism."
+  ],
+  "next_cycle": "Cycle 232 is the second and final permitted consecutive no-scoring wake: perform one capped G1 mechanism-selection gate over existing frozen cohorts and freeze at most one genuinely nonduplicate role-only contract. It must explicitly exclude tractable/recursive probabilistic circuits, sparse routing, learned addressing, recurrent residuals, particle proposals, exact-search guidance, operator macro DAGs and benchmark-specific ontologies. Cycle 233 must score one preregistered quick if the gate passes; otherwise record a concrete portfolio-level discriminator blocker rather than inventing a microbenchmark."
+}
