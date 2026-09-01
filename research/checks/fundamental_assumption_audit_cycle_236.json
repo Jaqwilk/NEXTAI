@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "cycle": 236,
+  "created_at": "2026-09-01T21:50:40Z",
+  "service_only": true,
+  "review_only": true,
+  "decision": "no_sufficiently_novel_falsifiable_direction_found",
+  "active_benchmark_unchanged": "heldout_repository_sequence_compression_v6",
+  "completed_experiments": 98,
+  "g1_qualifying_experiment_count": 2,
+  "history_reviewed": {
+    "completed_experiments": 98,
+    "latest_hypotheses": 58,
+    "analysis_artifacts": 101,
+    "review_inventory_files": 183,
+    "prior_registered_sources": 224
+  },
+  "assumptions_audited": 14,
+  "candidates_audited": [
+    {
+      "id": "C1",
+      "name": "counterfactual_erasure_kernel",
+      "decision": "reject_duplicate_and_named_prior_art"
+    },
+    {
+      "id": "C2",
+      "name": "query_generated_behavioral_quotient",
+      "decision": "reject_direct_causal_duplicate"
+    },
+    {
+      "id": "C3",
+      "name": "local_dialect_transport_without_global_latent",
+      "decision": "reject_recognizable_prior_art_family"
+    },
+    {
+      "id": "C4",
+      "name": "counterexample_only_exclusion_engine",
+      "decision": "reject_prior_art_and_nextai_duplicate"
+    },
+    {
+      "id": "C5",
+      "name": "endogenous_self_task_boundary",
+      "decision": "reject_known_area_and_not_presently_falsifiable"
+    }
+  ],
+  "superseded_direction": {
+    "name": "real_pde_adaptive_computation",
+    "reason": "The newer novelty-first instruction excludes adaptive computation and learned PDE refinement when the causal core is a recognizable existing direction. SRC-0223 and SRC-0224 are direct prior art."
+  },
+  "literature_sources_added": [
+    "SRC-0225",
+    "SRC-0226",
+    "SRC-0227",
+    "SRC-0228",
+    "SRC-0229",
+    "SRC-0230",
+    "SRC-0231",
+    "SRC-0232",
+    "SRC-0233",
+    "SRC-0234"
+  ],
+  "mutations": {
+    "protected_files_changed": false,
+    "benchmark_created": false,
+    "schema_changed": false,
+    "dependency_added": false,
+    "hypothesis_created": false,
+    "hypothesis_updated": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "seed_realized": false,
+    "scoring_performed": false,
+    "scientific_evidence_changed": false
+  },
+  "next_action": "No experiment is authorized. Request a user-level choice to relax the research-area novelty constraint or name a non-digital substrate and safe falsification boundary."
+}
