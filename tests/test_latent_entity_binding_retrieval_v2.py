@@ -3,9 +3,13 @@ from pathlib import Path
 
 os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
 
+import numpy as np
+import torch
+
 from nextai_autoresearch.benchmarks.latent_entity_binding_retrieval_v2 import make_tasks, make_world, run_trial
+from nextai_autoresearch.benchmarks.successor_graph_v1 import load_candidate
 from nextai_autoresearch.baseline_semantics import required_baseline_names
-from nextai_autoresearch.entity_addressing_contract import KNOWLEDGE_SIZES, ROLE_CONTRACT
+from nextai_autoresearch.entity_addressing_contract import KNOWLEDGE_SIZES, ROLE_CONTRACT, TransitionBurst
 from nextai_autoresearch.entity_addressing_core import split_burst
 
 
@@ -90,3 +94,52 @@ def test_entity_addressing_controls_are_required_by_pre_seed_gate() -> None:
         }
     }
     assert required_baseline_names(plan) == controls
+
+
+def _fit_learned(name: str):
+    world = make_world(32, 1103)
+    candidate = load_candidate(name, 1103)
+    candidate.fit(world.records, 32, 8)
+    return world, candidate
+
+
+def test_learned_and_dense_roles_have_identical_encoder_and_constants() -> None:
+    _, learned = _fit_learned("learned_discrete_address_index_v1")
+    _, dense = _fit_learned("source_identical_dense_scan_v1")
+    assert np.array_equal(learned._encoder_vector(), dense._encoder_vector())
+    assert np.array_equal(learned.thresholds, dense.thresholds)
+    assert learned.acceptance == dense.acceptance
+
+
+def test_frozen_shuffled_and_target_value_interventions_are_isolated() -> None:
+    world, learned = _fit_learned("learned_discrete_address_index_v1")
+    _, frozen = _fit_learned("source_identical_frozen_encoder_index_v1")
+    _, shuffled = _fit_learned("source_identical_shuffled_representation_index_v1")
+    changed = tuple(TransitionBurst(record.observations, record.value + index + 1) for index, record in enumerate(world.records))
+    relabeled = load_candidate("learned_discrete_address_index_v1", 1103)
+    relabeled.fit(changed, 32, 8)
+    assert not np.array_equal(learned._encoder_vector(), frozen._encoder_vector())
+    assert not np.array_equal(learned._encoder_vector(), shuffled._encoder_vector())
+    assert learned.representation_fit_ops == shuffled.representation_fit_ops > frozen.representation_fit_ops
+    assert np.array_equal(learned._encoder_vector(), relabeled._encoder_vector())
+    assert np.array_equal(learned.thresholds, relabeled.thresholds)
+
+
+def test_index_caps_and_local_update_leave_representation_frozen() -> None:
+    world, candidate = _fit_learned("learned_discrete_address_index_v1")
+    before_encoder, before_thresholds = candidate._encoder_vector().copy(), candidate.thresholds.copy()
+    candidate.query(make_tasks(world, 1, 1103, 1)[0].public, 1)
+    assert candidate.last_comparisons <= 40
+    assert max(map(len, candidate.buckets.values())) <= 8
+    record = world.records[0]
+    candidate.update(record, record.value)
+    assert candidate.count == 33 and candidate.update_ops < 10_000
+    assert np.array_equal(before_encoder, candidate._encoder_vector())
+    assert np.array_equal(before_thresholds, candidate.thresholds)
+    assert max(map(len, candidate.buckets.values())) <= 8
+
+
+def test_learned_encoder_is_finite_on_available_device() -> None:
+    _, candidate = _fit_learned("learned_discrete_address_index_v1")
+    assert np.isfinite(candidate._encoder_vector()).all()
+    assert candidate.device.type == ("cuda" if torch.cuda.is_available() else "cpu")

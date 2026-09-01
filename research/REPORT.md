@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T16:21:12Z
+Generated: 2026-09-01T16:49:03Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1127,6 +1127,20 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-003
 | EXP-20260830-0035 | paired_stability_index | implementable | complete | 1 | 1 | 19.33 | 12 | 184 | - | 0 (2; screening) | 1360 |  |
 | EXP-20260830-0035 | contrastive_hash_index | implementable | complete | 0.5417 | 1 | 19.33 | 12 | 184 | - | 0 (2; screening) | 1360 |  |
 | EXP-20260830-0035 | oracle_identity_index | privileged support control | complete | 1 | 1 | 15.67 | 12 | 154.7 | - | 0 (2; screening) | 984 |  |
+
+## latent_entity_binding_retrieval_v2 / quick
+
+Pareto axes: maximize `accuracy, warm_accuracy, continual_new_fact_accuracy, continual_retention`; minimize `data_acquisition_ops, fit_ops, mean_query_ops, mean_warm_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16, workload_ops_r256, workload_ops_r4096`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0054 | learned_discrete_address_index_v1 | implementable | complete | 0.4097 | 1 | 7120 | 24 | 1.153e+04 | 4.202e+09 | 0.1562 (3) | 442688 |  |
+| EXP-20260901-0054 | source_identical_dense_scan_v1 | implementable | complete | 0.9722 | 1 | 2.489e+05 | 24 | 3.341e+05 | 4.265e+09 | 0.9291 (3) | 440712 | yes |
+| EXP-20260901-0054 | source_identical_frozen_encoder_index_v1 | implementable | complete | 0.6597 | 1 | 5231 | 24 | 9015 | 5.161e+07 | 0.2149 (3) | 454528 |  |
+| EXP-20260901-0054 | source_identical_shuffled_representation_index_v1 | implementable | complete | 0.4792 | 1 | 4159 | 24 | 7586 | 4.201e+09 | 0.01581 (3) | 452488 |  |
+| EXP-20260901-0054 | raw_nearest_neighbour_scan_v1 | implementable | complete | 1 | 1 | 3.694e+05 | 24 | 1.97e+06 | 9.659e+07 | 0.9995 (3) | 1.25479e+06 | yes |
+| EXP-20260901-0054 | local_dense_transition_gru_v1 | implementable | complete | 0 | 1 | 5.615e+04 | 24 | 1.109e+05 | 1.502e+09 | 0 (3) | 25588 |  |
+| EXP-20260901-0054 | privileged_exact_entity_key_v1 | privileged support control | complete | 1 | 1 | 28.33 | 24 | 261.3 | 2.066e+05 | 5.58e-32 (3) | 76824 |  |
 
 ## noisy_nonexhaustive_causal_transfer_v3 / quick
 
