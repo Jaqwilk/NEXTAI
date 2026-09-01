@@ -21,6 +21,10 @@ from nextai_autoresearch.utils import project_root
         "shared_local_update_law_v1", "independent_local_update_law_v1",
         "cross_family_only_local_update_law_v1", "support_only_local_update_law_v1",
     )),
+    ("heldout_three_family_continuous_transfer_v8", (
+        "shared_invariant_residual_module_v1", "independent_invariant_residual_module_v1",
+        "cross_family_only_invariant_residual_module_v1", "support_only_invariant_residual_module_v1",
+    )),
 ])
 def test_plan_new_emits_three_family_pareto_contract(monkeypatch, benchmark, roles) -> None:
     captured = {}
@@ -55,6 +59,11 @@ def test_plan_new_emits_three_family_pareto_contract(monkeypatch, benchmark, rol
         "tensor_autoregressive_v1", "tensor_raw_window_local_linear_v1",
         "tensor_random_projection_hash_v1", "privileged_tensor_support_v1",
     ]
+    if benchmark.endswith("_v8"):
+        candidates[4:4] = [
+            "pooled_without_invariance_residual_module_v1",
+            "frozen_partition_invariant_residual_module_v1",
+        ]
     cli.command_plan_new(Namespace(
         hypothesis="HYP-9999", parent=None, title="v5 synthesis regression",
         question="Does v5 retain the universal Pareto contract?", family="test",
@@ -76,4 +85,4 @@ def test_plan_new_emits_three_family_pareto_contract(monkeypatch, benchmark, rol
         "shared_vs_independent_gain", "cross_family_transfer_gain"
     ]
     assert "mean_query_ops" in protocol["pareto_capability_metrics"]
-    assert ("update_ops" in protocol["pareto_capability_metrics"]) == benchmark.endswith("_v7")
+    assert ("update_ops" in protocol["pareto_capability_metrics"]) == benchmark.endswith(("_v7", "_v8"))

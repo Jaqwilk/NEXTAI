@@ -1,0 +1,64 @@
+{
+  "active_benchmark": "heldout_three_family_continuous_transfer_v8",
+  "candidate_bundle_sha256": "ddb8648fb4cb375ac00d9cda5213712741f640e5a6ed0e596d534682d05245b3",
+  "completed_at": "2026-09-01T09:29:20Z",
+  "completed_experiments": 82,
+  "consecutive_no_scoring_cycles": 1,
+  "cycle": 190,
+  "decision": "activate_v8_roles_for_one_invariant_residual_module_quick",
+  "doctor_passed": true,
+  "evaluator_sha256": "a5845f6dcb25024a344d94df203e784d8bc9ae86463bce8638a169d38a822811",
+  "experiment_created": false,
+  "generation": 1,
+  "historical_results_recomputed": false,
+  "hypothesis_created": false,
+  "identifiability": {
+    "three_family": {
+      "candidate_visible_anonymous_world_boundaries": {"K4": 12, "K6": 18, "K9": 27},
+      "environment_gate": true,
+      "mask_signature_routing_forbidden": true,
+      "slot_read_forbidden": true,
+      "permitted_mask_use": "exclude padded cells only in one source-identical scalar relation extractor"
+    },
+    "wt": {
+      "candidate_visible_environment_boundaries": 0,
+      "environment_gate": false,
+      "reason": "six train files are flattened event-major into one WTTraining.episodes tuple; grouping by the four public controls would alias wt_control_level_bank_v1"
+    }
+  },
+  "integrity_files_verified": 692,
+  "mandatory_alias_controls": [
+    "tensor_ridge_arx_v1",
+    "tensor_rls_arx_v1",
+    "tensor_empirical_gaussian_joint_v1",
+    "tensor_contextual_gaussian_chow_liu_v1",
+    "tensor_autoregressive_v1",
+    "tensor_raw_window_local_linear_v1",
+    "tensor_random_projection_hash_v1"
+  ],
+  "manifest_archive_path": "research/manifests/continuous_local_cellular_v4-protocol-v2-d676522b30ad.json",
+  "manifest_archive_sha256": "f110e85264a7cdf1392d01dc96ef4f097ca7cc6ea4ff76d6a2907fd741a2d964",
+  "plan_created": false,
+  "preflight_certificate_digest": "2100cb157a7fd14acab37d2ad8ea0f518eb689a60ae4211ffa9571cd2fa92577",
+  "protected_contract_hashes": {
+    "config/research.toml": "d8776e230b43e2261d85d45971616836500db471433993276f8c75953563312a",
+    "docs/SCIENTIFIC_PROTOCOL.md": "525de139ffa2bd6f0b4dcdc883a06c163a8a3bfeb60079a510bfbd724bcbd007",
+    "schemas/experiment_plan.schema.json": "c79a146fba78aee40b9572eddadde82c3b7b773c7ad10b62985e0719309b7fd1",
+    "src/nextai_autoresearch/benchmarks/heldout_three_family_continuous_transfer_v1.py": "cadb96685031e62ee8ec5c5b448608982526d19d39d86318a98bb1a0595975f6",
+    "src/nextai_autoresearch/benchmarks/heldout_three_family_continuous_transfer_v8.py": "9304153e6d3838bca4867ed9562cf6be3cfaffe05c2dd1cd5ae9e65f870ef794"
+  },
+  "pytest_passed": 518,
+  "role_only_change": true,
+  "roles": [
+    "shared_invariant_residual_module_v1",
+    "independent_invariant_residual_module_v1",
+    "cross_family_only_invariant_residual_module_v1",
+    "support_only_invariant_residual_module_v1",
+    "pooled_without_invariance_residual_module_v1",
+    "frozen_partition_invariant_residual_module_v1"
+  ],
+  "scientific_evidence_changed": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "status": "pass"
+}

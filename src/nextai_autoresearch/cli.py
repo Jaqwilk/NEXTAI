@@ -327,6 +327,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
         "heldout_three_family_continuous_transfer_v5",
         "heldout_three_family_continuous_transfer_v6",
         "heldout_three_family_continuous_transfer_v7",
+        "heldout_three_family_continuous_transfer_v8",
     }:
         protocol = config.raw["three_family_continuous"]
         plan["matrix"]["knowledge_sizes"] = list(protocol["knowledge_sizes"])
@@ -348,7 +349,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "declared_reuses": list(protocol["declared_reuses"]),
             "invalidation_rules": list(protocol["invalidation_rules"]),
         }
-        if config.benchmark_version.endswith(("_v2", "_v3", "_v4", "_v5", "_v6", "_v7")):
+        if config.benchmark_version.endswith(("_v2", "_v3", "_v4", "_v5", "_v6", "_v7", "_v8")):
             pareto_metrics = [
                 "transfer_accuracy", "minimum_family_accuracy",
                 "stable_rollout_rate", "normalized_rmse",
@@ -357,7 +358,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
                 "peak_state_bytes", "mean_bytes_touched",
                 "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
             ]
-            if config.benchmark_version.endswith("_v7"):
+            if config.benchmark_version.endswith(("_v7", "_v8")):
                 pareto_metrics.insert(pareto_metrics.index("state_bytes"), "update_ops")
             plan["continuous_transfer_protocol"].update({
                 "pareto_capability_metrics": pareto_metrics,

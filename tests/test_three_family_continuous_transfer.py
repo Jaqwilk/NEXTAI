@@ -12,6 +12,7 @@ from nextai_autoresearch.benchmarks.heldout_three_family_continuous_transfer_v1 
 )
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v6 as v6_benchmark
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v7 as v7_benchmark
+from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v8 as v8_benchmark
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v1 as shared_evaluator
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v2 as v2_benchmark
 from nextai_autoresearch.benchmarks import heldout_three_family_continuous_transfer_v3 as v3_benchmark
@@ -112,6 +113,25 @@ def test_v7_registers_four_source_identical_local_update_law_roles() -> None:
     assert [len(_assignment(ROLE[name], FAMILIES[0], worlds)) for name in roles] == [3, 1, 2, 0]
 
 
+def test_v8_registers_invariant_module_roles_without_changing_assignments() -> None:
+    transfer_roles = {
+        "shared_invariant_residual_module_v1": "shared",
+        "independent_invariant_residual_module_v1": "independent",
+        "cross_family_only_invariant_residual_module_v1": "cross_family_only",
+        "support_only_invariant_residual_module_v1": "support_only",
+    }
+    assert v8_benchmark.BENCHMARK_VERSION == "heldout_three_family_continuous_transfer_v8"
+    assert {name: ROLE[name] for name in transfer_roles} == transfer_roles
+    assert {
+        BASE_IMPLEMENTATION[name] for name in transfer_roles
+        if name != "shared_invariant_residual_module_v1"
+    } == {"shared_invariant_residual_module_v1"}
+    assert ROLE["pooled_without_invariance_residual_module_v1"] == "shared"
+    assert ROLE["frozen_partition_invariant_residual_module_v1"] == "shared"
+    worlds = {family: [_synthetic()] for family in FAMILIES}
+    assert [len(_assignment(ROLE[name], FAMILIES[0], worlds)) for name in transfer_roles] == [3, 1, 2, 0]
+
+
 def test_v7_reports_local_adaptation_as_update_without_changing_old_roles() -> None:
     assert shared_evaluator._reported_update_ops("shared_local_update_law_v1", 36.0, 9) == 4.0
     for name in tuple(ROLE):
@@ -152,7 +172,7 @@ def test_v6_role_extension_preserves_all_v1_through_v5_role_semantics() -> None:
         benchmark.run_suite is shared_evaluator.run_suite
         for benchmark in (
             v2_benchmark, v3_benchmark, v4_benchmark, v5_benchmark, v6_benchmark,
-            v7_benchmark,
+            v7_benchmark, v8_benchmark,
         )
     )
 

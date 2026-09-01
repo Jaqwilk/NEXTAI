@@ -616,6 +616,39 @@ handwritten ontologies and test outputs remain forbidden. The candidate is inten
 implemented nor scored in this migration: implementation may begin only after a later immutable
 experiment plan preregisters its exact constants and success, invalidation and seed rules.
 
+## Three-family continuous transfer v8 invariant residual-module roles
+
+Version 8 is a service-only successor to v7. It preserves every real world,
+train/test split, anonymous tensor, training-only normalization, K value,
+metric, direction, threshold, classical baseline, full-cost boundary, seed
+policy, Pareto axis and causal promotion gate. Historical v1-v7 plans, results,
+analyses, manifests and hashes remain immutable and cohort-separated.
+
+The candidate-visible `Training.worlds` tuple supplies 12, 18 or 27 anonymous
+world boundaries at K=`4/6/9`; these boundaries may define environments, but
+`World.slot` is forbidden. Tensor masks may only exclude padded cells from a
+source-identical scalar relation extractor. A role may not branch, key, select
+modules or tune constants from a mask signature, valid width, family label,
+native type, path or semantic channel name.
+
+The prospective shared, independent, cross-family-only and support-only roles
+use one invariant residual-module learner and differ only in the evaluator-
+private assignment of training worlds. Two additional source-identical nulls
+receive pooled training: one disables environment-stability selection and one
+freezes the module partition before data. All six roles must share relation
+extraction, module representation, initialization, fit order, prediction,
+update, constants and accounting except for those registered interventions.
+Pooled ridge, RLS, empirical Gaussian joint, contextual Gaussian Chow--Liu,
+autoregressive, raw-window and random-hash controls remain mandatory.
+
+The migration creates no hypothesis, experiment plan, scoring seed, candidate
+implementation or result. A later immutable quick plan must freeze the exact
+residual statistic, stability test, partition rule, tie handling, thresholds,
+update and operation accounting before any candidate code. Success must beat
+both added nulls, the source-identical transfer ablations and the strongest
+complete classical control without worst-family collapse or Pareto dominance.
+One quick seed can only discard or authorize unchanged replication.
+
 ## Parallel masked infilling v7 grammar-control correction
 
 Version 7 is a service-only successor to v6. It preserves the frozen corpus,

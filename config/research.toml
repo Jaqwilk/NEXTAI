@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "continuous_local_cellular_v4"
+benchmark_version = "heldout_three_family_continuous_transfer_v8"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -356,10 +356,12 @@ invalidation_rules = [
 [three_family_continuous]
 families = ["ncmapss_ds08a", "dronepropa", "continuous_event"]
 tensor_contract_sha256 = "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
-shared_candidate = "shared_local_update_law_v1"
-independent_ablation = "independent_local_update_law_v1"
-cross_family_only_ablation = "cross_family_only_local_update_law_v1"
-support_only_ablation = "support_only_local_update_law_v1"
+shared_candidate = "shared_invariant_residual_module_v1"
+independent_ablation = "independent_invariant_residual_module_v1"
+cross_family_only_ablation = "cross_family_only_invariant_residual_module_v1"
+support_only_ablation = "support_only_invariant_residual_module_v1"
+pooled_without_invariance_ablation = "pooled_without_invariance_residual_module_v1"
+frozen_partition_ablation = "frozen_partition_invariant_residual_module_v1"
 classical_baselines = [
   "tensor_persistence_v1",
   "tensor_ridge_arx_v1",
@@ -381,6 +383,8 @@ invalidation_rules = [
   "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
   "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
   "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+  "Invalidate if any invariant-module role reads World.slot or uses a tensor mask signature, valid width or family-identifying shape as a routing key.",
+  "Invalidate unless all six causal roles share relation extraction, module representation, fit order, prediction, update, constants and accounting, differing only in assigned training scope, disabled environment-stability selection or frozen partition.",
   "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
   "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
   "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change.",

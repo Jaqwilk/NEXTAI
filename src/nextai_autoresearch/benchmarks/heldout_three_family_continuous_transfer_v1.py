@@ -61,6 +61,12 @@ ROLE = {
     "independent_local_update_law_v1": "independent",
     "cross_family_only_local_update_law_v1": "cross_family_only",
     "support_only_local_update_law_v1": "support_only",
+    "shared_invariant_residual_module_v1": "shared",
+    "independent_invariant_residual_module_v1": "independent",
+    "cross_family_only_invariant_residual_module_v1": "cross_family_only",
+    "support_only_invariant_residual_module_v1": "support_only",
+    "pooled_without_invariance_residual_module_v1": "shared",
+    "frozen_partition_invariant_residual_module_v1": "shared",
 }
 BASE_IMPLEMENTATION = {
     "independent_tensor_dynamics_v1": "shared_tensor_dynamics_v1",
@@ -75,6 +81,9 @@ BASE_IMPLEMENTATION = {
     "independent_local_update_law_v1": "shared_local_update_law_v1",
     "cross_family_only_local_update_law_v1": "shared_local_update_law_v1",
     "support_only_local_update_law_v1": "shared_local_update_law_v1",
+    "independent_invariant_residual_module_v1": "shared_invariant_residual_module_v1",
+    "cross_family_only_invariant_residual_module_v1": "shared_invariant_residual_module_v1",
+    "support_only_invariant_residual_module_v1": "shared_invariant_residual_module_v1",
 }
 UPDATE_LAW_ROLES = frozenset({
     "shared_local_update_law_v1", "independent_local_update_law_v1",

@@ -281,6 +281,7 @@ def _continuous_transfer_promotion_problems(
         "heldout_three_family_continuous_transfer_v5",
         "heldout_three_family_continuous_transfer_v6",
         "heldout_three_family_continuous_transfer_v7",
+        "heldout_three_family_continuous_transfer_v8",
     }:
         return []
     protocol = plan.get("continuous_transfer_protocol", {})
