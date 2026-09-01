@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import random
 import statistics
@@ -10,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from . import heldout_parallel_masked_infilling_v9 as v9
+from . import heldout_repository_sequence_compression_v1 as repository_corpus
 from .heldout_parallel_masked_infilling_v8 import (
     TEST_DEPTHS, TRAIN_MAX_DEPTH, delimiter_groups,
 )
@@ -20,6 +20,13 @@ from ..utils import project_root
 
 BENCHMARK_VERSION = "heldout_parallel_masked_infilling_v12"
 CORPUS_REGISTRY = "research/corpora/heldout_parallel_masked_infilling_v12.json"
+CORPUS_GIT_SNAPSHOT = "87c5ab57816003eaa138fd9a3f9b34df86387411"
+
+
+def _frozen_entry_bytes(base: Path, entry: dict[str, Any]) -> bytes:
+    return repository_corpus._frozen_corpus_bytes(
+        base, entry["path"], entry["size"], entry["sha256"], CORPUS_GIT_SNAPSHOT
+    )
 
 
 def _load_corpus(root: Path | None = None):
@@ -30,11 +37,8 @@ def _load_corpus(root: Path | None = None):
     roles = {"train": [], "validation": [], "test": []}
     acquisition = 0
     for entry in registry["entries"]:
-        data = (base / entry["path"]).read_bytes()
+        data = _frozen_entry_bytes(base, entry)
         acquisition += len(data)
-        if (len(data) != entry["size"] or
-                hashlib.sha256(data).hexdigest() != entry["sha256"]):
-            raise ValueError(f"immutable v12 corpus mismatch: {entry['path']}")
         roles[entry["role"]].append((entry["path"], data))
     return roles, acquisition
 

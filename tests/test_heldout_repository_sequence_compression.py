@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 
 import pytest
 from jsonschema.exceptions import ValidationError
@@ -108,6 +109,16 @@ def test_corpus_is_whole_file_disjoint_and_matches_hashes() -> None:
     assert len(training.validation_files) == 5
     assert len(test) == 5
     assert training.acquisition_ops == 367_255
+
+
+def test_frozen_corpus_recovers_original_bytes_after_rule_files_change() -> None:
+    root = project_root()
+    role, relative, size, digest = bench.CORPUS[0]
+    assert role == "train" and relative == "AGENTS.md"
+    recovered = bench._frozen_corpus_bytes(root, relative, size, digest)
+    assert (root / relative).read_bytes() != recovered
+    assert len(recovered) == size
+    assert hashlib.sha256(recovered).hexdigest() == digest
 
 
 def test_byte_distribution_boundary_is_strict() -> None:

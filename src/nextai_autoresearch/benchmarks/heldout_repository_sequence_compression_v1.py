@@ -4,6 +4,7 @@ import hashlib
 import math
 import random
 import statistics
+import subprocess
 import time
 import tracemalloc
 from pathlib import Path
@@ -18,6 +19,7 @@ from ..utils import project_root
 
 BENCHMARK_VERSION = "heldout_repository_sequence_compression_v1"
 SEGMENT_MULTIPLIER = 128
+CORPUS_GIT_SNAPSHOT = "8ed7272c9047f0b5a7ff50221aa783fd6bc6b74a"
 PRIVILEGED = {"oracle_test_table_byte"}
 CORPUS = (
     ("train", "AGENTS.md", 5648, "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46"),
@@ -66,15 +68,33 @@ CORPUS = (
 )
 
 
+def _frozen_corpus_bytes(
+    base: Path, relative: str, size: int, digest: str, snapshot: str = CORPUS_GIT_SNAPSHOT
+) -> bytes:
+    current = base / relative
+    data = current.read_bytes() if current.is_file() else b""
+    if len(data) == size and hashlib.sha256(data).hexdigest() == digest:
+        return data
+    recovered = subprocess.run(
+        ["git", "cat-file", "blob", f"{snapshot}:{relative}"],
+        cwd=base,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    data = recovered.stdout
+    if recovered.returncode or len(data) != size or hashlib.sha256(data).hexdigest() != digest:
+        raise ValueError(f"immutable corpus mismatch: {relative}")
+    return data
+
+
 def _load_corpus(root: Path | None = None) -> tuple[dict[str, list[tuple[str, bytes]]], int]:
     base = root or project_root()
     roles: dict[str, list[tuple[str, bytes]]] = {"train": [], "validation": [], "test": []}
     acquisition = 0
     for role, relative, expected_size, expected_hash in CORPUS:
-        data = (base / relative).read_bytes()
+        data = _frozen_corpus_bytes(base, relative, expected_size, expected_hash)
         acquisition += len(data)
-        if len(data) != expected_size or hashlib.sha256(data).hexdigest() != expected_hash:
-            raise ValueError(f"immutable corpus mismatch: {relative}")
         roles[role].append((relative, data))
     return roles, acquisition
 

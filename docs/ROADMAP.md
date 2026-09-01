@@ -29,7 +29,9 @@ Minimalny portfel:
 - memory controller / pointer machine;
 - skeptic adversarial routing baseline.
 
-Brama: przynajmniej jedna sygnatura przechodzi `screen` na co najmniej trzech seedach, adversarial variant i nie jest zdominowana.
+Po EXP-20260901-0059 obowiązuje okno `G1-POST-EXP-0059-V1`: osiem ważnych scored eksperymentów dotyczących rzeczywiście różnych mechanizmów. Licznik startuje od zera; cykle serwisowe, błędne plany, pre-seed invalidacje i aliasy nie zwiększają go. Jeden dokładny mechanizm może otrzymać najwyżej quick, po mocnym pozytywie niezmienioną replikację oraz jeden prerejestrowany wariant adwersarialny. Negatyw kończy dokładną zasadę bez strojenia po wyniku. Przed kolejnym mikrobenchmarkiem cykl 228 wykonuje jednorazową lokalną kalibrację realnego systemu, oddzieloną od evidence kandydatów.
+
+Brama po ośmiu wynikach wymaga co najmniej jednego uczonego z obserwacji, source-identical mechanizmu, który ma przyczynowy gain przy dopasowanej użytecznej jakości, działa w co najmniej dwóch zamrożonych rodzinach lub zadaniach i na niewidzianej operacji, przechodzi co najmniej trzy seedy i prerejestrowany wariant adwersarialny, zachowuje deklarowaną lokalną aktualizację lub inną jakościową sygnaturę, pozostaje implementowalnie Pareto-niedominowany po pełnym koszcie i nie korzysta z ręcznej ontologii, uprzywilejowanego supportu ani ukrytego preprocessingu. Jeżeli warunek nie zostanie spełniony, nowe scoringi architektoniczne zatrzymują się do strategicznego resetu uzgodnionego z użytkownikiem.
 
 ## G2 — Odkrywanie reguł i algorytmów
 

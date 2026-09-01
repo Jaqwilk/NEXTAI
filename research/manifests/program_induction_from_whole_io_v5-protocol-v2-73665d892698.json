@@ -1,8 +1,8 @@
 {
   "benchmark_version": "program_induction_from_whole_io_v5",
   "candidate_bundle_sha256": "7854d39cad2b992adef53e0bf4f700a8930b09e99974ecbc8223fee0d5899046",
-  "created_at": "2026-09-01T19:31:28Z",
-  "evaluator_sha256": "a52d0128e8c5e43d8190e4115641b30ecf63d6bd061fbc3e577cde3118f07cfe",
+  "created_at": "2026-09-01T19:27:41Z",
+  "evaluator_sha256": "d22bf587403bae143e2f5de874c329b5a3b769ee222b069bec7605b4894a5bb4",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "e5b75da0d65194da567e26b9f486e28f8cec95e0744c9146f15d80808a3944f9",
@@ -68,7 +68,7 @@
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v1.py": "38da3cee0605955feb91c0a876eb28f36d6e29cde16fe2ba9239d76b0615c5a6",
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v10.py": "a04a2dc95dcfeffad7c36e9ee42dd2d02fc7fb9fc0c1d5c8a409fadc29df10a8",
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v11.py": "57d17c1fc787da475ec0e9ef402f5aca34710695fabb06135f85ba4d4d67240b",
-    "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v12.py": "e03095d48633f9e543f538d1bae2781a402f6444a7952009f54c9e11c0fd9a8f",
+    "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v12.py": "36526a2cb502ce0b52919872bc2467bf57ce094b5811cc61de6e7da7c6d5b5f0",
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v13.py": "01f99a548613fce50c9c3f2e5f0614d2a45b32cfcbc4b5c20390013c34ce9c63",
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v2.py": "4bc01c4ac3e1793860213bfe311a5c82084a3b508587d40b0dbc4d3a2e26d16b",
     "src/nextai_autoresearch/benchmarks/heldout_parallel_masked_infilling_v3.py": "eb63ad86e58cc2cb4b8295739189ba918a03a5085275b749e4e7ab8cbabfbd8d",

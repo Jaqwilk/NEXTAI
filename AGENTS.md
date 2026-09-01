@@ -38,6 +38,16 @@ Before changing anything:
 - Treat local visible benchmarks as development/screening evidence. Strong claims require an evaluator or holdout the research agent cannot inspect.
 - Use explicit operation counts where available; label estimates as estimates. Never present wall time from different hardware or load conditions as algorithmic complexity.
 
+## Post-EXP-0059 G1 decision window
+
+The append-only `G1-POST-EXP-0059-V1` window contains at most eight scientifically valid scored experiments on genuinely different learned mechanisms. Service cycles, invalid plans, pre-seed invalidations and renamed aliases do not count. One exact mechanism receives at most one quick, one unchanged replication after a strong positive, and one preregistered adversarial variant. A negative ends that exact mechanism without post-result tuning.
+
+Before implementation, every mechanism must state the earlier failure it addresses, why the effect cannot come from a frozen or classical control, the qualitative signature beyond marginal accuracy, and why full end-to-end cost could scale better. Reuse an existing cohort whenever it can discriminate the question; a new cohort requires a prior service-only wake explaining the missing discriminator. Never allow more than two consecutive no-scoring cycles.
+
+HYP-0012 is an accounting control, not the program's architecture generator or an automatic confidence sink for unrelated failures. After eight qualifying experiments, perform a no-scoring phase review. Continue G1 without a strategic reset only if one observation-learned, source-identical mechanism has a causal gain at matched useful quality in at least two frozen families or tasks, survives at least three seeds and a preregistered adversarial operation, retains its declared local-update or other qualitative signature, is implementably Pareto-nondominated at full cost, and uses no manual ontology, privileged support or hidden preprocessing. Otherwise stop new architecture scoring and request a strategic reset from the user.
+
+Before any new microbenchmark, cycle 228 must complete the one-time local real-system calibration selected in cycle 227. Calibration results are systems diagnostics, never candidate evidence.
+
 ## Allowed implementation scope
 
 - Candidate architecture code belongs under `src/nextai_autoresearch/candidates/`.

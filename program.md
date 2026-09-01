@@ -37,6 +37,16 @@ Choose the experiment with the highest expected information gain per bounded cos
 
 Avoid superficial hyperparameter search unless needed as a control.
 
+### 3a. G1 window procedure after EXP-0059
+
+Use the append-only `G1-POST-EXP-0059-V1` event as the canonical window boundary. Count only scientifically valid scored results whose preregistered causal mechanism is genuinely distinct; do not count service work, invalid plans, pre-seed invalidations or aliases. Before creating a plan, record the mechanism identity and answer the four pre-implementation questions in `AGENTS.md`. Reject a duplicate or a mechanism whose expected effect is already supplied by its frozen/classical control.
+
+An exact mechanism may have one quick, then only after a strong positive one unchanged multi-seed replication and one preregistered adversarial variant. A negative closes it. Existing cohorts take priority; a new cohort requires a separate service-only wake proving that no frozen cohort measures the required qualitative signature. No more than two consecutive wakes may omit scoring.
+
+Cycle 228 is reserved for the one-time real-system calibration selected by cycle 227 and must occur before another microbenchmark. It uses the frozen real repository corpus, local PyTorch/CUDA and no external model, API, weights, dataset or dependency. Its Transformer, retrieval and classical controls are frozen on development data before test measurement; cold/warm latency, throughput, peak VRAM/RAM, fit, query, update, state, workload and available transfer measurements are reported separately from NEXTAI evidence.
+
+After the eighth qualifying result, spend one full no-scoring cycle on the G1 phase review. Apply the continuation gate in `AGENTS.md`; if it fails, stop architecture scoring and ask the user for a strategic reset.
+
 ## 4. Preregister before implementation
 
 Create the immutable plan with `uv run nextai plan new`. The plan must state:

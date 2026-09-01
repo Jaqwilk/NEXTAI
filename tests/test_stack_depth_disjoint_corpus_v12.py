@@ -41,7 +41,7 @@ def test_v12_registry_is_exact_disjoint_and_excludes_evaluated_roles() -> None:
     assert len(paths) == len(entries)
     assert not {path.rsplit("/", 1)[-1] for path in paths} & EVALUATED
     for entry in entries:
-        data = (project_root() / entry["path"]).read_bytes()
+        data = v12._frozen_entry_bytes(project_root(), entry)
         assert len(data) == entry["size"]
         assert hashlib.sha256(data).hexdigest() == entry["sha256"]
 

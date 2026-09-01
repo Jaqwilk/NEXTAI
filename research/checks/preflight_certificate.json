@@ -1,11 +1,11 @@
 {
   "benchmark_version": "program_induction_from_whole_io_v5",
-  "certificate_sha256": "58e9ab5467f4aed9e2a8baafcc774aad9d555c9f9cc732ba1a1821a4e8b4d673",
-  "created_at": "2026-09-01T19:00:30Z",
-  "evaluator_sha256": "77a9b30bfe7cad6a84947106a651c18b4c89dcc21a6df36c737b28a79bf2f10c",
+  "certificate_sha256": "c1a7ce2758dd37d73f99809b772674709a2a4e00b6f1de09333cb8b2ddd443e4",
+  "created_at": "2026-09-01T19:31:28Z",
+  "evaluator_sha256": "a52d0128e8c5e43d8190e4115641b30ecf63d6bd061fbc3e577cde3118f07cfe",
   "files": {
     "baseline_registry": "cde6c80446a6459467a5555f944c465047c688713d637ba1c752e1ec1e7ea433",
-    "manifest": "00bcfee1c4d828434623cf88d89a9c062924bbf0a56e1f03d6c7f089d5e720bc",
+    "manifest": "4c67014b3f73708fa0f4830a01e12c5d3deaccc12725aaec647eed4e811c2c90",
     "runner": "bb1f82412745bc62c995e98180cdcf7400a8bcac1e1d171c4bff10deb3d91d8b",
     "schema:experiment_plan": "937897c774b536f03316c04ba15e0875b32e9bd6c7663d377797e5ab0166b168",
     "schema:experiment_result": "e0b9213d09a59d334b954e051f008430c427eb3bb6371d3f31c3cacb0a1ea364",
