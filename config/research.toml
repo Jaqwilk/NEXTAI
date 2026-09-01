@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "latent_entity_binding_retrieval_v3"
+benchmark_version = "cross_family_sparse_set_memory_v5"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -61,8 +61,11 @@ families = [
   "behavioral_conjugacy_library_transfer_v1",
 ]
 training_world_seeds = [1103, 2207, 3301]
-shared_candidate = "shared_relation_fragment_graph"
-independent_ablation = "independent_relation_fragment_graph"
+knowledge_sizes = [8, 32]
+reasoning_depths = [1, 4, 6]
+queries_per_cell = 8
+shared_candidate = "shared_sparse_set_memory_v1"
+independent_ablation = "independent_sparse_set_memory_v1"
 specialist_baselines = [
   "specialist_contextual_chow_liu_suite_v2",
   "specialist_empirical_joint_suite_v2",
@@ -71,12 +74,23 @@ specialist_baselines = [
 ]
 declared_horizons = [1, 4, 16]
 representation_interface = "lossless_family_neutral_structural_tokens_v2"
-learner_contract = "anonymous_relation_fragment_graph_v1"
+learner_contract = "permutation_equivariant_induced_sparse_set_memory_v1"
 shared_slow_fit_scope = "pooled_training_worlds_only"
-test_support_adaptation = "same_frozen_fragment_extractor_charged"
-fragment_capacity = 64
-composition_rule = "typed_equality_join_then_component_emit_v1"
-permutation_equivariance = "atom_relabeling_and_anonymous_world_permutation"
+test_support_adaptation = "same_frozen_set_encoder_and_memory_rule_charged"
+source_identical_dense_ablation = "source_identical_dense_set_attention_v1"
+source_identical_frozen_router_ablation = "source_identical_frozen_sparse_router_v1"
+role_implementation = "sparse_set_memory_core_v1"
+source_identical_contract = "tokenization_embedding_set_encoder_memory_initialization_fit_order_query_update_output_constants_and_accounting_identical_except_pooled_independent_sparse_dense_or_frozen_routing_v1"
+embedding_width = 32
+memory_slots = 32
+sparse_top_k = 4
+attention_heads = 1
+fit_epochs = 24
+batch_size = 32
+optimizer = "adam"
+learning_rate = 0.001
+routing_distance = "squared_euclidean"
+permutation_equivariance = "consistent_anonymous_token_and_world_permutation"
 state_budget_bytes = 4194304
 invalidation_rules = [
   "Invalidate on any derived training and scoring seed collision.",
@@ -85,7 +99,8 @@ invalidation_rules = [
   "Invalidate if test results, targets or oracle fields are available during pooled meta-fit.",
   "Invalidate on candidate tuning after any scoring output is observed.",
   "Invalidate if the shared source dispatches on family, native type, slot identity or a hand-written ontology.",
-  "Invalidate if the learner retrieves complete training examples without exposing fragment decomposition and a multi-fragment composition trace.",
+  "Invalidate unless the four causal roles resolve to one implementation and frozen constants, differing only in pooled versus independent fit, sparse versus dense access, or learned versus frozen routing keys.",
+  "Invalidate if sparse access touches more than four of the 32 memory slots per query, if dense access touches fewer than all slots, or if routing, serialization, memory traffic, update or fallback work is omitted.",
 ]
 
 [online_update]

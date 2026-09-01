@@ -148,11 +148,28 @@
         "learner_contract": {"type": "string", "minLength": 12},
         "shared_slow_fit_scope": {"const": "pooled_training_worlds_only"},
         "test_support_adaptation": {
-          "enum": ["same_frozen_rule_charged", "same_frozen_fragment_extractor_charged"]
+          "enum": [
+            "same_frozen_rule_charged",
+            "same_frozen_fragment_extractor_charged",
+            "same_frozen_set_encoder_and_memory_rule_charged"
+          ]
         },
         "fragment_capacity": {"type": "integer", "minimum": 2},
         "composition_rule": {"type": "string", "minLength": 12},
         "permutation_equivariance": {"type": "string", "minLength": 12},
+        "source_identical_dense_ablation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "source_identical_frozen_router_ablation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "role_implementation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "source_identical_contract": {"type": "string", "minLength": 24},
+        "embedding_width": {"type": "integer", "minimum": 1},
+        "memory_slots": {"type": "integer", "minimum": 2},
+        "sparse_top_k": {"type": "integer", "minimum": 1},
+        "attention_heads": {"type": "integer", "minimum": 1},
+        "fit_epochs": {"type": "integer", "minimum": 1},
+        "batch_size": {"type": "integer", "minimum": 1},
+        "optimizer": {"type": "string", "minLength": 3},
+        "learning_rate": {"type": "number", "exclusiveMinimum": 0},
+        "routing_distance": {"type": "string", "minLength": 3},
         "test_result_access_during_fit": {"const": "forbidden"},
         "declared_horizons": {
           "type": "array",
@@ -1609,6 +1626,120 @@
               "fragment_capacity": {"const": 64},
               "composition_rule": {"const": "typed_equality_join_then_component_emit_v1"},
               "permutation_equivariance": {"const": "atom_relabeling_and_anonymous_world_permutation"},
+              "specialist_baselines": {
+                "const": [
+                  "specialist_contextual_chow_liu_suite_v2",
+                  "specialist_empirical_joint_suite_v2",
+                  "specialist_autoregressive_suite_v2",
+                  "oracle_cross_family_suite_v2"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "cross_family_sparse_set_memory_v5"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "const": [
+              "shared_sparse_set_memory_v1",
+              "independent_sparse_set_memory_v1",
+              "source_identical_dense_set_attention_v1",
+              "source_identical_frozen_sparse_router_v1",
+              "specialist_contextual_chow_liu_suite_v2",
+              "specialist_empirical_joint_suite_v2",
+              "specialist_autoregressive_suite_v2",
+              "oracle_cross_family_suite_v2"
+            ]
+          },
+          "primary_metrics": {
+            "allOf": [
+              {"contains": {"const": "transfer_accuracy"}},
+              {"contains": {"const": "minimum_family_accuracy"}},
+              {"contains": {"const": "data_acquisition_ops"}},
+              {"contains": {"const": "fit_ops"}},
+              {"contains": {"const": "meta_fit_ops"}},
+              {"contains": {"const": "mean_query_ops"}},
+              {"contains": {"const": "update_ops"}},
+              {"contains": {"const": "state_bytes"}},
+              {"contains": {"const": "peak_state_bytes"}},
+              {"contains": {"const": "mean_bytes_touched"}},
+              {"contains": {"const": "workload_ops_r16"}}
+            ]
+          },
+          "metric_directions": {
+            "required": [
+              "transfer_accuracy", "minimum_family_accuracy", "data_acquisition_ops",
+              "fit_ops", "meta_fit_ops", "mean_query_ops", "update_ops",
+              "state_bytes", "peak_state_bytes", "mean_bytes_touched", "workload_ops_r16"
+            ],
+            "properties": {
+              "transfer_accuracy": {"const": "maximize"},
+              "minimum_family_accuracy": {"const": "maximize"},
+              "data_acquisition_ops": {"const": "minimize"},
+              "fit_ops": {"const": "minimize"},
+              "meta_fit_ops": {"const": "minimize"},
+              "mean_query_ops": {"const": "minimize"},
+              "update_ops": {"const": "minimize"},
+              "state_bytes": {"const": "minimize"},
+              "peak_state_bytes": {"const": "minimize"},
+              "mean_bytes_touched": {"const": "minimize"},
+              "workload_ops_r16": {"const": "minimize"}
+            }
+          },
+          "transfer_protocol": {
+            "required": [
+              "representation_interface", "test_result_access_during_fit",
+              "state_budget_bytes", "independent_ablation", "learner_contract",
+              "shared_slow_fit_scope", "test_support_adaptation",
+              "source_identical_dense_ablation",
+              "source_identical_frozen_router_ablation", "role_implementation",
+              "source_identical_contract", "embedding_width", "memory_slots",
+              "sparse_top_k", "attention_heads", "fit_epochs", "batch_size",
+              "optimizer", "learning_rate", "routing_distance",
+              "permutation_equivariance"
+            ],
+            "not": {
+              "anyOf": [
+                {"required": ["fragment_capacity"]},
+                {"required": ["composition_rule"]}
+              ]
+            },
+            "properties": {
+              "shared_candidate": {"const": "shared_sparse_set_memory_v1"},
+              "independent_ablation": {"const": "independent_sparse_set_memory_v1"},
+              "source_identical_dense_ablation": {"const": "source_identical_dense_set_attention_v1"},
+              "source_identical_frozen_router_ablation": {"const": "source_identical_frozen_sparse_router_v1"},
+              "learner_contract": {"const": "permutation_equivariant_induced_sparse_set_memory_v1"},
+              "shared_slow_fit_scope": {"const": "pooled_training_worlds_only"},
+              "test_support_adaptation": {"const": "same_frozen_set_encoder_and_memory_rule_charged"},
+              "role_implementation": {"const": "sparse_set_memory_core_v1"},
+              "source_identical_contract": {"const": "tokenization_embedding_set_encoder_memory_initialization_fit_order_query_update_output_constants_and_accounting_identical_except_pooled_independent_sparse_dense_or_frozen_routing_v1"},
+              "embedding_width": {"const": 32},
+              "memory_slots": {"const": 32},
+              "sparse_top_k": {"const": 4},
+              "attention_heads": {"const": 1},
+              "fit_epochs": {"const": 24},
+              "batch_size": {"const": 32},
+              "optimizer": {"const": "adam"},
+              "learning_rate": {"const": 0.001},
+              "routing_distance": {"const": "squared_euclidean"},
+              "permutation_equivariance": {"const": "consistent_anonymous_token_and_world_permutation"},
               "specialist_baselines": {
                 "const": [
                   "specialist_contextual_chow_liu_suite_v2",

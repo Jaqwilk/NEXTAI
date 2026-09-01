@@ -193,6 +193,39 @@ Version 4 retires the repeatedly failed recurrent-state route while preserving t
 
 The shared candidate induces one pooled fragment graph. Its source-identical independent ablation differs only by inducing separate anonymous graphs before the same charged support matching. Atom relabeling and anonymous-world permutation must commute with extraction, composition and decoded output. A protected two-fragment fixture must require a translated two-component answer that no single stored complete example can emit. Retaining or selecting full training examples without a multi-fragment trace invalidates the cohort.
 
+## Sparse set-memory transfer v5 cohorts
+
+Version 5 is a service-only role successor over the byte-identical v2
+lossless evaluator and the same four frozen probabilistic, predictive-state,
+local-dynamics and behavioral-program generators. It preserves fixed training
+seeds, runner-random disjoint test worlds, K=`8/32`, D=`1/4/6`, Q=`8`, public
+serialization, targets, metrics, directions, update events, cost equations,
+state boundary and the contextual Chow-Liu, empirical-joint, autoregressive
+and privileged cross-family controls. Historical v1-v4 plans, results,
+analyses, evaluators and candidate roles remain immutable and cohort-separated.
+
+The prospective source-identical roles are pooled sparse set memory,
+independently fitted sparse set memory, pooled dense set attention and pooled
+sparse memory with frozen routing keys. All four resolve to one implementation
+and freeze width 32, 32 memory slots, top-k 4, one attention head, 24 Adam
+epochs, batch size 32, learning rate 0.001 and squared-Euclidean routing. They
+share lossless tokenization, embedding, set encoder, memory, initialization,
+fit order, query, update, output, constants and accounting. They may differ
+only in pooled versus independent fit, sparse versus dense slot access, or
+learned versus frozen routing keys. Sparse queries touch at most four slots;
+dense queries touch all 32. Every routing, serialization, memory-traffic,
+update and fallback operation is charged.
+
+Anonymous public values may not expose family labels, native types, class or
+field names, paths, semantic channel names, latent roles or test outcomes.
+Consistent anonymous-token and world permutation must commute with encoding,
+routing and output. A mixed v3/v4/v5 causal-role contract is invalid. The
+migration creates no hypothesis, experiment plan, candidate implementation,
+runner seed or score. After full semantic gates, pytest, preflight, integrity
+and doctor PASS, the next wake must preregister one quick before implementing
+the common core. One positive seed may authorize only unchanged three-seed
+replication; a negative closes this exact rule without tuning.
+
 ## DronepropA factor recombination v6 preflight contract
 
 Version 6 is a maintenance-only successor to v5. It preserves the frozen data split and scoring task while adding a pre-seed certificate over the evaluator digest, runner, result/plan schemas, semantic baseline registry and evaluation manifest. A mismatch blocks the runner before seed realization. Final result metrics use shared domains: NRMSE and charged costs are nonnegative, accuracies and rates lie in `[0,1]`, and continuous conditional log loss may be any finite real number. Pareto axes are the plan's frozen benchmark contract; failed, timed-out or metric-incomplete candidates remain recorded but cannot delete axes or enter the implementable frontier. Any mandatory control that fails to complete blocks promotion.

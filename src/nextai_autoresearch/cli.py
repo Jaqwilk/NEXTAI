@@ -429,6 +429,12 @@ def command_plan_new(args: argparse.Namespace) -> int:
         plan["wt_prequential_protocol"] = _wt_prequential_protocol(config)
     if config.benchmark_version.startswith("cross_family_"):
         transfer = config.raw["transfer"]
+        if all(key in transfer for key in (
+            "knowledge_sizes", "reasoning_depths", "queries_per_cell"
+        )):
+            plan["matrix"]["knowledge_sizes"] = list(transfer["knowledge_sizes"])
+            plan["matrix"]["reasoning_depths"] = list(transfer["reasoning_depths"])
+            plan["matrix"]["queries_per_cell"] = int(transfer["queries_per_cell"])
         plan["transfer_protocol"] = {
             "families": list(transfer["families"]),
             "training_world_seeds": list(transfer["training_world_seeds"]),
@@ -448,7 +454,13 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "state_budget_bytes": int(transfer["state_budget_bytes"]),
             "invalidation_rules": list(transfer["invalidation_rules"]),
         }
-        for key in ("fragment_capacity", "composition_rule", "permutation_equivariance"):
+        for key in (
+            "fragment_capacity", "composition_rule", "permutation_equivariance",
+            "source_identical_dense_ablation", "source_identical_frozen_router_ablation",
+            "role_implementation", "source_identical_contract", "embedding_width",
+            "memory_slots", "sparse_top_k", "attention_heads", "fit_epochs",
+            "batch_size", "optimizer", "learning_rate", "routing_distance",
+        ):
             if key in transfer:
                 plan["transfer_protocol"][key] = transfer[key]
     if config.benchmark_version.startswith("nonstationary_online_update_"):
