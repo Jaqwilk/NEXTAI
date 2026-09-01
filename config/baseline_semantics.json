@@ -733,6 +733,23 @@
       "implementation_files":{"src/nextai_autoresearch/candidates/oracle_latent_vm.py":"7669f01a642e2aa0c41ae186b6e2ccd9819d062cec0d958e69dd1c5e0997f83a","src/nextai_autoresearch/whole_io_vm_core.py":"65b287af63a85ac6b2d0e77501bb84e5809675a95406d63004b6b34d2e0d174b"},
       "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_mdl_and_oracle_recover_heldout_length_six_programs","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"},{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_dense_control_reads_padding_while_oracle_stops_at_sentinel","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"}]
     },
+    "evolved_anonymous_local_rule_program": {
+      "baseline_id":"hypothesis_population_selected_anonymous_local_rule_program_v1","version":1,
+      "specification":{"role":"tested candidate semantic registration; not a baseline","population_per_output":256,"program_ranges":{"one_term":[0,63],"two_terms":[64,159],"three_terms":[160,255]},"coefficients":[-1,-0.5,-0.25,0.25,0.5,1],"primitives":["raw coordinate","tanh raw coordinate","raw coordinate product"],"proposal":"random.Random(seed xor 0xE701 xor output*0x9E37), independent of fitness","true_selection":"minimum cumulative training squared error; lowest index tie","shuffled_ablation":"same score multiset reassigned by Fisher-Yates from seed xor 0x5A17 xor output*0x7F4A","frozen_ablation":"program zero same-channel persistence","update":"evaluate all 256 programs on revealed transition, accumulate scores, reapply registered selection","execution":"sparse radius-one causal cone, zero preserving, clip [-1.5,1.5]"},
+      "implementation_files":{
+        "src/nextai_autoresearch/candidates/population_local_rule_core.py":"ded1efa7b7c2a385fb8c1bf8001d17a01cf328196b3c3ffe749a34212ca50f58",
+        "src/nextai_autoresearch/candidates/evolved_anonymous_local_rule_program.py":"43ba7c97d03f642607d7453c9a0e3492efcee7ddb47ef6c356d918e92aea3c63",
+        "src/nextai_autoresearch/candidates/source_identical_shuffled_fitness_local_rule_program.py":"df06155c0d639fb7b7bf97a7a0e1cbd0be4321ff439e05b18664e67c4e12e4c6",
+        "src/nextai_autoresearch/candidates/source_identical_frozen_population_local_rule_program.py":"806a2ffc06117a4ee108105b43815b993722d80a691be341cf96d27c97ebce7c"
+      },
+      "conformance_tests":[
+        {"path":"tests/test_population_local_rule.py","node_id":"tests/test_population_local_rule.py::test_all_roles_share_exact_population_language_and_proposals","sha256":"deb192d61b86b4e0ebfc7e5f60f37493f7c26f0c88af07f7707c106aa7519d59"},
+        {"path":"tests/test_population_local_rule.py","node_id":"tests/test_population_local_rule.py::test_true_shuffled_and_frozen_selection_use_only_score_assignment","sha256":"deb192d61b86b4e0ebfc7e5f60f37493f7c26f0c88af07f7707c106aa7519d59"},
+        {"path":"tests/test_population_local_rule.py","node_id":"tests/test_population_local_rule.py::test_program_probabilities_are_finite_clipped_and_operation_count_is_exact","sha256":"deb192d61b86b4e0ebfc7e5f60f37493f7c26f0c88af07f7707c106aa7519d59"},
+        {"path":"tests/test_population_local_rule.py","node_id":"tests/test_population_local_rule.py::test_frozen_is_persistence_zero_is_preserved_and_update_is_fully_charged","sha256":"deb192d61b86b4e0ebfc7e5f60f37493f7c26f0c88af07f7707c106aa7519d59"},
+        {"path":"tests/test_population_local_rule.py","node_id":"tests/test_population_local_rule.py::test_sparse_query_work_is_independent_of_dormant_ring_size","sha256":"deb192d61b86b4e0ebfc7e5f60f37493f7c26f0c88af07f7707c106aa7519d59"}
+      ]
+    },
     "wt_train_only_discretized_cssr_v1": {
       "baseline_id": "wt_train_only_finite_sample_discretized_cssr_v1", "version": 1,
       "specification": {"training_boundary":"train-only WT episodes","alphabet":"per-anonymous-channel train-history quartile symbols; public control uses train-episode quartiles","suffix_depth":3,"morph":"empirical next-symbol distribution","finite_sample_equivalence":"greedy lexicographic grouping at total-variation distance at most 0.15","determinization":"iterative splitting by empirically supported symbol-labelled successor states until stable","emission":"mean first-32 residual by control-bin and reconstructed causal state with global backoff","H96":"hold H32 final value","update":"post-artifact slot-local incremental state/control residual mean; causal partition frozen","invariance":"consistent anonymous-channel permutation"},

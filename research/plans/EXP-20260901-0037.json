@@ -1,0 +1,151 @@
+{
+  "alternative_explanations": [
+    "Any apparent gain may be chance coverage by a fixed random symbolic feature pool rather than a reusable evolutionary principle, while exhaustive population evaluation may dominate full cost."
+  ],
+  "architecture_family": "population_selected_anonymous_local_programs",
+  "benchmark": "continuous_local_cellular_v4",
+  "budget": "quick",
+  "candidates": [
+    "evolved_anonymous_local_rule_program",
+    "source_identical_shuffled_fitness_local_rule_program",
+    "source_identical_frozen_population_local_rule_program",
+    "continuous_local_persistence",
+    "continuous_local_ridge",
+    "continuous_local_quantized_fsm",
+    "continuous_local_kernel_event",
+    "privileged_continuous_local_support"
+  ],
+  "confounds": [
+    "This one-seed locally visible synthetic cellular family cannot establish general symbolic evolution, cross-family transfer, or an LLM successor."
+  ],
+  "continuous_local_protocol": {
+    "classical_baselines": [
+      "continuous_local_persistence",
+      "continuous_local_ridge",
+      "continuous_local_quantized_fsm",
+      "continuous_local_kernel_event",
+      "privileged_continuous_local_support"
+    ],
+    "dense_ablation": "source_identical_shuffled_fitness_local_rule_program",
+    "frozen_ablation": "source_identical_frozen_population_local_rule_program",
+    "invalidation_rules": [
+      "Invalidate if training latent amplitudes overlap the held-out scoring amplitude interval.",
+      "Invalidate if an implementable role receives latent coordinates, encoder permutation/signs, targets before prediction or privileged local coefficients.",
+      "Invalidate unless all three prospective roles share anonymous inputs, program language, initial population, constants, proposal order, execution, output bounds and accounting, differing only in true-fitness, preregistered shuffled-fitness or frozen-population selection.",
+      "Invalidate if dormant zero cells are omitted from dense-control cost or implicitly scanned without charging operations and bytes.",
+      "Invalidate if corruption is generated after the clean target is exposed or if repair uses evaluator-private channel semantics.",
+      "Invalidate if the program language, population size, mutation/recombination operators, selection rule, generation count, clipping or tie rule changes after any scoring output.",
+      "Invalidate if candidate fitness uses scoring worlds, scoring targets, family labels, native mechanism names or evaluator-private coefficients.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "minimum_nrmse_gain": 0.01,
+    "pareto_capability_metrics": [
+      "accuracy",
+      "warm_accuracy",
+      "near_equivalent_accuracy",
+      "stable_rollout_rate",
+      "continual_new_fact_accuracy",
+      "continual_retention",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "shared_candidate": "evolved_anonymous_local_rule_program",
+    "source_identical_contract": "anonymous_inputs_program_language_population_constants_proposals_execution_output_identical_except_true_shuffled_or_frozen_fitness_selection_v4",
+    "state_budget_bytes": 16777216
+  },
+  "created_at": "2026-09-01T09:04:04Z",
+  "evaluator_sha256": "8f4ddfed7ac4175656c2b83cbbf3d2e516d5d10a2bb7e2f4c7932bcba9a2869b",
+  "experiment_id": "EXP-20260901-0037",
+  "falsification_criteria": [
+    "Discard if main misses any frozen 0.01 aggregate or per-K D8/D16 NRMSE margin, stability, worst-scale, damaged-input, K-slope, source-identity, accounting or Pareto gate; invalidate on target/latent/scoring-world access, changed language/population/coefficients/shuffle/update, missing control, preflight or integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "7c5d1d646e71472cce144f76bb73dc2590b94d2b",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0048",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256,
+      1024
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      8,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A valid quality, causal-ablation, stability, scaling, accounting or Pareto failure falsifies this exact 256-program language, proposal, selection, shuffle and update rule without tuning or replication.",
+    "null": "If selection improves quality but ridge/kernel or a source-identical role matches capability at lower full cost, preserve the diagnostic selection effect and falsify the registered capability-cost conjunction.",
+    "positive": "Retain HYP-0048 only as one-seed scout evidence and authorize unchanged three-seed adversarial replication; do not promote or tune."
+  },
+  "parent_experiment_id": "EXP-20260901-0034",
+  "predicted_outcome": "Using exactly 256 programs per output with program 0 persistence, fixed 1/2/3-term ranges 1-63/64-159/160-255, coefficient grid -1,-0.5,-0.25,0.25,0.5,1, raw/tanh/product primitives, deterministic proposal and shuffle seeds, true fitness selection should lower aggregate NRMSE by at least 0.01 versus shuffled and frozen roles and the strongest complete ridge/kernel control, preserve the margin at every K for D8/D16, remain stable and K-independent, and be implementably Pareto non-dominated after all proposal evaluations and workloads are charged.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "stable_rollout_rate",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "normalized_rmse",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; only complete passage of every quality, ablation, stability, scaling, full-cost and Pareto gate may authorize an unchanged three-seed adversarial replication."
+  ],
+  "research_question": "Can true observation-driven fitness selection over an identical frozen population of 256 short anonymous local programs improve unseen-amplitude cellular rollout quality per full cost beyond shuffled fitness, no selection, ridge and kernel controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Population-selected anonymous local rule scout"
+}
