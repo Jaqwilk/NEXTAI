@@ -864,6 +864,37 @@ a valid negative makes the exact family dormant without tuning, while a
 positive remains narrow screening evidence pending an independent non-
 synthetic corpus.
 
+## WT changepoints prequential v4 local-credit roles
+
+V4 is a service-only role successor to v3. It reuses the byte-identical v3
+evaluator path and preserves all ten frozen CSV files and hashes, whole-file
+train/development/test split, anonymous runner-random channel permutation,
+train-only normalization, K=`18/36/54`, horizons `16/32/96`, query count,
+predict-then-atomic-artifact-then-reveal order, metrics, directions, meaningful
+effect, state limit, full-cost equations and all ten classical controls.
+Historical v1-v3 plans, results, analyses, manifests and evidence remain
+immutable and cohort-separated.
+
+Only four prospective causal role identifiers are changed. The future main
+role uses aligned bounded temporal eligibility with an error gate; its
+source-identical controls freeze the trace at zero, shuffle temporal credit or
+apply aligned dense credit. All four must resolve to one implementation and
+share features, initialization, fit order, prediction, rollout, update law,
+constants and accounting except for those registered interventions. Native
+channel names, paths, timestamps, future controls, target access before the
+artifact, replay, global refit, another slot's state and hand-written ontology
+remain forbidden.
+
+This migration creates no hypothesis, experiment plan, candidate code, runner
+seed or score. The next wake must preregister the exact feature map, trace
+recursion, decay, error threshold, update magnitude, shuffle policy, clipping,
+ties and operation/byte accounting before implementation. One quick seed may
+only discard the rule or authorize unchanged replication. Success requires the
+frozen development-derived NRMSE margin against every causal ablation and the
+strongest complete implementable control, no worst-file or worst-transition
+regression, stable H96 rollout, strictly slot-local updates, three-scale cost
+accounting and implementable Pareto non-dominance.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.

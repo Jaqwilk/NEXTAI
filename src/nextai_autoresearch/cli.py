@@ -210,6 +210,21 @@ def _wt_prequential_protocol(config: ResearchConfig) -> dict[str, Any]:
             "source_identical_contract":
                 "history_future_windows_rank_features_control_conditioning_constants_initialization_fit_order_update_schedule_and_output_identical_except_preregistered_predictive_state_learning_freeze_or_observation_history_projection_v1",
         })
+    elif config.benchmark_version == "heldout_wt_changepoints_prequential_v4":
+        from .benchmarks.heldout_wt_changepoints_prequential_v4 import (
+            SOURCE_IDENTICAL_CONTRACT,
+        )
+        roles = [
+            str(wt["shared_candidate_v4"]), str(wt["causal_ablation_1_v4"]),
+            str(wt["causal_ablation_2_v4"]), str(wt["causal_ablation_3_v4"]),
+        ]
+        protocol.update({
+            "shared_candidate": roles[0],
+            "causal_roles": roles,
+            "role_implementation": str(wt["role_implementation_v4"]),
+            "source_identical_contract": SOURCE_IDENTICAL_CONTRACT,
+            "invalidation_rules": list(wt["invalidation_rules_v4"]),
+        })
     return protocol
 
 
