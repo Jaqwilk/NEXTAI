@@ -78,3 +78,5 @@
 {"experiment_id":"EXP-20260901-0009","path":"research/plans/EXP-20260901-0009.json","plan_sha256":"380c3f55f287367e5791b799971a027c439b53ce25c9c4853047cb67ef86161c","registered_at":"2026-09-01T00:13:31Z"}
 {"experiment_id":"EXP-20260901-0010","path":"research/plans/EXP-20260901-0010.json","plan_sha256":"fc4e4483904af38ed69e90b0c295ca5777d19ecaeb44ca44735ea52f6c881f4a","registered_at":"2026-09-01T00:41:32Z"}
 {"experiment_id":"EXP-20260901-0011","path":"research/plans/EXP-20260901-0011.json","plan_sha256":"19946d91c3a2cdf2579797005ae95c9e97a37aa13cfc325e00aaa1e7753b8331","registered_at":"2026-09-01T00:44:49Z"}
+{"experiment_id":"EXP-20260901-0012","path":"research/plans/EXP-20260901-0012.json","plan_sha256":"3c3a2006c6de38223bde6c2251dafb0307ce7109fcd29b8e0ae77cbd2ed47893","registered_at":"2026-09-01T01:00:43Z"}
+{"experiment_id":"EXP-20260901-0013","path":"research/plans/EXP-20260901-0013.json","plan_sha256":"54b51fa4b89df1de717e37a8a9e9abcc92b79a3b98acbb3eb84334065c45c337","registered_at":"2026-09-01T01:02:24Z"}
