@@ -54,7 +54,8 @@ def make_training(size: int, seed: int, source_seed: int) -> Training:
 
 
 def _run_cell(candidate_name: str, size: int, exposures: int, count: int, seed: int,
-              source_seed: int, state_budget: int) -> dict[str, Any]:
+              source_seed: int, state_budget: int,
+              test_sequence: tuple[str, ...] = TEST_SEQUENCE) -> dict[str, Any]:
     if exposures not in EXPOSURES:
         raise ValueError("exposure count must be 1, 4 or 16")
     training = make_training(size, seed, source_seed)
@@ -71,9 +72,9 @@ def _run_cell(candidate_name: str, size: int, exposures: int, count: int, seed: 
 
     exposure_ops, exposure_correct = [], []
     first_query_ops = 0.0
-    base_term = _term(TEST_SEQUENCE, tables, seed ^ 0xC0DE, 0)
+    base_term = _term(test_sequence, tables, seed ^ 0xC0DE, 0)
     for index in range(exposures):
-        term = _term(TEST_SEQUENCE, tables, seed ^ 0xC0DE ^ (index + 1) * 7919, index)
+        term = _term(test_sequence, tables, seed ^ 0xC0DE ^ (index + 1) * 7919, index)
         state = (seed + index * 17) % STATE_COUNT
         query = Query(term, state)
         target = canonical_table(term)[0][state]
@@ -87,7 +88,7 @@ def _run_cell(candidate_name: str, size: int, exposures: int, count: int, seed: 
     warm_correct, warm_ops, warm_hits, near_correct, false_hits = [], [], [], [], []
     latencies, bytes_touched = [], []
     for index in range(count):
-        term = _term(TEST_SEQUENCE, tables, seed ^ 0xBEEF ^ index * 104729, index)
+        term = _term(test_sequence, tables, seed ^ 0xBEEF ^ index * 104729, index)
         state = (seed * 3 + index * 19) % STATE_COUNT
         tick = time.perf_counter_ns()
         answer = int(candidate.query(Query(term, state), exposures))
@@ -98,14 +99,14 @@ def _run_cell(candidate_name: str, size: int, exposures: int, count: int, seed: 
         warm_hits.append(float(getattr(candidate, "last_cache_hit", False)))
         bytes_touched.append(float(getattr(candidate, "last_bytes_touched", candidate.last_ops * 8)))
 
-        near_sequence = (*TEST_SEQUENCE[:-1], "B")
+        near_sequence = (*test_sequence[:-1], "B")
         near = _term(near_sequence, tables, seed ^ 0xBAD ^ index * 65537, index)
         near_target = canonical_table(near)[0][state]
         near_answer = int(candidate.query(Query(near, state), exposures))
         near_correct.append(near_answer == near_target)
         false_hits.append(float(getattr(candidate, "last_cache_hit", False) and near_answer != near_target))
 
-    changed = _term((*TEST_SEQUENCE[:-1], "A"), tables, seed ^ 0x5151, 1)
+    changed = _term((*test_sequence[:-1], "A"), tables, seed ^ 0x5151, 1)
     mutation_state = (seed + 97) % STATE_COUNT
     candidate.update(Mutation(base_term, changed), None)
     update_ops = float(candidate.update_ops)
@@ -133,7 +134,7 @@ def _run_cell(candidate_name: str, size: int, exposures: int, count: int, seed: 
         "data_acquisition_ops": float(training.acquisition_ops),
         "fit_peak_bytes": float(fit_peak), "mean_query_ops": first_query_ops,
         "mean_warm_query_ops": warm_mean,
-        "mean_input_ops": statistics.fmean(input_ops(_term(TEST_SEQUENCE, tables, seed ^ index, index)) for index in range(count)),
+        "mean_input_ops": statistics.fmean(input_ops(_term(test_sequence, tables, seed ^ index, index)) for index in range(count)),
         "mean_bytes_touched": statistics.fmean(bytes_touched),
         "p50_latency_us": percentile(latencies, 0.50),
         "p95_latency_us": percentile(latencies, 0.95),

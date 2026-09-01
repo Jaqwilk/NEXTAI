@@ -428,9 +428,16 @@ def command_plan_new(args: argparse.Namespace) -> int:
         if config.benchmark_version in {
             "heldout_mechanism_recombination_v4",
             "heldout_mechanism_recombination_v5",
+            "heldout_mechanism_recombination_v6",
         }:
             plan["matrix"]["knowledge_sizes"] = list(recombination["knowledge_sizes"])
-            plan["matrix"]["reasoning_depths"] = list(recombination["exposure_counts"])
+            plan["matrix"]["reasoning_depths"] = list(
+                recombination[
+                    "composition_lengths_v6"
+                    if config.benchmark_version.endswith("_v6")
+                    else "exposure_counts"
+                ]
+            )
             plan["matrix"]["queries_per_cell"] = int(recombination["queries_per_cell"])
         plan["mechanism_recombination_protocol"] = {
             "state_count": int(recombination["state_count"]),
@@ -452,6 +459,18 @@ def command_plan_new(args: argparse.Namespace) -> int:
             plan["mechanism_recombination_protocol"]["pareto_capability_metrics"] = list(
                 recombination["pareto_capability_metrics"]
             )
+        if config.benchmark_version == "heldout_mechanism_recombination_v6":
+            protocol = plan["mechanism_recombination_protocol"]
+            protocol.update({
+                "heldout_compositions": list(recombination["heldout_compositions_v6"]),
+                "composition_lengths": list(recombination["composition_lengths_v6"]),
+                "exposure_count": 16,
+                "shared_candidate": str(recombination["shared_candidate_v6"]),
+                "independent_ablation": str(recombination["independent_ablation_v6"]),
+                "no_cross_mechanism_ablation": str(recombination["no_cross_mechanism_ablation_v6"]),
+                "source_identical_contract": str(recombination["source_identical_contract_v6"]),
+                "invalidation_rules": list(recombination["invalidation_rules_v6"]),
+            })
     if config.benchmark_version.startswith("heldout_dronepropa_"):
         drone = config.raw["dronepropa"]
         plan["dronepropa_protocol"] = {

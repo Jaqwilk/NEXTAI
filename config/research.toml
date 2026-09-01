@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_parallel_masked_infilling_v4"
+benchmark_version = "heldout_mechanism_recombination_v6"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -159,6 +159,12 @@ classical_baselines = [
 declared_horizons = [1, 4, 16]
 knowledge_sizes = [8, 32, 128]
 exposure_counts = [1, 4, 16]
+composition_lengths_v6 = [4, 8, 16]
+heldout_compositions_v6 = ["CBAC", "CBACABAC", "CBACABACBCABCBAC"]
+shared_candidate_v6 = "learned_macro_operator_dag"
+independent_ablation_v6 = "source_identical_rebuild_macro_operator_dag"
+no_cross_mechanism_ablation_v6 = "source_identical_frozen_macro_operator_dag"
+source_identical_contract_v6 = "term_encoding_constants_initialization_training_order_execution_output_and_update_code_identical_except_preregistered_cross_query_macro_learning_and_reuse_v1"
 queries_per_cell = 8
 state_budget_bytes = 4194304
 pareto_capability_metrics = [
@@ -189,6 +195,14 @@ invalidation_rules = [
   "Invalidate if scoring conjugation or any runner-random program is realized before integrity and source audit.",
   "Invalidate on target access before prediction, post-score tuning, state-budget breach or evaluator-integrity change.",
   "Invalidate if exposure 1, 4 and 16 costs are extrapolated instead of measured through fresh re-encodings.",
+]
+invalidation_rules_v6 = [
+  "Invalidate on any overlap between the length-one/two training programs and the held-out length-four/eight/sixteen compositions.",
+  "Invalidate if primitive labels, native source families or evaluator canonical tables reach an implementable candidate.",
+  "Invalidate unless all source-identical roles share term encoding, constants, initialization, training order, execution, output and update code.",
+  "Invalidate if scoring conjugation or any runner-random program is realized before integrity and source audit.",
+  "Invalidate on target access before prediction, post-score tuning, state-budget breach or evaluator-integrity change.",
+  "Invalidate unless composition depths 4, 8 and 16 and sixteen fresh re-encoding exposures per cell are executed rather than extrapolated.",
 ]
 
 [dronepropa]
