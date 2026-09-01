@@ -1,0 +1,146 @@
+{
+  "alternative_explanations": [
+    "The spectral bigram fit may collapse to an ordinary low-rank finite-state predictor, making contraction depth the only favorable signature.",
+    "Exact marginalization may require enough total work that a sequential classical control Pareto-dominates it despite logarithmic dependency depth."
+  ],
+  "architecture_family": "parallel_born_mps_conditional_inference",
+  "benchmark": "heldout_parallel_masked_infilling_v4",
+  "budget": "quick",
+  "candidates": [
+    "parallel_born_mps_masked_byte",
+    "source_identical_sequential_born_mps_masked_byte",
+    "source_identical_frozen_born_mps_masked_byte",
+    "uniform_masked_byte",
+    "empirical_unigram_masked_byte",
+    "left_to_right_ppm_masked_byte",
+    "context_tree_weighting_masked_byte",
+    "dense_autoregressive_masked_byte",
+    "bidirectional_markov_masked_byte",
+    "parallel_markov_bp_masked_byte",
+    "oracle_conditional_masked_byte"
+  ],
+  "confounds": [
+    "The locally visible code corpus is screening evidence and exact-span accuracy may remain zero for all implementable models.",
+    "Floating-point association order can create sub-1e-10 probability differences even when the mathematical tensor is identical."
+  ],
+  "created_at": "2026-09-01T02:09:34Z",
+  "evaluator_sha256": "2105257e4ce45319309bf2e04f187c75464e4e0d3e6f1cea27c5347836399c1e",
+  "experiment_id": "EXP-20260901-0018",
+  "falsification_criteria": [
+    "Discard if learned parallel and sequential differ in any cell by more than 1e-10 on bits per byte, accuracy or exact-span accuracy.",
+    "Discard if learned parallel improves bits per byte over frozen by less than 0.05 or reduces overall accuracy or exact-span accuracy.",
+    "Discard unless parallel critical path is strictly lower at spans 32 and 128, its three-span slope is below 0.5 and sequential slope is above 0.8.",
+    "Discard if a complete implementable control Pareto-dominates learned parallel on frozen quality, work, critical-path and state axes.",
+    "Invalidate on source-identity mismatch, hidden sequential contraction, target leakage, within-round dependency, post-score tuning, omitted cost, semantic-baseline, preflight, evaluator or integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "dd1f975d02c5a330e8e957808360d1b3e197ef8e",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0037",
+  "masked_refinement_protocol": {
+    "causal_ablation_1": "source_identical_sequential_born_mps_masked_byte",
+    "causal_ablation_2": "source_identical_frozen_born_mps_masked_byte",
+    "classical_baselines": [
+      "uniform_masked_byte",
+      "empirical_unigram_masked_byte",
+      "left_to_right_ppm_masked_byte",
+      "context_tree_weighting_masked_byte",
+      "dense_autoregressive_masked_byte",
+      "bidirectional_markov_masked_byte",
+      "parallel_markov_bp_masked_byte",
+      "oracle_conditional_masked_byte"
+    ],
+    "context_bytes": 64,
+    "corpus_id": "nextai_disjoint_masked_corpus_sha256_v1",
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "invalidation_rules": [
+      "Invalidate on any frozen corpus mismatch or overlap with the EXP-0044 corpus.",
+      "Invalidate if a public query exposes a path, target byte, uncorrupted span or future refinement snapshot.",
+      "Invalidate if predictions within one round observe another prediction from that same round.",
+      "Invalidate if candidate critical-path work is sequentially hidden inside a declared simultaneous step.",
+      "Invalidate if the three Born-MPS roles differ in token representation, tensor rank, initialization, training data/order, update count or output probabilities beyond the preregistered contraction-schedule and tensor-learning interventions.",
+      "Invalidate if the parallel role hides a sequential contraction inside its declared critical path or if the sequential role reports tree-contraction depth.",
+      "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change."
+    ],
+    "runner_random_masks_and_permutation": true,
+    "shared_candidate": "parallel_born_mps_masked_byte",
+    "simultaneous_snapshot_rounds": true,
+    "source_identical_contract": "tensor_rank_token_representation_initialization_training_order_update_count_and_probabilities_identical_except_preregistered_contraction_schedule_and_tensor_learning_v1",
+    "span_lengths": [
+      8,
+      32,
+      128
+    ],
+    "split_unit": "whole_files_sha256",
+    "state_budget_bytes": 4194304,
+    "test_file_access": "evaluator_only"
+  },
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "bits_per_byte": "minimize",
+    "critical_path_steps": "minimize",
+    "data_acquisition_ops": "minimize",
+    "exact_span_accuracy": "maximize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify the exact rule, preserve the logarithmic-depth diagnostic if present, and return to breadth without tuning.",
+    "null": "Mark the exact rank-2 spectral Born rule unsupported and stop without changing rank, smoothing, fit or contraction.",
+    "positive": "Keep HYP-0037 at testing confidence and preregister only an unchanged three-seed new-corpus replication; do not promote."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The learned parallel and sequential roles will match every quality cell within 1e-10; parallel critical path will be lower at spans 32 and 128 with three-span slope below 0.5 versus sequential above 0.8; learned parallel will improve overall bits per byte over frozen by at least 0.05 without lower accuracy or exact-span accuracy and will remain implementably Pareto non-dominated.",
+  "primary_metrics": [
+    "bits_per_byte",
+    "accuracy",
+    "exact_span_accuracy",
+    "critical_path_steps",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed visible quick cannot promote; a fully conjunctive pass may only authorize unchanged three-seed replication on a new corpus realization."
+  ],
+  "research_question": "Can one learned rank-2 Born u-MPS preserve exact masked-byte conditional quality under a balanced contraction tree while reducing critical-path growth versus source-identical sequential contraction and avoiding full-cost Pareto dominance?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Rank-2 Born-MPS parallel conditional quick"
+}
