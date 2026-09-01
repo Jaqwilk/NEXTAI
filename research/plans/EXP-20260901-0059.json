@@ -1,0 +1,144 @@
+{
+  "alternative_explanations": [
+    "The independent possible-output bound may already capture nearly all useful pruning, leaving pair interactions too weak to repay certificate construction.",
+    "Uniform held-out programs may make meta co-label agreement uninformative, so frozen or current-support selection may match or beat it."
+  ],
+  "architecture_family": "learned_certified_pattern_database_bound",
+  "benchmark": "program_induction_from_whole_io_v5",
+  "budget": "quick",
+  "candidates": [
+    "learned_certified_pattern_bound_program_vm",
+    "source_identical_support_only_certified_pattern_bound_program_vm",
+    "source_identical_frozen_certified_pattern_bound_program_vm",
+    "random_whole_io",
+    "nearest_whole_io",
+    "dense_whole_io",
+    "enumerative_mdl_vm",
+    "oracle_latent_vm"
+  ],
+  "confounds": [
+    "The visible finite 256-program class is a narrow exact-search screen and cannot establish open-ended program induction or an LLM successor."
+  ],
+  "created_at": "2026-09-01T18:53:53Z",
+  "evaluator_sha256": "77a9b30bfe7cad6a84947106a651c18b4c89dcc21a6df36c737b28a79bf2f10c",
+  "experiment_id": "EXP-20260901-0059",
+  "falsification_criteria": [
+    "Discard unless every causal role has accuracy, program_induction_accuracy and length_extrapolation_accuracy exactly 1.0 in every cell and matches complete enumerative MDL.",
+    "Discard unless the meta role has strictly fewer mean_search_ops and lower workload_ops_r1, workload_ops_r4 and workload_ops_r16 than support-only, frozen and enumerative MDL in every K/depth cell.",
+    "Discard if state exceeds 16777216 bytes, any mandatory control is incomplete, any declared full-cost metric is missing, or an implementable complete control Pareto-dominates the meta role.",
+    "Invalidate on hidden program or trace access, any role difference beyond the frozen source rows, PATTERN_COUNT other than one, a certificate not checking exact mask equality and completion count, any uncertified prune, changed zero incumbent or fixed branch/value order, omitted cache/certificate/rejection work, post-score tuning, seed leakage, external model/API use, preflight mismatch or evaluator-integrity change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "b4a4ea7df419d652170063ecfcdea436b7a1d81e",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0056",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      16,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "length_extrapolation_accuracy": "maximize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_search_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "program_induction_accuracy": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "If quality or certificate correctness fails, discard the exact implementation rule; infrastructure or integrity failure is inconclusive and ends this wake without a second experiment.",
+    "null": "If exactness holds but meta selection fails any every-cell node, workload or Pareto gate, falsify this exact one-pair co-label-selection and exhaustive-certificate rule without tuning.",
+    "positive": "Keep HYP-0056 testing only if exactness and every-cell node, R1, R4, R16 and Pareto gates all pass; then preregister unchanged three-seed replication."
+  },
+  "parent_experiment_id": "EXP-20260901-0058",
+  "predicted_outcome": "Freeze PATTERN_COUNT=1. All roles verify the all-zero program as initial incumbent, then run the same complete DFS with bit order 0..7 and value order 0 then 1. A pattern is one unordered pair of distinct observed support bitstrings. One shared selector ranks every available pair by descending number of source rows with equal labels, then descending co-observed row count, then lexicographic first tape and second tape; meta source is deduplicated training-support rows, support source is the current support row, and frozen source is zero rows. If a ranked pair is absent, take the first ranked available pair; fewer than two constraints uses only the base bound. At partial prefix p, construction enumerates every full 8-bit program extending p and records mask S_p of its two outputs. An independent second enumeration must reproduce exactly the same mask and completion count 2^(8-|p|); otherwise reject the pattern for that node and use only the existing independent possible-output bound. The certified mismatch bound is B_ind plus min_(x,y in S_p)([x!=t_a]+[y!=t_b]) minus [t_a absent from proj_1(S_p)] minus [t_b absent from proj_2(S_p)]; tuple components two and three remain 1+assigned-one-count and partial numeric code. Cache key is the ordered tape pair, prefix depth and partial numeric code; only certified masks are cached. Construction, verification, rejection, cache lookup, pair scoring, support reads, initial-incumbent scoring, every node, leaf, execution, byte and stored mask are charged. Exactness is mandatory. The expected outcome is a stringent null because certification may exceed the saved search work.",
+  "primary_metrics": [
+    "accuracy",
+    "program_induction_accuracy",
+    "length_extrapolation_accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "mean_search_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed quick cannot promote; a complete positive only authorizes an unchanged three-runner-seed replication on the same frozen v5 cohort."
+  ],
+  "research_question": "Can one observation-selected and mechanically certified pair-pattern bound reduce fully charged exact whole-I/O induction work beyond source-identical support-only and frozen pattern selection while preserving the identical MDL optimum?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Fully specified certified pair-pattern exact-search quick",
+  "whole_io_search_protocol": {
+    "classical_baselines": [
+      "random_whole_io",
+      "nearest_whole_io",
+      "dense_whole_io",
+      "enumerative_mdl_vm",
+      "oracle_latent_vm"
+    ],
+    "frozen_ablation": "source_identical_frozen_certified_pattern_bound_program_vm",
+    "invalidation_rules": [
+      "Invalidate if any implementable role receives the hidden program, execution trace or task identity.",
+      "Invalidate unless all three causal roles share the exact complete solver, objective, initial incumbent, branch order, ties, support parser, execution and output.",
+      "Invalidate if the roles differ beyond the preregistered meta, support-only or frozen source of an admissible pattern bound.",
+      "Invalidate unless every learned bound is mechanically certified admissible before pruning and the unchanged solver proves the same minimum-error MDL optimum as complete enumeration.",
+      "Invalidate if acquisition, pattern induction, certification, every visited fallback node, execution, query, update, state or bytes touched is omitted from full cost.",
+      "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change."
+    ],
+    "pareto_capability_metrics": [
+      "accuracy",
+      "program_induction_accuracy",
+      "length_extrapolation_accuracy",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "mean_search_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "role_implementation": "certified_pattern_bound_program_vm_core_v1",
+    "shared_candidate": "learned_certified_pattern_bound_program_vm",
+    "source_identical_contract": "complete_solver_objective_initial_incumbent_branch_order_ties_support_execution_output_identical_except_meta_support_or_frozen_admissible_pattern_bound_v1",
+    "state_budget_bytes": 16777216,
+    "support_only_ablation": "source_identical_support_only_certified_pattern_bound_program_vm"
+  }
+}
