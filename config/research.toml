@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "latent_entity_binding_retrieval_v2"
+benchmark_version = "latent_entity_binding_retrieval_v3"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -515,6 +515,48 @@ invalidation_rules = [
   "Invalidate if encoder fitting sees runner-random test queries or outcomes, or if any constant changes after scoring output.",
   "Invalidate unless the four causal roles share encoder source, architecture, initialization, data order, outputs, verifier, update, constants and accounting outside the registered representation/access intervention.",
   "Invalidate if fallback examines more than 32 records or grows with K, if local insertion triggers global encoder refit, or if encoder/routing/index/verifier/fallback cost or bytes are omitted.",
+  "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change.",
+]
+
+[hierarchical_addressing]
+knowledge_sizes = [32, 320, 3200]
+reasoning_depths = [1, 4, 8]
+queries_per_cell = 16
+observation_dimension = 24
+encoder_widths = [24, 32, 16]
+fit_epochs = 32
+batch_size = 64
+optimizer = "adam"
+learning_rate = 0.001
+tree_depth_rule = "balanced_recursive_median_until_singleton"
+split_objective = "node_local_maximum_source_variance"
+split_ties = "lowest_coordinate_then_fit_index"
+beam_width = 4
+visited_node_cap = 64
+verifier = "squared_learned_distance_with_fit_index_tie"
+fallback_candidates = 0
+update = "single_search_path_leaf_insert_without_rebalance_or_encoder_refit"
+meaningful_quality_margin = 0.02
+maximum_k_cost_slope = 0.30
+state_budget_bytes = 67108864
+declared_reuses = [1, 4, 16, 256, 4096]
+shared_candidate = "learned_balanced_hierarchical_router_v1"
+dense_ablation = "source_identical_dense_hierarchical_representation_v1"
+frozen_ablation = "source_identical_frozen_hierarchical_router_v1"
+shuffled_ablation = "source_identical_shuffled_hierarchical_router_v1"
+classical_baselines = [
+  "raw_balanced_kd_tree_v1",
+  "raw_nearest_neighbour_scan_v1",
+  "local_dense_transition_gru_v1",
+  "privileged_exact_entity_key_v1",
+]
+source_identical_contract = "encoder_architecture_initialization_pair_loss_data_order_tree_builder_query_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_hierarchical_routing_v1"
+invalidation_rules = [
+  "Invalidate if an implementable role receives entity IDs, ready keys, latent coordinates, family/class labels, paths, scoring targets or privileged routing.",
+  "Invalidate if encoder or tree fitting sees runner-random test queries or outcomes, or if any constant changes after scoring output.",
+  "Invalidate unless the four causal roles share encoder source, architecture, initialization, pair loss, data order, tree construction, query, verifier, update, constants and accounting outside the registered learned/dense/frozen/shuffled intervention.",
+  "Invalidate if routing is equivalent to the completed flat 16-bit threshold code, visits more than 64 nodes per traversal step, uses a K-growing fallback, or insertion triggers global encoder refit or tree rebuild.",
+  "Invalidate if encoder, tree construction, node traversal, verification, update, state or bytes touched are omitted from full cost.",
   "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change.",
 ]
 

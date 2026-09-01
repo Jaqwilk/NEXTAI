@@ -1000,3 +1000,45 @@ world, observation, target, metric, cost, threshold, control or scientific
 result. This service cycle creates no candidate or score; the next wake must
 use a new immutable child plan and may not add another design-only cycle unless
 integrity itself fails.
+
+### Latent entity binding retrieval v3 hierarchical-routing cohort
+
+V3 is a service-only successor to v2. It reuses the byte-identical v2 world
+generator, anonymous 24-channel raw observations, seven-view change-point
+bursts, held-out query views, K=`32/320/3200`, D=`1/4/8`, Q=`16`, local
+insertion, metrics, cost formulas, state boundary, runner-random seed policy and
+the raw-scan, dense-GRU and privileged-key controls. Historical v1/v2 plans,
+results, analyses, candidates and manifests remain immutable and cohort-
+separated. EXP-0054 is not reinterpreted.
+
+V3 changes the prospective causal mechanism from one flat 16-bit threshold
+address to node-conditional balanced hierarchical routing. Main, dense,
+frozen-encoder and shuffled-representation roles must share one encoder source,
+24-32-16 architecture, initialization, pair loss, fixed data order, recursive
+tree builder, query verifier, insertion rule, constants and accounting except
+for the preregistered learned/dense/frozen/shuffled intervention. Tree depth is
+balanced recursive median splitting to singleton leaves; each node chooses its
+maximum-variance source coordinate with lowest-coordinate and fit-index ties.
+Bounded search uses beam width four, visits at most 64 nodes per traversal step,
+has no fallback scan and verifies by squared learned distance with fit-index
+ties. Insertion follows one search path and may neither rebalance the tree nor
+refit the encoder.
+
+The mandatory classical control `raw_balanced_kd_tree_v1` is an exact raw-space
+nearest-neighbour tree: it recursively uses maximum-variance coordinate medians,
+performs lower-bound-pruned exact search and inserts along one path without
+rebuild. It is registered with implementation hashes and fixtures proving
+agreement with the raw full scan, genuinely node-conditional axes and local
+insertion. This prevents a conventional metric tree from being credited to
+learned representation.
+
+The migration creates no hypothesis, experiment plan, scoring seed, main
+candidate implementation or result. The next wake may preregister one HYP-0012
+quick only after the four prospective wrappers are still absent and the plan
+commits the v3 evaluator digest and every constant above. Success requires
+accuracy within `0.02` of source-identical dense access, strict learned gains
+over frozen and shuffled routing at every K, new-fact accuracy `1.0`, R4096 K
+slope below `0.30`, a prospectively declared matched-quality break-even and no
+implementable Pareto dominance by either raw classical access control or the
+dense neural control. A valid negative closes the exact tree rule without
+tuning; one positive seed only authorizes unchanged three-seed replication.

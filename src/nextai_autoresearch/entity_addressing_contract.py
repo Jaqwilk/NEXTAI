@@ -40,3 +40,15 @@ ROLE_CONTRACT = {
     "local_dense_transition_gru_v1": "small locally trained dense GRU transition model without external memory",
     "privileged_exact_entity_key_v1": "evaluator-private exact-key control",
 }
+
+
+HIERARCHICAL_ROLE_CONTRACT = {
+    "learned_balanced_hierarchical_router_v1": "learned encoder -> node-conditional balanced tree -> bounded best-bin-first verifier",
+    "source_identical_dense_hierarchical_representation_v1": "same learned encoder and verifier with dense access",
+    "source_identical_frozen_hierarchical_router_v1": "same hierarchical access with frozen encoder",
+    "source_identical_shuffled_hierarchical_router_v1": "same hierarchical access with shuffled representation",
+    "raw_balanced_kd_tree_v1": "exact classical raw-space balanced k-d tree with local leaf insertion",
+    "raw_nearest_neighbour_scan_v1": "classical raw-space nearest-neighbour scan",
+    "local_dense_transition_gru_v1": "small locally trained dense GRU transition model without external memory",
+    "privileged_exact_entity_key_v1": "evaluator-private exact-key control",
+}
