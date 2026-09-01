@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-20260901-0030",
+  "cycle": 174,
+  "created_at": "2026-09-01T05:38:53Z",
+  "status": "complete",
+  "scoring_seed": 1033617634,
+  "plan_sha256": "9004d71abdf94673605230669f4a5933c52e03479d10c22399b155311cdfb0ab",
+  "result_sha256": "7d70b0b5018f3b802bc0ebd1fe1722dc63369faed20e9182700c2aa7090ff33c",
+  "analysis_sha256": "a8fd7bb4c62b56f1ba9e1fb13a5f5e8f2a5f9d5a25b7e234813fba47739375c3",
+  "decision": "falsify_exact_residual_likelihood_without_tuning",
+  "observations": {
+    "shared_correct": 269,
+    "support_only_correct": 268,
+    "frozen_correct": 270,
+    "gaussian_correct": 270,
+    "kernel_correct": 271,
+    "queries_per_candidate": 288,
+    "meaningful_accuracy_effect": 0.03,
+    "shared_minus_support_only": 0.0034722222222222,
+    "shared_minus_frozen": -0.0034722222222222,
+    "shared_minus_kernel": -0.0069444444444444,
+    "shared_fit_to_gaussian_ratio": 513.0,
+    "shared_r16_to_gaussian_ratio": 1.2549695596771908,
+    "shared_on_implementable_frontier": false
+  },
+  "hypothesis": {
+    "id": "HYP-0042",
+    "revision": 3,
+    "status": "falsified",
+    "confidence": 0.03
+  },
+  "pytest": {
+    "collected": 472,
+    "passed": 472
+  },
+  "integrity": {
+    "status": "pass",
+    "checked_files": 651,
+    "evaluator_sha256": "6afec026a44ce21ccec32213578a4b171507709e083b7a6c1ed756266204e00b",
+    "candidate_bundle_sha256": "a9d1249aeefa4261cc5277c9b58ba2e45249fdfeb006d7d8eeaaac176d03c259"
+  },
+  "doctor": "pass",
+  "budget": "quick_one_runner_random_seed",
+  "second_experiment_started": false,
+  "next_cycle": "Exactly one service-only identifiability and protected migration gate for heldout_recursive_context_probabilistic_circuit_v2; no hypothesis, plan, seed or scoring. Only a passing recursive-structure gate may authorize HYP-0043 / EXP-20260901-0031 in the following wake."
+}

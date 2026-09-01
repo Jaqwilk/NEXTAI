@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-20260901-0030",
+  "created_at": "2026-09-01T05:34:16Z",
+  "scoring_seed_realized": false,
+  "plan_sha256": "9004d71abdf94673605230669f4a5933c52e03479d10c22399b155311cdfb0ab",
+  "evaluator_sha256": "6afec026a44ce21ccec32213578a4b171507709e083b7a6c1ed756266204e00b",
+  "candidate_bundle_sha256": "a9d1249aeefa4261cc5277c9b58ba2e45249fdfeb006d7d8eeaaac176d03c259",
+  "preflight_certificate_digest": "f98011364cded52ed30fdcf12c2d5c28691558a512c24e4eeda2f80da8d3796b",
+  "candidate_hashes": {
+    "raw_sensor_probe_learner_core.py": "f99beebb6a71a9c5db69e605b6347e761dff00da5a923a6afd04efac85840706",
+    "shared_raw_sensor_probe_learner_v1.py": "0f864143aa0192cf8034f518f12303e88736025df6858f6598a8440a137f0df3",
+    "source_identical_support_only_raw_sensor_probe_v1.py": "55a496b2c3eb715dd116c115963b17f7d8b9d8ae8f396f36a1cf16cf8f2aebec",
+    "source_identical_frozen_raw_sensor_probe_v1.py": "11ce6e9d974cb7895ef11acc230df7922beff8ebabcdf661a8dd17a5a0df19b7"
+  },
+  "candidate_audit": {
+    "shared": "pass",
+    "support_only": "pass",
+    "frozen": "pass",
+    "dependencies_per_role": 4,
+    "source_identical_core": true
+  },
+  "semantic_fixtures": {
+    "frozen_constants_exact": true,
+    "meta_world_order_invariant": true,
+    "label_permutation_equivariant": true,
+    "sensor_permutation_equivariant": true,
+    "sensor_sign_equivariant": true,
+    "single_use_probe_boundary": true,
+    "exact_probe_budget": true,
+    "operation_and_bytes_accounting": true,
+    "fit_cost_order_shared_gt_support_gt_frozen": true
+  },
+  "development_only": {
+    "seed": 117031,
+    "scoring_targets_read": false,
+    "shared_accuracy": 0.930556,
+    "support_only_accuracy": 0.927083,
+    "frozen_accuracy": 0.920139,
+    "shared_minus_support_only": 0.003473,
+    "shared_minus_frozen": 0.010417,
+    "meaningful_effect": 0.03,
+    "decision": "execute_immutable_plan_without_tuning"
+  },
+  "semantic_baseline_gate": {
+    "required": 7,
+    "test_nodes": 6,
+    "status": "pass"
+  },
+  "pytest": {
+    "collected": 472,
+    "passed": 472
+  },
+  "integrity": {
+    "status": "pass",
+    "checked_files": 651
+  },
+  "doctor": "pass"
+}

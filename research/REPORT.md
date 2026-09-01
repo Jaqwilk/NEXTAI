@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T05:23:27Z
+Generated: 2026-09-01T05:39:49Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -485,6 +485,23 @@ Pareto axes: maximize `accuracy, exact_span_accuracy`; minimize `bits_per_byte, 
 | EXP-20260901-0027 | bidirectional_markov_masked_byte | implementable | complete | 0.1449 | 1 | 3.036e+05 | 674.7 | 1.356e+08 | 6.529e+09 | 0 (2; screening) | 526848 |  |
 | EXP-20260901-0027 | parallel_markov_bp_masked_byte | implementable | complete | 0.1458 | 1 | 8.93e+05 | 674.7 | 1.998e+08 | 1.932e+10 | -0.007773 (2; screening) | 2.624e+06 |  |
 | EXP-20260901-0027 | oracle_conditional_masked_byte | privileged support control | complete | 1 | 1 | 863.3 | 674.7 | 129.3 | 1.92e+07 | 0 (2; screening) | 526848 |  |
+
+## heldout_raw_sensor_active_identification_v1 / quick
+
+Pareto axes: maximize `accuracy, minimum_family_accuracy`; minimize `mean_probe_count, data_acquisition_ops, fit_ops, meta_fit_ops, mean_query_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0030 | shared_raw_sensor_probe_learner_v1 | implementable | complete | 0.934 | 1 | 8.365e+04 | 18.67 | 6.912e+05 | 5.295e+07 | 0.9995 (3) | 49728 |  |
+| EXP-20260901-0030 | source_identical_support_only_raw_sensor_probe_v1 | implementable | complete | 0.9306 | 1 | 8.365e+04 | 18.67 | 6.912e+05 | 4.621e+07 | 0.9995 (3) | 49728 |  |
+| EXP-20260901-0030 | source_identical_frozen_raw_sensor_probe_v1 | implementable | complete | 0.9375 | 1 | 8.365e+04 | 18.67 | 6.912e+05 | 4.288e+07 | 0.9995 (3) | 49728 |  |
+| EXP-20260901-0030 | raw_sensor_no_probe_prior_v1 | implementable | complete | 0.07292 | 1 | 1 | 0 | 8.692e+04 | 3.277e+04 | 0 (3) | 197504 |  |
+| EXP-20260901-0030 | raw_sensor_observe_all_v1 | implementable | complete | 1 | 1 | 2.743e+05 | 96 | 2.281e+06 | 1.405e+08 | 0.9992 (3) | 197504 | yes |
+| EXP-20260901-0030 | raw_sensor_random_probe_v1 | implementable | complete | 0.8125 | 1 | 1.57e+04 | 18.67 | 2.124e+05 | 8.07e+06 | 0.9972 (3) | 197504 |  |
+| EXP-20260901-0030 | raw_sensor_fisher_fixed_probe_v1 | implementable | complete | 0.8681 | 1 | 1.57e+04 | 18.67 | 2.124e+05 | 8.07e+06 | 0.9972 (3) | 197504 |  |
+| EXP-20260901-0030 | raw_sensor_gaussian_information_gain_v1 | implementable | complete | 0.9375 | 1 | 8.234e+04 | 18.67 | 7.455e+05 | 4.219e+07 | 0.9995 (3) | 197504 |  |
+| EXP-20260901-0030 | raw_sensor_kernel_information_gain_v1 | implementable | complete | 0.941 | 1 | 2.156e+05 | 18.67 | 1.812e+06 | 1.104e+08 | 0.9998 (3) | 197504 |  |
+| EXP-20260901-0030 | privileged_raw_sensor_target_v1 | privileged support control | complete | 1 | 1 | 1 | 0 | 8.692e+04 | 3.277e+04 | 0 (3) | 197504 |  |
 
 ## heldout_repository_sequence_compression_v1 / quick
 
