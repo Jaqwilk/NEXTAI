@@ -545,6 +545,29 @@ tests whether experience reduces exact cold search nodes on unseen programs,
 not whether a learned approximation can replace the solver. This migration
 creates no hypothesis, plan, candidate, seed or scored result.
 
+## Whole-I/O verified-incumbent exact-search v4 cohort
+
+Version 4 preserves the v3 program class, noisy whole-I/O supports, held-out
+programs, anonymous inputs, comparison matrix, five controls, metrics and full
+R1/R4/R16 cost boundary. Historical v2/v3 plans and results remain immutable.
+
+The three prospective roles share one complete minimum-error MDL solver,
+objective, bounds, ties, constants, support parser, verifier, fallback, fixed
+branch order, execution and output. They differ only in whether the proposed
+initial incumbent comes from meta-training, current public support or a frozen
+rule. Every proposal must be verified or rejected before use, and unchanged
+exact search must still prove the same optimum as enumeration. Proposal work,
+verification and all fallback nodes are charged. This is neither the approximate
+latent program of EXP-20260830-0022 nor the learned branch order of
+EXP-20260901-0036. This migration creates no hypothesis, plan, candidate, seed
+or scored result.
+
+The next wake may preregister one breadth quick. Exactness in every cell is a
+hard gate; success additionally requires lower cold search work than both
+source-identical ablations and complete MDL, without full-cost Pareto dominance.
+One seed can select the mechanism for replication but cannot promote it. A
+negative quick ends this exact rule without tuning the incumbent mechanism.
+
 ## Three-family continuous transfer v2 Pareto contract
 
 Version 2 preserves every world, split, tensor, normalization, causal assignment, baseline, metric value and budget from `heldout_three_family_continuous_transfer_v1`. It changes only prospective decision semantics. Historical v1 plans and results remain immutable and are never recomputed.

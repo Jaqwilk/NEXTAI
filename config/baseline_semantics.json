@@ -717,31 +717,31 @@
       "baseline_id":"deterministic_random_whole_io_v1","version":1,
       "specification":{"answer":"seeded random bit","fit":"none","query_work":"active input prefix only"},
       "implementation_files":{"src/nextai_autoresearch/candidates/random_whole_io.py":"100e6081a1af0d649562e0bbda84a9153760358ae6095201060c11b18b6b9366","src/nextai_autoresearch/whole_io_vm_core.py":"65b287af63a85ac6b2d0e77501bb84e5809675a95406d63004b6b34d2e0d174b"},
-      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_random_nearest_and_dense_controls_have_distinct_work_semantics","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"}]
+      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_random_nearest_and_dense_controls_have_distinct_work_semantics","sha256":"38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb"}]
     },
     "nearest_whole_io": {
       "baseline_id":"nearest_support_whole_io_v1","version":1,
       "specification":{"selection":"minimum Hamming distance over active public support inputs","output":"selected support target","tie":"first support order"},
       "implementation_files":{"src/nextai_autoresearch/candidates/nearest_whole_io.py":"e7429116a55d4f4126cea54196b2cf9cdec215dfed20067a764d3914e85be803","src/nextai_autoresearch/whole_io_vm_core.py":"65b287af63a85ac6b2d0e77501bb84e5809675a95406d63004b6b34d2e0d174b"},
-      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_random_nearest_and_dense_controls_have_distinct_work_semantics","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"}]
+      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_random_nearest_and_dense_controls_have_distinct_work_semantics","sha256":"38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb"}]
     },
     "dense_whole_io": {
       "baseline_id":"dense_random_feature_whole_io_v1","version":1,
       "specification":{"representation":"seeded dense random features over all padded cells","fit":"ridge readout","query":"full padded tape and support scan"},
       "implementation_files":{"src/nextai_autoresearch/candidates/dense_whole_io.py":"6542fbe4fe594e748eb476f16d0bd722a23fc1c95069eeb2b6e5ea6ffee27097","src/nextai_autoresearch/whole_io_vm_core.py":"65b287af63a85ac6b2d0e77501bb84e5809675a95406d63004b6b34d2e0d174b"},
-      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_random_nearest_and_dense_controls_have_distinct_work_semantics","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"},{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_dense_control_reads_padding_while_oracle_stops_at_sentinel","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"}]
+      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_random_nearest_and_dense_controls_have_distinct_work_semantics","sha256":"38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb"},{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_dense_control_reads_padding_while_oracle_stops_at_sentinel","sha256":"38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb"}]
     },
     "enumerative_mdl_vm": {
       "baseline_id":"complete_noisy_enumerative_mdl_vm_v1","version":1,
       "specification":{"hypothesis_class":"all 256 binary two-state Mealy programs","objective":"minimum support errors","tie":"program enumeration order","query":"execute selected exact program on active prefix"},
       "implementation_files":{"src/nextai_autoresearch/candidates/enumerative_mdl_vm.py":"cc66038b1d81527ea7d2568a0dbbd81b42d455d420b5a801b6d40149b558d611","src/nextai_autoresearch/whole_io_vm_core.py":"65b287af63a85ac6b2d0e77501bb84e5809675a95406d63004b6b34d2e0d174b"},
-      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_mdl_and_oracle_recover_heldout_length_six_programs","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"},{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_compiled_mdl_warm_path_keeps_raw_support_routing_cost","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"}]
+      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_mdl_and_oracle_recover_heldout_length_six_programs","sha256":"38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb"},{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_compiled_mdl_warm_path_keeps_raw_support_routing_cost","sha256":"38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb"}]
     },
     "oracle_latent_vm": {
       "baseline_id":"privileged_true_program_whole_io_v1","version":1,
       "specification":{"role":"privileged control excluded from implementable frontier","input":"evaluator-private true program","query":"active-prefix exact execution"},
       "implementation_files":{"src/nextai_autoresearch/candidates/oracle_latent_vm.py":"7669f01a642e2aa0c41ae186b6e2ccd9819d062cec0d958e69dd1c5e0997f83a","src/nextai_autoresearch/whole_io_vm_core.py":"65b287af63a85ac6b2d0e77501bb84e5809675a95406d63004b6b34d2e0d174b"},
-      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_mdl_and_oracle_recover_heldout_length_six_programs","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"},{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_dense_control_reads_padding_while_oracle_stops_at_sentinel","sha256":"4b55bc8b5868143c8967db0b8d6c627c912e2dc7a913d0b0d2fb744c7b56eeed"}]
+      "conformance_tests":[{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_mdl_and_oracle_recover_heldout_length_six_programs","sha256":"38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb"},{"path":"tests/test_program_induction_whole_io.py","node_id":"tests/test_program_induction_whole_io.py::test_dense_control_reads_padding_while_oracle_stops_at_sentinel","sha256":"38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb"}]
     },
     "evolved_anonymous_local_rule_program": {
       "baseline_id":"hypothesis_population_selected_anonymous_local_rule_program_v1","version":1,
