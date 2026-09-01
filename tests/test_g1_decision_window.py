@@ -28,4 +28,4 @@ def test_post_exp0059_g1_window_is_durable_and_calibration_precedes_microbenchma
         assert "eight" in text.lower() or "osiem" in text.lower()
     assert "cycle 228" in agents
     assert "Cycle 228" in program
-    assert "cykl 228" in roadmap
+    assert "cykl 228" in roadmap.lower()

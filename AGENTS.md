@@ -46,7 +46,7 @@ Before implementation, every mechanism must state the earlier failure it address
 
 HYP-0012 is an accounting control, not the program's architecture generator or an automatic confidence sink for unrelated failures. After eight qualifying experiments, perform a no-scoring phase review. Continue G1 without a strategic reset only if one observation-learned, source-identical mechanism has a causal gain at matched useful quality in at least two frozen families or tasks, survives at least three seeds and a preregistered adversarial operation, retains its declared local-update or other qualitative signature, is implementably Pareto-nondominated at full cost, and uses no manual ontology, privileged support or hidden preprocessing. Otherwise stop new architecture scoring and request a strategic reset from the user.
 
-Before any new microbenchmark, cycle 228 must complete the one-time local real-system calibration selected in cycle 227. Calibration results are systems diagnostics, never candidate evidence.
+The one-time local real-system calibration selected in cycle 227 was completed as `CAL-20260901-0001` in cycle 228. Its results are systems diagnostics, never candidate evidence, and it must not be rerun or increment the G1 window.
 
 ## Allowed implementation scope
 

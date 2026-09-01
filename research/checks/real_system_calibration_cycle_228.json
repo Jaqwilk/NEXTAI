@@ -1,0 +1,208 @@
+{
+  "acquisition_bytes": 871838,
+  "acquisition_seconds": 0.066480200010119,
+  "calibration_id": "CAL-20260901-0001",
+  "contract_path": "research/checks/real_system_calibration_v1_preregistered.json",
+  "contract_sha256": "d2004bc548a2253dcd1072cf9641b1369d9ce1dff9edd786f23a52095a384829",
+  "corpus": {
+    "test": {
+      "bytes": 55389,
+      "files": 3
+    },
+    "train": {
+      "bytes": 699426,
+      "files": 102
+    },
+    "validation": {
+      "bytes": 117023,
+      "files": 7
+    }
+  },
+  "corpus_registry_sha256": "7e002e170cd237b063cf79c4e83418f09a1fd664b32fc918f92a403dcc19673b",
+  "cycle": 228,
+  "environment": {
+    "cuda": "12.4",
+    "device": "NVIDIA GeForce RTX 4070",
+    "device_count": 1,
+    "torch": "2.6.0+cu124"
+  },
+  "g1_window_increment": false,
+  "interpretation_allowed": "systems measurement only; no hypothesis, confidence, Pareto or promotion update",
+  "kind": "systems_calibration_not_scientific_experiment",
+  "models": [
+    {
+      "cold_latency_us_per_byte": 27.326953158990364,
+      "device": "cpu",
+      "fit_host_device_transfer_bytes": 0,
+      "fit_seconds": 0.7366671999916434,
+      "fit_work_units": 4195536,
+      "model": "ppm_d_order5",
+      "peak_cuda_allocated_bytes": 0,
+      "peak_host_rss_bytes": 486838272,
+      "query_host_device_transfer_bytes": 0,
+      "query_seconds": 1.7174552000069525,
+      "query_work_units": 98913024,
+      "resident_state_bytes": 3113912,
+      "status": "complete",
+      "test": {
+        "bits_per_byte": 2.167806627171895,
+        "top1_accuracy": 0.5575665344131021
+      },
+      "throughput_bytes_per_second": 32138.82958913662,
+      "update_host_device_transfer_bytes": 0,
+      "update_seconds": 1.6000005416572094e-05,
+      "update_supported": true,
+      "validation": {
+        "bits_per_byte": 2.060387245977494,
+        "top1_accuracy": 0.5556640625
+      },
+      "warm_latency_us_per_byte": 28.196875064168125,
+      "work_units_are_estimates": true,
+      "workload_seconds": {
+        "1": 2.454122399998596,
+        "16": 28.215950400102884,
+        "4": 7.6064880000194535
+      }
+    },
+    {
+      "cold_latency_us_per_byte": 68.24687500284199,
+      "device": "cpu",
+      "fit_host_device_transfer_bytes": 0,
+      "fit_seconds": 0.5497473000141326,
+      "fit_work_units": 2097666,
+      "model": "ctw_depth2",
+      "peak_cuda_allocated_bytes": 0,
+      "peak_host_rss_bytes": 471203840,
+      "query_host_device_transfer_bytes": 0,
+      "query_seconds": 4.885499600000912,
+      "query_work_units": 42391296,
+      "resident_state_bytes": 1907048,
+      "status": "complete",
+      "test": {
+        "bits_per_byte": 2.8314505499669704,
+        "top1_accuracy": 0.4485026360128268
+      },
+      "throughput_bytes_per_second": 11298.128035869595,
+      "update_host_device_transfer_bytes": 0,
+      "update_seconds": 0.007867799984524027,
+      "update_supported": true,
+      "validation": {
+        "bits_per_byte": 2.9879173669035084,
+        "top1_accuracy": 0.375732421875
+      },
+      "warm_latency_us_per_byte": 68.12656249621796,
+      "work_units_are_estimates": true,
+      "workload_seconds": {
+        "1": 5.435246900015045,
+        "16": 78.71774090002873,
+        "4": 20.091745700017782
+      }
+    },
+    {
+      "cold_latency_us_per_byte": 85.4753907333361,
+      "device": "cpu",
+      "fit_host_device_transfer_bytes": 0,
+      "fit_seconds": 1.1961932000122033,
+      "fit_work_units": 4195026,
+      "model": "dense_autoregressive_order5",
+      "peak_cuda_allocated_bytes": 0,
+      "peak_host_rss_bytes": 478961664,
+      "query_host_device_transfer_bytes": 0,
+      "query_seconds": 5.066356499999529,
+      "query_work_units": 353260800,
+      "resident_state_bytes": 1312584,
+      "status": "complete",
+      "test": {
+        "bits_per_byte": 3.913447416478255,
+        "top1_accuracy": 0.2607569251952099
+      },
+      "throughput_bytes_per_second": 10894.811685676903,
+      "update_host_device_transfer_bytes": 0,
+      "update_seconds": 2.0599982235580683e-05,
+      "update_supported": true,
+      "validation": {
+        "bits_per_byte": 4.14918630595186,
+        "top1_accuracy": 0.188232421875
+      },
+      "warm_latency_us_per_byte": 87.26171881789924,
+      "work_units_are_estimates": true,
+      "workload_seconds": {
+        "1": 6.262549700011732,
+        "16": 82.25789720000466,
+        "4": 21.46161920001032
+      }
+    },
+    {
+      "cold_latency_us_per_byte": 138.13789053074288,
+      "device": "cpu",
+      "fit_host_device_transfer_bytes": 0,
+      "fit_seconds": 0.13630129999364726,
+      "fit_work_units": 23669508,
+      "model": "bounded_local_retrieval",
+      "peak_cuda_allocated_bytes": 0,
+      "peak_host_rss_bytes": 479006720,
+      "query_host_device_transfer_bytes": 0,
+      "query_seconds": 5.067678399995202,
+      "query_work_units": 127173888,
+      "resident_state_bytes": 9037508,
+      "status": "complete",
+      "test": {
+        "bits_per_byte": 6.441267768737012,
+        "top1_accuracy": 0.47011612949979165
+      },
+      "throughput_bytes_per_second": 10891.96978246533,
+      "update_host_device_transfer_bytes": 0,
+      "update_seconds": 9.300012607127428e-06,
+      "update_supported": true,
+      "validation": {
+        "bits_per_byte": 6.557099371186113,
+        "top1_accuracy": 0.4224853515625
+      },
+      "warm_latency_us_per_byte": 137.79921880541224,
+      "work_units_are_estimates": true,
+      "workload_seconds": {
+        "1": 5.2039796999888495,
+        "16": 81.21915569991688,
+        "4": 20.407014899974456
+      }
+    },
+    {
+      "cold_latency_us_per_byte": 7.794531256877235,
+      "device": "cuda",
+      "fit_host_device_transfer_bytes": 4259840,
+      "fit_seconds": 0.6800985000154469,
+      "fit_work_units": 129654325248,
+      "model": "small_dense_transformer",
+      "peak_cuda_allocated_bytes": 82967040,
+      "peak_host_rss_bytes": 1180360704,
+      "query_host_device_transfer_bytes": 28702440,
+      "query_seconds": 0.4802604999858886,
+      "query_work_units": 291199942656,
+      "resident_state_bytes": 1248880,
+      "status": "complete",
+      "test": {
+        "bits_per_byte": 4.624715473404564,
+        "top1_accuracy": 0.2234541732340526
+      },
+      "throughput_bytes_per_second": 114931.37578797725,
+      "update_host_device_transfer_bytes": 33280,
+      "update_seconds": 0.003952300001401454,
+      "update_supported": true,
+      "validation": {
+        "bits_per_byte": 5.021257037139073,
+        "top1_accuracy": 0.1732177734375
+      },
+      "warm_latency_us_per_byte": 7.992578048288124,
+      "work_units_are_estimates": true,
+      "workload_seconds": {
+        "1": 1.1603590000013355,
+        "16": 8.364266499789665,
+        "4": 2.6011404999590013
+      }
+    }
+  ],
+  "schema_version": 1,
+  "scientific_evidence": false,
+  "test_positions": 55197,
+  "validation_positions": 8192
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "cycle": 228,
+  "kind": "systems_calibration_not_scientific_experiment",
+  "scientific_evidence": false,
+  "g1_window_increment": false,
+  "corpus": {
+    "registry": "research/corpora/heldout_parallel_masked_infilling_v12.json",
+    "registry_sha256": "7e002e170cd237b063cf79c4e83418f09a1fd664b32fc918f92a403dcc19673b",
+    "git_snapshot": "87c5ab57816003eaa138fd9a3f9b34df86387411",
+    "roles": {
+      "train": {"files": 102, "bytes": 699426},
+      "validation": {"files": 7, "bytes": 117023},
+      "test": {"files": 3, "bytes": 55389}
+    }
+  },
+  "task": {
+    "name": "whole_file_next_byte_prediction",
+    "context_bytes": 64,
+    "cross_file_context": false,
+    "test_policy": "all positions after the first 64 bytes in each frozen test file",
+    "validation_query_limit": 8192,
+    "metrics": ["bits_per_byte", "top1_accuracy"]
+  },
+  "models": {
+    "small_dense_transformer": {
+      "device": "cuda",
+      "initialization_seed": 228001,
+      "embedding_width": 64,
+      "layers": 2,
+      "heads": 4,
+      "feedforward_width": 128,
+      "dropout": 0.0,
+      "optimizer": "AdamW",
+      "learning_rate": 0.0003,
+      "weight_decay": 0.01,
+      "gradient_clip": 1.0,
+      "batch_size": 64,
+      "fit_steps": 128,
+      "evaluation_batch_size": 256
+    },
+    "bounded_local_retrieval": {
+      "context_bytes": 32,
+      "suffix_index_bytes": 2,
+      "maximum_bucket_records": 64,
+      "nearest_records": 4,
+      "distance": "hamming",
+      "smoothing": "KT_half"
+    },
+    "ppm_d_order5": {
+      "implementation": "nextai_autoresearch.candidates.masked_baselines.PPMDModel",
+      "maximum_order": 5,
+      "prune_contexts": 4000
+    },
+    "ctw_depth2": {
+      "implementation": "nextai_autoresearch.candidates.masked_baselines.CTWByteModel",
+      "depth": 2
+    },
+    "dense_autoregressive_order5": {
+      "implementation": "nextai_autoresearch.candidates.dense_autoregressive_byte.Candidate",
+      "order": 5
+    }
+  },
+  "measurement": {
+    "warm_repeats": 7,
+    "latency_batch_positions": 256,
+    "workload_repetitions": [1, 4, 16],
+    "cold_definition": "first synchronized post-fit test query batch including its input transfer",
+    "warm_definition": "median of seven synchronized repetitions of the same fixed test query batch",
+    "fit": ["seconds", "estimated_or_declared_ops", "peak_host_rss_bytes", "peak_cuda_allocated_bytes", "host_device_transfer_bytes"],
+    "query": ["seconds", "throughput_bytes_per_second", "cold_latency_us_per_byte", "warm_latency_us_per_byte", "peak_host_rss_bytes", "peak_cuda_allocated_bytes", "host_device_transfer_bytes"],
+    "update": ["supported", "seconds", "peak_host_rss_bytes", "peak_cuda_allocated_bytes", "host_device_transfer_bytes"],
+    "state": ["resident_state_bytes"],
+    "quality_choice_policy": "all constants frozen here; validation is reported only and cannot alter the model or test procedure"
+  },
+  "invalidation": [
+    "any corpus size or SHA-256 mismatch",
+    "CUDA unavailable for the Transformer",
+    "any model omitted or renamed",
+    "any constant changed after a validation or test metric is observed",
+    "a test byte used in fit or update before test measurement",
+    "result entered into hypothesis evidence, confidence, Pareto promotion or the G1 qualifying counter"
+  ]
+}

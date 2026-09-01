@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "calibration_id": "CAL-20260901-0001",
+  "source_result": "research/checks/real_system_calibration_cycle_228.json",
+  "source_result_sha256": "7d7993af728a4c82010f2480fd337db28f20941f408e81f13563e9f1d687588c",
+  "correction": "The source workload_seconds fields omit the common one-time corpus acquisition. These append-only full-workload values add acquisition_seconds + fit_seconds + repetitions * query_seconds; the source result remains unchanged.",
+  "common_acquisition_seconds": 0.066480200010119,
+  "common_acquisition_bytes": 871838,
+  "models": {
+    "ppm_d_order5": {
+      "full_workload_seconds": {"1": 2.520602600008715, "4": 7.6729682000295725, "16": 28.282430600113003},
+      "host_device_transfer_bytes": {"1": 0, "4": 0, "16": 0}
+    },
+    "ctw_depth2": {
+      "full_workload_seconds": {"1": 5.501727100025164, "4": 20.1582259000279, "16": 78.78422110003885},
+      "host_device_transfer_bytes": {"1": 0, "4": 0, "16": 0}
+    },
+    "dense_autoregressive_order5": {
+      "full_workload_seconds": {"1": 6.329029900021851, "4": 21.528099400020437, "16": 82.32437740001478},
+      "host_device_transfer_bytes": {"1": 0, "4": 0, "16": 0}
+    },
+    "bounded_local_retrieval": {
+      "full_workload_seconds": {"1": 5.2704598999989685, "4": 20.473495099984575, "16": 81.285635899927},
+      "host_device_transfer_bytes": {"1": 0, "4": 0, "16": 0}
+    },
+    "small_dense_transformer": {
+      "full_workload_seconds": {"1": 1.2268392000114545, "4": 2.6676206999691203, "16": 8.430746699799784},
+      "host_device_transfer_bytes": {"1": 32962280, "4": 119069600, "16": 463498880}
+    }
+  },
+  "limitations": {
+    "host_bytes_touched": "not measured; zero host-device transfer for CPU models does not mean zero memory traffic",
+    "update_cost": "reported separately and not included in repeated read-only workloads",
+    "quality_matching": "no post-result quality matching or tuning was performed"
+  },
+  "scientific_evidence": false,
+  "g1_window_increment": false
+}

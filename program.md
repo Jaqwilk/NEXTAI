@@ -43,7 +43,7 @@ Use the append-only `G1-POST-EXP-0059-V1` event as the canonical window boundary
 
 An exact mechanism may have one quick, then only after a strong positive one unchanged multi-seed replication and one preregistered adversarial variant. A negative closes it. Existing cohorts take priority; a new cohort requires a separate service-only wake proving that no frozen cohort measures the required qualitative signature. No more than two consecutive wakes may omit scoring.
 
-Cycle 228 is reserved for the one-time real-system calibration selected by cycle 227 and must occur before another microbenchmark. It uses the frozen real repository corpus, local PyTorch/CUDA and no external model, API, weights, dataset or dependency. Its Transformer, retrieval and classical controls are frozen on development data before test measurement; cold/warm latency, throughput, peak VRAM/RAM, fit, query, update, state, workload and available transfer measurements are reported separately from NEXTAI evidence.
+Cycle 228 completed the one-time real-system calibration selected by cycle 227 as `CAL-20260901-0001`. It used the frozen real repository corpus, local PyTorch/CUDA and no external model, API, weights, dataset or dependency. Its Transformer, retrieval and classical controls were frozen before test measurement; cold/warm latency, throughput, peak VRAM/RAM, fit, query, update, state, workload and available transfer measurements remain separate from NEXTAI evidence. Do not rerun it or count it in the G1 window.
 
 After the eighth qualifying result, spend one full no-scoring cycle on the G1 phase review. Apply the continuation gate in `AGENTS.md`; if it fails, stop architecture scoring and ask the user for a strategic reset.
 
