@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "cycle": 241,
+  "created_at": "2026-09-01T23:35:22Z",
+  "review_only": true,
+  "active_benchmark_unchanged": "anonymous_repeated_measurement_ood_v1",
+  "active_benchmark_status": "maintenance",
+  "cycle_240_observation": {
+    "classification": "P3",
+    "reason": "relation-free degree-2 ridge crossed the frozen useful-quality ceiling at K=1024",
+    "learned_result_created": false
+  },
+  "prohibitions": {
+    "candidate_created": false,
+    "learner_implemented": false,
+    "evaluator_created": false,
+    "hypothesis_created": false,
+    "plan_created": false,
+    "runner_random_seed_realized": false,
+    "scoring_performed": false,
+    "exp_99_created": false,
+    "automatic_v2_created": false,
+    "v1_tuned_or_modified": false
+  },
+  "candidate_contracts": [
+    {
+      "rank": 1,
+      "id": "RID-CONTRACT-001",
+      "name": "orthogonal_double_matching_source_swap",
+      "exact_passive_ambiguity": true,
+      "target_leakage_control": true,
+      "candidate_neutral_relation": true,
+      "strong_classical_control": "paired spectral covariance plus projected quadratic ridge",
+      "status": "selected"
+    },
+    {
+      "rank": 2,
+      "id": "RID-CANDIDATE-002",
+      "name": "finite_field_double_matching_swap",
+      "exact_passive_ambiguity": true,
+      "status": "rejected_domain_specific_field_and_parity_ontology"
+    },
+    {
+      "rank": 3,
+      "id": "RID-CANDIDATE-003",
+      "name": "anonymous_cross_view_frame_alignment",
+      "exact_passive_ambiguity": true,
+      "status": "rejected_view_partition_ontology_and_prior_nextai_duplication"
+    }
+  ],
+  "selected_contract": {
+    "latent_dimension": 16,
+    "flat_input_dimension": 48,
+    "scales_independent_sources": [64, 256, 1024],
+    "mixing": "[A B D] orthogonal",
+    "record": "x=A*s+B*n+D*q",
+    "stable_and_nuisance_law": "independent uniform sphere radius sqrt(d)",
+    "probe_law": "q~N(0,I)",
+    "train_iid_constraint": "n=s",
+    "target": "y=q^T*s/sqrt(d)",
+    "auxiliary_structure": "two symmetric edge-disjoint hidden perfect matchings M_s and M_n on the same anonymous records",
+    "passive_twin_world_swap": "(A,M_s,s)<->(B,M_n,n)",
+    "h1": "h_s=q^T*s/sqrt(d)",
+    "h2": "h_n=q^T*n/sqrt(d)",
+    "train_iid_nrmse_h1": 0.0,
+    "train_iid_nrmse_h2": 0.0,
+    "ood_nrmse_h1": 0.0,
+    "ood_nrmse_h2": "sqrt(2)",
+    "ood_nrmse_symmetric_passive_extension": "1/sqrt(2)",
+    "correct_relation_population_cross_covariance": "A*A^T",
+    "null_relation_population_cross_covariance": "0"
+  },
+  "relation_roles": {
+    "correct": "M_s",
+    "shuffled": "fixed-point-free endpoint permutation excluding M_s and M_n",
+    "random": "uniform degree-matched perfect matching excluding M_s and M_n",
+    "passive": "identical relation slots with zero active edges",
+    "required_bit_identity": [
+      "records",
+      "label_masks",
+      "train_targets",
+      "queries",
+      "query_targets",
+      "batch_order",
+      "counts",
+      "learner_implementation",
+      "constants",
+      "capacity",
+      "steps",
+      "budget"
+    ]
+  },
+  "target_leakage_certificate": {
+    "relation_constructed_before_probe_and_target": true,
+    "auxiliary_relation_endpoints_unlabeled": true,
+    "correct_pair_hypothetical_target_law": "N(0,I_2)",
+    "null_pair_hypothetical_target_law": "N(0,I_2)",
+    "target_value_or_class_in_relation": false
+  },
+  "frozen_review_boundary": [
+    "causal_question",
+    "observation_boundary",
+    "relation_semantics",
+    "H1_H2_ambiguity_certificate",
+    "OOD_discriminator",
+    "three_source_count_scales",
+    "mandatory_classical_controls"
+  ],
+  "not_frozen_or_created": [
+    "evaluator",
+    "benchmark_cohort",
+    "schema",
+    "candidate",
+    "hypothesis",
+    "experiment_plan",
+    "scoring_seed",
+    "success_threshold",
+    "scientific_result"
+  ],
+  "literature_sources_added": ["SRC-0244", "SRC-0245", "SRC-0246"],
+  "validation": {
+    "required_report_headings_passed": 16,
+    "sources_jsonl_valid": true,
+    "full_pytest_passed": 639,
+    "integrity_passed": true,
+    "integrity_files_verified": 799,
+    "doctor_passed": true
+  },
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "decision": "A_ONE_VALID_IDENTIFIABILITY_CONTRACT",
+  "review_path": "research/reviews/GEN-1-RELATIONAL-IDENTIFIABILITY-DISCRIMINATOR-CYCLE-241-2026-09-02.md",
+  "review_sha256": "59c53e41db85765d00ae9cc592044f950b6e426cf88280ecc7005ff538988e09",
+  "next_action": "A separate protected service-only wake may implement and adversarially falsify RID-CONTRACT-001. It must run twin-world passive equality, role bit-identity, collision-free null-relation, exact target-leakage and mandatory classical-control gates before any plan, runner-random seed or scoring is allowed."
+}
