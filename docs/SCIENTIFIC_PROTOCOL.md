@@ -955,6 +955,37 @@ strongest complete implementable control, no worst-file or worst-transition
 regression, stable H96 rollout, strictly slot-local updates, three-scale cost
 accounting and implementable Pareto non-dominance.
 
+### WT v5 bounded particle-proposal roles
+
+V5 is a service-only role successor over the unchanged v4 evaluator path. It
+preserves the ten real CSV files, split, anonymous channel permutation,
+train-only normalization, K=`18/36/54`, horizons `16/32/96`, atomic
+predict-before-reveal boundary, metrics, effect threshold, state cap, full-cost
+equations and all ten controls. Historical WT v1-v4 plans, results, analyses,
+manifests and candidates remain immutable and cohort-separated.
+
+The prospective main learns one bounded proposal distribution for a fixed-size
+particle predictive state from public training observations. Its source-
+identical ablations use bootstrap proposals or deterministic posterior-mean
+propagation. All three roles must resolve to one implementation and share state
+features, initialization, fit order, prediction, chronological update,
+constants, particle budget, output and accounting except for that registered
+proposal/aggregation intervention. The later immutable plan must freeze the
+state representation, particle count, proposal family, weighting, resampling,
+randomness, update order, fallbacks and exact operation/byte charges before
+implementation. Native names, hand-written regimes, future controls, target
+access before reveal, cross-slot state, replay and global test-time refit are
+forbidden.
+
+This migration creates no hypothesis, experiment plan, candidate, runner seed
+or score. The next wake must preregister and score exactly one cheap scout.
+Success requires a development-frozen meaningful gain over both source-
+identical ablations and the strongest complete adaptive control, stable long
+horizons, no worst-transition regression, bounded slot-local updates and
+implementable Pareto non-dominance at all three scales. One positive seed can
+only authorize unchanged replication; a valid negative closes this exact rule
+without tuning.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.

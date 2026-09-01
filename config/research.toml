@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "program_induction_from_whole_io_v5"
+benchmark_version = "heldout_wt_changepoints_prequential_v5"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -462,6 +462,10 @@ causal_ablation_1_v4 = "wt_source_identical_frozen_eligibility_trace_v1"
 causal_ablation_2_v4 = "wt_source_identical_shuffled_eligibility_trace_v1"
 causal_ablation_3_v4 = "wt_source_identical_dense_eligibility_trace_v1"
 role_implementation_v4 = "wt_local_credit_trace_core_v1"
+shared_candidate_v5 = "wt_learned_particle_proposal_predictive_state_v1"
+causal_ablation_1_v5 = "wt_source_identical_bootstrap_particle_proposal_v1"
+causal_ablation_2_v5 = "wt_source_identical_deterministic_posterior_mean_v1"
+role_implementation_v5 = "wt_particle_proposal_predictive_state_core_v1"
 classical_baselines = [
   "wt_persistence_v1",
   "wt_pooled_mean_v1",
@@ -503,6 +507,18 @@ invalidation_rules_v4 = [
   "Invalidate if a test update mutates shared slow state or another anonymous slot.",
   "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
   "Invalidate unless all four causal roles share features, initialization, fit order, prediction, rollout, update, constants and accounting, differing only by the preregistered error gate, temporal credit alignment or dense-credit intervention.",
+  "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
+  "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+]
+invalidation_rules_v5 = [
+  "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+  "Invalidate if train, development or test whole-file roles overlap.",
+  "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+  "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+  "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+  "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+  "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+  "Invalidate unless all three causal roles share state features, initialization, fit order, prediction, update, constants, particle budget, output and accounting, differing only by the preregistered learned, bootstrap or deterministic proposal aggregation.",
   "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
   "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
 ]

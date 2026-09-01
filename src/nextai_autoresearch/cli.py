@@ -225,6 +225,21 @@ def _wt_prequential_protocol(config: ResearchConfig) -> dict[str, Any]:
             "source_identical_contract": SOURCE_IDENTICAL_CONTRACT,
             "invalidation_rules": list(wt["invalidation_rules_v4"]),
         })
+    elif config.benchmark_version == "heldout_wt_changepoints_prequential_v5":
+        from .benchmarks.heldout_wt_changepoints_prequential_v5 import (
+            SOURCE_IDENTICAL_CONTRACT,
+        )
+        roles = [
+            str(wt["shared_candidate_v5"]), str(wt["causal_ablation_1_v5"]),
+            str(wt["causal_ablation_2_v5"]),
+        ]
+        protocol.update({
+            "shared_candidate": roles[0],
+            "causal_roles": roles,
+            "role_implementation": str(wt["role_implementation_v5"]),
+            "source_identical_contract": SOURCE_IDENTICAL_CONTRACT,
+            "invalidation_rules": list(wt["invalidation_rules_v5"]),
+        })
     return protocol
 
 
