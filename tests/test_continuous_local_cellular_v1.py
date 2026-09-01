@@ -7,6 +7,7 @@ from jsonschema import ValidationError
 
 from nextai_autoresearch.benchmarks import continuous_local_cellular_v1 as bench
 from nextai_autoresearch.benchmarks import continuous_local_cellular_v2 as bench_v2
+from nextai_autoresearch.benchmarks import continuous_local_cellular_v3 as bench_v3
 from nextai_autoresearch.baseline_semantics import required_baseline_names
 from nextai_autoresearch.candidates.base import CandidateBase, CandidateMetadata
 from nextai_autoresearch.config import load_config
@@ -140,17 +141,20 @@ def test_plan_schema_freezes_matrix_and_all_mandatory_roles() -> None:
 def test_v2_is_role_only_and_freezes_new_roles_without_reinterpreting_v1() -> None:
     root = project_root()
     config = load_config(root).raw["continuous_local_cellular"]
+    v2_roles = {
+        "shared_candidate": "learned_factorized_flux_reaction_local_rule",
+        "dense_ablation": "source_identical_monolithic_local_flow_rule",
+        "frozen_ablation": "source_identical_frozen_flux_reaction_local_rule",
+    }
     plan = deepcopy(load_json(root / "research" / "plans" / "EXP-20260901-0022.json"))
     plan["experiment_id"] = "EXP-20990101-0001"
     plan["benchmark"] = bench_v2.BENCHMARK_VERSION
     plan["candidates"] = [
-        config["shared_candidate"], config["dense_ablation"], config["frozen_ablation"],
+        *v2_roles.values(),
         *config["classical_baselines"],
     ]
     plan["continuous_local_protocol"].update({
-        "shared_candidate": config["shared_candidate"],
-        "dense_ablation": config["dense_ablation"],
-        "frozen_ablation": config["frozen_ablation"],
+        **v2_roles,
         "source_identical_contract": "anonymous_inputs_constants_rows_initialization_update_order_output_bounds_identical_except_factorized_monolithic_or_frozen_learning_v2",
         "invalidation_rules": list(config["invalidation_rules"]),
     })
@@ -165,3 +169,35 @@ def test_v2_is_role_only_and_freezes_new_roles_without_reinterpreting_v1() -> No
     historical_role["candidates"][0] = "learned_sparse_continuous_local_rule"
     with pytest.raises(ValidationError):
         validate_document("experiment_plan", historical_role, root)
+
+
+def test_v3_is_role_only_and_keeps_v1_v2_semantics_append_only() -> None:
+    root = project_root()
+    config = load_config(root).raw["continuous_local_cellular"]
+    plan = deepcopy(load_json(root / "research" / "plans" / "EXP-20260901-0033.json"))
+    plan["experiment_id"] = "EXP-20990101-0002"
+    plan["benchmark"] = bench_v3.BENCHMARK_VERSION
+    plan["candidates"] = [
+        config["shared_candidate"], config["dense_ablation"], config["frozen_ablation"],
+        *config["classical_baselines"],
+    ]
+    plan["continuous_local_protocol"].update({
+        "shared_candidate": config["shared_candidate"],
+        "dense_ablation": config["dense_ablation"],
+        "frozen_ablation": config["frozen_ablation"],
+        "source_identical_contract": "anonymous_inputs_constants_lift_features_fit_update_output_identical_except_dyadic_sequential_or_frozen_propagation_v3",
+        "invalidation_rules": list(config["invalidation_rules"]),
+    })
+    validate_document("experiment_plan", plan, root)
+    assert bench_v3.run_suite is bench_v2.run_suite is bench.run_suite
+    assert bench_v3.run_trial is bench_v2.run_trial is bench.run_trial
+    assert bench_v3.make_world is bench_v2.make_world is bench.make_world
+    assert required_baseline_names(plan) == list(config["classical_baselines"])
+
+    old_v2_role = deepcopy(plan)
+    old_v2_role["continuous_local_protocol"]["shared_candidate"] = (
+        "learned_factorized_flux_reaction_local_rule"
+    )
+    old_v2_role["candidates"][0] = "learned_factorized_flux_reaction_local_rule"
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", old_v2_role, root)
