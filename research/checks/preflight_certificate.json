@@ -1,11 +1,11 @@
 {
   "benchmark_version": "heldout_wt_changepoints_prequential_v5",
-  "certificate_sha256": "54146c1c7e4d4f81b11a884f7ecb291c8e82644bb1b8d6b26347e7052c69b599",
-  "created_at": "2026-09-01T20:00:33Z",
+  "certificate_sha256": "7dd7c78e73026d76fa3f68da96ae34fbaf75e208b98cb4f13680e2915c9a670b",
+  "created_at": "2026-09-01T20:14:20Z",
   "evaluator_sha256": "658e9a8c6fc9c1f27d997909ee806fad36eafa24ab9ecb6afbb5461b980543e8",
   "files": {
     "baseline_registry": "b83752e1d15ee0be41ca14ede4e6e5531064f9d6ec1339a08abe843c6691c849",
-    "manifest": "daa924e58c3ae731e41bf0cf6ebf5f35d579809a8303419bc9182ea47c616cbb",
+    "manifest": "38d59d905c42295bc9f1033fb07c732ded27bc7339dd5fb50b4f392d376a37ae",
     "runner": "bb1f82412745bc62c995e98180cdcf7400a8bcac1e1d171c4bff10deb3d91d8b",
     "schema:experiment_plan": "d1f19a0a11acd641b0bfaebfb8fbefb0fb9fb83ad75b6e55a3f043643d489974",
     "schema:experiment_result": "e0b9213d09a59d334b954e051f008430c427eb3bb6371d3f31c3cacb0a1ea364",

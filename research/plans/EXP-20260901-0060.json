@@ -1,0 +1,216 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from ordinary unconditional particle replay rather than learned proposal allocation.",
+    "Under squared loss a source-identical posterior mean may dominate the weighted median.",
+    "The frozen residual particles may fail to represent unseen WT changepoints regardless of proposal weighting."
+  ],
+  "architecture_family": "bounded_learned_particle_proposal_predictive_state",
+  "benchmark": "heldout_wt_changepoints_prequential_v5",
+  "budget": "quick",
+  "candidates": [
+    "wt_learned_particle_proposal_predictive_state_v1",
+    "wt_source_identical_bootstrap_particle_proposal_v1",
+    "wt_source_identical_deterministic_posterior_mean_v1",
+    "wt_persistence_v1",
+    "wt_pooled_mean_v1",
+    "wt_control_level_bank_v1",
+    "wt_lms_v1",
+    "wt_rls_v1",
+    "wt_transition_bank_v1",
+    "wt_bounded_replay_v1",
+    "wt_ridge_fir_v1",
+    "wt_coverage_aware_spectral_psr_v1",
+    "wt_train_only_discretized_cssr_v1"
+  ],
+  "confounds": [
+    "The local visible WT cohort is screening evidence only; exact operations and bytes, not wall time across machine load, define cost."
+  ],
+  "created_at": "2026-09-01T20:09:47Z",
+  "evaluator_sha256": "658e9a8c6fc9c1f27d997909ee806fad36eafa24ab9ecb6afbb5461b980543e8",
+  "experiment_id": "EXP-20260901-0060",
+  "falsification_criteria": [
+    "Discard if the main misses the frozen 0.1325268421060828 NRMSE margin against either causal ablation or the strongest complete adaptive control in aggregate, H32 or H96.",
+    "Discard if stable rollout is below 1.0, worst-file or worst-transition NRMSE regresses, slot-locality fails, state exceeds 16777216 bytes, or an implementable complete control Pareto-dominates the main.",
+    "Invalidate on any role difference outside proposal weighting or aggregation, any target access before atomic reveal, shared test-state mutation, uncharged work, post-result tuning, seed leakage, external model or API use, preflight mismatch, or evaluator-integrity change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "5fabed35247097aabf7b1a52cdae088d34202c22",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0057",
+  "matrix": {
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "queries_per_cell": 18,
+    "reasoning_depths": [
+      16,
+      32,
+      96
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "rollout_16_nrmse": "minimize",
+    "rollout_32_nrmse": "minimize",
+    "rollout_96_nrmse": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_normalized_rmse": "minimize",
+    "worst_transition_normalized_rmse": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Close this exact eight-particle farthest-first conditional-weighted-median mechanism without changing particle count, features, temperature, evidence decay, likelihood scale, aggregation, clipping, or prototypes.",
+    "null": "Treat as inconclusive without tuning; revisit only if a concrete measurement ambiguity invalidates discrimination.",
+    "positive": "Authorize only an unchanged three-seed replication of this exact rule; do not promote from the quick."
+  },
+  "parent_experiment_id": "EXP-20260901-0059",
+  "predicted_outcome": "The frozen learned-proposal weighted-median role will lower aggregate, H32 and H96 NRMSE by at least 0.1325268421060828 against both source-identical ablations and the strongest complete adaptive control, retain stable rollout 1.0, avoid worst-file and worst-transition regression, keep fixed K-independent query and slot-local update work, and remain implementably Pareto-nondominated at full R1/R4/R16 cost.",
+  "primary_metrics": [
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "worst_file_normalized_rmse",
+    "worst_transition_normalized_rmse",
+    "rollout_16_nrmse",
+    "rollout_32_nrmse",
+    "rollout_96_nrmse",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed quick cannot promote or raise confidence; a fully successful scout may authorize only unchanged three-seed replication plus the preregistered adversarial operation."
+  ],
+  "research_question": "Can one fixed eight-particle observation-learned predictive state improve unseen WT changepoint recovery per full cost over source-identical proposal and aggregation ablations plus all frozen classical controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Bounded learned particle-proposal predictive state quick",
+  "wt_prequential_protocol": {
+    "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
+    "causal_roles": [
+      "wt_learned_particle_proposal_predictive_state_v1",
+      "wt_source_identical_bootstrap_particle_proposal_v1",
+      "wt_source_identical_deterministic_posterior_mean_v1"
+    ],
+    "classical_baselines": [
+      "wt_persistence_v1",
+      "wt_pooled_mean_v1",
+      "wt_control_level_bank_v1",
+      "wt_lms_v1",
+      "wt_rls_v1",
+      "wt_transition_bank_v1",
+      "wt_bounded_replay_v1",
+      "wt_ridge_fir_v1",
+      "wt_coverage_aware_spectral_psr_v1",
+      "wt_train_only_discretized_cssr_v1"
+    ],
+    "corpus_id": "causal_chambers_wt_changepoints_v1",
+    "declared_horizons": [
+      16,
+      32,
+      96
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "development_files": [
+      6,
+      7
+    ],
+    "fit_depth": 32,
+    "fit_horizon": 32,
+    "invalidation_rules": [
+      "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+      "Invalidate if train, development or test whole-file roles overlap.",
+      "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+      "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+      "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+      "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+      "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+      "Invalidate unless all three causal roles share state features, initialization, fit order, prediction, update, constants, particle budget, output and accounting, differing only by the preregistered learned, bootstrap or deterministic proposal aggregation.",
+      "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+    "normalization": "train_files_only_mechanical_partition",
+    "pareto_capability_metrics": [
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "worst_file_normalized_rmse",
+      "worst_transition_normalized_rmse",
+      "rollout_16_nrmse",
+      "rollout_32_nrmse",
+      "rollout_96_nrmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_atomic_artifact_then_reveal": true,
+    "role_implementation": "wt_particle_proposal_predictive_state_core_v1",
+    "runner_random_channel_permutation": true,
+    "saturation_nrmse": 0.5,
+    "saturation_worst_file_nrmse": 0.75,
+    "shared_candidate": "wt_learned_particle_proposal_predictive_state_v1",
+    "source_identical_contract": "state_features_initialization_fit_order_prediction_update_constants_particle_budget_output_and_accounting_identical_except_preregistered_learned_bootstrap_or_deterministic_proposal_aggregation_v1",
+    "split_unit": "whole_csv_file_sha256",
+    "state_budget_bytes": 16777216,
+    "test_files": [
+      8,
+      9
+    ],
+    "train_files": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}
