@@ -1,0 +1,152 @@
+{
+  "active_sensor_protocol": {
+    "classical_baselines": [
+      "raw_sensor_no_probe_prior_v1",
+      "raw_sensor_observe_all_v1",
+      "raw_sensor_random_probe_v1",
+      "raw_sensor_fisher_fixed_probe_v1",
+      "raw_sensor_gaussian_information_gain_v1",
+      "raw_sensor_kernel_information_gain_v1",
+      "privileged_raw_sensor_target_v1"
+    ],
+    "frozen_representation_ablation": "source_identical_frozen_partition_dag_v1",
+    "invalidation_rules": [
+      "Invalidate on any collision between fixed meta-training world seeds and the runner-random scoring seed.",
+      "Invalidate if an implementable candidate receives latent codes, sensor weights, label permutations, hidden targets or unprobed sensor values.",
+      "Invalidate unless every sensor access passes through the charged single-use probe interface.",
+      "Invalidate if the three source-identical causal roles differ outside meta-world access and preregistered representation learning versus freezing.",
+      "Invalidate unless the three v2 decision-DAG roles resolve to one implementation and frozen constants, differing only in the preregistered meta, support-only or frozen partition-policy source.",
+      "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change."
+    ],
+    "noise_std": 0.2,
+    "pareto_capability_metrics": [
+      "accuracy",
+      "minimum_family_accuracy",
+      "mean_probe_count",
+      "data_acquisition_ops",
+      "fit_ops",
+      "meta_fit_ops",
+      "mean_query_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "raw_sensor_values": "anonymous_continuous_single_probe_access",
+    "scout_only_no_promotion": true,
+    "sensor_count": 48,
+    "shared_candidate": "shared_posterior_partition_decision_dag_v1",
+    "source_identical_contract": "probe_boundary_constants_support_order_query_output_identical_except_meta_support_or_frozen_partition_policy_v1",
+    "state_budget_bytes": 16777216,
+    "support_only_ablation": "source_identical_support_only_partition_dag_v1",
+    "support_repetitions": 3,
+    "test_world_seed_source": "runner_scoring_seeds",
+    "training_world_seeds": [
+      1103,
+      2207,
+      3301
+    ]
+  },
+  "alternative_explanations": [
+    "The compiled tree itself, rather than meta-learned utility, may provide all query savings; frozen or support-only roles would then match shared.",
+    "Median binary splits may lose robustness under observation noise even when margin weighting transfers."
+  ],
+  "architecture_family": "compiled_active_partition_policy",
+  "benchmark": "heldout_raw_sensor_active_identification_v2",
+  "budget": "quick",
+  "candidates": [
+    "shared_posterior_partition_decision_dag_v1",
+    "source_identical_support_only_partition_dag_v1",
+    "source_identical_frozen_partition_dag_v1",
+    "raw_sensor_no_probe_prior_v1",
+    "raw_sensor_observe_all_v1",
+    "raw_sensor_random_probe_v1",
+    "raw_sensor_fisher_fixed_probe_v1",
+    "raw_sensor_gaussian_information_gain_v1",
+    "raw_sensor_kernel_information_gain_v1",
+    "privileged_raw_sensor_target_v1"
+  ],
+  "confounds": [
+    "The local visible synthetic Gaussian generator favors adaptive Gaussian likelihood and high-budget cells may saturate; this scout cannot establish real perception or general intelligence."
+  ],
+  "created_at": "2026-09-01T06:01:15Z",
+  "evaluator_sha256": "0296fd1872dcdd6a4f5835c2d6d905d0c1b02e2ca9f27c81e56dffc890900e52",
+  "experiment_id": "EXP-20260901-0031",
+  "falsification_criteria": [
+    "Discard unless shared aggregate accuracy exceeds both source-identical ablations by at least 0.03.",
+    "Discard unless shared accuracy is within 0.01 of the stronger matched-probe Gaussian or kernel control and no cell is more than 0.03125 below both source-identical ablations.",
+    "Discard unless shared mean query operations are at least four times lower than both adaptive Gaussian and kernel controls and shared R16 workload is lower than both.",
+    "Discard if shared is absent from the implementable Pareto frontier or a simpler complete baseline matches its capability with no greater full cost."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "2fa44fbb13b98614105c1eeb24315fb79ab97b11",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0043",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 32,
+    "reasoning_depths": [
+      4,
+      8,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_probe_count": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "If quality or full-cost gates fail, discard and falsify this exact decision-DAG rule without changing features, ridge, depth, leaf or stopping rules.",
+    "null": "If frozen or support-only utility matches shared, retain compiled decision traversal only as a classical engineering control and falsify the transfer claim without tuning.",
+    "positive": "Retain HYP-0043 as testing and authorize only unchanged multi-seed replication; do not promote."
+  },
+  "parent_experiment_id": "EXP-20260901-0030",
+  "predicted_outcome": "Shared utility should learn to favor robust balanced margins, exceed both source-identical ablations by at least 0.03 accuracy, stay within 0.01 of the stronger matched-probe Gaussian or kernel control, and reduce mean query work by at least fourfold; early singleton leaves should reduce probes for small K. The stronger null is that two learned invariant weights match the fixed or support-only utility and add acquisition cost.",
+  "primary_metrics": [
+    "accuracy",
+    "minimum_family_accuracy",
+    "mean_probe_count",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; a positive may only authorize an unchanged three-seed adversarial replication if every quality, ablation, cost, source-identity and Pareto gate passes."
+  ],
+  "research_question": "Can a relabeling-invariant split utility learned across raw sensor worlds compile lower-work adaptive decision traversal while preserving matched held-out identification quality?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Compiled posterior-partition decision graph scout"
+}

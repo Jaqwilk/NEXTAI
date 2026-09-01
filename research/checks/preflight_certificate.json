@@ -1,11 +1,11 @@
 {
   "benchmark_version": "heldout_raw_sensor_active_identification_v2",
-  "certificate_sha256": "fe9efbe411a1c42cc7af3fc5cbcfe4c8901f9d297a377de0b79bf41b3f81f163",
-  "created_at": "2026-09-01T05:52:05Z",
+  "certificate_sha256": "da0479a6813626e57494265517c1a3364c8e6a5774b3d541014f54aa0b1b92d3",
+  "created_at": "2026-09-01T06:06:09Z",
   "evaluator_sha256": "0296fd1872dcdd6a4f5835c2d6d905d0c1b02e2ca9f27c81e56dffc890900e52",
   "files": {
-    "baseline_registry": "8825663e293bd9129e957dc88bb33d5dd42dec0f003a4253cf49bb0f6cb0aa15",
-    "manifest": "649c8d2842c58be0f3d99a37b900056df40981cd1d39959538bf053aed670847",
+    "baseline_registry": "712ad8bd416ce71e3de75e94dec4e598599106974b4439845af7ccdf19194df9",
+    "manifest": "e6d8b7b1d673a262f876dc7cdcfc9d8095871fc22c03a613e4d0836599a8e00a",
     "runner": "92b5aec5f03a4da8e64c58acc41f6c840cefc40c81b5d4be06030e3c9d0a4d12",
     "schema:experiment_plan": "6fc5f619c9e6b04ab495dd97b8d336620430b83f4f33247e9e337bf1db330a4d",
     "schema:experiment_result": "ed4e24be2f365f29778dd58d3b7bec05800ab57241d4cb501864652807d91a00",

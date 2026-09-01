@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-20260901-0031",
+  "cycle": 177,
+  "created_at": "2026-09-01T06:12:43Z",
+  "status": "complete",
+  "scoring_seed": 1018483573,
+  "plan_sha256": "8628ba163d7e9ad52396dca6ad90d4af64fb9a59ab3346a070a06b513ec3919c",
+  "result_sha256": "a9fa610881c25ec7370956c53ef00a73ed75cb9b46afaebb73cb9de285a6ac1e",
+  "analysis_sha256": "568743122bbc2d7fe0a85c48e58be3d386e81c68e9f6ed72e1ff81972a4ebb22",
+  "decision": "falsify_exact_posterior_partition_dag_without_tuning",
+  "observations": {
+    "shared_correct": 250,
+    "support_only_correct": 250,
+    "frozen_correct": 250,
+    "gaussian_correct": 268,
+    "kernel_correct": 265,
+    "queries_per_candidate": 288,
+    "meaningful_accuracy_effect": 0.03,
+    "shared_minus_support_only": 0.0,
+    "shared_minus_frozen": 0.0,
+    "shared_minus_gaussian": -0.0625,
+    "shared_minus_kernel": -0.0520833333333333,
+    "shared_mean_query_ops": 55.22222222222222,
+    "shared_workload_ops_r16": 417992.44444444444,
+    "shared_on_implementable_frontier": false
+  },
+  "hypothesis": {
+    "id": "HYP-0043",
+    "revision": 3,
+    "status": "falsified",
+    "confidence": 0.02
+  },
+  "pytest": {
+    "collected": 481,
+    "passed": 481
+  },
+  "integrity": {
+    "status": "pass",
+    "checked_files": 658,
+    "evaluator_sha256": "0296fd1872dcdd6a4f5835c2d6d905d0c1b02e2ca9f27c81e56dffc890900e52",
+    "candidate_bundle_sha256": "697023e2759f9949d11d9511e635e521549026dc4c554b0544d24ad66e5ae8e6"
+  },
+  "doctor": "pass",
+  "budget": "quick_one_runner_random_seed",
+  "second_experiment_started": false,
+  "next_cycle": "Exactly one minimal no-scoring selection and protected reactivation cycle for a source-identical learned sparse parity/factor-graph scout on existing heldout_parallel_masked_infilling_v5. If and only if the cohort discriminates it from existing energy and predictive-code roles, the immediately following wake preregisters and scores exactly one EXP-20260901-0032 quick."
+}
