@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "cycle": 239,
+  "created_at": "2026-09-01T22:59:50Z",
+  "service_only": true,
+  "review_only": true,
+  "decision": "FREEZE_CONTRACT",
+  "bridge_hypothesis_id": "BRIDGE-U1-U2-V1",
+  "provisional_contract_id": "anonymous_repeated_measurement_ood_v1",
+  "active_benchmark_unchanged": "heldout_repository_sequence_compression_v6",
+  "prior_review_cycles": [237, 238],
+  "history_scope": {
+    "completed_experiments": 98,
+    "scientifically_valid_completed_results": 94,
+    "prior_relational_results_audited": [
+      "EXP-20260901-0003",
+      "EXP-20260901-0054",
+      "EXP-20260901-0056"
+    ],
+    "exact_duplicate_found": false
+  },
+  "causal_variable": "quality_of_training_relation_edges_only",
+  "matched_fields": [
+    "records",
+    "targets",
+    "record_count",
+    "candidate_code_hash",
+    "capacity",
+    "training_steps",
+    "training_budget",
+    "output_contract",
+    "test_queries"
+  ],
+  "roles": [
+    "CORRECT_RELATION",
+    "SHUFFLED_RELATION",
+    "PASSIVE",
+    "RANDOM_RELATION",
+    "STRONG_CLASSICAL_CONTROL",
+    "ORACLE"
+  ],
+  "contract_gates": {
+    "neutral_mechanical_relation": true,
+    "unseen_nuisance_ood": true,
+    "task_mechanism_independent_of_candidate": true,
+    "candidate_semantics_hidden": true,
+    "relation_only_role_difference": true,
+    "three_meaningful_scales": true,
+    "strong_classical_controls_same_boundary": true,
+    "mechanical_leakage_check": true,
+    "no_family_specific_logic": true,
+    "later_cross_family_replication_possible_without_thesis_change": true
+  },
+  "frozen_contract": {
+    "source_dimension": 16,
+    "candidate_input_dimension": 32,
+    "acquisition_scales": [64, 256, 1024],
+    "records_per_source_event": 2,
+    "test_queries_per_condition": 256,
+    "train_nuisance": [
+      {"sigma": 0.0625, "erasure_probability": 0.0},
+      {"sigma": 0.125, "erasure_probability": 0.0},
+      {"sigma": 0.0, "erasure_probability": 0.0625},
+      {"sigma": 0.0, "erasure_probability": 0.125}
+    ],
+    "ood_nuisance": [
+      {"level": "S1", "sigma": 0.1875, "erasure_probability": 0.1875},
+      {"level": "S2", "sigma": 0.25, "erasure_probability": 0.25},
+      {"level": "S3", "sigma": 0.375, "erasure_probability": 0.375}
+    ],
+    "target": "y=(z_transpose_q)/16",
+    "main_test": "single_record_prediction_under_unseen_combined_nuisance",
+    "relation_available_at_query": false,
+    "main_input_permutation": "five_bit_reversal",
+    "adversarial_input_permutation": "pi(j)=(7*j+3) mod 32"
+  },
+  "target_leakage_argument": {
+    "relation_constructed_before_query_and_target": true,
+    "query_independent_per_endpoint": true,
+    "target_distribution_identical_for_every_source": true,
+    "paired_targets_independent": true,
+    "relation_constructor_reads_target": false
+  },
+  "primary_screen_constants": {
+    "absolute_nrmse_gap": 0.05,
+    "relative_nrmse_improvement": 0.10,
+    "classical_matched_quality_tolerance": 0.01,
+    "maximum_worst_cell_nrmse": 0.75,
+    "minimum_s3_to_s1_gap_ratio": 0.8,
+    "multiple_testing": "Holm-Bonferroni family-wise alpha 0.05 over 27 paired loss contrasts"
+  },
+  "review_path": "research/reviews/GEN-1-U1-U2-BRIDGE-CONTRACT-CYCLE-239-2026-09-02.md",
+  "review_sha256": "52db3d1b2ea69f2ef26546a3dc170e04b03aae74795646c18381bbcd978b22f2",
+  "validation": {
+    "pytest_passed": 617,
+    "integrity_ok": true,
+    "integrity_files_verified": 796,
+    "doctor_passed": true,
+    "pending_plans": 0
+  },
+  "mutations": {
+    "protected_files_changed": false,
+    "benchmark_created": false,
+    "evaluator_created": false,
+    "schema_changed": false,
+    "dependency_added": false,
+    "hypothesis_created": false,
+    "hypothesis_updated": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "data_generated": false,
+    "seed_realized": false,
+    "scoring_performed": false,
+    "scientific_evidence_changed": false
+  },
+  "next_action": "A later cycle may create a protected v1 evaluator exactly from this contract and run its semantic, leakage, source-identity, preflight, integrity and doctor gates. Candidate implementation, runner-random seed realization and one quick require a preregistered plan before candidate code. If protected migration and preregistration cannot safely fit one wake, the next wake remains service-only and scoring waits."
+}
