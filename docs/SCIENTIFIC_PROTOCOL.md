@@ -520,6 +520,25 @@ V3 became active only after both added controls received exact semantic
 registrations, transitive source audits, hand-checkable discriminating tests,
 real-file development smoke, and the complete repository test gate.
 
+## Whole-I/O amortized exact-search v3 cohort
+
+Version 3 preserves the v2 binary two-state program class, noisy whole-I/O
+supports, held-out programs, anonymous tapes, targets and random/nearest/dense/
+enumerative-MDL/privileged controls. It adds K=`16` so descriptive scaling uses
+three points and adds explicit acquisition, peak-state, bytes-touched and
+R1/R4/R16 accounting. Historical v2 and EXP-20260830-0022 remain immutable and
+are not reinterpreted.
+
+The prospective learned, support-only and frozen roles share one complete
+branch-and-bound MDL solver, objective, tie handling, constants, support parser,
+program execution and output. They may differ only in whether branch and
+constraint priorities come from meta-training, the current public support or a
+frozen order. Every role must prove the same minimum-error optimum as complete
+enumeration; an approximate answer or uncharged search is invalid. The scout
+tests whether experience reduces exact cold search nodes on unseen programs,
+not whether a learned approximation can replace the solver. This migration
+creates no hypothesis, plan, candidate, seed or scored result.
+
 ## Three-family continuous transfer v2 Pareto contract
 
 Version 2 preserves every world, split, tensor, normalization, causal assignment, baseline, metric value and budget from `heldout_three_family_continuous_transfer_v1`. It changes only prospective decision semantics. Historical v1 plans and results remain immutable and are never recomputed.

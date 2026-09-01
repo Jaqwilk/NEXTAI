@@ -475,6 +475,28 @@
         }
       }
     },
+    "whole_io_search_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shared_candidate", "support_only_ablation", "frozen_ablation",
+        "classical_baselines", "source_identical_contract", "state_budget_bytes",
+        "pareto_capability_metrics", "invalidation_rules"
+      ],
+      "properties": {
+        "shared_candidate": {"const": "learned_amortized_constraint_order_vm"},
+        "support_only_ablation": {"const": "source_identical_support_only_constraint_order_vm"},
+        "frozen_ablation": {"const": "source_identical_frozen_constraint_order_vm"},
+        "classical_baselines": {"const": [
+          "random_whole_io", "nearest_whole_io", "dense_whole_io",
+          "enumerative_mdl_vm", "oracle_latent_vm"
+        ]},
+        "source_identical_contract": {"const": "complete_solver_objective_ties_support_execution_output_identical_except_meta_support_or_frozen_search_priority_v1"},
+        "state_budget_bytes": {"const": 16777216},
+        "pareto_capability_metrics": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+        "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5}
+      }
+    },
     "active_sensor_protocol": {
       "type": "object",
       "additionalProperties": false,
@@ -2221,6 +2243,32 @@
             {"contains": {"const": "workload_ops_r1"}},
             {"contains": {"const": "workload_ops_r4"}},
             {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "program_induction_from_whole_io_v3"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["whole_io_search_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [8, 16, 32]},
+            "reasoning_depths": {"const": [1, 4, 6]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_amortized_constraint_order_vm"}},
+            {"contains": {"const": "source_identical_support_only_constraint_order_vm"}},
+            {"contains": {"const": "source_identical_frozen_constraint_order_vm"}},
+            {"contains": {"const": "random_whole_io"}},
+            {"contains": {"const": "nearest_whole_io"}},
+            {"contains": {"const": "dense_whole_io"}},
+            {"contains": {"const": "enumerative_mdl_vm"}},
+            {"contains": {"const": "oracle_latent_vm"}}
           ]}
         }
       }

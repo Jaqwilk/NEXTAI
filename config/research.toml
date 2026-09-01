@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "continuous_local_cellular_v3"
+benchmark_version = "program_induction_from_whole_io_v3"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -278,6 +278,33 @@ invalidation_rules = [
   "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
 ]
 
+[whole_io_search]
+knowledge_sizes = [8, 16, 32]
+reasoning_depths = [1, 4, 6]
+queries_per_cell = 8
+shared_candidate = "learned_amortized_constraint_order_vm"
+support_only_ablation = "source_identical_support_only_constraint_order_vm"
+frozen_ablation = "source_identical_frozen_constraint_order_vm"
+classical_baselines = [
+  "random_whole_io", "nearest_whole_io", "dense_whole_io",
+  "enumerative_mdl_vm", "oracle_latent_vm",
+]
+state_budget_bytes = 16777216
+pareto_capability_metrics = [
+  "accuracy", "program_induction_accuracy", "length_extrapolation_accuracy",
+  "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+  "mean_search_ops", "update_ops", "state_bytes", "peak_state_bytes",
+  "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
+invalidation_rules = [
+  "Invalidate if any implementable role receives the hidden program, execution trace or task identity.",
+  "Invalidate unless all three causal roles share the exact complete branch-and-bound solver, objective, tie handling, constants, support parsing, execution and output code.",
+  "Invalidate if the learned role differs from its ablations beyond the preregistered source of branch and constraint priorities.",
+  "Invalidate if a role stops before proving the same minimum-error MDL optimum returned by complete enumeration.",
+  "Invalidate if acquisition, meta-fit, every visited node, program execution, query, update, state or bytes touched is omitted from full cost.",
+  "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change.",
+]
+
 [dronepropa]
 corpus_id = "dronepropa_doi_10.17632_ftdyxrr3c5_v1"
 files_manifest = "research/data/dronepropa_v1/files.jsonl"
@@ -489,6 +516,8 @@ maximize = [
   "recurrence_retention",
   "reuse_precision",
   "reuse_coverage",
+  "program_induction_accuracy",
+  "length_extrapolation_accuracy",
 ]
 minimize = [
   "mean_query_ops",
@@ -501,6 +530,7 @@ minimize = [
   "data_acquisition_ops",
   "mean_input_ops",
   "mean_comparisons",
+  "mean_search_ops",
   "mean_probe_count",
   "mean_bytes_touched",
   "update_ops",

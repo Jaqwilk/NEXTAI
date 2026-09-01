@@ -1,0 +1,22 @@
+{
+  "benchmark": "program_induction_from_whole_io_v3",
+  "candidate_bundle_sha256": "67cbcebbfc7e0bd0e587e900de480e180863d80c7d5795ea6418eb193adda45b",
+  "completed_experiments": 80,
+  "created_at": "2026-09-01T08:05:50Z",
+  "cycle": 185,
+  "doctor_passed": true,
+  "evaluator_sha256": "e38b7848e894bd45c7cb6286552048412d3ff913cfa35a0d5defc60e0de63c56",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "integrity_files_verified": 680,
+  "manifest_sha256": "6952a35ddecc0c760928e2ae3fa9f75b8c45b5f07314b6b09da26c33ef6e34ea",
+  "plan_created": false,
+  "preflight_certificate_sha256": "a662bab17512685b5b20b1daa4ecdfc4cd92f43b087e78ffd3c0d694f3c8c170",
+  "pytest_passed": 505,
+  "scientific_evidence_changed": false,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "semantic_baselines_passed": 5,
+  "semantic_test_nodes_passed": 4,
+  "service_only": true
+}

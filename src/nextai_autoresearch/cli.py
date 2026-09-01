@@ -573,6 +573,26 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "pareto_capability_metrics": metrics,
             "invalidation_rules": list(local["invalidation_rules"]),
         }
+    if config.benchmark_version == "program_induction_from_whole_io_v3":
+        search = config.raw["whole_io_search"]
+        plan["matrix"]["knowledge_sizes"] = list(search["knowledge_sizes"])
+        plan["matrix"]["reasoning_depths"] = list(search["reasoning_depths"])
+        plan["matrix"]["queries_per_cell"] = int(search["queries_per_cell"])
+        metrics = list(search["pareto_capability_metrics"])
+        plan["primary_metrics"] = metrics
+        plan["metric_directions"] = {
+            name: configured_directions[name] for name in metrics
+        }
+        plan["whole_io_search_protocol"] = {
+            "shared_candidate": str(search["shared_candidate"]),
+            "support_only_ablation": str(search["support_only_ablation"]),
+            "frozen_ablation": str(search["frozen_ablation"]),
+            "classical_baselines": list(search["classical_baselines"]),
+            "source_identical_contract": "complete_solver_objective_ties_support_execution_output_identical_except_meta_support_or_frozen_search_priority_v1",
+            "state_budget_bytes": int(search["state_budget_bytes"]),
+            "pareto_capability_metrics": metrics,
+            "invalidation_rules": list(search["invalidation_rules"]),
+        }
     if config.benchmark_version.startswith("heldout_dronepropa_"):
         drone = config.raw["dronepropa"]
         plan["dronepropa_protocol"] = {
