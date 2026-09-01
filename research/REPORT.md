@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T11:54:26Z
+Generated: 2026-09-01T12:12:06Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -497,6 +497,25 @@ Pareto axes: maximize `accuracy, exact_span_accuracy`; minimize `bits_per_byte, 
 | EXP-20260901-0041 | parallel_markov_bp_masked_byte | implementable | complete | 0.3424 | 1 | 1.063e+05 | 22.92 | 1.719e+06 | 1.733e+08 | 0 (2; screening) | 2.624e+06 | yes |
 | EXP-20260901-0041 | privileged_conditional_masked_byte_v2 | privileged support control | complete | 1 | 1 | 515 | 22.92 | 4 | 8.836e+05 | 0 (2; screening) | 526848 |  |
 | EXP-20260901-0041 | re_pair_grammar_masked_byte | implementable | complete | 0.4882 | 1 | 1128 | 22.92 | 2.062e+04 | 1.454e+06 | 0.002089 (2; screening) | 4124 | yes |
+
+## heldout_parallel_masked_infilling_v12 / screen
+
+Pareto axes: maximize `accuracy, exact_span_accuracy`; minimize `bits_per_byte, critical_path_steps, data_acquisition_ops, fit_ops, meta_fit_ops, mean_query_ops, mean_warm_query_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0042 | learned_pushdown_masked_byte | implementable | complete | 1 | 3 | 773.6 | 15.33 | 8207 | 5.947e+06 | 0 (2; screening) | 616 | yes |
+| EXP-20260901-0042 | source_identical_finite_state_pushdown_masked_byte | implementable | complete | 0.5222 | 3 | 773.6 | 15.33 | 8207 | 5.947e+06 | 0 (2; screening) | 616 |  |
+| EXP-20260901-0042 | source_identical_frozen_pushdown_masked_byte | implementable | complete | 0.03171 | 3 | 773.6 | 15.33 | 8207 | 2.183e+06 | 0 (2; screening) | 616 | yes |
+| EXP-20260901-0042 | uniform_masked_byte | implementable | complete | 0 | 3 | 515 | 15.33 | 4 | 2.03e+06 | 0 (2; screening) | 526848 | yes |
+| EXP-20260901-0042 | empirical_unigram_masked_byte | implementable | complete | 0 | 3 | 770 | 15.33 | 8192 | 2.202e+06 | 0 (2; screening) | 526848 | yes |
+| EXP-20260901-0042 | left_to_right_ppm_masked_byte | implementable | complete | 0.5694 | 3 | 5122 | 15.33 | 1.475e+05 | 4.511e+06 | 0 (2; screening) | 151776 | yes |
+| EXP-20260901-0042 | context_tree_weighting_masked_byte | implementable | complete | 0.3306 | 3 | 5122 | 15.33 | 1.475e+05 | 4.45e+06 | 0 (2; screening) | 16448 | yes |
+| EXP-20260901-0042 | dense_autoregressive_masked_byte | implementable | complete | 0.3299 | 3 | 5122 | 15.33 | 1.475e+05 | 4.531e+06 | 0 (2; screening) | 1.83757e+06 |  |
+| EXP-20260901-0042 | bidirectional_markov_masked_byte | implementable | complete | 0.3569 | 3 | 1.316e+05 | 15.33 | 4.194e+06 | 6.918e+07 | 0 (2; screening) | 526848 | yes |
+| EXP-20260901-0042 | parallel_markov_bp_masked_byte | implementable | complete | 0.3569 | 3 | 1.037e+05 | 15.33 | 1.683e+06 | 1.734e+08 | 0 (2; screening) | 2.624e+06 | yes |
+| EXP-20260901-0042 | privileged_conditional_masked_byte_v2 | privileged support control | complete | 1 | 3 | 515 | 15.33 | 4 | 2.03e+06 | 0 (2; screening) | 526848 |  |
+| EXP-20260901-0042 | re_pair_grammar_masked_byte | implementable | complete | 0.4337 | 3 | 1087 | 15.33 | 1.923e+04 | 2.983e+06 | -0.0002678 (2; screening) | 4049 | yes |
 
 ## heldout_parallel_masked_infilling_v2 / quick
 
