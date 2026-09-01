@@ -1,0 +1,154 @@
+{
+  "alternative_explanations": [
+    "The exact raw balanced k-d tree may match or exceed quality at lower total fit cost, showing that any routing benefit is classical indexing rather than learned representation.",
+    "The learned encoder may preserve dense distances yet distort node split decisions, so bounded beam routing may fail at large K even when dense access succeeds."
+  ],
+  "architecture_family": "learned_balanced_hierarchical_routing",
+  "benchmark": "latent_entity_binding_retrieval_v3",
+  "budget": "quick",
+  "candidates": [
+    "learned_balanced_hierarchical_router_v1",
+    "source_identical_dense_hierarchical_representation_v1",
+    "source_identical_frozen_hierarchical_router_v1",
+    "source_identical_shuffled_hierarchical_router_v1",
+    "raw_balanced_kd_tree_v1",
+    "raw_nearest_neighbour_scan_v1",
+    "local_dense_transition_gru_v1",
+    "privileged_exact_entity_key_v1"
+  ],
+  "confounds": [
+    "This is one locally visible synthetic family and one runner seed; even a positive is narrow screening evidence and cannot support a general LLM-successor claim."
+  ],
+  "created_at": "2026-09-01T17:37:04Z",
+  "entity_addressing_protocol": {
+    "batch_size": 64,
+    "beam_width": 4,
+    "classical_baselines": [
+      "raw_balanced_kd_tree_v1",
+      "raw_nearest_neighbour_scan_v1",
+      "local_dense_transition_gru_v1",
+      "privileged_exact_entity_key_v1"
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16,
+      256,
+      4096
+    ],
+    "dense_ablation": "source_identical_dense_hierarchical_representation_v1",
+    "encoder_widths": [
+      24,
+      32,
+      16
+    ],
+    "fallback_candidates": 0,
+    "fit_epochs": 32,
+    "frozen_ablation": "source_identical_frozen_hierarchical_router_v1",
+    "invalidation_rules": [
+      "Invalidate if an implementable role receives entity IDs, ready keys, latent coordinates, family/class labels, paths, scoring targets or privileged routing.",
+      "Invalidate if encoder or tree fitting sees runner-random test queries or outcomes, or if any constant changes after scoring output.",
+      "Invalidate unless the four causal roles share encoder source, architecture, initialization, pair loss, data order, tree construction, query, verifier, update, constants and accounting outside the registered learned/dense/frozen/shuffled intervention.",
+      "Invalidate if routing is equivalent to the completed flat 16-bit threshold code, visits more than 64 nodes per traversal step, uses a K-growing fallback, or insertion triggers global encoder refit or tree rebuild.",
+      "Invalidate if encoder, tree construction, node traversal, verification, update, state or bytes touched are omitted from full cost.",
+      "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change."
+    ],
+    "learning_rate": 0.001,
+    "maximum_k_cost_slope": 0.3,
+    "meaningful_quality_margin": 0.02,
+    "observation_dimension": 24,
+    "optimizer": "adam",
+    "shared_candidate": "learned_balanced_hierarchical_router_v1",
+    "shuffled_ablation": "source_identical_shuffled_hierarchical_router_v1",
+    "source_identical_contract": "encoder_architecture_initialization_pair_loss_data_order_tree_builder_query_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_hierarchical_routing_v1",
+    "split_objective": "node_local_maximum_source_variance",
+    "split_ties": "lowest_coordinate_then_fit_index",
+    "state_budget_bytes": 67108864,
+    "tree_depth_rule": "balanced_recursive_median_until_singleton",
+    "update": "single_search_path_leaf_insert_without_rebalance_or_encoder_refit",
+    "verifier": "squared_learned_distance_with_fit_index_tie",
+    "visited_node_cap": 64
+  },
+  "evaluator_sha256": "a30135accad58a76883fd0f5415902558d1e30501e130ac09ba95c89ec394f88",
+  "experiment_id": "EXP-20260901-0056",
+  "falsification_criteria": [
+    "Discard if main is more than 0.02 below dense aggregate accuracy; does not strictly beat frozen and shuffled at each K; fails any complete cell, new-fact accuracy 1.0, path-only insertion, 64-node or four-frontier bounds; has R4096 three-point K-slope at least 0.30; has no prospectively defined matched-quality break-even; breaches 64 MiB; or is Pareto-dominated by an implementable raw k-d tree, raw scan, dense representation or dense GRU. Invalidate on any change after registration to loss/order/tree/frontier/ties/verifier/update/accounting, role-source mismatch, flat-threshold alias, leakage, external model/API/network use, missing mandatory control, preflight mismatch or evaluator-integrity change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "e7e1acdee945030f5a7db7202b36c5eace722155",
+    "dirty": false
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      320,
+      3200
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      4,
+      8
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r256": "minimize",
+    "workload_ops_r4": "minimize",
+    "workload_ops_r4096": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Discard the exact hierarchy without tuning loss, axes, beam, cap or verifier; update HYP-0012 only by observed matched-quality and full-cost evidence.",
+    "null": "Mark inconclusive and close this exact registered mechanism without tuning; any new routing principle needs a new prospective rule.",
+    "positive": "Keep the exact source and constants only for unchanged three-seed replication; do not tune or promote."
+  },
+  "parent_experiment_id": "EXP-20260901-0055",
+  "predicted_outcome": "Exact frozen rule: split every seven-view burst at the largest adjacent squared raw-distance jump and form cyclic adjacent pairs independently inside both segments, in record and within-segment order. Initialize one tanh MLP 24-32-16 from the candidate seed. Learned and dense roles train 32 epochs in consecutive batches of 64 with Adam 0.001 and loss MSE(z1,z2)+0.1*mean(z)^2+0.1*mean(relu(0.5-std(z))^2)+0.01*mean(offdiag(cov(z))^2)+0.01*mean((abs(z)-1)^2); shuffled circularly rolls every second-pair view by floor(pair_count/2), frozen performs zero optimizer steps. Encode source and target centroids. Build a balanced binary tree recursively: at each node select the source coordinate with maximum population variance using lowest-coordinate tie, stable-sort by coordinate then fit index, store the median record, and recurse to singleton leaves. Query performs best-bin-first node-conditional routing: a frontier entry is lower-bound,node; pop the lexicographically smallest, evaluate its stored source by squared learned distance, push the near child with unchanged lower bound and far child with max(current lower bound, squared split offset), then retain only the four smallest frontier entries; stop after 64 visited nodes or empty frontier and verify the nearest visited record by distance then fit-index tie. Dense uses the identical learned encoder and squared-distance rule over every source. Repeat lookup over D target vectors. Insert encodes the new centroids, follows existing node axes using coordinate then index ties and appends one leaf; it neither rebalances nor refits. All encoder, tree build, traversal, verification, update, state and bytes are charged. Main is predicted within 0.02 accuracy of dense, strictly above frozen and shuffled at every K, new-fact accuracy 1.0, R4096 K-slope below 0.30 and Pareto non-dominated. Matched-quality break-even is the first R in 1,4,16,256,4096 where main complete workload is below every complete implementable control whose accuracy differs from main by at most 0.02; report none and fail success if absent. Immutable candidate commitment: shared core SHA-256 87d48db86db44ed45918495991fb5538d97433041acbdc597e457a62057f6b4c; learned wrapper ddbcf89098c83d18a8a113ab5f66b84f95f5c1498c94738a9334ea1ba13d0118; dense wrapper cb42230d3fdcd0af343725ada79e272b032fca266f3f0138187c27f22846ebb8; frozen wrapper db40b886cba495e603f58d311171945dc40e3f780d8beb8cb79ad0fc81217761; shuffled wrapper e753572ce46d51960f47838707c3fcb7befa3d2df31654c46b00a3bf3b8ba27e; protected candidate-bundle digest cf3ee0106678325c826c2567ae9cf36424335a9f875b1a12211a04174373a2e8.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16",
+    "workload_ops_r256",
+    "workload_ops_r4096"
+  ],
+  "promotion_criteria": [
+    "No promotion is permitted from this quick. The full conjunction only authorizes byte-identical three-runner-seed adversarial replication."
+  ],
+  "research_question": "Can one source-identical pair-trained representation support node-conditional bounded hierarchical routing with dense-level quality, local insertion and sub-0.30 complete R4096 K-slope, while beating frozen, shuffled and classical metric-tree controls at matched quality?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Exact child: learned balanced hierarchical routing from raw observations"
+}

@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T17:32:52Z
+Generated: 2026-09-01T17:46:14Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1141,6 +1141,21 @@ Pareto axes: maximize `accuracy, warm_accuracy, continual_new_fact_accuracy, con
 | EXP-20260901-0054 | raw_nearest_neighbour_scan_v1 | implementable | complete | 1 | 1 | 3.694e+05 | 24 | 1.97e+06 | 9.659e+07 | 0.9995 (3) | 1.25479e+06 | yes |
 | EXP-20260901-0054 | local_dense_transition_gru_v1 | implementable | complete | 0 | 1 | 5.615e+04 | 24 | 1.109e+05 | 1.502e+09 | 0 (3) | 25588 |  |
 | EXP-20260901-0054 | privileged_exact_entity_key_v1 | privileged support control | complete | 1 | 1 | 28.33 | 24 | 261.3 | 2.066e+05 | 5.58e-32 (3) | 76824 |  |
+
+## latent_entity_binding_retrieval_v3 / quick
+
+Pareto axes: maximize `accuracy, warm_accuracy, continual_new_fact_accuracy, continual_retention`; minimize `data_acquisition_ops, fit_ops, mean_query_ops, mean_warm_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16, workload_ops_r256, workload_ops_r4096`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0056 | learned_balanced_hierarchical_router_v1 | implementable | complete | 0.9236 | 1 | 9900 | 24 | 1.496e+04 | 4.204e+09 | 0.1276 (3) | 469457 |  |
+| EXP-20260901-0056 | source_identical_dense_hierarchical_representation_v1 | implementable | complete | 0.9236 | 1 | 2.489e+05 | 24 | 3.803e+05 | 4.266e+09 | 0.9291 (3) | 469457 |  |
+| EXP-20260901-0056 | source_identical_frozen_hierarchical_router_v1 | implementable | complete | 1 | 1 | 9849 | 24 | 1.49e+04 | 5.347e+07 | 0.1356 (3) | 469457 | yes |
+| EXP-20260901-0056 | source_identical_shuffled_hierarchical_router_v1 | implementable | complete | 0.8056 | 1 | 1.084e+04 | 24 | 1.611e+04 | 4.204e+09 | 0.1195 (3) | 469457 |  |
+| EXP-20260901-0056 | raw_balanced_kd_tree_v1 | implementable | complete | 1 | 1 | 4010 | 24 | 1.16e+04 | 2.658e+06 | 0.259 (3) | 1.2836e+06 | yes |
+| EXP-20260901-0056 | raw_nearest_neighbour_scan_v1 | implementable | complete | 1 | 1 | 3.694e+05 | 24 | 1.97e+06 | 9.659e+07 | 0.9995 (3) | 1.25479e+06 | yes |
+| EXP-20260901-0056 | local_dense_transition_gru_v1 | implementable | complete | 0 | 1 | 5.615e+04 | 24 | 1.109e+05 | 1.502e+09 | 0 (3) | 25588 |  |
+| EXP-20260901-0056 | privileged_exact_entity_key_v1 | privileged support control | complete | 1 | 1 | 28.33 | 24 | 261.3 | 2.066e+05 | 5.58e-32 (3) | 76824 |  |
 
 ## noisy_nonexhaustive_causal_transfer_v3 / quick
 
