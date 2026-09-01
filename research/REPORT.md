@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T01:36:10Z
+Generated: 2026-09-01T01:48:59Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -669,13 +669,24 @@ Pareto axes: maximize `stable_rollout_rate`; minimize `normalized_rmse, worst_fi
 | EXP-20260901-0015 | wt_source_identical_single_scale_lifting_v1 | implementable | crash | - | 1 | - | - | - | - | - (3) | - |  |
 | EXP-20260901-0015 | wt_source_identical_frozen_lifting_v1 | implementable | crash | - | 1 | - | - | - | - | - (3) | - |  |
 | EXP-20260901-0015 | wt_persistence_v1 | implementable | complete | 0.4816 | 1 | 960 | 321 | 1.024e+04 | 7.599e+06 | 0 (3) | 0 | yes |
-| EXP-20260901-0015 | wt_pooled_mean_v1 | implementable | complete | 0.4882 | 1 | 960 | 321 | 1.024e+04 | 7.61e+06 | 0 (3) | 2560 | yes |
+| EXP-20260901-0015 | wt_pooled_mean_v1 | implementable | complete | 0.4882 | 1 | 960 | 321 | 1.024e+04 | 7.61e+06 | 0 (3) | 2560 |  |
 | EXP-20260901-0015 | wt_control_level_bank_v1 | implementable | complete | 0.4988 | 1 | 1920 | 321 | 1.024e+04 | 7.887e+06 | 0 (3) | 10240 | yes |
 | EXP-20260901-0015 | wt_lms_v1 | implementable | complete | 0.4237 | 1 | 6.144e+04 | 321 | 9.216e+04 | 2.573e+07 | 0 (3) | 253952 |  |
 | EXP-20260901-0015 | wt_rls_v1 | implementable | complete | 0.4251 | 1 | 6.144e+04 | 321 | 1.004e+05 | 2.58e+07 | 0 (3) | 270336 |  |
 | EXP-20260901-0015 | wt_transition_bank_v1 | implementable | complete | 0.49 | 1 | 2040 | 321 | 1.237e+04 | 7.944e+06 | -6.39e-31 (3) | 105168 |  |
 | EXP-20260901-0015 | wt_bounded_replay_v1 | implementable | complete | 0.4482 | 1 | 7072 | 321 | 1.664e+04 | 9.378e+06 | 0 (3) | 264448 |  |
 | EXP-20260901-0015 | wt_ridge_fir_v1 | implementable | complete | 0.4139 | 1 | 6.144e+04 | 321 | 1.024e+04 | 2.542e+07 | 0 (3) | 90112 |  |
+| EXP-20260901-0017 | wt_multiresolution_lifting_v1 | implementable | complete | 0.5343 | 1 | 1.373e+04 | 321 | 2.778e+04 | 1.203e+07 | 0 (3) | 6528 | yes |
+| EXP-20260901-0017 | wt_source_identical_single_scale_lifting_v1 | implementable | complete | 0.5343 | 1 | 1.373e+04 | 321 | 2.778e+04 | 1.203e+07 | 0 (3) | 6528 | yes |
+| EXP-20260901-0017 | wt_source_identical_frozen_lifting_v1 | implementable | complete | 0.495 | 1 | 1.373e+04 | 321 | 2.778e+04 | 1.203e+07 | 0 (3) | 6528 |  |
+| EXP-20260901-0017 | wt_persistence_v1 | implementable | complete | 0.4816 | 1 | 960 | 321 | 1.024e+04 | 7.599e+06 | 0 (3) | 0 | yes |
+| EXP-20260901-0017 | wt_pooled_mean_v1 | implementable | complete | 0.4882 | 1 | 960 | 321 | 1.024e+04 | 7.61e+06 | 0 (3) | 2560 | yes |
+| EXP-20260901-0017 | wt_control_level_bank_v1 | implementable | complete | 0.4988 | 1 | 1920 | 321 | 1.024e+04 | 7.887e+06 | 0 (3) | 10240 |  |
+| EXP-20260901-0017 | wt_lms_v1 | implementable | complete | 0.4237 | 1 | 6.144e+04 | 321 | 9.216e+04 | 2.573e+07 | 0 (3) | 253952 |  |
+| EXP-20260901-0017 | wt_rls_v1 | implementable | complete | 0.4251 | 1 | 6.144e+04 | 321 | 1.004e+05 | 2.58e+07 | 0 (3) | 270336 |  |
+| EXP-20260901-0017 | wt_transition_bank_v1 | implementable | complete | 0.49 | 1 | 2040 | 321 | 1.237e+04 | 7.944e+06 | -6.39e-31 (3) | 105168 |  |
+| EXP-20260901-0017 | wt_bounded_replay_v1 | implementable | complete | 0.4482 | 1 | 7072 | 321 | 1.664e+04 | 9.378e+06 | 0 (3) | 264448 |  |
+| EXP-20260901-0017 | wt_ridge_fir_v1 | implementable | complete | 0.4139 | 1 | 6.144e+04 | 321 | 1.024e+04 | 2.542e+07 | 0 (3) | 90112 |  |
 
 ## heterogeneous_module_composition_v1 / quick
 

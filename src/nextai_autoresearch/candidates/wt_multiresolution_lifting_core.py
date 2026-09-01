@@ -20,8 +20,10 @@ def _matrix(value, *, pad: bool = False) -> np.ndarray:
     result = np.asarray(value, dtype=np.float64)
     if result.ndim != 2 or result.shape[1] != WIDTH or not np.isfinite(result).all():
         raise ValueError("WT lifting tensors must be finite ten-channel matrices")
-    if pad and len(result) < LENGTH:
-        result = np.concatenate((result, np.repeat(result[-1:], LENGTH - len(result), axis=0)))
+    if pad:
+        result = result[:LENGTH]
+        if len(result) < LENGTH:
+            result = np.concatenate((result, np.repeat(result[-1:], LENGTH - len(result), axis=0)))
     if len(result) != LENGTH:
         raise ValueError("WT lifting tensors must have length 32")
     return result
@@ -151,4 +153,3 @@ class LiftingCandidate(CandidateBase):
 
 class Candidate(LiftingCandidate):
     """Auditable standalone entry for the shared lifting implementation."""
-

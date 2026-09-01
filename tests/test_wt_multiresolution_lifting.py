@@ -91,3 +91,21 @@ def test_frozen_lifting_charges_but_does_not_mutate() -> None:
     assert candidate.last_update_bytes > 0
     assert np.array_equal(candidate._slots[query.slot], before)
 
+
+def test_all_roles_normalize_h16_h32_h96_reveals_to_the_same_first_32() -> None:
+    query = _query(slot=606, horizon=96)
+    first = np.asarray(query.history)[:16] + 0.25
+    target32 = np.concatenate((first, np.repeat(first[-1:], 16, axis=0)))
+    target96 = np.concatenate((target32, np.repeat((target32[-1] + 7.0)[None, :], 64, axis=0)))
+    for name in ROLES:
+        states, accounting = [], []
+        for target in (first, target32, target96):
+            candidate = _candidate(name)
+            candidate.update(WTReveal(
+                query.slot, query.history, query.control, tuple(map(tuple, target)),
+            ))
+            states.append(candidate._slots[query.slot].copy())
+            accounting.append((candidate.update_ops, candidate.last_update_bytes))
+        assert np.allclose(states[0], states[1], atol=1e-12)
+        assert np.allclose(states[1], states[2], atol=1e-12)
+        assert accounting[0] == accounting[1] == accounting[2]
