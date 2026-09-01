@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "cycle": 206,
+  "created_at": "2026-09-01T13:28:25Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "hypothesis_created": false,
+  "experiment_created": false,
+  "plan_created": false,
+  "seed_realized": false,
+  "candidate_created": false,
+  "cohort_changed": false,
+  "decision": "reject_observationally_redundant_or_vacuous_equational_rewrite_on_v6",
+  "observations": {
+    "existing_bidirectional_equation_closure": "operator_algebra_completion",
+    "existing_causal_experiment": "EXP-20260830-0057",
+    "existing_result": "mean_accuracy_0.625_minimum_accuracy_0.0_no_capability_frontier",
+    "v6_checked_seeds": [1501103, 734827148, 405583788, 808114446],
+    "v6_involution_relations": 0,
+    "v6_pairwise_cancellation_relations": 0,
+    "v6_test_lengths": [4, 8, 16],
+    "v6_exact_controls_present": [
+      "operator_interpreter",
+      "operator_canonical_table_cache",
+      "operator_anti_unification_cache",
+      "operator_exact_key_cache",
+      "operator_structural_result_cache"
+    ]
+  },
+  "reviewed_sha256": {
+    "src/nextai_autoresearch/candidates/operator_algebra_core.py": "c4e1f3ea073a90eeea45cffef276220b2967a5de30917b646970930cdd8104a2",
+    "src/nextai_autoresearch/benchmarks/heldout_mechanism_recombination_v6.py": "852899f7d30e96b09549151ee6b2ec6a21a4d302fddc219624cc19903ada9f58",
+    "src/nextai_autoresearch/benchmarks/heldout_mechanism_recombination_v4.py": "796088b7969f26b7a0156beb557fa0d269ead33d646c555420fbb4666c655692",
+    "src/nextai_autoresearch/operator_experience_contract.py": "61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571",
+    "research/analyses/EXP-20260830-0057.md": "9a8fdbc990e85815ae9a792d49b99ec3524c43c8602afcd18e4b929bd5956e42",
+    "research/analyses/EXP-20260901-0003.md": "6156eb42eea092a7ee81f7c6ec37c10959d4c00dcc4115173880e148309da291",
+    "research/analyses/EXP-20260901-0021.md": "b5ec131d5b720c82ed10f0502ceae65306a16f9c19b60da73363dbeb2b07cde3",
+    "research/reviews/GEN-1-EQUATIONAL-REWRITE-REDUNDANCY-AUDIT-CYCLE-206-2026-09-01.md": "f2e6fd4393c4e1dca0137405dcb075ac82815079a428cca3237b0a2b788c237f"
+  },
+  "gates": {
+    "report_generated": true,
+    "pytest_passed": 558,
+    "integrity_passed": true,
+    "integrity_files_verified": 724,
+    "doctor_passed": true
+  },
+  "consecutive_no_scoring_cycles": 1,
+  "max_consecutive_no_scoring_cycles": 3,
+  "next_cycle_must_score": true
+}
