@@ -756,6 +756,22 @@
       "implementation_files": {"src/nextai_autoresearch/candidates/wt_train_only_discretized_cssr_v1.py":"f92f91d99e4585d0849998a0a6ca4e7fd34da255516adc3f31e4dbf720d8f99d","src/nextai_autoresearch/candidates/wt_predictive_state_controls_core.py":"0ac4334fab835b5f83eaf6b3516a6ead22c3485c77317d470026eb77ca160513"},
       "conformance_tests": [{"path":"tests/test_wt_predictive_state_controls.py","node_id":"tests/test_wt_predictive_state_controls.py::test_cssr_uses_variable_order_predictive_states_not_first_order_aliases","sha256":"f11ba5efd8e9e7e2650d418cf70e0051756ed789f9678fce54cbc0ec6ef4ded0"},{"path":"tests/test_wt_predictive_state_controls.py","node_id":"tests/test_wt_predictive_state_controls.py::test_both_controls_update_only_the_revealed_slot","sha256":"f11ba5efd8e9e7e2650d418cf70e0051756ed789f9678fce54cbc0ec6ef4ded0"},{"path":"tests/test_wt_predictive_state_controls.py","node_id":"tests/test_wt_predictive_state_controls.py::test_both_controls_are_anonymous_channel_permutation_equivariant","sha256":"f11ba5efd8e9e7e2650d418cf70e0051756ed789f9678fce54cbc0ec6ef4ded0"},{"path":"tests/test_wt_predictive_state_controls.py","node_id":"tests/test_wt_predictive_state_controls.py::test_both_controls_complete_real_file_development_cell","sha256":"f11ba5efd8e9e7e2650d418cf70e0051756ed789f9678fce54cbc0ec6ef4ded0"}]
     },
+    "learned_pushdown_masked_byte": {
+      "baseline_id": "hypothesis_observation_induced_pushdown_v1",
+      "version": 1,
+      "specification": {"role":"tested scout candidate; not a classical baseline","alphabet":"exactly seven anonymous first-occurrence-ranked symbols","grammar_search":"each separator times all 120 directed perfect pairings; maximize valid bytes then valid records then minimize violations; first perfect grammar stops","query":"left-to-right deterministic push/pop over immutable snapshot; MASK predicts and pops current stack top; uniform fallback","source_identity":"full, depth-two and frozen-transition roles share one core and constants; only stack capacity or balance-score learning differs","invariance":"all enumeration and ties use first-occurrence ranks, never numeric byte values"},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/learned_pushdown_masked_byte_core.py": "3069f88d1fdfcaefcd07df08f34341814126650b48f449ff2ff90ace19c91cd6",
+        "src/nextai_autoresearch/candidates/learned_pushdown_masked_byte.py": "71c394b3331c3e19c2167bc6603ecc5f256ed69bf6b058d24990ac563c4135b0",
+        "src/nextai_autoresearch/candidates/source_identical_finite_state_pushdown_masked_byte.py": "092b8755444299fc158921254d40beb5eb095c8a7076e711d6be6ef262074549",
+        "src/nextai_autoresearch/candidates/source_identical_frozen_pushdown_masked_byte.py": "7fb717a5d3fcf576c96657d4576b4cd1ab8c65c5352007f0464db51e6f4d8f5a"
+      },
+      "conformance_tests": [
+        {"path":"tests/test_learned_pushdown_masked_byte.py","node_id":"tests/test_learned_pushdown_masked_byte.py::test_roles_share_core_constants_and_fit_grammar","sha256":"ca5d2331e74e529c94f4799dd2dca03703303577ee8f9bd42a9d32416f2a2896"},
+        {"path":"tests/test_learned_pushdown_masked_byte.py","node_id":"tests/test_learned_pushdown_masked_byte.py::test_full_stack_extrapolates_and_bounded_or_frozen_cannot_complete","sha256":"ca5d2331e74e529c94f4799dd2dca03703303577ee8f9bd42a9d32416f2a2896"},
+        {"path":"tests/test_learned_pushdown_masked_byte.py","node_id":"tests/test_learned_pushdown_masked_byte.py::test_fit_and_query_commute_with_consistent_symbol_relabeling","sha256":"ca5d2331e74e529c94f4799dd2dca03703303577ee8f9bd42a9d32416f2a2896"}
+      ]
+    },
     "shared_invariant_residual_module_v1": {
       "baseline_id": "hypothesis_anonymous_invariant_residual_modules_v1",
       "version": 1,
