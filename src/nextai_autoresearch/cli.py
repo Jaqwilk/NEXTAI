@@ -439,7 +439,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
         masked = config.raw["masked_refinement"]
         stack = config.raw.get("stack_depth", {})
         is_stack = config.benchmark_version.endswith(
-            ("_v8", "_v9", "_v10", "_v11", "_v12")
+            ("_v8", "_v9", "_v10", "_v11", "_v12", "_v13")
         )
         active = stack if is_stack else masked
         if config.benchmark_version in {
@@ -453,6 +453,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_parallel_masked_infilling_v10",
             "heldout_parallel_masked_infilling_v11",
             "heldout_parallel_masked_infilling_v12",
+            "heldout_parallel_masked_infilling_v13",
         }:
             plan["matrix"]["knowledge_sizes"] = list(active["knowledge_sizes"])
             plan["matrix"]["reasoning_depths"] = list(
@@ -485,6 +486,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_parallel_masked_infilling_v10",
             "heldout_parallel_masked_infilling_v11",
             "heldout_parallel_masked_infilling_v12",
+            "heldout_parallel_masked_infilling_v13",
         }:
             if is_stack:
                 contract = (
@@ -496,7 +498,9 @@ def command_plan_new(args: argparse.Namespace) -> int:
                     "training_max_depth": int(stack["training_max_depth"]),
                     "test_depths": list(stack["stack_depths"]),
                     "task_unit": (
-                        "balanced_real_python_closure_chain"
+                        "balanced_real_python_recoverable_push_chain"
+                        if config.benchmark_version.endswith("_v13")
+                        else "balanced_real_python_closure_chain"
                         if config.benchmark_version.endswith(
                             ("_v9", "_v10", "_v11", "_v12")
                         )

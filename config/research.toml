@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_parallel_masked_infilling_v12"
+benchmark_version = "heldout_parallel_masked_infilling_v13"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -192,7 +192,7 @@ invalidation_rules = [
   "Invalidate unless training traces have maximum delimiter depth two and held-out scoring traces have exact depths three, four and five.",
   "Invalidate if an implementable role receives source paths, unpermuted delimiters, token kinds or hand-written opener/closer identities.",
   "Invalidate unless all pushdown roles share code and constants and differ only in learned stack state, bounded finite state or frozen transition learning.",
-  "Invalidate if a public query exposes the masked closer, another test slot, or an evaluator-private delimiter identity.",
+  "Invalidate if a public query exposes any masked target, another test slot, or an evaluator-private delimiter identity.",
   "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
 ]
 
