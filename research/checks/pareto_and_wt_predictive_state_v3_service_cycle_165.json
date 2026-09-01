@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "cycle": 165,
+  "created_at": "2026-09-01T03:27:51Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "completed_experiments_before": 72,
+  "completed_experiments_after": 72,
+  "git_before": "649cf0ef7d68fd97d3f95fac1a4459ca79da283d",
+  "pareto_diagnosis": {
+    "runner_sha256": "cef3329f0dacf5a55f7e2064ab476198e34a9dfcd209a70a936753d8b1115b80",
+    "minimum_screen_accuracy": 0.95,
+    "privileged_excluded_before_frontier": true,
+    "synthetic_implementable_tradeoff_front": [
+      "cheap_implementable",
+      "accurate_implementable"
+    ],
+    "synthetic_below_gate_front": [],
+    "exp_0022_implementable_accuracies": {
+      "learned_sparse_continuous_local_rule": 0.20833333333333334,
+      "continuous_local_ridge": 0.2638888888888889
+    },
+    "conclusion": "EXP-0022 frontier was empty because every implementable candidate failed the frozen 0.95 capability gate; privileged support did not enter dominance. No runner repair is required."
+  },
+  "wt_v3_prospective_contract": {
+    "benchmark": "heldout_wt_changepoints_prequential_v3",
+    "active": false,
+    "reason": "Preflight/doctor correctly rejected activation until both new mandatory controls have real semantic registrations and discriminating tests.",
+    "v1_sha256": "ddfb3c376c2f7eaf3b56e0825e313afcb56169d5d5e784888de280f37abdce9a",
+    "v2_sha256": "6287840ddf31653cfbf1bf1f5b7ce92a653d0f33f211d05e30fdacaf74a1bfa1",
+    "v3_sha256": "225f28d33a3865e1e6cad63870a56d809428de60c21deda3eb0df37100918563",
+    "schema_sha256": "0efef2bd1cadd65bff52d12dc7481987f2f6920bb9cdd66a081c95c1c4d2d157",
+    "v3_test_sha256": "85a1f8541985d853d7352a7699069eafddd97a917f7debc58e53876f06046ca7",
+    "corpus_files": 10,
+    "corpus_manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "archive_sha256": "a247ecd867aadb99f524f4cfcb22ded28e550b069ffd10f4df477c036e8a3979",
+    "train_files": [0, 1, 2, 3, 4, 5],
+    "development_files": [6, 7],
+    "test_files": [8, 9],
+    "causal_roles": [
+      "wt_action_conditioned_predictive_state_v1",
+      "wt_source_identical_frozen_predictive_state_v1",
+      "wt_source_identical_observation_history_v1"
+    ],
+    "new_mandatory_controls": [
+      "wt_coverage_aware_spectral_psr_v1",
+      "wt_train_only_discretized_cssr_v1"
+    ]
+  },
+  "next_cycle": "Implement and semantically register only the two mandatory WT controls, activate/freeze v3 after full PASS, and perform no scoring. The immediately following wake must preregister and score one predictive-state quick."
+}

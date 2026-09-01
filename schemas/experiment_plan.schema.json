@@ -585,18 +585,37 @@
         "candidate_metadata": {"const": "anonymous_permuted_tensors_and_random_slot_only"},
         "predict_then_atomic_artifact_then_reveal": {"const": true},
         "shared_candidate": {"enum": [
-          "wt_candidate_under_test", "wt_multiresolution_lifting_v1"
+          "wt_candidate_under_test", "wt_multiresolution_lifting_v1",
+          "wt_action_conditioned_predictive_state_v1"
         ]},
-        "causal_roles": {"const": [
-          "wt_multiresolution_lifting_v1",
-          "wt_source_identical_single_scale_lifting_v1",
-          "wt_source_identical_frozen_lifting_v1"
+        "causal_roles": {"oneOf": [
+          {"const": [
+            "wt_multiresolution_lifting_v1",
+            "wt_source_identical_single_scale_lifting_v1",
+            "wt_source_identical_frozen_lifting_v1"
+          ]},
+          {"const": [
+            "wt_action_conditioned_predictive_state_v1",
+            "wt_source_identical_frozen_predictive_state_v1",
+            "wt_source_identical_observation_history_v1"
+          ]}
         ]},
-        "source_identical_contract": {"const": "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1"},
-        "classical_baselines": {"const": [
-          "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
-          "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
-          "wt_bounded_replay_v1", "wt_ridge_fir_v1"
+        "source_identical_contract": {"enum": [
+          "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1",
+          "history_future_windows_rank_features_control_conditioning_constants_initialization_fit_order_update_schedule_and_output_identical_except_preregistered_predictive_state_learning_freeze_or_observation_history_projection_v1"
+        ]},
+        "classical_baselines": {"oneOf": [
+          {"const": [
+            "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+            "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+            "wt_bounded_replay_v1", "wt_ridge_fir_v1"
+          ]},
+          {"const": [
+            "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+            "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+            "wt_bounded_replay_v1", "wt_ridge_fir_v1",
+            "wt_coverage_aware_spectral_psr_v1", "wt_train_only_discretized_cssr_v1"
+          ]}
         ]},
         "knowledge_sizes": {"const": [18, 36, 54]},
         "fit_depth": {"const": 32},
@@ -1010,7 +1029,53 @@
           "wt_prequential_protocol": {
             "required": ["causal_roles", "source_identical_contract"],
             "properties": {
-              "shared_candidate": {"const": "wt_multiresolution_lifting_v1"}
+              "shared_candidate": {"const": "wt_multiresolution_lifting_v1"},
+              "causal_roles": {"const": [
+                "wt_multiresolution_lifting_v1",
+                "wt_source_identical_single_scale_lifting_v1",
+                "wt_source_identical_frozen_lifting_v1"
+              ]},
+              "source_identical_contract": {"const": "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1"},
+              "classical_baselines": {"const": [
+                "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+                "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+                "wt_bounded_replay_v1", "wt_ridge_fir_v1"
+              ]}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_wt_changepoints_prequential_v3"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {"allOf": [
+            {"contains": {"const": "wt_action_conditioned_predictive_state_v1"}},
+            {"contains": {"const": "wt_source_identical_frozen_predictive_state_v1"}},
+            {"contains": {"const": "wt_source_identical_observation_history_v1"}},
+            {"contains": {"const": "wt_coverage_aware_spectral_psr_v1"}},
+            {"contains": {"const": "wt_train_only_discretized_cssr_v1"}}
+          ]},
+          "wt_prequential_protocol": {
+            "required": ["causal_roles", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "wt_action_conditioned_predictive_state_v1"},
+              "causal_roles": {"const": [
+                "wt_action_conditioned_predictive_state_v1",
+                "wt_source_identical_frozen_predictive_state_v1",
+                "wt_source_identical_observation_history_v1"
+              ]},
+              "source_identical_contract": {"const": "history_future_windows_rank_features_control_conditioning_constants_initialization_fit_order_update_schedule_and_output_identical_except_preregistered_predictive_state_learning_freeze_or_observation_history_projection_v1"},
+              "classical_baselines": {"const": [
+                "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+                "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+                "wt_bounded_replay_v1", "wt_ridge_fir_v1",
+                "wt_coverage_aware_spectral_psr_v1", "wt_train_only_discretized_cssr_v1"
+              ]}
             }
           }
         }

@@ -380,6 +380,23 @@ candidate implementation. Historical WT v1 plans, results and manifests remain
 immutable and cohort-separated. The migration creates no hypothesis, plan,
 seed, candidate or scored result.
 
+Version 3 is a service-only successor to WT v2. It preserves all ten CSV
+hashes, whole-file splits, train-only normalization, anonymous channel
+permutation, artifact-before-reveal ordering, K/H matrix, metrics, directions,
+meaningful-effect threshold, state cap, cost formulas, seed policy, Pareto axes
+and the eight historical controls. It changes only the three prospective causal
+role identifiers to an action-conditioned predictive-state learner, its
+source-identical frozen-state ablation and its source-identical observation-
+history ablation, and adds coverage-aware spectral PSR and train-only
+discretized CSSR as mandatory implementable controls. All three causal roles
+must share windows, rank, features, control conditioning, constants,
+initialization, fit order, update schedule and output code except for the
+preregistered state-learning, freeze and history-projection interventions.
+No candidate, hypothesis, plan, seed or score is created by this prospective
+contract. V3 remains inactive maintenance until both added controls have exact
+semantic registrations and discriminating tests; only then may a separate
+service wake activate and freeze the cohort.
+
 ## Three-family continuous transfer v2 Pareto contract
 
 Version 2 preserves every world, split, tensor, normalization, causal assignment, baseline, metric value and budget from `heldout_three_family_continuous_transfer_v1`. It changes only prospective decision semantics. Historical v1 plans and results remain immutable and are never recomputed.

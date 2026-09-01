@@ -26,7 +26,13 @@ SOURCE_CONTRACT = (
 
 def _plan() -> dict:
     config = load_config(project_root())
-    wt = config.raw["wt_prequential"]
+    wt = copy.deepcopy(config.raw["wt_prequential"])
+    wt.update({
+        "shared_candidate": ROLES[0],
+        "causal_ablation_1": ROLES[1],
+        "causal_ablation_2": ROLES[2],
+        "classical_baselines": list(v2.BASELINES),
+    })
     metrics = [
         "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
         "worst_transition_normalized_rmse", "rollout_16_nrmse", "rollout_32_nrmse",
@@ -95,16 +101,28 @@ def test_v2_reexports_v1_numerics_and_freezes_only_future_roles() -> None:
     active = load_config(project_root())
     raw = copy.deepcopy(active.raw)
     raw["project"]["benchmark_version"] = v2.BENCHMARK_VERSION
+    raw["wt_prequential"].update({
+        "shared_candidate": ROLES[0],
+        "causal_ablation_1": ROLES[1],
+        "causal_ablation_2": ROLES[2],
+        "classical_baselines": list(v2.BASELINES),
+    })
     assert _wt_prequential_protocol(ResearchConfig(raw, active.path)) == (
         plan["wt_prequential_protocol"]
     )
 
 
-def test_v2_schema_rejects_missing_or_mislabeled_causal_role() -> None:
-    for mutation in ("missing", "mislabeled"):
+def test_v2_schema_rejects_missing_mislabeled_or_v3_causal_role() -> None:
+    for mutation in ("missing", "mislabeled", "v3"):
         plan = copy.deepcopy(_plan())
         if mutation == "missing":
             plan["candidates"].remove(ROLES[1])
+        elif mutation == "v3":
+            plan["wt_prequential_protocol"]["causal_roles"] = [
+                "wt_action_conditioned_predictive_state_v1",
+                "wt_source_identical_frozen_predictive_state_v1",
+                "wt_source_identical_observation_history_v1",
+            ]
         else:
             plan["wt_prequential_protocol"]["causal_roles"][1] = "wt_lms_v1"
         with pytest.raises(ValidationError):

@@ -188,7 +188,7 @@ def _wt_prequential_protocol(config: ResearchConfig) -> dict[str, Any]:
         ],
         "invalidation_rules": list(wt["invalidation_rules"]),
     }
-    if config.benchmark_version.endswith("_v2"):
+    if config.benchmark_version == "heldout_wt_changepoints_prequential_v2":
         protocol.update({
             "causal_roles": [
                 str(wt["shared_candidate"]), str(wt["causal_ablation_1"]),
@@ -196,6 +196,15 @@ def _wt_prequential_protocol(config: ResearchConfig) -> dict[str, Any]:
             ],
             "source_identical_contract":
                 "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1",
+        })
+    elif config.benchmark_version == "heldout_wt_changepoints_prequential_v3":
+        protocol.update({
+            "causal_roles": [
+                str(wt["shared_candidate"]), str(wt["causal_ablation_1"]),
+                str(wt["causal_ablation_2"]),
+            ],
+            "source_identical_contract":
+                "history_future_windows_rank_features_control_conditioning_constants_initialization_fit_order_update_schedule_and_output_identical_except_preregistered_predictive_state_learning_freeze_or_observation_history_projection_v1",
         })
     return protocol
 
