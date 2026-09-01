@@ -1,0 +1,178 @@
+{
+  "alternative_explanations": [
+    "Stable relation clustering may only regularize local ridge or may collapse to a mixture of linear experts already covered by classical controls."
+  ],
+  "architecture_family": "anonymous_invariant_residual_modules",
+  "benchmark": "heldout_three_family_continuous_transfer_v8",
+  "budget": "quick",
+  "candidates": [
+    "shared_invariant_residual_module_v1",
+    "independent_invariant_residual_module_v1",
+    "cross_family_only_invariant_residual_module_v1",
+    "support_only_invariant_residual_module_v1",
+    "pooled_without_invariance_residual_module_v1",
+    "frozen_partition_invariant_residual_module_v1",
+    "tensor_persistence_v1",
+    "tensor_ridge_arx_v1",
+    "tensor_rls_arx_v1",
+    "tensor_empirical_gaussian_joint_v1",
+    "tensor_contextual_gaussian_chow_liu_v1",
+    "tensor_autoregressive_v1",
+    "tensor_raw_window_local_linear_v1",
+    "tensor_random_projection_hash_v1",
+    "privileged_tensor_support_v1"
+  ],
+  "confounds": [
+    "The three native families have different valid widths; any width or mask routing invalidates rather than supporting transfer."
+  ],
+  "continuous_transfer_protocol": {
+    "causal_promotion_gates": [
+      "shared_vs_independent_gain",
+      "cross_family_transfer_gain"
+    ],
+    "classical_baselines": [
+      "tensor_persistence_v1",
+      "tensor_ridge_arx_v1",
+      "tensor_rls_arx_v1",
+      "tensor_empirical_gaussian_joint_v1",
+      "tensor_contextual_gaussian_chow_liu_v1",
+      "tensor_autoregressive_v1",
+      "tensor_raw_window_local_linear_v1",
+      "tensor_random_projection_hash_v1",
+      "privileged_tensor_support_v1"
+    ],
+    "cross_family_only_ablation": "cross_family_only_invariant_residual_module_v1",
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "families": [
+      "ncmapss_ds08a",
+      "dronepropa",
+      "continuous_event"
+    ],
+    "family_labels": "evaluator_private",
+    "independent_ablation": "independent_invariant_residual_module_v1",
+    "invalidation_rules": [
+      "Invalidate if any candidate receives a family label, source path, native type or semantic channel name.",
+      "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
+      "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
+      "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+      "Invalidate if any invariant-module role reads World.slot or uses a tensor mask signature, valid width or family-identifying shape as a routing key.",
+      "Invalidate unless all six causal roles share relation extraction, module representation, fit order, prediction, update, constants and accounting, differing only in assigned training scope, disabled environment-stability selection or frozen partition.",
+      "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
+      "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
+      "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change."
+    ],
+    "loss": "family_balanced_masked_normalized_mse",
+    "normalization": "masked_training_worlds_only",
+    "pareto_capability_metrics": [
+      "transfer_accuracy",
+      "minimum_family_accuracy",
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "privileged_support_control": "privileged_tensor_support_v1",
+    "semantic_channel_alignment": "forbidden",
+    "shared_candidate": "shared_invariant_residual_module_v1",
+    "state_budget_bytes": 67108864,
+    "support_only_ablation": "support_only_invariant_residual_module_v1",
+    "tensor_contract_sha256": "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
+  },
+  "created_at": "2026-09-01T09:36:41Z",
+  "evaluator_sha256": "a5845f6dcb25024a344d94df203e784d8bc9ae86463bce8638a169d38a822811",
+  "experiment_id": "EXP-20260901-0038",
+  "falsification_criteria": [
+    "Discard on any frozen per-family quality margin, causal-gain, stability, worst-family, accounting, state or Pareto failure; invalidate on slot access, mask/family routing, leakage, source mismatch, post-score tuning, seed leakage, external model/API, preflight or integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "f7261f4670ba15d59c1c471f9e24949f7b875530",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0049",
+  "matrix": {
+    "knowledge_sizes": [
+      4,
+      6,
+      9
+    ],
+    "queries_per_cell": 128,
+    "reasoning_depths": [
+      1
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "cross_family_transfer_gain": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "shared_vs_independent_gain": "maximize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "End this exact signature, radius, cap, stability gate, four-relation ridge and clipping rule without tuning or replication.",
+    "null": "If stability beats nulls but not classical controls at full cost, preserve the causal diagnostic and falsify the capability-cost conjunction.",
+    "positive": "Keep only as one-seed scout evidence and preregister an unchanged three-seed adversarial replication."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The frozen 64-prototype environment-stability rule lowers shared NRMSE by at least 0.038356913184640073 versus all five source-identical/null roles and the strongest complete classical control in every family, keeps both transfer gains positive in every cell, remains stable and is implementably Pareto non-dominated.",
+  "primary_metrics": [
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "shared_vs_independent_gain",
+    "cross_family_transfer_gain",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; complete passage may only authorize unchanged three-seed adversarial replication."
+  ],
+  "research_question": "Can environment-stable anonymous scalar residual relations improve unseen-world transfer per full cost beyond ordinary pooling, frozen partitions, source-identical assignment controls and classical tensor predictors?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Invariant residual-module transfer scout"
+}

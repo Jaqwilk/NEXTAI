@@ -1,12 +1,12 @@
 {
   "benchmark_version": "heldout_three_family_continuous_transfer_v8",
-  "candidate_bundle_sha256": "ef870760271efe7c692c2350025e875e53f9da6a00e99f24420516561f3a791c",
-  "created_at": "2026-09-01T09:45:29Z",
+  "candidate_bundle_sha256": "a3dc325227868b205521fbbd45f17bd1e64b05241352e518f748ed639c6f4d64",
+  "created_at": "2026-09-01T09:42:06Z",
   "evaluator_sha256": "a5845f6dcb25024a344d94df203e784d8bc9ae86463bce8638a169d38a822811",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
-    "config/baseline_semantics.json": "a8024de3c5dda57753427e5aced91202dc2f6fefcc41eb5729c1f6704636d760",
+    "config/baseline_semantics.json": "086f059cfd929df98891e4b6643f1a2d819fae663b76fb5e442efc6bbbb10d48",
     "config/research.toml": "d8776e230b43e2261d85d45971616836500db471433993276f8c75953563312a",
     "docs/SCIENTIFIC_PROTOCOL.md": "525de139ffa2bd6f0b4dcdc883a06c163a8a3bfeb60079a510bfbd724bcbd007",
     "program.md": "e50270647d6d2eba47958f0a3ffcad24f72e276fdf18256b9906b43295640948",
