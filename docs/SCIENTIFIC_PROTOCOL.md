@@ -1154,3 +1154,42 @@ historical v2 object valid and adds one disjoint v3 object requiring the frozen
 hierarchical fields, roles and four controls. A mixed flat/hierarchical object
 is invalid. This service correction changes no evaluator, world, metric, cost,
 candidate, result or evidence. EXP-0055 remains reserved for a later wake.
+
+## Anonymous repeated-measurement OOD v1 maintenance outcome
+
+Cycle 240 performed the protected, service-only implementation and contract
+falsification audit of `BRIDGE-U1-U2-V1`. The evaluator fixes source dimension
+16, anonymous input dimension 32, acquisition scales K=`64/256/1024`, exactly
+two records per source, 256 single-record queries per condition, the four
+single-corruption training conditions and unseen combined-corruption S1/S2/S3
+conditions frozen in cycle 239. The target is exactly `z^T q / 16`. Main
+coordinate hiding is five-bit reversal and the adversarial hiding is
+`pi(j)=(7j+3) mod 32`.
+
+The relation graph is constructed from acquisition membership immediately
+after latent records and before probes, targets or nuisance are realized. A
+single global batch shuffle follows data generation. Correct, shuffled,
+passive, random, classical and evaluator-only oracle roles share byte-identical
+records, targets, queries, query targets and batch order; only relation tables
+or masks differ. Shuffled and random are degree-one perfect matchings with no
+true pair. Passive exposes the same interface with every relation mask false.
+Evaluation targets, latent state, nuisance labels and coordinate inverses do not
+cross the public contract.
+
+All leakage, source-identity, permutation, oracle, nuisance, scale, cost and
+classical-feasibility checks passed. Nevertheless the contract is classified
+`P3`: relation-free degree-2 polynomial ridge on the anonymous flat records
+achieves the frozen useful OOD ceiling at K=1024 (S1/S2/S3 NRMSE approximately
+0.522/0.538/0.653). Because queries are single records and the bilinear target
+is already a degree-2 function of the candidate-visible input, correct
+relations can at most alter finite-sample estimation; they do not select an
+otherwise unavailable query representation. The mandatory all-scale
+classical-control conjunction therefore cannot establish the intended
+relational discriminator.
+
+Decision `E - benchmark cannot discriminate relational advantage`. The v1
+evaluator and diagnostic history are frozen in `maintenance`; scoring is hard
+stopped, no hypothesis or experiment plan was created, no runner-random seed
+was realized, and EXP-99 was not created. This result must not be repaired by
+changing the target, thresholds, corruption, scales or controls, and no v2 may
+be opened in this cycle.

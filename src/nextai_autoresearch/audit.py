@@ -24,6 +24,25 @@ FORBIDDEN_INTERNAL_PREFIXES = (
     "nextai_autoresearch.worker",
 )
 
+RELATIONAL_PRIVATE_IDENTIFIERS = frozenset(
+    {
+        "z",
+        "q",
+        "latent",
+        "latent_records",
+        "source_id",
+        "source_ids",
+        "nuisance",
+        "oracle",
+        "role",
+        "coordinate_permutation",
+        "inverse_permutation",
+    }
+)
+RELATIONAL_ROLE_LITERALS = frozenset(
+    {"correct", "shuffled", "passive", "random", "classical", "oracle"}
+)
+
 
 @dataclass(frozen=True)
 class AuditResult:
@@ -33,6 +52,55 @@ class AuditResult:
     sha256: str | None
     problems: tuple[str, ...]
     dependencies: tuple[tuple[Path, str], ...] = ()
+
+
+def audit_relational_candidate_source(source: str) -> tuple[str, ...]:
+    """Enforce the anonymous relational evaluator's candidate boundary.
+
+    The check is separate from the legacy candidate audit so historical
+    candidates remain inspectable.  An activated relational evaluator must run
+    this check before accepting a candidate; the v1 evaluator currently stays
+    in maintenance and independently hard-stops every scoring attempt.
+    """
+
+    try:
+        tree = ast.parse(source)
+    except SyntaxError as exc:
+        return (f"candidate source does not parse: {exc}",)
+    problems: list[str] = []
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Name) and node.id.lower() in RELATIONAL_PRIVATE_IDENTIFIERS:
+            problems.append(
+                f"line {node.lineno}: evaluator-private identifier {node.id!r} is forbidden"
+            )
+        elif isinstance(node, ast.Attribute):
+            attribute = node.attr.lower()
+            if attribute in RELATIONAL_PRIVATE_IDENTIFIERS:
+                problems.append(
+                    f"line {node.lineno}: evaluator-private attribute {node.attr!r} is forbidden"
+                )
+            if attribute == "random":
+                problems.append(
+                    f"line {node.lineno}: candidate-owned randomness is forbidden by the frozen contract"
+                )
+        elif isinstance(node, ast.Constant) and isinstance(node.value, str):
+            literal = node.value.strip().lower()
+            if literal in RELATIONAL_ROLE_LITERALS:
+                problems.append(
+                    f"line {node.lineno}: role-specific literal {node.value!r} is forbidden"
+                )
+        elif isinstance(node, ast.Import):
+            for alias in node.names:
+                if alias.name.split(".", 1)[0] in {"random", "secrets"}:
+                    problems.append(
+                        f"line {node.lineno}: candidate-owned randomness import {alias.name!r} is forbidden"
+                    )
+        elif isinstance(node, ast.ImportFrom):
+            if (node.module or "").split(".", 1)[0] in {"random", "secrets"}:
+                problems.append(
+                    f"line {node.lineno}: candidate-owned randomness import {node.module!r} is forbidden"
+                )
+    return tuple(dict.fromkeys(problems))
 
 
 def candidate_path(candidate: str, root: Path | None = None) -> Path:

@@ -5,9 +5,32 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_repository_sequence_compression_v6"
-benchmark_status = "active"
+benchmark_version = "anonymous_repeated_measurement_ood_v1"
+benchmark_status = "maintenance"
 timezone = "Europe/Warsaw"
+
+[relational_ood]
+bridge_contract = "BRIDGE-U1-U2-V1"
+source_dimension = 16
+input_dimension = 32
+acquisition_scales = [64, 256, 1024]
+measurements_per_source = 2
+queries_per_condition = 256
+main_coordinate_permutation = "five_bit_reversal"
+adversarial_coordinate_permutation = "pi(j)=(7*j+3) mod 32"
+roles = ["correct", "shuffled", "passive", "random", "classical", "oracle"]
+scoring_authorized = false
+maintenance_decision = "E_no_relational_discrimination"
+ridge_regularization = 0.001
+cca_regularization = 0.001
+cca_rank = 16
+numerical_tolerance = 1e-10
+cost_fields = [
+  "acquisition_ops", "acquisition_bytes", "relation_construction_ops",
+  "relation_synchronization_ops", "preprocessing_ops", "fit_ops",
+  "query_ops", "update_ops", "bytes_touched", "state_bytes", "peak_bytes",
+  "wall_time_seconds", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
 
 [codex]
 # Codex is the only research agent. No OpenAI API client or external model is used.

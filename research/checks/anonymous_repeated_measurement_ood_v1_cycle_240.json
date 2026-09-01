@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "cycle": 240,
+  "created_at": "2026-09-01T23:19:35Z",
+  "service_only": true,
+  "bridge_contract": "BRIDGE-U1-U2-V1",
+  "benchmark": "anonymous_repeated_measurement_ood_v1",
+  "benchmark_status": "maintenance",
+  "development_fixture_seed": 240031,
+  "runner_scoring_seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "scoring_performed": false,
+  "exp_99_created": false,
+  "contract": {
+    "source_dimension": 16,
+    "input_dimension": 32,
+    "scales": [64, 256, 1024],
+    "measurements_per_source": 2,
+    "queries_per_condition": 256,
+    "train_nuisance": [[0.0625, 0.0], [0.125, 0.0], [0.0, 0.0625], [0.0, 0.125]],
+    "ood_nuisance": {
+      "s1": [0.1875, 0.1875],
+      "s2": [0.25, 0.25],
+      "s3": [0.375, 0.375]
+    },
+    "target": "y=(z_transpose_q)/16",
+    "main_permutation": "five_bit_reversal",
+    "adversarial_permutation": "pi(j)=(7*j+3) mod 32",
+    "relation_fit_only": true,
+    "single_record_query": true
+  },
+  "contract_hashes": {
+    "evaluator_file_sha256": "d70674b667e6f2ddf9b92a4fcddb1d42e41fde5a423ab8969260253a3de2afec",
+    "public_contract_sha256": "26f561268fa9dbdccc90fdfc904d70e45f9fa98671045db0a3de6d1eddf9f81b",
+    "candidate_boundary_audit_sha256": "011f77fdcde92f30f76465a94eafdef8c4e99b1b53a6330b21481b55245d9bf7",
+    "manifest_sha256": "62380acd396ecb7ea68c5b5db6c64be18353d9059b7cf1d03e9908de2da62739",
+    "evaluator_bundle_sha256": "f60b975b5128d76eee6a018fe641d2a21de2f5267e0d607290a1400b0f7d9af7",
+    "preflight_certificate_sha256": "6effd9103017e23c788fb10bb0b547b8540b9d3a34e962d7e859b4e785cf9992",
+    "preflight_file_sha256": "a40f6da3f9d16f77ff8387527490a0b8d290597367f83e588c9689c70d40e200"
+  },
+  "role_bit_identity": {
+    "pass": true,
+    "roles": ["correct", "shuffled", "passive", "random", "classical", "oracle"],
+    "records_sha256": "4c775d0a9ac4ddc6cf3d096264002ea4bc4ce1ee2778b444f42646d1bf093c6d",
+    "targets_sha256": "002531bd64deb530a7e72335e6fb94ee2b4381ac4cd1fd51816cb34d377a1f8f",
+    "query_records_sha256": "56b0234e22252eda2cff71bfe0126188417bd05a8cb2fa79ffa66bcaa55bd3e4",
+    "query_targets_sha256": "02f87d5a65307863ace1fbbc6b7fecd73415164145f39eba2e5dd279446695f2",
+    "batch_order_sha256": "5ccf19f4f2c0424bb9636387a42e899d136172cb5e410c08d271cedf5925f25d",
+    "relation_sha256": {
+      "correct": "6f8716739aba237e8d538e66282ee20efe45b778694799f40a11634a8acdd48a",
+      "shuffled": "2dbf0f800582a3b7036fa4f4f729d46e1e85e984638e13ca4f4d15e348d891ce",
+      "passive": "6f8716739aba237e8d538e66282ee20efe45b778694799f40a11634a8acdd48a",
+      "random": "c1552fa2cb00b90806a7f9df3f77e430b89f02899424e4cd961073ab18d9f653",
+      "classical": "6f8716739aba237e8d538e66282ee20efe45b778694799f40a11634a8acdd48a",
+      "oracle": "6f8716739aba237e8d538e66282ee20efe45b778694799f40a11634a8acdd48a"
+    }
+  },
+  "relation_construction": {
+    "pass": true,
+    "correct_created_before_probe_target_nuisance": true,
+    "all_relation_tables_created_before_global_batch_shuffle": true,
+    "correct": {"edges": 1024, "degree": 1, "true_pairs": 1024},
+    "shuffled": {"edges": 1024, "degree": 1, "true_pairs": 0, "fixed_points": 0},
+    "random": {"edges": 1024, "degree": 1, "true_pairs": 0},
+    "passive": {"edges": 1024, "active_edges": 0}
+  },
+  "target_leakage": {
+    "pass": true,
+    "edge_truth_target_pair_mi_bits": 0.025454722572751855,
+    "edge_truth_absolute_target_gap_correlation": 0.03701413638840987,
+    "correct_pair_target_correlation": 0.003461769912527943,
+    "source_conditional_target_distribution_exact_tv": 0.0,
+    "record_index_target_prediction_relative_gain": 0.0015497053918539505
+  },
+  "source_identity_leakage": {
+    "pass": true,
+    "chance": 0.0004885197850512946,
+    "adjacent_recall": 0.0,
+    "mirror_recall": 0.0,
+    "cyclic_recall": 0.00048828125,
+    "target_order_recall": 0.0,
+    "public_source_or_nuisance_metadata": false
+  },
+  "permutation_audit": {
+    "pass": true,
+    "both_bijections": true,
+    "oracle_targets_preserved": true,
+    "oracle_target_sha256": "ccbe529d5fd7ae981a89850e26c3bad5fdeeca9af57fa80494c9a3bf2dbc4883",
+    "public_inverse_or_split_helper": false
+  },
+  "oracle_sanity": {
+    "pass": true,
+    "scales": [64, 256, 1024],
+    "conditions": ["iid", "s1", "s2", "s3"],
+    "permutations": ["main", "adversarial"],
+    "maximum_absolute_error": 0.0
+  },
+  "classical_controls": {
+    "pass": true,
+    "controls": [
+      "degree-2 polynomial ridge",
+      "linear symmetric CCA plus degree-2 ridge",
+      "degree-2 explicit-kernel symmetric CCA plus ridge"
+    ],
+    "ridge_regularization": 0.001,
+    "cca_regularization": 0.001,
+    "cca_rank": 16,
+    "numerical_tolerance": 1e-10,
+    "selection_protocol": "data-free constants frozen before scoring"
+  },
+  "passive_information_sufficiency": {
+    "classification": "P3",
+    "reason": "a relation-free degree-2 polynomial ridge reaches the frozen useful OOD ceiling at K=1024",
+    "nrmse": {
+      "64": {"iid": 0.8937612369528558, "s1": 0.9238908073866783, "s2": 0.8771650435999129, "s3": 0.9853398826705494},
+      "256": {"iid": 1.0797979334675303, "s1": 1.2350967488848112, "s2": 1.0504542570072248, "s3": 1.3870596124604244},
+      "1024": {"iid": 0.30729491853545166, "s1": 0.521889443771763, "s2": 0.5379732410963318, "s3": 0.6533560552629544}
+    },
+    "frozen_useful_ood_ceiling": 0.75
+  },
+  "nuisance_sanity": {
+    "pass": true,
+    "analytic_ood_rms_corruption": [0.47186465220442186, 0.5590169943749475, 0.7180703308172536],
+    "empirical_ood_rms_corruption": [0.4730440225129012, 0.5585679448536531, 0.7174390269151901]
+  },
+  "scale_sanity": {
+    "pass": true,
+    "64": {"training_records": 128, "relations": 64, "queries": 1024},
+    "256": {"training_records": 512, "relations": 256, "queries": 1024},
+    "1024": {"training_records": 2048, "relations": 1024, "queries": 1024}
+  },
+  "protected_boundary": {
+    "pass": true,
+    "benchmark_imports_candidate_code": false,
+    "query_targets_candidate_visible": false,
+    "candidate_private_identifier_fixture_rejected": true,
+    "candidate_role_branch_fixture_rejected": true,
+    "candidate_rng_fixture_rejected": true,
+    "scoring_hard_stop": true
+  },
+  "cost_accounting": {
+    "pass": true,
+    "fields": [
+      "acquisition_ops", "acquisition_bytes", "relation_construction_ops",
+      "relation_synchronization_ops", "preprocessing_ops", "fit_ops", "query_ops",
+      "update_ops", "bytes_touched", "state_bytes", "peak_bytes",
+      "wall_time_seconds", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+    ],
+    "wall_time_diagnostic_only": true
+  },
+  "validation": {
+    "semantic_and_contract_tests_passed": 40,
+    "full_pytest_passed": 639,
+    "preflight_passed": true,
+    "integrity_passed": true,
+    "integrity_files_verified": 799,
+    "doctor_passed": true
+  },
+  "decision": "E",
+  "decision_label": "benchmark_cannot_discriminate_relational_advantage",
+  "scoring_authorized": false,
+  "review_path": "research/reviews/GEN-1-U1-U2-EVALUATOR-FALSIFICATION-CYCLE-240-2026-09-02.md",
+  "review_sha256": "8c9249574f6d89398c9b6703f4da248fb4c3e6039a2cc17821bf386e2c7d0058",
+  "next_action": "Do not create EXP-99, a candidate, v2, or a score from this contract. A later strategy cycle must select a qualitatively different question whose query information cannot be recovered by the same simple classical envelope."
+}

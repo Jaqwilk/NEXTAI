@@ -1,11 +1,11 @@
 {
-  "benchmark_version": "heldout_repository_sequence_compression_v6",
-  "certificate_sha256": "e84ed8e3609ba0ac94ff587a16d183bea1399d7592c21431ead3a8d3fc31e7fb",
-  "created_at": "2026-09-01T21:01:09Z",
-  "evaluator_sha256": "fc399c0927fc12172d0bd13a1b48007a28ee3ea5046bc6575c69b41ea7f7ea49",
+  "benchmark_version": "anonymous_repeated_measurement_ood_v1",
+  "certificate_sha256": "6effd9103017e23c788fb10bb0b547b8540b9d3a34e962d7e859b4e785cf9992",
+  "created_at": "2026-09-01T23:19:25Z",
+  "evaluator_sha256": "f60b975b5128d76eee6a018fe641d2a21de2f5267e0d607290a1400b0f7d9af7",
   "files": {
     "baseline_registry": "4f6aad63961dbc854de4292ef44a727be349da21fa9b9bfc2fd04684a82b6546",
-    "manifest": "d3994430c8146447464c30abe649b89aa32a91cc12c96f44e133cedf626db084",
+    "manifest": "62380acd396ecb7ea68c5b5db6c64be18353d9059b7cf1d03e9908de2da62739",
     "runner": "bb1f82412745bc62c995e98180cdcf7400a8bcac1e1d171c4bff10deb3d91d8b",
     "schema:experiment_plan": "df305826940d06ecda78eaae0321fec231d90765ed410cf6bcebf3802c88e12e",
     "schema:experiment_result": "e0b9213d09a59d334b954e051f008430c427eb3bb6371d3f31c3cacb0a1ea364",
