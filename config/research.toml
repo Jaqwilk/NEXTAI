@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_parallel_masked_infilling_v7"
+benchmark_version = "continuous_local_cellular_v2"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -251,9 +251,9 @@ queries_per_cell = 8
 training_transitions = 384
 minimum_nrmse_gain = 0.01
 state_budget_bytes = 16777216
-shared_candidate = "learned_sparse_continuous_local_rule"
-dense_ablation = "source_identical_dense_continuous_local_rule"
-frozen_ablation = "source_identical_frozen_continuous_local_rule"
+shared_candidate = "learned_factorized_flux_reaction_local_rule"
+dense_ablation = "source_identical_monolithic_local_flow_rule"
+frozen_ablation = "source_identical_frozen_flux_reaction_local_rule"
 classical_baselines = [
   "continuous_local_persistence",
   "continuous_local_ridge",
@@ -271,7 +271,7 @@ pareto_capability_metrics = [
 invalidation_rules = [
   "Invalidate if training latent amplitudes overlap the held-out scoring amplitude interval.",
   "Invalidate if an implementable role receives latent coordinates, encoder permutation/signs, targets before prediction or privileged local coefficients.",
-  "Invalidate unless all three learned roles share representation, constants, fit/update law and output rule, differing only in sparse scheduling, dense scheduling or frozen learning.",
+  "Invalidate unless all three prospective roles share anonymous inputs, constants, training rows, initialization, update order and output bounds, differing only in factorized exchange, monolithic flow or frozen learning.",
   "Invalidate if dormant zero cells are omitted from dense-control cost or implicitly scanned without charging operations and bytes.",
   "Invalidate if corruption is generated after the clean target is exposed or if repair uses evaluator-private channel semantics.",
   "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",

@@ -545,7 +545,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
                 "source_identical_contract": str(recombination["source_identical_contract_v6"]),
                 "invalidation_rules": list(recombination["invalidation_rules_v6"]),
             })
-    if config.benchmark_version == "continuous_local_cellular_v1":
+    if config.benchmark_version in {"continuous_local_cellular_v1", "continuous_local_cellular_v2"}:
         local = config.raw["continuous_local_cellular"]
         plan["matrix"]["knowledge_sizes"] = list(local["knowledge_sizes"])
         plan["matrix"]["reasoning_depths"] = list(local["reasoning_depths"])
@@ -560,8 +560,11 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "dense_ablation": str(local["dense_ablation"]),
             "frozen_ablation": str(local["frozen_ablation"]),
             "classical_baselines": list(local["classical_baselines"]),
-            "source_identical_contract":
-                "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1",
+            "source_identical_contract": (
+                "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1"
+                if config.benchmark_version.endswith("_v1") else
+                "anonymous_inputs_constants_rows_initialization_update_order_output_bounds_identical_except_factorized_monolithic_or_frozen_learning_v2"
+            ),
             "state_budget_bytes": int(local["state_budget_bytes"]),
             "minimum_nrmse_gain": float(local["minimum_nrmse_gain"]),
             "pareto_capability_metrics": metrics,

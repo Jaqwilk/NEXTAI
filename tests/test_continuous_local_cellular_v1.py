@@ -6,6 +6,7 @@ import pytest
 from jsonschema import ValidationError
 
 from nextai_autoresearch.benchmarks import continuous_local_cellular_v1 as bench
+from nextai_autoresearch.benchmarks import continuous_local_cellular_v2 as bench_v2
 from nextai_autoresearch.baseline_semantics import required_baseline_names
 from nextai_autoresearch.candidates.base import CandidateBase, CandidateMetadata
 from nextai_autoresearch.config import load_config
@@ -88,6 +89,11 @@ def test_exact_privileged_fixture_smokes_final_trial_schema(monkeypatch) -> None
 def test_plan_schema_freezes_matrix_and_all_mandatory_roles() -> None:
     root = project_root()
     config = load_config(root).raw["continuous_local_cellular"]
+    old_roles = {
+        "shared_candidate": "learned_sparse_continuous_local_rule",
+        "dense_ablation": "source_identical_dense_continuous_local_rule",
+        "frozen_ablation": "source_identical_frozen_continuous_local_rule",
+    }
     plan = deepcopy(load_json(root / "research" / "plans" / "EXP-20260901-0021.json"))
     plan.pop("mechanism_recombination_protocol", None)
     plan["benchmark"] = bench.BENCHMARK_VERSION
@@ -95,14 +101,12 @@ def test_plan_schema_freezes_matrix_and_all_mandatory_roles() -> None:
     plan["matrix"]["reasoning_depths"] = [4, 8, 16]
     plan["matrix"]["queries_per_cell"] = 8
     plan["candidates"] = [
-        config["shared_candidate"], config["dense_ablation"], config["frozen_ablation"],
+        *old_roles.values(),
         *config["classical_baselines"],
     ]
     plan["primary_metrics"] = list(config["pareto_capability_metrics"])
     plan["continuous_local_protocol"] = {
-        "shared_candidate": config["shared_candidate"],
-        "dense_ablation": config["dense_ablation"],
-        "frozen_ablation": config["frozen_ablation"],
+        **old_roles,
         "classical_baselines": list(config["classical_baselines"]),
         "source_identical_contract": "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1",
         "state_budget_bytes": config["state_budget_bytes"],
@@ -125,3 +129,39 @@ def test_plan_schema_freezes_matrix_and_all_mandatory_roles() -> None:
     missing_control["candidates"].remove("continuous_local_ridge")
     with pytest.raises(ValidationError):
         validate_document("experiment_plan", missing_control, root)
+
+    substituted = deepcopy(plan)
+    substituted["continuous_local_protocol"]["shared_candidate"] = config["shared_candidate"]
+    substituted["candidates"][0] = config["shared_candidate"]
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", substituted, root)
+
+
+def test_v2_is_role_only_and_freezes_new_roles_without_reinterpreting_v1() -> None:
+    root = project_root()
+    config = load_config(root).raw["continuous_local_cellular"]
+    plan = deepcopy(load_json(root / "research" / "plans" / "EXP-20260901-0022.json"))
+    plan["experiment_id"] = "EXP-20990101-0001"
+    plan["benchmark"] = bench_v2.BENCHMARK_VERSION
+    plan["candidates"] = [
+        config["shared_candidate"], config["dense_ablation"], config["frozen_ablation"],
+        *config["classical_baselines"],
+    ]
+    plan["continuous_local_protocol"].update({
+        "shared_candidate": config["shared_candidate"],
+        "dense_ablation": config["dense_ablation"],
+        "frozen_ablation": config["frozen_ablation"],
+        "source_identical_contract": "anonymous_inputs_constants_rows_initialization_update_order_output_bounds_identical_except_factorized_monolithic_or_frozen_learning_v2",
+        "invalidation_rules": list(config["invalidation_rules"]),
+    })
+    validate_document("experiment_plan", plan, root)
+    assert bench_v2.run_suite is bench.run_suite
+    assert bench_v2.run_trial is bench.run_trial
+    assert bench_v2.make_world is bench.make_world
+    assert required_baseline_names(plan) == list(config["classical_baselines"])
+
+    historical_role = deepcopy(plan)
+    historical_role["continuous_local_protocol"]["shared_candidate"] = "learned_sparse_continuous_local_rule"
+    historical_role["candidates"][0] = "learned_sparse_continuous_local_rule"
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", historical_role, root)

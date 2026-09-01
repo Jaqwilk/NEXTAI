@@ -617,3 +617,17 @@ This breadth cohort revives HYP-0006 only under its recorded non-exhaustive cont
 The prospective sparse learner, its source-identical dense-synchronous and frozen-learning ablations must share representation, constants, fit/update law and output rule. Mandatory implementable controls are persistence, local affine ridge, quantized finite-state lookup and nonparametric kernel event simulation. `privileged_continuous_local_support` receives the hidden encoder and rule only as an evaluator-only lower bound and is excluded from Pareto evidence. One anonymous observation channel is corrupted after task creation while the clean target remains evaluator-private, testing whether consistency learned from clean continuous observations supports repair without a supplied majority code or channel ontology.
 
 The fixed matrix is K=`64/256/1024`, D=`4/8/16`, Q=`8`, with one runner-random quick seed. Report thresholded cell accuracy, continuous normalized RMSE, damage recovery, stability, continual update/retention, acquisition, fit, query, update, state, bytes and R1/R4/R16 workload. The development-only meaningful NRMSE gain is frozen at `0.01`, over five times the maximum response to a `0.002` anonymous-channel perturbation in the fixed development fixture. Success requires finite stable output, at least that margin over ridge/kernel controls, positive repair beyond the frozen role, lower inactive-area query slope than dense synchronous execution, OOD depth transfer and no implementable Pareto dominance. A quick is scout evidence only and cannot promote.
+
+### Continuous local cellular v2 role-only cohort
+
+V2 preserves the v1 evaluator, data generation, splits, anonymous encoding,
+matrix, metrics, costs, thresholds and mandatory controls byte-for-byte. It
+changes only the three prospective role identifiers for a breadth scout of a
+different structural principle: a learned factorization into local reaction
+and antisymmetric neighbour exchange, a source-identical monolithic-flow
+ablation and a frozen-learning ablation. The roles may use no channel names,
+latent coordinates or hand-written world ontology. Their exact algorithm,
+constants, development-only fixtures and quick success gates must be
+preregistered before implementation or seed realization in the next cycle.
+This migration creates no hypothesis, experiment plan, seed, candidate or
+score and does not reinterpret the valid negative v1 result.
