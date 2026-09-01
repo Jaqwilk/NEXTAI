@@ -99,18 +99,25 @@ def command_integrity_verify(args: argparse.Namespace) -> int:
 
 def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
     compression = config.raw["compression"]
+    is_v6 = config.benchmark_version == "heldout_repository_sequence_compression_v6"
+    shared_key = "shared_candidate_v6" if is_v6 else "shared_candidate"
+    ablation_1_key = "causal_ablation_1_v6" if is_v6 else "causal_ablation_1"
+    ablation_2_key = "causal_ablation_2_v6" if is_v6 else "causal_ablation_2"
     protocol = {
         "corpus_id": str(compression["corpus_id"]),
         "split_unit": "whole_files_sha256",
         "test_file_access": "evaluator_only",
         "predict_then_reveal": True,
-        "shared_candidate": str(compression["shared_candidate"]),
+        "shared_candidate": str(compression[shared_key]),
         "classical_baselines": list(compression["classical_baselines"]),
         "shared_slow_state_updates": "forbidden",
         "test_tuning": "forbidden",
         "declared_horizons": list(compression["declared_horizons"]),
         "state_budget_bytes": int(compression["state_budget_bytes"]),
-        "invalidation_rules": list(compression["invalidation_rules"]),
+        "invalidation_rules": list(
+            compression["invalidation_rules_v6"]
+            if is_v6 else compression["invalidation_rules"]
+        ),
     }
     if config.benchmark_version == "heldout_repository_sequence_compression_v2":
         protocol.update({
@@ -125,14 +132,17 @@ def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
         "heldout_repository_sequence_compression_v3",
         "heldout_repository_sequence_compression_v4",
         "heldout_repository_sequence_compression_v5",
+        "heldout_repository_sequence_compression_v6",
     }:
         protocol.update({
             "causal_roles": [
-                str(compression["shared_candidate"]),
-                str(compression["causal_ablation_1"]),
-                str(compression["causal_ablation_2"]),
+                str(compression[shared_key]),
+                str(compression[ablation_1_key]),
+                str(compression[ablation_2_key]),
             ],
             "source_identical_contract": (
+                str(compression["source_identical_contract_v6"])
+                if is_v6 else
                 "state_width_transition_map_constants_initialization_data_order_context_input_update_output_identical_except_preregistered_surprise_gate_dense_clock_and_transition_learning_v1"
                 if config.benchmark_version.endswith("_v5") else
                 "expert_bank_constants_initialization_data_order_input_update_output_identical_except_preregistered_router_learning_and_active_expert_count_v1"
@@ -140,11 +150,14 @@ def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
                 "topology_constants_initialization_data_order_input_output_identical_except_preregistered_recurrence_and_readout_learning_v1"
             ),
         })
+        if is_v6:
+            protocol["role_implementation"] = str(compression["role_implementation_v6"])
     if config.benchmark_version in {
         "heldout_repository_sequence_compression_v2",
         "heldout_repository_sequence_compression_v3",
         "heldout_repository_sequence_compression_v4",
         "heldout_repository_sequence_compression_v5",
+        "heldout_repository_sequence_compression_v6",
     }:
         protocol.update({
             "pareto_capability_metrics": [
@@ -500,6 +513,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_repository_sequence_compression_v3",
             "heldout_repository_sequence_compression_v4",
             "heldout_repository_sequence_compression_v5",
+            "heldout_repository_sequence_compression_v6",
         }:
             compression = config.raw["compression"]
             plan["matrix"]["knowledge_sizes"] = list(compression["knowledge_sizes"])
@@ -511,6 +525,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_repository_sequence_compression_v3",
             "heldout_repository_sequence_compression_v4",
             "heldout_repository_sequence_compression_v5",
+            "heldout_repository_sequence_compression_v6",
         }:
             metrics = list(plan["compression_protocol"]["pareto_capability_metrics"])
             plan["primary_metrics"] = metrics

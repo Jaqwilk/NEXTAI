@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "cycle": 232,
+  "created_at": "2026-09-01T20:46:19Z",
+  "service_only": true,
+  "benchmark_version": "heldout_repository_sequence_compression_v6",
+  "parent_benchmark": "heldout_repository_sequence_compression_v5",
+  "decision": "activate_role_only_selective_state_space_v6",
+  "hypothesis_created": false,
+  "experiment_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "scientific_evidence_changed": false,
+  "g1_qualifying_experiment_count": 1,
+  "causal_roles": [
+    "selective_diagonal_state_space_byte_v1",
+    "source_identical_fixed_selection_state_space_byte_v1",
+    "source_identical_recurrence_disabled_state_space_byte_v1"
+  ],
+  "role_implementation": "selective_diagonal_state_space_byte_core_v1",
+  "unchanged_boundary": [
+    "43 immutable whole-file corpus entries and train/validation/test roles",
+    "anonymous byte interface and predict-before-reveal order",
+    "K 8/20/32 KiB, D 4/16/64 and eight queries per cell",
+    "quality, cost, state and R1/R4/R16 metrics",
+    "uniform, unigram, PPM-D, CTW, LZ and dense autoregressive controls"
+  ],
+  "deduplication": {
+    "fixed_reservoir": "EXP-20260901-0009 tested frozen input-independent orthogonal recurrence; v6 changes the isolated factor to learned input-dependent retention and includes a fixed-selection ablation.",
+    "shared_recurrent_transfer": "EXP-20260830-0048 tested one tied recurrent decoder across heterogeneous interfaces; v6 uses one native anonymous-byte interface and directly ablates input selectivity.",
+    "modern_prior_art": "Mamba/S4 are established sequence-operator baselines (SRC-0093/SRC-0114); v6 makes no novelty or non-autoregressive decoding claim."
+  },
+  "validation": {
+    "pytest_passed": 617,
+    "semantic_baselines_passed": 6,
+    "integrity_passed": true,
+    "integrity_files": 791,
+    "doctor_passed": true,
+    "evaluator_sha256": "fc399c0927fc12172d0bd13a1b48007a28ee3ea5046bc6575c69b41ea7f7ea49",
+    "candidate_bundle_sha256": "5f73ce8f41b55a2760799b2556a346ed1b02dc3372fd312a34056170c4c4963b",
+    "preflight_certificate_sha256": "57926888c192efa11109654af34d9e637882d77dc3520c34499e05c505f6d4e4"
+  },
+  "next_cycle": "Cycle 233 must preregister HYP-0058 and EXP-20260901-0061 before implementation, freeze the exact width, stable diagonal parameterization, input-selection rule, optimizer, fit schedule and accounting, implement one shared core with three wrappers, pass semantic fixtures and score exactly one runner-random quick. A valid negative closes the exact rule without tuning; a positive can only authorize unchanged replication."
+}

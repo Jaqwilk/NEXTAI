@@ -385,6 +385,17 @@ hypothesis, plan, seed or score. Historical v1-v4 artifacts remain immutable and
 cohort-separated. Held-out file sequences test transfer to unseen byte contexts;
 they do not by themselves establish systematic operator composition.
 
+Version 6 is a service-only successor to repository compression v5. It reuses
+the identical corpus, split, anonymous-byte boundary, evaluator, matrix,
+metrics, costs and six mandatory controls. Only the prospective causal roles
+change: an input-selective diagonal state-space learner, its source-identical
+fixed-selection ablation and its source-identical recurrence-disabled
+ablation. All three must resolve to one implementation and share embedding,
+state width, diagonal dynamics, readout, initialization, fit order, context,
+update, output, constants and accounting. The migration creates no candidate,
+hypothesis, plan, seed or score. A later immutable plan must freeze the exact
+numerical rule before implementation; a valid negative closes that rule.
+
 ## Held-out anonymous mechanism-recombination cohorts
 
 This cohort tests a narrower claim than raw cross-family representation learning. Three existing deterministic mechanisms are normalized by one frozen numeric rule and lifted by the same Feistel construction onto 144 opaque states. Implementable candidates receive only anonymous state-to-state examples with equal public shapes; module names, source families, native types, extraction paths and composition graphs remain evaluator-only.

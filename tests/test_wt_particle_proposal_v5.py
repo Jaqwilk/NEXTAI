@@ -6,7 +6,7 @@ from jsonschema.exceptions import ValidationError
 from nextai_autoresearch.benchmarks import heldout_wt_changepoints_prequential_v4 as v4
 from nextai_autoresearch.benchmarks import heldout_wt_changepoints_prequential_v5 as v5
 from nextai_autoresearch.cli import _wt_prequential_protocol
-from nextai_autoresearch.config import load_config
+from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.schemas import validate_document
 from nextai_autoresearch.utils import load_json, project_root
 
@@ -15,7 +15,10 @@ ROLES = list(v5.ROLE_INTERVENTIONS)
 
 
 def _protocol() -> dict:
-    return _wt_prequential_protocol(load_config(project_root()))
+    active = load_config(project_root())
+    raw = copy.deepcopy(active.raw)
+    raw["project"]["benchmark_version"] = v5.BENCHMARK_VERSION
+    return _wt_prequential_protocol(ResearchConfig(raw, active.path))
 
 
 def _plan() -> dict:

@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_wt_changepoints_prequential_v5"
+benchmark_version = "heldout_repository_sequence_compression_v6"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -135,6 +135,11 @@ corpus_id = "nextai_local_repository_sha256_v1"
 shared_candidate = "surprise_gated_transition_machine_byte"
 causal_ablation_1 = "source_identical_dense_transition_machine_byte"
 causal_ablation_2 = "source_identical_frozen_transition_machine_byte"
+shared_candidate_v6 = "selective_diagonal_state_space_byte_v1"
+causal_ablation_1_v6 = "source_identical_fixed_selection_state_space_byte_v1"
+causal_ablation_2_v6 = "source_identical_recurrence_disabled_state_space_byte_v1"
+role_implementation_v6 = "selective_diagonal_state_space_byte_core_v1"
+source_identical_contract_v6 = "embedding_state_width_diagonal_dynamics_readout_initialization_fit_order_context_input_update_output_constants_and_accounting_identical_except_preregistered_input_selection_and_recurrence_v1"
 knowledge_sizes = [8, 20, 32]
 context_depths = [4, 16, 64]
 queries_per_cell = 8
@@ -155,6 +160,14 @@ invalidation_rules = [
   "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
   "Invalidate if the three transition-machine roles differ in state width, transition map, constants, initialization, data order, context, input, reveal-update or output rule beyond the preregistered surprise-gate, dense-clock and transition-learning interventions.",
   "Invalidate unless pre-seed semantic fixtures prove predict-before-reveal ordering, byte-relabeling equivariance, sparse no-event state preservation, dense-update execution on every revealed byte and explicit event/dense update cost.",
+]
+invalidation_rules_v6 = [
+  "Invalidate on any frozen corpus hash or byte-length mismatch.",
+  "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
+  "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
+  "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
+  "Invalidate unless all three state-space roles resolve to one implementation and share embedding, state width, diagonal dynamics, readout, initialization, fit order, context, input, update, output, constants and accounting, differing only in input-dependent versus fixed selection or recurrence-disabled intervention.",
+  "Invalidate unless pre-seed semantic fixtures prove a history-dependent selective state, fixed-selection behavior, recurrence-disabled memorylessness, predict-before-reveal ordering, byte-relabeling equivariance and explicit fit/query/update/state cost.",
 ]
 
 [masked_refinement]
