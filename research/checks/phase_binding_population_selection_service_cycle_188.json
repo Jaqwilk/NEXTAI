@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "cycle": 188,
+  "created_at": "2026-09-01T08:56:16Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "phase_gate": {
+    "decision": "reject_before_implementation",
+    "reason": "shared diagonal phase actions commute; operator-specific bases require dense change-of-basis tables",
+    "development_seeds": [1501103, 1501104, 1501105, 1501106],
+    "state_count": 144,
+    "ab_disagreements": [140, 140, 140, 140],
+    "ac_disagreements": [143, 143, 143, 143],
+    "bc_disagreements": [143, 143, 143, 143],
+    "all_primitive_tables_bijective": true
+  },
+  "activated_benchmark": "continuous_local_cellular_v4",
+  "role_only": true,
+  "historical_semantics_preserved": true,
+  "pytest_passed": 511,
+  "integrity_files_verified": 686,
+  "evaluator_sha256": "8f4ddfed7ac4175656c2b83cbbf3d2e516d5d10a2bb7e2f4c7932bcba9a2869b",
+  "candidate_bundle_sha256": "5a0172cf4f0e2c8768db0d6777b902a007ab66f5ef10d1b90e983926a702d3ef",
+  "preflight_certificate_digest": "f055eb2a8314842327c9978b5add8503290f76b3dbdcdebe4e20ab0b6487226d",
+  "integrity_passed": true,
+  "doctor_passed": true,
+  "consecutive_no_scoring_cycles": 2,
+  "next_cycle_must_score": true
+}

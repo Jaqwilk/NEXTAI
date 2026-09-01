@@ -547,7 +547,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             })
     if config.benchmark_version in {
         "continuous_local_cellular_v1", "continuous_local_cellular_v2",
-        "continuous_local_cellular_v3",
+        "continuous_local_cellular_v3", "continuous_local_cellular_v4",
     }:
         local = config.raw["continuous_local_cellular"]
         plan["matrix"]["knowledge_sizes"] = list(local["knowledge_sizes"])
@@ -567,6 +567,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
                 "continuous_local_cellular_v1": "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1",
                 "continuous_local_cellular_v2": "anonymous_inputs_constants_rows_initialization_update_order_output_bounds_identical_except_factorized_monolithic_or_frozen_learning_v2",
                 "continuous_local_cellular_v3": "anonymous_inputs_constants_lift_features_fit_update_output_identical_except_dyadic_sequential_or_frozen_propagation_v3",
+                "continuous_local_cellular_v4": "anonymous_inputs_program_language_population_constants_proposals_execution_output_identical_except_true_shuffled_or_frozen_fitness_selection_v4",
             }[config.benchmark_version],
             "state_budget_bytes": int(local["state_budget_bytes"]),
             "minimum_nrmse_gain": float(local["minimum_nrmse_gain"]),

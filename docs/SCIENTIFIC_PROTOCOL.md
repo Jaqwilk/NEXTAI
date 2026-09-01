@@ -656,3 +656,25 @@ constants, development-only fixtures and quick success gates must be
 preregistered before implementation or seed realization in the next cycle.
 This migration creates no hypothesis, experiment plan, seed, candidate or
 score and does not reinterpret the valid negative v1 result.
+
+### Continuous local cellular v4 population-selection roles
+
+V4 preserves the v1 evaluator, runner-random worlds, training/scoring split,
+anonymous signed channel encoding, K/D/Q matrix, corruption, targets, metrics,
+directions, thresholds, costs, seed policy, state boundary and five controls.
+Historical v1-v3 plans, results, analyses and manifests remain immutable. Only
+the three prospective role identifiers change.
+
+The scout asks whether data-driven population selection can discover one short
+anonymous local rule program that transfers to unseen amplitudes, rollout
+depths and dormant-area scales. Main, shuffled-fitness and frozen-population
+roles must share the exact program language, initial population, constants,
+proposal stream, interpreter, clipping, output and accounting. They may differ
+only in true training fitness, a preregistered permutation of those same fitness
+values, or disabled selection. Scoring worlds and targets, latent coordinates,
+family labels and native mechanism names are forbidden during fit. Program
+evaluation, mutation/recombination, selection, execution, state and every
+failed proposal are charged. Exact language and numerical constants must be
+preregistered before candidate implementation. This role-only migration adds
+no hypothesis, plan, candidate, seed or score; a one-seed quick in the next
+wake can only discard or select an unchanged replication.
