@@ -1,0 +1,212 @@
+{
+  "alternative_explanations": [
+    "The fixed Haar basis may merely reparameterize an ordinary linear predictor and add no causal value.",
+    "Classical control-level or adaptive linear filters may explain equal or better quality more cheaply."
+  ],
+  "architecture_family": "learned_multiresolution_lifting",
+  "benchmark": "heldout_wt_changepoints_prequential_v2",
+  "budget": "quick",
+  "candidates": [
+    "wt_multiresolution_lifting_v1",
+    "wt_source_identical_single_scale_lifting_v1",
+    "wt_source_identical_frozen_lifting_v1",
+    "wt_persistence_v1",
+    "wt_pooled_mean_v1",
+    "wt_control_level_bank_v1",
+    "wt_lms_v1",
+    "wt_rls_v1",
+    "wt_transition_bank_v1",
+    "wt_bounded_replay_v1",
+    "wt_ridge_fir_v1"
+  ],
+  "confounds": [
+    "Only two locally visible test files are available, so this is screening rather than independent hidden-holdout evidence.",
+    "H96 is evaluator-created recursive depth extrapolation beyond fit horizon 32, not a naturally longer response sequence."
+  ],
+  "created_at": "2026-09-01T01:31:15Z",
+  "evaluator_sha256": "af6f9c161d9993a6349a23db706dd480e0f1ee4012f809deb9ea115102632567",
+  "experiment_id": "EXP-20260901-0015",
+  "falsification_criteria": [
+    "Discard if main fails in any K cell at H32 or H96 to improve NRMSE over each causal ablation by at least 0.1325268421060828.",
+    "Discard if main fails to beat the strongest complete classical control overall, regresses worst-file or worst-transition NRMSE, or is implementably Pareto-dominated after full cost.",
+    "Discard if stable rollout is below 1.0, query work depends on K at fixed H, state reaches 16777216 bytes, or update operations/bytes are not lower than both LMS and RLS in every K cell.",
+    "Invalidate on source-contract, channel-permutation, artifact-order, cross-slot, post-score-tuning, semantic-baseline, preflight, evaluator, integrity or cost-accounting failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "debc1360e6f4e1089925a81ee0b262e2fc961997",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0036",
+  "matrix": {
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "queries_per_cell": 18,
+    "reasoning_depths": [
+      16,
+      32,
+      96
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "rollout_16_nrmse": "minimize",
+    "rollout_32_nrmse": "minimize",
+    "rollout_96_nrmse": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_normalized_rmse": "minimize",
+    "worst_transition_normalized_rmse": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify the exact lifting rule, preserve all results, and return to breadth selection without tuning nearby variants.",
+    "null": "Mark the exact lifting rule unsupported and stop it without changing basis size, ridge, update step, clipping or recursion.",
+    "positive": "Keep HYP-0036 at testing confidence and preregister only an unchanged three-seed replication; do not promote."
+  },
+  "parent_experiment_id": "EXP-20260901-0014",
+  "predicted_outcome": "The full learned lifting role will improve NRMSE over both causal ablations by at least 0.1325268421060828 in every K cell at H32 and H96, beat the strongest classical control overall without worst-case regression, remain stable and Pareto non-dominated, keep query work K-independent, and use lower local-update work and bytes than LMS/RLS.",
+  "primary_metrics": [
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "worst_file_normalized_rmse",
+    "worst_transition_normalized_rmse",
+    "rollout_16_nrmse",
+    "rollout_32_nrmse",
+    "rollout_96_nrmse",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed visible quick cannot promote; a fully conjunctive pass may only authorize an unchanged three-seed replication."
+  ],
+  "research_question": "Can one anonymous channel-equivariant learned multiresolution operator improve H32/H96 forecasts beyond source-identical single-scale and frozen operators and all classical WT controls at matched full cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Multiresolution lifting WT quick",
+  "wt_prequential_protocol": {
+    "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
+    "causal_roles": [
+      "wt_multiresolution_lifting_v1",
+      "wt_source_identical_single_scale_lifting_v1",
+      "wt_source_identical_frozen_lifting_v1"
+    ],
+    "classical_baselines": [
+      "wt_persistence_v1",
+      "wt_pooled_mean_v1",
+      "wt_control_level_bank_v1",
+      "wt_lms_v1",
+      "wt_rls_v1",
+      "wt_transition_bank_v1",
+      "wt_bounded_replay_v1",
+      "wt_ridge_fir_v1"
+    ],
+    "corpus_id": "causal_chambers_wt_changepoints_v1",
+    "declared_horizons": [
+      16,
+      32,
+      96
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "development_files": [
+      6,
+      7
+    ],
+    "fit_depth": 32,
+    "fit_horizon": 32,
+    "invalidation_rules": [
+      "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+      "Invalidate if train, development or test whole-file roles overlap.",
+      "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+      "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+      "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+      "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+      "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+      "Invalidate if the three lifting roles differ in representation, constants, initialization, fit order, update schedule or output rule beyond the preregistered cross-scale-composition and lifting-learning interventions.",
+      "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+    "normalization": "train_files_only_mechanical_partition",
+    "pareto_capability_metrics": [
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "worst_file_normalized_rmse",
+      "worst_transition_normalized_rmse",
+      "rollout_16_nrmse",
+      "rollout_32_nrmse",
+      "rollout_96_nrmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_atomic_artifact_then_reveal": true,
+    "runner_random_channel_permutation": true,
+    "saturation_nrmse": 0.5,
+    "saturation_worst_file_nrmse": 0.75,
+    "shared_candidate": "wt_multiresolution_lifting_v1",
+    "source_identical_contract": "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1",
+    "split_unit": "whole_csv_file_sha256",
+    "state_budget_bytes": 16777216,
+    "test_files": [
+      8,
+      9
+    ],
+    "train_files": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}
