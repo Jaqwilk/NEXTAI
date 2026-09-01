@@ -1821,6 +1821,45 @@
     },
     {
       "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v9"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [3, 4, 5]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "learned_pushdown_masked_byte"}},
+              {"contains": {"const": "source_identical_finite_state_pushdown_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_pushdown_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract", "training_max_depth", "test_depths", "task_unit"],
+            "properties": {
+              "corpus_id": {"const": "nextai_real_python_stack_traces_sha256_v1"},
+              "shared_candidate": {"const": "learned_pushdown_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_finite_state_pushdown_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_pushdown_masked_byte"},
+              "training_max_depth": {"const": 2},
+              "test_depths": {"const": [3, 4, 5]},
+              "task_unit": {"const": "balanced_real_python_closure_chain"},
+              "source_identical_contract": {"const": "delimiter_trace_representation_constants_initialization_training_order_query_alignment_and_output_identical_except_learned_pushdown_finite_state_and_frozen_transition_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
         "properties": {"benchmark": {"pattern": "^heldout_dronepropa_"}},
         "required": ["benchmark"]
       },

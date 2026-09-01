@@ -438,7 +438,8 @@ def command_plan_new(args: argparse.Namespace) -> int:
     if config.benchmark_version.startswith("heldout_parallel_masked_"):
         masked = config.raw["masked_refinement"]
         stack = config.raw.get("stack_depth", {})
-        active = stack if config.benchmark_version.endswith("_v8") else masked
+        is_stack = config.benchmark_version.endswith(("_v8", "_v9"))
+        active = stack if is_stack else masked
         if config.benchmark_version in {
             "heldout_parallel_masked_infilling_v3",
             "heldout_parallel_masked_infilling_v4",
@@ -446,11 +447,12 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_parallel_masked_infilling_v6",
             "heldout_parallel_masked_infilling_v7",
             "heldout_parallel_masked_infilling_v8",
+            "heldout_parallel_masked_infilling_v9",
         }:
             plan["matrix"]["knowledge_sizes"] = list(active["knowledge_sizes"])
             plan["matrix"]["reasoning_depths"] = list(
                 active["stack_depths"]
-                if config.benchmark_version.endswith("_v8")
+                if is_stack
                 else masked["refinement_rounds"]
             )
             plan["matrix"]["queries_per_cell"] = int(active["queries_per_cell"])
@@ -474,8 +476,9 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_parallel_masked_infilling_v6",
             "heldout_parallel_masked_infilling_v7",
             "heldout_parallel_masked_infilling_v8",
+            "heldout_parallel_masked_infilling_v9",
         }:
-            if config.benchmark_version.endswith("_v8"):
+            if is_stack:
                 contract = (
                     "delimiter_trace_representation_constants_initialization_"
                     "training_order_query_alignment_and_output_identical_except_"
@@ -484,7 +487,11 @@ def command_plan_new(args: argparse.Namespace) -> int:
                 protocol.update({
                     "training_max_depth": int(stack["training_max_depth"]),
                     "test_depths": list(stack["stack_depths"]),
-                    "task_unit": "balanced_real_python_delimiter_trace",
+                    "task_unit": (
+                        "balanced_real_python_closure_chain"
+                        if config.benchmark_version.endswith("_v9")
+                        else "balanced_real_python_delimiter_trace"
+                    ),
                 })
             elif config.benchmark_version.endswith(("_v6", "_v7")):
                 contract = (

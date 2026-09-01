@@ -702,6 +702,34 @@ candidate implementation or scientific result. Those actions are reserved for
 the next bounded wake after the protected evaluator, schema, manifest,
 preflight certificate, integrity and doctor all pass.
 
+### Parallel masked infilling v9 closure-chain correction
+
+V9 is a pre-score identifiability correction to v8. V8 remains immutable and
+has no hypothesis, plan, candidate, seed or result. Its single target was the
+first closer encountered at maximum depth. In a delimiter-event trace that
+closer is immediately preceded by its matching opener, so a first-order pair
+table can solve the registered target without a stack. V8 therefore cannot
+discriminate the intended causal mechanism and must never be scored as
+pushdown evidence.
+
+V9 preserves the same hashed whole files, split, standard-library tokenization,
+runner-random byte permutation, shallow training traces, K/depth/query matrix,
+public masked interface, metrics, costs, state limit and nine controls. It
+changes only target construction: for the first real opener chain reaching
+depth D, the evaluator simultaneously masks the matching closer for every
+level of that chain. The D=`3/4/5` cells therefore contain respectively three,
+four or five targets from one immutable snapshot. A full learned stack can
+push the opener chain and emit/pop at each masked closer; a source-identical
+state capped at the training depth two necessarily loses at least one outer
+opener. A fixed fixture `([{}])` must expose targets `}])`; the old adjacent-
+pair rule and a two-entry stack must fail exact completion.
+
+This correction is service-only and precedes any preregistration or candidate
+implementation. The next wake must preregister and score exactly one quick on
+v9; another no-scoring design cycle is forbidden unless integrity itself
+fails. One seed can only reject the exact learner or authorize unchanged
+replication.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.
