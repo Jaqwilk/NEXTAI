@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "cycle": 238,
+  "created_at": "2026-09-01T22:34:45Z",
+  "service_only": true,
+  "review_only": true,
+  "decision": "A_partial_common_missing_ingredient_for_U1_U2_U3_distinct_economics",
+  "active_benchmark_unchanged": "heldout_repository_sequence_compression_v6",
+  "prior_review_cycle": 237,
+  "history_scope": {
+    "completed_experiments": 98,
+    "scientifically_valid_completed_results": 94,
+    "terminally_invalid_completed_results": 4,
+    "postseed_nonresults_used_as_evidence": false
+  },
+  "literature_sources_added": [
+    "SRC-0235",
+    "SRC-0236",
+    "SRC-0237",
+    "SRC-0238",
+    "SRC-0239",
+    "SRC-0240",
+    "SRC-0241",
+    "SRC-0242",
+    "SRC-0243"
+  ],
+  "bottleneck_status": {
+    "U1_identifiability": "CONDITIONALLY-RESOLVED",
+    "U2_ood_representation_selection": "CONDITIONALLY-RESOLVED",
+    "U3_full_cost_amortization": "CONDITIONALLY-RESOLVED"
+  },
+  "strongest_contradiction_cases": {
+    "U1": [
+      "sufficiently_distinct_paired_views",
+      "exhaustive_unknown_target_intervention_regimes",
+      "pairwise_sparse_factor_change"
+    ],
+    "U2": [
+      "pair_relation_conditioned_proxy",
+      "invariance_across_informative_environments",
+      "risk_extrapolation_along_observed_shift_directions",
+      "independent_anchor_inferred_environment_partition"
+    ],
+    "U3": [
+      "stable_reuse_unit_with_prefit_admission",
+      "target_aligned_linear_time_fit_with_bounded_exact_repair"
+    ]
+  },
+  "cross_bottleneck_convergence": {
+    "shared_by": ["U1", "U2"],
+    "ingredient": "candidate-visible relation-marked experience that preserves the target-relevant mechanism while varying nuisance mechanisms and thereby breaks observational equivalence classes",
+    "not_sufficient_for": "U3",
+    "U3_additional_ingredient": "a stable reuse unit with observable lifetime, pre-fit admission and a cheap exact fallback"
+  },
+  "classification_summary": {
+    "general_empirical_case_satisfying_all_nextai_constraints": false,
+    "domain_conditional_cases_present": true,
+    "privileged_acquisition_cases_present": true,
+    "joint_U1_U2_U3_system_present": false,
+    "cross_family_source_identical_full_cost_system_present": false
+  },
+  "validation": {
+    "pytest_passed": 617,
+    "integrity_ok": true,
+    "integrity_files_verified": 796,
+    "doctor_passed": true,
+    "pending_plans": 0
+  },
+  "mutations": {
+    "protected_files_changed": false,
+    "benchmark_created": false,
+    "schema_changed": false,
+    "dependency_added": false,
+    "hypothesis_created": false,
+    "hypothesis_updated": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "seed_realized": false,
+    "scoring_performed": false,
+    "scientific_evidence_changed": false,
+    "literature_search_performed": true
+  },
+  "next_action": "No experiment is authorized in cycle 238. A later cycle may consider preregistration of experiment 99 only after establishing that the main belief-changing question has a natural candidate-visible non-privileged observable; this review does not design it."
+}
