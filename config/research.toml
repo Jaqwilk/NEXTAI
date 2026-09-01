@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_parallel_masked_infilling_v5"
+benchmark_version = "heldout_repository_sequence_compression_v5"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -80,9 +80,9 @@ invalidation_rules = [
 
 [compression]
 corpus_id = "nextai_local_repository_sha256_v1"
-shared_candidate = "learned_conditional_execution_byte"
-causal_ablation_1 = "source_identical_all_experts_byte"
-causal_ablation_2 = "source_identical_frozen_router_byte"
+shared_candidate = "surprise_gated_transition_machine_byte"
+causal_ablation_1 = "source_identical_dense_transition_machine_byte"
+causal_ablation_2 = "source_identical_frozen_transition_machine_byte"
 knowledge_sizes = [8, 20, 32]
 context_depths = [4, 16, 64]
 queries_per_cell = 8
@@ -101,8 +101,8 @@ invalidation_rules = [
   "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
   "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
   "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
-  "Invalidate if the three conditional-execution roles differ in expert bank, constants, initialization, data order, input representation, update rule or output rule beyond the preregistered router-learning and active-expert-count interventions.",
-  "Invalidate if the all-experts role skips an expert or if the frozen-router role changes router parameters.",
+  "Invalidate if the three transition-machine roles differ in state width, transition map, constants, initialization, data order, context, input, reveal-update or output rule beyond the preregistered surprise-gate, dense-clock and transition-learning interventions.",
+  "Invalidate unless pre-seed semantic fixtures prove predict-before-reveal ordering, byte-relabeling equivariance, sparse no-event state preservation, dense-update execution on every revealed byte and explicit event/dense update cost.",
 ]
 
 [masked_refinement]

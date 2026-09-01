@@ -124,6 +124,7 @@ def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
     elif config.benchmark_version in {
         "heldout_repository_sequence_compression_v3",
         "heldout_repository_sequence_compression_v4",
+        "heldout_repository_sequence_compression_v5",
     }:
         protocol.update({
             "causal_roles": [
@@ -132,6 +133,8 @@ def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
                 str(compression["causal_ablation_2"]),
             ],
             "source_identical_contract": (
+                "state_width_transition_map_constants_initialization_data_order_context_input_update_output_identical_except_preregistered_surprise_gate_dense_clock_and_transition_learning_v1"
+                if config.benchmark_version.endswith("_v5") else
                 "expert_bank_constants_initialization_data_order_input_update_output_identical_except_preregistered_router_learning_and_active_expert_count_v1"
                 if config.benchmark_version.endswith("_v4") else
                 "topology_constants_initialization_data_order_input_output_identical_except_preregistered_recurrence_and_readout_learning_v1"
@@ -141,6 +144,7 @@ def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
         "heldout_repository_sequence_compression_v2",
         "heldout_repository_sequence_compression_v3",
         "heldout_repository_sequence_compression_v4",
+        "heldout_repository_sequence_compression_v5",
     }:
         protocol.update({
             "pareto_capability_metrics": [
@@ -379,6 +383,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_repository_sequence_compression_v2",
             "heldout_repository_sequence_compression_v3",
             "heldout_repository_sequence_compression_v4",
+            "heldout_repository_sequence_compression_v5",
         }:
             compression = config.raw["compression"]
             plan["matrix"]["knowledge_sizes"] = list(compression["knowledge_sizes"])
@@ -389,6 +394,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "heldout_repository_sequence_compression_v2",
             "heldout_repository_sequence_compression_v3",
             "heldout_repository_sequence_compression_v4",
+            "heldout_repository_sequence_compression_v5",
         }:
             metrics = list(plan["compression_protocol"]["pareto_capability_metrics"])
             plan["primary_metrics"] = metrics

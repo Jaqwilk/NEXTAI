@@ -1376,6 +1376,42 @@
     {
       "if": {
         "properties": {
+          "benchmark": {"const": "heldout_repository_sequence_compression_v5"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 20, 32]},
+              "reasoning_depths": {"const": [4, 16, 64]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "surprise_gated_transition_machine_byte"}},
+            {"contains": {"const": "source_identical_dense_transition_machine_byte"}},
+            {"contains": {"const": "source_identical_frozen_transition_machine_byte"}}
+          ]},
+          "compression_protocol": {
+            "required": ["causal_roles", "source_identical_contract", "pareto_capability_metrics"],
+            "properties": {
+              "shared_candidate": {"const": "surprise_gated_transition_machine_byte"},
+              "causal_roles": {"const": [
+                "surprise_gated_transition_machine_byte",
+                "source_identical_dense_transition_machine_byte",
+                "source_identical_frozen_transition_machine_byte"
+              ]},
+              "source_identical_contract": {"const": "state_width_transition_map_constants_initialization_data_order_context_input_update_output_identical_except_preregistered_surprise_gate_dense_clock_and_transition_learning_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
           "benchmark": {"pattern": "^heldout_parallel_masked_"}
         },
         "required": ["benchmark"]

@@ -302,6 +302,23 @@ rules; only preregistered router learning and active-expert count may differ.
 No candidate, hypothesis, plan or scoring seed exists in the migration cycle.
 Historical v1-v3 artifacts remain immutable and cohort-separated.
 
+Version 5 is a service-only successor to repository compression v4. It preserves
+all 43 whole-file hashes and roles, anonymous-byte boundary, predict-then-reveal
+execution, K=`8/20/32`, D=`4/16/64`, query allocation, metrics, cost formulas,
+state boundary, seed policy, Pareto axes and six classical controls. It changes
+only the prospective causal role identifiers to a surprise-gated transition
+machine, its source-identical dense-clock ablation and its source-identical
+frozen-transition ablation. All roles must share state width, transition map,
+constants, initialization, chronological data order, context, input, update and
+output rules except for the preregistered surprise gate, dense clock and
+transition-learning interventions. Before seed realization, semantic fixtures
+must prove predict-before-reveal ordering, byte-relabeling equivariance,
+sparse no-event state preservation, dense execution on every revealed byte and
+explicit event/dense update cost. This migration creates no candidate,
+hypothesis, plan, seed or score. Historical v1-v4 artifacts remain immutable and
+cohort-separated. Held-out file sequences test transfer to unseen byte contexts;
+they do not by themselves establish systematic operator composition.
+
 ## Held-out anonymous mechanism-recombination cohorts
 
 This cohort tests a narrower claim than raw cross-family representation learning. Three existing deterministic mechanisms are normalized by one frozen numeric rule and lifted by the same Feistel construction onto 144 opaque states. Implementable candidates receive only anonymous state-to-state examples with equal public shapes; module names, source families, native types, extraction paths and composition graphs remain evaluator-only.

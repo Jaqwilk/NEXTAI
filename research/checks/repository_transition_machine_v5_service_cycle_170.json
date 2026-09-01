@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "cycle": 170,
+  "created_at": "2026-09-01T04:34:33Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "benchmark_before": "heldout_parallel_masked_infilling_v5",
+  "benchmark_after": "heldout_repository_sequence_compression_v5",
+  "historical_evaluator_reused": "heldout_repository_sequence_compression_v4",
+  "scientific_contract_preserved": {
+    "whole_file_hashes_and_roles": 43,
+    "knowledge_sizes": [8, 20, 32],
+    "context_depths": [4, 16, 64],
+    "queries_per_cell": 8,
+    "predict_then_reveal": true,
+    "metrics_costs_budgets_seed_policy_pareto_unchanged": true,
+    "historical_v1_v4_reinterpreted": false
+  },
+  "prospective_roles": [
+    "surprise_gated_transition_machine_byte",
+    "source_identical_dense_transition_machine_byte",
+    "source_identical_frozen_transition_machine_byte"
+  ],
+  "source_identical_contract": "state_width_transition_map_constants_initialization_data_order_context_input_update_output_identical_except_preregistered_surprise_gate_dense_clock_and_transition_learning_v1",
+  "preseed_semantic_requirements": [
+    "predict_before_reveal",
+    "byte_relabeling_equivariance",
+    "sparse_no_event_state_preservation",
+    "dense_execution_on_every_revealed_byte",
+    "explicit_event_and_dense_update_cost"
+  ],
+  "semantic_baselines_passed": [
+    "uniform_byte",
+    "empirical_unigram_byte",
+    "ppm_d_order5_byte",
+    "ctw_depth2_byte",
+    "lz_dictionary_byte",
+    "dense_autoregressive_byte"
+  ],
+  "real_file_smoke": {
+    "benchmark": "heldout_repository_sequence_compression_v5",
+    "knowledge_size": 8,
+    "context_depth": 4,
+    "queries_per_cell": 1,
+    "development_seed": 1500003,
+    "controls_complete": 6,
+    "file_rows_per_control": 5
+  },
+  "pytest_passed": 461,
+  "integrity_files_frozen": 632,
+  "evaluator_sha256": "168379616754e60fe1757e169659ee945fdc6c0888ad9e06b4ffc114838c4170",
+  "candidate_bundle_sha256": "df3b5fae8edc534d5f62743074bb06dfaadcfcfa8ae87f884ca598d258679d47",
+  "manifest_sha256": "2d83635aab70faa7dbd5c5e1632a2968cd4ce976fbd26f568b3a378e429a8c9e",
+  "preflight_certificate_sha256": "73e51cc369e5caac67eb5467e37ca586ccf7ea3421d1ada207e437ba1577c5b4",
+  "archived_manifest_path": "research/manifests/heldout_parallel_masked_infilling_v5-protocol-v2-ebf85ece55be.json",
+  "archived_manifest_sha256": "abecc25b0d71a2e5e7066c20da8a0960f937fa55d8a46bae84ca58957e4d3a15",
+  "consecutive_no_scoring_cycles": 1,
+  "max_consecutive_no_scoring_cycles": 3,
+  "next_wake_must_score": true
+}
