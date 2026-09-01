@@ -9,6 +9,7 @@ from jsonschema.exceptions import ValidationError
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v1 as bench
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v3 as bench_v3
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v4 as bench_v4
+from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v5 as bench_v5
 from nextai_autoresearch import cli
 from nextai_autoresearch.benchmarks.heldout_repository_sequence_compression_v1 import CORPUS as OLD
 from nextai_autoresearch.config import ResearchConfig, load_config
@@ -254,7 +255,11 @@ def test_v3_plan_generator_freezes_discriminating_matrix(monkeypatch) -> None:
 
 
 def test_v4_preserves_evaluator_and_separates_only_declared_mps_roles() -> None:
-    masked = load_config().raw["masked_refinement"]
+    masked = {
+        "shared_candidate": "parallel_born_mps_masked_byte",
+        "causal_ablation_1": "source_identical_sequential_born_mps_masked_byte",
+        "causal_ablation_2": "source_identical_frozen_born_mps_masked_byte",
+    }
     assert bench_v4.run_suite is bench_v3.run_suite
     assert masked["shared_candidate"] == "parallel_born_mps_masked_byte"
     assert masked["causal_ablation_1"] == (
@@ -277,7 +282,12 @@ def test_v4_preserves_evaluator_and_separates_only_declared_mps_roles() -> None:
 
 def test_v4_schema_locks_source_identity_without_historical_one_pass_role() -> None:
     plan = _masked_plan()
-    masked = load_config().raw["masked_refinement"]
+    masked = {
+        "shared_candidate": "parallel_born_mps_masked_byte",
+        "causal_ablation_1": "source_identical_sequential_born_mps_masked_byte",
+        "causal_ablation_2": "source_identical_frozen_born_mps_masked_byte",
+        "classical_baselines": load_config().raw["masked_refinement"]["classical_baselines"],
+    }
     plan["benchmark"] = "heldout_parallel_masked_infilling_v4"
     plan["matrix"] = {
         "knowledge_sizes": [8, 32],
@@ -305,6 +315,84 @@ def test_v4_schema_locks_source_identity_without_historical_one_pass_role() -> N
     protocol["shared_candidate"] = "local_sparse_predictive_code_masked_byte"
     with pytest.raises(ValidationError):
         validate_document("experiment_plan", plan, project_root())
+
+
+def _v5_plan() -> dict:
+    plan = _masked_plan()
+    masked = load_config().raw["masked_refinement"]
+    plan["benchmark"] = "heldout_parallel_masked_infilling_v5"
+    plan["matrix"] = {
+        "knowledge_sizes": [8, 32], "reasoning_depths": [1, 4, 6],
+        "queries_per_cell": 8, "seed_policy": plan["matrix"]["seed_policy"],
+    }
+    plan["candidates"] = [
+        masked["shared_candidate"], masked["causal_ablation_1"],
+        masked["causal_ablation_2"], *masked["classical_baselines"],
+    ]
+    protocol = plan["masked_refinement_protocol"]
+    protocol.pop("one_pass_ablation")
+    protocol.update({
+        "shared_candidate": masked["shared_candidate"],
+        "causal_ablation_1": masked["causal_ablation_1"],
+        "causal_ablation_2": masked["causal_ablation_2"],
+        "source_identical_contract": (
+            "factor_graph_byte_representation_constants_initialization_"
+            "training_order_update_rule_and_output_identical_except_"
+            "preregistered_factor_learning_one_sweep_and_freeze_v1"
+        ),
+    })
+    return plan
+
+
+def test_v5_is_role_only_and_preserves_all_historical_evaluator_semantics() -> None:
+    assert bench_v5.run_suite is bench_v4.run_suite is bench_v3.run_suite
+    assert bench_v5.BENCHMARK_VERSION == "heldout_parallel_masked_infilling_v5"
+    assert bench_v4.BENCHMARK_VERSION == "heldout_parallel_masked_infilling_v4"
+    plan = _v5_plan()
+    validate_document("experiment_plan", plan, project_root())
+    assert plan["matrix"] == {
+        "knowledge_sizes": [8, 32], "reasoning_depths": [1, 4, 6],
+        "queries_per_cell": 8, "seed_policy": plan["matrix"]["seed_policy"],
+    }
+
+
+def test_v5_schema_rejects_role_substitution_and_candidate_does_not_exist_yet() -> None:
+    import importlib.util
+
+    plan = _v5_plan()
+    roles = plan["candidates"][:3]
+    assert all(importlib.util.find_spec(
+        f"nextai_autoresearch.candidates.{role}"
+    ) is None for role in roles)
+    plan["masked_refinement_protocol"]["causal_ablation_1"] = (
+        "source_identical_sequential_born_mps_masked_byte"
+    )
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", plan, project_root())
+
+
+def test_v5_frozen_energy_fixture_requires_two_factors_and_is_relabel_equivariant() -> None:
+    # Contract-only fixture: future candidate tests must reproduce this trace.
+    factors = ((0, 1, 2.0), (1, 2, 3.0), (2, 3, 1.0))
+
+    def energy(values: tuple[int, ...]) -> float:
+        return sum(weight for left, right, weight in factors
+                   if values[left] != values[right])
+
+    trace = ((0, 1, 0, 1), (0, 0, 0, 1))
+    energies = [energy(values) for values in trace]
+    assert energies == [6.0, 1.0]
+    assert all(after <= before for before, after in zip(energies, energies[1:]))
+    # Independent boundary completion is (0,0,1,1); the overlapping middle
+    # factor changes the joint optimum, so a unary/one-factor shortcut fails.
+    assert energy((0, 0, 0, 1)) < energy((0, 0, 1, 1))
+    relabel = {0: 173, 1: 29}
+    relabeled = tuple(relabel[value] for value in trace[-1])
+    assert sum(weight for left, right, weight in factors
+               if relabeled[left] != relabeled[right]) == energies[-1]
+    query = MaskedQuery(7, (173, MASK, MASK, 29), (1, 2), 0, 4)
+    assert not hasattr(query, "target")
+    assert len(factors) * 4 == 12  # Minimum explicit factor-by-iteration charge.
 
 
 def test_v3_sparse_code_roles_share_source_constants_and_only_frozen_skips_learning() -> None:

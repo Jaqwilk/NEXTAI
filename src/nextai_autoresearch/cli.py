@@ -400,6 +400,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
         if config.benchmark_version in {
             "heldout_parallel_masked_infilling_v3",
             "heldout_parallel_masked_infilling_v4",
+            "heldout_parallel_masked_infilling_v5",
         }:
             plan["matrix"]["knowledge_sizes"] = list(masked["knowledge_sizes"])
             plan["matrix"]["reasoning_depths"] = list(masked["refinement_rounds"])
@@ -418,12 +419,23 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "state_budget_bytes": int(masked["state_budget_bytes"]),
             "invalidation_rules": list(masked["invalidation_rules"]),
         }
-        if config.benchmark_version == "heldout_parallel_masked_infilling_v4":
+        if config.benchmark_version in {
+            "heldout_parallel_masked_infilling_v4",
+            "heldout_parallel_masked_infilling_v5",
+        }:
+            contract = (
+                "factor_graph_byte_representation_constants_initialization_"
+                "training_order_update_rule_and_output_identical_except_"
+                "preregistered_factor_learning_one_sweep_and_freeze_v1"
+                if config.benchmark_version.endswith("_v5") else
+                "tensor_rank_token_representation_initialization_training_"
+                "order_update_count_and_probabilities_identical_except_"
+                "preregistered_contraction_schedule_and_tensor_learning_v1"
+            )
             protocol.update({
                 "causal_ablation_1": str(masked["causal_ablation_1"]),
                 "causal_ablation_2": str(masked["causal_ablation_2"]),
-                "source_identical_contract":
-                    "tensor_rank_token_representation_initialization_training_order_update_count_and_probabilities_identical_except_preregistered_contraction_schedule_and_tensor_learning_v1",
+                "source_identical_contract": contract,
             })
         else:
             protocol["one_pass_ablation"] = str(masked["one_pass_ablation"])

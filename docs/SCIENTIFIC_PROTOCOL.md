@@ -248,6 +248,29 @@ rule and every numerical constant. This migration creates no hypothesis, plan,
 seed, candidate or scored result. One subsequent scout seed may discard the
 exact mechanism or authorize unchanged replication, never promotion.
 
+Version 5 is a service-only successor to v4. It re-exports the unchanged v4
+evaluator and therefore preserves the 48 file hashes and roles, splits, masks,
+byte relabeling, K=`8/32`, rounds=`1/4/6`, spans=`8/32/128`, eight cases per
+cell, immutable snapshots, metrics, costs, state boundary, Pareto axes and all
+eight controls. Only three prospective role identifiers and their causal
+contract change: a sparse learned energy factor graph, the source-identical
+graph restricted to one relaxation sweep, and the source-identical initialized
+graph with factor learning frozen. No candidate, plan, seed or score exists in
+the migration cycle, and v1-v4 history remains immutable.
+
+All v5 roles must share byte representation, graph construction, constants,
+initialization, training examples/order, relaxation update and output rule.
+Only learned versus frozen factors and the preregistered one-sweep intervention
+may differ. Before scoring, candidate-specific semantic tests must use the
+frozen multi-factor fixture to demonstrate completion requiring overlapping
+factors, nonincreasing energy across accepted relaxation steps, equivariance
+under a consistent byte relabeling, absence of target access, and explicit
+factor-by-iteration operation accounting. Failure replaces the unrun plan; it
+may not be waived after seed realization. The following wake must preregister
+and run exactly one cheap HYP-0007 revival scout; a valid negative ends this
+exact energy-factor rule without tuning, while a positive only authorizes an
+unchanged replication cohort.
+
 ## Held-out repository sequence-compression cohorts
 
 A real-sequence screening cohort uses immutable, hashed, whole-file train/validation/test roles. An implementable candidate receives only evaluator-supplied anonymous bytes: never paths, roles, file names, extensions, hashes, test offsets, future bytes or filesystem access. Corpus mismatch, fragment-level splitting or cross-slot test-state leakage invalidates the cohort. Local visible source is screening evidence only.

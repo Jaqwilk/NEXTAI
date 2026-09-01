@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "cycle": 168,
+  "created_at": "2026-09-01T04:12:51Z",
+  "service_only": true,
+  "benchmark_before": "heldout_wt_changepoints_prequential_v3",
+  "benchmark_after": "heldout_parallel_masked_infilling_v5",
+  "preserved_contract": {
+    "evaluator_execution": "exact_v4_run_suite_reexport",
+    "whole_file_hashes": 48,
+    "knowledge_sizes": [8, 32],
+    "refinement_rounds": [1, 4, 6],
+    "span_lengths": [8, 32, 128],
+    "queries_per_cell": 8,
+    "classical_baselines": 8,
+    "data_splits_masks_metrics_costs_budgets_seed_policy_pareto_changed": false
+  },
+  "prospective_roles": [
+    "sparse_learned_energy_factor_graph_masked_byte",
+    "source_identical_one_sweep_energy_factor_graph_masked_byte",
+    "source_identical_frozen_energy_factor_graph_masked_byte"
+  ],
+  "source_identical_contract": "factor_graph_byte_representation_constants_initialization_training_order_update_rule_and_output_identical_except_preregistered_factor_learning_one_sweep_and_freeze_v1",
+  "semantic_fixture": {
+    "overlapping_multi_factor_completion": true,
+    "nonincreasing_accepted_energy": true,
+    "byte_relabeling_equivariance": true,
+    "public_query_has_no_target": true,
+    "factor_by_iteration_cost_required": true
+  },
+  "historical_regression": {
+    "masked_v1_v4_semantics_preserved": true,
+    "candidate_created": false,
+    "plan_created": false,
+    "hypothesis_created": false,
+    "runner_seed_realized": false,
+    "scoring_performed": false
+  },
+  "validation": {
+    "pytest_passed": 455,
+    "semantic_baselines_passed": 8,
+    "real_file_controls_complete": 8,
+    "real_file_spans_per_control": 3,
+    "integrity_ok": true,
+    "integrity_files_verified": 625,
+    "doctor_passed": true,
+    "evaluator_sha256": "31f4db652123c1b26de08072f076da4df5a52d358d779c1bdfe0ee9005a58780",
+    "candidate_bundle_sha256": "01c42be1a44e96e713ed262d093acfc9fe20b9c39365ef6ad69e81b0c17a0b0a",
+    "manifest_sha256": "82eb05b866120eccec1cf5a03d5043c3eb56b53819eebeeede2369582a94e6d7",
+    "preflight_certificate_digest": "e5d48688c8505d0628fd12ee160a3d0a9c993e91de7b4886817b3d3bc43c84ea",
+    "preflight_file_sha256": "b21fe85c0680e2e37cfa1314f44b33a09699b5edf3dd9de72f07cef569391199"
+  },
+  "prior_manifest_archive": "research/manifests/heldout_wt_changepoints_prequential_v3-protocol-v2-37136387540d.json",
+  "prior_manifest_archive_sha256": "89eb3c5a6ceb8b21ddbbfd99f7197f086196f8d18df96d9eab46927e314c2132",
+  "review_path": "research/reviews/GEN-1-MASKED-ENERGY-FACTOR-V5-SERVICE-CYCLE-168-2026-09-01.md",
+  "review_sha256": "31beea80b84a466f7585904fc7ed378438c1ef5b2b0a4c0961e51c8e89565061",
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "consecutive_no_scoring_cycles": 1,
+  "max_consecutive_no_scoring_cycles": 3,
+  "next_wake_must_score": true,
+  "next_cycle": "Revive HYP-0007, preregister one immutable quick before candidate implementation, then score exactly one runner-random seed with the three source-identical energy-factor roles and all eight controls. A valid negative ends the exact rule without tuning; a positive only authorizes unchanged replication."
+}
