@@ -776,6 +776,33 @@ must load the immutable real-file corpus and complete through the same
 experiment plan, seed or score. Only a later wake may preregister the unchanged
 HYP-0050 quick, and one seed still cannot promote.
 
+### Parallel masked infilling v12 disjoint-corpus replication cohort
+
+V12 is a service-only successor to v11 for adversarial replication. It keeps
+the balanced-Python delimiter representation, training-depth ceiling two,
+closure-chain masking target, runner-random byte permutation, K=`8/32`,
+D=`3/4/5`, query count, metrics, directions, state boundary, cost equations,
+thresholds and all twelve candidate implementations unchanged. Historical
+v8-v11 plans, results, analyses, manifests and corpus hashes remain immutable.
+
+The only scientific-contract change is a new whole-file local source split,
+frozen in `research/corpora/heldout_parallel_masked_infilling_v12.json`. No
+v12 path or SHA-256 may overlap the v8-v11 registry, train/validation/test paths
+are disjoint, and every scored role's own module and implementation core are
+excluded. The training role supplies exactly 8,192 whole-trace bytes at K=8
+and 32,709 at K=32; the 59-byte K=32 shortfall is disclosed rather than filled
+by splitting or duplicating a trace. Validation supplies 1,023 and 4,096 bytes.
+Three reserved test files yield 55/17/10 immutable traces at depths 3/4/5.
+This local visible corpus is replication screening evidence, not a hidden
+language holdout.
+
+Activation requires exact path/size/hash verification, zero historical
+overlap, the effective-byte and depth-count regression, unchanged privileged
+query routing, all semantic baseline tests, full pytest, preflight, integrity
+and doctor. This cycle creates no hypothesis, experiment plan, seed or score.
+Only a later wake may preregister the unchanged three-runner-seed HYP-0050
+screen; it may reject or strengthen the principle but cannot by itself promote.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.

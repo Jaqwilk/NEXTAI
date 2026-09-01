@@ -9,6 +9,7 @@ from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v8 
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v9 as v9
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v10 as v10
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v11 as v11
+from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v12 as v12
 from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.masked_refinement_contract import MASK
 from nextai_autoresearch.utils import project_root
@@ -43,6 +44,7 @@ def test_stack_cases_hide_one_permuted_closer() -> None:
     ("heldout_parallel_masked_infilling_v9", "balanced_real_python_closure_chain"),
     ("heldout_parallel_masked_infilling_v10", "balanced_real_python_closure_chain"),
     ("heldout_parallel_masked_infilling_v11", "balanced_real_python_closure_chain"),
+    ("heldout_parallel_masked_infilling_v12", "balanced_real_python_closure_chain"),
 ])
 def test_plan_new_freezes_stack_depth_contract(monkeypatch, benchmark, task_unit) -> None:
     captured = {}
@@ -134,3 +136,7 @@ def test_v11_preserves_the_historical_path_for_every_existing_role(monkeypatch) 
     plan = {"sentinel": True}
     assert v11.run_suite("sentinel_existing_role", plan) == ["unchanged"]
     assert seen == {"candidate_name": "sentinel_existing_role", "plan": plan}
+
+
+def test_v12_preserves_v11_case_routing() -> None:
+    assert v12._run_case is v11._run_case

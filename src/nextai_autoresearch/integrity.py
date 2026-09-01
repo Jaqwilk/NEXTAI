@@ -32,6 +32,7 @@ FIXED_PROTECTED_FILES = (
     "research/data/dronepropa_v1/files.jsonl",
     "research/checks/dronepropa_anonymous_split_v1.jsonl",
     "research/checks/dronepropa_anonymous_split_v2.jsonl",
+    "research/corpora/heldout_parallel_masked_infilling_v12.json",
 )
 
 

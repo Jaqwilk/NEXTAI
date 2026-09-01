@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_parallel_masked_infilling_v11"
+benchmark_version = "heldout_parallel_masked_infilling_v12"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
