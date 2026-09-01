@@ -1,11 +1,11 @@
 {
   "benchmark_version": "continuous_local_cellular_v6",
-  "certificate_sha256": "15ba613639b1f7bc09a9da6a2651c2719f57bf0af75141955ae612c10d159ef6",
-  "created_at": "2026-09-01T15:06:55Z",
-  "evaluator_sha256": "a0083f36c8387c25cb1172da79adabc79914f50619f1aff7df58e5ed77415e35",
+  "certificate_sha256": "824f649aab937509fb485b11c6f8554c63ada44267293a6277b2ac5887544eaa",
+  "created_at": "2026-09-01T15:24:32Z",
+  "evaluator_sha256": "68691f44c418bf0948a2b3572bd020eb4527a2abfc2c760e980e592f54e86a19",
   "files": {
     "baseline_registry": "5d492b3b0db562aa0dfaaeee3f149d531091c04cadd905283182580ccb4a07eb",
-    "manifest": "fcc96d396b8f82f9a210c197a5a0cc8fe3e4e684d6dccf1df50bb698aee534d0",
+    "manifest": "cdfa5610d3b7d811171c42ad6370247f7a87e84695debf35f4dec3bd6e09345a",
     "runner": "d7d76991b45ee52a69ad8b832ef103cad6026cf5fa418c71907cc39f9507fc18",
     "schema:experiment_plan": "c0c0d4962f01d6d4898fd25de8d6ed3678df2a7f854481b8487142bc987ba6ac",
     "schema:experiment_result": "fe1adae2f59e250b8d66919b87d2e38f4b9d67dd9b612efefc95dba8acc0d9ab",

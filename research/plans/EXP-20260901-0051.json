@@ -1,0 +1,156 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from the shared quadratic feature library rather than coordinate selection, while the fixed score reassignment may accidentally select a better pair on one seed."
+  ],
+  "architecture_family": "predictive_coordinate_discovery",
+  "benchmark": "continuous_local_cellular_v6",
+  "budget": "quick",
+  "candidates": [
+    "learned_predictive_coordinate_chart_v1",
+    "source_identical_shuffled_predictive_coordinate_chart_v1",
+    "source_identical_frozen_predictive_coordinate_chart_v1",
+    "continuous_local_persistence",
+    "continuous_local_ridge",
+    "continuous_local_quantized_fsm",
+    "continuous_local_kernel_event",
+    "privileged_continuous_local_support"
+  ],
+  "confounds": [
+    "This one-seed locally visible synthetic family cannot establish cross-family transfer, a general learned representation principle or an LLM successor."
+  ],
+  "continuous_local_protocol": {
+    "classical_baselines": [
+      "continuous_local_persistence",
+      "continuous_local_ridge",
+      "continuous_local_quantized_fsm",
+      "continuous_local_kernel_event",
+      "privileged_continuous_local_support"
+    ],
+    "dense_ablation": "source_identical_shuffled_predictive_coordinate_chart_v1",
+    "frozen_ablation": "source_identical_frozen_predictive_coordinate_chart_v1",
+    "invalidation_rules": [
+      "Invalidate if training latent amplitudes overlap the held-out scoring amplitude interval.",
+      "Invalidate if an implementable role receives latent coordinates, encoder permutation/signs, targets before prediction or privileged local coefficients.",
+      "Invalidate unless all three prospective roles share anonymous inputs, program language, initial population, constants, proposal order, execution, output bounds and accounting, differing only in true-fitness, preregistered shuffled-fitness or frozen-population selection.",
+      "Invalidate if dormant zero cells are omitted from dense-control cost or implicitly scanned without charging operations and bytes.",
+      "Invalidate if corruption is generated after the clean target is exposed or if repair uses evaluator-private channel semantics.",
+      "Invalidate if the program language, population size, mutation/recombination operators, selection rule, generation count, clipping or tie rule changes after any scoring output.",
+      "Invalidate if candidate fitness uses scoring worlds, scoring targets, family labels, native mechanism names or evaluator-private coefficients.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+      "For continuous_local_cellular_v5, invalidate unless all three tree roles use identical anonymous inputs, features, constants, initialization, fit order, prediction, update, output bounds and accounting and differ only in error/novelty-aligned, preregistered shuffled, or frozen partition decisions.",
+      "For continuous_local_cellular_v5, invalidate if a split threshold, tree capacity, leaf model, novelty rule, shuffle, clipping or tie rule is selected from scoring worlds or changed after scoring output.",
+      "For continuous_local_cellular_v6, invalidate unless all three chart roles use identical anonymous inputs, chart capacity, feature library, fit order, prediction, update, output bounds and accounting and differ only in aligned, preregistered shuffled, or frozen chart selection.",
+      "For continuous_local_cellular_v6, invalidate if a coordinate chart, reconstruction or prediction score, bottleneck dimension, feature library, shuffle, clipping or tie rule is selected from scoring worlds or changed after scoring output."
+    ],
+    "minimum_nrmse_gain": 0.01,
+    "pareto_capability_metrics": [
+      "accuracy",
+      "warm_accuracy",
+      "near_equivalent_accuracy",
+      "stable_rollout_rate",
+      "continual_new_fact_accuracy",
+      "continual_retention",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "shared_candidate": "learned_predictive_coordinate_chart_v1",
+    "source_identical_contract": "anonymous_inputs_chart_capacity_feature_library_fit_prediction_update_accounting_identical_except_aligned_shuffled_or_frozen_predictive_coordinate_chart_v6",
+    "state_budget_bytes": 16777216
+  },
+  "created_at": "2026-09-01T15:23:04Z",
+  "evaluator_sha256": "68691f44c418bf0948a2b3572bd020eb4527a2abfc2c760e980e592f54e86a19",
+  "experiment_id": "EXP-20260901-0051",
+  "falsification_criteria": [
+    "Discard if main misses any aggregate or per-K D8/D16 0.01 NRMSE margin, stability, worst-cell, damaged-input, K-slope, state, accounting or Pareto gate.",
+    "Invalidate on role implementation or constant mismatch, scoring-world chart selection, latent or semantic metadata access, chart reselection, post-score tuning, seed leakage, missing mandatory control, external model/API use, preflight mismatch or evaluator-integrity change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "269a1bbee12fb8cb39dab07dd1602e4335484377",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0054",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256,
+      1024
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      8,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A valid failure ends this exact dimension-two pair chart, feature libraries, joint score, fixed permutation, ridge 0.001, normalized-LMS 0.05 and clipping rule without tuning or replication.",
+    "null": "If aligned selection beats its source-identical controls but a classical implementable baseline matches quality at lower full cost, preserve the causal chart-selection observation and reject the registered quality-cost conjunction.",
+    "positive": "Keep HYP-0054 only as one-seed scout evidence and authorize unchanged three-seed adversarial replication without tuning or promotion."
+  },
+  "parent_experiment_id": "EXP-20260901-0050",
+  "predicted_outcome": "The exact two-coordinate, quadratic-transition, quadratic-decoder chart selected by joint reconstruction plus one-step prediction score will lower aggregate NRMSE by at least 0.01 versus both source-identical chart controls and the strongest complete implementable baseline, retain that margin at every K for D8 and D16, remain stable without worst-cell or damaged-input regression, have absolute K query slope at most 0.05 and be implementably Pareto non-dominated after charging all six chart fits and R1/R4/R16 workloads.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "stable_rollout_rate",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "normalized_rmse",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote; complete passage of every causal, quality, stability, scaling, full-cost and Pareto gate may authorize only an unchanged three-seed adversarial replication."
+  ],
+  "research_question": "Can a training-selected two-dimensional anonymous predictive coordinate chart improve unseen-amplitude rollout quality per full cost beyond score-shuffled and frozen source-identical charts plus classical ambient predictors?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Predictive coordinate chart scout"
+}
