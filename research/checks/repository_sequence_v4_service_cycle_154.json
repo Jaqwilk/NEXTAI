@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "cycle": 154,
+  "created_at": "2026-09-01T00:55:39Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_implementation_present": false,
+  "benchmark_before": "heldout_parallel_masked_infilling_v3",
+  "benchmark_after": "heldout_repository_sequence_compression_v4",
+  "preserved_v3_contract": {
+    "corpus_id": "nextai_local_repository_sha256_v1",
+    "files": 43,
+    "acquisition_bytes": 367255,
+    "train_files": 33,
+    "validation_files": 5,
+    "test_files": 5,
+    "whole_file_hashes_unchanged": true,
+    "predict_then_reveal_unchanged": true,
+    "matrix_unchanged": true,
+    "metric_and_cost_formulas_unchanged": true,
+    "classical_baselines_unchanged": true,
+    "evaluator_reexport_only": true
+  },
+  "v4_contract": {
+    "causal_roles": [
+      "learned_conditional_execution_byte",
+      "source_identical_all_experts_byte",
+      "source_identical_frozen_router_byte"
+    ],
+    "source_identical_contract": "expert_bank_constants_initialization_data_order_input_update_output_identical_except_preregistered_router_learning_and_active_expert_count_v1"
+  },
+  "validation": {
+    "pytest_passed": 404,
+    "semantic_baselines_passed": 6,
+    "integrity_checked_files": 575,
+    "integrity": "pass",
+    "doctor": "pass",
+    "evaluator_sha256": "0ec084ef1aace9db27ec782eaa9c4c6072fc10dfe83976c8976bc2e8d4836e29",
+    "candidate_bundle_sha256": "231bb8dc02be3a40dff6738b4d236e840a59b5a091d92f45f078445f1522f677",
+    "manifest_sha256": "b5ae533045c99cd5f9f93b03772eed738de0f46596f40d9bf8f10c9c0cbc630b",
+    "preflight_certificate_sha256": "7d9b3b7b10aadac01890c9f73737d9be451b17a5193234992f89f86e306e1e59",
+    "prior_manifest_archive": "research/manifests/heldout_parallel_masked_infilling_v3-protocol-v2-05eb35bc92e0.json",
+    "prior_manifest_archive_sha256": "babe79e17e4e2e6a967f6da521a8eb13c116143b30b6d00f6dd1f0ac0b0bc67e"
+  },
+  "consecutive_no_scoring_cycles": {
+    "count": 1,
+    "maximum": 3,
+    "next_cycle_must_score": true
+  }
+}

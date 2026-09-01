@@ -247,6 +247,18 @@ The next immutable plan must freeze every reservoir constant before candidate
 implementation. Historical v1/v2 plans, results, candidates and manifests
 remain append-only and are never reinterpreted.
 
+Version 4 is a service-only successor to repository compression v3. It preserves
+all 43 whole-file hashes and roles, anonymous-byte boundary, predict-then-reveal
+execution, K=`8/20/32`, D=`4/16/64`, query allocation, metrics, cost formulas,
+state boundary, seed policy, Pareto axes and six classical controls. It changes
+only the three prospective causal role identifiers to a learned conditional-
+execution byte learner, its source-identical all-experts ablation and its
+source-identical frozen-router ablation. All roles must share the expert bank,
+constants, initialization, chronological data order, input, update and output
+rules; only preregistered router learning and active-expert count may differ.
+No candidate, hypothesis, plan or scoring seed exists in the migration cycle.
+Historical v1-v3 artifacts remain immutable and cohort-separated.
+
 ## Held-out anonymous mechanism-recombination cohorts
 
 This cohort tests a narrower claim than raw cross-family representation learning. Three existing deterministic mechanisms are normalized by one frozen numeric rule and lifted by the same Feistel construction onto 144 opaque states. Implementable candidates receive only anonymous state-to-state examples with equal public shapes; module names, source families, native types, extraction paths and composition graphs remain evaluator-only.

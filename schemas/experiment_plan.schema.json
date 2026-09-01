@@ -1183,6 +1183,42 @@
     {
       "if": {
         "properties": {
+          "benchmark": {"const": "heldout_repository_sequence_compression_v4"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 20, 32]},
+              "reasoning_depths": {"const": [4, 16, 64]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_conditional_execution_byte"}},
+            {"contains": {"const": "source_identical_all_experts_byte"}},
+            {"contains": {"const": "source_identical_frozen_router_byte"}}
+          ]},
+          "compression_protocol": {
+            "required": ["causal_roles", "source_identical_contract", "pareto_capability_metrics"],
+            "properties": {
+              "shared_candidate": {"const": "learned_conditional_execution_byte"},
+              "causal_roles": {"const": [
+                "learned_conditional_execution_byte",
+                "source_identical_all_experts_byte",
+                "source_identical_frozen_router_byte"
+              ]},
+              "source_identical_contract": {"const": "expert_bank_constants_initialization_data_order_input_update_output_identical_except_preregistered_router_learning_and_active_expert_count_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
           "benchmark": {"pattern": "^heldout_parallel_masked_"}
         },
         "required": ["benchmark"]

@@ -153,9 +153,11 @@ def test_named_context_controls_use_higher_order_evidence(name: str) -> None:
 
 
 def test_v3_preserves_evaluator_and_versions_only_future_causal_roles() -> None:
-    config = load_config()
+    active = load_config()
+    raw = copy.deepcopy(active.raw)
+    raw["project"]["benchmark_version"] = "heldout_parallel_masked_infilling_v3"
+    config = ResearchConfig(raw, active.path)
     masked = config.raw["masked_refinement"]
-    assert config.benchmark_version == "heldout_parallel_masked_infilling_v3"
     assert bench_v3.run_suite is bench.run_suite
     assert masked["shared_candidate"] == "local_sparse_predictive_code_masked_byte"
     assert masked["one_pass_ablation"] == (
@@ -192,7 +194,10 @@ def test_v3_plan_schema_locks_all_three_source_identical_roles() -> None:
 
 def test_v3_plan_generator_freezes_discriminating_matrix(monkeypatch) -> None:
     captured = {}
-    configured = load_config()
+    active = load_config()
+    raw = copy.deepcopy(active.raw)
+    raw["project"]["benchmark_version"] = "heldout_parallel_masked_infilling_v3"
+    configured = ResearchConfig(raw, active.path)
     monkeypatch.setattr(
         cli, "load_config", lambda root: ResearchConfig(
             copy.deepcopy(configured.raw), configured.path
