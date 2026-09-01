@@ -601,6 +601,33 @@ source-identical ablations and complete MDL, without full-cost Pareto dominance.
 One seed can select the mechanism for replication but cannot promote it. A
 negative quick ends this exact rule without tuning the incumbent mechanism.
 
+## Whole-I/O certified pattern-bound v5 cohort
+
+Version 5 is a service-only role successor to v4. It preserves the complete
+binary program class, noisy whole-I/O supports, held-out programs, anonymous
+inputs, K=`8/16/32`, D=`1/4/6`, Q=`8`, objective, metrics, directions,
+state boundary, full R1/R4/R16 accounting and all five classical controls.
+Historical v2-v4 plans, results, analyses, manifests and candidate roles remain
+immutable and cohort-separated.
+
+The prospective meta, support-only and frozen roles share one complete exact
+solver, objective, initial incumbent, branch order, tie handling, support
+parser, execution and output. They may differ only in the preregistered source
+of an abstract pattern bound. Every bound used for pruning must carry a
+mechanically checked admissibility certificate, and the unchanged solver must
+still prove the same minimum-error MDL optimum as complete enumeration. Pattern
+induction, certificate construction and checking, every rejected bound, search
+node, query, update, byte and state allocation are charged.
+
+This migration creates no hypothesis, plan, candidate implementation, scoring
+seed or result. Before implementation, the next immutable quick plan must
+freeze the pattern language, abstraction map, bound equation, certificate,
+fallback, constants and operation accounting. Success requires exactness in
+every cell, fewer certified search nodes and lower full workload than both
+source-identical ablations and complete MDL, and implementable Pareto
+non-dominance. A valid negative closes the exact abstraction without tuning;
+one positive seed only authorizes unchanged replication and cannot promote.
+
 ## Three-family continuous transfer v2 Pareto contract
 
 Version 2 preserves every world, split, tensor, normalization, causal assignment, baseline, metric value and budget from `heldout_three_family_continuous_transfer_v1`. It changes only prospective decision semantics. Historical v1 plans and results remain immutable and are never recomputed.

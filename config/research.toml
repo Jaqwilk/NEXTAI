@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "cross_family_sparse_set_memory_v5"
+benchmark_version = "program_induction_from_whole_io_v5"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -333,6 +333,9 @@ frozen_ablation = "source_identical_frozen_constraint_order_vm"
 shared_candidate_v4 = "learned_verified_incumbent_program_vm"
 support_only_ablation_v4 = "source_identical_support_only_verified_incumbent_program_vm"
 frozen_ablation_v4 = "source_identical_frozen_verified_incumbent_program_vm"
+shared_candidate_v5 = "learned_certified_pattern_bound_program_vm"
+support_only_ablation_v5 = "source_identical_support_only_certified_pattern_bound_program_vm"
+frozen_ablation_v5 = "source_identical_frozen_certified_pattern_bound_program_vm"
 classical_baselines = [
   "random_whole_io", "nearest_whole_io", "dense_whole_io",
   "enumerative_mdl_vm", "oracle_latent_vm",
@@ -350,6 +353,14 @@ invalidation_rules = [
   "Invalidate if the roles differ beyond the preregistered meta, support-only or frozen source of the initial incumbent proposal.",
   "Invalidate unless every proposal is verified or rejected and the unchanged solver proves the same minimum-error MDL optimum as complete enumeration.",
   "Invalidate if acquisition, proposal/meta-fit, verification, every visited fallback node, execution, query, update, state or bytes touched is omitted from full cost.",
+  "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change.",
+]
+invalidation_rules_v5 = [
+  "Invalidate if any implementable role receives the hidden program, execution trace or task identity.",
+  "Invalidate unless all three causal roles share the exact complete solver, objective, initial incumbent, branch order, ties, support parser, execution and output.",
+  "Invalidate if the roles differ beyond the preregistered meta, support-only or frozen source of an admissible pattern bound.",
+  "Invalidate unless every learned bound is mechanically certified admissible before pruning and the unchanged solver proves the same minimum-error MDL optimum as complete enumeration.",
+  "Invalidate if acquisition, pattern induction, certification, every visited fallback node, execution, query, update, state or bytes touched is omitted from full cost.",
   "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change.",
 ]
 

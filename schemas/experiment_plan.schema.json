@@ -513,15 +513,15 @@
         "pareto_capability_metrics", "invalidation_rules"
       ],
       "properties": {
-        "shared_candidate": {"enum": ["learned_amortized_constraint_order_vm", "learned_verified_incumbent_program_vm"]},
-        "support_only_ablation": {"enum": ["source_identical_support_only_constraint_order_vm", "source_identical_support_only_verified_incumbent_program_vm"]},
-        "frozen_ablation": {"enum": ["source_identical_frozen_constraint_order_vm", "source_identical_frozen_verified_incumbent_program_vm"]},
+        "shared_candidate": {"enum": ["learned_amortized_constraint_order_vm", "learned_verified_incumbent_program_vm", "learned_certified_pattern_bound_program_vm"]},
+        "support_only_ablation": {"enum": ["source_identical_support_only_constraint_order_vm", "source_identical_support_only_verified_incumbent_program_vm", "source_identical_support_only_certified_pattern_bound_program_vm"]},
+        "frozen_ablation": {"enum": ["source_identical_frozen_constraint_order_vm", "source_identical_frozen_verified_incumbent_program_vm", "source_identical_frozen_certified_pattern_bound_program_vm"]},
         "classical_baselines": {"const": [
           "random_whole_io", "nearest_whole_io", "dense_whole_io",
           "enumerative_mdl_vm", "oracle_latent_vm"
         ]},
-        "source_identical_contract": {"enum": ["complete_solver_objective_ties_support_execution_output_identical_except_meta_support_or_frozen_search_priority_v1", "complete_solver_objective_bounds_ties_support_execution_output_verifier_fallback_and_fixed_branch_order_identical_except_meta_support_or_frozen_initial_incumbent_v1"]},
-        "role_implementation": {"const": "verified_incumbent_program_vm_core_v1"},
+        "source_identical_contract": {"enum": ["complete_solver_objective_ties_support_execution_output_identical_except_meta_support_or_frozen_search_priority_v1", "complete_solver_objective_bounds_ties_support_execution_output_verifier_fallback_and_fixed_branch_order_identical_except_meta_support_or_frozen_initial_incumbent_v1", "complete_solver_objective_initial_incumbent_branch_order_ties_support_execution_output_identical_except_meta_support_or_frozen_admissible_pattern_bound_v1"]},
+        "role_implementation": {"enum": ["verified_incumbent_program_vm_core_v1", "certified_pattern_bound_program_vm_core_v1"]},
         "state_budget_bytes": {"const": 16777216},
         "pareto_capability_metrics": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
         "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5}
@@ -2921,6 +2921,42 @@
               "frozen_ablation": {"const": "source_identical_frozen_verified_incumbent_program_vm"},
               "source_identical_contract": {"const": "complete_solver_objective_bounds_ties_support_execution_output_verifier_fallback_and_fixed_branch_order_identical_except_meta_support_or_frozen_initial_incumbent_v1"},
               "role_implementation": {"const": "verified_incumbent_program_vm_core_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "program_induction_from_whole_io_v5"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["whole_io_search_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [8, 16, 32]},
+            "reasoning_depths": {"const": [1, 4, 6]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_certified_pattern_bound_program_vm"}},
+            {"contains": {"const": "source_identical_support_only_certified_pattern_bound_program_vm"}},
+            {"contains": {"const": "source_identical_frozen_certified_pattern_bound_program_vm"}},
+            {"contains": {"const": "random_whole_io"}},
+            {"contains": {"const": "nearest_whole_io"}},
+            {"contains": {"const": "dense_whole_io"}},
+            {"contains": {"const": "enumerative_mdl_vm"}},
+            {"contains": {"const": "oracle_latent_vm"}}
+          ]},
+          "whole_io_search_protocol": {
+            "required": ["role_implementation"],
+            "properties": {
+              "shared_candidate": {"const": "learned_certified_pattern_bound_program_vm"},
+              "support_only_ablation": {"const": "source_identical_support_only_certified_pattern_bound_program_vm"},
+              "frozen_ablation": {"const": "source_identical_frozen_certified_pattern_bound_program_vm"},
+              "source_identical_contract": {"const": "complete_solver_objective_initial_incumbent_branch_order_ties_support_execution_output_identical_except_meta_support_or_frozen_admissible_pattern_bound_v1"},
+              "role_implementation": {"const": "certified_pattern_bound_program_vm_core_v1"}
             }
           }
         }

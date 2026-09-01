@@ -700,6 +700,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
     if config.benchmark_version in {
         "program_induction_from_whole_io_v3",
         "program_induction_from_whole_io_v4",
+        "program_induction_from_whole_io_v5",
     }:
         search = config.raw["whole_io_search"]
         plan["matrix"]["knowledge_sizes"] = list(search["knowledge_sizes"])
@@ -710,21 +711,25 @@ def command_plan_new(args: argparse.Namespace) -> int:
         plan["metric_directions"] = {
             name: configured_directions[name] for name in metrics
         }
-        is_v4 = config.benchmark_version == "program_induction_from_whole_io_v4"
+        version = config.benchmark_version.rsplit("_v", 1)[-1]
+        role_suffix = "_v5" if version == "5" else "_v4" if version == "4" else ""
         plan["whole_io_search_protocol"] = {
-            "shared_candidate": str(search["shared_candidate_v4" if is_v4 else "shared_candidate"]),
-            "support_only_ablation": str(search["support_only_ablation_v4" if is_v4 else "support_only_ablation"]),
-            "frozen_ablation": str(search["frozen_ablation_v4" if is_v4 else "frozen_ablation"]),
+            "shared_candidate": str(search[f"shared_candidate{role_suffix}"]),
+            "support_only_ablation": str(search[f"support_only_ablation{role_suffix}"]),
+            "frozen_ablation": str(search[f"frozen_ablation{role_suffix}"]),
             "classical_baselines": list(search["classical_baselines"]),
-            "source_identical_contract": (
-                "complete_solver_objective_bounds_ties_support_execution_output_verifier_fallback_and_fixed_branch_order_identical_except_meta_support_or_frozen_initial_incumbent_v1"
-                if is_v4 else
-                "complete_solver_objective_ties_support_execution_output_identical_except_meta_support_or_frozen_search_priority_v1"
-            ),
-            **({"role_implementation": "verified_incumbent_program_vm_core_v1"} if is_v4 else {}),
+            "source_identical_contract": {
+                "3": "complete_solver_objective_ties_support_execution_output_identical_except_meta_support_or_frozen_search_priority_v1",
+                "4": "complete_solver_objective_bounds_ties_support_execution_output_verifier_fallback_and_fixed_branch_order_identical_except_meta_support_or_frozen_initial_incumbent_v1",
+                "5": "complete_solver_objective_initial_incumbent_branch_order_ties_support_execution_output_identical_except_meta_support_or_frozen_admissible_pattern_bound_v1",
+            }[version],
+            **({"role_implementation": {
+                "4": "verified_incumbent_program_vm_core_v1",
+                "5": "certified_pattern_bound_program_vm_core_v1",
+            }[version]} if version in {"4", "5"} else {}),
             "state_budget_bytes": int(search["state_budget_bytes"]),
             "pareto_capability_metrics": metrics,
-            "invalidation_rules": list(search["invalidation_rules"]),
+            "invalidation_rules": list(search["invalidation_rules_v5" if version == "5" else "invalidation_rules"]),
         }
     if config.benchmark_version.startswith("heldout_dronepropa_"):
         drone = config.raw["dronepropa"]
