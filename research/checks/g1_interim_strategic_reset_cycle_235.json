@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "cycle": 235,
+  "created_at": "2026-09-01T21:24:37Z",
+  "service_only": true,
+  "decision": "strategic_reset_required_before_more_architecture_scoring",
+  "active_benchmark_unchanged": "heldout_repository_sequence_compression_v6",
+  "completed_experiments": 98,
+  "g1_qualifying_experiment_count": 2,
+  "consecutive_no_scoring_cycles": 2,
+  "literature_sources_added": [
+    "SRC-0220",
+    "SRC-0221",
+    "SRC-0222",
+    "SRC-0223",
+    "SRC-0224"
+  ],
+  "directions_rejected_as_duplicates": {
+    "neural_process_amortization": "Context-set amortization and its finite bottleneck reduce to already tested pooled set representation, sparse memory and cross-family transfer contrasts.",
+    "discrete_neural_algorithmic_reasoning": "Predefined discrete states and supervised classical transitions supply the algorithm ontology forbidden by the current family-blind contract.",
+    "learned_conditioning_for_exact_inference": "Solver-trace branch guidance is the exact intervention already tested by amortized complete search and certified pattern guidance.",
+    "sparse_mixture_or_cascade": "Conditional expert or model deferral is learned routing and requires an external teacher in the cascade case; both are outside a new local causal factor."
+  },
+  "closest_genuinely_new_direction": {
+    "name": "observation_learned_spatial_compute_and_precision_allocation_for_numerical_solvers",
+    "why_distinct": "The learned object is where and at what precision a verified numerical solver spends computation, not a sequence representation, memory address, branch order or local state update.",
+    "required_boundary": [
+      "immutable real or accepted scientific PDE datasets with train/development/unseen test geometries and at least three grid scales",
+      "one source-identical solver with learned, randomized and residual-only allocation roles",
+      "uniform precision/refinement, residual AMR, conjugate-gradient or multigrid and privileged error-allocation controls",
+      "matched residual or solution error plus convergence, FLOPs, bit-operations, transfers, latency, peak/resident memory and complete acquisition/training cost",
+      "OOD coefficients, boundary conditions or resolutions and no candidate access to reference error before allocation"
+    ],
+    "current_blockers": [
+      "no immutable licensed PDE corpus is present locally",
+      "no registered numerical solver or semantic conformance controls are present",
+      "the current schemas do not express bit-precision, convergence or solver residual contracts",
+      "adding an external dataset and a numerical dependency or substantial local solver implementation exceeds an ordinary role-only migration and requires explicit strategic authorization",
+      "a small generated Poisson fixture would be a target-shaped microbenchmark and is therefore rejected"
+    ]
+  },
+  "mutations": {
+    "protected_files_changed": false,
+    "benchmark_created": false,
+    "hypothesis_created": false,
+    "hypothesis_updated": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "seed_realized": false,
+    "scoring_performed": false,
+    "scientific_evidence_changed": false
+  },
+  "next_action": "Do not run cycle-236 architecture scoring. Request explicit user strategic reset authorizing or rejecting a new real-PDE adaptive-computation program, including selection and local download of one immutable licensed public dataset and one separately justified numerical dependency if required. Without that reset, preserve the current state and do not create a third no-scoring architecture-selection cycle."
+}
