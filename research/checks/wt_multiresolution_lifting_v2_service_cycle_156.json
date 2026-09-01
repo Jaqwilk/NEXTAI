@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "cycle": 156,
+  "created_at": "2026-09-01T01:21:40Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_implementation_present": false,
+  "benchmark_before": "heldout_repository_sequence_compression_v4",
+  "benchmark_after": "heldout_wt_changepoints_prequential_v2",
+  "duplicate_direction_rejected": {
+    "direction": "asynchronous_temporal_binding_v1",
+    "prior_experiment": "EXP-20260830-0028",
+    "reason": "learned binder was exact but deterministically dominated by the timed-automaton control"
+  },
+  "preserved_v1_contract": {
+    "csv_files": 10,
+    "whole_file_hashes_unchanged": true,
+    "splits_and_normalization_unchanged": true,
+    "anonymous_permutation_unchanged": true,
+    "artifact_reveal_order_unchanged": true,
+    "matrix_and_metrics_unchanged": true,
+    "cost_and_pareto_contract_unchanged": true,
+    "classical_baselines_unchanged": true,
+    "evaluator_reexport_only": true
+  },
+  "v2_contract": {
+    "causal_roles": [
+      "wt_multiresolution_lifting_v1",
+      "wt_source_identical_single_scale_lifting_v1",
+      "wt_source_identical_frozen_lifting_v1"
+    ],
+    "source_identical_contract": "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1"
+  },
+  "validation": {
+    "development_real_file_smoke": "pass",
+    "development_seeds": [6, 7],
+    "test_seeds_read": false,
+    "pytest_passed": 409,
+    "semantic_baselines_passed": 8,
+    "integrity_checked_files": 582,
+    "integrity": "pass",
+    "doctor": "pass",
+    "evaluator_sha256": "b7b2956206654f27b5ad9578488c8494c459d23ea9ee8532c49664b4b3d22bd4",
+    "candidate_bundle_sha256": "c5bc50fb9f473a46d06cb7477f4ddb801f3bd51b2ccbcfe639eba16b591d7b82",
+    "manifest_sha256": "7517cfea8b10b231a699dd40461b7313e17ecd140656540b8e5dabe92b591a88",
+    "preflight_certificate_digest": "45250ad6962b9d5e1eb29a42b2666b2f2b24964705a39910a59a8ce1ce0a52db",
+    "preflight_file_sha256": "594d1b6347d1ec90407e0e594175492ead6d292b1d971dcd91a2b119bb90c4b4",
+    "prior_manifest_archive": "research/manifests/heldout_repository_sequence_compression_v4-protocol-v2-c83b7d13483e.json"
+  },
+  "consecutive_no_scoring_cycles": {
+    "count": 1,
+    "maximum": 3,
+    "next_cycle_must_score": true
+  }
+}

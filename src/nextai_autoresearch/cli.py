@@ -154,6 +154,52 @@ def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
     return protocol
 
 
+def _wt_prequential_protocol(config: ResearchConfig) -> dict[str, Any]:
+    wt = config.raw["wt_prequential"]
+    protocol = {
+        "corpus_id": str(wt["corpus_id"]),
+        "manifest_sha256": str(wt["manifest_sha256"]),
+        "split_unit": "whole_csv_file_sha256",
+        "train_files": list(wt["train_files"]),
+        "development_files": list(wt["development_files"]),
+        "test_files": list(wt["test_files"]),
+        "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
+        "predict_then_atomic_artifact_then_reveal": True,
+        "shared_candidate": str(wt["shared_candidate"]),
+        "classical_baselines": list(wt["classical_baselines"]),
+        "knowledge_sizes": list(wt["knowledge_sizes"]),
+        "fit_depth": int(wt["fit_depth"]),
+        "fit_horizon": int(wt["fit_horizon"]),
+        "declared_horizons": list(wt["horizons"]),
+        "runner_random_channel_permutation": True,
+        "normalization": "train_files_only_mechanical_partition",
+        "state_budget_bytes": int(wt["state_budget_bytes"]),
+        "declared_reuses": list(wt["declared_reuses"]),
+        "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+        "saturation_nrmse": float(wt["saturation_nrmse"]),
+        "saturation_worst_file_nrmse": float(wt["saturation_worst_file_nrmse"]),
+        "pareto_capability_metrics": [
+            "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
+            "worst_transition_normalized_rmse", "rollout_16_nrmse",
+            "rollout_32_nrmse", "rollout_96_nrmse", "data_acquisition_ops",
+            "preprocessing_ops", "fit_ops", "adaptation_ops", "mean_query_ops",
+            "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+            "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+        ],
+        "invalidation_rules": list(wt["invalidation_rules"]),
+    }
+    if config.benchmark_version.endswith("_v2"):
+        protocol.update({
+            "causal_roles": [
+                str(wt["shared_candidate"]), str(wt["causal_ablation_1"]),
+                str(wt["causal_ablation_2"]),
+            ],
+            "source_identical_contract":
+                "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1",
+        })
+    return protocol
+
+
 def command_plan_new(args: argparse.Namespace) -> int:
     root = project_root()
     ensure_layout(root)
@@ -273,43 +319,12 @@ def command_plan_new(args: argparse.Namespace) -> int:
                     "shared_vs_independent_gain", "cross_family_transfer_gain",
                 ],
             })
-    if config.benchmark_version == "heldout_wt_changepoints_prequential_v1":
+    if config.benchmark_version.startswith("heldout_wt_changepoints_prequential_v"):
         wt = config.raw["wt_prequential"]
         plan["matrix"]["knowledge_sizes"] = list(wt["knowledge_sizes"])
         plan["matrix"]["reasoning_depths"] = list(wt["horizons"])
         plan["matrix"]["queries_per_cell"] = 18
-        plan["wt_prequential_protocol"] = {
-            "corpus_id": str(wt["corpus_id"]),
-            "manifest_sha256": str(wt["manifest_sha256"]),
-            "split_unit": "whole_csv_file_sha256",
-            "train_files": list(wt["train_files"]),
-            "development_files": list(wt["development_files"]),
-            "test_files": list(wt["test_files"]),
-            "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
-            "predict_then_atomic_artifact_then_reveal": True,
-            "shared_candidate": str(wt["shared_candidate"]),
-            "classical_baselines": list(wt["classical_baselines"]),
-            "knowledge_sizes": list(wt["knowledge_sizes"]),
-            "fit_depth": int(wt["fit_depth"]),
-            "fit_horizon": int(wt["fit_horizon"]),
-            "declared_horizons": list(wt["horizons"]),
-            "runner_random_channel_permutation": True,
-            "normalization": "train_files_only_mechanical_partition",
-            "state_budget_bytes": int(wt["state_budget_bytes"]),
-            "declared_reuses": list(wt["declared_reuses"]),
-            "minimum_meaningful_nrmse_effect": 0.1325268421060828,
-            "saturation_nrmse": float(wt["saturation_nrmse"]),
-            "saturation_worst_file_nrmse": float(wt["saturation_worst_file_nrmse"]),
-            "pareto_capability_metrics": [
-                "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
-                "worst_transition_normalized_rmse", "rollout_16_nrmse",
-                "rollout_32_nrmse", "rollout_96_nrmse", "data_acquisition_ops",
-                "preprocessing_ops", "fit_ops", "adaptation_ops", "mean_query_ops",
-                "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
-                "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
-            ],
-            "invalidation_rules": list(wt["invalidation_rules"]),
-        }
+        plan["wt_prequential_protocol"] = _wt_prequential_protocol(config)
     if config.benchmark_version.startswith("cross_family_"):
         transfer = config.raw["transfer"]
         plan["transfer_protocol"] = {

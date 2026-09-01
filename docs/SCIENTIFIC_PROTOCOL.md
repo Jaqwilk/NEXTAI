@@ -342,6 +342,22 @@ the frontier. Horizon 96 tests evaluator-created depth extrapolation beyond the
 32 fitted target samples; it is not claimed as naturally occurring response-
 length OOD. One seed may discard an implementation or authorize replication,
 never promote.
+
+Version 2 is a service-only successor to WT v1. It preserves all ten CSV
+hashes, whole-file train/development/test roles, train-only normalization,
+anonymous channel permutation, prediction-artifact-reveal-update ordering,
+K=`18/36/54`, H=`16/32/96`, metrics, directions, meaningful-effect threshold,
+16 MiB state cap, costs, seed policy, Pareto axes and eight semantic baselines.
+It changes only the three prospective causal role identifiers to a learned
+multiresolution lifting predictor, its source-identical single-scale ablation
+and its source-identical frozen-lifting ablation. The roles must share one
+dyadic representation, constants, initialization, fit order, update schedule
+and output rule; only preregistered cross-scale composition and lifting learning
+may differ. The next immutable plan freezes all numerical constants before
+candidate implementation. Historical WT v1 plans, results and manifests remain
+immutable and cohort-separated. The migration creates no hypothesis, plan,
+seed, candidate or scored result.
+
 ## Three-family continuous transfer v2 Pareto contract
 
 Version 2 preserves every world, split, tensor, normalization, causal assignment, baseline, metric value and budget from `heldout_three_family_continuous_transfer_v1`. It changes only prospective decision semantics. Historical v1 plans and results remain immutable and are never recomputed.

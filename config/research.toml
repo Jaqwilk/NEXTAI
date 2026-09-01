@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_repository_sequence_compression_v4"
+benchmark_version = "heldout_wt_changepoints_prequential_v2"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -275,7 +275,9 @@ manifest_sha256 = "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd50
 train_files = [0, 1, 2, 3, 4, 5]
 development_files = [6, 7]
 test_files = [8, 9]
-shared_candidate = "wt_candidate_under_test"
+shared_candidate = "wt_multiresolution_lifting_v1"
+causal_ablation_1 = "wt_source_identical_single_scale_lifting_v1"
+causal_ablation_2 = "wt_source_identical_frozen_lifting_v1"
 classical_baselines = [
   "wt_persistence_v1",
   "wt_pooled_mean_v1",
@@ -302,6 +304,8 @@ invalidation_rules = [
   "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
   "Invalidate if a test update mutates shared slow state or another anonymous slot.",
   "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+  "Invalidate if the three lifting roles differ in representation, constants, initialization, fit order, update schedule or output rule beyond the preregistered cross-scale-composition and lifting-learning interventions.",
+  "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
   "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
 ]
 
