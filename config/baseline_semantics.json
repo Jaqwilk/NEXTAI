@@ -530,6 +530,23 @@
         {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_event_reveal_updates_only_active_rows_in_one_slot","sha256":"4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754"}
       ]
     },
+    "learned_dyadic_lifted_local_propagator": {
+      "baseline_id": "hypothesis_dyadic_lifted_local_propagator_v1", "version": 1,
+      "specification": {"role":"tested candidate semantic registration; not a baseline","input":"anonymous left-center-right four-channel transitions","lift":"four raw plus ten upper-triangle quadratic coordinates without bias","fit":"42-to-14 ridge 0.001 over all 384 rows","dyadic":"exact three-tap kernel convolution to powers 2 4 8 16","sequential_ablation":"same base lifted operator applied step by step","frozen_ablation":"dyadic identity center map on raw lift coordinates","update":"normalized LMS 0.01/(1+x'x) then dyadic rebuild","output_clip":[-1.5,1.5]},
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/dyadic_lifted_local_core.py":"b0de25d3b49578b23f8751462717a7f63d36a42f93456aca2c695a9f1e6dbd53",
+        "src/nextai_autoresearch/candidates/learned_dyadic_lifted_local_propagator.py":"f55015b6e224f5c935fee427ae4b12d183dad4428e4209964be52f0ee7152777",
+        "src/nextai_autoresearch/candidates/source_identical_sequential_lifted_local_propagator.py":"4b74b5217ad4ec89ba14bf0cc17db903351a09ef0dff148d95cf52dbd4e42005",
+        "src/nextai_autoresearch/candidates/source_identical_frozen_lift_dyadic_local_propagator.py":"b6c5e6858101a4720dbca13664b67b4829d92ffcaf14e534af307415dac27f2a"
+      },
+      "conformance_tests": [
+        {"path":"tests/test_dyadic_lifted_local.py","node_id":"tests/test_dyadic_lifted_local.py::test_all_roles_share_exact_core_constants_and_shapes","sha256":"c6c9bd07a7e823b9c12ea3d1babeb337f7e86a953ead02281d5b13f7d9a2db13"},
+        {"path":"tests/test_dyadic_lifted_local.py","node_id":"tests/test_dyadic_lifted_local.py::test_dyadic_and_sequential_are_same_operator_at_every_scored_depth","sha256":"c6c9bd07a7e823b9c12ea3d1babeb337f7e86a953ead02281d5b13f7d9a2db13"},
+        {"path":"tests/test_dyadic_lifted_local.py","node_id":"tests/test_dyadic_lifted_local.py::test_fit_and_query_commute_with_signed_channel_permutation","sha256":"c6c9bd07a7e823b9c12ea3d1babeb337f7e86a953ead02281d5b13f7d9a2db13"},
+        {"path":"tests/test_dyadic_lifted_local.py","node_id":"tests/test_dyadic_lifted_local.py::test_frozen_center_identity_and_updates_are_finite_and_local","sha256":"c6c9bd07a7e823b9c12ea3d1babeb337f7e86a953ead02281d5b13f7d9a2db13"},
+        {"path":"tests/test_dyadic_lifted_local.py","node_id":"tests/test_dyadic_lifted_local.py::test_dyadic_query_work_is_independent_of_dormant_ring_size","sha256":"c6c9bd07a7e823b9c12ea3d1babeb337f7e86a953ead02281d5b13f7d9a2db13"}
+      ]
+    },
     "learned_factorized_flux_reaction_local_rule": {
       "baseline_id": "hypothesis_factorized_flux_reaction_local_rule_v1", "version": 1,
       "specification": {"role":"tested candidate semantic registration; not a baseline","input":"anonymous left-center-right four-channel transitions","features":{"center_reaction":15,"directed_pair_field":24,"total":39},"factorized_exchange":"one half G(a,b)-G(b,a), summed over both neighbors","monolithic_ablation":"direct G(left,center)+G(right,center)","frozen_ablation":"factorized features with zero residual weights","fit":"ridge 0.001 over all 384 rows","update":"normalized LMS 0.05/(1+x'x)","execution":"sparse radius-one causal cone","repair":"none","output_clip":[-1.5,1.5]},

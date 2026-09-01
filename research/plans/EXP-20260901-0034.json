@@ -1,0 +1,150 @@
+{
+  "alternative_explanations": [
+    "Any work gain may be ordinary convolution exponentiation with no learned-representation advantage, while the finite quadratic dictionary may fail Koopman closure and amplify approximation error."
+  ],
+  "architecture_family": "dyadic_lifted_local_propagation",
+  "benchmark": "continuous_local_cellular_v3",
+  "budget": "quick",
+  "candidates": [
+    "learned_dyadic_lifted_local_propagator",
+    "source_identical_sequential_lifted_local_propagator",
+    "source_identical_frozen_lift_dyadic_local_propagator",
+    "continuous_local_persistence",
+    "continuous_local_ridge",
+    "continuous_local_quantized_fsm",
+    "continuous_local_kernel_event",
+    "privileged_continuous_local_support"
+  ],
+  "confounds": [
+    "The locally visible synthetic evaluator has power-of-two depths and one sparse impulse; it cannot establish general Koopman closure, non-power-of-two transfer, real-world generality, or an LLM successor."
+  ],
+  "continuous_local_protocol": {
+    "classical_baselines": [
+      "continuous_local_persistence",
+      "continuous_local_ridge",
+      "continuous_local_quantized_fsm",
+      "continuous_local_kernel_event",
+      "privileged_continuous_local_support"
+    ],
+    "dense_ablation": "source_identical_sequential_lifted_local_propagator",
+    "frozen_ablation": "source_identical_frozen_lift_dyadic_local_propagator",
+    "invalidation_rules": [
+      "Invalidate if training latent amplitudes overlap the held-out scoring amplitude interval.",
+      "Invalidate if an implementable role receives latent coordinates, encoder permutation/signs, targets before prediction or privileged local coefficients.",
+      "Invalidate unless all three prospective roles share anonymous inputs, lifted features, constants, training rows, initialization, update order and output bounds, differing only in dyadic composition, sequential composition or frozen lift learning.",
+      "Invalidate if dormant zero cells are omitted from dense-control cost or implicitly scanned without charging operations and bytes.",
+      "Invalidate if corruption is generated after the clean target is exposed or if repair uses evaluator-private channel semantics.",
+      "Invalidate if dyadic powers are fitted to scoring horizons or if any scoring output changes lift dimension, ridge, clipping, composition order or update rule.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "minimum_nrmse_gain": 0.01,
+    "pareto_capability_metrics": [
+      "accuracy",
+      "warm_accuracy",
+      "near_equivalent_accuracy",
+      "stable_rollout_rate",
+      "continual_new_fact_accuracy",
+      "continual_retention",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "shared_candidate": "learned_dyadic_lifted_local_propagator",
+    "source_identical_contract": "anonymous_inputs_constants_lift_features_fit_update_output_identical_except_dyadic_sequential_or_frozen_propagation_v3",
+    "state_budget_bytes": 16777216
+  },
+  "created_at": "2026-09-01T07:37:15Z",
+  "evaluator_sha256": "cb7587ba06e71d0334360796d0ee217f6f6f4bf490a7c1e32d9f29039d36e48e",
+  "experiment_id": "EXP-20260901-0034",
+  "falsification_criteria": [
+    "Discard if dyadic aggregate NRMSE is worse than sequential by more than 0.01, fails to beat frozen and the strongest complete implementable control by 0.01, fails the D8/D16 ridge margins, loses stability or damaged/worst-depth behavior, lacks lower depth-work slope, is Pareto-dominated, or violates any frozen semantic/accounting gate."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "41b1e0665591daa14de97bead4675dfca4f67949",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0046",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256,
+      1024
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      8,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A valid quality, stability, semantic, depth-slope or Pareto failure falsifies this exact 14-coordinate lift, ridge, LMS, clipping and dyadic composition without tuning or replication.",
+    "null": "If dyadic matches sequential quality and lowers query work but ridge or another simpler control matches quality at lower full cost, retain dyadic compilation as classical engineering and falsify the distinct learned capability-cost claim.",
+    "positive": "Retain HYP-0046 only as one-seed scout evidence and authorize an unchanged three-seed adversarial successor; do not promote."
+  },
+  "parent_experiment_id": "EXP-20260901-0033",
+  "predicted_outcome": "The learned dyadic and sequential roles should agree numerically for one base lifted convolution, while precomposition lowers query depth slope; success additionally requires the learned lift to improve NRMSE by at least 0.01 over frozen, ridge, and the strongest complete implementable control overall and at D8/D16, with stable K-independent rollout.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "stable_rollout_rate",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "normalized_rmse",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. An unchanged three-seed adversarial screen is permitted only if every preregistered quality, dyadic-equivalence, stability, K-slope, depth-work, full-cost and Pareto gate passes."
+  ],
+  "research_question": "Can one zero-preserving learned lifted local operator be precomposed into dyadic propagators that retain source-identical sequential quality while reducing depth-dependent inference work and beating simple local controls at full cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Dyadic lifted local propagation scout"
+}
