@@ -604,7 +604,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
     if config.benchmark_version in {
         "continuous_local_cellular_v1", "continuous_local_cellular_v2",
         "continuous_local_cellular_v3", "continuous_local_cellular_v4",
-        "continuous_local_cellular_v5",
+        "continuous_local_cellular_v5", "continuous_local_cellular_v6",
     }:
         local = config.raw["continuous_local_cellular"]
         plan["matrix"]["knowledge_sizes"] = list(local["knowledge_sizes"])
@@ -626,6 +626,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
                 "continuous_local_cellular_v3": "anonymous_inputs_constants_lift_features_fit_update_output_identical_except_dyadic_sequential_or_frozen_propagation_v3",
                 "continuous_local_cellular_v4": "anonymous_inputs_program_language_population_constants_proposals_execution_output_identical_except_true_shuffled_or_frozen_fitness_selection_v4",
                 "continuous_local_cellular_v5": "anonymous_inputs_features_constants_initialization_fit_prediction_update_accounting_identical_except_error_novelty_split_shuffled_split_or_frozen_partition_v5",
+                "continuous_local_cellular_v6": "anonymous_inputs_chart_capacity_feature_library_fit_prediction_update_accounting_identical_except_aligned_shuffled_or_frozen_predictive_coordinate_chart_v6",
             }[config.benchmark_version],
             "state_budget_bytes": int(local["state_budget_bytes"]),
             "minimum_nrmse_gain": float(local["minimum_nrmse_gain"]),
@@ -637,6 +638,12 @@ def command_plan_new(args: argparse.Namespace) -> int:
                 "shared_candidate": str(local["shared_candidate_v5"]),
                 "dense_ablation": str(local["dense_ablation_v5"]),
                 "frozen_ablation": str(local["frozen_ablation_v5"]),
+            })
+        if config.benchmark_version == "continuous_local_cellular_v6":
+            plan["continuous_local_protocol"].update({
+                "shared_candidate": str(local["shared_candidate_v6"]),
+                "dense_ablation": str(local["dense_ablation_v6"]),
+                "frozen_ablation": str(local["frozen_ablation_v6"]),
             })
     if config.benchmark_version in {
         "program_induction_from_whole_io_v3",

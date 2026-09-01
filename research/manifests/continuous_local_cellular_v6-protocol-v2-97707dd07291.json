@@ -1,13 +1,13 @@
 {
   "benchmark_version": "continuous_local_cellular_v6",
   "candidate_bundle_sha256": "0ff1ff3a3ef3706dd229eece5f89b12e472a953910b08970adb9fa9034c9bf98",
-  "created_at": "2026-09-01T15:06:55Z",
-  "evaluator_sha256": "a0083f36c8387c25cb1172da79adabc79914f50619f1aff7df58e5ed77415e35",
+  "created_at": "2026-09-01T15:05:36Z",
+  "evaluator_sha256": "d03f047929ab990a3b072068ed248fe8c3c158d125f1f4f52450504c6a97a9eb",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
     "config/baseline_semantics.json": "5d492b3b0db562aa0dfaaeee3f149d531091c04cadd905283182580ccb4a07eb",
-    "config/research.toml": "02490fb62d869f874b3436b30447e68d57cab7c3336dcb0d69603c75a03d4e92",
+    "config/research.toml": "3c8adc0df9a982a3d26eebbfb3af79d43109d0822c3376e36bc0195b9008dded",
     "docs/SCIENTIFIC_PROTOCOL.md": "500a2cf4b0e4aa1be0684c3e4f71c743acf61c389e508fd9ec5f308fa0416cf1",
     "program.md": "e50270647d6d2eba47958f0a3ffcad24f72e276fdf18256b9906b43295640948",
     "pyproject.toml": "13b054136f7cdc6dc5e5e0fc9375ced1cb049685727fb3e2001751e52b2fe87c",
