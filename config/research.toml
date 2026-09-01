@@ -107,6 +107,9 @@ invalidation_rules = [
 
 [masked_refinement]
 corpus_id = "nextai_disjoint_masked_corpus_sha256_v1"
+knowledge_sizes = [8, 32]
+refinement_rounds = [1, 4, 6]
+queries_per_cell = 8
 span_lengths = [8, 32, 128]
 context_bytes = 64
 shared_candidate = "local_sparse_predictive_code_masked_byte"

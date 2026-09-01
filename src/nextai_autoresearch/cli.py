@@ -363,6 +363,10 @@ def command_plan_new(args: argparse.Namespace) -> int:
             }
     if config.benchmark_version.startswith("heldout_parallel_masked_"):
         masked = config.raw["masked_refinement"]
+        if config.benchmark_version == "heldout_parallel_masked_infilling_v3":
+            plan["matrix"]["knowledge_sizes"] = list(masked["knowledge_sizes"])
+            plan["matrix"]["reasoning_depths"] = list(masked["refinement_rounds"])
+            plan["matrix"]["queries_per_cell"] = int(masked["queries_per_cell"])
         plan["masked_refinement_protocol"] = {
             "corpus_id": str(masked["corpus_id"]),
             "split_unit": "whole_files_sha256",

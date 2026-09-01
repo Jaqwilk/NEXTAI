@@ -223,6 +223,11 @@ and code learning may differ as preregistered. No candidate exists in the
 migration cycle. Historical v1/v2 plans, results, analyses and manifests remain
 immutable and are never reinterpreted.
 
+The v3 quick plan generator must emit K=`8/32`, refinement rounds=`1/4/6`
+and eight cases per K/round cell. A single-round global quick default is invalid
+because it makes the learned iterative role observationally identical to its
+forced-one-pass ablation.
+
 ## Held-out repository sequence-compression cohorts
 
 A real-sequence screening cohort uses immutable, hashed, whole-file train/validation/test roles. An implementable candidate receives only evaluator-supplied anonymous bytes: never paths, roles, file names, extensions, hashes, test offsets, future bytes or filesystem access. Corpus mismatch, fragment-level splitting or cross-slot test-state leakage invalidates the cohort. Local visible source is screening evidence only.

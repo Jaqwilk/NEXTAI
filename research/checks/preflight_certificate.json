@@ -1,13 +1,13 @@
 {
   "benchmark_version": "heldout_parallel_masked_infilling_v3",
-  "certificate_sha256": "fc552401dcdb137cede40acbaadb38e8d3c9cecc9407bc43bbda7bfb553eb116",
-  "created_at": "2026-09-01T00:28:53Z",
-  "evaluator_sha256": "73f2b8ee5974e053464c8916fefea30be43a0f22432992a81fe3eac1fc23e6c2",
+  "certificate_sha256": "7bcbbe7fc32cb814693dde22f196ffb61e11c7564bd8c0d1794b0bfcc8dc08a7",
+  "created_at": "2026-09-01T00:35:30Z",
+  "evaluator_sha256": "1e66bdad48e7dca0c7953eae25602abebe010cc4c4125e21be65ebef5d216b49",
   "files": {
     "baseline_registry": "38eab509127e934a29d525db9ea4e82ed17d98db966ec1e7734e1312844d4aa2",
-    "manifest": "93b0566b1029bceed3ff30347fd52a67c41bee2347a630f334d3218aaa57821f",
+    "manifest": "8bcb3450d5ba2429d2d2d51bbed5ebe070cb551c0bb12542c1b3ed701c062295",
     "runner": "3c024a5217c391f4609d10c4bffcb3066f16efcb2fe836e23f31ce2cd25b857d",
-    "schema:experiment_plan": "e3c7c234e8eac3ccbc06e1f5839268227d2dbcf19af3d97edefa48b7d046dedf",
+    "schema:experiment_plan": "22f636231dcecf1fbce108e06097818cd60eba3897a4721fbd03964867d53dc1",
     "schema:experiment_result": "a82f720ed0c6f32b99ae4761e582e831047aa9680de7fcfbc569f02c0ef0d74f",
     "schema:hypothesis": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
     "schema:research_state": "f155fb268b3ef422b9e1547a450222c2bdf040ef7d2d28a9025eec8281bb41bd",

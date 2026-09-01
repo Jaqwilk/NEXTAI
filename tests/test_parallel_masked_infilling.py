@@ -1,14 +1,16 @@
 from __future__ import annotations
 
 import copy
+from argparse import Namespace
 
 import pytest
 from jsonschema.exceptions import ValidationError
 
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v1 as bench
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v3 as bench_v3
+from nextai_autoresearch import cli
 from nextai_autoresearch.benchmarks.heldout_repository_sequence_compression_v1 import CORPUS as OLD
-from nextai_autoresearch.config import load_config
+from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.masked_refinement_contract import (
     MASK,
     ByteFile,
@@ -183,3 +185,50 @@ def test_v3_plan_schema_locks_all_three_source_identical_roles() -> None:
     protocol["shared_candidate"] = "iterative_masked_learner"
     with pytest.raises(ValidationError):
         validate_document("experiment_plan", plan, project_root())
+
+
+def test_v3_plan_generator_freezes_discriminating_matrix(monkeypatch) -> None:
+    captured = {}
+    configured = load_config()
+    monkeypatch.setattr(
+        cli, "load_config", lambda root: ResearchConfig(
+            copy.deepcopy(configured.raw), configured.path
+        )
+    )
+    monkeypatch.setattr(cli, "ensure_layout", lambda root: None)
+    monkeypatch.setattr(cli, "ensure_can_create_plan", lambda root: None)
+    monkeypatch.setattr(cli, "latest_hypotheses", lambda root: {"HYP-9999": {}})
+    monkeypatch.setattr(cli, "next_experiment_id", lambda root: "EXP-20990101-9999")
+    monkeypatch.setattr(cli, "_git_value", lambda *args: None)
+    monkeypatch.setattr(cli, "atomic_write_json", lambda path, value: captured.update(plan=value))
+    monkeypatch.setattr(cli, "register_plan", lambda plan, path, root: "test-digest")
+    masked = configured.raw["masked_refinement"]
+    candidates = [
+        masked["shared_candidate"], masked["one_pass_ablation"],
+        masked["causal_ablation_2"], *masked["classical_baselines"],
+    ]
+    cli.command_plan_new(Namespace(
+        hypothesis="HYP-9999", parent=None, title="masked v3 matrix regression",
+        question="Does v3 preserve a discriminating refinement matrix?",
+        family="test", candidates=candidates, budget="quick",
+        primary_metric=["bits_per_byte", "exact_span_accuracy"],
+        prediction="No score; schema synthesis regression only.",
+        kill_criterion=["Reject malformed protocol."],
+        promotion_criterion=["This test cannot promote."],
+        alternative=["Global quick defaults could erase iterative contrast."],
+        confound=["No runner seed is realized."],
+        positive_conclusion="The generated contract validates.",
+        null_conclusion="Treat as infrastructure failure.",
+        negative_conclusion="Repair before preregistration.",
+    ))
+    plan = captured["plan"]
+    assert plan["matrix"] == {
+        "knowledge_sizes": [8, 32],
+        "reasoning_depths": [1, 4, 6],
+        "queries_per_cell": 8,
+        "seed_policy": {
+            "method": "runner_random_v1", "count": 1,
+            "minimum": 1_000_000, "maximum": 2_147_483_647,
+        },
+    }
+    validate_document("experiment_plan", plan, project_root())

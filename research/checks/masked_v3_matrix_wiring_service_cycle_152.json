@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "cycle": 152,
+  "created_at": "2026-09-01T00:35:34Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_implemented": false,
+  "benchmark": "heldout_parallel_masked_infilling_v3",
+  "defect": {
+    "global_quick_matrix": {"knowledge_sizes": [8, 32], "reasoning_depths": [1], "queries_per_cell": 128},
+    "schema_valid": false,
+    "causal_contrast_identifiable": false,
+    "reason": "one round is identical to the forced-one-pass intervention"
+  },
+  "repair": {
+    "knowledge_sizes": [8, 32],
+    "reasoning_depths": [1, 4, 6],
+    "queries_per_cell": 8,
+    "scope": "masked_v3_plan_generation_and_schema_only",
+    "evaluator_changed": false,
+    "corpus_or_metric_changed": false
+  },
+  "validation": {
+    "pytest_passed": 400,
+    "semantic_baselines_passed": 8,
+    "integrity_checked_files": 569,
+    "integrity": "pass",
+    "doctor": "pass",
+    "evaluator_sha256": "1e66bdad48e7dca0c7953eae25602abebe010cc4c4125e21be65ebef5d216b49",
+    "candidate_bundle_sha256": "bae33249879b6952418df7132408a7f8a1fe1b08f900fc0e7cb203b47c7018bb",
+    "manifest_sha256": "8bcb3450d5ba2429d2d2d51bbed5ebe070cb551c0bb12542c1b3ed701c062295",
+    "preflight_certificate_sha256": "7bcbbe7fc32cb814693dde22f196ffb61e11c7564bd8c0d1794b0bfcc8dc08a7",
+    "prior_manifest_archive": "research/manifests/heldout_parallel_masked_infilling_v3-protocol-v2-93b0566b1029.json",
+    "prior_manifest_archive_sha256": "93b0566b1029bceed3ff30347fd52a67c41bee2347a630f334d3218aaa57821f"
+  },
+  "consecutive_no_scoring_cycles": {"count": 2, "maximum": 3, "next_cycle_must_score": true}
+}

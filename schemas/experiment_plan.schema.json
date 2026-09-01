@@ -1216,6 +1216,13 @@
       },
       "then": {
         "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
           "candidates": {
             "allOf": [
               {"contains": {"const": "local_sparse_predictive_code_masked_byte"}},
