@@ -1,0 +1,215 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from recursive block rollout rather than predictive-state supervision; the two source-identical projection ablations and static spectral PSR isolate this explanation.",
+    "Rank-four linear temporal modes may be insufficient for nonlinear WT transients, while CSSR or ridge FIR may match quality with lower full cost."
+  ],
+  "architecture_family": "real_action_conditioned_predictive_state",
+  "benchmark": "heldout_wt_changepoints_prequential_v3",
+  "budget": "quick",
+  "candidates": [
+    "wt_action_conditioned_predictive_state_v1",
+    "wt_source_identical_frozen_predictive_state_v1",
+    "wt_source_identical_observation_history_v1",
+    "wt_persistence_v1",
+    "wt_pooled_mean_v1",
+    "wt_control_level_bank_v1",
+    "wt_lms_v1",
+    "wt_rls_v1",
+    "wt_transition_bank_v1",
+    "wt_bounded_replay_v1",
+    "wt_ridge_fir_v1",
+    "wt_coverage_aware_spectral_psr_v1",
+    "wt_train_only_discretized_cssr_v1"
+  ],
+  "confounds": [
+    "The two locally visible held-out WT files are screening evidence, not an independent hidden evaluator.",
+    "Wall time is hardware-dependent; explicit operations, bytes and state are the primary cost evidence."
+  ],
+  "created_at": "2026-09-01T03:50:28Z",
+  "evaluator_sha256": "5c5666eee87257e241c833639d394ba9c074c5a104ebbfcf4b3ffc2a1027dde3",
+  "experiment_id": "EXP-20260901-0023",
+  "falsification_criteria": [
+    "Discard if aggregate or either H32/H96 NRMSE advantage is below 0.1325268421060828 versus either source-identical ablation or the strongest complete implementable baseline, or if worst-file/worst-transition NRMSE regresses.",
+    "Discard if stable rollout is below one, absolute query-work K slope exceeds 0.10, state exceeds 16 MiB, updates are not slot-local, or any complete implementable control Pareto-dominates the predictive role.",
+    "Invalidate on any source-identity, window, rank, feature, control-conditioning, constant, initialization, fit-order, update-schedule or output mismatch beyond predictive-SVD versus frozen-DCT versus history-PCA projection; also invalidate on leakage, post-score tuning, semantic-baseline, preflight or evaluator-integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "a376a406fd06e311b2043c61751ad892ce10dc4c",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0040",
+  "matrix": {
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "queries_per_cell": 18,
+    "reasoning_depths": [
+      16,
+      32,
+      96
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "rollout_16_nrmse": "minimize",
+    "rollout_32_nrmse": "minimize",
+    "rollout_96_nrmse": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_normalized_rmse": "minimize",
+    "worst_transition_normalized_rmse": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify this exact temporal factorization, recursive rollout and local-update conjunction, preserve all artifacts, and pivot to a different breadth mechanism.",
+    "null": "If capability is close but the meaningful-effect, worst-file or full-cost gate fails, discard the exact rule without tuning and retain only any isolated qualitative signature.",
+    "positive": "Keep the exact frozen rule only for unchanged three-seed adversarial replication; do not promote from this seed."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "With history/future windows 32/32, rank 4, exact-control coverage balancing, ridge 0.001, bilinear control features, recursive 32-sample blocks, clip [-8,8] and slot-local NLMS eta 0.25 frozen before code, the future-supervised role lowers aggregate and H32/H96 NRMSE by at least 0.1325268421060828 versus both source-identical ablations and the strongest complete implementable baseline, has no worst-file or worst-transition regression, stable rate 1, absolute K query-work slope at most 0.10, state below 16 MiB and implementable full-cost Pareto non-dominance.",
+  "primary_metrics": [
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "worst_file_normalized_rmse",
+    "worst_transition_normalized_rmse",
+    "rollout_16_nrmse",
+    "rollout_32_nrmse",
+    "rollout_96_nrmse",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. A positive result can only authorize an unchanged three-seed adversarial replication after the existing primary-source review."
+  ],
+  "research_question": "Does a train-only coverage-balanced 32-to-32 rank-four future-supervised temporal state with recursive H96 rollout and slot-local NLMS update improve real held-out WT changepoint prediction beyond the source-identical frozen-DCT and history-PCA projections and all ten classical controls at full cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Coverage-balanced temporal predictive-state quick",
+  "wt_prequential_protocol": {
+    "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
+    "causal_roles": [
+      "wt_action_conditioned_predictive_state_v1",
+      "wt_source_identical_frozen_predictive_state_v1",
+      "wt_source_identical_observation_history_v1"
+    ],
+    "classical_baselines": [
+      "wt_persistence_v1",
+      "wt_pooled_mean_v1",
+      "wt_control_level_bank_v1",
+      "wt_lms_v1",
+      "wt_rls_v1",
+      "wt_transition_bank_v1",
+      "wt_bounded_replay_v1",
+      "wt_ridge_fir_v1",
+      "wt_coverage_aware_spectral_psr_v1",
+      "wt_train_only_discretized_cssr_v1"
+    ],
+    "corpus_id": "causal_chambers_wt_changepoints_v1",
+    "declared_horizons": [
+      16,
+      32,
+      96
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "development_files": [
+      6,
+      7
+    ],
+    "fit_depth": 32,
+    "fit_horizon": 32,
+    "invalidation_rules": [
+      "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+      "Invalidate if train, development or test whole-file roles overlap.",
+      "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+      "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+      "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+      "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+      "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+      "Invalidate if the three predictive-state roles differ in windows, rank, features, control conditioning, constants, initialization, fit order, update schedule or output rule beyond the preregistered state-learning, frozen-state and observation-history interventions.",
+      "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+    "normalization": "train_files_only_mechanical_partition",
+    "pareto_capability_metrics": [
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "worst_file_normalized_rmse",
+      "worst_transition_normalized_rmse",
+      "rollout_16_nrmse",
+      "rollout_32_nrmse",
+      "rollout_96_nrmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_atomic_artifact_then_reveal": true,
+    "runner_random_channel_permutation": true,
+    "saturation_nrmse": 0.5,
+    "saturation_worst_file_nrmse": 0.75,
+    "shared_candidate": "wt_action_conditioned_predictive_state_v1",
+    "source_identical_contract": "history_future_windows_rank_features_control_conditioning_constants_initialization_fit_order_update_schedule_and_output_identical_except_preregistered_predictive_state_learning_freeze_or_observation_history_projection_v1",
+    "split_unit": "whole_csv_file_sha256",
+    "state_budget_bytes": 16777216,
+    "test_files": [
+      8,
+      9
+    ],
+    "train_files": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}

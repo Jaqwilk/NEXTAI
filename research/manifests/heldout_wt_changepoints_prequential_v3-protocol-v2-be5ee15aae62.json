@@ -1,8 +1,8 @@
 {
   "benchmark_version": "heldout_wt_changepoints_prequential_v3",
-  "candidate_bundle_sha256": "01c42be1a44e96e713ed262d093acfc9fe20b9c39365ef6ad69e81b0c17a0b0a",
-  "created_at": "2026-09-01T03:54:19Z",
-  "evaluator_sha256": "1715c47db63bcc8fa4d6e591063c83ff5495babd89a0be6b6b52f201cd861f28",
+  "candidate_bundle_sha256": "a2a7561d51b0ce5129fa0d12a816fd89eeb5bac294ddd69ae24c405403965809",
+  "created_at": "2026-09-01T03:43:41Z",
+  "evaluator_sha256": "5c5666eee87257e241c833639d394ba9c074c5a104ebbfcf4b3ffc2a1027dde3",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -476,7 +476,6 @@
     "src/nextai_autoresearch/candidates/unigram_recombination.py": "b3506ecdb016330d488dd6287bb85e5b606830f61a703dffbb83b609b1592f94",
     "src/nextai_autoresearch/candidates/variance_triggered_kalman.py": "23c8384dc7825d288d6cd908e6a2dc41c80f0b7e63e36b2097a5497d847a2bc8",
     "src/nextai_autoresearch/candidates/vsa_superposition.py": "2cfc1449e75dfb6b10b6fe75008d14c15681f68f719e9277740e206f68f936c1",
-    "src/nextai_autoresearch/candidates/wt_action_conditioned_predictive_state_v1.py": "6bf83137148f4b0ae449124e3580cf6481d1a56986243d6c5decb75cbc38b1e3",
     "src/nextai_autoresearch/candidates/wt_bounded_replay_v1.py": "27101f8388f2fbdf6e4252453201e27df25505e407b734a6c1bda71840be46a5",
     "src/nextai_autoresearch/candidates/wt_candidate_under_test.py": "881b255e07bda112e7cfa99422a18967c4cd532f43b37a302db318b79daeb953",
     "src/nextai_autoresearch/candidates/wt_control_level_bank_v1.py": "eabd1c477bd7ef59afd9c4a4dc2ea4780b86e516f71840c03520c5241bfd82ae",
@@ -491,10 +490,7 @@
     "src/nextai_autoresearch/candidates/wt_ridge_fir_v1.py": "031b4ccf415f1831773e1ce3aea531474932f481f3502abbff58fd8405d05494",
     "src/nextai_autoresearch/candidates/wt_rls_v1.py": "52b4830743243d94bfa802c6d896e7789f9dc5d1591c4ca1d4da36f1a11d3cf8",
     "src/nextai_autoresearch/candidates/wt_source_identical_frozen_lifting_v1.py": "8c6f9d1606d92b9a4e98586b474075ef8adef035080b1503e4dcb94017fc348a",
-    "src/nextai_autoresearch/candidates/wt_source_identical_frozen_predictive_state_v1.py": "8f261091ffb8d2d467dc2090cd7518ea51731888f537815ed99e3d31a23b606d",
-    "src/nextai_autoresearch/candidates/wt_source_identical_observation_history_v1.py": "6452ef25ca5a71feddd9f43fba69afd5bc02b576eff6970b9824583ac76baaad",
     "src/nextai_autoresearch/candidates/wt_source_identical_single_scale_lifting_v1.py": "79847fbd14f5f2c021a5338a23ef62442c493b2c1103fec1356f02d62d103f87",
-    "src/nextai_autoresearch/candidates/wt_temporal_predictive_state_core.py": "bd7636dab22e0ac5cca75b58ffcbcdb9745eb49a2159736b0eddef30efa51795",
     "src/nextai_autoresearch/candidates/wt_train_only_discretized_cssr_v1.py": "f92f91d99e4585d0849998a0a6ca4e7fd34da255516adc3f31e4dbf720d8f99d",
     "src/nextai_autoresearch/candidates/wt_transition_bank_v1.py": "b401c5be84170ea2361c9bad0de2cc7fcfed900ceaf94892cbe033ce4c6851dd",
     "src/nextai_autoresearch/causal_adversarial_core.py": "0cc1e96741d37c5d4bf30e93de120295cd2abd7a65f6fb7bce539081947b74f5",
@@ -626,7 +622,6 @@
     "tests/test_wt_multiresolution_lifting.py": "74a39daf9ef455e933d4869c747f5760af6b123fd4a78595535c8f0997467b44",
     "tests/test_wt_predictive_state_controls.py": "f11ba5efd8e9e7e2650d418cf70e0051756ed789f9678fce54cbc0ec6ef4ded0",
     "tests/test_wt_predictive_state_v3.py": "85a1f8541985d853d7352a7699069eafddd97a917f7debc58e53876f06046ca7",
-    "tests/test_wt_temporal_predictive_state.py": "952ab5b94db7e91c39aa5f09ef1d9d38c5b93aed96c2a31a0a95ec92bb319ebb",
     "uv.lock": "b7f6ba1ae659ff3388728bfca0ec87b9d7477a36ae718aec86d81a1128e79942"
   },
   "protocol_version": 2,
