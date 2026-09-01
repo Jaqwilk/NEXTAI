@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "cycle": 234,
+  "created_at": "2026-09-01T21:17:52Z",
+  "service_only": true,
+  "decision": "no_nonduplicate_existing_cohort_contract",
+  "active_benchmark_unchanged": "heldout_repository_sequence_compression_v6",
+  "completed_experiments": 98,
+  "g1_qualifying_experiment_count": 2,
+  "hypotheses_latest": {
+    "total": 58,
+    "dormant": 22,
+    "falsified": 35,
+    "testing": 1
+  },
+  "g1_results_reviewed": [
+    "EXP-20260901-0060",
+    "EXP-20260901-0062"
+  ],
+  "candidate_classes_rejected": {
+    "recurrent_or_fast_state": "EXP-20260901-0009, EXP-20260830-0048, EXP-20260901-0060 and EXP-20260901-0062 already isolate fixed recurrence, shared recurrent state, bounded particles and input-selective recurrence; renaming a larger state or update is not a new causal intervention.",
+    "probabilistic_factorization": "EXP-20260830-0040 and cycle 231 show learned decomposable circuits collapse to contextual Chow-Liu or become representation-nonidentifiable without a privileged compiler.",
+    "grammar_or_program_compilation": "EXP-20260830-0026, EXP-20260830-0044, EXP-20260901-0032 and cycle 63 cover learned motifs, hierarchical compression, recursive grammar and classical Sequitur/Re-Pair explanations.",
+    "routing_addressing_or_sparse_memory": "EXP-20260901-0054, EXP-20260901-0056 and EXP-20260901-0057 reject predictive charts, hierarchical addressing and cross-family sparse set memory against raw and classical indexes.",
+    "local_credit_or_online_update": "EXP-20260901-0004, EXP-20260901-0007, EXP-20260901-0048 and the HYP-0014 audit cover sparse plasticity, Forward-Forward, eligibility and fast-weight or TTT-equivalent updates.",
+    "exact_search_or_verified_fast_path": "EXP-20260901-0045 and EXP-20260901-0059 show learned guidance loses to frozen exact controls after fit, certification, state and repeated-work accounting.",
+    "cross_family_latent_representation": "The cycle-129 observable-auxiliary audit found no common candidate-visible identifiability signal; family masks are prohibited implicit routers.",
+    "adaptive_precision_or_hardware_routing": "CAL-20260901-0001 shows operation counts do not predict cross-backend time, but current frozen scientific cohorts do not provide paired precision, transfer and energy semantics; adding them now would be a new systems benchmark, not an existing-cohort mechanism quick."
+  },
+  "existing_cohort_gate": {
+    "repository_sequence": "Strong real PPM-D, CTW and LZ controls discriminate sequence density, but remaining proposals reduce to context selection, recurrent state, grammar or numeric implementation choices already answered or not represented by the cost contract.",
+    "wt_prequential": "Discriminates local adaptation, changepoints and long horizons, but particle, predictive-state, eligibility, sparse-plasticity and classical adaptive-filter contrasts are already complete.",
+    "three_family_continuous": "Discriminates foreign-family transfer, but no common observable auxiliary survives the frozen identifiability audit and masks reveal prohibited family identity.",
+    "masked_infilling": "Discriminates parallel completion and unseen depth, but energy, tensor, grammar, pushdown and exact-control mechanisms are already tested; the only replicated pushdown signal failed its adversarial operation.",
+    "whole_io_and_mechanism_recombination": "Discriminate finite program and operator search, but supplied support makes exact interpreters or classical search the causal explanation and unobserved structure is otherwise nonidentifiable.",
+    "entity_and_indexing": "Discriminate retrieval and insertion, but raw nearest-neighbour and k-d controls already explain the useful access signature."
+  },
+  "missing_discriminator": "A genuinely new quick needs an observation-learned causal factor that is visible under one source-identical interface, cannot be computed by an existing classical sufficient statistic, has a randomized or disabled causal ablation, exposes at least three real scales and a qualitative transfer/local-update/experience-cost signature, and can be fully charged without family labels, supplied ontologies, target-shaped generator metadata or hidden preprocessing. No frozen cohort presently satisfies that conjunction for an untested mechanism.",
+  "mutations": {
+    "protected_files_changed": false,
+    "hypothesis_created": false,
+    "hypothesis_updated": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "seed_realized": false,
+    "scoring_performed": false,
+    "scientific_evidence_changed": false,
+    "benchmark_created": false
+  },
+  "next_cycle": "Cycle 235 is the second and final permitted consecutive no-scoring wake: perform one G1 interim strategic discriminator review, using the full local cohort and literature inventory, and either freeze exactly one non-microbenchmark contract with a mechanically verifiable new causal factor or record the portfolio-level impasse and request a strategic reset. Cycle 236 must score the frozen contract; a third no-scoring architecture-selection wake is forbidden."
+}
