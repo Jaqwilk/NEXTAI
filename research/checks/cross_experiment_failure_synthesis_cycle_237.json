@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "cycle": 237,
+  "created_at": "2026-09-01T22:11:52Z",
+  "service_only": true,
+  "review_only": true,
+  "decision": "B_three_ordered_competing_bottlenecks",
+  "active_benchmark_unchanged": "heldout_repository_sequence_compression_v6",
+  "history_scope": {
+    "completed_experiments": 98,
+    "ledger_candidate_rows": 855,
+    "scientifically_valid_completed_results": 94,
+    "terminally_invalid_completed_results": 4,
+    "analysis_artifacts": 101,
+    "latest_hypotheses": 58,
+    "latest_hypothesis_statuses": {
+      "falsified": 35,
+      "dormant": 22,
+      "testing_accounting_control": 1
+    },
+    "prior_review_inventory_files": 184,
+    "prior_service_check_files": 133
+  },
+  "scientific_validity": {
+    "invalid_completed_experiment_ids": [
+      "EXP-20260830-0046",
+      "EXP-20260830-0047",
+      "EXP-20260831-0004",
+      "EXP-20260901-0002"
+    ],
+    "postseed_nonresults": [
+      "EXP-20260830-0055",
+      "EXP-20260830-0058",
+      "EXP-20260901-0047"
+    ],
+    "used_as_scientific_negative_evidence": false
+  },
+  "primary_assignment": {
+    "calibration_controls": [
+      "EXP-20260830-0001",
+      "EXP-20260830-0004"
+    ],
+    "narrow_positive_or_mixed_not_primary_negative": [
+      "EXP-20260830-0007",
+      "EXP-20260830-0011",
+      "EXP-20260830-0012",
+      "EXP-20260830-0013",
+      "EXP-20260830-0015",
+      "EXP-20260830-0016",
+      "EXP-20260830-0017",
+      "EXP-20260830-0023",
+      "EXP-20260830-0024",
+      "EXP-20260831-0006",
+      "EXP-20260831-0007",
+      "EXP-20260901-0041",
+      "EXP-20260901-0042"
+    ],
+    "invalid_completed": [
+      "EXP-20260830-0046",
+      "EXP-20260830-0047",
+      "EXP-20260831-0004",
+      "EXP-20260901-0002"
+    ],
+    "inconclusive_implementation_or_mandatory_control": [
+      "EXP-20260830-0051",
+      "EXP-20260901-0015",
+      "EXP-20260901-0039",
+      "EXP-20260901-0040"
+    ],
+    "RC1": [
+      "EXP-20260830-0008",
+      "EXP-20260830-0014",
+      "EXP-20260830-0020",
+      "EXP-20260830-0025",
+      "EXP-20260830-0057",
+      "EXP-20260901-0033"
+    ],
+    "RC2": [
+      "EXP-20260830-0006",
+      "EXP-20260830-0010",
+      "EXP-20260830-0018",
+      "EXP-20260830-0019",
+      "EXP-20260830-0021",
+      "EXP-20260830-0026",
+      "EXP-20260830-0027",
+      "EXP-20260830-0028",
+      "EXP-20260830-0029",
+      "EXP-20260830-0030",
+      "EXP-20260830-0031",
+      "EXP-20260830-0033",
+      "EXP-20260830-0034",
+      "EXP-20260830-0035",
+      "EXP-20260830-0038",
+      "EXP-20260830-0040",
+      "EXP-20260830-0044",
+      "EXP-20260830-0056",
+      "EXP-20260901-0030",
+      "EXP-20260901-0031",
+      "EXP-20260901-0056"
+    ],
+    "RC3": [
+      "EXP-20260830-0022",
+      "EXP-20260830-0043",
+      "EXP-20260831-0003",
+      "EXP-20260901-0007",
+      "EXP-20260901-0011",
+      "EXP-20260901-0013",
+      "EXP-20260901-0017",
+      "EXP-20260901-0024",
+      "EXP-20260901-0029",
+      "EXP-20260901-0037",
+      "EXP-20260901-0048",
+      "EXP-20260901-0049",
+      "EXP-20260901-0051",
+      "EXP-20260901-0054",
+      "EXP-20260901-0060"
+    ],
+    "RC4": [
+      "EXP-20260830-0002",
+      "EXP-20260830-0005",
+      "EXP-20260830-0009",
+      "EXP-20260901-0003",
+      "EXP-20260901-0020",
+      "EXP-20260901-0021",
+      "EXP-20260901-0034",
+      "EXP-20260901-0036",
+      "EXP-20260901-0045",
+      "EXP-20260901-0059"
+    ],
+    "RC5": [
+      "EXP-20260830-0003",
+      "EXP-20260830-0032",
+      "EXP-20260901-0004",
+      "EXP-20260901-0022"
+    ],
+    "RC6": [
+      "EXP-20260830-0053",
+      "EXP-20260901-0009",
+      "EXP-20260901-0027",
+      "EXP-20260901-0032",
+      "EXP-20260901-0044",
+      "EXP-20260901-0062"
+    ],
+    "RC7": [
+      "EXP-20260830-0041",
+      "EXP-20260830-0042",
+      "EXP-20260830-0048",
+      "EXP-20260830-0050",
+      "EXP-20260830-0052",
+      "EXP-20260830-0059",
+      "EXP-20260831-0001",
+      "EXP-20260831-0002",
+      "EXP-20260831-0005",
+      "EXP-20260831-0008",
+      "EXP-20260831-0009",
+      "EXP-20260901-0038",
+      "EXP-20260901-0057"
+    ]
+  },
+  "root_causes": [
+    {
+      "id": "RC1",
+      "name": "observability_identifiability_sufficiency_dilemma",
+      "types": ["informational", "benchmark", "representational"],
+      "evidence_strength": "high_within_current_contracts",
+      "counterexamples": ["EXP-20260830-0015", "EXP-20260830-0016", "EXP-20260901-0041", "EXP-20260901-0042"],
+      "surviving_signatures": ["finite identifiable factorization", "learned shallow grammar and depth extrapolation"],
+      "fundamental_status": "UNRESOLVED_U1"
+    },
+    {
+      "id": "RC2",
+      "name": "classical_sufficient_statistic_or_exact_algorithm_dominates",
+      "types": ["representational", "algorithmic", "asymptotic"],
+      "evidence_strength": "very_high_cross_family",
+      "counterexamples": ["EXP-20260830-0033_query_only", "EXP-20260901-0036_search_nodes_only"],
+      "surviving_signatures": ["compiled inference", "small predictive state", "active probing", "exact local execution"],
+      "fundamental_status": "CLOSED_AS_LEARNED_ALIAS"
+    },
+    {
+      "id": "RC3",
+      "name": "training_proxy_does_not_select_ood_utility",
+      "types": ["optimization", "representational"],
+      "evidence_strength": "high_source_identical_ablation",
+      "counterexamples": ["EXP-20260831-0006", "EXP-20260831-0007", "EXP-20260901-0041", "EXP-20260901-0042"],
+      "surviving_signatures": ["measurable learned selection", "within-family recurrent benefit"],
+      "fundamental_status": "UNRESOLVED_U2"
+    },
+    {
+      "id": "RC4",
+      "name": "full_cost_learning_does_not_amortize",
+      "types": ["asymptotic", "systems_economic"],
+      "evidence_strength": "very_high_cross_family",
+      "counterexamples": ["EXP-20260830-0002_exact_repeat", "EXP-20260830-0023", "EXP-20260830-0024"],
+      "surviving_signatures": ["declining warm query cost", "local invalidation", "reduced exact search nodes"],
+      "fundamental_status": "UNRESOLVED_U3"
+    },
+    {
+      "id": "RC5",
+      "name": "locality_requires_a_correct_address_or_state",
+      "types": ["informational", "asymptotic"],
+      "evidence_strength": "high_cross_family",
+      "counterexamples": ["EXP-20260830-0001_indexed_graph", "EXP-20260901-0022_source_identical_active_cone", "EXP-20260901-0056_raw_kd_tree"],
+      "surviving_signatures": ["zero_or_near_zero_query_K_slope", "slot_local_update", "sparse active work"],
+      "fundamental_status": "CLOSED_AS_STANDALONE_CLAIM_DOWNSTREAM_OF_U1_U2"
+    },
+    {
+      "id": "RC6",
+      "name": "state_or_feedback_loses_required_distinctions",
+      "types": ["representational", "optimization"],
+      "evidence_strength": "medium_high_with_counterexamples",
+      "counterexamples": ["EXP-20260831-0006", "EXP-20260831-0007", "EXP-20260901-0041", "EXP-20260901-0042"],
+      "surviving_signatures": ["bounded recurrent state", "short critical path", "narrow depth extrapolation"],
+      "fundamental_status": "EXACT_RULES_CLOSED_GENERAL_CAUSE_PART_OF_U2"
+    },
+    {
+      "id": "RC7",
+      "name": "within_family_regularities_do_not_form_a_portable_invariant",
+      "types": ["informational", "representational"],
+      "evidence_strength": "very_high_for_tested_contracts",
+      "counterexamples": [],
+      "surviving_signatures": ["within-family WT replication", "pooling regularization in selected cells"],
+      "fundamental_status": "EXACT_RULES_CLOSED_GENERAL_CAUSE_PART_OF_U1"
+    }
+  ],
+  "unresolved_bottlenecks": [
+    {
+      "id": "U1",
+      "name": "identifiable_transferable_quotient",
+      "belief_changing_question": "Can natural candidate-visible variation identify one task-relevant quotient across at least three unseen worlds, with the effect removed by breaking that variation and not recovered more cheaply by a classical sufficient statistic?",
+      "contradiction_target": "Find systems where an ontology-free learned transferable quotient escapes both unidentifiability and classical sufficiency, then identify the exact observable symmetry breaker."
+    },
+    {
+      "id": "U2",
+      "name": "proxy_to_ood_utility_alignment",
+      "belief_changing_question": "Can a preregistered observation-only criterion select the OOD-sufficient representation among development-fit ties and lose the effect under a source-identical score shuffle?",
+      "contradiction_target": "Find controlled systems where a pre-outcome local selector causally predicts OOD rollout or transfer utility better than frozen and shuffled selectors."
+    },
+    {
+      "id": "U3",
+      "name": "full_cost_amortization_boundary",
+      "belief_changing_question": "After matched-quality learned structure is established, does cumulative full cost cross below the strongest classical control at a prospectively declared real reuse horizon with a growing gap over three scales?",
+      "contradiction_target": "Find full-system matched-capability learned structures with charged acquisition, fit, update and state that demonstrate a prospective scaling or reuse crossover over a classical sufficient statistic."
+    }
+  ],
+  "mutations": {
+    "protected_files_changed": false,
+    "benchmark_created": false,
+    "schema_changed": false,
+    "dependency_added": false,
+    "hypothesis_created": false,
+    "hypothesis_updated": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "seed_realized": false,
+    "scoring_performed": false,
+    "scientific_evidence_changed": false,
+    "literature_search_performed": false
+  },
+  "next_action": "One targeted literature-contradiction review for U1-U3. No experiment is authorized until a mechanical counterexample supplies a discriminating observable and matched control."
+}
