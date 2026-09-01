@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_repository_sequence_compression_v3"
+benchmark_version = "heldout_parallel_masked_infilling_v3"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -109,8 +109,9 @@ invalidation_rules = [
 corpus_id = "nextai_disjoint_masked_corpus_sha256_v1"
 span_lengths = [8, 32, 128]
 context_bytes = 64
-shared_candidate = "iterative_masked_learner"
-one_pass_ablation = "one_pass_masked_learner"
+shared_candidate = "local_sparse_predictive_code_masked_byte"
+one_pass_ablation = "source_identical_one_pass_predictive_code_masked_byte"
+causal_ablation_2 = "source_identical_frozen_code_predictive_byte"
 classical_baselines = [
   "uniform_masked_byte",
   "empirical_unigram_masked_byte",
@@ -128,6 +129,7 @@ invalidation_rules = [
   "Invalidate if a public query exposes a path, target byte, uncorrupted span or future refinement snapshot.",
   "Invalidate if predictions within one round observe another prediction from that same round.",
   "Invalidate if candidate critical-path work is sequentially hidden inside a declared simultaneous step.",
+  "Invalidate if the three predictive-code roles differ in patch geometry, latent width, sparsity, initialization, training order or decoder beyond the preregistered iteration and code-learning interventions.",
   "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
 ]
 

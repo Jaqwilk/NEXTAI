@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "cycle": 151,
+  "created_at": "2026-09-01T00:26:27Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_implemented": false,
+  "benchmark_before": "heldout_repository_sequence_compression_v3",
+  "benchmark_after": "heldout_parallel_masked_infilling_v3",
+  "selection": {
+    "selected": "locally_learned_sparse_predictive_error_correcting_code",
+    "rejected_as_redundant": [
+      "reversible_local_program_state_induction:HYP-0009_exact_mdl_dominance",
+      "experience_sparse_conditional_execution:HYP-0010_direct_program_dominance"
+    ],
+    "existing_cohort_sufficient": true,
+    "new_benchmark_created": false
+  },
+  "preserved_v2_contract": {
+    "corpus_id": "nextai_disjoint_masked_corpus_sha256_v1",
+    "files": 48,
+    "acquisition_bytes": 305214,
+    "whole_file_hashes_unchanged": true,
+    "mask_and_byte_relabeling_unchanged": true,
+    "matrix_unchanged": true,
+    "metric_and_cost_formulas_unchanged": true,
+    "classical_baselines_unchanged": true,
+    "evaluator_reexport_only": true
+  },
+  "v3_contract": {
+    "causal_roles": [
+      "local_sparse_predictive_code_masked_byte",
+      "source_identical_one_pass_predictive_code_masked_byte",
+      "source_identical_frozen_code_predictive_byte"
+    ],
+    "patch_positions": 16,
+    "latent_units": 32,
+    "active_units": 4,
+    "initialization": "PCG64(candidate_seed_xor_0x4C504331)",
+    "training_epochs": 1,
+    "learning_rate": 0.025,
+    "candidate_implementation_present": false
+  },
+  "validation": {
+    "pytest_passed": 399,
+    "semantic_baselines_passed": 8,
+    "integrity_checked_files": 569,
+    "integrity": "pass",
+    "doctor": "pass",
+    "evaluator_sha256": "73f2b8ee5974e053464c8916fefea30be43a0f22432992a81fe3eac1fc23e6c2",
+    "candidate_bundle_sha256": "bae33249879b6952418df7132408a7f8a1fe1b08f900fc0e7cb203b47c7018bb",
+    "manifest_sha256": "93b0566b1029bceed3ff30347fd52a67c41bee2347a630f334d3218aaa57821f",
+    "preflight_certificate_sha256": "fc552401dcdb137cede40acbaadb38e8d3c9cecc9407bc43bbda7bfb553eb116",
+    "prior_manifest_archive": "research/manifests/heldout_repository_sequence_compression_v3-protocol-v2-29e4f94977e6.json",
+    "prior_manifest_archive_sha256": "29e4f94977e6ae4fae2f160ee12c0dac2eac976e9b51569cb52f1fa825b5f493"
+  },
+  "consecutive_no_scoring_cycles": {
+    "count": 1,
+    "maximum": 3,
+    "next_cycle_must_score": true
+  }
+}

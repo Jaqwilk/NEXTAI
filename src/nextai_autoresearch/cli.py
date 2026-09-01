@@ -378,6 +378,10 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "state_budget_bytes": int(masked["state_budget_bytes"]),
             "invalidation_rules": list(masked["invalidation_rules"]),
         }
+        if config.benchmark_version == "heldout_parallel_masked_infilling_v3":
+            plan["masked_refinement_protocol"]["causal_ablation_2"] = str(
+                masked["causal_ablation_2"]
+            )
     if config.benchmark_version.startswith("heldout_mechanism_recombination_"):
         recombination = config.raw["recombination"]
         if config.benchmark_version in {

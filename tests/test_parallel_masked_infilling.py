@@ -6,6 +6,7 @@ import pytest
 from jsonschema.exceptions import ValidationError
 
 from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v1 as bench
+from nextai_autoresearch.benchmarks import heldout_parallel_masked_infilling_v3 as bench_v3
 from nextai_autoresearch.benchmarks.heldout_repository_sequence_compression_v1 import CORPUS as OLD
 from nextai_autoresearch.config import load_config
 from nextai_autoresearch.masked_refinement_contract import (
@@ -144,3 +145,41 @@ def test_named_context_controls_use_higher_order_evidence(name: str) -> None:
     after_81 = prediction((8, 1))
     assert after_71[2] > after_71[3]
     assert after_81[3] > after_81[2]
+
+
+def test_v3_preserves_evaluator_and_versions_only_future_causal_roles() -> None:
+    config = load_config()
+    masked = config.raw["masked_refinement"]
+    assert config.benchmark_version == "heldout_parallel_masked_infilling_v3"
+    assert bench_v3.run_suite is bench.run_suite
+    assert masked["shared_candidate"] == "local_sparse_predictive_code_masked_byte"
+    assert masked["one_pass_ablation"] == (
+        "source_identical_one_pass_predictive_code_masked_byte"
+    )
+    assert masked["causal_ablation_2"] == (
+        "source_identical_frozen_code_predictive_byte"
+    )
+    assert bench._effective_rounds("one_pass_masked_learner", {
+        "one_pass_ablation": "one_pass_masked_learner"
+    }, 6) == 1
+    assert bench._effective_rounds(masked["one_pass_ablation"], masked, 6) == 1
+    assert bench._effective_rounds(masked["shared_candidate"], masked, 6) == 6
+
+
+def test_v3_plan_schema_locks_all_three_source_identical_roles() -> None:
+    plan = _masked_plan()
+    plan["benchmark"] = "heldout_parallel_masked_infilling_v3"
+    plan["candidates"] = [
+        "local_sparse_predictive_code_masked_byte",
+        "source_identical_one_pass_predictive_code_masked_byte",
+        "source_identical_frozen_code_predictive_byte",
+        *plan["masked_refinement_protocol"]["classical_baselines"],
+    ]
+    protocol = plan["masked_refinement_protocol"]
+    protocol["shared_candidate"] = plan["candidates"][0]
+    protocol["one_pass_ablation"] = plan["candidates"][1]
+    protocol["causal_ablation_2"] = plan["candidates"][2]
+    validate_document("experiment_plan", plan, project_root())
+    protocol["shared_candidate"] = "iterative_masked_learner"
+    with pytest.raises(ValidationError):
+        validate_document("experiment_plan", plan, project_root())

@@ -197,6 +197,10 @@ def _run_case(candidate: Any, candidate_name: str, case, rounds: int):
     }
 
 
+def _effective_rounds(candidate_name: str, protocol: dict[str, Any], rounds: int) -> int:
+    return 1 if candidate_name == protocol["one_pass_ablation"] else rounds
+
+
 def _run_cell(candidate_name: str, size: int, rounds: int, count: int, seed: int,
               maximum_rounds: int, protocol: dict[str, Any]):
     training, tests = make_training(size, seed)
@@ -212,7 +216,7 @@ def _run_cell(candidate_name: str, size: int, rounds: int, count: int, seed: int
         raise ValueError("state budget exceeded")
 
     by_span, all_cases = {}, []
-    effective_rounds = 1 if candidate_name == "one_pass_masked_learner" else rounds
+    effective_rounds = _effective_rounds(candidate_name, protocol, rounds)
     for span in protocol["span_lengths"]:
         observations = [_run_case(candidate, candidate_name, case, effective_rounds)
                         for case in _cases(tests, int(span), count, seed)]

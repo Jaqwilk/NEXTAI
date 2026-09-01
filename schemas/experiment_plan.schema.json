@@ -335,8 +335,21 @@
         },
         "context_bytes": {"type": "integer", "minimum": 8},
         "runner_random_masks_and_permutation": {"const": true},
-        "shared_candidate": {"const": "iterative_masked_learner"},
-        "one_pass_ablation": {"const": "one_pass_masked_learner"},
+        "shared_candidate": {
+          "enum": [
+            "iterative_masked_learner",
+            "local_sparse_predictive_code_masked_byte"
+          ]
+        },
+        "one_pass_ablation": {
+          "enum": [
+            "one_pass_masked_learner",
+            "source_identical_one_pass_predictive_code_masked_byte"
+          ]
+        },
+        "causal_ablation_2": {
+          "const": "source_identical_frozen_code_predictive_byte"
+        },
         "classical_baselines": {
           "type": "array",
           "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
@@ -1175,6 +1188,51 @@
         "required": ["benchmark"]
       },
       "then": {"required": ["masked_refinement_protocol"]}
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"pattern": "^heldout_parallel_masked_infilling_v[12]$"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "masked_refinement_protocol": {
+            "properties": {
+              "shared_candidate": {"const": "iterative_masked_learner"},
+              "one_pass_ablation": {"const": "one_pass_masked_learner"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v3"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "local_sparse_predictive_code_masked_byte"}},
+              {"contains": {"const": "source_identical_one_pass_predictive_code_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_code_predictive_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_2"],
+            "properties": {
+              "shared_candidate": {"const": "local_sparse_predictive_code_masked_byte"},
+              "one_pass_ablation": {"const": "source_identical_one_pass_predictive_code_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_code_predictive_byte"}
+            }
+          }
+        }
+      }
     },
     {
       "if": {

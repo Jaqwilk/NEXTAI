@@ -211,6 +211,18 @@ Quick success requires a preregistered loss and exact-span margin over implement
 
 Reject before planning if fixed bidirectional inference solves all registered spans exactly, targets are not probabilistically identifiable beyond a uniform bound, simultaneous snapshot execution cannot be audited, or corpus/mask metadata leaks.
 
+Version 3 is a service-only successor to masked infilling v2. It preserves all
+48 whole-file hashes and roles, runner-random byte relabeling, masks, spans,
+rounds, immutable-snapshot execution, metrics, cost formulas, state boundary,
+seed policy, Pareto axes and eight classical controls. It changes only the
+prospective causal roles to a locally learned sparse predictive code, its
+source-identical forced-one-pass ablation and its source-identical frozen-code
+ablation. The three roles must share patch geometry, latent width, sparsity,
+initialization, data order, decoder and output rule; only inference iteration
+and code learning may differ as preregistered. No candidate exists in the
+migration cycle. Historical v1/v2 plans, results, analyses and manifests remain
+immutable and are never reinterpreted.
+
 ## Held-out repository sequence-compression cohorts
 
 A real-sequence screening cohort uses immutable, hashed, whole-file train/validation/test roles. An implementable candidate receives only evaluator-supplied anonymous bytes: never paths, roles, file names, extensions, hashes, test offsets, future bytes or filesystem access. Corpus mismatch, fragment-level splitting or cross-slot test-state leakage invalidates the cohort. Local visible source is screening evidence only.
