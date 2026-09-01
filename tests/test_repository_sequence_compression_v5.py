@@ -10,7 +10,7 @@ from nextai_autoresearch.benchmarks import heldout_repository_sequence_compressi
 from nextai_autoresearch.cli import _compression_protocol
 from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.schemas import validate_document
-from nextai_autoresearch.utils import project_root
+from nextai_autoresearch.utils import load_json, project_root
 
 
 ROLES = [
@@ -84,5 +84,10 @@ def test_v5_schema_rejects_historical_v4_roles() -> None:
 
 
 def test_service_cycle_did_not_create_transition_machine_candidate() -> None:
-    candidate_dir = project_root() / "src" / "nextai_autoresearch" / "candidates"
-    assert not (candidate_dir / "surprise_gated_transition_machine_byte.py").exists()
+    check = load_json(
+        project_root()
+        / "research/checks/repository_transition_machine_v5_service_cycle_170.json"
+    )
+    assert check["service_only"] is True
+    assert check["candidate_created"] is False
+    assert check["scoring_performed"] is False

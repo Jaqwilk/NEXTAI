@@ -1,0 +1,159 @@
+{
+  "alternative_explanations": [
+    "Any quality gain may be ordinary finite-state context partitioning rather than event sparsity; the dense source-identical role isolates the clock intervention.",
+    "PPM-D or CTW may capture variable-order structure more accurately and cheaply, making learned states an inferior reparameterization."
+  ],
+  "architecture_family": "surprise_gated_algorithmic_state_transition",
+  "benchmark": "heldout_repository_sequence_compression_v5",
+  "budget": "quick",
+  "candidates": [
+    "surprise_gated_transition_machine_byte",
+    "source_identical_dense_transition_machine_byte",
+    "source_identical_frozen_transition_machine_byte",
+    "uniform_byte",
+    "empirical_unigram_byte",
+    "ppm_d_order5_byte",
+    "ctw_depth2_byte",
+    "lz_dictionary_byte",
+    "dense_autoregressive_byte"
+  ],
+  "compression_protocol": {
+    "causal_roles": [
+      "surprise_gated_transition_machine_byte",
+      "source_identical_dense_transition_machine_byte",
+      "source_identical_frozen_transition_machine_byte"
+    ],
+    "classical_baselines": [
+      "uniform_byte",
+      "empirical_unigram_byte",
+      "ppm_d_order5_byte",
+      "ctw_depth2_byte",
+      "lz_dictionary_byte",
+      "dense_autoregressive_byte"
+    ],
+    "corpus_id": "nextai_local_repository_sha256_v1",
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "invalidation_rules": [
+      "Invalidate on any frozen corpus hash or byte-length mismatch.",
+      "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
+      "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
+      "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
+      "Invalidate if the three transition-machine roles differ in state width, transition map, constants, initialization, data order, context, input, reveal-update or output rule beyond the preregistered surprise-gate, dense-clock and transition-learning interventions.",
+      "Invalidate unless pre-seed semantic fixtures prove predict-before-reveal ordering, byte-relabeling equivariance, sparse no-event state preservation, dense-update execution on every revealed byte and explicit event/dense update cost."
+    ],
+    "pareto_capability_metrics": [
+      "bits_per_byte",
+      "worst_file_bits_per_byte",
+      "cold_bits_per_byte",
+      "accuracy",
+      "data_acquisition_ops",
+      "fit_ops",
+      "meta_fit_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_reveal": true,
+    "shared_candidate": "surprise_gated_transition_machine_byte",
+    "shared_slow_state_updates": "forbidden",
+    "source_identical_contract": "state_width_transition_map_constants_initialization_data_order_context_input_update_output_identical_except_preregistered_surprise_gate_dense_clock_and_transition_learning_v1",
+    "split_unit": "whole_files_sha256",
+    "state_budget_bytes": 4194304,
+    "test_file_access": "evaluator_only",
+    "test_tuning": "forbidden"
+  },
+  "confounds": [
+    "One locally visible repository and one runner-random seed cannot establish stability or broad transfer.",
+    "Cold initialization from public histories may favor equality-pattern states but is shared across all three causal roles."
+  ],
+  "created_at": "2026-09-01T04:43:28Z",
+  "evaluator_sha256": "46ce9342ff615364beb3412a1cc93a4fe26f6f9fe0ed12d744642b5fe84e544e",
+  "experiment_id": "EXP-20260901-0029",
+  "falsification_criteria": [
+    "Discard unless main improves mean, cold and worst-file bits per byte by at least 0.1671047931063159 versus both source-identical roles and the strongest complete implementable control in every K/D cell, with no accuracy regression.",
+    "Discard unless main update operations are below 0.60 of dense-clock in every cell, mean query operations are exactly K-independent at fixed D, state is at most 4194304 bytes and main is implementably Pareto-nondominated.",
+    "Invalidate on source-identity mismatch; byte-relabeling failure; state change below 6-bit surprise; no transition on the 1/128 fixture; nonlocal test mutation; uncharged event, transition or byte work; changed constants; leakage; post-score tuning; semantic baseline, preflight or integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "de84e80805455f67651d948902a7ccf3c0562c5e",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0041",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      20,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      16,
+      64
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "bits_per_byte": "minimize",
+    "cold_bits_per_byte": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_bits_per_byte": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify and discard this exact surprise-gated transition rule without changing state width, threshold, smoothing, signature, transition vote or update order.",
+    "null": "Return the exact rule to dormant if event sparsity lowers updates but supplies no meaningful quality or Pareto advantage; do not tune threshold or width.",
+    "positive": "Keep HYP-0041 testing at cautious confidence and preregister only an unchanged three-seed adversarial replication in a later wake; do not promote."
+  },
+  "parent_experiment_id": "EXP-20260901-0028",
+  "predicted_outcome": "One exact 64-state source-identical core uses equality-pattern states over at most eight public history symbols, self-loop initialization, add-one unigram counts, 16-pseudocount state emission mixing and bounded Boyer-Moore transition votes. Main learns and executes transitions only at target surprisal at least 6 bits; dense executes every reveal; frozen keeps initialized transitions. Predict main gains at least 0.1671047931063159 mean, cold and worst-file bits per byte over both ablations and the strongest complete implementable control in every K/D cell, uses below 0.60 of dense update operations, preserves accuracy, bounded state and K-independent fixed-D query work. This child changes no scientific commitment from pre-implementation parent EXP-20260901-0028; it commits only the corrected lifecycle-test evaluator digest.",
+  "primary_metrics": [
+    "bits_per_byte",
+    "worst_file_bits_per_byte",
+    "cold_bits_per_byte",
+    "accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This locally visible one-seed quick cannot promote or mark the hypothesis promising; a fully conjunctive pass may only authorize unchanged three-seed replication with an adversarial file split."
+  ],
+  "research_question": "Can high-surprise-only learned state transitions improve held-out byte compression per fully charged update cost over source-identical dense-clock and frozen-transition machines and classical universal compressors?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Surprise-gated transition-machine byte scout"
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-01T04:44:34Z",
+  "experiment_id": "EXP-20260901-0029",
+  "parent_preregistered_before_implementation": "EXP-20260901-0028",
+  "parent_invalidated_before_seed": true,
+  "plan_sha256": "7b591263f4a6f487a34ba641f24331d3b97d899c61cedff8cc3e84575c08434f",
+  "evaluator_sha256": "46ce9342ff615364beb3412a1cc93a4fe26f6f9fe0ed12d744642b5fe84e544e",
+  "candidate_bundle_sha256": "3fcd81ef9963f5be33ad5d4526b5e29bb67098cdb229462472e99aad2c54d6a3",
+  "preflight_certificate_sha256": "9cbebf21d33c03f998d03c184b8122cd2bfea8a3e727156ce6292b5b674eb216",
+  "candidate_files": {
+    "src/nextai_autoresearch/candidates/surprise_transition_machine_byte_core.py": "4e275f620d4ef88fa6586ee27931ac3030c21070c9ebdf8494d7c8e101eeaf5b",
+    "src/nextai_autoresearch/candidates/surprise_gated_transition_machine_byte.py": "9d3bca1ac3788b6b56252c03466790394da51e7239066ebeca2679588a250413",
+    "src/nextai_autoresearch/candidates/source_identical_dense_transition_machine_byte.py": "c2771fd0d87a7483d2bd14e92ec65a4c309c4c269414a3430fbaad5738c15541",
+    "src/nextai_autoresearch/candidates/source_identical_frozen_transition_machine_byte.py": "c1df69978130f369aced245e491b2aa3dfcc1e7039b83bf3dd3b8aec6e80bb57"
+  },
+  "frozen_constants": {
+    "state_width": 64,
+    "signature_depth": 8,
+    "surprise_bits": 6.0,
+    "state_pseudocount": 16.0,
+    "unigram_prior": "add_one",
+    "transition_initialization": "self_loop",
+    "transition_vote": "bounded_boyer_moore",
+    "state_signature": "restricted_equality_pattern_mod_64",
+    "test_shared_slow_update": "forbidden"
+  },
+  "candidate_semantic_fixtures": {
+    "predict_before_reveal": true,
+    "byte_relabeling_equivariance": true,
+    "sparse_no_event_state_preservation": true,
+    "rare_event_transition": true,
+    "dense_every_reveal": true,
+    "slot_local_test_update_and_frozen_slow_state": true,
+    "explicit_event_dense_cost": true
+  },
+  "semantic_baselines_passed": 6,
+  "candidate_audits_passed": 3,
+  "pytest_passed": 461,
+  "integrity_files_verified": 636,
+  "doctor": "PASS",
+  "seed_realized": false,
+  "scoring_performed": false
+}
