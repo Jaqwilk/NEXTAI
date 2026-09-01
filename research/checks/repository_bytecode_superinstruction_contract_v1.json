@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "cycle": 172,
+  "created_at": "2026-09-01T04:58:17Z",
+  "service_only": true,
+  "scoring_performed": false,
+  "seed_realized": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "protected_files_changed": false,
+  "active_benchmark_unchanged": "heldout_repository_sequence_compression_v5",
+  "python_runtime": {
+    "version": "3.13.13",
+    "cache_tag": "cpython-313",
+    "opcode_map_entries": 150,
+    "opcode_map_sha256": "d488f62014e4909a5d7d0809beb8484b31b62ce60631572b171c33d07c11587e"
+  },
+  "tracked_program_inventory": {
+    "python_files_all_tracked": 629,
+    "source_modules": 534,
+    "deterministic_split_rule": "sha256(module_bytes)[0:8] modulo 10: 0-6 train, 7 development, 8-9 test",
+    "whole_module_counts": {"train": 391, "development": 60, "test": 83},
+    "nontrivial_module_counts": {"train": 159, "development": 29, "test": 38},
+    "heldout_test_scale_bins_by_function_bytecode_instructions": {
+      "small_16_127": 14,
+      "medium_128_511": 5,
+      "large_ge_512": 19
+    },
+    "representative_test_modules": [
+      {"scale": "small", "instructions": 33, "path": "src/nextai_autoresearch/candidates/bayesian_relational_library.py", "sha256": "c3e47224955789dcdb30d9fbd9e460e2c568cff62573ef08f04b7b5c077ac405"},
+      {"scale": "medium", "instructions": 341, "path": "src/nextai_autoresearch/candidates/compiled_jump.py", "sha256": "b72888370ac29a392edfe2c53e42b03f0bcfb30f98fd4a5bfaf45d470e95a1b2"},
+      {"scale": "large", "instructions": 1610, "path": "src/nextai_autoresearch/active_acquisition_core.py", "sha256": "b2e1b176d911be0f3c0fa026f69f78557797fba9d5d48b12754bc0303268d47d"}
+    ]
+  },
+  "anonymous_trace_audit": {
+    "compiled_function_code_objects": 3437,
+    "observed_opcode_kinds": 93,
+    "trace_signature": "opcode plus operand-class plus stack-effect; values, symbols, paths and source omitted",
+    "signature_groups": 2157,
+    "semantically_ambiguous_groups": 129,
+    "functions_in_ambiguous_groups": 1139,
+    "no_global_symbol_counterexample": {
+      "functions": 46,
+      "shared_trace_length": 2,
+      "shared_shape": "RESUME; LOAD_CONST; RETURN_VALUE after runtime cache filtering",
+      "different_outputs_include": [64, 72, 96, 128],
+      "reason": "The anonymous trace omits the constant value, so identical candidate-visible programs require different exact outputs."
+    }
+  },
+  "contract_gates": {
+    "deterministic_whole_module_split": true,
+    "three_genuine_program_length_scales": true,
+    "heldout_length_extrapolation_available": true,
+    "anonymous_trace_uniquely_determines_execution": false,
+    "exact_execution_without_constants_symbols_or_manual_opcode_ontology": false,
+    "strong_controls_can_share_one_nonprivileged_capability_boundary": false,
+    "learned_macro_cannot_win_by_trace_copy_or_preprocessing_interpretation": false
+  },
+  "control_boundary_analysis": {
+    "cpython_interpreter": "Exact but privileged: it already contains the complete opcode, object-model, exception, call and import semantics.",
+    "hand_authored_bytecode_interpreter": "Would place the essential instruction ontology in the evaluator or candidate and violate the gate.",
+    "bounded_finite_search": "Can search macro segmentations only after execution semantics are supplied; it does not infer exact state transformations from anonymous traces.",
+    "sequitur_bpe_superinstructions": "Can compress recurring trace strings but cannot identify the omitted semantic payload.",
+    "profile_guided_basic_block_cache": "Can replay previously executed blocks but does not execute unseen state transformations and is an exact-cache control.",
+    "supplied_program_vm": "Repeats EXP-20260830-0013's supplied-program limitation and does not test instruction discovery."
+  },
+  "historical_evidence_considered": [
+    "EXP-20260830-0013",
+    "EXP-20260830-0022",
+    "EXP-20260901-0021",
+    "EXP-20260901-0029"
+  ],
+  "decision": "no_repository_bytecode_superinstruction_contract",
+  "decision_reason": "Real tracked modules and three scales exist, but the permitted anonymous representation is not an executable specification. Adding values and CPython semantics supplies the instruction ontology; omitting them makes exact held-out execution non-identifiable. The remaining tasks reduce to trace compression, exact caching or supplied-program execution, which existing controls and experiments already cover.",
+  "consecutive_no_scoring_cycles": 1,
+  "max_consecutive_no_scoring_cycles": 3,
+  "next_cycle": "One minimal breadth service selection may freeze a genuinely different scout only if an existing cohort cannot express it; no more than two additional no-scoring cycles are allowed before a scored scout. Do not reopen repository bytecode superinstructions."
+}
