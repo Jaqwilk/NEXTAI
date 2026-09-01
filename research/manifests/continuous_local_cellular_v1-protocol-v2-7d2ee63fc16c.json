@@ -1,8 +1,8 @@
 {
   "benchmark_version": "continuous_local_cellular_v1",
   "candidate_bundle_sha256": "d0128daf42f25e52b5add2e380560c558b3a0f9204728afc1ae6ed8cac9fb287",
-  "created_at": "2026-09-01T03:02:18Z",
-  "evaluator_sha256": "e465f3fe47a405aef549ab1b99b67f429c31b20c88f44a3c0c775b035fbd90f9",
+  "created_at": "2026-09-01T03:01:16Z",
+  "evaluator_sha256": "91de8c8560287b544574a5fe050eb91fb4510b7848d0bd3498ad0d9154230d3a",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
     "AGENTS.md": "0a8a8b9ad54828cffbdca28f29d7d86db4842e5ccababf3c5243a98bf7e6ac46",
@@ -544,7 +544,7 @@
     "tests/test_conditional_execution_byte.py": "7c74dd2f200168869a41ea0b5fee6750f6b4db1097d5e9e174a807df6f6c225a",
     "tests/test_context_specific_probabilistic_circuit.py": "4809c7702e4bb663a60af741e17d9c89af622478a9d2b083e83750ee40ca3296",
     "tests/test_continuous_event_predictive_state.py": "c6dbba7caf82ef99e1cd2af5727b936b41149c5c9a39ef42fc14e4e81ce86c7a",
-    "tests/test_continuous_local_cellular_v1.py": "16bcc1a0d67a48d95d6f09ede55f17d758e481527ca00eed044df2f6baafc5d1",
+    "tests/test_continuous_local_cellular_v1.py": "6b5dd2227126e011c9ada7ce8d4d05b8f7bfde63e54b70dce96323e685ca36f8",
     "tests/test_cross_family_baseline_semantics.py": "28930f6bff2b14d135dbd2a18a412e4b01c39c5e06ae982d174ff41ce3de95e9",
     "tests/test_cross_family_contract.py": "9248436690d8cf6c2546696b515c9f451d5eb6b5ea371d8f0ebe68ed41aa1965",
     "tests/test_cross_family_evaluator.py": "b2cf96755f939f3ca5172cdac69a428eecbdec3b03098f800ee00011d42866d1",

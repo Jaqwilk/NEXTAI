@@ -435,6 +435,34 @@
         }
       }
     },
+    "continuous_local_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shared_candidate", "dense_ablation", "frozen_ablation",
+        "classical_baselines", "source_identical_contract", "state_budget_bytes",
+        "minimum_nrmse_gain", "pareto_capability_metrics", "invalidation_rules"
+      ],
+      "properties": {
+        "shared_candidate": {"const": "learned_sparse_continuous_local_rule"},
+        "dense_ablation": {"const": "source_identical_dense_continuous_local_rule"},
+        "frozen_ablation": {"const": "source_identical_frozen_continuous_local_rule"},
+        "classical_baselines": {"const": [
+          "continuous_local_persistence", "continuous_local_ridge",
+          "continuous_local_quantized_fsm", "continuous_local_kernel_event",
+          "privileged_continuous_local_support"
+        ]},
+        "source_identical_contract": {"const": "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1"},
+        "state_budget_bytes": {"const": 16777216},
+        "minimum_nrmse_gain": {"const": 0.01},
+        "pareto_capability_metrics": {
+          "type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true
+        },
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5
+        }
+      }
+    },
     "dronepropa_protocol": {
       "type": "object",
       "additionalProperties": false,
@@ -1720,6 +1748,57 @@
             {"contains": {"const": "operator_anti_unification_cache"}},
             {"contains": {"const": "operator_nearest_canonical"}},
             {"contains": {"const": "operator_random"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "continuous_local_cellular_v1"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_local_protocol"],
+        "properties": {
+          "continuous_local_protocol": {"properties": {
+            "pareto_capability_metrics": {"const": [
+              "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+              "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+              "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+              "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [64, 256, 1024]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_sparse_continuous_local_rule"}},
+            {"contains": {"const": "source_identical_dense_continuous_local_rule"}},
+            {"contains": {"const": "source_identical_frozen_continuous_local_rule"}},
+            {"contains": {"const": "continuous_local_persistence"}},
+            {"contains": {"const": "continuous_local_ridge"}},
+            {"contains": {"const": "continuous_local_quantized_fsm"}},
+            {"contains": {"const": "continuous_local_kernel_event"}},
+            {"contains": {"const": "privileged_continuous_local_support"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
           ]}
         }
       }

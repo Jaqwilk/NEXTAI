@@ -21,6 +21,7 @@ def required_baseline_names(plan: dict[str, Any]) -> list[str]:
         ("dronepropa_protocol", "classical_baselines"),
         ("continuous_transfer_protocol", "classical_baselines"),
         ("wt_prequential_protocol", "classical_baselines"),
+        ("continuous_local_protocol", "classical_baselines"),
     ):
         protocol = plan.get(protocol_name)
         if isinstance(protocol, dict):
