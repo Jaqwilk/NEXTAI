@@ -461,9 +461,9 @@
         "minimum_nrmse_gain", "pareto_capability_metrics", "invalidation_rules"
       ],
       "properties": {
-        "shared_candidate": {"enum": ["learned_sparse_continuous_local_rule", "learned_factorized_flux_reaction_local_rule", "learned_dyadic_lifted_local_propagator", "evolved_anonymous_local_rule_program"]},
-        "dense_ablation": {"enum": ["source_identical_dense_continuous_local_rule", "source_identical_monolithic_local_flow_rule", "source_identical_sequential_lifted_local_propagator", "source_identical_shuffled_fitness_local_rule_program"]},
-        "frozen_ablation": {"enum": ["source_identical_frozen_continuous_local_rule", "source_identical_frozen_flux_reaction_local_rule", "source_identical_frozen_lift_dyadic_local_propagator", "source_identical_frozen_population_local_rule_program"]},
+        "shared_candidate": {"enum": ["learned_sparse_continuous_local_rule", "learned_factorized_flux_reaction_local_rule", "learned_dyadic_lifted_local_propagator", "evolved_anonymous_local_rule_program", "error_novelty_split_local_expert_tree_v1"]},
+        "dense_ablation": {"enum": ["source_identical_dense_continuous_local_rule", "source_identical_monolithic_local_flow_rule", "source_identical_sequential_lifted_local_propagator", "source_identical_shuffled_fitness_local_rule_program", "source_identical_shuffled_split_local_expert_tree_v1"]},
+        "frozen_ablation": {"enum": ["source_identical_frozen_continuous_local_rule", "source_identical_frozen_flux_reaction_local_rule", "source_identical_frozen_lift_dyadic_local_propagator", "source_identical_frozen_population_local_rule_program", "source_identical_frozen_partition_local_expert_tree_v1"]},
         "classical_baselines": {"const": [
           "continuous_local_persistence", "continuous_local_ridge",
           "continuous_local_quantized_fsm", "continuous_local_kernel_event",
@@ -473,7 +473,8 @@
           "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1",
           "anonymous_inputs_constants_rows_initialization_update_order_output_bounds_identical_except_factorized_monolithic_or_frozen_learning_v2",
           "anonymous_inputs_constants_lift_features_fit_update_output_identical_except_dyadic_sequential_or_frozen_propagation_v3",
-          "anonymous_inputs_program_language_population_constants_proposals_execution_output_identical_except_true_shuffled_or_frozen_fitness_selection_v4"
+          "anonymous_inputs_program_language_population_constants_proposals_execution_output_identical_except_true_shuffled_or_frozen_fitness_selection_v4",
+          "anonymous_inputs_features_constants_initialization_fit_prediction_update_accounting_identical_except_error_novelty_split_shuffled_split_or_frozen_partition_v5"
         ]},
         "state_budget_bytes": {"const": 16777216},
         "minimum_nrmse_gain": {"const": 0.01},
@@ -2455,6 +2456,61 @@
             {"contains": {"const": "evolved_anonymous_local_rule_program"}},
             {"contains": {"const": "source_identical_shuffled_fitness_local_rule_program"}},
             {"contains": {"const": "source_identical_frozen_population_local_rule_program"}},
+            {"contains": {"const": "continuous_local_persistence"}},
+            {"contains": {"const": "continuous_local_ridge"}},
+            {"contains": {"const": "continuous_local_quantized_fsm"}},
+            {"contains": {"const": "continuous_local_kernel_event"}},
+            {"contains": {"const": "privileged_continuous_local_support"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "continuous_local_cellular_v5"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_local_protocol"],
+        "properties": {
+          "continuous_local_protocol": {"properties": {
+            "shared_candidate": {"const": "error_novelty_split_local_expert_tree_v1"},
+            "dense_ablation": {"const": "source_identical_shuffled_split_local_expert_tree_v1"},
+            "frozen_ablation": {"const": "source_identical_frozen_partition_local_expert_tree_v1"},
+            "source_identical_contract": {"const": "anonymous_inputs_features_constants_initialization_fit_prediction_update_accounting_identical_except_error_novelty_split_shuffled_split_or_frozen_partition_v5"},
+            "pareto_capability_metrics": {"const": [
+              "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+              "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+              "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+              "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [64, 256, 1024]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "error_novelty_split_local_expert_tree_v1"}},
+            {"contains": {"const": "source_identical_shuffled_split_local_expert_tree_v1"}},
+            {"contains": {"const": "source_identical_frozen_partition_local_expert_tree_v1"}},
             {"contains": {"const": "continuous_local_persistence"}},
             {"contains": {"const": "continuous_local_ridge"}},
             {"contains": {"const": "continuous_local_quantized_fsm"}},

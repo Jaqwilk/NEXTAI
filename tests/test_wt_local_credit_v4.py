@@ -25,7 +25,10 @@ ROLES = list(v4.ROLE_INTERVENTIONS)
 
 
 def _protocol() -> dict:
-    return _wt_prequential_protocol(load_config(project_root()))
+    config = load_config(project_root())
+    raw = copy.deepcopy(config.raw)
+    raw["project"]["benchmark_version"] = v4.BENCHMARK_VERSION
+    return _wt_prequential_protocol(ResearchConfig(raw=raw, path=config.path))
 
 
 def _prospective_plan() -> dict:

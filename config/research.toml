@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_wt_changepoints_prequential_v4"
+benchmark_version = "continuous_local_cellular_v5"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -273,6 +273,9 @@ state_budget_bytes = 16777216
 shared_candidate = "evolved_anonymous_local_rule_program"
 dense_ablation = "source_identical_shuffled_fitness_local_rule_program"
 frozen_ablation = "source_identical_frozen_population_local_rule_program"
+shared_candidate_v5 = "error_novelty_split_local_expert_tree_v1"
+dense_ablation_v5 = "source_identical_shuffled_split_local_expert_tree_v1"
+frozen_ablation_v5 = "source_identical_frozen_partition_local_expert_tree_v1"
 classical_baselines = [
   "continuous_local_persistence",
   "continuous_local_ridge",
@@ -296,6 +299,8 @@ invalidation_rules = [
   "Invalidate if the program language, population size, mutation/recombination operators, selection rule, generation count, clipping or tie rule changes after any scoring output.",
   "Invalidate if candidate fitness uses scoring worlds, scoring targets, family labels, native mechanism names or evaluator-private coefficients.",
   "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+  "For continuous_local_cellular_v5, invalidate unless all three tree roles use identical anonymous inputs, features, constants, initialization, fit order, prediction, update, output bounds and accounting and differ only in error/novelty-aligned, preregistered shuffled, or frozen partition decisions.",
+  "For continuous_local_cellular_v5, invalidate if a split threshold, tree capacity, leaf model, novelty rule, shuffle, clipping or tie rule is selected from scoring worlds or changed after scoring output.",
 ]
 
 [whole_io_search]
