@@ -1,7 +1,7 @@
 {
   "benchmark_version": "continuous_local_cellular_v1",
   "candidate_bundle_sha256": "21183728c0c4b10a8aaaf88324c5041a8dd690340573d9fa34a00eefd6bab7b6",
-  "created_at": "2026-09-01T03:21:27Z",
+  "created_at": "2026-09-01T03:15:38Z",
   "evaluator_sha256": "e465f3fe47a405aef549ab1b99b67f429c31b20c88f44a3c0c775b035fbd90f9",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",

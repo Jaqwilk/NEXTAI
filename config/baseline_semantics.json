@@ -529,6 +529,54 @@
         {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_event_population_is_permutation_equivariant_even_on_ties","sha256":"4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754"},
         {"path":"tests/test_wt_candidate_under_test.py","node_id":"tests/test_wt_candidate_under_test.py::test_wt_event_reveal_updates_only_active_rows_in_one_slot","sha256":"4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754"}
       ]
+    },
+    "learned_sparse_continuous_local_rule": {
+      "baseline_id": "hypothesis_candidate_continuous_local_rule_v1", "version": 1,
+      "specification": {"role":"hypothesis candidate semantic registration; not a baseline","input":"anonymous left-center-right four-channel observations","repair":"four leave-one-out affine maps, ridge 0.001, unique standardized residual above 6","features":"bias, 12 linear and 78 upper-triangle quadratic terms","dynamics":"ridge 0.001 then normalized LMS 0.05/(1+x'x)","execution":"sparse active causal cone","output_clip":[-1.5,1.5]},
+      "implementation_files": {"src/nextai_autoresearch/candidates/learned_sparse_continuous_local_rule.py":"af94033cdafb9757151b6e0e327ef9e3f7f452483a1295aec27273f13887f268","src/nextai_autoresearch/candidates/continuous_local_rule_core.py":"1ccfd4cbb5175654bdeee72331ce632dc9204eb557307aed02c1597807390140"},
+      "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_source_identical_roles_share_constants_and_clean_outputs","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"},{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_learned_consistency_repairs_a_large_single_channel_outlier","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
+    },
+    "source_identical_dense_continuous_local_rule": {
+      "baseline_id": "hypothesis_ablation_dense_continuous_local_rule_v1", "version": 1,
+      "specification": {"role":"source-identical dense scheduling ablation","candidate_difference":"evaluate every dormant and active cell; all weights, repair, constants, fit, update and output are identical"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/source_identical_dense_continuous_local_rule.py":"046107e55ec434611b4545ddde534730b20df63129aac8d386ecbd49b6e08d94","src/nextai_autoresearch/candidates/continuous_local_rule_core.py":"1ccfd4cbb5175654bdeee72331ce632dc9204eb557307aed02c1597807390140"},
+      "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_source_identical_roles_share_constants_and_clean_outputs","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
+    },
+    "source_identical_frozen_continuous_local_rule": {
+      "baseline_id": "hypothesis_ablation_frozen_continuous_local_rule_v1", "version": 1,
+      "specification": {"role":"source-identical frozen-learning ablation","candidate_difference":"center-copy initialization with learned repair and weight learning disabled"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/source_identical_frozen_continuous_local_rule.py":"b2ee6c73e245112714ccf05332dafd40477b62e9d9f19ccbe37054aab56353c6","src/nextai_autoresearch/candidates/continuous_local_rule_core.py":"1ccfd4cbb5175654bdeee72331ce632dc9204eb557307aed02c1597807390140"},
+      "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_source_identical_roles_share_constants_and_clean_outputs","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
+    },
+    "continuous_local_persistence": {
+      "baseline_id": "continuous_local_persistence_v1", "version": 1,
+      "specification": {"prediction":"unchanged initial target cell at every depth","fit":"none","update":"none"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/continuous_local_persistence.py":"12eeb482e13a0b34301e6623a3aa4c9cb461f224cd9a72e47c9b3931d4090855","src/nextai_autoresearch/candidates/continuous_local_controls_core.py":"94608af7ca1e1dec5079e3537534729eee3a44d671a51de0b9f78a31776f39b4"},
+      "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_persistence_is_a_true_no_dynamics_control","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"},{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_all_five_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
+    },
+    "continuous_local_ridge": {
+      "baseline_id": "continuous_local_affine_ridge_v1", "version": 1,
+      "specification": {"features":"bias plus 12 raw anonymous neighbor values","ridge":0.001,"execution":"sparse causal cone","update":"normalized LMS 0.05/(1+x'x)"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/continuous_local_ridge.py":"bc5ad9903b6f4bbbb2858bae05dae40b070b7b8f8231bc634145ad6d6fe3c6f6","src/nextai_autoresearch/candidates/continuous_local_controls_core.py":"94608af7ca1e1dec5079e3537534729eee3a44d671a51de0b9f78a31776f39b4"},
+      "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_raw_ridge_is_affine_not_quadratic","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"},{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_all_five_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
+    },
+    "continuous_local_quantized_fsm": {
+      "baseline_id": "continuous_local_quantized_fsm_v1", "version": 1,
+      "specification": {"bin_width":0.25,"state":"exact bins of 12 anonymous neighbor values","transition":"mean training target per exact key","miss":"unchanged center","execution":"sparse causal cone"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/continuous_local_quantized_fsm.py":"d85f6d6775c028b957b2bc3acd0d3592a7054cb00b00785cc144144cd2d709ee","src/nextai_autoresearch/candidates/continuous_local_controls_core.py":"94608af7ca1e1dec5079e3537534729eee3a44d671a51de0b9f78a31776f39b4"},
+      "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_quantized_fsm_uses_frozen_bins_and_center_fallback","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"},{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_all_five_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
+    },
+    "continuous_local_kernel_event": {
+      "baseline_id": "continuous_local_kernel_event_v1", "version": 1,
+      "specification": {"neighbors":8,"distance":"squared Euclidean over 12 anonymous raw values","weight":"inverse squared distance","search":"all training rows charged","execution":"sparse causal cone"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/continuous_local_kernel_event.py":"39adc464c50127fcb1694d1a4facacf226c38efadfe5e54289ddca5150094acc","src/nextai_autoresearch/candidates/continuous_local_controls_core.py":"94608af7ca1e1dec5079e3537534729eee3a44d671a51de0b9f78a31776f39b4"},
+      "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_kernel_event_uses_exactly_eight_nearest_training_rows","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"},{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_all_five_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
+    },
+    "privileged_continuous_local_support": {
+      "baseline_id": "privileged_continuous_local_support_v1", "version": 1,
+      "specification": {"role":"privileged support control; excluded from promotion frontier","repair":"decode unique inconsistent channel using hidden encoder","transition":"exact evaluator-private local coefficients","cost":"fully charged"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/privileged_continuous_local_support.py":"95805acd91b2e057aee8e5e5242a2c6a8fa9eb85b0fcaed81f65b5d64e57ba81","src/nextai_autoresearch/candidates/continuous_local_controls_core.py":"94608af7ca1e1dec5079e3537534729eee3a44d671a51de0b9f78a31776f39b4"},
+      "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_privileged_support_is_exact_on_clean_and_damaged_views","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"},{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_all_five_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
     }
   }
 }

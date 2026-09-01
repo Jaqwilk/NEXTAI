@@ -1,0 +1,151 @@
+{
+  "alternative_explanations": [
+    "A quality gain may come from the fixed quadratic basis rather than learned representation, while sparse cost may be ordinary event scheduling.",
+    "Kernel event simulation may match held-out quality but lose only through its expensive scan, weakening a distinct learning claim."
+  ],
+  "architecture_family": "anonymous_continuous_local_cellular_learning",
+  "benchmark": "continuous_local_cellular_v1",
+  "budget": "quick",
+  "candidates": [
+    "learned_sparse_continuous_local_rule",
+    "source_identical_dense_continuous_local_rule",
+    "source_identical_frozen_continuous_local_rule",
+    "continuous_local_persistence",
+    "continuous_local_ridge",
+    "continuous_local_quantized_fsm",
+    "continuous_local_kernel_event",
+    "privileged_continuous_local_support"
+  ],
+  "confounds": [
+    "The local-visible synthetic encoder and dynamics are screening evidence and may favor smooth polynomial extrapolation.",
+    "Operation counts are explicit model accounting; wall time remains hardware-dependent and secondary."
+  ],
+  "continuous_local_protocol": {
+    "classical_baselines": [
+      "continuous_local_persistence",
+      "continuous_local_ridge",
+      "continuous_local_quantized_fsm",
+      "continuous_local_kernel_event",
+      "privileged_continuous_local_support"
+    ],
+    "dense_ablation": "source_identical_dense_continuous_local_rule",
+    "frozen_ablation": "source_identical_frozen_continuous_local_rule",
+    "invalidation_rules": [
+      "Invalidate if training latent amplitudes overlap the held-out scoring amplitude interval.",
+      "Invalidate if an implementable role receives latent coordinates, encoder permutation/signs, targets before prediction or privileged local coefficients.",
+      "Invalidate unless all three learned roles share representation, constants, fit/update law and output rule, differing only in sparse scheduling, dense scheduling or frozen learning.",
+      "Invalidate if dormant zero cells are omitted from dense-control cost or implicitly scanned without charging operations and bytes.",
+      "Invalidate if corruption is generated after the clean target is exposed or if repair uses evaluator-private channel semantics.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "minimum_nrmse_gain": 0.01,
+    "pareto_capability_metrics": [
+      "accuracy",
+      "warm_accuracy",
+      "near_equivalent_accuracy",
+      "stable_rollout_rate",
+      "continual_new_fact_accuracy",
+      "continual_retention",
+      "normalized_rmse",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "shared_candidate": "learned_sparse_continuous_local_rule",
+    "source_identical_contract": "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1",
+    "state_budget_bytes": 16777216
+  },
+  "created_at": "2026-09-01T03:08:03Z",
+  "evaluator_sha256": "e465f3fe47a405aef549ab1b99b67f429c31b20c88f44a3c0c775b035fbd90f9",
+  "experiment_id": "EXP-20260901-0022",
+  "falsification_criteria": [
+    "Discard if any frozen quality, repair, scaling, D16 margin, retention or Pareto gate fails; do not tune ridge, features, repair threshold, LMS rate, clipping, neighbor count or schedule after seeing output."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "40ed4405e5ebc07a90902d5e16a363488ff3350f",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0039",
+  "matrix": {
+    "knowledge_sizes": [
+      64,
+      256,
+      1024
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      8,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify this exact continuous local learner and return HYP-0006 to dormant; preserve every artifact and pivot to a fundamentally different breadth mechanism.",
+    "null": "If quality matches but a simpler control dominates or repair/scaling gates fail, discard this exact conjunction without tuning and retain only the isolated scheduler observation.",
+    "positive": "Authorize only an unchanged multi-seed adversarial replication of this exact learner and constants; do not promote."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Sparse and dense learned roles match clean quality within 1e-10; sparse achieves minimum-cell accuracy >=0.95, stable rate 1, retention 1, at least 0.01 overall and per-D16-K NRMSE gain over ridge and kernel, at least 0.25 damage-recovery gain over frozen, K slope <=0.10 versus dense >=0.80, and no implementable Pareto dominance.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "stable_rollout_rate",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "normalized_rmse",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "Quick cannot promote. A positive only authorizes an unchanged three-seed adversarial replication after prior-art review and integrity PASS."
+  ],
+  "research_question": "Can a source-identical learner discover anonymous continuous observation consistency and nonlinear local dynamics that transfer to held-out amplitudes and depths while sparse active-cone execution beats dense and classical controls at matched quality and full cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Anonymous continuous local-rule sparse execution quick"
+}

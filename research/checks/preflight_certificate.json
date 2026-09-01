@@ -1,11 +1,11 @@
 {
   "benchmark_version": "continuous_local_cellular_v1",
-  "certificate_sha256": "a1c3f0a29c546911c65a0524d53df717f572e0a1cf65fdfbf1db5da4232bc3fd",
-  "created_at": "2026-09-01T03:02:18Z",
+  "certificate_sha256": "3930519f790b7c0dce69966dedcd4e6421d63446f86cf892af1ff9dae6e03a41",
+  "created_at": "2026-09-01T03:21:28Z",
   "evaluator_sha256": "e465f3fe47a405aef549ab1b99b67f429c31b20c88f44a3c0c775b035fbd90f9",
   "files": {
-    "baseline_registry": "ddfaa2895e109a8c82aeefb2a2704b77b0185089e2f8a893c40d7db06c8e9a74",
-    "manifest": "2cb7dbec91bd3c57b80c3f90a51a1a8c1511cb6fcf72e8a69e4648cef84e0817",
+    "baseline_registry": "9436b9b0ac72a17a602684ba183b0df2ec235795fc56ff39b8eb040c28040ee9",
+    "manifest": "2b0ae741ad7fcb1c9414049bf3c9ebd74498c79be694dfd77ade6390b096a7f3",
     "runner": "cef3329f0dacf5a55f7e2064ab476198e34a9dfcd209a70a936753d8b1115b80",
     "schema:experiment_plan": "962ff6e1f99b3e55ec2d109e12b8b363716b6be8358584b377e5cb00b16dc5c1",
     "schema:experiment_result": "a82f720ed0c6f32b99ae4761e582e831047aa9680de7fcfbc569f02c0ef0d74f",
