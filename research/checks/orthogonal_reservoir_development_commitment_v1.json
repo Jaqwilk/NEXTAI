@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-01T00:11:00Z",
+  "development_only": true,
+  "test_files_accessed": false,
+  "grid_search_performed": false,
+  "source": "Canonical small echo-state scout fixed prospectively in cycle-149 review; no candidate implementation or scoring output existed.",
+  "constants": {
+    "width": 16,
+    "activation": "tanh",
+    "random_generator": "numpy_PCG64_candidate_seed_xor_0x45534e31",
+    "orthogonalization": "qr_of_standard_normal_16x16_with_positive_diagonal_sign_canonicalization",
+    "recurrent_scale_main": 0.9,
+    "recurrent_scale_no_recurrence": 0.0,
+    "byte_embedding_distribution": "normal_0_0.25_float32_256x16",
+    "readout": "zero_initialized_bias_plus_state_17x256_softmax",
+    "training": "one_chronological_epoch_state_reset_per_file_online_multinomial_SGD",
+    "learning_rate": 0.05,
+    "test_update": "slot_local_reservoir_state_only_after_reveal"
+  },
+  "minimum_meaningful_bits_per_byte_effect": 0.1671047931063159,
+  "threshold_provenance": "Reused unchanged from research/checks/layer_local_goodness_development_threshold_v1.json; derived only from five frozen validation files before EXP-0007 and not retuned for this mechanism."
+}

@@ -74,3 +74,5 @@
 {"experiment_id":"EXP-20260901-0005","path":"research/plans/EXP-20260901-0005.json","plan_sha256":"25b100217d5527e019a75845480ef02a9eface61eabb752770027eeaeaec16ea","registered_at":"2026-08-31T23:47:51Z"}
 {"experiment_id":"EXP-20260901-0006","path":"research/plans/EXP-20260901-0006.json","plan_sha256":"16d56d63c4ffd58d46cf96241862b3747d8f4d2d3fa1ab0fef6645aef5429e9e","registered_at":"2026-08-31T23:48:24Z"}
 {"experiment_id":"EXP-20260901-0007","path":"research/plans/EXP-20260901-0007.json","plan_sha256":"162d4ef579b8b00cfde25b7716a3ba60eadd210c7856503a7636c6a869b54cfe","registered_at":"2026-08-31T23:53:30Z"}
+{"experiment_id":"EXP-20260901-0008","path":"research/plans/EXP-20260901-0008.json","plan_sha256":"edeb99ad6ffbee5aae7cad3dc4dc24d6bd146d5cad265f604d48f4d003c31fd0","registered_at":"2026-09-01T00:11:29Z"}
+{"experiment_id":"EXP-20260901-0009","path":"research/plans/EXP-20260901-0009.json","plan_sha256":"380c3f55f287367e5791b799971a027c439b53ce25c9c4853047cb67ef86161c","registered_at":"2026-09-01T00:13:31Z"}

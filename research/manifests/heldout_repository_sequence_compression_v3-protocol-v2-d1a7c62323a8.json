@@ -1,7 +1,7 @@
 {
   "benchmark_version": "heldout_repository_sequence_compression_v3",
-  "candidate_bundle_sha256": "99ea944006c158f93c075afbd38253905df89a149243e49db268beda7fc93eb6",
-  "created_at": "2026-09-01T00:14:37Z",
+  "candidate_bundle_sha256": "49f6e3512a5be701afa3d113605d1a03120e80eae0e915f6f5c04d518b9fab5b",
+  "created_at": "2026-09-01T00:13:16Z",
   "evaluator_sha256": "f7f8e1dfb934d8f51c9d85920a3171e1a643d0067cbcac9749a3b138427fbd54",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
@@ -315,7 +315,7 @@
     "src/nextai_autoresearch/candidates/oracle_test_table_byte.py": "c52b730f0892a67f42f490332e5dad86235e88ba01369e658cd669b9fc07f023",
     "src/nextai_autoresearch/candidates/oracle_trace_compiler.py": "deeb8c4a75c9474ed66e7b465d97897057df3ba2b354eb05c98ac991b324e955",
     "src/nextai_autoresearch/candidates/orthogonal_reservoir_byte.py": "e9b81ec6c7c3a33e8308cbb6681439fa2e3aaf63b77f3146487b97153f25483d",
-    "src/nextai_autoresearch/candidates/orthogonal_reservoir_core.py": "7143b6476b03c0784ff0ab77f2dc84f8f9b0ebf7ee15bc09abb6790fcda2dafc",
+    "src/nextai_autoresearch/candidates/orthogonal_reservoir_core.py": "5cfa5a3c5d27b4dabd3b1c5597fef2dcb4e96b4726cef040ab73b3a4b3c09c66",
     "src/nextai_autoresearch/candidates/paired_stability_index.py": "caaa77bcdc18cc4ed269618d3409371232e89fa707b964e18dddcbd1bf59f684",
     "src/nextai_autoresearch/candidates/pairwise_factor_elimination.py": "583b5e6fade231e3b642d6481b477612d494ef02c8c731af3b9e202f39470629",
     "src/nextai_autoresearch/candidates/parallel_markov_bp_masked_byte.py": "0522b7eda0bc12498af79896ffc4425204080f5e388312aa4aca94ee619ef25a",
