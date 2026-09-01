@@ -1,0 +1,216 @@
+{
+  "alternative_explanations": [
+    "Only nine reveal events per file may be insufficient for temporal credit to learn.",
+    "Any benefit may come from ordinary normalized LMS or the frozen residual bank rather than aligned temporal credit.",
+    "The 0.90 gate may fire on every event and collapse to the dense ablation."
+  ],
+  "architecture_family": "local_temporal_credit_assignment",
+  "benchmark": "heldout_wt_changepoints_prequential_v4",
+  "budget": "quick",
+  "candidates": [
+    "wt_error_triggered_eligibility_trace_v1",
+    "wt_source_identical_frozen_eligibility_trace_v1",
+    "wt_source_identical_shuffled_eligibility_trace_v1",
+    "wt_source_identical_dense_eligibility_trace_v1",
+    "wt_persistence_v1",
+    "wt_pooled_mean_v1",
+    "wt_control_level_bank_v1",
+    "wt_lms_v1",
+    "wt_rls_v1",
+    "wt_transition_bank_v1",
+    "wt_bounded_replay_v1",
+    "wt_ridge_fir_v1",
+    "wt_coverage_aware_spectral_psr_v1",
+    "wt_train_only_discretized_cssr_v1"
+  ],
+  "confounds": [
+    "The local visible cohort is screening evidence only; exact operation and byte accounting, not cross-load wall time, is primary."
+  ],
+  "created_at": "2026-09-01T14:06:33Z",
+  "evaluator_sha256": "d66142584db0b25412dfcdb1e3dba460560d91d42d73288e1fc2e26e4e387959",
+  "experiment_id": "EXP-20260901-0048",
+  "falsification_criteria": [
+    "Fail if the main learner misses the frozen 0.1325268421060828 NRMSE margin against any causal ablation or strongest implementable control in aggregate, H32, or H96.",
+    "Fail if stable_rollout_rate is below 1.0 or worst_file_normalized_rmse worsens beyond the preregistered margin.",
+    "Fail if error-gated updates do not use fewer update_ops and update bytes than the dense source-identical ablation.",
+    "Fail if the result is Pareto-dominated on declared universal quality, stability, cost, memory, and workload axes."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "873976bb7d65d0ed489fee71b43e56a4ba27ef88",
+    "dirty": false
+  },
+  "hypothesis_id": "HYP-0052",
+  "matrix": {
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "queries_per_cell": 18,
+    "reasoning_depths": [
+      16,
+      32,
+      96
+    ],
+    "seeds": [
+      53162585
+    ]
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "rollout_16_nrmse": "minimize",
+    "rollout_32_nrmse": "minimize",
+    "rollout_96_nrmse": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_normalized_rmse": "minimize",
+    "worst_transition_normalized_rmse": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify this exact error-gated eligibility rule and end it without threshold, decay, ridge, or rank tuning.",
+    "null": "Treat the result as inconclusive and do not tune; a later test is allowed only if it resolves a concrete identified measurement ambiguity.",
+    "positive": "Authorize only an unchanged three-seed replication of this exact frozen rule in the next eligible wake."
+  },
+  "parent_experiment_id": "EXP-20260901-0047",
+  "predicted_outcome": "With frozen development-derived error gate 0.90, aligned newest-first decay 0.75, eta 0.05 and fixed clipping, the error-gated trace will exceed every causal ablation and strongest implementable control by at least 0.1325268421060828 NRMSE in aggregate, H32 and H96, without worst-file or stability regression, while using fewer update operations and bytes than dense credit.",
+  "primary_metrics": [
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "worst_file_normalized_rmse",
+    "worst_transition_normalized_rmse",
+    "rollout_16_nrmse",
+    "rollout_32_nrmse",
+    "rollout_96_nrmse",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed quick cannot promote; a fully positive result only authorizes an unchanged three-seed replication in a later wake."
+  ],
+  "research_question": "Can one anonymous bounded temporal eligibility mechanism improve changepoint adaptation per full cost over causal ablations and frozen classical controls?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Error-gated temporal eligibility for local continuous adaptation",
+  "wt_prequential_protocol": {
+    "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
+    "causal_roles": [
+      "wt_error_triggered_eligibility_trace_v1",
+      "wt_source_identical_frozen_eligibility_trace_v1",
+      "wt_source_identical_shuffled_eligibility_trace_v1",
+      "wt_source_identical_dense_eligibility_trace_v1"
+    ],
+    "classical_baselines": [
+      "wt_persistence_v1",
+      "wt_pooled_mean_v1",
+      "wt_control_level_bank_v1",
+      "wt_lms_v1",
+      "wt_rls_v1",
+      "wt_transition_bank_v1",
+      "wt_bounded_replay_v1",
+      "wt_ridge_fir_v1",
+      "wt_coverage_aware_spectral_psr_v1",
+      "wt_train_only_discretized_cssr_v1"
+    ],
+    "corpus_id": "causal_chambers_wt_changepoints_v1",
+    "declared_horizons": [
+      16,
+      32,
+      96
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "development_files": [
+      6,
+      7
+    ],
+    "fit_depth": 32,
+    "fit_horizon": 32,
+    "invalidation_rules": [
+      "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+      "Invalidate if train, development or test whole-file roles overlap.",
+      "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+      "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+      "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+      "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+      "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+      "Invalidate unless all four causal roles share features, initialization, fit order, prediction, rollout, update, constants and accounting, differing only by the preregistered error gate, temporal credit alignment or dense-credit intervention.",
+      "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
+      "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change."
+    ],
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "minimum_meaningful_nrmse_effect": 0.1325268421060828,
+    "normalization": "train_files_only_mechanical_partition",
+    "pareto_capability_metrics": [
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "worst_file_normalized_rmse",
+      "worst_transition_normalized_rmse",
+      "rollout_16_nrmse",
+      "rollout_32_nrmse",
+      "rollout_96_nrmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_atomic_artifact_then_reveal": true,
+    "role_implementation": "wt_local_credit_trace_core_v1",
+    "runner_random_channel_permutation": true,
+    "saturation_nrmse": 0.5,
+    "saturation_worst_file_nrmse": 0.75,
+    "shared_candidate": "wt_error_triggered_eligibility_trace_v1",
+    "source_identical_contract": "features_initialization_fit_order_prediction_rollout_update_constants_and_accounting_identical_except_preregistered_error_gate_temporal_credit_alignment_or_dense_credit_v1",
+    "split_unit": "whole_csv_file_sha256",
+    "state_budget_bytes": 16777216,
+    "test_files": [
+      8,
+      9
+    ],
+    "train_files": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}

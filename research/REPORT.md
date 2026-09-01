@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T14:03:30Z
+Generated: 2026-09-01T14:21:21Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1008,6 +1008,27 @@ Pareto axes: maximize `stable_rollout_rate`; minimize `normalized_rmse, worst_fi
 | EXP-20260901-0024 | wt_ridge_fir_v1 | implementable | complete | 0.4139 | 1 | 6.144e+04 | 321 | 1.024e+04 | 2.542e+07 | 0 (3) | 90112 |  |
 | EXP-20260901-0024 | wt_coverage_aware_spectral_psr_v1 | implementable | complete | 0.494 | 1 | 6524 | 321 | 6.144e+04 | 1.016e+07 | 0 (3) | 80728 |  |
 | EXP-20260901-0024 | wt_train_only_discretized_cssr_v1 | implementable | complete | 0.496 | 1 | 4105 | 321 | 4.102e+05 | 1.304e+07 | 0.7166 (3) | 563824 |  |
+
+## heldout_wt_changepoints_prequential_v4 / quick
+
+Pareto axes: maximize `stable_rollout_rate`; minimize `normalized_rmse, worst_file_normalized_rmse, worst_transition_normalized_rmse, rollout_16_nrmse, rollout_32_nrmse, rollout_96_nrmse, data_acquisition_ops, preprocessing_ops, fit_ops, adaptation_ops, mean_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0048 | wt_error_triggered_eligibility_trace_v1 | implementable | complete | 0.4999 | 1 | 9600 | 321 | 7.082e+04 | 1.039e+07 | 0 (3) | 90272 | yes |
+| EXP-20260901-0048 | wt_source_identical_frozen_eligibility_trace_v1 | implementable | complete | 0.4988 | 1 | 9600 | 321 | 1.488e+04 | 1.031e+07 | 0 (3) | 13472 | yes |
+| EXP-20260901-0048 | wt_source_identical_shuffled_eligibility_trace_v1 | implementable | complete | 0.4995 | 1 | 9600 | 321 | 7.082e+04 | 1.039e+07 | 0 (3) | 90272 |  |
+| EXP-20260901-0048 | wt_source_identical_dense_eligibility_trace_v1 | implementable | complete | 0.5001 | 1 | 9600 | 321 | 8.741e+04 | 1.044e+07 | 0 (3) | 90272 | yes |
+| EXP-20260901-0048 | wt_persistence_v1 | implementable | complete | 0.4816 | 1 | 960 | 321 | 1.024e+04 | 7.599e+06 | 0 (3) | 0 | yes |
+| EXP-20260901-0048 | wt_pooled_mean_v1 | implementable | complete | 0.4882 | 1 | 960 | 321 | 1.024e+04 | 7.61e+06 | 0 (3) | 2560 | yes |
+| EXP-20260901-0048 | wt_control_level_bank_v1 | implementable | complete | 0.4988 | 1 | 1920 | 321 | 1.024e+04 | 7.887e+06 | 0 (3) | 10240 | yes |
+| EXP-20260901-0048 | wt_lms_v1 | implementable | complete | 0.4237 | 1 | 6.144e+04 | 321 | 9.216e+04 | 2.573e+07 | 0 (3) | 253952 |  |
+| EXP-20260901-0048 | wt_rls_v1 | implementable | complete | 0.4251 | 1 | 6.144e+04 | 321 | 1.004e+05 | 2.58e+07 | 0 (3) | 270336 |  |
+| EXP-20260901-0048 | wt_transition_bank_v1 | implementable | complete | 0.49 | 1 | 2040 | 321 | 1.237e+04 | 7.944e+06 | -6.39e-31 (3) | 105168 |  |
+| EXP-20260901-0048 | wt_bounded_replay_v1 | implementable | complete | 0.4482 | 1 | 7072 | 321 | 1.664e+04 | 9.378e+06 | 0 (3) | 264448 |  |
+| EXP-20260901-0048 | wt_ridge_fir_v1 | implementable | complete | 0.4139 | 1 | 6.144e+04 | 321 | 1.024e+04 | 2.542e+07 | 0 (3) | 90112 |  |
+| EXP-20260901-0048 | wt_coverage_aware_spectral_psr_v1 | implementable | complete | 0.494 | 1 | 6524 | 321 | 6.144e+04 | 1.016e+07 | 0 (3) | 80728 |  |
+| EXP-20260901-0048 | wt_train_only_discretized_cssr_v1 | implementable | timeout | - | 1 | - | - | - | - | - (3) | - |  |
 
 ## heterogeneous_module_composition_v1 / quick
 

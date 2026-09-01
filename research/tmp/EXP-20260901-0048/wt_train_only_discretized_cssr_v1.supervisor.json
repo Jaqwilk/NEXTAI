@@ -1,0 +1,43 @@
+{
+  "audit": {
+    "dependencies": [
+      {
+        "path": "src/nextai_autoresearch/candidates/base.py",
+        "sha256": "4569d5001e4f2e70fadedc46763acc9d88d3a058199ad9fe19b2c2efbd29578b"
+      },
+      {
+        "path": "src/nextai_autoresearch/candidates/wt_predictive_state_controls_core.py",
+        "sha256": "0ac4334fab835b5f83eaf6b3516a6ead22c3485c77317d470026eb77ca160513"
+      },
+      {
+        "path": "src/nextai_autoresearch/candidates/wt_train_only_discretized_cssr_v1.py",
+        "sha256": "f92f91d99e4585d0849998a0a6ca4e7fd34da255516adc3f31e4dbf720d8f99d"
+      },
+      {
+        "path": "src/nextai_autoresearch/wt_prequential_contract.py",
+        "sha256": "12b36743d024db342f9e25255238bd9c1f10864e60e711d0a85955817b47149c"
+      }
+    ],
+    "ok": true,
+    "path": "src/nextai_autoresearch/candidates/wt_train_only_discretized_cssr_v1.py",
+    "problems": [],
+    "sha256": "f92f91d99e4585d0849998a0a6ca4e7fd34da255516adc3f31e4dbf720d8f99d"
+  },
+  "candidate": "wt_train_only_discretized_cssr_v1",
+  "execution": {
+    "environment_sanitized": true,
+    "log_path": "research/logs/EXP-20260901-0048-wt_train_only_discretized_cssr_v1.log",
+    "network_policy": "forbidden_by_audit_and_rules_not_os_sandboxed",
+    "peak_rss_bytes": 84377600,
+    "return_code": 15,
+    "termination_reason": "timeout",
+    "wall_seconds": 180.117514499987
+  },
+  "status": "timeout",
+  "summary": {
+    "completed_trials": 0,
+    "status": "failed",
+    "total_trials": 0
+  },
+  "trials": []
+}
