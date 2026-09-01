@@ -1,7 +1,7 @@
 {
   "benchmark_version": "program_induction_from_whole_io_v4",
-  "candidate_bundle_sha256": "7a1cfa0855a608bb70f1ba58db0ab5ea2d6c4ca23ea59ac164a59cf485007f1f",
-  "created_at": "2026-09-01T13:15:54Z",
+  "candidate_bundle_sha256": "8d4cd36ae5fb42cb3ae38bfb139367b03fb042a12d835cced64cf6958339e9e6",
+  "created_at": "2026-09-01T13:15:01Z",
   "evaluator_sha256": "c45f26bf7ea46c108555fb84da23ff9a994b66e24ad70d208087124d6b0be612",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
@@ -546,7 +546,7 @@
     "src/nextai_autoresearch/candidates/tensor_raw_window_local_linear_v1.py": "dd106902b4deb3f4ad8e448dc42d05c5ee4b495c01ab59b359897f80af17382f",
     "src/nextai_autoresearch/candidates/tensor_ridge_arx_v1.py": "9633e6083388d8fdb401dc1742ae4f90974862eb115e7ddd5c9777c59b56fd74",
     "src/nextai_autoresearch/candidates/tensor_rls_arx_v1.py": "709e422cdaf36a6cdbf1db103c3500c1df764182b8ae5bc94861757f9a1a481f",
-    "src/nextai_autoresearch/candidates/test_verified_incumbent_program_vm.py": "47ec512045b6c60cc09e924432c80b2af2dce11d658e51d0101be64606bebe15",
+    "src/nextai_autoresearch/candidates/test_verified_incumbent_program_vm.py": "2e64dd7ac9a0eb70675ba9c4f5269c24ee98d66a5012821b4c7aa27a0d3942dd",
     "src/nextai_autoresearch/candidates/timed_automaton_matcher.py": "ffd6e055e08ef43d8cc0faf7937dc9cb955664bfc0c85114de9ef1185920921a",
     "src/nextai_autoresearch/candidates/transition_gate_halt.py": "48d82b91facff07657982fe6f7be3067a6f82ecf239cfab7f72134d075ec1b2b",
     "src/nextai_autoresearch/candidates/unary_semantic_library.py": "fa643ccb0e5358c467e92850eb2c3b883abff9a71c0dac1c87dc72c1d48d87c0",
@@ -555,7 +555,7 @@
     "src/nextai_autoresearch/candidates/uniform_masked_byte.py": "5c82a73a71f066911ca8744e2d29a589018b8f8e0d52c48f52236d5eed03b395",
     "src/nextai_autoresearch/candidates/unigram_recombination.py": "b3506ecdb016330d488dd6287bb85e5b606830f61a703dffbb83b609b1592f94",
     "src/nextai_autoresearch/candidates/variance_triggered_kalman.py": "23c8384dc7825d288d6cd908e6a2dc41c80f0b7e63e36b2097a5497d847a2bc8",
-    "src/nextai_autoresearch/candidates/verified_incumbent_program_vm_core.py": "9bd348176f63d07700f504089638860b84e205c67f862b0a02a62574702adf32",
+    "src/nextai_autoresearch/candidates/verified_incumbent_program_vm_core.py": "7def3bcb6f4e8999c63f0bbacadbc43f697cdb1d40fb53143d5e3627318bc55b",
     "src/nextai_autoresearch/candidates/vsa_superposition.py": "2cfc1449e75dfb6b10b6fe75008d14c15681f68f719e9277740e206f68f936c1",
     "src/nextai_autoresearch/candidates/wt_action_conditioned_predictive_state_v1.py": "6bf83137148f4b0ae449124e3580cf6481d1a56986243d6c5decb75cbc38b1e3",
     "src/nextai_autoresearch/candidates/wt_bounded_replay_v1.py": "27101f8388f2fbdf6e4252453201e27df25505e407b734a6c1bda71840be46a5",

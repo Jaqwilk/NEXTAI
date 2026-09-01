@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T13:06:46Z
+Generated: 2026-09-01T13:23:21Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1178,6 +1178,21 @@ Pareto axes: maximize `accuracy, program_induction_accuracy, length_extrapolatio
 | EXP-20260901-0036 | dense_whole_io | implementable | complete | 0.4722 | 1 | 5207 | - | 535.1 | 2.354e+06 | 0.4126 (3) | 24192 |  |
 | EXP-20260901-0036 | enumerative_mdl_vm | implementable | complete | 1 | 1 | 1.284e+05 | - | 127 | 2.075e+07 | 0 (3) | 1448 | yes |
 | EXP-20260901-0036 | oracle_latent_vm | privileged support control | complete | 1 | 1 | 23 | - | 4.667 | 6.33e+04 | 0 (3) | 72 |  |
+
+## program_induction_from_whole_io_v4 / quick
+
+Pareto axes: maximize `accuracy, program_induction_accuracy, length_extrapolation_accuracy`; minimize `data_acquisition_ops, fit_ops, mean_query_ops, mean_warm_query_ops, mean_search_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0045 | learned_verified_incumbent_program_vm | implementable | complete | 1 | 1 | 3.302e+04 | - | 127 | 7.783e+06 | 0.01932 (3) | 6728 | yes |
+| EXP-20260901-0045 | source_identical_support_only_verified_incumbent_program_vm | implementable | complete | 1 | 1 | 3.682e+04 | - | 127 | 6.001e+06 | 0.004805 (3) | 1768 | yes |
+| EXP-20260901-0045 | source_identical_frozen_verified_incumbent_program_vm | implementable | complete | 1 | 1 | 3.312e+04 | - | 127 | 5.405e+06 | 0.007071 (3) | 1768 | yes |
+| EXP-20260901-0045 | random_whole_io | implementable | complete | 0.4722 | 1 | 5.667 | - | 4.667 | 5.83e+04 | 0 (3) | 64 |  |
+| EXP-20260901-0045 | nearest_whole_io | implementable | complete | 0.6111 | 1 | 306.3 | - | 127 | 1.449e+05 | 0 (3) | 64 |  |
+| EXP-20260901-0045 | dense_whole_io | implementable | complete | 0.5833 | 1 | 5207 | - | 535.1 | 2.354e+06 | 0.4126 (3) | 24192 |  |
+| EXP-20260901-0045 | enumerative_mdl_vm | implementable | complete | 1 | 1 | 1.284e+05 | - | 127 | 2.075e+07 | 0 (3) | 1448 | yes |
+| EXP-20260901-0045 | oracle_latent_vm | privileged support control | complete | 1 | 1 | 23 | - | 4.667 | 6.33e+04 | 0 (3) | 72 |  |
 
 ## program_library_adversarial_v2 / screen
 

@@ -1,0 +1,144 @@
+{
+  "alternative_explanations": [
+    "Any node reduction may be ordinary nearest-prototype retrieval whose cost and state grow with training knowledge rather than a weak-knowledge-scaling mechanism.",
+    "Support-only greedy initialization may be a stronger or cheaper incumbent because the test support already uniquely identifies the optimum."
+  ],
+  "architecture_family": "verified_learned_fast_path",
+  "benchmark": "program_induction_from_whole_io_v4",
+  "budget": "quick",
+  "candidates": [
+    "learned_verified_incumbent_program_vm",
+    "source_identical_support_only_verified_incumbent_program_vm",
+    "source_identical_frozen_verified_incumbent_program_vm",
+    "random_whole_io",
+    "nearest_whole_io",
+    "dense_whole_io",
+    "enumerative_mdl_vm",
+    "oracle_latent_vm"
+  ],
+  "confounds": [
+    "The locally visible uniform 256-program task family is narrow and one runner-random seed measures screening behavior rather than general transfer or seed stability."
+  ],
+  "created_at": "2026-09-01T13:11:48Z",
+  "evaluator_sha256": "c45f26bf7ea46c108555fb84da23ff9a994b66e24ad70d208087124d6b0be612",
+  "experiment_id": "EXP-20260901-0045",
+  "falsification_criteria": [
+    "Discard this exact incumbent rule unless every causal role has accuracy, program_induction_accuracy and length_extrapolation_accuracy 1.0 in every cell and matches enumerative MDL.",
+    "Discard unless the meta role has strictly lower mean_search_ops and mean_query_ops than support-only, frozen and enumerative MDL in every K/depth cell.",
+    "Discard if the meta role exceeds 16777216 state bytes, omits any declared full-cost metric, any mandatory control is incomplete or it is implementably Pareto-dominated.",
+    "Invalidate on hidden program or trace access, changed fixed branch/value order, unverified proposal use, incomplete fallback proof, source-identity violation, post-score tuning, seed leakage, external model/API use, preflight mismatch or evaluator-integrity change."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "960de9a8aa4ce92bec279f0f9a649cf15f01daa2",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0051",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      16,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      1,
+      4,
+      6
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "length_extrapolation_accuracy": "maximize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_search_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "program_induction_accuracy": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A valid complete quality or correctness failure discards this exact rule; an infrastructure, integrity or mandatory-control failure is inconclusive and must be recorded without a second experiment in this wake.",
+    "null": "If exactness holds but any every-cell search or Pareto gate fails, discard this exact proposal rule without tuning distance, greedy passes, branch order, objective or reuse horizon.",
+    "positive": "Keep HYP-0051 testing at unchanged constants and preregister only a three-seed replication; do not promote, tune or combine."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "All three causal roles will prove the same exact MDL optimum in every K=8/16/32 and D=1/4/6 cell. The meta proposal may reduce fixed-order cold nodes, but the preregistered expected outcome is a stringent null because uniform held-out programs, exhaustive meta-label acquisition and prototype lookup may prevent an every-cell search advantage and full-cost Pareto non-dominance.",
+  "primary_metrics": [
+    "accuracy",
+    "program_induction_accuracy",
+    "length_extrapolation_accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "mean_search_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed quick cannot promote; a complete positive only authorizes an unchanged three-runner-seed replication on the same frozen v4 cohort."
+  ],
+  "research_question": "Can a meta-learned initial program proposal reduce fully charged exact whole-I/O induction work while a fixed-order verifier and complete fallback preserve the identical MDL optimum?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Verified learned incumbent exact-fallback quick",
+  "whole_io_search_protocol": {
+    "classical_baselines": [
+      "random_whole_io",
+      "nearest_whole_io",
+      "dense_whole_io",
+      "enumerative_mdl_vm",
+      "oracle_latent_vm"
+    ],
+    "frozen_ablation": "source_identical_frozen_verified_incumbent_program_vm",
+    "invalidation_rules": [
+      "Invalidate if any implementable role receives the hidden program, execution trace or task identity.",
+      "Invalidate unless all three causal roles share the exact complete solver, objective, bound, ties, constants, support parser, verifier, fallback, fixed branch order, execution and output.",
+      "Invalidate if the roles differ beyond the preregistered meta, support-only or frozen source of the initial incumbent proposal.",
+      "Invalidate unless every proposal is verified or rejected and the unchanged solver proves the same minimum-error MDL optimum as complete enumeration.",
+      "Invalidate if acquisition, proposal/meta-fit, verification, every visited fallback node, execution, query, update, state or bytes touched is omitted from full cost.",
+      "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change."
+    ],
+    "pareto_capability_metrics": [
+      "accuracy",
+      "program_induction_accuracy",
+      "length_extrapolation_accuracy",
+      "data_acquisition_ops",
+      "fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "mean_search_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "role_implementation": "verified_incumbent_program_vm_core_v1",
+    "shared_candidate": "learned_verified_incumbent_program_vm",
+    "source_identical_contract": "complete_solver_objective_bounds_ties_support_execution_output_verifier_fallback_and_fixed_branch_order_identical_except_meta_support_or_frozen_initial_incumbent_v1",
+    "state_budget_bytes": 16777216,
+    "support_only_ablation": "source_identical_support_only_verified_incumbent_program_vm"
+  }
+}
