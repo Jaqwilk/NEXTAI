@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T00:37:18Z
+Generated: 2026-09-01T00:48:09Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -399,6 +399,24 @@ Pareto axes: maximize `exact_span_accuracy`; minimize `bits_per_byte, worst_span
 | EXP-20260830-0053 | bidirectional_markov_masked_byte | implementable | complete | 0.1634 | 1 | 3.036e+05 | 674.7 | 1.356e+08 | 6.529e+09 | 0 (2; screening) | 526848 |  |
 | EXP-20260830-0053 | parallel_markov_bp_masked_byte | implementable | complete | 0.1634 | 1 | 8.959e+05 | 674.7 | 2.005e+08 | 1.938e+10 | -0.002931 (2; screening) | 2.624e+06 |  |
 | EXP-20260830-0053 | oracle_conditional_masked_byte | privileged support control | complete | 1 | 1 | 863.3 | 674.7 | 129.3 | 1.92e+07 | 0 (2; screening) | 526848 |  |
+
+## heldout_parallel_masked_infilling_v3 / quick
+
+Pareto axes: maximize `exact_span_accuracy`; minimize `bits_per_byte, worst_span_bits_per_byte, critical_path_steps, data_acquisition_ops, fit_ops, mean_query_ops, update_ops, workload_ops, workload_ops_r16, state_bytes, peak_state_bytes, mean_bytes_touched`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0011 | local_sparse_predictive_code_masked_byte | implementable | complete | 0.07286 | 1 | 5728 | 674.7 | 5.604e+05 | 2.293e+08 | -0.001023 (2; screening) | 524800 | yes |
+| EXP-20260901-0011 | source_identical_one_pass_predictive_code_masked_byte | implementable | complete | 0.06982 | 1 | 2603 | 184 | 2.376e+05 | 1.621e+08 | 0 (2; screening) | 524800 | yes |
+| EXP-20260901-0011 | source_identical_frozen_code_predictive_byte | implementable | complete | 0.006727 | 1 | 5735 | 674.7 | 5.62e+05 | 2.295e+08 | 0 (2; screening) | 524800 |  |
+| EXP-20260901-0011 | uniform_masked_byte | implementable | complete | 0 | 1 | 863.3 | 674.7 | 129.3 | 1.92e+07 | 0 (2; screening) | 526848 | yes |
+| EXP-20260901-0011 | empirical_unigram_masked_byte | implementable | complete | 0.08024 | 1 | 1452 | 674.7 | 2.649e+05 | 3.19e+07 | 0 (2; screening) | 526848 | yes |
+| EXP-20260901-0011 | left_to_right_ppm_masked_byte | implementable | complete | 0.1444 | 1 | 1.15e+04 | 674.7 | 4.768e+06 | 2.481e+08 | 0 (2; screening) | 1.43894e+06 | yes |
+| EXP-20260901-0011 | context_tree_weighting_masked_byte | implementable | complete | 0.05713 | 1 | 1.15e+04 | 674.7 | 4.768e+06 | 2.481e+08 | 0 (2; screening) | 652760 |  |
+| EXP-20260901-0011 | dense_autoregressive_masked_byte | implementable | complete | 0.08708 | 1 | 1.15e+04 | 674.7 | 4.768e+06 | 2.481e+08 | 0 (2; screening) | 1.83757e+06 |  |
+| EXP-20260901-0011 | bidirectional_markov_masked_byte | implementable | complete | 0.08317 | 1 | 3.036e+05 | 674.7 | 1.356e+08 | 6.529e+09 | 0 (2; screening) | 526848 |  |
+| EXP-20260901-0011 | parallel_markov_bp_masked_byte | implementable | complete | 0.08317 | 1 | 8.945e+05 | 674.7 | 2.002e+08 | 1.935e+10 | -0.005479 (2; screening) | 2.624e+06 |  |
+| EXP-20260901-0011 | oracle_conditional_masked_byte | privileged support control | complete | 1 | 1 | 863.3 | 674.7 | 129.3 | 1.92e+07 | 0 (2; screening) | 526848 |  |
 
 ## heldout_repository_sequence_compression_v1 / quick
 

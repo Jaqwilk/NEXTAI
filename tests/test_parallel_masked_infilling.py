@@ -17,6 +17,9 @@ from nextai_autoresearch.masked_refinement_contract import (
     MaskedQuery,
     MaskedTraining,
 )
+from nextai_autoresearch.candidates.local_sparse_predictive_code_core import (
+    ACTIVE, LATENT, LEARNING_RATE, PATCH, SEED_SALT, Candidate as SparseCodeCore,
+)
 from nextai_autoresearch.metrics import aggregate_trials
 from nextai_autoresearch.runner import _frontier
 from nextai_autoresearch.schemas import validate_document
@@ -232,3 +235,42 @@ def test_v3_plan_generator_freezes_discriminating_matrix(monkeypatch) -> None:
         },
     }
     validate_document("experiment_plan", plan, project_root())
+
+
+def test_v3_sparse_code_roles_share_source_constants_and_only_frozen_skips_learning() -> None:
+    modules = [__import__(
+        f"nextai_autoresearch.candidates.{name}", fromlist=["Candidate"]
+    ) for name in (
+        "local_sparse_predictive_code_masked_byte",
+        "source_identical_one_pass_predictive_code_masked_byte",
+        "source_identical_frozen_code_predictive_byte",
+    )]
+    assert all(module.Candidate.__mro__[1] is SparseCodeCore for module in modules)
+    assert (PATCH, LATENT, ACTIVE, LEARNING_RATE, SEED_SALT) == (
+        16, 32, 4, 0.025, 0x4C504331,
+    )
+    training = MaskedTraining((ByteFile(1, tuple(range(32))),), (), 32)
+    candidates = [module.Candidate(seed=17) for module in modules]
+    initial = candidates[0].code.copy()
+    for candidate in candidates:
+        candidate.fit(training, 8, 6)
+    assert not (candidates[0].code == initial).all()
+    assert (candidates[0].code == candidates[1].code).all()
+    assert (candidates[2].code == initial).all()
+    assert len({candidate.fit_ops for candidate in candidates}) == 1
+
+
+def test_v3_sparse_code_query_is_simultaneous_and_finite() -> None:
+    candidate = __import__(
+        "nextai_autoresearch.candidates.local_sparse_predictive_code_masked_byte",
+        fromlist=["Candidate"],
+    ).Candidate(seed=19)
+    snapshot = tuple(range(64)) + (MASK,) * 8 + tuple(range(72, 144))
+    forward = MaskedQuery(2, snapshot, (64, 67, 71), 0, 6)
+    reverse = MaskedQuery(2, snapshot, (71, 67, 64), 0, 6)
+    first = candidate.query(forward, 6)
+    second = candidate.query(reverse, 6)
+    assert first == list(reversed(second))
+    assert all(len(row) == 256 and abs(sum(row) - 1.0) < 1e-6 for row in first)
+    assert candidate.last_critical_path_steps == 4
+    assert candidate.state_bytes() < 4_194_304
