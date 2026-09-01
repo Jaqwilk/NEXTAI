@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "cycle": 175,
+  "created_at": "2026-09-01T05:44:16Z",
+  "proposal": "heldout_recursive_context_probabilistic_circuit_v2",
+  "status": "rejected_before_migration",
+  "active_benchmark_unchanged": "heldout_raw_sensor_active_identification_v1",
+  "scoring_performed": false,
+  "hypothesis_created": false,
+  "experiment_plan_created": false,
+  "seed_realized": false,
+  "protected_files_changed": false,
+  "candidate_under_test_created": false,
+  "required_recursive_levels": 2,
+  "identifiability_findings": [
+    "Observational samples do not identify a unique recursive circuit: the same positive finite distribution admits flat sum-of-products, ordered decision-diagram and variable-elimination representations.",
+    "Circuit-node count is not a representation-independent capability measure; it changes with variable ordering, sharing and compiler conventions.",
+    "A synthetic generator authored directly as the target recursive circuit would privilege the proposed mechanism unless a representation-neutral task supplies an independently justified natural factorization.",
+    "The proposed decisive signature of a smaller learned circuit therefore cannot by itself distinguish discovery from generator or compiler alignment."
+  ],
+  "control_semantics_audit": {
+    "contextual_chow_liu": "The EXP-0040 implementation searches one binary selector and then maximum-weight disjoint pair matchings; it is not a general mixture of Chow-Liu trees.",
+    "pairwise_factor_elimination": "The EXP-0040 implementation learns a maximum-weight degree-one pair factorization and enumerates its components; it is not generic variable elimination.",
+    "tensor_train_or_decision_diagram": "No registered implementation and conformance fixture exists for this proposed cohort.",
+    "privileged_recursive_circuit": "No versioned recursive oracle specification or implementation exists for this proposed cohort."
+  },
+  "decision": "reject_heldout_recursive_context_probabilistic_circuit_v2",
+  "decision_reason": "The proposed cohort cannot presently separate a learned recursive principle from equivalent representation choices, and its mandatory strong controls do not exist with the declared semantics. Reusing EXP-0040 names would repeat a control-semantics failure; building a target-shaped generator and several new compilers would optimize a new toy rather than run a minimal discriminating scout.",
+  "scientific_evidence_changed": false,
+  "hypothesis_confidence_changed": false,
+  "consecutive_no_scoring_cycles": 1,
+  "max_consecutive_no_scoring_cycles": 3,
+  "next_cycle": "One minimal protected service migration of the existing raw-sensor active-identification contract to v2 for a source-identical learned posterior-partition decision DAG, support-only DAG and frozen DAG. Preserve data, worlds, splits, metrics, budgets and seven controls; add only role mappings and semantic fixtures. Cycle 177 must then run exactly one quick scout, so the migration must not expand into a framework."
+}
