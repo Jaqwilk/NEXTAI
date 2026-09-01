@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T20:48:54Z
+Generated: 2026-09-01T21:13:15Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -802,6 +802,22 @@ Pareto axes: maximize `accuracy`; minimize `bits_per_byte, worst_file_bits_per_b
 | EXP-20260901-0029 | ctw_depth2_byte | implementable | complete | 0.2892 | 1 | 768 | 28 | 3072 | 6.334e+07 | 0 (3) | 867008 |  |
 | EXP-20260901-0029 | lz_dictionary_byte | implementable | complete | 0.3751 | 1 | 284 | 28 | 1174 | 2.375e+07 | 0 (3) | 2.34722e+06 |  |
 | EXP-20260901-0029 | dense_autoregressive_byte | implementable | crash | - | 1 | - | - | - | - | - (3) | - |  |
+
+## heldout_repository_sequence_compression_v6 / quick
+
+Pareto axes: maximize `accuracy`; minimize `bits_per_byte, worst_file_bits_per_byte, cold_bits_per_byte, data_acquisition_ops, fit_ops, meta_fit_ops, mean_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0062 | selective_diagonal_state_space_byte_v1 | implementable | complete | 0.2312 | 1 | 9222 | 28 | 8835 | 1.376e+09 | 0 (3) | 50560 |  |
+| EXP-20260901-0062 | source_identical_fixed_selection_state_space_byte_v1 | implementable | complete | 0.221 | 1 | 9220 | 28 | 8834 | 1.372e+09 | 0 (3) | 50560 |  |
+| EXP-20260901-0062 | source_identical_recurrence_disabled_state_space_byte_v1 | implementable | complete | 0.2575 | 1 | 9218 | 28 | 8834 | 1.367e+09 | 0 (3) | 50560 |  |
+| EXP-20260901-0062 | uniform_byte | implementable | complete | 0 | 1 | 1 | 28 | 0.5 | 4.492e+05 | 0 (3) | 256 |  |
+| EXP-20260901-0062 | empirical_unigram_byte | implementable | complete | 0.2205 | 1 | 1.485e+04 | 28 | 5.94e+04 | 1.217e+09 | 0 (3) | 31480 |  |
+| EXP-20260901-0062 | ppm_d_order5_byte | implementable | complete | 0.455 | 1 | 1792 | 28 | 7168 | 1.473e+08 | 0 (3) | 1.65403e+06 |  |
+| EXP-20260901-0062 | ctw_depth2_byte | implementable | complete | 0.2843 | 1 | 768 | 28 | 3072 | 6.334e+07 | 0 (3) | 867008 |  |
+| EXP-20260901-0062 | lz_dictionary_byte | implementable | complete | 0.3723 | 1 | 284 | 28 | 1173 | 2.375e+07 | 0 (3) | 2.34775e+06 |  |
+| EXP-20260901-0062 | dense_autoregressive_byte | implementable | crash | - | 1 | - | - | - | - | - (3) | - |  |
 
 ## heldout_three_family_continuous_transfer_v1 / quick
 

@@ -1,7 +1,7 @@
 {
   "benchmark_version": "heldout_repository_sequence_compression_v6",
-  "candidate_bundle_sha256": "d8c40d8b0d2bbc6acc4d838c793febd0e789bd11d6c0b37f42d4a0a1af22ccff",
-  "created_at": "2026-09-01T21:01:08Z",
+  "candidate_bundle_sha256": "d1e031384fbe2435cc2aaecb43e68f0b707b28ef69135fc57ada240e58aac830",
+  "created_at": "2026-09-01T20:58:23Z",
   "evaluator_sha256": "fc399c0927fc12172d0bd13a1b48007a28ee3ea5046bc6575c69b41ea7f7ea49",
   "files": {
     ".gitignore": "4769ec975e1cdfa456ef9a8ae3e39d34a0d004a5e2c680dfe6ab3a3e6256872a",
@@ -592,7 +592,7 @@
     "src/nextai_autoresearch/candidates/tensor_ridge_arx_v1.py": "9633e6083388d8fdb401dc1742ae4f90974862eb115e7ddd5c9777c59b56fd74",
     "src/nextai_autoresearch/candidates/tensor_rls_arx_v1.py": "709e422cdaf36a6cdbf1db103c3500c1df764182b8ae5bc94861757f9a1a481f",
     "src/nextai_autoresearch/candidates/test_certified_pattern_bound_program_vm.py": "3ea04ccd4e387b56a30308da94cb9719e993def0e44fd34abde7aef65dda2388",
-    "src/nextai_autoresearch/candidates/test_selective_diagonal_state_space_byte_v1.py": "7ef6857e380493b0714dcc0cee62a04b4d20595478152bb461853a4cb13675e1",
+    "src/nextai_autoresearch/candidates/test_selective_diagonal_state_space_byte_v1.py": "ffeef43eb4994708fcc6d3657c8a5167eb6c4cd57ff60422febe07ed99554b82",
     "src/nextai_autoresearch/candidates/test_verified_incumbent_program_vm.py": "47ec512045b6c60cc09e924432c80b2af2dce11d658e51d0101be64606bebe15",
     "src/nextai_autoresearch/candidates/timed_automaton_matcher.py": "ffd6e055e08ef43d8cc0faf7937dc9cb955664bfc0c85114de9ef1185920921a",
     "src/nextai_autoresearch/candidates/transition_gate_halt.py": "48d82b91facff07657982fe6f7be3067a6f82ecf239cfab7f72134d075ec1b2b",

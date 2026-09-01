@@ -1,0 +1,157 @@
+{
+  "alternative_explanations": [
+    "Any gain may come from the learned byte embedding/readout or ordinary recency rather than input-dependent retention; the fixed-selection and recurrence-disabled roles test those alternatives."
+  ],
+  "architecture_family": "input_selective_diagonal_state_space",
+  "benchmark": "heldout_repository_sequence_compression_v6",
+  "budget": "quick",
+  "candidates": [
+    "selective_diagonal_state_space_byte_v1",
+    "source_identical_fixed_selection_state_space_byte_v1",
+    "source_identical_recurrence_disabled_state_space_byte_v1",
+    "uniform_byte",
+    "empirical_unigram_byte",
+    "ppm_d_order5_byte",
+    "ctw_depth2_byte",
+    "lz_dictionary_byte",
+    "dense_autoregressive_byte"
+  ],
+  "compression_protocol": {
+    "causal_roles": [
+      "selective_diagonal_state_space_byte_v1",
+      "source_identical_fixed_selection_state_space_byte_v1",
+      "source_identical_recurrence_disabled_state_space_byte_v1"
+    ],
+    "classical_baselines": [
+      "uniform_byte",
+      "empirical_unigram_byte",
+      "ppm_d_order5_byte",
+      "ctw_depth2_byte",
+      "lz_dictionary_byte",
+      "dense_autoregressive_byte"
+    ],
+    "corpus_id": "nextai_local_repository_sha256_v1",
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "invalidation_rules": [
+      "Invalidate on any frozen corpus hash or byte-length mismatch.",
+      "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
+      "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
+      "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
+      "Invalidate unless all three state-space roles resolve to one implementation and share embedding, state width, diagonal dynamics, readout, initialization, fit order, context, input, update, output, constants and accounting, differing only in input-dependent versus fixed selection or recurrence-disabled intervention.",
+      "Invalidate unless pre-seed semantic fixtures prove a history-dependent selective state, fixed-selection behavior, recurrence-disabled memorylessness, predict-before-reveal ordering, byte-relabeling equivariance and explicit fit/query/update/state cost."
+    ],
+    "pareto_capability_metrics": [
+      "bits_per_byte",
+      "worst_file_bits_per_byte",
+      "cold_bits_per_byte",
+      "accuracy",
+      "data_acquisition_ops",
+      "fit_ops",
+      "meta_fit_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_reveal": true,
+    "role_implementation": "selective_diagonal_state_space_byte_core_v1",
+    "shared_candidate": "selective_diagonal_state_space_byte_v1",
+    "shared_slow_state_updates": "forbidden",
+    "source_identical_contract": "embedding_state_width_diagonal_dynamics_readout_initialization_fit_order_context_input_update_output_constants_and_accounting_identical_except_preregistered_input_selection_and_recurrence_v1",
+    "split_unit": "whole_files_sha256",
+    "state_budget_bytes": 4194304,
+    "test_file_access": "evaluator_only",
+    "test_tuning": "forbidden"
+  },
+  "confounds": [
+    "The visible local corpus is small, the one-epoch optimizer may underfit, dense autoregressive can exceed the state cap, and operation counts approximate backward/optimizer arithmetic rather than hardware latency."
+  ],
+  "created_at": "2026-09-01T20:56:09Z",
+  "evaluator_sha256": "fc399c0927fc12172d0bd13a1b48007a28ee3ea5046bc6575c69b41ea7f7ea49",
+  "experiment_id": "EXP-20260901-0062",
+  "falsification_criteria": [
+    "Discard if main misses a 0.1671047931063159 improvement in mean, cold or worst-file bpb over either causal ablation or the strongest complete implementable control in any K/D cell, including D64.",
+    "Discard on nonfinite probabilities, state above 4194304 bytes, fixed-D query work varying with K, source-identity failure or Pareto dominance by a simpler complete implementable control."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "0b302185284f91fb6fc27584b27ab99278d46474",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0058",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      20,
+      32
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      16,
+      64
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "bits_per_byte": "minimize",
+    "cold_bits_per_byte": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_bits_per_byte": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify this exact width-16 shared-row-initialized chunk-64 one-epoch Adam selective-retention rule without tuning width, decay, optimizer, epoch, chunk or clipping.",
+    "null": "Close the exact rule if input selectivity gives no meaningful every-cell causal gain or classical controls retain the full-cost frontier.",
+    "positive": "Retain only the exact frozen rule for unchanged three-seed replication; do not mark promising or promote."
+  },
+  "parent_experiment_id": "EXP-20260901-0061",
+  "predicted_outcome": "Expected negative: input-selective retention may beat its source-identical ablations at some long contexts but is likely to miss the frozen 0.1671047931063159 bpb every-cell conjunction or lose full cost to PPM-D/CTW.",
+  "primary_metrics": [
+    "bits_per_byte",
+    "worst_file_bits_per_byte",
+    "cold_bits_per_byte",
+    "accuracy",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "One seed cannot promote; only the full conjunction may authorize one unchanged three-seed replication in a later wake."
+  ],
+  "research_question": "Can one source-identical width-16 diagonal byte core using h=a*h+(1-a)*tanh(B[x]), all B rows initialized to the same fixed 0.05*linspace(-1,1,16) template, zero G/readout/bias, d=logit(0.9), input gate a=sigmoid(d+G[x]) versus fixed a=sigmoid(d) and disabled a=0, one chronological epoch of chunk-64 truncated BPTT with Adam lr 0.01 betas 0.9/0.999 epsilon 1e-8 and gradient clip 1.0, improve held-out compression at bounded state and K-independent query work?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Corrected input-selective diagonal state-space byte quick"
+}
