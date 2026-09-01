@@ -120,6 +120,21 @@ def _compression_protocol(config: ResearchConfig) -> dict[str, Any]:
                 str(compression["frozen_hidden_ablation"]),
             ],
             "source_identical_contract": "topology_constants_initialization_data_order_update_count_input_output_identical_v1",
+        })
+    elif config.benchmark_version == "heldout_repository_sequence_compression_v3":
+        protocol.update({
+            "causal_roles": [
+                str(compression["shared_candidate"]),
+                str(compression["causal_ablation_1"]),
+                str(compression["causal_ablation_2"]),
+            ],
+            "source_identical_contract": "topology_constants_initialization_data_order_input_output_identical_except_preregistered_recurrence_and_readout_learning_v1",
+        })
+    if config.benchmark_version in {
+        "heldout_repository_sequence_compression_v2",
+        "heldout_repository_sequence_compression_v3",
+    }:
+        protocol.update({
             "pareto_capability_metrics": [
                 "bits_per_byte", "worst_file_bits_per_byte", "cold_bits_per_byte",
                 "accuracy", "data_acquisition_ops", "fit_ops", "meta_fit_ops",
@@ -328,13 +343,19 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "invalidation_rules": list(online["invalidation_rules"]),
         }
     if config.benchmark_version.startswith("heldout_repository_sequence_"):
-        if config.benchmark_version == "heldout_repository_sequence_compression_v2":
+        if config.benchmark_version in {
+            "heldout_repository_sequence_compression_v2",
+            "heldout_repository_sequence_compression_v3",
+        }:
             compression = config.raw["compression"]
             plan["matrix"]["knowledge_sizes"] = list(compression["knowledge_sizes"])
             plan["matrix"]["reasoning_depths"] = list(compression["context_depths"])
             plan["matrix"]["queries_per_cell"] = int(compression["queries_per_cell"])
         plan["compression_protocol"] = _compression_protocol(config)
-        if config.benchmark_version == "heldout_repository_sequence_compression_v2":
+        if config.benchmark_version in {
+            "heldout_repository_sequence_compression_v2",
+            "heldout_repository_sequence_compression_v3",
+        }:
             metrics = list(plan["compression_protocol"]["pareto_capability_metrics"])
             plan["primary_metrics"] = metrics
             plan["metric_directions"] = {

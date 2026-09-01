@@ -7,8 +7,9 @@ from jsonschema.exceptions import ValidationError
 
 from nextai_autoresearch.benchmarks import heldout_repository_sequence_compression_v1 as bench
 from nextai_autoresearch.benchmarks import heldout_repository_sequence_compression_v2 as bench_v2
+from nextai_autoresearch.benchmarks import heldout_repository_sequence_compression_v3 as bench_v3
 from nextai_autoresearch.cli import _compression_protocol
-from nextai_autoresearch.config import load_config
+from nextai_autoresearch.config import ResearchConfig, load_config
 from nextai_autoresearch.candidates.masked_baselines import CTWByteModel, PPMDModel
 from nextai_autoresearch.repository_sequence_contract import ByteContext
 from nextai_autoresearch.metrics import aggregate_trials
@@ -56,15 +57,30 @@ def _plan() -> dict:
     }
 
 
-def _v2_plan() -> dict:
+def _config_for(version: str) -> ResearchConfig:
+    active = load_config(project_root())
+    raw = copy.deepcopy(active.raw)
+    raw["project"]["benchmark_version"] = version
+    if version.endswith("_v2"):
+        raw["compression"].update({
+            "shared_candidate": "layer_local_goodness_byte",
+            "global_credit_ablation": "source_identical_end_to_end_gradient_byte",
+            "frozen_hidden_ablation": "source_identical_frozen_hidden_byte",
+        })
+    return ResearchConfig(raw, active.path)
+
+
+def _compression_plan(version: str) -> dict:
     plan = _plan()
-    config = load_config(project_root())
-    plan["benchmark"] = bench_v2.BENCHMARK_VERSION
+    config = _config_for(version)
+    plan["benchmark"] = version
     plan["matrix"].update({"knowledge_sizes": [8, 20, 32],
                            "reasoning_depths": [4, 16, 64], "queries_per_cell": 8})
     plan["candidates"] = [
-        "layer_local_goodness_byte", "source_identical_end_to_end_gradient_byte",
-        "source_identical_frozen_hidden_byte", *config.raw["compression"]["classical_baselines"],
+        *_compression_protocol(config).get(
+            "credit_assignment_roles", _compression_protocol(config).get("causal_roles", ())
+        ),
+        *config.raw["compression"]["classical_baselines"],
     ]
     plan["compression_protocol"] = _compression_protocol(config)
     plan["primary_metrics"] = list(plan["compression_protocol"]["pareto_capability_metrics"])
@@ -74,6 +90,14 @@ def _v2_plan() -> dict:
         for metric in plan["primary_metrics"]
     }
     return plan
+
+
+def _v2_plan() -> dict:
+    return _compression_plan(bench_v2.BENCHMARK_VERSION)
+
+
+def _v3_plan() -> dict:
+    return _compression_plan(bench_v3.BENCHMARK_VERSION)
 
 
 def test_corpus_is_whole_file_disjoint_and_matches_hashes() -> None:
@@ -161,6 +185,18 @@ def test_v2_preserves_v1_corpus_and_freezes_credit_assignment_contract() -> None
     invalid["matrix"]["reasoning_depths"] = [4, 16, 63]
     with pytest.raises(ValidationError):
         validate_document("experiment_plan", invalid, project_root())
+
+
+def test_v3_changes_only_prospective_causal_roles() -> None:
+    assert bench_v3.CORPUS == bench_v2.CORPUS == bench.CORPUS
+    assert bench_v3.SEGMENT_MULTIPLIER == bench_v2.SEGMENT_MULTIPLIER == 128
+    assert bench_v3.verify_static_contract() == bench_v2.verify_static_contract()
+    plan = _v3_plan()
+    validate_document("experiment_plan", plan, project_root())
+    protocol = plan["compression_protocol"]
+    assert protocol["causal_roles"] == plan["candidates"][:3]
+    assert "credit_assignment_roles" not in protocol
+    assert protocol["classical_baselines"] == _v2_plan()["compression_protocol"]["classical_baselines"]
 
 
 @pytest.mark.parametrize("name,model_type", [

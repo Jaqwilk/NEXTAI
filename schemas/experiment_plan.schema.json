@@ -282,6 +282,13 @@
           "maxItems": 3,
           "uniqueItems": true
         },
+        "causal_roles": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true
+        },
         "source_identical_contract": {"type": "string", "minLength": 24},
         "pareto_capability_metrics": {
           "type": "array",

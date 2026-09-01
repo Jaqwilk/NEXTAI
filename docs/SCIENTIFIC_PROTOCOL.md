@@ -219,6 +219,17 @@ The immutable plan must include `compression_protocol`, runner-random scoring se
 
 Report mean, worst-file and cold bits per byte plus top-1 byte accuracy. Full accounting includes corpus verification/acquisition, train and validation selection, fit/meta-selection, every 256-way probability query, every revealed-byte update, bytes touched, resident and peak state, and R1/R4/R16 workload. Required implementable nulls are unigram, variable-order PPM, context-tree weighting, LZ-style dictionary prediction and a small dense autoregressive model; uniform coding is a sanity bound and a test-table oracle is privileged. One seed cannot promote.
 
+Version 3 is a service-only successor to repository compression v2. It preserves
+all 43 whole-file hashes and roles, anonymous bytes, predict-then-reveal order,
+K=`8/20/32`, D=`4/16/64`, query allocation, loss and cost formulas, state
+boundary, seed policy, Pareto axes and six classical controls. It changes only
+the prospective three causal role identifiers from the completed layer-local
+credit experiment to an orthogonal recurrent reservoir, a source-identical
+recurrence-disabled ablation and a source-identical frozen-readout ablation.
+The next immutable plan must freeze every reservoir constant before candidate
+implementation. Historical v1/v2 plans, results, candidates and manifests
+remain append-only and are never reinterpreted.
+
 ## Held-out anonymous mechanism-recombination cohorts
 
 This cohort tests a narrower claim than raw cross-family representation learning. Three existing deterministic mechanisms are normalized by one frozen numeric rule and lifted by the same Feistel construction onto 144 opaque states. Implementable candidates receive only anonymous state-to-state examples with equal public shapes; module names, source families, native types, extraction paths and composition graphs remain evaluator-only.

@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "heldout_repository_sequence_compression_v2"
+benchmark_version = "heldout_repository_sequence_compression_v3"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -80,9 +80,9 @@ invalidation_rules = [
 
 [compression]
 corpus_id = "nextai_local_repository_sha256_v1"
-shared_candidate = "layer_local_goodness_byte"
-global_credit_ablation = "source_identical_end_to_end_gradient_byte"
-frozen_hidden_ablation = "source_identical_frozen_hidden_byte"
+shared_candidate = "orthogonal_reservoir_byte"
+causal_ablation_1 = "source_identical_no_recurrence_byte"
+causal_ablation_2 = "source_identical_frozen_readout_reservoir_byte"
 knowledge_sizes = [8, 20, 32]
 context_depths = [4, 16, 64]
 queries_per_cell = 8
@@ -101,8 +101,8 @@ invalidation_rules = [
   "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
   "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
   "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
-  "Invalidate if the three neural roles differ in topology, constants, initialization, data order, update count, input representation or output rule beyond credit assignment.",
-  "Invalidate if layer_local_goodness_byte executes a reverse gradient or reads later-layer weights during an earlier-layer update.",
+  "Invalidate if the three reservoir roles differ in topology, constants, initialization, data order, input representation or output rule beyond the preregistered recurrence and readout-learning interventions.",
+  "Invalidate if the no-recurrence role uses recurrent state or if the frozen-readout role changes its readout weights.",
 ]
 
 [masked_refinement]
