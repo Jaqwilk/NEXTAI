@@ -1,0 +1,196 @@
+{
+  "alternative_explanations": [
+    "Whole-program structural caching may achieve the same exact reuse with less fit, update and state cost.",
+    "Input-table scanning may dominate execution work, preventing a meaningful depth or total-work crossover."
+  ],
+  "architecture_family": "learned_partial_evaluation_macro_dag",
+  "benchmark": "heldout_mechanism_recombination_v6",
+  "budget": "quick",
+  "candidates": [
+    "learned_macro_operator_dag",
+    "source_identical_rebuild_macro_operator_dag",
+    "source_identical_frozen_macro_operator_dag",
+    "operator_interpreter",
+    "operator_exact_key_cache",
+    "operator_structural_result_cache",
+    "operator_canonical_table_cache",
+    "operator_anti_unification_cache",
+    "operator_nearest_canonical",
+    "operator_random"
+  ],
+  "confounds": [
+    "The synthetic locally visible operator terms repeat exact anonymous tables and do not establish transfer to learned real-world programs.",
+    "Python latency is load-dependent; decisions use explicit charged operations and state, not wall-time alone."
+  ],
+  "created_at": "2026-09-01T02:36:23Z",
+  "evaluator_sha256": "0545b5b00535213af901639fb2d578bb2152c22c6b7273f4c273e63c6ab595e7",
+  "experiment_id": "EXP-20260901-0021",
+  "falsification_criteria": [
+    "Discard if shared warm, near-equivalent, mutation or retention accuracy is below 1 in any cell or false reuse is nonzero.",
+    "Discard unless shared depth_compute_slope is at least 0.002 below operator_interpreter and its full workload_ops_r16 at depth 16 is at least 1 percent lower.",
+    "Discard unless shared mean_warm_query_ops and depth-16 R16 workload are strictly below both source-identical rebuild and frozen roles.",
+    "Discard if any complete implementable cache control Pareto-dominates shared on frozen quality, false reuse, full work, bytes and state.",
+    "Invalidate on threshold, dyadic segmentation or source-identity change, target access, primitive labels, hidden object identity, post-score tuning, external model/API, omitted key/table state, baseline/preflight/evaluator/integrity failure."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "6ffcf71351526761d337a3a5a851c3581d844fe8",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0038",
+  "matrix": {
+    "knowledge_sizes": [
+      8,
+      32,
+      128
+    ],
+    "queries_per_cell": 8,
+    "reasoning_depths": [
+      4,
+      8,
+      16
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "mechanism_recombination_protocol": {
+    "classical_baselines": [
+      "operator_interpreter",
+      "operator_exact_key_cache",
+      "operator_structural_result_cache",
+      "operator_canonical_table_cache",
+      "operator_anti_unification_cache",
+      "operator_nearest_canonical",
+      "operator_random"
+    ],
+    "composition_lengths": [
+      4,
+      8,
+      16
+    ],
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "equal_public_shapes": true,
+    "exposure_count": 16,
+    "heldout_compositions": [
+      "CBAC",
+      "CBACABAC",
+      "CBACABACBCABCBAC"
+    ],
+    "independent_ablation": "source_identical_rebuild_macro_operator_dag",
+    "invalidation_rules": [
+      "Invalidate on any overlap between the length-one/two training programs and the held-out length-four/eight/sixteen compositions.",
+      "Invalidate if primitive labels, native source families or evaluator canonical tables reach an implementable candidate.",
+      "Invalidate unless all source-identical roles share term encoding, constants, initialization, training order, execution, output and update code.",
+      "Invalidate if scoring conjugation or any runner-random program is realized before integrity and source audit.",
+      "Invalidate on target access before prediction, post-score tuning, state-budget breach or evaluator-integrity change.",
+      "Invalidate unless composition depths 4, 8 and 16 and sixteen fresh re-encoding exposures per cell are executed rather than extrapolated."
+    ],
+    "mechanism_source_seed": 1103,
+    "no_cross_mechanism_ablation": "source_identical_frozen_macro_operator_dag",
+    "pareto_capability_metrics": [
+      "accuracy",
+      "warm_accuracy",
+      "near_equivalent_accuracy",
+      "minimum_combination_accuracy",
+      "continual_new_fact_accuracy",
+      "continual_retention",
+      "false_reuse_rate",
+      "data_acquisition_ops",
+      "fit_ops",
+      "meta_fit_ops",
+      "mean_query_ops",
+      "mean_warm_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "runner_random_state_conjugation": true,
+    "shared_candidate": "learned_macro_operator_dag",
+    "source_identical_contract": "term_encoding_constants_initialization_training_order_execution_output_and_update_code_identical_except_preregistered_cross_query_macro_learning_and_reuse_v1",
+    "source_mechanisms": [
+      "program_table",
+      "predictive_transition_outcome",
+      "local_dynamics_rule"
+    ],
+    "state_budget_bytes": 4194304,
+    "state_count": 144,
+    "train_compositions": [
+      "A",
+      "B",
+      "C",
+      "AB",
+      "BC",
+      "CA"
+    ]
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "data_acquisition_ops": "minimize",
+    "depth_compute_slope": "minimize",
+    "false_reuse_rate": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_warm_query_ops": "minimize",
+    "meta_fit_ops": "minimize",
+    "minimum_combination_accuracy": "maximize",
+    "near_equivalent_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "warm_accuracy": "maximize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Falsify this exact macro-DAG rule, preserve any diagnostic warm reuse signature, and return to breadth without tuning.",
+    "null": "Mark this threshold-two dyadic rule unsupported and stop without changing threshold, segmentation or cache policy.",
+    "positive": "Keep HYP-0038 at testing confidence and preregister only unchanged three-seed adversarial replication; do not promote."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Freeze threshold=2, anonymous identity-stripped flattening, left-aligned dyadic segments of lengths 2,4,8,..., longest-macro left-to-right execution, exact leaf fallback and post-observation local admission. Shared persists exact macro tables; rebuild learns the same keys but recomputes tables per query; frozen charges induction but activates none. Require exact quality and zero false reuse, shared depth slope at least 0.002 below interpreter, at least 1% lower full R16 workload at D=16, strict D16 warm/R16 gains over both ablations and no dominance by a complete cache control.",
+  "primary_metrics": [
+    "accuracy",
+    "warm_accuracy",
+    "near_equivalent_accuracy",
+    "minimum_combination_accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "false_reuse_rate",
+    "depth_compute_slope",
+    "data_acquisition_ops",
+    "fit_ops",
+    "meta_fit_ops",
+    "mean_query_ops",
+    "mean_warm_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed visible scout cannot promote; a fully conjunctive pass may only authorize an unchanged three-seed adversarial replication."
+  ],
+  "research_question": "Can one frozen learner of anonymous dyadic subprograms persist exact partial evaluations so warm full cost scales better with held-out composition depth than exact interpretation and source-identical nonpersistent execution?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Threshold-two dyadic macro-DAG total-work quick"
+}

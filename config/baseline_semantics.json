@@ -502,6 +502,24 @@
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_random.py":"ad53bd609e53c926596827c753ca428c8244332e2dc36527f77542f1468b33e1", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
       "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
     },
+    "learned_macro_operator_dag": {
+      "baseline_id": "hypothesis_candidate_threshold_two_macro_dag_v1", "version": 1,
+      "specification": {"role":"hypothesis candidate semantic registration; not a baseline","threshold":2,"segments":"left-aligned dyadic lengths","execution":"longest admitted exact macro then leaf fallback","update":"predict-then-observe local admission","mode":"persist exact macro tables"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/learned_macro_operator_dag.py":"416a8544d5b1f29c54c1a69c40c44d3d5041091c984ba523faa48500a7e8d571","src/nextai_autoresearch/candidates/macro_operator_dag_core.py":"f74c808165d4b83f1b28812bdeaee105e48a928a3ba06e7042fb2eabd2c7676c"},
+      "conformance_tests": [{"path":"tests/test_macro_operator_dag.py","node_id":"tests/test_macro_operator_dag.py::test_threshold_two_admits_exact_macro_without_object_identity","sha256":"fd67306e143d964c56ee0ad21423908b0389de291ffacf335df3177a035214f8"},{"path":"tests/test_macro_operator_dag.py","node_id":"tests/test_macro_operator_dag.py::test_persistence_reduces_work_while_rebuild_and_frozen_remain_exact","sha256":"fd67306e143d964c56ee0ad21423908b0389de291ffacf335df3177a035214f8"}]
+    },
+    "source_identical_rebuild_macro_operator_dag": {
+      "baseline_id": "hypothesis_ablation_rebuild_macro_dag_v1", "version": 1,
+      "specification": {"role":"source-identical causal ablation","threshold":2,"segments":"left-aligned dyadic lengths","execution":"rebuild admitted exact table on each query","persistent_table_reuse":false},
+      "implementation_files": {"src/nextai_autoresearch/candidates/source_identical_rebuild_macro_operator_dag.py":"a753ad9c61f40cfe1f5fe3147a33719b34daa96c9b9e6e2f3e7f8f8c5cde930a","src/nextai_autoresearch/candidates/macro_operator_dag_core.py":"f74c808165d4b83f1b28812bdeaee105e48a928a3ba06e7042fb2eabd2c7676c"},
+      "conformance_tests": [{"path":"tests/test_macro_operator_dag.py","node_id":"tests/test_macro_operator_dag.py::test_roles_share_one_source_constants_and_only_mode_differs","sha256":"fd67306e143d964c56ee0ad21423908b0389de291ffacf335df3177a035214f8"},{"path":"tests/test_macro_operator_dag.py","node_id":"tests/test_macro_operator_dag.py::test_persistence_reduces_work_while_rebuild_and_frozen_remain_exact","sha256":"fd67306e143d964c56ee0ad21423908b0389de291ffacf335df3177a035214f8"}]
+    },
+    "source_identical_frozen_macro_operator_dag": {
+      "baseline_id": "hypothesis_ablation_frozen_macro_dag_v1", "version": 1,
+      "specification": {"role":"source-identical causal ablation","threshold":2,"segments":"left-aligned dyadic lengths","execution":"exact leaf fallback","macro_activation":false},
+      "implementation_files": {"src/nextai_autoresearch/candidates/source_identical_frozen_macro_operator_dag.py":"78f39250806c848708ddfd1a3b0ceabebcdd8dfa97f945795de90a72db0583ca","src/nextai_autoresearch/candidates/macro_operator_dag_core.py":"f74c808165d4b83f1b28812bdeaee105e48a928a3ba06e7042fb2eabd2c7676c"},
+      "conformance_tests": [{"path":"tests/test_macro_operator_dag.py","node_id":"tests/test_macro_operator_dag.py::test_roles_share_one_source_constants_and_only_mode_differs","sha256":"fd67306e143d964c56ee0ad21423908b0389de291ffacf335df3177a035214f8"},{"path":"tests/test_macro_operator_dag.py","node_id":"tests/test_macro_operator_dag.py::test_persistence_reduces_work_while_rebuild_and_frozen_remain_exact","sha256":"fd67306e143d964c56ee0ad21423908b0389de291ffacf335df3177a035214f8"}]
+    },
     "wt_candidate_under_test": {
       "baseline_id": "hypothesis_candidate_event_sparse_associative_plasticity_v1", "version": 1,
       "specification": {"role":"hypothesis candidate semantic registration; not a baseline","population":"two signed units per anonymous response plus two signed public-control units","activation":"all exact maximum-magnitude latest response-change ties and one public-control sign","emission":"direct constant-velocity trajectory from active-row mean; no residual forecaster recurrence or replay","update":"post-artifact slot-local count-normalized running mean on active rows only","invariance":"consistent anonymous-channel permutation including exact ties"},

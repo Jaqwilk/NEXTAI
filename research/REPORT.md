@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T02:30:00Z
+Generated: 2026-09-01T02:43:52Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -365,6 +365,23 @@ Pareto axes: maximize `accuracy, warm_accuracy, near_equivalent_accuracy, minimu
 | EXP-20260901-0003 | operator_anti_unification_cache | implementable | complete | 1 | 1 | 1334 | 656 | 1.002e+04 | 9.113e+04 | 0.01615 (3) | 7024 |  |
 | EXP-20260901-0003 | operator_nearest_canonical | implementable | complete | 1 | 1 | 2410 | 656 | 1.414e+04 | 1.453e+05 | 0.02177 (3) | 9280 |  |
 | EXP-20260901-0003 | operator_random | implementable | complete | 0 | 1 | 730 | 656 | 5312 | 5.173e+04 | 0 (3) | 64 |  |
+
+## heldout_mechanism_recombination_v6 / quick
+
+Pareto axes: maximize `accuracy, warm_accuracy, near_equivalent_accuracy, minimum_combination_accuracy, continual_new_fact_accuracy, continual_retention`; minimize `false_reuse_rate, data_acquisition_ops, fit_ops, meta_fit_ops, mean_query_ops, mean_warm_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260901-0021 | learned_macro_operator_dag | implementable | complete | 1 | 1 | 1516 | 1435 | 7.454e+04 | 1.499e+05 | -0.0003171 (3) | 110864 | yes |
+| EXP-20260901-0021 | source_identical_rebuild_macro_operator_dag | implementable | complete | 1 | 1 | 1772 | 1435 | 6.125e+04 | 1.808e+05 | 0.08113 (3) | 90736 |  |
+| EXP-20260901-0021 | source_identical_frozen_macro_operator_dag | implementable | complete | 1 | 1 | 1517 | 1435 | 6.125e+04 | 1.441e+05 | 0 (3) | 90736 | yes |
+| EXP-20260901-0021 | operator_interpreter | implementable | complete | 1 | 1 | 1518 | 1435 | 1.154e+04 | 8.283e+04 | -1.026e-31 (3) | 64 | yes |
+| EXP-20260901-0021 | operator_exact_key_cache | implementable | complete | 1 | 1 | 2853 | 1435 | 3.996e+04 | 1.258e+05 | 0 (3) | 40320 |  |
+| EXP-20260901-0021 | operator_structural_result_cache | implementable | complete | 1 | 1 | 2861 | 1435 | 1.583e+04 | 8.794e+04 | 0 (3) | 5984 |  |
+| EXP-20260901-0021 | operator_canonical_table_cache | implementable | complete | 1 | 1 | 4196 | 1435 | 1.376e+04 | 1.284e+05 | 0 (3) | 3616 |  |
+| EXP-20260901-0021 | operator_anti_unification_cache | implementable | complete | 1 | 1 | 2881 | 1435 | 1.63e+04 | 1.251e+05 | 0.007497 (3) | 7024 |  |
+| EXP-20260901-0021 | operator_nearest_canonical | implementable | complete | 1 | 1 | 3957 | 1435 | 2.037e+04 | 2.151e+05 | 0.01321 (3) | 9280 |  |
+| EXP-20260901-0021 | operator_random | implementable | complete | 0 | 1 | 1509 | 1435 | 1.154e+04 | 8.255e+04 | -1.026e-31 (3) | 64 |  |
 
 ## heldout_parallel_masked_infilling_v1 / quick
 
