@@ -803,6 +803,44 @@ and doctor. This cycle creates no hypothesis, experiment plan, seed or score.
 Only a later wake may preregister the unchanged three-runner-seed HYP-0050
 screen; it may reject or strengthen the principle but cannot by itself promote.
 
+### Parallel masked infilling v13 recoverable push-chain adversarial cohort
+
+V13 is a service-only adversarial successor to v12. It reuses the immutable
+v12 corpus registry, whole-file train/validation/test roles, shallow training
+bytes, training-depth ceiling two, runner-random 256-byte permutation,
+K=`8/32`, D=`3/4/5`, Q=`8`, public masked-query boundary, metrics,
+directions, state limit, cost equations, thresholds and all twelve candidate
+implementations. Historical v8-v12 plans, results, analyses, manifests and
+hashes remain immutable and cohort-separated.
+
+V13 changes only evaluator-private target construction. On the first opener
+chain reaching exact depth D, the outermost push remains visible and the
+remaining D-1 pushes are masked simultaneously. Every corresponding return
+remains visible. A trace is eligible only when at least one missing push has a
+different type from the visible outer push, so repeating or closing the visible
+top cannot recover the complete target. Under the anonymous pairing learned
+from shallow training, the intact return chain mechanically identifies every
+missing push. The literal fixture `([{}])` becomes `(??}])`, target `[{`;
+reversing the visible `}]` return suffix and applying the learned inverse
+pairing recovers the target, while single-type `((()))` is rejected as
+copyable. The frozen real test files provide 32/9/10 eligible traces at depths
+3/4/5 without synthesizing new data.
+
+Activation requires the literal recoverability and copy-alias fixtures, real-
+corpus availability at every depth, unchanged hashes for all twelve role
+modules and the shared pushdown core, all semantic baseline tests, full pytest,
+preflight, integrity and doctor. The migration creates no hypothesis,
+experiment plan, scoring seed, candidate change or result, and no candidate may
+be executed on a v13 case before preregistration. The next bounded wake must
+preregister one unchanged three-runner-seed HYP-0050 screen. Success requires
+exact-span accuracy 1.0 in every K/depth/seed cell, at least 0.25 exact-span
+advantage and lower bits than both source-identical ablations and the strongest
+complete implementable control, all mandatory controls complete, state-budget
+compliance and implementable Pareto non-dominance. The screen cannot promote;
+a valid negative makes the exact family dormant without tuning, while a
+positive remains narrow screening evidence pending an independent non-
+synthetic corpus.
+
 ## Continuous local cellular v1 cohort
 
 This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.
