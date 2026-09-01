@@ -737,6 +737,46 @@
         }
       }
     },
+    "entity_addressing_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_dimension", "encoder_widths", "key_bits", "probes",
+        "bucket_capacity", "verifier_candidates", "fallback_candidates",
+        "fit_epochs", "batch_size", "optimizer", "learning_rate",
+        "meaningful_quality_margin", "maximum_k_cost_slope", "state_budget_bytes",
+        "declared_reuses", "shared_candidate", "dense_ablation", "frozen_ablation",
+        "shuffled_ablation", "classical_baselines", "source_identical_contract",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "observation_dimension": {"const": 24},
+        "encoder_widths": {"const": [24, 32, 16]},
+        "key_bits": {"const": 16},
+        "probes": {"const": 4},
+        "bucket_capacity": {"const": 8},
+        "verifier_candidates": {"const": 8},
+        "fallback_candidates": {"const": 32},
+        "fit_epochs": {"const": 32},
+        "batch_size": {"const": 64},
+        "optimizer": {"const": "adam"},
+        "learning_rate": {"const": 0.001},
+        "meaningful_quality_margin": {"const": 0.02},
+        "maximum_k_cost_slope": {"const": 0.3},
+        "state_budget_bytes": {"const": 67108864},
+        "declared_reuses": {"const": [1, 4, 16, 256, 4096]},
+        "shared_candidate": {"const": "learned_discrete_address_index_v1"},
+        "dense_ablation": {"const": "source_identical_dense_scan_v1"},
+        "frozen_ablation": {"const": "source_identical_frozen_encoder_index_v1"},
+        "shuffled_ablation": {"const": "source_identical_shuffled_representation_index_v1"},
+        "classical_baselines": {"const": [
+          "raw_nearest_neighbour_scan_v1", "local_dense_transition_gru_v1",
+          "privileged_exact_entity_key_v1"
+        ]},
+        "source_identical_contract": {"const": "encoder_architecture_initialization_data_order_output_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_addressing_v1"},
+        "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5}
+      }
+    },
     "predicted_outcome": {"type": "string", "minLength": 20},
     "falsification_criteria": {
       "type": "array",
@@ -780,6 +820,44 @@
     }
   },
   "allOf": [
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "latent_entity_binding_retrieval_v2"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["entity_addressing_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [32, 320, 3200]},
+            "reasoning_depths": {"const": [1, 4, 8]},
+            "queries_per_cell": {"const": 16}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_discrete_address_index_v1"}},
+            {"contains": {"const": "source_identical_dense_scan_v1"}},
+            {"contains": {"const": "source_identical_frozen_encoder_index_v1"}},
+            {"contains": {"const": "source_identical_shuffled_representation_index_v1"}},
+            {"contains": {"const": "raw_nearest_neighbour_scan_v1"}},
+            {"contains": {"const": "local_dense_transition_gru_v1"}},
+            {"contains": {"const": "privileged_exact_entity_key_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "continual_new_fact_accuracy"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}},
+            {"contains": {"const": "workload_ops_r256"}},
+            {"contains": {"const": "workload_ops_r4096"}}
+          ]}
+        }
+      }
+    },
     {
       "if": {
         "properties": {"benchmark": {"const": "heldout_raw_sensor_active_identification_v1"}},

@@ -334,6 +334,31 @@ def command_plan_new(args: argparse.Namespace) -> int:
         plan["matrix"]["reasoning_depths"] = list(active["probe_budgets"])
         plan["matrix"]["queries_per_cell"] = int(active["queries_per_cell"])
         plan["active_sensor_protocol"] = _active_sensor_protocol(config)
+    if config.benchmark_version == "latent_entity_binding_retrieval_v2":
+        addressing = config.raw["entity_addressing"]
+        plan["matrix"]["knowledge_sizes"] = list(addressing["knowledge_sizes"])
+        plan["matrix"]["reasoning_depths"] = list(addressing["reasoning_depths"])
+        plan["matrix"]["queries_per_cell"] = int(addressing["queries_per_cell"])
+        metrics = [
+            "accuracy", "warm_accuracy", "continual_new_fact_accuracy", "continual_retention",
+            "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+            "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+            "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+            "workload_ops_r256", "workload_ops_r4096",
+        ]
+        plan["primary_metrics"] = metrics
+        plan["metric_directions"] = {name: configured_directions[name] for name in metrics}
+        plan["entity_addressing_protocol"] = {
+            key: addressing[key] for key in (
+                "observation_dimension", "encoder_widths", "key_bits", "probes",
+                "bucket_capacity", "verifier_candidates", "fallback_candidates",
+                "fit_epochs", "batch_size", "optimizer", "learning_rate",
+                "meaningful_quality_margin", "maximum_k_cost_slope", "state_budget_bytes",
+                "declared_reuses", "shared_candidate", "dense_ablation", "frozen_ablation",
+                "shuffled_ablation", "classical_baselines", "source_identical_contract",
+                "invalidation_rules",
+            )
+        }
     if config.benchmark_version in {
         "heldout_three_family_continuous_transfer_v1",
         "heldout_three_family_continuous_transfer_v2",

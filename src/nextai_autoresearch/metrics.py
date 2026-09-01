@@ -199,6 +199,8 @@ def aggregate_trials(trials: list[dict[str, Any]]) -> dict[str, Any]:
         "workload_ops_r1": optional_mean("workload_ops_r1"),
         "workload_ops_r4": optional_mean("workload_ops_r4"),
         "workload_ops_r16": optional_mean("workload_ops_r16"),
+        "workload_ops_r256": optional_mean("workload_ops_r256"),
+        "workload_ops_r4096": optional_mean("workload_ops_r4096"),
         "update_latency_us": _mean(
             [float(trial["update_latency_us"]) for trial in complete]
         ),

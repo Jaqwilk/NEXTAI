@@ -938,3 +938,47 @@ failed proposal are charged. Exact language and numerical constants must be
 preregistered before candidate implementation. This role-only migration adds
 no hypothesis, plan, candidate, seed or score; a one-seed quick in the next
 wake can only discard or select an unchanged replication.
+
+## Latent entity binding retrieval v2 learned discrete addressing cohort
+
+V2 is a service-only successor to the development-only v1 entity-binding
+benchmark. V1 exposes paired positive views and only K=`8/32`, so it cannot
+discriminate learned addressing from supplied correspondence or measure a
+hundred-fold access-cost signature. V2 therefore creates a separate cohort;
+it does not reinterpret any historical plan, result or evidence.
+
+Each runner-random world maps anonymous three-dimensional latent entities into
+24 raw nonlinear observation channels using dense tanh and sinusoidal mixes.
+Fit supplies seven-view transition bursts with an unknown change point and no
+entity ID, key, latent coordinate, family label or target query. Scoring uses
+fresh raw observations, K=`32/320/3200`, traversal depths D=`1/4/8`, Q=`16`,
+and a new-entity insertion. The hundred-fold K range, confusable raw views,
+held-out observations and local insertion jointly test whether an observation-
+learned representation can become a discrete, verifiable address whose access
+cost grows sublinearly without a global refit.
+
+The future causal roles are frozen before implementation: (1) learned encoder
+to discrete key to bounded index to verifier to bounded fallback; (2) the same
+encoder and verifier with dense scan; (3) the same frozen encoder with bounded
+index; and (4) the same shuffled representation with bounded index. These four
+roles must share encoder source, architecture, initialization, data order,
+outputs, verifier, update law, constants and accounting outside the registered
+representation/access intervention. Controls are a raw-space nearest-neighbour
+full scan, a 32-unit locally trained dense transition GRU without external
+memory, and an evaluator-private exact-key control excluded from implementable
+Pareto evidence.
+
+The frozen learned-address constants are encoder widths `24/32/16`, 16 key
+bits, four probes, bucket capacity eight, at most eight verifier candidates,
+at most 32 fallback candidates, 32 Adam epochs, batch size 64, learning rate
+0.001, 64 MiB state, meaningful accuracy margin 0.02 and maximum K-cost slope
+0.30. Full accounting includes acquisition, encoding, fit, routing/index,
+verification, fallback, query, local update, state, bytes touched and workloads
+R1/R4/R16/R256/R4096. Pretrained weights, model APIs, network use and hidden
+ontology are forbidden; only the repository-pinned local Torch/CUDA runtime is
+allowed.
+
+This migration contains no HYP revision, experiment plan, runner seed, main
+candidate implementation or score. A later wake may preregister one quick
+under HYP-0012. A valid negative ends this exact learned-address rule without
+tuning; one positive seed can only authorize an unchanged three-seed screen.

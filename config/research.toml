@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "continuous_local_cellular_v6"
+benchmark_version = "latent_entity_binding_retrieval_v2"
 benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
@@ -481,6 +481,43 @@ invalidation_rules_v4 = [
   "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
 ]
 
+[entity_addressing]
+knowledge_sizes = [32, 320, 3200]
+reasoning_depths = [1, 4, 8]
+queries_per_cell = 16
+observation_dimension = 24
+encoder_widths = [24, 32, 16]
+key_bits = 16
+probes = 4
+bucket_capacity = 8
+verifier_candidates = 8
+fallback_candidates = 32
+fit_epochs = 32
+batch_size = 64
+optimizer = "adam"
+learning_rate = 0.001
+meaningful_quality_margin = 0.02
+maximum_k_cost_slope = 0.30
+state_budget_bytes = 67108864
+declared_reuses = [1, 4, 16, 256, 4096]
+shared_candidate = "learned_discrete_address_index_v1"
+dense_ablation = "source_identical_dense_scan_v1"
+frozen_ablation = "source_identical_frozen_encoder_index_v1"
+shuffled_ablation = "source_identical_shuffled_representation_index_v1"
+classical_baselines = [
+  "raw_nearest_neighbour_scan_v1",
+  "local_dense_transition_gru_v1",
+  "privileged_exact_entity_key_v1",
+]
+source_identical_contract = "encoder_architecture_initialization_data_order_output_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_addressing_v1"
+invalidation_rules = [
+  "Invalidate if an implementable role receives entity IDs, ready keys, latent coordinates, family/class labels, paths, scoring targets or privileged routing.",
+  "Invalidate if encoder fitting sees runner-random test queries or outcomes, or if any constant changes after scoring output.",
+  "Invalidate unless the four causal roles share encoder source, architecture, initialization, data order, outputs, verifier, update, constants and accounting outside the registered representation/access intervention.",
+  "Invalidate if fallback examines more than 32 records or grows with K, if local insertion triggers global encoder refit, or if encoder/routing/index/verifier/fallback cost or bytes are omitted.",
+  "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change.",
+]
+
 [execution]
 mode = "audited_subprocess"
 allow_network_in_candidate = false
@@ -502,6 +539,7 @@ allowed_import_roots = [
   "numpy",
   "random",
   "statistics",
+  "torch",
   "typing",
 ]
 forbidden_builtins = ["open", "eval", "exec", "compile", "__import__", "input"]
@@ -592,6 +630,8 @@ minimize = [
   "workload_ops_r1",
   "workload_ops_r4",
   "workload_ops_r16",
+  "workload_ops_r256",
+  "workload_ops_r4096",
   "peak_state_bytes",
   "false_reuse_rate",
   "conditional_probability_mae",

@@ -1,0 +1,21 @@
+{
+  "benchmark": "latent_entity_binding_retrieval_v2",
+  "candidate_bundle_sha256": "12b9dbd2981190dce5c2a9928300523f0e9dff23119e984c75526fed894a00a1",
+  "created_at": "2026-09-01T16:03:37Z",
+  "cycle": 214,
+  "doctor_passed": true,
+  "evaluator_sha256": "e01c9361294c6f8eea2c1d29644a7dc6a3fa3b60037131e107ee269c053890e6",
+  "experiment_plan_created": false,
+  "full_pytest_passed": 581,
+  "hypothesis_event_created": false,
+  "integrity_files_verified": 753,
+  "integrity_passed": true,
+  "main_candidate_created": false,
+  "manifest_sha256": "b2a19b33f1031891d42905f9d325325e2f9c6ec37dfb7f5d5ff370966ea1d423",
+  "preflight_certificate_digest": "af877b93a54566c6b061bfd622040926905ad7f34d80e0d98bfe7bbbfff9357d",
+  "scoring_performed": false,
+  "seed_realized": false,
+  "semantic_control_tests_passed": 3,
+  "service_only": true,
+  "torch_cuda_smoke_passed": true
+}

@@ -95,6 +95,7 @@ def _sanitized_environment(root: Path) -> dict[str, str]:
             "OMP_NUM_THREADS": "1",
             "OPENBLAS_NUM_THREADS": "1",
             "MKL_NUM_THREADS": "1",
+            "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
         }
     )
     return environment

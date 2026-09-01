@@ -1,14 +1,14 @@
 {
-  "benchmark_version": "continuous_local_cellular_v6",
-  "certificate_sha256": "824f649aab937509fb485b11c6f8554c63ada44267293a6277b2ac5887544eaa",
-  "created_at": "2026-09-01T15:24:32Z",
-  "evaluator_sha256": "68691f44c418bf0948a2b3572bd020eb4527a2abfc2c760e980e592f54e86a19",
+  "benchmark_version": "latent_entity_binding_retrieval_v2",
+  "certificate_sha256": "af877b93a54566c6b061bfd622040926905ad7f34d80e0d98bfe7bbbfff9357d",
+  "created_at": "2026-09-01T16:01:35Z",
+  "evaluator_sha256": "e01c9361294c6f8eea2c1d29644a7dc6a3fa3b60037131e107ee269c053890e6",
   "files": {
-    "baseline_registry": "5d492b3b0db562aa0dfaaeee3f149d531091c04cadd905283182580ccb4a07eb",
-    "manifest": "cdfa5610d3b7d811171c42ad6370247f7a87e84695debf35f4dec3bd6e09345a",
-    "runner": "d7d76991b45ee52a69ad8b832ef103cad6026cf5fa418c71907cc39f9507fc18",
-    "schema:experiment_plan": "c0c0d4962f01d6d4898fd25de8d6ed3678df2a7f854481b8487142bc987ba6ac",
-    "schema:experiment_result": "fe1adae2f59e250b8d66919b87d2e38f4b9d67dd9b612efefc95dba8acc0d9ab",
+    "baseline_registry": "8efb22afc0dd85db13d4eaeafaa61741af896036bd8e3488f189a53ffc7ba886",
+    "manifest": "b2a19b33f1031891d42905f9d325325e2f9c6ec37dfb7f5d5ff370966ea1d423",
+    "runner": "bb1f82412745bc62c995e98180cdcf7400a8bcac1e1d171c4bff10deb3d91d8b",
+    "schema:experiment_plan": "e77d9b6d862b5cf353d5c86bc94683bea4e9c126731a7858b29c65a2dee32c0c",
+    "schema:experiment_result": "e0b9213d09a59d334b954e051f008430c427eb3bb6371d3f31c3cacb0a1ea364",
     "schema:hypothesis": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
     "schema:research_state": "f155fb268b3ef422b9e1547a450222c2bdf040ef7d2d28a9025eec8281bb41bd",
     "schema:source": "dbacf05397d719e2e8594af5c0061fc03b191df50f0985ea42b01d09464ae057"

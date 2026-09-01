@@ -121,6 +121,8 @@
         "workload_ops_r1": {"type": ["number", "null"]},
         "workload_ops_r4": {"type": ["number", "null"]},
         "workload_ops_r16": {"type": ["number", "null"]},
+        "workload_ops_r256": {"type": ["number", "null"]},
+        "workload_ops_r4096": {"type": ["number", "null"]},
         "update_latency_us": {"type": ["number", "null"]},
         "knowledge_compute_slope": {"type": ["number", "null"]},
         "knowledge_compute_slope_screening": {"type": ["number", "null"]},

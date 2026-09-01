@@ -12,6 +12,7 @@ dependencies = [
   "jsonschema>=4.23,<5",
   "numpy>=2.0,<3",
   "psutil>=6,<8",
+  "torch==2.6.0",
 ]
 
 [project.optional-dependencies]
@@ -31,3 +32,11 @@ where = ["src"]
 [tool.pytest.ini_options]
 addopts = "-q"
 testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
