@@ -371,6 +371,7 @@ def _frontier(
         or plan.get("mechanism_recombination_protocol", {})
         or plan.get("compression_protocol", {})
         or plan.get("continuous_local_protocol", {})
+        or plan.get("active_sensor_protocol", {})
     )
     primary_metrics = list(
         protocol.get("pareto_capability_metrics", plan.get("primary_metrics", ()))

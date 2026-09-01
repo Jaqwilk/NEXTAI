@@ -359,6 +359,43 @@ Version 4 is a second pre-score schema-wiring correction over v3. DronePropA eva
 
 Version 5 is a post-EXP-0058 result-integrity correction over v4. Continuous `conditional_log_loss` is a differential log-density score and may be any finite real number, including negative values; its minimize direction and formula are unchanged. After each candidate process, the parent atomically stores a supervisor-normalized artifact before aggregate validation, including timeout, memory-limit, audit-failure and crash outcomes, and hashes those artifacts in any post-seed failure event. Corpus, split, execution semantics, candidates, baselines, matrices, budgets, thresholds and seed policy are unchanged. EXP-0058 remains terminally invalid and is never reinterpreted.
 
+## Held-out raw-sensor active-identification v1 cohort
+
+This breadth scout replaces the supplied binary codebook of
+`active_information_acquisition_v1` with noisy continuous observations. The
+evaluator generates fixed meta-training worlds and a runner-random held-out
+world from one frozen nonlinear sensor family. Every world independently
+permutes class identities and sensor slots and flips sensor signs. Candidates
+receive three labeled support observations per anonymous class but never
+latent codes, sensor weights, permutations, signs, query targets or unprobed
+sensor values. A query exposes only a single-use charged probe interface.
+
+The fixed matrix is K=`8/32/128`, probe budgets=`4/8/16`, 48 sensors and 32
+queries per cell. One shared learner, its source-identical support-only ablation
+and its source-identical frozen-representation ablation must share encoder,
+probe policy, constants, support order, query, update and output code; only
+meta-world access and preregistered representation learning versus freezing may
+differ. The candidate is intentionally absent from the service migration and
+may be implemented only after an immutable plan freezes every numerical rule.
+
+Mandatory controls are no-probe prior, observe-all nearest prototype, random
+probing, support-fitted Fisher ordering, adaptive Gaussian information gain,
+adaptive kernel information gain and a privileged target control. Every named
+control requires a registered implementation hash and a discriminating test.
+Full cost includes meta-world and held-out support acquisition, fit, every
+addressed probe, posterior or kernel scoring, state, bytes and R1/R4/R16
+workloads. Pareto quality uses accuracy and minimum held-out-world accuracy;
+probe count is a minimized cost, not a substitute for matched capability.
+
+The one-seed quick is scout evidence only and can never promote. A positive may
+only authorize an unchanged three-seed adversarial successor and requires the
+shared role to beat both source-identical ablations and every complete
+implementable classical control at matched accuracy without Pareto dominance.
+A valid null or negative ends this exact raw-sensor rule without tuning. This
+synthetic cohort tests whether representation acquisition changes active
+measurement economics; it is not a real-world perception holdout or evidence
+of general intelligence.
+
 ## Claims language
 
 Allowed early claim:

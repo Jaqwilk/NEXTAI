@@ -578,6 +578,48 @@
       "implementation_files": {"src/nextai_autoresearch/candidates/privileged_continuous_local_support.py":"95805acd91b2e057aee8e5e5242a2c6a8fa9eb85b0fcaed81f65b5d64e57ba81","src/nextai_autoresearch/candidates/continuous_local_controls_core.py":"94608af7ca1e1dec5079e3537534729eee3a44d671a51de0b9f78a31776f39b4"},
       "conformance_tests": [{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_privileged_support_is_exact_on_clean_and_damaged_views","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"},{"path":"tests/test_continuous_local_candidates.py","node_id":"tests/test_continuous_local_candidates.py::test_all_five_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545"}]
     },
+    "raw_sensor_no_probe_prior_v1": {
+      "baseline_id": "raw_sensor_no_probe_class_prior_v1", "version": 1,
+      "specification": {"prediction":"anonymous class zero without sensor access","fit":"support shape only","role":"negative leakage control"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/raw_sensor_no_probe_prior_v1.py":"a3a927039bfa41ad15e363c7b5a9ffbf241c4f947cbeae56d9789fbd7d2b8915","src/nextai_autoresearch/candidates/raw_sensor_acquisition_controls_core.py":"590991f958b7943f31ec4e93a62a678bc0e880741a9f8ddcc4989534ad7a4434","src/nextai_autoresearch/raw_sensor_acquisition_contract.py":"99f31ef3f3e79d9200d787efafbf223d55c54356d9f9ddbf3d7b5d0c5faba8a2"},
+      "conformance_tests": [{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_no_probe_does_not_solve_development_world","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"}]
+    },
+    "raw_sensor_observe_all_v1": {
+      "baseline_id": "raw_sensor_observe_all_nearest_prototype_v1", "version": 1,
+      "specification": {"probes":"all 48 once","classifier":"variance-normalized nearest support-class mean","role":"full-acquisition capability ceiling"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/raw_sensor_observe_all_v1.py":"995537f15ec8a3029b66c5a5cf7aba4a3e5582c7469959ae515223e81b148f25","src/nextai_autoresearch/candidates/raw_sensor_acquisition_controls_core.py":"590991f958b7943f31ec4e93a62a678bc0e880741a9f8ddcc4989534ad7a4434","src/nextai_autoresearch/raw_sensor_acquisition_contract.py":"99f31ef3f3e79d9200d787efafbf223d55c54356d9f9ddbf3d7b5d0c5faba8a2"},
+      "conformance_tests": [{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_observe_all_identifies_development_world","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"}]
+    },
+    "raw_sensor_random_probe_v1": {
+      "baseline_id": "raw_sensor_seeded_random_without_replacement_v1", "version": 1,
+      "specification": {"selection":"seeded random sensor permutation per query","budget":"exact plan probe budget","classifier":"variance-normalized nearest support-class mean"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/raw_sensor_random_probe_v1.py":"1f50863768c94aa5fa4710b55d7a3bca15b2e54f8417e054384f13bee9759ef9","src/nextai_autoresearch/candidates/raw_sensor_acquisition_controls_core.py":"590991f958b7943f31ec4e93a62a678bc0e880741a9f8ddcc4989534ad7a4434","src/nextai_autoresearch/raw_sensor_acquisition_contract.py":"99f31ef3f3e79d9200d787efafbf223d55c54356d9f9ddbf3d7b5d0c5faba8a2"},
+      "conformance_tests": [{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_fisher_and_random_controls_obey_the_probe_budget","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"}]
+    },
+    "raw_sensor_fisher_fixed_probe_v1": {
+      "baseline_id": "raw_sensor_support_fisher_fixed_order_v1", "version": 1,
+      "specification": {"score":"between-class support-mean variance divided by pooled within-class variance plus 0.04","selection":"descending fixed score without replacement","classifier":"variance-normalized nearest support-class mean"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/raw_sensor_fisher_fixed_probe_v1.py":"77a763fff08cb5986453df9cc8be871efc7c3135c087055bb6f3b4f461ec0db0","src/nextai_autoresearch/candidates/raw_sensor_acquisition_controls_core.py":"590991f958b7943f31ec4e93a62a678bc0e880741a9f8ddcc4989534ad7a4434","src/nextai_autoresearch/raw_sensor_acquisition_contract.py":"99f31ef3f3e79d9200d787efafbf223d55c54356d9f9ddbf3d7b5d0c5faba8a2"},
+      "conformance_tests": [{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_fisher_and_random_controls_obey_the_probe_budget","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"}]
+    },
+    "raw_sensor_gaussian_information_gain_v1": {
+      "baseline_id": "raw_sensor_adaptive_gaussian_information_gain_v1", "version": 1,
+      "specification": {"posterior":"independent Gaussian class means with pooled support variance plus 0.04","selection":"posterior-weighted between-class variance divided by sensor variance","update":"posterior recomputed after each charged probe"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/raw_sensor_gaussian_information_gain_v1.py":"f02dbbfa1f0c1f7cd9a0fc130367a9a5ddeb17cb4feb0b65c3778d9f2643bc1c","src/nextai_autoresearch/candidates/raw_sensor_acquisition_controls_core.py":"590991f958b7943f31ec4e93a62a678bc0e880741a9f8ddcc4989534ad7a4434","src/nextai_autoresearch/raw_sensor_acquisition_contract.py":"99f31ef3f3e79d9200d787efafbf223d55c54356d9f9ddbf3d7b5d0c5faba8a2"},
+      "conformance_tests": [{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_gaussian_and_kernel_controls_condition_the_second_probe","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"},{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_information_controls_use_only_charged_probes","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"}]
+    },
+    "raw_sensor_kernel_information_gain_v1": {
+      "baseline_id": "raw_sensor_adaptive_support_kernel_information_gain_v1", "version": 1,
+      "specification": {"support":"all three raw observations per class","selection":"posterior-weighted support-sample variance over unused sensors","posterior":"variance-normalized class-prototype kernel after each charged probe"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/raw_sensor_kernel_information_gain_v1.py":"ce298f0133de2660ddc774237585290d6f8f331d215aac7b284d39462834710c","src/nextai_autoresearch/candidates/raw_sensor_acquisition_controls_core.py":"590991f958b7943f31ec4e93a62a678bc0e880741a9f8ddcc4989534ad7a4434","src/nextai_autoresearch/raw_sensor_acquisition_contract.py":"99f31ef3f3e79d9200d787efafbf223d55c54356d9f9ddbf3d7b5d0c5faba8a2"},
+      "conformance_tests": [{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_gaussian_and_kernel_controls_condition_the_second_probe","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"},{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_information_controls_use_only_charged_probes","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"}]
+    },
+    "privileged_raw_sensor_target_v1": {
+      "baseline_id": "privileged_raw_sensor_target_v1", "version": 1,
+      "specification": {"role":"privileged target control excluded from implementable frontier","input":"evaluator-private target","probes":0},
+      "implementation_files": {"src/nextai_autoresearch/candidates/privileged_raw_sensor_target_v1.py":"ffc755603c535b127295d3d36c239296538c8cfd0530d764c8d85a18f637b9a2","src/nextai_autoresearch/candidates/raw_sensor_acquisition_controls_core.py":"590991f958b7943f31ec4e93a62a678bc0e880741a9f8ddcc4989534ad7a4434","src/nextai_autoresearch/raw_sensor_acquisition_contract.py":"99f31ef3f3e79d9200d787efafbf223d55c54356d9f9ddbf3d7b5d0c5faba8a2"},
+      "conformance_tests": [{"path":"tests/test_raw_sensor_active_identification_v1.py","node_id":"tests/test_raw_sensor_active_identification_v1.py::test_privileged_target_control_is_explicit_and_probe_free","sha256":"fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634"}]
+    },
     "wt_coverage_aware_spectral_psr_v1": {
       "baseline_id": "wt_coverage_aware_two_stage_spectral_psr_v1", "version": 1,
       "specification": {"training_boundary":"train-only WT episodes","history_feature":"bias plus final mean and final-minus-first values for ten anonymous channels","future_feature":"first 32 response residuals from final history value","coverage":"each exact train-only public-control level has equal total mass","state":"top four or numerical-rank left singular vectors of the weighted history-future cross moment","readout":"ridge 0.001 over bias state control and state-times-control","H96":"hold H32 final value","update":"post-artifact slot-local normalized LMS 0.25/(1+x'x)","invariance":"consistent anonymous-channel permutation"},

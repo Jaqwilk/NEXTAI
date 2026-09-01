@@ -468,6 +468,46 @@
         }
       }
     },
+    "active_sensor_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "training_world_seeds", "test_world_seed_source", "raw_sensor_values",
+        "shared_candidate", "support_only_ablation", "frozen_representation_ablation",
+        "classical_baselines", "sensor_count", "support_repetitions", "noise_std",
+        "source_identical_contract", "state_budget_bytes", "pareto_capability_metrics",
+        "scout_only_no_promotion", "invalidation_rules"
+      ],
+      "properties": {
+        "training_world_seeds": {"const": [1103, 2207, 3301]},
+        "test_world_seed_source": {"const": "runner_scoring_seeds"},
+        "raw_sensor_values": {"const": "anonymous_continuous_single_probe_access"},
+        "shared_candidate": {"const": "shared_raw_sensor_probe_learner_v1"},
+        "support_only_ablation": {"const": "source_identical_support_only_raw_sensor_probe_v1"},
+        "frozen_representation_ablation": {"const": "source_identical_frozen_raw_sensor_probe_v1"},
+        "classical_baselines": {"const": [
+          "raw_sensor_no_probe_prior_v1", "raw_sensor_observe_all_v1",
+          "raw_sensor_random_probe_v1", "raw_sensor_fisher_fixed_probe_v1",
+          "raw_sensor_gaussian_information_gain_v1", "raw_sensor_kernel_information_gain_v1",
+          "privileged_raw_sensor_target_v1"
+        ]},
+        "sensor_count": {"const": 48},
+        "support_repetitions": {"const": 3},
+        "noise_std": {"const": 0.2},
+        "source_identical_contract": {"const": "encoder_probe_policy_constants_support_order_query_update_output_identical_except_meta_world_access_and_preregistered_representation_learning_or_freezing_v1"},
+        "state_budget_bytes": {"const": 16777216},
+        "pareto_capability_metrics": {"const": [
+          "accuracy", "minimum_family_accuracy", "mean_probe_count",
+          "data_acquisition_ops", "fit_ops", "meta_fit_ops", "mean_query_ops",
+          "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+          "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+        ]},
+        "scout_only_no_promotion": {"const": true},
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5
+        }
+      }
+    },
     "dronepropa_protocol": {
       "type": "object",
       "additionalProperties": false,
@@ -689,6 +729,49 @@
     }
   },
   "allOf": [
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_raw_sensor_active_identification_v1"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["active_sensor_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [8, 32, 128]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 32}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_raw_sensor_probe_learner_v1"}},
+            {"contains": {"const": "source_identical_support_only_raw_sensor_probe_v1"}},
+            {"contains": {"const": "source_identical_frozen_raw_sensor_probe_v1"}},
+            {"contains": {"const": "raw_sensor_no_probe_prior_v1"}},
+            {"contains": {"const": "raw_sensor_observe_all_v1"}},
+            {"contains": {"const": "raw_sensor_random_probe_v1"}},
+            {"contains": {"const": "raw_sensor_fisher_fixed_probe_v1"}},
+            {"contains": {"const": "raw_sensor_gaussian_information_gain_v1"}},
+            {"contains": {"const": "raw_sensor_kernel_information_gain_v1"}},
+            {"contains": {"const": "privileged_raw_sensor_target_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "minimum_family_accuracy"}},
+            {"contains": {"const": "mean_probe_count"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "meta_fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
     {
       "if": {
         "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5", "heldout_three_family_continuous_transfer_v6", "heldout_three_family_continuous_transfer_v7"]}},

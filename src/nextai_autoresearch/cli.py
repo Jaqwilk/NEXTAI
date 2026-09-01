@@ -213,6 +213,28 @@ def _wt_prequential_protocol(config: ResearchConfig) -> dict[str, Any]:
     return protocol
 
 
+def _active_sensor_protocol(config: ResearchConfig) -> dict[str, Any]:
+    active = config.raw["active_sensor"]
+    return {
+        "training_world_seeds": list(active["training_world_seeds"]),
+        "test_world_seed_source": "runner_scoring_seeds",
+        "raw_sensor_values": "anonymous_continuous_single_probe_access",
+        "shared_candidate": str(active["shared_candidate"]),
+        "support_only_ablation": str(active["support_only_ablation"]),
+        "frozen_representation_ablation": str(active["frozen_representation_ablation"]),
+        "classical_baselines": list(active["classical_baselines"]),
+        "sensor_count": int(active["sensor_count"]),
+        "support_repetitions": int(active["support_repetitions"]),
+        "noise_std": float(active["noise_std"]),
+        "source_identical_contract":
+            "encoder_probe_policy_constants_support_order_query_update_output_identical_except_meta_world_access_and_preregistered_representation_learning_or_freezing_v1",
+        "state_budget_bytes": int(active["state_budget_bytes"]),
+        "pareto_capability_metrics": list(active["pareto_capability_metrics"]),
+        "scout_only_no_promotion": True,
+        "invalidation_rules": list(active["invalidation_rules"]),
+    }
+
+
 def command_plan_new(args: argparse.Namespace) -> int:
     root = project_root()
     ensure_layout(root)
@@ -286,6 +308,12 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "dirty": bool(_git_value(root, "status", "--porcelain")),
         },
     }
+    if config.benchmark_version == "heldout_raw_sensor_active_identification_v1":
+        active = config.raw["active_sensor"]
+        plan["matrix"]["knowledge_sizes"] = list(active["knowledge_sizes"])
+        plan["matrix"]["reasoning_depths"] = list(active["probe_budgets"])
+        plan["matrix"]["queries_per_cell"] = int(active["queries_per_cell"])
+        plan["active_sensor_protocol"] = _active_sensor_protocol(config)
     if config.benchmark_version in {
         "heldout_three_family_continuous_transfer_v1",
         "heldout_three_family_continuous_transfer_v2",

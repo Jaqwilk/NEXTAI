@@ -110,6 +110,7 @@
         "state_bytes": {"type": ["number", "null"]},
         "peak_state_bytes": {"type": ["number", "null"]},
         "mean_input_ops": {"type": ["number", "null"]},
+        "mean_probe_count": {"type": ["number", "null"], "minimum": 0},
         "mean_comparisons": {"type": ["number", "null"]},
         "mean_bytes_touched": {"type": ["number", "null"]},
         "update_ops": {"type": ["number", "null"]},

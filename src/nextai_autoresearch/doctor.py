@@ -274,6 +274,27 @@ def run_doctor(root: Path | None = None) -> DoctorReport:
             report.facts.append(f"semantic_baselines={len(checked['required'])}")
         except Exception as exc:
             report.errors.append(f"WT changepoints maintenance: {exc}")
+    elif config.benchmark_version.startswith("heldout_raw_sensor_active_"):
+        try:
+            module = __import__(
+                f"nextai_autoresearch.benchmarks.{config.benchmark_version}",
+                fromlist=["development_smoke"],
+            )
+            smoke = module.development_smoke()
+            if smoke.get("decision") != "pass":
+                raise RuntimeError(f"raw sensor development gate failed: {smoke.get('gates')}")
+            required = list(config.raw["active_sensor"]["classical_baselines"])
+            checked = verify_required_baselines(
+                {
+                    "candidates": required,
+                    "active_sensor_protocol": {"classical_baselines": required},
+                },
+                base,
+                run_tests=False,
+            )
+            report.facts.append(f"raw_sensor_baselines={len(checked['required'])}")
+        except Exception as exc:
+            report.errors.append(f"raw sensor maintenance: {exc}")
 
     pyproject = (base / "pyproject.toml").read_text(encoding="utf-8").lower()
     for dependency in ("openai", "anthropic", "google-generativeai"):

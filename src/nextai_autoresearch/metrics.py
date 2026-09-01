@@ -189,6 +189,7 @@ def aggregate_trials(trials: list[dict[str, Any]]) -> dict[str, Any]:
         "peak_state_bytes": optional_max("peak_state_bytes"),
         "mean_input_ops": optional_mean("mean_input_ops"),
         "mean_comparisons": optional_mean("mean_comparisons"),
+        "mean_probe_count": optional_mean("mean_probe_count"),
         "mean_bytes_touched": optional_mean("mean_bytes_touched"),
         "update_ops": _mean([float(trial["update_ops"]) for trial in complete]),
         "workload_ops": optional_mean("workload_ops"),
