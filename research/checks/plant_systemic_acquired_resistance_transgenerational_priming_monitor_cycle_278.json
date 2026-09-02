@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "cycle": 278,
+  "mode": "event_triggered_plant_systemic_acquired_resistance_transgenerational_priming_monitor",
+  "status": "completed_no_trigger",
+  "frozen_at": "2026-09-02T05:40:00Z",
+  "source_cutoff": "SRC-0377",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_checks": [
+    "research/checks/small_rna_transgenerational_adaptive_memory_monitor_cycle_277.json",
+    "research/checks/epigenetic_chromatin_memory_monitor_cycle_271.json",
+    "research/checks/microbial_adaptive_prediction_conditioning_monitor_cycle_276.json"
+  ],
+  "non_duplicate_boundary": "Unlike small-RNA memory, the route may not depend on a stored sequence address. Unlike chromatin memory, inherited gain must survive controls for locus-specific epigenetic persistence. Unlike microbial conditioning, a mobile plant signal and systemic or descendant readout must be separated experimentally rather than inferred from broad evolved immune wiring.",
+  "question": "Does a primary natural-pathogen experiment show that exposure writes a mobile local state through one source-identical rule, that acquisition, transport, maintenance and readout are factor-specifically separable, and that learning on one pathogen family improves resistance to an unseen qualitatively different family without shared antigen, constitutive broad defense, persistent terminal effector, seed provisioning, microbiome transfer, chromatin-only memory or selection at full cost?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0001_through_SRC_0377",
+    "natural_local_pathogen_exposure_writes_a_mobile_state_without_authored_target_pairing",
+    "factor_specific_write_off_transport_off_maintenance_off_and_systemic_readout_off_interventions",
+    "same_acquisition_transport_storage_and_readout_rule_across_at_least_two_qualitatively_different_pathogen_families",
+    "training_on_one_family_improves_an_unseen_different_family_without_shared_antigen_or_terminal_defense_effector",
+    "matched_local_systemic_graft_mock_naive_and_unprimed_controls",
+    "descendant_tests_control_seed_provisioning_microbiome_parental_metabolite_and_selection",
+    "chromatin_and_dna_methylation_interventions_exclude_locus_specific_epigenetic_memory_as_the_computation",
+    "at_least_three_spatial_distances_generation_horizons_or_challenge_scales_measure_gain_decay_reset_and_failure",
+    "local_incremental_update_without_population_search_global_refit_manual_ontology_or_pathogen_specific_rule",
+    "full_cost_includes_sensing_signal_synthesis_transport_storage_growth_yield_defense_readout_reset_and_reuse_horizon",
+    "result_adds_information_beyond_fixed_threshold_broad_alarm_generic_preactivation_persistent_cache_epigenetic_switch_and_evolutionary_selection_controls"
+  ],
+  "automatic_rejections": [
+    "review_theory_correlation_or_expression_catalog_without_primary_factor_specific_perturbation",
+    "chemical_priming_without_natural_pathogen_acquisition",
+    "same_pathogen_same_strain_same_antigen_or_same_terminal_defense_only",
+    "broad_cross_resistance_explained_by_constitutive_salicylic_acid_nhp_pr_protein_or_generic_immune_preactivation",
+    "mobile_signal_is_only_a_persistent_authored_broadcast_without_observation_learned_mapping",
+    "descendant_effect_is_seed_provisioning_microbiome_parental_metabolite_or_locus_specific_chromatin_persistence",
+    "adaptation_occurs_by_selection_population_sorting_or_many_generation_evolution",
+    "single_distance_single_generation_or_single_challenge_scale_without_decay_reset_and_full_cost",
+    "growth_yield_or_autoimmunity_cost_is_unmeasured_or_excluded",
+    "software_translation_is_fixed_alarm_threshold_persistent_cache_global_mode_switch_or_pathogen_specific_lookup"
+  ],
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0378",
+      "mechanism": "methyl-salicylate long-distance SAR signal with graft separation",
+      "result": "reject",
+      "failed_requirements": [
+        "same_acquisition_transport_storage_and_readout_rule_across_at_least_two_qualitatively_different_pathogen_families",
+        "training_on_one_family_improves_an_unseen_different_family_without_shared_antigen_or_terminal_defense_effector",
+        "result_adds_information_beyond_fixed_threshold_broad_alarm_generic_preactivation_persistent_cache_epigenetic_switch_and_evolutionary_selection_controls"
+      ]
+    },
+    {
+      "source_id": "SRC-0379",
+      "mechanism": "mobile N-hydroxypipecolic-acid SAR broadcast",
+      "result": "reject",
+      "failed_requirements": [
+        "factor_specific_write_off_transport_off_maintenance_off_and_systemic_readout_off_interventions",
+        "training_on_one_family_improves_an_unseen_different_family_without_shared_antigen_or_terminal_defense_effector",
+        "result_adds_information_beyond_fixed_threshold_broad_alarm_generic_preactivation_persistent_cache_epigenetic_switch_and_evolutionary_selection_controls"
+      ]
+    },
+    {
+      "source_id": "SRC-0380",
+      "mechanism": "conserved NHP response across plant and pathogen families",
+      "result": "reject",
+      "failed_requirements": [
+        "training_on_one_family_improves_an_unseen_different_family_without_shared_antigen_or_terminal_defense_effector",
+        "local_incremental_update_without_population_search_global_refit_manual_ontology_or_pathogen_specific_rule",
+        "result_adds_information_beyond_fixed_threshold_broad_alarm_generic_preactivation_persistent_cache_epigenetic_switch_and_evolutionary_selection_controls"
+      ]
+    },
+    {
+      "source_id": "SRC-0381",
+      "mechanism": "pathogen-induced transgenerational SA-NPR1 defense priming",
+      "result": "reject",
+      "failed_requirements": [
+        "chromatin_and_dna_methylation_interventions_exclude_locus_specific_epigenetic_memory_as_the_computation",
+        "training_on_one_family_improves_an_unseen_different_family_without_shared_antigen_or_terminal_defense_effector",
+        "at_least_three_spatial_distances_generation_horizons_or_challenge_scales_measure_gain_decay_reset_and_failure"
+      ]
+    },
+    {
+      "source_id": "SRC-0382",
+      "mechanism": "inherited sensitization after avirulent bacterial or chemical priming",
+      "result": "reject",
+      "failed_requirements": [
+        "natural_local_pathogen_exposure_writes_a_mobile_state_without_authored_target_pairing",
+        "training_on_one_family_improves_an_unseen_different_family_without_shared_antigen_or_terminal_defense_effector",
+        "result_adds_information_beyond_fixed_threshold_broad_alarm_generic_preactivation_persistent_cache_epigenetic_switch_and_evolutionary_selection_controls"
+      ]
+    },
+    {
+      "source_id": "SRC-0383",
+      "mechanism": "direct replication of pathogen-induced transgenerational priming",
+      "result": "reject_negative_replication",
+      "failed_requirements": [
+        "same_acquisition_transport_storage_and_readout_rule_across_at_least_two_qualitatively_different_pathogen_families",
+        "at_least_three_spatial_distances_generation_horizons_or_challenge_scales_measure_gain_decay_reset_and_failure",
+        "result_adds_information_beyond_fixed_threshold_broad_alarm_generic_preactivation_persistent_cache_epigenetic_switch_and_evolutionary_selection_controls"
+      ]
+    },
+    {
+      "source_id": "SRC-0384",
+      "mechanism": "fitness cost of constitutive SAR pathway activation",
+      "result": "reject_cost_control",
+      "failed_requirements": [
+        "natural_local_pathogen_exposure_writes_a_mobile_state_without_authored_target_pairing",
+        "full_cost_includes_sensing_signal_synthesis_transport_storage_growth_yield_defense_readout_reset_and_reuse_horizon"
+      ]
+    },
+    {
+      "source_id": "SRC-0385",
+      "mechanism": "lower-cost chemical defense priming versus direct activation",
+      "result": "reject_classical_control",
+      "failed_requirements": [
+        "natural_local_pathogen_exposure_writes_a_mobile_state_without_authored_target_pairing",
+        "training_on_one_family_improves_an_unseen_different_family_without_shared_antigen_or_terminal_defense_effector",
+        "result_adds_information_beyond_fixed_threshold_broad_alarm_generic_preactivation_persistent_cache_epigenetic_switch_and_evolutionary_selection_controls"
+      ]
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_PLANT_SYSTEMIC_ACQUIRED_RESISTANCE_ROUTE_AS_EVOLVED_MOBILE_BROADCAST_DEFENSE_PRIMING_AND_EPIGENETIC_THRESHOLD_SHIFT",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
