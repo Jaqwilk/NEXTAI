@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "cycle": 275,
+  "mode": "event_triggered_ciliate_cortical_structural_inheritance_monitor",
+  "status": "completed_no_trigger",
+  "frozen_at": "2026-09-02T05:06:23Z",
+  "source_cutoff": "SRC-0357",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_checks": [
+    "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+    "research/checks/mechanical_material_memory_monitor_cycle_272.json",
+    "research/checks/biomolecular_conformational_memory_monitor_cycle_273.json"
+  ],
+  "non_duplicate_boundary": "Unlike cycle 272 material hysteresis, this monitor requires a living cell to copy a spatial cortical arrangement through growth and division. Unlike cycle 273 protein-state memory, the carrier must be an organized geometry rather than one molecular conformation or abundance state.",
+  "question": "Does a primary ciliate perturbation, grafting or microsurgery experiment show that one source-identical local cortical update and copy rule learns from an unlabeled transient history a reusable spatial representation that improves an unseen unrelated morphogenetic task beyond self-templating of the imposed geometry, genomic change, selection, ordinary damage repair and experimenter-authored target shape at full cost?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0001_through_SRC_0357",
+    "transient_perturbation_graft_or_microsurgery_writes_a_new_spatial_cortical_state_in_one_tracked_cell",
+    "state_persists_and_is_copied_through_at_least_three_cell_divisions_after_the_inducing_manipulation_is_absent",
+    "factor_specific_disruption_and_rescue_separate_write_copy_and_read_from_generic_viability_or_damage_repair",
+    "same_local_update_copy_and_read_constants_across_at_least_two_unrelated_morphogenetic_functions_or_structural_families",
+    "experience_with_one_function_improves_an_unseen_unrelated_function_without_directly_imposing_its_target_geometry",
+    "matched_genome_nuclear_exchange_selection_growth_rate_cell_cycle_injury_incomplete_healing_and_persistent_graft_controls",
+    "rotation_reflection_or_relocation_controls_distinguish_relational_rule_transfer_from_copying_absolute_local_orientation",
+    "single_cell_lineage_tracking_excludes_enrichment_of_rare_preexisting_or_mutant_morphologies",
+    "at_least_three_spatial_scales_or_division_horizons_measure_copy_fidelity_repair_generalization_and_failure",
+    "local_incremental_update_without_global_respecification_exhaustive_shape_search_or_task_specific_ontology",
+    "full_cost_includes_perturbation_sensing_write_growth_maintenance_copy_division_repair_read_failure_reset_and_reuse_horizon",
+    "result_adds_information_beyond_cellular_automaton_local_self_templating_crystal_growth_fixed_reaction_diffusion_damage_repair_and_selection_under_cycle_261_boundaries"
+  ],
+  "automatic_rejections": [
+    "review_historical_summary_or_descriptive_morphology_without_primary_intervention",
+    "experimenter_directly_imposes_the_persistent_target_geometry",
+    "same_structure_is_copied_locally_without_unseen_unrelated_function_transfer",
+    "genetic_mutation_nuclear_change_or_survivor_selection_not_excluded",
+    "regeneration_returns_to_the_species_typical_frozen_body_plan_only",
+    "one_cell_one_structure_one_scale_or_no_full_cost_boundary",
+    "factor_knockdown_causes_generic_disorganization_toxicity_or_cell_cycle_failure_without_specific_write_copy_read_isolation",
+    "software_translation_is_a_fixed_cellular_automaton_nearest_template_reaction_diffusion_rule_crystal_growth_or_authored_coordinate_map_control"
+  ],
+  "candidate_audits": [
+    {
+      "source_ids": ["SRC-0358", "SRC-0359"],
+      "mechanism": "clonal propagation of cortical row orientation and row-number corticotype",
+      "observation": "Experimentally introduced or naturally isolated cortical arrangements persist for many divisions independently of nuclear genotype, while some variants are lost or drift toward a genotype-dependent stability center.",
+      "gate_result": "reject",
+      "reason": "This is genuine non-DNA spatial inheritance, but it copies an imposed or pre-existing geometry and does not learn or transfer a rule to an unrelated unseen function."
+    },
+    {
+      "source_ids": ["SRC-0360"],
+      "mechanism": "local polarity inheritance controlling adjacent organelle placement",
+      "observation": "Quasi-surgical 180-degree rotation of Tetrahymena ciliary rows reverses newly formed local structures and moves the contractile-vacuole pore from the normal left side to the right side of the inverted row.",
+      "gate_result": "reject",
+      "reason": "This is the closest relational effect, but the experimenter authors the polarity and a fixed local coordinate rule determines the downstream structure; there is no observation learning, unseen-task improvement or full-cost comparison."
+    },
+    {
+      "source_ids": ["SRC-0361", "SRC-0362"],
+      "mechanism": "cortical boundary and discontinuity induction of oral morphogenesis",
+      "observation": "Stentor grafts and persistent heteropolar cortical discontinuities create organizer-like boundaries that induce basal-body assembly and oral development, whereas healing homopolar grafts rarely do.",
+      "gate_result": "reject",
+      "reason": "The interventions directly construct the spatial trigger and recruit an evolved morphogenetic program; they do not train a reusable representation or show inherited cross-task gain."
+    },
+    {
+      "source_ids": ["SRC-0363"],
+      "mechanism": "Mob1-dependent maintenance of a single anterior-posterior axis",
+      "observation": "Mob1 RNAi produces progressive disproportion and multiple posterior-like poles, while control RNAi and tubulin perturbations distinguish aspects of global patterning and cortical integrity.",
+      "gate_result": "reject",
+      "reason": "The factor intervention identifies frozen evolved patterning machinery, not the write, copy and read of an experience-learned spatial state or cross-function transfer."
+    },
+    {
+      "source_ids": ["SRC-0364"],
+      "mechanism": "ciliary-force-responsive striated-fiber length and basal-body reorientation",
+      "observation": "Striated fibers reversibly lengthen or shorten with ciliary force; DisAp restoration and Cro1 loss/rescue causally link fiber length to basal-body orientation and array stability.",
+      "gate_result": "reject",
+      "reason": "This is factor-specific homeostatic force adaptation during the current condition, not persistent history-specific learning through divisions or transfer to an unrelated function."
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_CILIATE_CORTICAL_INHERITANCE_ROUTE_AS_SELF_TEMPLATING_AUTHORED_GEOMETRY_AND_HOMEOSTATIC_FORCE_RESPONSE",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
