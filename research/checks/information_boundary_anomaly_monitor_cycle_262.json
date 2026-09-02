@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "cycle": 262,
+  "mode": "event_triggered_primary_source_anomaly_monitor",
+  "status": "complete",
+  "frozen_at": "2026-09-02T03:28:01Z",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_check": "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+  "monitoring_lanes": [
+    "source_identical_local_learning_rule_empirically_used_across_unrelated_domains",
+    "observation_only_operation_or_objective_discovery_without_labels_reward_or_authored_interface",
+    "autonomous_physical_or_biological_adaptation_with_cross_substrate_mechanism_identity",
+    "compiled_or_amortized_learned_computation_with_measured_full_system_crossover"
+  ],
+  "trigger_requires_all": [
+    "primary_empirical_source_with_executable_mechanism_detail",
+    "one_exact_rule_code_constants_and_update_order_across_at_least_two_unrelated_families_or_substrates",
+    "rule_learned_from_ordinary_observations_during_system_lifetime",
+    "no_manual_ontology_family_adapter_action_alignment_label_reward_verifier_or_privileged_support_carries_the_gain",
+    "factor_specific_disabled_or_shuffled_control_and_a_matched_strong_classical_or_frozen_control",
+    "qualitative_signature_beyond_marginal_accuracy",
+    "measured_or_conservatively_bounded_acquisition_fit_query_update_state_communication_and_reuse_cost",
+    "result_would_identify_a_new_information_edge_or_overturn_a_frozen_cycle_261_channel_fate"
+  ],
+  "automatic_rejections": [
+    "review_theory_position_or_model_fit_without_intervention",
+    "same_verbal_principle_but_changed_code_constants_interfaces_or_state_variables",
+    "meta_learning_over_labels_rewards_task_ids_or_a_supplied_dsl",
+    "single_family_multi_dataset_result",
+    "hardware_efficiency_without_observation_learned_factor_ablation",
+    "reported_inference_only_cost_or_unbounded_discovery_cost",
+    "gain_explained_by_classical_sufficient_statistic_gradient_hebbian_integral_feedback_cache_index_or_exact_solver"
+  ],
+  "candidate_audits": [
+    {
+      "candidate": "primate_domain_specific_schema_reuse",
+      "source": "SRC-0301",
+      "gate_vector": ["pass", "fail", "pass", "fail", "partial", "pass", "fail", "fail"],
+      "outcome": "reject_related_visuomotor_tasks_rewarded_interface_no_causal_update_rule"
+    },
+    {
+      "candidate": "primate_compositional_shared_neural_subspaces",
+      "source": "SRC-0302",
+      "gate_vector": ["pass", "fail", "partial", "fail", "fail", "pass", "fail", "fail"],
+      "outcome": "reject_correlational_shared_representation_under_authored_categories_actions_and_reward"
+    },
+    {
+      "candidate": "loopy_cellular_plasticity",
+      "source": "SRC-0303",
+      "gate_vector": ["pass", "fail", "pass", "fail", "partial", "pass", "fail", "fail"],
+      "outcome": "reject_one_platform_engineered_reaction_diffusion_maps_external_script_and_constants"
+    },
+    {
+      "candidate": "thermal_reRAM_neohebbian_synapse",
+      "source": "SRC-0304",
+      "gate_vector": ["partial", "fail", "pass", "fail", "partial", "pass", "fail", "fail"],
+      "outcome": "reject_component_experiment_system_simulation_modified_rule_labels_reward_and_no_full_boundary"
+    },
+    {
+      "candidate": "compiled_agentic_workflows_in_small_model_weights",
+      "source": "SRC-0305",
+      "gate_vector": ["pass", "fail", "partial", "fail", "partial", "pass", "partial", "fail"],
+      "outcome": "reject_domain_workflow_ontology_synthetic_frontier_model_data_external_judges_and_noncommon_rule"
+    },
+    {
+      "candidate": "physical_network_cost_landscape_coupling",
+      "source": "SRC-0306",
+      "gate_vector": ["fail", "fail", "partial", "fail", "fail", "pass", "fail", "fail"],
+      "outcome": "reject_theory_single_electrical_illustration_and_explicit_task_cost"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "NO_INFORMATION_BOUNDARY_ANOMALY_TRIGGER_CONTINUE_EVENT_MONITORING",
+  "completed_at": "2026-09-02T03:29:16Z",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_monitor_rule": "Do not repeat these sources. On a later wake, admit only a newly indexed primary empirical source or a new local observation; if none exists, report a verified no-trigger without creating apparatus or a scored cycle."
+}
