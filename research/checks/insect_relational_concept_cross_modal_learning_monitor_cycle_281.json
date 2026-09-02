@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "cycle": 281,
+  "mode": "event_triggered_insect_relational_concept_cross_modal_learning_monitor",
+  "status": "completed_no_trigger",
+  "frozen_at": "2026-09-02T06:45:00Z",
+  "source_cutoff": "SRC-0407",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_checks": [
+    "research/checks/cerebellar_internal_model_transfer_monitor_cycle_280.json",
+    "research/checks/information_boundary_anomaly_monitor_cycle_262.json",
+    "research/checks/causal_information_boundary_synthesis_cycle_261.json"
+  ],
+  "non_duplicate_boundary": "The cerebellar audit rejected same-output cross-modal savings that required new-modality retraining. This audit instead asks whether insect behavior and circuit intervention jointly isolate one experience-written abstract relation that transfers on the first unrewarded probe across genuinely different sensory families, rather than feature binding, comparator generalization or a new sensory address to a fixed response.",
+  "question": "Does a primary experiment show that ordinary insect experience writes one source-identical local circuit update for an abstract relation such as same/different, sequence or relative position, and that the first unrewarded test transfers the relation to a qualitatively different unseen sensory family without shared features, authored correspondence or categories, or a fixed motor side carrying the answer, at full cost?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0001_through_SRC_0407",
+    "ordinary_sensory_experience_and_reward_may_write_state_but_test_relation_is_not_supplied_as_a_symbolic_label_or_ontology",
+    "first_unrewarded_probe_in_a_qualitatively_new_modality_precedes_feedback_reward_or_retraining_in_that_modality",
+    "same_local_rule_circuit_variables_constants_and_update_order_across_at_least_two_qualitatively_different_modalities",
+    "acquisition_off_storage_or_consolidation_off_and_expression_off_interventions_in_mushroom_body_or_an_identified_circuit_with_rescue_where_feasible",
+    "novel_stimulus_modality_and_symbol_permutations_exclude_shared_features_and_experimenter_authored_correspondence",
+    "motor_side_reward_location_context_and_response_mapping_reversals_exclude_a_fixed_choice_or_reward_address",
+    "configural_similarity_elemental_association_chaining_novelty_intensity_and_fixed_comparator_controls",
+    "at_least_three_set_sizes_sequence_lengths_or_relational_depths_measure_quality_and_cost_scaling",
+    "local_incremental_update_without_global_retraining_population_search_replay_or_authored_templates",
+    "full_cost_includes_sensing_sampling_reward_acquisition_update_memory_decision_action_and_reuse_horizon",
+    "result_exceeds_matched_similarity_configural_associative_network_and_fixed_comparator_controls"
+  ],
+  "automatic_rejections": [
+    "review_model_or_neural_correlation_without_primary_behavior_and_factor_specific_intervention",
+    "novel_patterns_remain_in_one_modality_or_share_low_level_features_components_symmetry_frequency_or_intensity",
+    "new_modality_receives_reward_feedback_or_training_before_the_claimed_transfer_measurement",
+    "fixed_y_maze_side_reward_location_motor_response_or_explicit_matching_instruction_can_carry_the_answer",
+    "effect_is_object_identity_feature_binding_novelty_or_familiarity_instead_of_an_abstract_relation",
+    "mushroom_body_necessity_is_shown_only_for_generic_association_without_relation_specific_write_and_read",
+    "software_translation_is_a_fixed_similarity_comparator_configural_associator_table_or_handwritten_relation_label",
+    "single_scale_or_inference_only_cost_without_acquisition_update_memory_and_action",
+    "different_modalities_require_different_features_parameters_update_rules_or_readout_semantics"
+  ],
+  "candidate_audits": [
+    {"sources":["SRC-0408"],"mechanism":"cross-modal delayed matching and nonmatching transfer","gate":"strongest_behavioral_anomaly_but_reject","reason":"The first odour-to-colour transfer test was unrewarded and response side was counterbalanced, but test stimuli were sometimes familiarized, only one binary comparison depth was used, no neural acquisition/expression intervention exists, and a fixed repetition/novelty comparator plus reward association reproduces the task."},
+    {"sources":["SRC-0409","SRC-0410"],"mechanism":"visual spatial and dual relational concepts","gate":"reject_as_authored_visual_relation","reason":"Bees generalized above/below, left/right and difference to novel images, but all displays remained in one Y-maze visual geometry with experimenter-defined relation axes and no circuit intervention, unseen modality or three-scale full-cost test."},
+    {"sources":["SRC-0411","SRC-0412"],"mechanism":"cross-modal floral spatial-pattern transfer","gate":"near_anomaly_but_reject_by_alignment_and_modality_specificity","reason":"Scent-pattern learning transferred to an explicitly corresponding visual geometry, whereas otherwise learnable visual and temperature patterns failed to transfer in either direction. The effect is aligned feature binding specific to a modality pair, not one universal rule."},
+    {"sources":["SRC-0413"],"mechanism":"bidirectional visual tactile object recognition","gate":"reject_as_object_identity_or_local_feature_binding","reason":"Unrewarded cross-modal recognition of cubes and spheres is robust, but whole-object identity or curved-versus-flat features carry the answer; no abstract relation, set-size scaling or causal circuit write/read intervention is tested."},
+    {"sources":["SRC-0414","SRC-0415"],"mechanism":"mushroom_body_configural_acquisition_and_shared_multimodal_memory_circuit","gate":"reject_as_shared_associative_substrate","reason":"Mushroom bodies are causally necessary for olfactory configural acquisition and shared circuitry supports visual and olfactory memories, but neither experiment transfers a relation or identifies the same learned state across modalities."},
+    {"sources":["SRC-0416"],"mechanism":"sensory_accommodation_repetition_comparator_plus_associative_output","gate":"strong_classical_like_alternative","reason":"A simple mushroom-body-inspired model reproduces matching/nonmatching transfer by fixed repetition sensitivity and reward-modulated approach or avoidance. It is not causal neural evidence, but it removes the need to posit a discovered portable operator from the behavioral result alone."}
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_INSECT_RELATIONAL_CONCEPT_ROUTE_AS_REINFORCED_REPETITION_NOVELTY_COMPARATOR_SPATIAL_FEATURE_BINDING_AND_SHARED_ASSOCIATIVE_CIRCUIT",
+  "completed_at": "2026-09-02T06:45:00Z",
+  "sources_added": ["SRC-0408","SRC-0409","SRC-0410","SRC-0411","SRC-0412","SRC-0413","SRC-0414","SRC-0415","SRC-0416"],
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
