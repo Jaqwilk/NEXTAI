@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "cycle": 270,
+  "mode": "event_triggered_adaptive_immune_repertoire_computation_monitor",
+  "status": "completed",
+  "frozen_at": "2026-09-02T04:28:25Z",
+  "source_cutoff": "SRC-0332",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_checks": [
+    "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+    "research/reviews/GEN-1-CONSTRAINT-PRESERVING-ADAPTATION-CYCLE-252-2026-09-02.md",
+    "research/checks/nonequilibrium_self_assembly_learning_monitor_cycle_269.json"
+  ],
+  "historical_exclusions": [
+    "selection_acceptance_survival_as_nondifferentiable_credit_cycle_252",
+    "population_search_evolution_rejection_and_version_space_elimination",
+    "HYP-0001_associative_memory",
+    "HYP-0005_local_plasticity",
+    "HYP-0007_energy_based_attractor_reasoning",
+    "SRC-0332_external_evolutionary_reinforcement_learning",
+    "frozen_random_feature_repertoire_nearest_template_kernel_and_ensemble_aliases"
+  ],
+  "question": "Does a primary empirical immune-repertoire experiment isolate a within-lifetime observation-learned source-identical local update rule that transfers useful computation across unrelated antigen families, beyond inherited receptor generation, clonal selection, mutation, expansion, extra samples and antigen-specific intervention design at full biological cost?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0001_through_SRC_0332",
+    "within_lifetime_update_rule_is_learned_from_observations_rather_than_genetically_supplied_or_experimenter_designed",
+    "same_update_mechanism_constants_order_and_interface_across_at_least_two_unrelated_antigen_or_task_families",
+    "post_exposure_OOD_transfer_to_unseen_unrelated_families_or_qualitatively_new_functions_not_only_variants_of_one_epitope",
+    "factor_specific_intervention_freezes_shuffles_or_blocks_the_learned_rule_while_matching_initial_repertoire_mutation_selection_expansion_exposure_and_sample_count",
+    "strong_controls_include_frozen_diverse_repertoire_nearest_affinity_kernel_clonal_selection_evolutionary_search_and_antigen_specific_memory",
+    "at_least_three_repertoire_or_problem_scales_with_matched_capability_and_active_query_or_response_cost",
+    "local_incremental_update_without_global_repertoire_regeneration_or_exhaustive_population_search",
+    "full_cost_includes_receptor_generation_exposure_antigen_acquisition_cell_division_mutation_selection_death_signalling_memory_maintenance_query_response_and_reset_or_reuse_horizon",
+    "result_adds_information_beyond_selection_survival_more_trials_more_diversity_supplied_antigen_schedule_or_related_variant_structure_under_cycle_261_and_cycle_252_boundaries"
+  ],
+  "automatic_rejections": [
+    "review_theory_simulation_or_sequence_analysis_without_factor_specific_empirical_intervention",
+    "gain_is_clonal_selection_expansion_mutation_or_survival_without_separate_learned_update_rule",
+    "breadth_is_only_cross_reactivity_among_related_variants_or_conserved_epitopes",
+    "immunogen_sequence_schedule_adjuvant_or_epitope_scaffold_encodes_the_target_invariant",
+    "fixed_germline_repertoire_or_preexisting_clone_supplies_the_capability",
+    "single_pathogen_antigen_family_scale_or_endpoint",
+    "digital_classifier_or_repertoire_readout_performs_the_learning",
+    "no_source_identical_cross_family_rule_no_OOD_transfer_or_no_full_cost_boundary"
+  ],
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0333",
+      "mechanism": "germinal-centre affinity-dependent proliferation and hypermutation",
+      "empirical_intervention": true,
+      "learned_rule_beyond_selection": false,
+      "source_identical_cross_family_transfer": false,
+      "factor_specific_separation_from_selection": false,
+      "full_cost_reported": false,
+      "outcome": "reject_direct_clonal_selection_and_population_search"
+    },
+    {
+      "source_id": "SRC-0334",
+      "mechanism": "microbiota-dependent Peyers-patch BCR repertoire maturation",
+      "empirical_intervention": true,
+      "learned_rule_beyond_selection": false,
+      "source_identical_cross_family_transfer": false,
+      "factor_specific_separation_from_selection": false,
+      "full_cost_reported": false,
+      "outcome": "reject_germline_junction_bias_plus_antigen_selection"
+    },
+    {
+      "source_id": "SRC-0335",
+      "mechanism": "mRNA-boosted memory B-cell breadth",
+      "empirical_intervention": true,
+      "learned_rule_beyond_selection": false,
+      "source_identical_cross_family_transfer": false,
+      "factor_specific_separation_from_selection": false,
+      "full_cost_reported": false,
+      "outcome": "reject_related_variant_breadth_from_clonal_expansion_and_emergence"
+    },
+    {
+      "source_id": "SRC-0336",
+      "mechanism": "pre-existing-antibody feedback on memory selection",
+      "empirical_intervention": true,
+      "learned_rule_beyond_selection": false,
+      "source_identical_cross_family_transfer": false,
+      "factor_specific_separation_from_selection": true,
+      "full_cost_reported": false,
+      "outcome": "reject_supplied_epitope_masking_and_affinity_threshold_control"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_ADAPTIVE_IMMUNE_REPERTOIRE_ROUTE_AS_INHERITED_DIVERSITY_PLUS_SELECTION_AND_ANTIGEN_SPECIFIC_FEEDBACK",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
