@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "cycle": 267,
+  "mode": "event_triggered_nonclassical_quantum_learning_advantage_monitor",
+  "status": "pending",
+  "frozen_at": "2026-09-02T04:04:05Z",
+  "source_cutoff": "SRC-0320",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_check": "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+  "question": "Does a primary hardware experiment isolate an observation-learned quantum or other nonclassical computational factor that improves generalization or adaptation across unrelated tasks beyond the strongest classically simulable counterpart, with a credible full end-to-end cost advantage?",
+  "admission_requires": [
+    "new_primary_empirical_hardware_source_not_SRC_0001_through_SRC_0320",
+    "trainable_state_or_update_learned_from_ordinary_observations_without_manual_task_ontology",
+    "same_executable_encoding_circuit_update_rule_constants_and_order_in_at_least_two_unrelated_task_families",
+    "factor_specific_removal_or_dephasing_of_entanglement_interference_coherence_or_other_nonclassical_resource",
+    "matched_strong_classical_simulator_tensor_network_kernel_random_feature_and_hardware_noise_controls",
+    "advantage_persists_at_matched_quality_on_heldout_data_and_at_three_problem_scales",
+    "qualitative_signature_beyond_marginal_accuracy_such_as_query_sample_update_or_state_scaling",
+    "full_cost_includes_data_acquisition_encoding_state_preparation_training_measurements_shots_calibration_error_mitigation_readout_control_electronics_cooling_and_reuse_horizon",
+    "classical_intractability_or_non_simulability_is_demonstrated_for_the_actual_learned_regime_not_assumed_from_device_type",
+    "result_adds_a_nonclassical_information_or_efficiency_edge_or_overturns_the_fixed_hardware_prior_fate_in_cycle_261"
+  ],
+  "automatic_rejections": [
+    "simulation_only_or_theoretical_complexity_claim_without_hardware_learning_result",
+    "quantum_kernel_feature_map_or_reservoir_is_fixed_and_only_classical_readout_is_learned",
+    "data_loading_state_preparation_calibration_error_mitigation_or_cooling_cost_is_omitted",
+    "advantage_only_over_weak_small_or_unmatched_classical_baseline",
+    "single_task_dataset_circuit_family_or_single_problem_scale",
+    "classically_simulable_low_entanglement_clifford_or_small_qubit_regime_without_resource_ablation",
+    "pretrained_classical_model_or manual_feature_engineering_carries_the_quality",
+    "no_source_identical_cross_family_rule_or_no_full_cost_crossover"
+  ],
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0321",
+      "candidate": "photonic_entanglement_enhanced_quantum_process_learning",
+      "strongest_observation": "A 120-mode squeezed-light experiment wins a randomized quantum-process hypothesis test with 100000 samples and reports a provable 9.2-order sample advantage over every entanglement-free probe strategy covered by the lower bound; squeezing is varied at multiple mode counts.",
+      "boundary_result": "This is a real nonclassical information edge for a quantum displacement source, but the executable protocol is a fixed EPR probe plus Bell measurement, not an observation-learned update rule; it is not source-identical across unrelated ordinary task families and the full optical-control and energy boundary is absent.",
+      "admission": "reject_fixed_quantum_measurement_protocol_single_quantum_process_family_no_full_cost"
+    },
+    {
+      "source_id": "SRC-0322",
+      "candidate": "superconducting_quantum_continual_learning",
+      "strongest_observation": "An 18-transmon variational classifier retains three sequential image and quantum-state tasks with EWC and reports an advantage over a similarly sized feed-forward network for a quantum-engineered two-task sequence.",
+      "boundary_result": "The retained-update principle is classical EWC; images are PCA-compressed, one claimed-advantage task is labeled by a random quantum circuit, and the comparison lacks broad matched classical simulators and a full acquisition, shot, calibration and cooling cost.",
+      "admission": "reject_classical_ewc_quantum_generated_labels_manual_preprocessing_and_unmatched_cost"
+    },
+    {
+      "source_id": "SRC-0323",
+      "candidate": "correlated_spin_quantum_reservoir",
+      "strongest_observation": "A physical nine-spin reservoir reports one-to-two orders lower error on temporal benchmarks and higher weather-forecast accuracy than classical reservoirs with thousands of nodes.",
+      "boundary_result": "The quantum many-body reservoir is a fixed substrate and only its classical output layer is trained; the experiment therefore supplies a hardware feature map rather than a learned nonclassical computational rule, with no conservative full-cost crossover.",
+      "admission": "reject_fixed_quantum_reservoir_classical_readout_and_missing_full_cost"
+    },
+    {
+      "source_id": "SRC-0324",
+      "candidate": "qcnn_classical_surrogate_falsifier",
+      "strongest_observation": "A classical surrogate based on low-bodyness Pauli propagation, tensor networks and classical shadows matches or beats standard QCNNs on all tested benchmark datasets up to 1024 qubits.",
+      "boundary_result": "This is not a hardware candidate, but it directly strengthens the required classical-simulability control: device labels or qubit count cannot establish a causal quantum edge in the actually learned regime.",
+      "admission": "negative_control_supports_rejection_of_generic_qml_benchmark_claims"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_GENERIC_QUANTUM_LEARNING_ROUTE_AS_FIXED_HARDWARE_PRIOR_OR_TASK_MATCHED_FEATURE_MAP_WITHOUT_TRANSFER_AND_FULL_COST",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "completed_at": "2026-09-02T04:07:07Z"
+}
