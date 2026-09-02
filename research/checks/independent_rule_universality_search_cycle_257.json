@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "cycle": 257,
+  "mode": "prospective_primary_source_independent_rule_universality_search",
+  "status": "complete",
+  "screen_frozen_at": "2026-09-02T02:49:44Z",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "causal_claim_required": "One exact observation-learned executable update rule, independently initialized and fitted without rule changes, has isolated learned-factor gain and a plausible full-cost advantage in at least two qualitatively different natural domains.",
+  "admission_gates_in_order": [
+    "primary_empirical_source",
+    "at_least_two_qualitatively_different_natural_domains",
+    "same_executable_update_equations_constants_initialization_and_update_order",
+    "no_domain_specific_learned_core_frontend_adapter_or_manual_ontology",
+    "learned_factor_only_ablation_in_each_domain",
+    "matched_classical_frozen_or_dense_control_in_each_domain",
+    "meaningful_useful_quality_gain_in_each_domain",
+    "qualitative_signature_beyond_marginal_accuracy",
+    "plausible_full_acquisition_fit_query_update_state_communication_and_reuse_cost_advantage"
+  ],
+  "automatic_rejections": [
+    "review_or_perspective_without_primary_experiment",
+    "same_algorithm_name_but_changed_core_constants_frontend_or_update_rule",
+    "multiple_datasets_from_one_authored_interface",
+    "simulation_only_claim_presented_as_natural_domains",
+    "domain_labels_axioms_action_semantics_privileged_support_or_manual_ontology",
+    "no_disabled_or_frozen_learned_factor_ablation",
+    "no_matched_strong_classical_frozen_or_dense_control",
+    "accuracy_claim_without_a_conservative_full_system_cost_bound",
+    "ordinary_dense_model_based_reinforcement_learning",
+    "ordinary_gradient_descent_or_gradient_equivalent_credit_assignment",
+    "ordinary_lms_rls_kalman_var_dmd_or_system_identification",
+    "active_acquisition_compression_routing_caching_indexing_or_supplied_program_synthesis_without_a_distinct_causal_factor"
+  ],
+  "result_reading_policy": "Methods and implementation identity are audited before accepting reported outcomes. At most one causal thesis may be admitted; otherwise conditional local exhaustion is preserved without apparatus or scoring.",
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0286",
+      "candidate": "traces_propagation",
+      "gate_results": ["Y", "P", "N", "N", "N", "P", "N", "Y", "N"],
+      "rejection": "separate_MLP_CNN_implementations_and_dataset_specific_dynamics_privileged_label_targets_no_frozen_factor_ablation_no_matched_quality_full_cost_advantage",
+      "causal_deduplication": ["HYP-0032_layer_local_contrastive_goodness", "HYP-0052_eligibility_credit", "gradient_descent"]
+    },
+    {
+      "source_id": "SRC-0287",
+      "candidate": "differential_extrinsic_plasticity",
+      "gate_results": ["Y", "N", "N", "N", "P", "N", "N", "Y", "N"],
+      "rejection": "simulated_related_sensorimotor_systems_tuned_tau_kappa_aligned_inverse_model_qualitative_outcomes_no_full_cost",
+      "novel_residual": "real_hardware_extrinsic_plasticity_without_aligned_inverse_model"
+    },
+    {
+      "source_id": "SRC-0288",
+      "candidate": "meta_learned_plasticity_terms",
+      "gate_results": ["Y", "N", "N", "N", "Y", "Y", "P", "P", "N"],
+      "rejection": "single_MNIST_EMNIST_family_hand_authored_term_pool_no_full_cost",
+      "causal_deduplication": ["Oja_PCA", "backprop_like_gradient", "feedback_alignment"]
+    },
+    {
+      "source_id": "SRC-0195",
+      "candidate": "e_prop",
+      "gate_results": ["Y", "P", "N", "N", "P", "Y", "N", "Y", "N"],
+      "rejection": "supervised_and_reward_variants_are_algorithmically_different_task_specific_systems_gradient_approximation_no_full_cost"
+    }
+  ],
+  "gate_survivors": [],
+  "strongest_computational_near_candidate": "SRC-0286_traces_propagation",
+  "strongest_conceptual_counterexample": "SRC-0287_differential_extrinsic_plasticity",
+  "decision": "NO_ADMISSIBLE_RULE_OPEN_REAL_HARDWARE_EXTRINSIC_PLASTICITY_TRIGGER",
+  "completed_at": "2026-09-02T02:54:38Z",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_cycle": "Prospective primary-source anomaly search for one DEP-like frozen local rule and constants on real hardware in at least two unrelated morphologies, without an aligned inverse model, with causal ablations, strong controls, quantitative useful adaptation and a conservative full interaction-to-reuse cost bound; otherwise close the neighborhood without apparatus."
+}
