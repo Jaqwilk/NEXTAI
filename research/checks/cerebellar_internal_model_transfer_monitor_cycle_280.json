@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "cycle": 280,
+  "mode": "event_triggered_cerebellar_internal_model_transfer_monitor",
+  "status": "completed_no_trigger",
+  "frozen_at": "2026-09-02T06:30:00Z",
+  "source_cutoff": "SRC-0395",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_checks": [
+    "research/checks/hippocampal_entorhinal_cognitive_map_transfer_monitor_cycle_279.json",
+    "research/checks/information_boundary_anomaly_monitor_cycle_262.json",
+    "research/checks/causal_information_boundary_synthesis_cycle_261.json"
+  ],
+  "non_duplicate_boundary": "Cycle 262 rejected rewarded visuomotor schema reuse without a causal update rule. This audit separately asks whether cerebellar adaptation experiments isolate one experience-written forward or inverse computation that transfers before new-family error feedback, while controls distinguish local plasticity from ordinary state-space retention, basis-function overlap and adaptive control.",
+  "question": "Does a primary experiment show that natural sensorimotor experience writes one source-identical local cerebellar update rule in one family and improves the first unrewarded or uncorrected prediction in a qualitatively different unseen family without shared coordinates, explicit context labels, paired perturbation geometry, cached motor commands or experimenter-authored forward dynamics at full cost?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0001_through_SRC_0395",
+    "experience_dependent_state_is_written_during_lifetime_from_ordinary_sensory_prediction_error",
+    "factor_specific_acquisition_off_storage_or_consolidation_off_and_expression_off_interventions_with_rescue_where_feasible",
+    "same_local_plasticity_variables_constants_and_update_order_across_at_least_two_qualitatively_different_sensorimotor_or_nonmotor_families",
+    "training_in_one_family_improves_the_first_prediction_or_action_in_an_unseen_family_before_target_error_reward_or_corrective_feedback",
+    "coordinate_rotation_context_permutation_effector_swap_and_perturbation_geometry_controls_exclude_shared_basis_or_authored_alignment",
+    "washout_savings_spontaneous_recovery_and_anterograde_interference_separate_transfer_from_retention_and_retrieval",
+    "matched_classical_state_space_Kalman_LMS_RLS_basis_function_adaptive_control_and_fixed_forward_or_inverse_model_controls",
+    "local_incremental_update_without_global_retraining_replay_population_search_or_cached_trajectory_lookup",
+    "at_least_three_perturbation_magnitudes_temporal_delays_or_prediction_horizons_measure_quality_and_cost_scaling",
+    "full_cost_includes_sensing_exploration_error_computation_plasticity_consolidation_storage_prediction_correction_washout_and_reuse_horizon",
+    "result_identifies_an_information_bearing_update_unavailable_to_classical_adaptive_control_or_fixed_basis_generalization"
+  ],
+  "automatic_rejections": [
+    "review_theory_model_fit_or_neural_correlation_without_primary_factor_specific_intervention",
+    "same_effector_same_coordinate_frame_same_perturbation_family_or_same_task_with_changed_gain_only",
+    "transfer_is_measured_only_after_new_family_error_reward_or_corrective_trials",
+    "effect_is_savings_after_washout_or_spontaneous_recovery_without_proof_of_cross_family_computation",
+    "context_cues_explicitly_select_separate_stored_models_or_motor_memories",
+    "generalization_follows_distance_in_an_experimenter_defined_kinematic_or_dynamic_basis",
+    "cerebellar_lesion_or_stimulation_changes_adaptation_but_does_not_isolate_the_transferable_update_rule",
+    "software_translation_is_standard_state_space_adaptive_filter_Kalman_LMS_RLS_basis_expansion_or_cached_motor_primitive",
+    "single_scale_or_inference_only_cost_without_acquisition_update_storage_and_correction",
+    "different_tasks_require_different_features_parameters_learning_rules_or_readout_semantics"
+  ],
+  "candidate_audits": [
+    {"sources":["SRC-0396","SRC-0397"],"mechanism":"structural learning of low-dimensional perturbation families","gate":"nearest_anomaly_but_reject","reason":"Prior variation changes first-probe behavior and feedback, but the rotation, shearing, position and velocity bases are authored within one reaching interface; no cerebellar causal rule or cross-family source identity is isolated."},
+    {"sources":["SRC-0398","SRC-0399","SRC-0406"],"mechanism":"shared cerebellar substrate for transferable adaptation","gate":"reject_by_intervention_and_dissociation","reason":"Stimulation can change acquisition without changing intermanual transfer, its effect is not robust across task variants, and lesion effects for force-field and visuomotor adaptation are partly separate and uncorrelated."},
+    {"sources":["SRC-0400","SRC-0401"],"mechanism":"sensory-prediction-error update of an internal model","gate":"reject_as_classical_adaptive_update","reason":"The studies isolate error-dependent trial updates but only inside one perturbation family and do not identify an exact local rule unavailable to state-space adaptive control."},
+    {"sources":["SRC-0402","SRC-0403"],"mechanism":"cerebellar forward_or_inverse_internal_model","gate":"reject","reason":"Acquired-tool fMRI is correlational and Purkinje activity primarily tracks kinematics rather than the force commands predicted by one inverse-dynamics model."},
+    {"sources":["SRC-0404","SRC-0405","SRC-0407"],"mechanism":"cross-modal cerebellar savings and local associative plasticity","gate":"strong_causal_near_anomaly_but_reject","reason":"Cerebellar inactivation blocks auditory-to-visual savings and local nucleus plasticity is real, but the second modality does not evoke immediate transfer; repeated pairing with the same US and blink output is required, so this is shared-output reacquisition rather than unseen-family prediction."}
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_CEREBELLAR_INTERNAL_MODEL_TRANSFER_ROUTE_AS_LOW_DIMENSIONAL_STRUCTURAL_PRIOR_ERROR_DRIVEN_STATE_SPACE_ADAPTATION_AND_CROSS_MODAL_SAVINGS",
+  "completed_at": "2026-09-02T06:30:00Z",
+  "sources_added": ["SRC-0396","SRC-0397","SRC-0398","SRC-0399","SRC-0400","SRC-0401","SRC-0402","SRC-0403","SRC-0404","SRC-0405","SRC-0406","SRC-0407"],
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
