@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "cycle": 252,
+  "mode": "search_no_scoring",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "g1_window_id": "G1-POST-EXP-0059-V1",
+  "g1_qualifying_experiment_count": 3,
+  "neighborhood": "constraint_preserving_adaptation_without_scalar_credit",
+  "causal_partition": {
+    "supplied_constraint": "projection_constraint_propagation_message_passing_or_local_search",
+    "learned_constraint": "energy_density_representation_or_dynamics_learning_then_projection",
+    "viability_acceptance": "binary_or_ordered_selection_credit",
+    "no_preference_signal": "useful_adaptation_unidentifiable"
+  },
+  "local_evidence": [
+    "EXP-20260901-0027",
+    "GEN-1-LAYER-LOCAL-CREDIT-ASSIGNMENT-CYCLE-146",
+    "GEN-1-FUNDAMENTAL-ASSUMPTION-AUDIT-CYCLE-236"
+  ],
+  "primary_sources_added": [
+    "SRC-0272",
+    "SRC-0273",
+    "SRC-0274",
+    "SRC-0275",
+    "SRC-0276"
+  ],
+  "admission_gates": {
+    "natural_nonsemantic_violation_signal": "fail",
+    "source_identical_across_three_qualitative_systems": "fail",
+    "capability_beyond_signal_maintenance": "unsupported",
+    "non_equivalent_to_projection_energy_selection": "fail",
+    "prospective_full_cost_crossover": "unsupported",
+    "current_cohort_can_discriminate": "fail"
+  },
+  "decision": "REJECT_CONSTRAINT_PRESERVING_ADAPTATION_AS_PROJECTION_ENERGY_OR_SELECTION",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "user_authorized_no_scoring_override": true,
+  "next_cycle": "Perform a residual search-space exhaustion audit over the cycle-236 assumption map, cycles 248-252 and all scored mechanisms; admit at most one naturally testable, non-duplicate, prospectively cost-credible factor, otherwise request strategic redirection without another microbenchmark."
+}
