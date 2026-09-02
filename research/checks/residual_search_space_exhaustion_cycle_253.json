@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "cycle": 253,
+  "mode": "search_no_scoring",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "portfolio_inventory": {
+    "distinct_completed_experiments": 99,
+    "complete_candidate_rows": 843,
+    "crash_candidate_rows": 16,
+    "timeout_candidate_rows": 5,
+    "latest_hypothesis_statuses": {
+      "falsified": 36,
+      "dormant": 22,
+      "testing": 1
+    },
+    "testing_hypothesis": "HYP-0012_accounting_control"
+  },
+  "assumption_classification": {
+    "A1": "unidentifiable_without_supplied_semantics",
+    "A2": "unidentifiable_without_supplied_semantics",
+    "A3": "classical_or_prior_art_duplicate",
+    "A4": "classical_or_prior_art_duplicate",
+    "A5": "classical_or_prior_art_duplicate",
+    "A6": "closed_by_valid_negative",
+    "A7": "unidentifiable_without_supplied_semantics",
+    "A8": "closed_by_valid_negative",
+    "A9": "closed_by_valid_negative",
+    "A10": "classical_or_prior_art_duplicate",
+    "A11": "classical_or_prior_art_duplicate",
+    "A12": "unidentifiable_without_supplied_semantics",
+    "A13": "hardware_only",
+    "A14": "unidentifiable_without_supplied_semantics"
+  },
+  "classification_counts": {
+    "closed_by_valid_negative": 3,
+    "classical_or_prior_art_duplicate": 5,
+    "unidentifiable_without_supplied_semantics": 5,
+    "hardware_only": 1,
+    "open_and_testable": 0
+  },
+  "search_cycles_integrated": [236, 248, 249, 250, 251, 252],
+  "primary_sources_added": ["SRC-0277", "SRC-0278", "SRC-0279", "SRC-0280"],
+  "decision": "DECLARE_CONDITIONAL_LOCAL_SEARCH_SPACE_EXHAUSTION",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "user_authorized_no_scoring_override": true,
+  "next_cycle": "Attempt to falsify conditional exhaustion with a primary empirical cross-domain search; admit at most one observed mechanism only if it independently passes all seven natural-interface, source-identity, ontology, ablation, classical-control, qualitative-signature and full-cost gates."
+}
