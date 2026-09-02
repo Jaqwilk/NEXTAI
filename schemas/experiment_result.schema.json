@@ -65,6 +65,8 @@
         "conditional_probability_mae": {"type": ["number", "null"], "minimum": 0},
         "conditional_log_loss": {"type": ["number", "null"]},
         "normalized_rmse": {"type": ["number", "null"], "minimum": 0},
+        "relative_residual": {"type": ["number", "null"], "minimum": 0},
+        "solver_iterations": {"type": ["number", "null"], "minimum": 0},
         "worst_file_normalized_rmse": {"type": ["number", "null"], "minimum": 0},
         "worst_transition_normalized_rmse": {"type": ["number", "null"], "minimum": 0},
         "worst_flight_normalized_rmse": {"type": ["number", "null"], "minimum": 0},

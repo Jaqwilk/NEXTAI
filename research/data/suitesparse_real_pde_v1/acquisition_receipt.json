@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "dataset_id": "suitesparse_real_pde_v1",
+  "completed_at": "2026-09-02T00:49:41Z",
+  "acquisition_manifest_sha256": "2049008d17bcf1f23168886c86b9066813658212756732770d9ca81fcca8a6df",
+  "archive_count": 9,
+  "archive_bytes": 86001863,
+  "extracted_file_count": 12,
+  "extracted_bytes": 208885498,
+  "individual_archive_and_matrix_hashes_path": "research/data/suitesparse_real_pde_v1/audit.json",
+  "failed_preflight_path": "research/data/suitesparse_real_pde_v1/audit_attempt_001.json",
+  "failed_preflight_sha256": "7c23b36795d79e06c67f54caeb94bc3f81928417f940179fed38164502b90718",
+  "final_preflight_path": "research/data/suitesparse_real_pde_v1/audit.json",
+  "final_preflight_sha256": "8f4e2c023f12fbf2a04e8f0fa111a5386e67c7bded0d997c634a2e5f44776ed2",
+  "dependency_versions": {
+    "pyamg": "5.3.0",
+    "scipy": "1.18.1"
+  },
+  "disk": {
+    "free_bytes_before_dependency_and_data": 96597528576,
+    "free_bytes_after_dependency_install": 96549728256,
+    "free_bytes_after_download_extract_and_audit": 96258686976,
+    "minimum_required_free_bytes": 10737418240,
+    "passed": true
+  },
+  "payload_tracking": "archive and extracted payloads remain local and gitignored; manifests, notices, hashes and audits remain tracked",
+  "scientific_evidence": false,
+  "scoring_performed": false
+}

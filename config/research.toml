@@ -5,8 +5,8 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 1
 protocol_version = 2
-benchmark_version = "orthogonal_double_matching_source_swap_v1"
-benchmark_status = "maintenance"
+benchmark_version = "heldout_suitesparse_cross_matrix_prolongation_v1"
+benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
 [relational_ood]
@@ -667,6 +667,42 @@ invalidation_rules = [
   "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change.",
 ]
 
+[suitesparse_cross_matrix]
+dataset_id = "suitesparse_real_pde_v1"
+target_sizes = [9801, 10605, 81920]
+reasoning_depths = [1]
+queries_per_cell = 1
+relative_residual_maximum = 0.0000001
+maximum_iterations = 2000
+declared_horizons = [1, 4, 16]
+state_budget_bytes = 1073741824
+shared_candidate = "shared_anonymous_prolongation_v1"
+independent_ablation = "independent_anonymous_prolongation_v1"
+cross_family_only_ablation = "cross_family_only_anonymous_prolongation_v1"
+support_only_ablation = "support_only_anonymous_prolongation_v1"
+classical_baselines = [
+  "target_standard_sa_v1",
+  "target_adaptive_sa_v1",
+  "source_frozen_hierarchy_v1",
+  "fixed_pr_numeric_refresh_v1",
+  "unpreconditioned_cg_v1",
+]
+source_identical_contract = "anonymous_csr_numeric_operator_core_constants_fit_build_output_and_accounting_identical_except_preregistered_source_matrix_scope_v1"
+pareto_capability_metrics = [
+  "accuracy", "transfer_accuracy", "minimum_family_accuracy",
+  "relative_residual", "solver_iterations", "data_acquisition_ops",
+  "preprocessing_ops", "fit_ops", "adaptation_ops", "mean_query_ops",
+  "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+  "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
+invalidation_rules = [
+  "Invalidate if any held-out target or target-derived outcome is visible during fit.",
+  "Invalidate if an implementable role receives group, matrix name, application kind, pair identity, geometry, PDE label, path, hand-written near-nullspace or family-specific constants.",
+  "Invalidate unless shared, independent, cross-family-only and support-only use one implementation and constants and differ only in evaluator-selected source matrices.",
+  "Invalidate if a result omits acquisition, fit, hierarchy build or update, every sparse solve operation, bytes, resident and peak state or R1 R4 R16 workload.",
+  "Invalidate on residual above the declared quality gate being treated as success, post-score tuning, seed leakage, missing control, baseline semantic mismatch, preflight mismatch or evaluator-integrity change.",
+]
+
 [execution]
 mode = "audited_subprocess"
 allow_network_in_candidate = false
@@ -686,7 +722,9 @@ allowed_import_roots = [
   "math",
   "nextai_autoresearch",
   "numpy",
+  "pyamg",
   "random",
+  "scipy",
   "statistics",
   "torch",
   "typing",
@@ -794,6 +832,8 @@ minimize = [
   "worst_span_bits_per_byte",
   "conditional_log_loss",
   "normalized_rmse",
+  "relative_residual",
+  "solver_iterations",
   "worst_file_normalized_rmse",
   "worst_transition_normalized_rmse",
   "rollout_16_nrmse",

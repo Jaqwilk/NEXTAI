@@ -55,7 +55,8 @@ The one-time local real-system calibration selected in cycle 227 was completed a
 - Do not add an API client, another model provider, telemetry, credentials, or a remote dependency.
 - Literature search may use Codex web access. Record primary sources in `research/sources.jsonl` and distinguish source claims from inference.
 - Candidate execution must go through `uv run nextai run --plan ...`; do not bypass the audited runner for a scored result.
-- Do not install a new dependency during an autonomous cycle. Propose it in an analysis file with the scientific reason and wait for user approval.
+- The user granted standing authorization on 2026-09-02 to install locally any dependency or tool, download public licensed research data, and run checks or tests needed for NEXTAI, now and in future cycles, without requesting dependency-by-dependency approval. This does not authorize an external model/API, credentials, paid services, deployment, publishing, destructive changes, or weakening scientific gates.
+- Before every installation or download, measure free space on the destination volume and estimate the operation's installed/extracted footprint when it is knowable. Stop before mutation if the operation would leave less than 10 GiB free or if the footprint cannot be bounded safely; report the exact disk blocker. Recheck free space after the operation. Large datasets remain local and ignored, while acquisition manifests, licenses, citations and hashes remain tracked.
 - Do not use destructive Git commands. Preserve the complete history and the user's unrelated changes.
 - Write the smallest amount of code that can discriminate the current hypothesis. Avoid speculative frameworks, dependencies, helpers, and duplicate implementations.
 - At the end of a cycle, remove only verified temporary files and genuinely dead code. Never remove plans, results, logs, analyses, manifests, ledger entries, or failed candidates that form scientific history.

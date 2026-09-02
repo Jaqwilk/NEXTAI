@@ -11,6 +11,7 @@ The active Codex heartbeat schedules one discrete wakeup every two hours in this
 3. Stop the autonomous cycle without modifying research state if `STOP`, `PAUSE`, an active non-stale lock, schema failure, or evaluation-integrity failure is present. Explicit user-authorized maintenance may repair the failed gate, but may not score an experiment and must append a maintenance event.
 4. Inspect `git status`. Preserve unrelated user changes. Do not use reset/checkout to erase work.
 5. Identify whether a plan is already pending. Run it or append an explicit invalidation with `nextai plan invalidate`; never delete or edit it. The CLI permits only one pending plan.
+6. Before installing a local tool/dependency or downloading research data, apply the standing authorization and disk gate in `AGENTS.md`: record free space, bound the expected installed/extracted footprint when possible, require at least 10 GiB free afterward, and recheck after mutation. Insufficient or unbounded disk capacity stops the cycle before installation/download.
 
 ## 2. Observe
 

@@ -1,0 +1,162 @@
+{
+  "alternative_explanations": [
+    "Any apparent gain may be ordinary target-side SA from the supplied constant vector, extra coarse-space capacity, target matrix feature computation, or classical recycling rather than information transferred from foreign source matrices; the role contrasts and controls isolate these explanations."
+  ],
+  "architecture_family": "anonymous_local_near_nullspace_transfer",
+  "benchmark": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "budget": "quick",
+  "candidates": [
+    "shared_anonymous_prolongation_v1",
+    "independent_anonymous_prolongation_v1",
+    "cross_family_only_anonymous_prolongation_v1",
+    "support_only_anonymous_prolongation_v1",
+    "target_standard_sa_v1",
+    "target_adaptive_sa_v1",
+    "source_frozen_hierarchy_v1",
+    "fixed_pr_numeric_refresh_v1",
+    "unpreconditioned_cg_v1"
+  ],
+  "confounds": [
+    "Only one transition exists per application slot and target size is confounded with slot, so the quick is screening evidence and cannot establish a scaling law or broad PDE generality."
+  ],
+  "created_at": "2026-09-02T01:30:10Z",
+  "evaluator_sha256": "c132847d99aea7f693045e29dd27b5e71ea3ee630c994d10ace27ad369ab7ece",
+  "experiment_id": "EXP-20260902-0001",
+  "falsification_criteria": [
+    "Discard if any learned role fails residual 1e-7 on any target.",
+    "Discard unless shared improves independent and cross-family-only improves support-only by at least max(1e-9, 10 percent of comparator residual) on every target without an iteration increase.",
+    "Discard if shared is implementably Pareto-dominated, regresses worst-target iterations versus target standard SA, or lacks an R16 workload win over the best complete standard/adaptive target rebuild on at least two targets.",
+    "Invalidate on source-identity failure, target metadata or outcome leakage, constant drift, post-score tuning, missing mandatory control, external model or API, preflight failure or evaluator-integrity mismatch."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "b05c05814624925651f3320ee6a449d06b6c90b1",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0059",
+  "matrix": {
+    "knowledge_sizes": [
+      9801,
+      10605,
+      81920
+    ],
+    "queries_per_cell": 1,
+    "reasoning_depths": [
+      1
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "adaptation_ops": "minimize",
+    "cross_family_transfer_gain": "maximize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "minimum_family_accuracy": "maximize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "relative_residual": "minimize",
+    "shared_vs_independent_gain": "maximize",
+    "solver_iterations": "minimize",
+    "state_bytes": "minimize",
+    "transfer_accuracy": "maximize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "A valid negative closes the exact mechanism without tuning feature depth, relaxation steps, ridge, candidate count, source subset or PyAMG settings and returns the program to search mode.",
+    "null": "A null or mixed result closes this exact foreign-source local near-nullspace rule because the preregistered every-target causal transfer signature is absent.",
+    "positive": "A strong positive would justify unchanged three-seed replication of this exact local feature, relaxation-label, ridge and two-vector construction; it would not yet support promotion."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The shared and cross-family-only roles will produce at least max(1e-9, ten percent of comparator residual) lower residual than their source-identical same-source controls on every target without more iterations, while shared remains Pareto-nondominated and wins R16 workload against target rebuild on at least two targets.",
+  "primary_metrics": [
+    "accuracy",
+    "transfer_accuracy",
+    "minimum_family_accuracy",
+    "relative_residual",
+    "solver_iterations",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16",
+    "shared_vs_independent_gain",
+    "cross_family_transfer_gain"
+  ],
+  "promotion_criteria": [
+    "A quick cannot promote; a strong positive only authorizes unchanged three-seed replication, followed by a preregistered adversarial and cross-family test."
+  ],
+  "research_question": "Does one source-identical local near-nullspace map learned from multiple anonymous real sparse source operators causally improve held-out certified solves beyond same-source fit, target-adaptive SA and classical hierarchy recycling at full R16 cost?",
+  "schema_version": 1,
+  "status": "planned",
+  "suitesparse_transfer_protocol": {
+    "candidate_boundary": "anonymous_csr_shape_indptr_indices_data_only",
+    "classical_baselines": [
+      "target_standard_sa_v1",
+      "target_adaptive_sa_v1",
+      "source_frozen_hierarchy_v1",
+      "fixed_pr_numeric_refresh_v1",
+      "unpreconditioned_cg_v1"
+    ],
+    "cross_family_only_ablation": "cross_family_only_anonymous_prolongation_v1",
+    "dataset_id": "suitesparse_real_pde_v1",
+    "declared_horizons": [
+      1,
+      4,
+      16
+    ],
+    "independent_ablation": "independent_anonymous_prolongation_v1",
+    "invalidation_rules": [
+      "Invalidate if any held-out target or target-derived outcome is visible during fit.",
+      "Invalidate if an implementable role receives group, matrix name, application kind, pair identity, geometry, PDE label, path, hand-written near-nullspace or family-specific constants.",
+      "Invalidate unless shared, independent, cross-family-only and support-only use one implementation and constants and differ only in evaluator-selected source matrices.",
+      "Invalidate if a result omits acquisition, fit, hierarchy build or update, every sparse solve operation, bytes, resident and peak state or R1 R4 R16 workload.",
+      "Invalidate on residual above the declared quality gate being treated as success, post-score tuning, seed leakage, missing control, baseline semantic mismatch, preflight mismatch or evaluator-integrity change."
+    ],
+    "maximum_iterations": 2000,
+    "pareto_capability_metrics": [
+      "accuracy",
+      "transfer_accuracy",
+      "minimum_family_accuracy",
+      "relative_residual",
+      "solver_iterations",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "relative_residual_maximum": 1e-07,
+    "shared_candidate": "shared_anonymous_prolongation_v1",
+    "source_identical_contract": "anonymous_csr_numeric_operator_core_constants_fit_build_output_and_accounting_identical_except_preregistered_source_matrix_scope_v1",
+    "state_budget_bytes": 1073741824,
+    "support_only_ablation": "support_only_anonymous_prolongation_v1",
+    "target_metadata": "evaluator_private",
+    "target_result_access_during_fit": "forbidden"
+  },
+  "title": "Cross-application anonymous local near-nullspace transfer quick"
+}

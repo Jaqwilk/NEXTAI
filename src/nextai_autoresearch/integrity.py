@@ -33,6 +33,12 @@ FIXED_PROTECTED_FILES = (
     "research/checks/dronepropa_anonymous_split_v1.jsonl",
     "research/checks/dronepropa_anonymous_split_v2.jsonl",
     "research/corpora/heldout_parallel_masked_infilling_v12.json",
+    "research/data/suitesparse_real_pde_v1/LICENSE-NOTICE.md",
+    "research/data/suitesparse_real_pde_v1/acquisition_manifest.json",
+    "research/data/suitesparse_real_pde_v1/audit.json",
+    "research/data/suitesparse_real_pde_v1/recycling_sequence_manifest.json",
+    "research/data/suitesparse_real_pde_v1/recycling_audit.json",
+    "research/data/suitesparse_real_pde_v1/recycling_sequence_receipt.json",
 )
 
 

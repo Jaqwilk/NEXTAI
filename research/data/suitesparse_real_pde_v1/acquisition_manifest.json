@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "dataset_id": "suitesparse_real_pde_v1",
+  "frozen_at": "2026-09-02T00:40:00Z",
+  "selection_status": "frozen_before_matrix_payload_download",
+  "source": {
+    "collection": "SuiteSparse Matrix Collection",
+    "about_url": "https://sparse.tamu.edu/about",
+    "index_url": "http://sparse-files.engr.tamu.edu/files/ssstats.csv",
+    "index_sha256": "9bc797ab989331afbc9e0e51236d9145c2ac7f76c0913e9677ae07c4913a2aad",
+    "index_bytes": 254328,
+    "index_revision": "31-Oct-2023 18:12:37",
+    "license": "CC-BY-4.0",
+    "required_citations": [
+      "Timothy A. Davis and Yifan Hu. The University of Florida Sparse Matrix Collection. ACM TOMS 38(1), 2011.",
+      "Scott P. Kolodziej et al. The SuiteSparse Matrix Collection Website Interface. JOSS 4(35), 2019.",
+      "Matrix-specific metadata and citations embedded in each downloaded Matrix Market archive"
+    ]
+  },
+  "disk_gate": {
+    "destination_volume": "C:",
+    "free_bytes_before_dependency_and_data": 96597528576,
+    "free_bytes_after_dependency_install": 96549728256,
+    "minimum_free_bytes_after_operation": 10737418240,
+    "declared_archive_bytes": 86001863,
+    "conservative_extracted_and_working_bound_bytes": 1073741824,
+    "passed_before_download": true
+  },
+  "selection_rule": {
+    "matrix_properties": [
+      "real == 1",
+      "posdef == 1 in the frozen SuiteSparse index",
+      "rows == cols",
+      "is2d3d == 1",
+      "1000 <= rows <= 500000"
+    ],
+    "family_rule": "three qualitatively different application kinds, selected only from index metadata",
+    "scale_rule": "three prospectively fixed sizes per application kind spanning at least one order of magnitude when available",
+    "candidate_visibility": "application kind, group, name and native metadata are evaluator-only and forbidden to a future learner",
+    "post_download_replacement": "forbidden because of candidate quality; a corrupt, non-SPD or incompatible matrix may only be excluded by a predeclared algebraic audit and remains recorded"
+  },
+  "matrices": [
+    {"family_slot":"cfd","scale_slot":"small","group":"FIDAP","name":"ex33","rows":1733,"cols":1733,"nnz":22189,"kind":"computational fluid dynamics problem","archive_bytes":63940,"url":"http://sparse-files.engr.tamu.edu/MM/FIDAP/ex33.tar.gz"},
+    {"family_slot":"cfd","scale_slot":"medium","group":"ACUSIM","name":"Pres_Poisson","rows":14822,"cols":14822,"nnz":715804,"kind":"computational fluid dynamics problem","archive_bytes":3986512,"url":"http://sparse-files.engr.tamu.edu/MM/ACUSIM/Pres_Poisson.tar.gz"},
+    {"family_slot":"cfd","scale_slot":"large","group":"Rothberg","name":"cfd2","rows":123440,"cols":123440,"nnz":3085406,"kind":"computational fluid dynamics problem","archive_bytes":15828101,"url":"http://sparse-files.engr.tamu.edu/MM/Rothberg/cfd2.tar.gz"},
+    {"family_slot":"structural","scale_slot":"small","group":"Boeing","name":"msc01050","rows":1050,"cols":1050,"nnz":26198,"kind":"structural problem","archive_bytes":83901,"url":"http://sparse-files.engr.tamu.edu/MM/Boeing/msc01050.tar.gz"},
+    {"family_slot":"structural","scale_slot":"medium","group":"Boeing","name":"bcsstk36","rows":23052,"cols":23052,"nnz":1143140,"kind":"structural problem","archive_bytes":5435971,"url":"http://sparse-files.engr.tamu.edu/MM/Boeing/bcsstk36.tar.gz"},
+    {"family_slot":"structural","scale_slot":"large","group":"GHS_psdef","name":"vanbody","rows":47072,"cols":47072,"nnz":2329056,"kind":"structural problem","archive_bytes":15159339,"url":"http://sparse-files.engr.tamu.edu/MM/GHS_psdef/vanbody.tar.gz"},
+    {"family_slot":"electromagnetics","scale_slot":"small","group":"Bai","name":"mhd3200b","rows":3200,"cols":3200,"nnz":18316,"kind":"electromagnetics problem","archive_bytes":93985,"url":"http://sparse-files.engr.tamu.edu/MM/Bai/mhd3200b.tar.gz"},
+    {"family_slot":"electromagnetics","scale_slot":"medium","group":"Um","name":"2cubes_sphere","rows":101492,"cols":101492,"nnz":1647264,"kind":"electromagnetics problem","archive_bytes":11774237,"url":"http://sparse-files.engr.tamu.edu/MM/Um/2cubes_sphere.tar.gz"},
+    {"family_slot":"electromagnetics","scale_slot":"large","group":"Um","name":"offshore","rows":259789,"cols":259789,"nnz":4242673,"kind":"electromagnetics problem","archive_bytes":33575877,"url":"http://sparse-files.engr.tamu.edu/MM/Um/offshore.tar.gz"}
+  ],
+  "scientific_use": "service-only feasibility audit for REAL-PDE-THESIS-001; not candidate evidence and not a scored cohort",
+  "prohibitions": {
+    "hypothesis_created": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "runner_seed_realized": false,
+    "scoring_performed": false
+  }
+}

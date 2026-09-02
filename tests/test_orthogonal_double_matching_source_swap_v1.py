@@ -142,9 +142,9 @@ class Candidate:
     assert sum("private" in problem for problem in problems) >= 2
 
 
-def test_strong_legal_spectral_and_cca_controls_pass() -> None:
+def test_historical_strong_control_failure_remains_visible() -> None:
     audit = benchmark.classical_control_audit()
-    assert audit["pass"]
+    assert not audit["pass"]
     assert audit["visible_boundary_only"]
     assert audit["rank_rule"] == 16
 
@@ -180,20 +180,17 @@ def test_service_only_evaluator_hard_stops_candidate_scoring() -> None:
         benchmark.run_suite()
 
 
-def test_config_is_distinct_maintenance_cohort_with_scoring_disabled() -> None:
-    with (ROOT / "config" / "research.toml").open("rb") as handle:
-        config = tomllib.load(handle)
-    assert config["project"]["benchmark_version"] == benchmark.BENCHMARK_ID
-    assert config["project"]["benchmark_status"] == "maintenance"
-    assert config["relational_identifiability"]["contract"] == benchmark.CONTRACT_ID
-    assert not config["relational_identifiability"]["scoring_authorized"]
-    assert not config["relational_identifiability"]["runner_random_seed_realized"]
+def test_historical_rid_cohort_remains_scoring_disabled() -> None:
+    assert benchmark.BENCHMARK_ID == "orthogonal_double_matching_source_swap_v1"
+    assert benchmark.CONTRACT_ID == "RID-CONTRACT-001"
+    with pytest.raises(RuntimeError, match="candidate scoring is forbidden"):
+        benchmark.run_suite()
 
 
-def test_full_falsification_contract_certifies_before_any_scoring() -> None:
+def test_full_falsification_contract_preserves_k_decision() -> None:
     audit = benchmark.contract_audit()
-    assert audit["decision"] == "A_RID_EVALUATOR_CERTIFIED"
-    assert all(check["pass"] for check in audit["checks"].values())
+    assert audit["decision"] == "K_CONTRACT_FAIL_OTHER"
+    assert not audit["checks"]["classical_control"]["pass"]
     assert not audit["hypothesis_created"]
     assert not audit["plan_created"]
     assert not audit["candidate_created"]

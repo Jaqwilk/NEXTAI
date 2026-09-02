@@ -139,6 +139,8 @@ def aggregate_trials(trials: list[dict[str, Any]]) -> dict[str, Any]:
         "conditional_probability_mae": optional_mean("conditional_probability_mae"),
         "conditional_log_loss": optional_mean("conditional_log_loss"),
         "normalized_rmse": optional_mean("normalized_rmse"),
+        "relative_residual": optional_max("relative_residual"),
+        "solver_iterations": optional_mean("solver_iterations"),
         "worst_file_normalized_rmse": optional_max("worst_file_normalized_rmse"),
         "worst_transition_normalized_rmse": optional_max("worst_transition_normalized_rmse"),
         "worst_flight_normalized_rmse": optional_max("worst_flight_normalized_rmse"),

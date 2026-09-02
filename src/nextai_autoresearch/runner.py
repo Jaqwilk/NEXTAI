@@ -227,6 +227,38 @@ def _apply_continuous_transfer_comparisons(
         complete[name]["summary"] = aggregate_trials(complete[name].get("trials", []))
 
 
+def _apply_suitesparse_transfer_comparisons(
+    candidate_results: list[dict[str, Any]], protocol: dict[str, Any]
+) -> None:
+    complete = {str(row["candidate"]): row for row in candidate_results
+                if row.get("status") == "complete"}
+    names = [str(protocol[key]) for key in (
+        "shared_candidate", "independent_ablation",
+        "cross_family_only_ablation", "support_only_ablation",
+    )]
+    if any(name not in complete for name in names):
+        return
+
+    def keyed(item: dict[str, Any]) -> dict[tuple[str, int], dict[str, Any]]:
+        return {(str(row["world_family"]), int(row["seed"])): row
+                for row in item.get("trials", ()) if row.get("status") == "complete"}
+
+    shared, independent, cross, support = (keyed(complete[name]) for name in names)
+    if not (shared.keys() == independent.keys() == cross.keys() == support.keys()):
+        return
+    for key in shared:
+        shared[key]["shared_vs_independent_gain"] = (
+            float(independent[key]["relative_residual"])
+            - float(shared[key]["relative_residual"])
+        )
+        cross[key]["cross_family_transfer_gain"] = (
+            float(support[key]["relative_residual"])
+            - float(cross[key]["relative_residual"])
+        )
+    for name in names:
+        complete[name]["summary"] = aggregate_trials(complete[name].get("trials", []))
+
+
 def _run_candidate(
     candidate: str,
     plan_path: Path,
@@ -352,7 +384,8 @@ def _frontier(
     minimum_accuracy = float(config.raw["decision"]["minimum_screen_accuracy"])
     directions = plan.get("metric_directions", {})
     protocol = (
-        plan.get("continuous_transfer_protocol", {})
+        plan.get("suitesparse_transfer_protocol", {})
+        or plan.get("continuous_transfer_protocol", {})
         or plan.get("wt_prequential_protocol", {})
         or plan.get("mechanism_recombination_protocol", {})
         or plan.get("compression_protocol", {})
@@ -570,6 +603,10 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
             if isinstance(plan.get("continuous_transfer_protocol"), dict):
                 _apply_continuous_transfer_comparisons(
                     candidate_results, dict(plan["continuous_transfer_protocol"])
+                )
+            if isinstance(plan.get("suitesparse_transfer_protocol"), dict):
+                _apply_suitesparse_transfer_comparisons(
+                    candidate_results, dict(plan["suitesparse_transfer_protocol"])
                 )
             integrity_after = verify_manifest(base)
             if integrity_after["ok"]:

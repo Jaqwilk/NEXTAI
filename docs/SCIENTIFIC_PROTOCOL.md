@@ -1237,3 +1237,29 @@ EXP-99. A result other than `A_RID_EVALUATOR_CERTIFIED` stops the branch without
 same-cycle repair, threshold changes or a v2. Even decision A only permits a
 later wake to preregister one frozen generic learner after independently
 justifying why it is not a hard-coded spectral/CCA control.
+
+## Held-out SuiteSparse cross-matrix prolongation v1
+
+Cycle 246 activates a distinct real-system cohort only after the cycle-243
+causal thesis and cycle-245 recycling discriminator were fixed. Twelve source
+matrices are meta-training observations; `ted_B_unscaled`, `shallow_water2`
+and `fv3` are held out. The learner receives only anonymous CSR shape,
+indptr, indices and numeric data. Matrix/group/application names, pair identity,
+paths, geometry, PDE labels and hand-written near-nullspaces remain evaluator
+private.
+
+Shared, independent, cross-family-only and support-only roles use one local
+implementation and constants and differ only in evaluator-selected source
+matrices. Mandatory controls are per-target standard and adaptive smoothed
+aggregation, frozen source-hierarchy reuse, fixed-P/R numeric refresh and
+unpreconditioned CG. All use `rtol=1e-7`, `atol=0` and at most 2000 iterations.
+A completed solve above the residual threshold is a low-quality result, not an
+infrastructure failure. The known `fv2 -> fv3` recycling failure is preserved.
+
+Pareto capability axes are matched-residual quality, iterations, acquisition,
+fit, hierarchy setup/update, sparse solve work, bytes, resident/peak state and
+R1/R4/R16 workload. Shared-versus-independent and cross-family-only-versus-
+support-only gains are promotion gates, not universal Pareto axes. Selecting
+between rebuild and reuse is a classical admission policy and cannot be
+credited to a learner. Cycle 246 creates no learned candidate, hypothesis,
+plan, runner-random seed or score; a later quick requires preregistration.

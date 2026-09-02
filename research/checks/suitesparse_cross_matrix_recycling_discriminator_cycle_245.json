@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "cycle": 245,
+  "created_at": "2026-09-02T01:02:30Z",
+  "mode": "search_service_no_scoring",
+  "experiment_id": null,
+  "plan_path": null,
+  "hypothesis_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed_in_cycle": false,
+  "sequence_contract_id": "suitesparse_cross_matrix_recycling_v1",
+  "prospective_selection": {
+    "eligible_same_metadata_groups": 4,
+    "selected_distinct_application_kinds": 3,
+    "selected_slots": ["thermal", "cfd", "generic_2d3d"],
+    "excluded_before_outcomes": ["second thermal pair: Botonakis/thermomech_TC -> Botonakis/thermomech_TK"],
+    "replacement_after_outcomes_allowed": false
+  },
+  "disk_gate": {
+    "free_bytes_before_download": 96247271424,
+    "free_bytes_after_download_extract_and_audit": 96242802688,
+    "minimum_free_bytes": 10737418240,
+    "archive_bytes": 6540007,
+    "extracted_bytes": 18846640,
+    "passed": true
+  },
+  "audit_summary": {
+    "sequence_count": 3,
+    "matrix_count": 6,
+    "all_patterns_identical_within_sequence": true,
+    "all_target_rebuilds_complete": true,
+    "all_recycling_variants_converge": false,
+    "thermal": "rebuild and all reuse controls converged in 1 iteration",
+    "cfd": "rebuild converged in 5-6 iterations; reuse controls converged in 10-13 iterations",
+    "generic_2d3d": "rebuild converged in 6 iterations; all reuse controls completed at 2000 iterations without meeting residual quality",
+    "failed_reuse_rows_are_complete_control_outcomes": true
+  },
+  "artifacts": {
+    "sequence_manifest": {
+      "path": "research/data/suitesparse_real_pde_v1/recycling_sequence_manifest.json",
+      "sha256": "c2f2527aae6063e29c4a1d085223f7348c7a24b83ee13617b3aeb19a8f635ef4"
+    },
+    "audit": {
+      "path": "research/data/suitesparse_real_pde_v1/recycling_audit.json",
+      "sha256": "82bac4874eac4cf94e89be5eeeae68b2011e20b658072482fdefd926bd824ea3"
+    },
+    "receipt": {
+      "path": "research/data/suitesparse_real_pde_v1/recycling_sequence_receipt.json",
+      "sha256": "350c385847465ce7a7a0a3bdfa8b37e9383dc2f70d6b89c750e9e61631bbb3cc"
+    },
+    "review": {
+      "path": "research/reviews/GEN-1-CROSS-MATRIX-RECYCLING-DISCRIMINATOR-CYCLE-245-2026-09-02.md",
+      "sha256": "0e6940929c962804839b06ace15e68dffb586f61e643d817aade9d82b808ace5"
+    }
+  },
+  "verification": {
+    "pytest_passed": 657,
+    "pytest_failed": 3,
+    "pytest_failures_are_preexisting": true,
+    "pytest_failure_scope": [
+      "RID spectral classical-control gate",
+      "RID frozen contract decision K_CONTRACT_FAIL_OTHER",
+      "preflight certificate mismatch caused by intentionally uncertified RID maintenance state"
+    ],
+    "integrity_ok": true,
+    "integrity_files_verified": 802,
+    "doctor_passed": false,
+    "doctor_only_error": "relational identifiability maintenance: RID-CONTRACT-001 falsification gate: K_CONTRACT_FAIL_OTHER"
+  },
+  "scientific_evidence_changed": false,
+  "decision": "KEEP_DISCRIMINATOR_AUTHORIZE_PROTECTED_EVALUATOR_MIGRATION_ONLY",
+  "next_action": "In one separate service-only wake, create and freeze heldout_suitesparse_cross_matrix_prolongation_v1 with the fixed split, anonymous input boundary, mandatory rebuild/recycling controls, source-identical role semantics, residual-quality contract, full-cost accounting and leakage/regression tests. Create no hypothesis, plan, candidate, seed or score in that migration wake."
+}

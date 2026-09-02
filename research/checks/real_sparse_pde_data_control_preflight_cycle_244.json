@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "cycle": 244,
+  "created_at": "2026-09-02T00:52:06Z",
+  "service_only": true,
+  "user_standing_authorization_recorded": true,
+  "authorization_scope": [
+    "local dependency and tool installation",
+    "public licensed research-data download",
+    "local checks and tests"
+  ],
+  "authorization_exclusions_unchanged": [
+    "external model or API",
+    "credentials or secrets",
+    "paid service or spending",
+    "deployment or publishing",
+    "destructive changes",
+    "weakening scientific gates"
+  ],
+  "disk_gate": {
+    "minimum_free_gib_after_operation": 10,
+    "free_bytes_before_dependency_and_data": 96597528576,
+    "free_bytes_after_dependency_install": 96549728256,
+    "free_bytes_after_download_extract_and_audit": 96258686976,
+    "passed": true
+  },
+  "dependencies": {
+    "pyamg": "5.3.0",
+    "scipy": "1.18.1",
+    "pyproject_sha256": "012e26980e0597bec10d250d963e339eeb1b5ead661ece37515b9cee022218fe",
+    "uv_lock_sha256": "ae0fbc26853e4e6cb0f73bb1d13255852298a6c36a80a63fe9cc6e4ea0839022",
+    "import_smoke_passed": true
+  },
+  "dataset": {
+    "dataset_id": "suitesparse_real_pde_v1",
+    "license": "CC-BY-4.0",
+    "application_families": 3,
+    "matrices": 9,
+    "scales_per_family": 3,
+    "archive_bytes": 86001863,
+    "extracted_bytes": 208885498,
+    "manifest_sha256": "2049008d17bcf1f23168886c86b9066813658212756732770d9ca81fcca8a6df",
+    "receipt_sha256": "940bfb1ac5b2cea5c1cbcf3b6b8037112cedd94807f677e880f5b4e99f36fc8e",
+    "payloads_gitignored": true,
+    "metadata_citations_and_hashes_tracked": true
+  },
+  "control_audit": {
+    "algebraic_metadata_pass": true,
+    "failed_attempt_preserved": true,
+    "failed_attempt_sha256": "7c23b36795d79e06c67f54caeb94bc3f81928417f940179fed38164502b90718",
+    "failed_attempt_contract": {"rtol": 1e-8, "maxiter": 500},
+    "failed_attempt_reason": "adaptive SA missed convergence on cfd2, bcsstk36 and vanbody; standard SA missed bcsstk36 and vanbody",
+    "final_audit_sha256": "8f4e2c023f12fbf2a04e8f0fa111a5386e67c7bded0d997c634a2e5f44776ed2",
+    "final_contract": {"rtol": 1e-7, "atol": 0.0, "maxiter": 2000},
+    "standard_sa_preconditioned_cg_all_matrices": true,
+    "adaptive_sa_preconditioned_cg_all_matrices": true,
+    "adaptive_hierarchy_second_rhs_reuse_all_matrices": true,
+    "hard_case": "bcsstk36 adaptive primary/reuse required 1598/1589 CG iterations versus 440 for standard SA",
+    "cross_matrix_recycling_testable": false,
+    "cross_matrix_recycling_blocker": "independent SuiteSparse matrices are not a controlled same-dimension same-topology parameterized sequence"
+  },
+  "prohibitions": {
+    "hypothesis_created": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "evaluator_created": false,
+    "runner_random_seed_realized": false,
+    "scoring_performed": false,
+    "scientific_evidence_changed": false
+  },
+  "protected_migration": {
+    "authorized": true,
+    "historical_manifest_archived": true,
+    "active_benchmark_unchanged": "orthogonal_double_matching_source_swap_v1",
+    "benchmark_status": "maintenance",
+    "evaluator_sha256": "4a8f41b26db7ce8e8de266294ddeb7ca5e649e62e9a887adce201a32c9498c8e",
+    "eval_manifest_sha256": "fe283b6df2caacf84f849064d8a2fdd535e48aa0f9d33bacca17e8bd6b50db16",
+    "preflight_certificate_rewritten": false,
+    "reason_not_rewritten": "RID-CONTRACT-001 remains K maintenance and must not be falsely certified"
+  },
+  "validation": {
+    "full_pytest_passed": 657,
+    "full_pytest_failed": 3,
+    "new_regressions": 0,
+    "known_failures": [
+      "RID spectral classical-control gate",
+      "RID final falsification decision K",
+      "preflight certificate mismatch for uncertified RID maintenance"
+    ],
+    "integrity_passed": true,
+    "integrity_files_verified": 802,
+    "doctor_passed": false,
+    "doctor_expected_only_error": "relational identifiability maintenance: RID-CONTRACT-001 falsification gate: K_CONTRACT_FAIL_OTHER"
+  },
+  "decision": "PARTIAL_PASS_REAL_PDE_CORPUS_NEEDS_RECYCLING_DISCRIMINATOR",
+  "review_path": "research/reviews/GEN-1-REAL-SPARSE-PDE-DATA-AND-CONTROL-PREFLIGHT-CYCLE-244-2026-09-02.md",
+  "review_sha256": "31d040255c80819a675d314269fdf98e84737813228aeac417f44a221f304cf4",
+  "next_action": "One no-scoring search/service cycle must prospectively identify a same-dimension same-topology real SPD matrix sequence in the frozen SuiteSparse snapshot and test classical cross-matrix recycling. If unavailable, narrow or reject REAL-PDE-THESIS-001 rather than omit the strongest control."
+}

@@ -608,6 +608,50 @@
         "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 7}
       }
     },
+    "suitesparse_transfer_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataset_id", "candidate_boundary", "target_metadata",
+        "target_result_access_during_fit", "shared_candidate",
+        "independent_ablation", "cross_family_only_ablation",
+        "support_only_ablation", "classical_baselines",
+        "source_identical_contract", "relative_residual_maximum",
+        "maximum_iterations", "declared_horizons", "state_budget_bytes",
+        "pareto_capability_metrics", "invalidation_rules"
+      ],
+      "properties": {
+        "dataset_id": {"const": "suitesparse_real_pde_v1"},
+        "candidate_boundary": {"const": "anonymous_csr_shape_indptr_indices_data_only"},
+        "target_metadata": {"const": "evaluator_private"},
+        "target_result_access_during_fit": {"const": "forbidden"},
+        "shared_candidate": {"const": "shared_anonymous_prolongation_v1"},
+        "independent_ablation": {"const": "independent_anonymous_prolongation_v1"},
+        "cross_family_only_ablation": {"const": "cross_family_only_anonymous_prolongation_v1"},
+        "support_only_ablation": {"const": "support_only_anonymous_prolongation_v1"},
+        "classical_baselines": {"const": [
+          "target_standard_sa_v1", "target_adaptive_sa_v1",
+          "source_frozen_hierarchy_v1", "fixed_pr_numeric_refresh_v1",
+          "unpreconditioned_cg_v1"
+        ]},
+        "source_identical_contract": {"const": "anonymous_csr_numeric_operator_core_constants_fit_build_output_and_accounting_identical_except_preregistered_source_matrix_scope_v1"},
+        "relative_residual_maximum": {"const": 1e-7},
+        "maximum_iterations": {"const": 2000},
+        "declared_horizons": {"const": [1, 4, 16]},
+        "state_budget_bytes": {"const": 1073741824},
+        "pareto_capability_metrics": {"const": [
+          "accuracy", "transfer_accuracy", "minimum_family_accuracy",
+          "relative_residual", "solver_iterations", "data_acquisition_ops",
+          "preprocessing_ops", "fit_ops", "adaptation_ops", "mean_query_ops",
+          "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+          "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+        ]},
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12},
+          "minItems": 5
+        }
+      }
+    },
     "continuous_transfer_protocol": {
       "type": "object",
       "additionalProperties": false,
@@ -872,6 +916,42 @@
     }
   },
   "allOf": [
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_suitesparse_cross_matrix_prolongation_v1"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["suitesparse_transfer_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [9801, 10605, 81920]},
+            "reasoning_depths": {"const": [1]},
+            "queries_per_cell": {"const": 1}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_anonymous_prolongation_v1"}},
+            {"contains": {"const": "independent_anonymous_prolongation_v1"}},
+            {"contains": {"const": "cross_family_only_anonymous_prolongation_v1"}},
+            {"contains": {"const": "support_only_anonymous_prolongation_v1"}},
+            {"contains": {"const": "target_standard_sa_v1"}},
+            {"contains": {"const": "target_adaptive_sa_v1"}},
+            {"contains": {"const": "source_frozen_hierarchy_v1"}},
+            {"contains": {"const": "fixed_pr_numeric_refresh_v1"}},
+            {"contains": {"const": "unpreconditioned_cg_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "minimum_family_accuracy"}},
+            {"contains": {"const": "relative_residual"}},
+            {"contains": {"const": "solver_iterations"}},
+            {"contains": {"const": "shared_vs_independent_gain"}},
+            {"contains": {"const": "cross_family_transfer_gain"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
     {
       "if": {
         "properties": {"benchmark": {"const": "latent_entity_binding_retrieval_v2"}},
@@ -1509,7 +1589,7 @@
     {
       "if": {
         "properties": {
-          "benchmark": {"not": {"pattern": "^(heldout_dronepropa_|heldout_three_family_continuous_transfer_v[12345678]$)"}}
+          "benchmark": {"not": {"pattern": "^(heldout_dronepropa_|heldout_three_family_continuous_transfer_v[12345678]$|heldout_suitesparse_cross_matrix_prolongation_v1$)"}}
         },
         "required": ["benchmark"]
       },

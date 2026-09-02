@@ -12,6 +12,7 @@ dependencies = [
   "jsonschema>=4.23,<5",
   "numpy>=2.0,<3",
   "psutil>=6,<8",
+  "pyamg==5.3.0",
   "torch==2.6.0",
 ]
 

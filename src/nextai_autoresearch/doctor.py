@@ -295,6 +295,28 @@ def run_doctor(root: Path | None = None) -> DoctorReport:
             report.facts.append(f"raw_sensor_baselines={len(checked['required'])}")
         except Exception as exc:
             report.errors.append(f"raw sensor maintenance: {exc}")
+    elif config.benchmark_version == "heldout_suitesparse_cross_matrix_prolongation_v1":
+        try:
+            module = __import__(
+                "nextai_autoresearch.benchmarks.heldout_suitesparse_cross_matrix_prolongation_v1",
+                fromlist=["contract_audit"],
+            )
+            audit = module.contract_audit()
+            if not audit.get("pass"):
+                raise RuntimeError(f"contract audit failed: {audit.get('checks')}")
+            required = list(config.raw["suitesparse_cross_matrix"]["classical_baselines"])
+            checked = verify_required_baselines(
+                {
+                    "candidates": required,
+                    "suitesparse_transfer_protocol": {"classical_baselines": required},
+                },
+                base,
+                run_tests=False,
+            )
+            report.facts.append("suitesparse_split=12_train/3_heldout")
+            report.facts.append(f"semantic_baselines={len(checked['required'])}")
+        except Exception as exc:
+            report.errors.append(f"SuiteSparse transfer maintenance: {exc}")
     elif config.benchmark_version == "orthogonal_double_matching_source_swap_v1":
         try:
             module = __import__(

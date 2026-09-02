@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "cycle": 246,
+  "created_at": "2026-09-02T01:20:44Z",
+  "service_only": true,
+  "protected_migration": true,
+  "experiment_id": null,
+  "plan_path": null,
+  "hypothesis_created": false,
+  "learned_candidate_created": false,
+  "runner_random_seed_realized": false,
+  "scoring_performed": false,
+  "benchmark_version": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "benchmark_status": "active",
+  "contract": {
+    "train_matrices": 12,
+    "heldout_targets": 3,
+    "target_sizes": [9801, 10605, 81920],
+    "candidate_fields": ["shape", "indptr", "indices", "data"],
+    "source_identical_roles": 4,
+    "mandatory_controls": [
+      "target_standard_sa_v1",
+      "target_adaptive_sa_v1",
+      "source_frozen_hierarchy_v1",
+      "fixed_pr_numeric_refresh_v1",
+      "unpreconditioned_cg_v1"
+    ],
+    "relative_residual_maximum": 1e-7,
+    "maximum_iterations": 2000,
+    "declared_horizons": [1, 4, 16],
+    "generic_recycling_low_quality_outcome_preserved": true
+  },
+  "verification": {
+    "semantic_baseline_gate_passed": true,
+    "real_file_smoke_passed": true,
+    "pytest_passed": 668,
+    "pytest_failed": 0,
+    "integrity_ok": true,
+    "integrity_files_verified": 815,
+    "doctor_passed": true,
+    "preflight_passed": true,
+    "free_disk_bytes": 96236277760,
+    "minimum_free_disk_bytes": 10737418240,
+    "disk_gate_passed": true
+  },
+  "artifacts": {
+    "evaluator_sha256": "c132847d99aea7f693045e29dd27b5e71ea3ee630c994d10ace27ad369ab7ece",
+    "candidate_bundle_sha256": "bc7969114d6b4ded2774048e9533c5da02f12811abb6cd5fc67225576a49bdbb",
+    "eval_manifest_sha256": "b6e0ae694d4460b7113a6b4dc56dcdc169ca6400a9a3362673394974950cab3e",
+    "preflight_certificate_sha256": "32c1a6410e8d39e2a63f0dacbfaf89d9d51d632a2cb149a638eaf9cbc88c1b98",
+    "preflight_certificate_digest": "726cf953acd3c126417a82d6100607c09fd590ecb0c8e00ef3ea5e2206267f97",
+    "archived_parent_manifest": "research/manifests/orthogonal_double_matching_source_swap_v1-protocol-v2-41a8c9f0a172.json",
+    "archived_parent_manifest_sha256": "fe283b6df2caacf84f849064d8a2fdd535e48aa0f9d33bacca17e8bd6b50db16",
+    "review_path": "research/reviews/GEN-1-SUITESPARSE-CROSS-MATRIX-PROLONGATION-V1-MIGRATION-CYCLE-246-2026-09-02.md",
+    "review_sha256": "83cdf5f96e206ce78caf726f8f6343c5b18805df84e274ea27fe7c5018e657cd"
+  },
+  "scientific_evidence_changed": false,
+  "decision": "ACTIVATE_HELDOUT_SUITESPARSE_CROSS_MATRIX_PROLONGATION_V1",
+  "next_action": "In a separate wake, prospectively define one nonduplicate minimal anonymous local prolongation rule, create one hypothesis and immutable quick plan before implementation, then execute exactly one audited runner-random quick with all four source-identical roles and five controls."
+}

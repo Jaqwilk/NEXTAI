@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "cycle": 243,
+  "created_at": "2026-09-02T00:32:16Z",
+  "search_mode": true,
+  "service_only": true,
+  "active_benchmark_unchanged": "orthogonal_double_matching_source_swap_v1",
+  "active_benchmark_status": "maintenance",
+  "rid_branch_decision": "closed_as_architecture_source_classical_cca_nearly_exact",
+  "prohibitions": {
+    "candidate_created": false,
+    "learner_implemented": false,
+    "evaluator_created": false,
+    "benchmark_created": false,
+    "schema_changed": false,
+    "hypothesis_created": false,
+    "plan_created": false,
+    "runner_random_seed_realized": false,
+    "scoring_performed": false,
+    "experiment_created": false,
+    "protected_files_changed": false,
+    "dependency_installed": false,
+    "dataset_downloaded": false
+  },
+  "search_neighborhoods": [
+    {
+      "name": "plain_learned_multigrid_prolongation",
+      "status": "deduplicated_prior_art",
+      "reason": "Greenfeld 2019 and Luz 2020 already learn a single mapping from PDE or sparse matrix graph to prolongation"
+    },
+    {
+      "name": "adaptive_precision",
+      "status": "rejected_before_apparatus",
+      "reason": "certified classical iterative refinement and hardware-dependent costs make the proposed learned effect non-clean"
+    },
+    {
+      "name": "shared_cross_application_prolongation_transfer_beyond_adaptive_recycling",
+      "status": "selected_causal_thesis_pending_dependency_approval",
+      "reason": "isolates foreign-family information beyond per-instance adaptive AMG and classical recycling"
+    }
+  ],
+  "selected_thesis": {
+    "id": "REAL-PDE-THESIS-001",
+    "learned_object": "source-identical anonymous local prolongation_or_coarse_space_rule",
+    "causal_factor": "foreign-application transfer beyond current-instance adaptive discovery and prior-instance recycling",
+    "correctness_boundary": "matched certified residual_or_solution_error",
+    "mandatory_ablation_roles": [
+      "shared",
+      "independent",
+      "cross-family-only",
+      "support-only",
+      "frozen-no-learning"
+    ],
+    "mandatory_classical_controls": [
+      "standard AMG",
+      "adaptive smoothed aggregation or adaptive AMG",
+      "recycled coarse-space or preconditioner",
+      "appropriate sparse Krylov solver"
+    ],
+    "required_scales": 3,
+    "full_cost_horizons": [1, 4, 16],
+    "negative_closes_exact_mechanism_without_tuning": true
+  },
+  "prospective_dataset": {
+    "name": "SuiteSparse Matrix Collection",
+    "license": "CC-BY-4.0",
+    "downloaded": false,
+    "required_boundary": "bounded square SPD_or_SPSD subset with at least three application groups and three scales, frozen prospectively with original metadata and citations"
+  },
+  "dependency_proposal": {
+    "package": "pyamg==5.3.0",
+    "transitive_requirement": "SciPy",
+    "license": "MIT",
+    "installed": false,
+    "approval_required": true,
+    "scientific_reason": "provide maintained non-self-serving AMG controls and sparse numerical operations instead of a large candidate-favoring local reimplementation"
+  },
+  "literature_sources_added": [
+    "SRC-0247",
+    "SRC-0248",
+    "SRC-0249",
+    "SRC-0250",
+    "SRC-0251",
+    "SRC-0252",
+    "SRC-0253",
+    "SRC-0254"
+  ],
+  "validation": {
+    "source_documents_schema_passed": true,
+    "full_pytest_passed": 657,
+    "full_pytest_failed": 3,
+    "new_regressions": 0,
+    "known_failures": [
+      "RID spectral classical-control gate",
+      "RID final falsification decision K",
+      "preflight certificate mismatch caused by uncertified RID maintenance manifest"
+    ],
+    "integrity_passed": true,
+    "integrity_files_verified": 802,
+    "doctor_passed": false,
+    "doctor_only_error": "relational identifiability maintenance: RID-CONTRACT-001 falsification gate: K_CONTRACT_FAIL_OTHER"
+  },
+  "scientific_evidence_changed": false,
+  "formal_hypothesis_confidence_changed": false,
+  "g1_qualifying_experiment_count": 2,
+  "completed_experiments": 98,
+  "decision": "SELECT_REAL_SPARSE_PDE_SHARED_PROLONGATION_THESIS_PENDING_DEPENDENCY_APPROVAL",
+  "review_path": "research/reviews/GEN-1-REAL-SPARSE-PDE-CAUSAL-THESIS-SEARCH-CYCLE-243-2026-09-02.md",
+  "review_sha256": "e1cc4e3176b43f562c140aa7f19e03b913465e9d75fd44f11edddf5aab987b52",
+  "next_action": "After explicit approval, one service-only wake may install and hash pyamg==5.3.0 plus SciPy, download a bounded prospectively selected SuiteSparse subset with metadata, and audit SPD/SPSD eligibility, application-family splits, scales and runnable adaptive/recycling controls. It must create no hypothesis, plan, seed, candidate or score."
+}

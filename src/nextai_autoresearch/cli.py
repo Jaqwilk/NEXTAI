@@ -787,6 +787,36 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "declared_reuses": list(drone["declared_reuses"]),
             "invalidation_rules": list(drone["invalidation_rules"]),
         }
+    if config.benchmark_version == "heldout_suitesparse_cross_matrix_prolongation_v1":
+        sparse = config.raw["suitesparse_cross_matrix"]
+        plan["matrix"]["knowledge_sizes"] = list(sparse["target_sizes"])
+        plan["matrix"]["reasoning_depths"] = list(sparse["reasoning_depths"])
+        plan["matrix"]["queries_per_cell"] = int(sparse["queries_per_cell"])
+        metrics = list(sparse["pareto_capability_metrics"])
+        plan["primary_metrics"] = [
+            *metrics, "shared_vs_independent_gain", "cross_family_transfer_gain",
+        ]
+        plan["metric_directions"] = {
+            name: configured_directions[name] for name in plan["primary_metrics"]
+        }
+        plan["suitesparse_transfer_protocol"] = {
+            "dataset_id": str(sparse["dataset_id"]),
+            "candidate_boundary": "anonymous_csr_shape_indptr_indices_data_only",
+            "target_metadata": "evaluator_private",
+            "target_result_access_during_fit": "forbidden",
+            "shared_candidate": str(sparse["shared_candidate"]),
+            "independent_ablation": str(sparse["independent_ablation"]),
+            "cross_family_only_ablation": str(sparse["cross_family_only_ablation"]),
+            "support_only_ablation": str(sparse["support_only_ablation"]),
+            "classical_baselines": list(sparse["classical_baselines"]),
+            "source_identical_contract": str(sparse["source_identical_contract"]),
+            "relative_residual_maximum": float(sparse["relative_residual_maximum"]),
+            "maximum_iterations": int(sparse["maximum_iterations"]),
+            "declared_horizons": list(sparse["declared_horizons"]),
+            "state_budget_bytes": int(sparse["state_budget_bytes"]),
+            "pareto_capability_metrics": metrics,
+            "invalidation_rules": list(sparse["invalidation_rules"]),
+        }
     validate_document("experiment_plan", plan, root)
     path = research_dir(root) / "plans" / f"{experiment_id}.json"
     atomic_write_json(path, plan)

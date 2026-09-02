@@ -852,6 +852,36 @@
         {"path": "tests/test_local_expert_tree.py", "node_id": "tests/test_local_expert_tree.py::test_row_reordering_preserves_aligned_tree_and_predictions", "sha256": "8cfacf2cee0b83671148e6e837ea17287bf6f87df3b60b51c56bb12d824b14e6"},
         {"path": "tests/test_local_expert_tree.py", "node_id": "tests/test_local_expert_tree.py::test_update_changes_exactly_one_routed_leaf", "sha256": "8cfacf2cee0b83671148e6e837ea17287bf6f87df3b60b51c56bb12d824b14e6"}
       ]
+    },
+    "target_standard_sa_v1": {
+      "baseline_id": "pyamg_target_standard_smoothed_aggregation_v1", "version": 1,
+      "specification": {"matrix":"held-out target CSR","solver":"pyamg.smoothed_aggregation_solver symmetry=symmetric","outer":"CG rtol=1e-7 atol=0 maxiter=2000"},
+      "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/target_standard_sa_v1.py":"c89eaa6bb99820f9045e81a8ca6a2ca5fefd818cf701392d4f9245c1f10e27f8"},
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"ea9c5d040fbc8997f0bea1f14b37c89010207e043a98b1a8e10ba4bf1270e23b"}]
+    },
+    "target_adaptive_sa_v1": {
+      "baseline_id": "pyamg_target_adaptive_smoothed_aggregation_v1", "version": 1,
+      "specification": {"matrix":"held-out target CSR","solver":"adaptive_sa symmetric pdef one candidate five iterations max_levels=10 max_coarse=50","outer":"CG rtol=1e-7 atol=0 maxiter=2000"},
+      "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/target_adaptive_sa_v1.py":"a2a1fd6b12f481e6f90a11a758702b4d004fea67f991bb91a0603846536fa42b"},
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"ea9c5d040fbc8997f0bea1f14b37c89010207e043a98b1a8e10ba4bf1270e23b"}]
+    },
+    "source_frozen_hierarchy_v1": {
+      "baseline_id": "pyamg_source_frozen_hierarchy_reuse_v1", "version": 1,
+      "specification": {"source":"paired source CSR","update":"change only fine solve matrix to target; retain hierarchy","outer":"CG rtol=1e-7 atol=0 maxiter=2000"},
+      "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/source_frozen_hierarchy_v1.py":"d230e1365aa00f4bdb1ad19d9885b481525bb6d3c5dfa2e672f25512752f3a53"},
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"ea9c5d040fbc8997f0bea1f14b37c89010207e043a98b1a8e10ba4bf1270e23b"}]
+    },
+    "fixed_pr_numeric_refresh_v1": {
+      "baseline_id": "pyamg_fixed_prolongation_restriction_numeric_refresh_v1", "version": 1,
+      "specification": {"source":"paired source CSR","update":"retain P/R; recompute target Galerkin coarse operators and smoothers","outer":"CG rtol=1e-7 atol=0 maxiter=2000"},
+      "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/fixed_pr_numeric_refresh_v1.py":"a2cf0eb23532afa4aa96e1e3d61e4f3a56d32eb79b6dd7a56314895752a02ac6"},
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"ea9c5d040fbc8997f0bea1f14b37c89010207e043a98b1a8e10ba4bf1270e23b"}]
+    },
+    "unpreconditioned_cg_v1": {
+      "baseline_id": "scipy_unpreconditioned_conjugate_gradient_v1", "version": 1,
+      "specification": {"preconditioner":"none","outer":"scipy CG rtol=1e-7 atol=0 maxiter=2000","rhs":"A times runner-seed deterministic normal vector"},
+      "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/unpreconditioned_cg_v1.py":"73b65197709a54328d3676bcab308d51e3d819fbbed8460e57a71da18374836c"},
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"ea9c5d040fbc8997f0bea1f14b37c89010207e043a98b1a8e10ba4bf1270e23b"}]
     }
   }
 }

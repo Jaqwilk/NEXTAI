@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-01T23:21:55Z
+Generated: 2026-09-02T01:39:01Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -818,6 +818,22 @@ Pareto axes: maximize `accuracy`; minimize `bits_per_byte, worst_file_bits_per_b
 | EXP-20260901-0062 | ctw_depth2_byte | implementable | complete | 0.2843 | 1 | 768 | 28 | 3072 | 6.334e+07 | 0 (3) | 867008 |  |
 | EXP-20260901-0062 | lz_dictionary_byte | implementable | complete | 0.3723 | 1 | 284 | 28 | 1173 | 2.375e+07 | 0 (3) | 2.34775e+06 |  |
 | EXP-20260901-0062 | dense_autoregressive_byte | implementable | crash | - | 1 | - | - | - | - | - (3) | - |  |
+
+## heldout_suitesparse_cross_matrix_prolongation_v1 / quick
+
+Pareto axes: maximize `accuracy, transfer_accuracy, minimum_family_accuracy`; minimize `relative_residual, solver_iterations, data_acquisition_ops, preprocessing_ops, fit_ops, adaptation_ops, mean_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260902-0001 | shared_anonymous_prolongation_v1 | implementable | complete | 1 | 1 | 6.851e+06 | 1.864e+05 | 6.081e+07 | 7.316e+08 | 1.305 (3) | 2.7492e+07 |  |
+| EXP-20260902-0001 | independent_anonymous_prolongation_v1 | implementable | complete | 1 | 1 | 6.851e+06 | 1.864e+05 | 6.081e+07 | 1.33e+08 | 1.305 (3) | 2.7492e+07 |  |
+| EXP-20260902-0001 | cross_family_only_anonymous_prolongation_v1 | implementable | complete | 1 | 1 | 6.851e+06 | 1.864e+05 | 6.081e+07 | 7.164e+08 | 1.305 (3) | 2.7492e+07 |  |
+| EXP-20260902-0001 | support_only_anonymous_prolongation_v1 | implementable | complete | 1 | 1 | 6.851e+06 | 1.864e+05 | 6.081e+07 | 1.33e+08 | 1.305 (3) | 2.7492e+07 |  |
+| EXP-20260902-0001 | target_standard_sa_v1 | implementable | complete | 1 | 1 | 3.933e+06 | 1.864e+05 | 3.788e+07 | 6.358e+07 | 1.04 (3) | 1.46172e+07 | yes |
+| EXP-20260902-0001 | target_adaptive_sa_v1 | implementable | complete | 1 | 1 | 3.932e+06 | 1.864e+05 | 3.784e+07 | 6.358e+07 | 1.04 (3) | 1.45966e+07 | yes |
+| EXP-20260902-0001 | source_frozen_hierarchy_v1 | implementable | complete | 0.6667 | 1 | 2.546e+08 | 1.864e+05 | 2.127e+09 | 4.074e+09 | -0.01919 (3) | 1.46172e+07 |  |
+| EXP-20260902-0001 | fixed_pr_numeric_refresh_v1 | implementable | complete | 0.6667 | 1 | 2.54e+08 | 1.864e+05 | 2.121e+09 | 4.064e+09 | -0.05756 (3) | 1.46172e+07 |  |
+| EXP-20260902-0001 | unpreconditioned_cg_v1 | implementable | complete | 1 | 1 | 1.511e+07 | 1.864e+05 | 9.555e+07 | 2.421e+08 | 0.6169 (3) | 0 | yes |
 
 ## heldout_three_family_continuous_transfer_v1 / quick
 
