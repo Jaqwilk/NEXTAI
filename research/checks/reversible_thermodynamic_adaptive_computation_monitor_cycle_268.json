@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "cycle": 268,
+  "mode": "event_triggered_reversible_thermodynamic_adaptive_computation_monitor",
+  "status": "pending",
+  "frozen_at": "2026-09-02T04:12:22Z",
+  "source_cutoff": "SRC-0324",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_check": "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+  "historical_exclusions": [
+    "HYP-0009_learned_virtual_machine_and_exact_MDL_dominance",
+    "A10_and_C1_counterfactual_erasure_as_classical_compression_pruning_or_sufficient_statistics",
+    "SRC-0071_information_bottleneck",
+    "SRC-0226_generate_reduce_reasoning",
+    "cache_sparsity_adaptive_halting_selective_memory_and_fixed_reversible_circuit_aliases"
+  ],
+  "question": "Does a primary physical experiment show that ordinary observations teach one source-identical local reversible or thermodynamic update rule which transfers across unrelated tasks and reduces measured full-system energy per matched useful output beyond irreversible, classical sparse, compressed and fixed-reversible controls?",
+  "admission_requires": [
+    "new_primary_empirical_physical_source_not_SRC_0001_through_SRC_0324",
+    "update_or_erasure_policy_itself_is_learned_from_observations_without_manual_task_ontology_reward_or_predeclared_program",
+    "same_executable_state_update_constants_and_order_in_at_least_two_unrelated_task_families",
+    "factor_specific_control_removes_reversibility_or_changes_dissipation_while_preserving_information_capacity_model_size_training_data_and_output_quality",
+    "matched_classical_controls_include_sufficient_statistics_pruning_compression_sparsity_caching_adaptive_compute_and_fixed_reversible_logic",
+    "at_least_three_problem_scales_show_energy_or_erasure_cost_signature_at_matched_quality",
+    "local_update_works_without_global_retraining_and_the_advantage_survives_unseen_tasks_or_depths",
+    "full_cost_includes_data_acquisition_training_control_clocking_memory_movement_measurement_reset_cooling_fabrication_amortization_and_reuse_horizon",
+    "measured_system_energy_not_only_asymptotic_landauer_bound_simulation_device_event_or_component_switching_energy",
+    "result_adds_a_causal_energy_or_information_edge_not_already_explained_by_cycle_261_or_the_frozen_classical_controls"
+  ],
+  "automatic_rejections": [
+    "theory_simulation_or_landauer_bound_without_end_to_end_physical_learning_measurement",
+    "fixed_reversible_adiabatic_or_thermodynamic_circuit_with_no_observation_learned_update_rule",
+    "energy_savings_due_only_to_lower_precision_sparsity_pruning_compression_memory_locality_or_fewer_operations",
+    "device_trains_only_readout_weights_on_fixed_physical_dynamics",
+    "single_task_dataset_device_size_or_scale",
+    "quality_workload_or_system_boundary_is_unmatched",
+    "cooling_control_measurement_reset_data_loading_or_training_energy_is_omitted",
+    "manual_ontology_predeclared_energy_function_reward_or_target_specific_wiring_carries_the_gain",
+    "no_source_identical_cross_family_rule_or_no_out_of_distribution_transfer"
+  ],
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0325",
+      "candidate": "temporal_contrastive_learning_with_non_equilibrium_memory",
+      "strongest_observation": "A reversible Markov-state analysis derives an implicit temporal memory kernel and a Landauer-like tradeoff: stronger detailed-balance breaking increases dissipation but lowers contrastive-update error.",
+      "boundary_result": "The work is a model and MNIST simulation rather than an end-to-end physical learner; more importantly, its causal result opposes free reversible learning because accurate update memory requires non-equilibrium dissipation and erasure.",
+      "admission": "reject_non_hardware_fixed_contrastive_rule_and_positive_dissipation_requirement"
+    },
+    {
+      "source_id": "SRC-0326",
+      "candidate": "power_efficient_self_learning_resistor_network",
+      "strongest_observation": "Physical resistor networks use local coupled learning and an explicit power-minimizing modification to reduce trained inference power and estimated training energy at a chosen error tolerance.",
+      "boundary_result": "The supervisor supplies desired outputs, the contrastive rule and power penalty are authored, stronger power reduction trades against accuracy, experiments are one resistor/regression setting, and training energy is the network free power integrated over time rather than the complete sensing, clocking and update electronics boundary.",
+      "admission": "reject_fixed_supervised_power_regularizer_quality_tradeoff_and_incomplete_system_boundary"
+    },
+    {
+      "source_id": "SRC-0327",
+      "candidate": "task_adaptive_chiral_magnet_reservoir",
+      "strongest_observation": "One magnetic substrate is reconfigured among skyrmion, hybrid and conical phases for forecasting, nonlinear transformation and combined tasks, with different phases optimal for different targets.",
+      "boundary_result": "The phase, magnetic-field input encoding and target are task-selected, the reservoir dynamics remain fixed and each task trains a separate ridge readout; the main low-temperature experiment uses spectroscopy near 4 K and reports no measured full-system energy comparison.",
+      "admission": "reject_task_selected_fixed_reservoir_ridge_readout_and_missing_energy_boundary"
+    },
+    {
+      "source_id": "SRC-0328",
+      "candidate": "stochastic_processing_unit_thermodynamic_ai_primitives",
+      "strongest_observation": "Three eight-cell RLC stochastic processing units physically perform Gaussian sampling and 8 by 8 matrix inversion, with reproducible error reduction as samples accumulate.",
+      "boundary_result": "The user encodes a prescribed covariance or precision matrix into switched capacitances; no update rule is learned, and claimed large-scale energy advantage is a mathematical projection assuming 16-bit components, one-microsecond dynamics and 0.005 mW per cell rather than a measured scaled system.",
+      "admission": "reject_fixed_programmed_primitive_no_learning_and_projected_not_measured_energy_advantage"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_REVERSIBLE_THERMODYNAMIC_ADAPTIVE_COMPUTATION_ROUTE_AS_FIXED_PHYSICS_OR_CLASSICAL_OBJECTIVE_WITH_DISSIPATIVE_LEARNING",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "completed_at": "2026-09-02T04:14:26Z"
+}
