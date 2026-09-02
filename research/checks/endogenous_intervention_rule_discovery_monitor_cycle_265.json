@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "cycle": 265,
+  "mode": "event_triggered_endogenous_intervention_rule_discovery_monitor",
+  "status": "complete",
+  "frozen_at": "2026-09-02T03:50:54Z",
+  "source_cutoff": "SRC-0312",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_check": "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+  "historical_exclusions": [
+    "EXP-20260830-0029",
+    "EXP-20260901-0030",
+    "HYP-0042"
+  ],
+  "question": "Does a primary empirical system use self-generated interventions to make an observationally non-identifiable relation identifiable, while learning a reusable update rule rather than merely estimating state under a fixed active-system-identification objective?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0301_through_SRC_0312",
+    "interventions_generated_or_selected_endogenously_from_ordinary_observations",
+    "actions_not_semantically_labeled_routed_or_directed_by_external_reward_goal_or_verifier",
+    "intervention_data_make_a_previously_observationally_nonidentifiable_relation_identifiable",
+    "same_learned_rule_code_constants_and_update_order_operates_in_at_least_two_unrelated_tasks_or_substrates",
+    "factor_specific_disable_or_shuffle_intervention_against_passive_and_strong_classical_active_identification_controls",
+    "qualitative_locality_reuse_depth_or_amortization_signature_beyond_marginal_accuracy",
+    "measured_or_conservatively_bounded_full_acquisition_fit_query_update_state_communication_and_reuse_cost",
+    "not_equivalent_to_generalized_binary_search_bayesian_information_gain_adaptive_submodularity_curiosity_reinforcement_learning_or_classical_system_identification"
+  ],
+  "automatic_rejections": [
+    "authored_motor_primitives_reward_goal_verifier_or_task_specific_action_interface",
+    "predefined_prediction_error_or_model_discrepancy_objective_with_only_state_or_parameter_learning",
+    "single_morphology_single_task_or_same_family_multiple_conditions",
+    "external_simulator_planner_search_or_oracle_selects_the_intervention",
+    "no_factor_specific_intervention_or_no_passive_and_strong_classical_control",
+    "missing_full_end_to_end_cost_or_hidden_preprocessing"
+  ],
+  "candidate_audits": [
+    {
+      "candidate": "continuous_self_modeling_by_maximum_model_disagreement",
+      "source": "SRC-0313",
+      "gate_vector": ["pass", "pass", "fail", "pass", "fail", "fail", "partial", "fail", "fail"],
+      "outcome": "reject_fixed_disagreement_objective_authored_interface_single_robot_active_system_identification_no_full_cost"
+    },
+    {
+      "candidate": "video_learned_free_form_kinematic_self_simulator",
+      "source": "SRC-0314",
+      "gate_vector": ["pass", "partial", "fail", "fail", "fail", "fail", "pass", "fail", "fail"],
+      "outcome": "reject_commanded_observation_fixed_prediction_training_state_model_no_intervention_factor"
+    },
+    {
+      "candidate": "egocentric_visual_damage_adaptive_self_model",
+      "source": "SRC-0315",
+      "gate_vector": ["pass", "partial", "fail", "fail", "partial", "fail", "pass", "partial", "fail"],
+      "outcome": "reject_random_motor_babbling_visual_odometry_labels_explicit_reward_mpc_fixed_retraining_rule"
+    },
+    {
+      "candidate": "autotelic_lenia_artificial_experimentalist",
+      "source": "SRC-0316",
+      "gate_vector": ["pass", "pass", "fail", "partial", "fail", "partial", "pass", "fail", "fail"],
+      "outcome": "reject_explicit_goal_reward_and_intervention_function_single_simulated_ca_family_heuristic_controls"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_ENDOGENOUS_INTERVENTION_ROUTE_ACTIVE_SYSTEM_IDENTIFICATION_OR_REWARD_EQUIVALENCE",
+  "completed_at": "2026-09-02T03:52:38Z",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_action": "Do not score or rename active acquisition, motor babbling, model disagreement, self-modeling, MPC or autotelic-RL variants. Keep event-triggered monitoring only for a primary empirical result where intervention makes a relation identifiable without authored goals, rewards or semantic action routing and where the same learned update rule is causally isolated across unrelated systems with full cost."
+}
