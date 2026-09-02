@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "cycle": 261,
+  "mode": "search_no_scoring_causal_information_boundary_synthesis",
+  "created_at": "2026-09-02T03:23:23Z",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "inventory": {
+    "completed_experiments": 99,
+    "complete_candidate_rows": 843,
+    "crash_candidate_rows": 16,
+    "timeout_candidate_rows": 5,
+    "architectural_hypotheses_classified": 58,
+    "accounting_controls_excluded": ["HYP-0012"],
+    "latest_hypothesis_statuses": {
+      "dormant": 22,
+      "falsified": 36,
+      "testing_accounting_control": 1
+    }
+  },
+  "causal_dag": {
+    "nodes": {
+      "Zs": "source-world latent structure",
+      "Zt": "target-world latent structure",
+      "P": "fixed code, architecture, hardware and interface prior",
+      "Os": "candidate-visible source observations and targets",
+      "Ot": "candidate-visible target support observations and targets",
+      "Rt": "chronological target interaction, reveal or consequence",
+      "C": "externally supplied label, reward, verifier, constraint or success semantics",
+      "Es": "external or environmental memory and substrate state",
+      "M": "learned or compiled candidate state",
+      "Y": "candidate output",
+      "Q": "scientific quality and full-cost evaluation"
+    },
+    "edges": [
+      "Zs->Os",
+      "Zt->Ot",
+      "Zt->Rt",
+      "P->Os",
+      "P->Ot",
+      "P->Rt",
+      "P->M",
+      "Os->M",
+      "Ot->M",
+      "Rt->M",
+      "C->M",
+      "Es->M",
+      "M->Es",
+      "M->Y",
+      "Ot->Y",
+      "Y->Q",
+      "C->Q"
+    ],
+    "non_source_transformations": [
+      "global_fit",
+      "local_update",
+      "search",
+      "relaxation",
+      "routing",
+      "compilation",
+      "caching",
+      "indexing"
+    ],
+    "boundary_finding": "A transformation or storage location cannot be counted as an independent information source. Any target-useful gain must arise from candidate-visible source data, target-local observations, chronological interaction, externally supplied credit, or a fixed prior; alternatively it is a computational-efficiency gain at matched information and quality."
+  },
+  "primary_claimed_gain_channel_partition": {
+    "target_local_observation_fit_or_update": [
+      "HYP-0001", "HYP-0002", "HYP-0003", "HYP-0004", "HYP-0005", "HYP-0006", "HYP-0007", "HYP-0008", "HYP-0009", "HYP-0010", "HYP-0011", "HYP-0013", "HYP-0016", "HYP-0017", "HYP-0031", "HYP-0032", "HYP-0033", "HYP-0034", "HYP-0035", "HYP-0036", "HYP-0037", "HYP-0038", "HYP-0039", "HYP-0040", "HYP-0041", "HYP-0044", "HYP-0045", "HYP-0046", "HYP-0050", "HYP-0052", "HYP-0053", "HYP-0054", "HYP-0057", "HYP-0058"
+    ],
+    "transferred_source_state_rule_or_meta_fit": [
+      "HYP-0014", "HYP-0015", "HYP-0018", "HYP-0019", "HYP-0020", "HYP-0021", "HYP-0022", "HYP-0023", "HYP-0024", "HYP-0025", "HYP-0026", "HYP-0027", "HYP-0028", "HYP-0029", "HYP-0042", "HYP-0043", "HYP-0049", "HYP-0055", "HYP-0059"
+    ],
+    "supplied_verification_constraint_or_search_credit": [
+      "HYP-0030", "HYP-0047", "HYP-0048", "HYP-0051", "HYP-0056"
+    ]
+  },
+  "partition_counts": {
+    "target_local_observation_fit_or_update": 34,
+    "transferred_source_state_rule_or_meta_fit": 19,
+    "supplied_verification_constraint_or_search_credit": 5,
+    "total": 58,
+    "duplicates": 0,
+    "missing": 0
+  },
+  "observed_fate_by_channel": {
+    "target_local_observation_fit_or_update": "Local, bounded, sparse, depth or warm-cost signatures sometimes survived, but every candidate with useful quality was explained or dominated by a classical sufficient statistic, exact algorithm, fixed architecture or source-identical disabled control; none supplied a replicated cross-family learned-factor gain at full cost.",
+    "transferred_source_state_rule_or_meta_fit": "All 14 cross-family-capable hypotheses re-audited in cycle 256 failed L1. No transferred state, rule or meta-fit has a causal gain in two qualitatively different families after matched controls and full cost.",
+    "supplied_verification_constraint_or_search_credit": "Correctness or feasibility came from the complete solver, verifier, fitness or constraint semantics. Learned proposals, bounds or orderings did not amortize over frozen exact or classical search at the declared horizons."
+  },
+  "post_portfolio_channel_extensions": {
+    "cycles_248_249_procedure_transfer": "Requires a common authored predict-reveal-update interface; only two natural local cohorts expose it, and a generic update reduces to classical adaptive estimation.",
+    "cycle_250_interface_free_operations": "Without alignment the operation is unidentifiable; with action, identity or interaction alignment the useful bits enter through the supplied symmetry breaker.",
+    "cycle_251_environmental_computation": "External writes are memory or preprocessing; passive physical dynamics are fixed substrate priors, not observation-learned cross-family rules.",
+    "cycle_252_constraint_restoration": "Removing scalar credit does not remove preference-bearing violation semantics; restoration becomes projection, energy learning or selection.",
+    "cycles_254_257_empirical_anomalies": "Developmental, learned-rule and embodied examples retain authored interfaces, labels, reward, aligned sensor-effector structure or classical gradient/Hebbian explanations.",
+    "cycles_258_259_physical_learning": "Physical gains use substrate-specific dynamics and implementations; cross-substrate source identity and measured full-cost crossover are absent.",
+    "cycle_260_biological_computation": "Quantitative cross-system adaptation is hardwired feedback, while learning-like behavior lacks an identified common causal update and cost boundary."
+  },
+  "admissible_channel_audit": {
+    "target_local_observation_or_reveal": "tested_no_cross_family_full_cost_survivor",
+    "transferred_source_observation_state_or_rule": "tested_no_l1_survivor",
+    "natural_online_interaction": "partially_present_but_no_three_family_source_identical_interface_and_classical_controls_dominate",
+    "external_label_reward_verifier_or_constraint": "observable_but_disallowed_as_the_claimed_ontology_free_source",
+    "manual_ontology_or_semantic_adapter": "disallowed",
+    "external_memory_or_environment_write": "causal_duplicate_of_state_preprocessing_or_communication",
+    "fixed_hardware_or_material_dynamics": "not_observation_learned_or_source_identical_across_substrates",
+    "evolved_biological_prior": "hardwired_or_mechanistically_unidentified",
+    "global_fit_search_compilation_or_routing": "not_an_information_channel"
+  },
+  "untested_admissible_information_channels": [],
+  "conditional_scope": "This is an exhaustion result for the current evidence, executable local apparatus and fixed conjunction. It is not a proof that an unknown algorithm or natural system cannot violate the classification.",
+  "decision": "CONDITIONAL_INFORMATION_BOUNDARY_EXHAUSTED_NO_UNTESTED_ADMISSIBLE_CHANNEL",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "user_authorized_no_scoring_override": true,
+  "next_cycle": "Event-triggered anomaly monitoring only: admit a new causal thesis after a primary empirical result or new local observation identifies an information-bearing edge absent from this DAG, or shows a source-identical rule extracting an existing edge with causal gain in at least two unrelated families, a factor-off control, matched classical alternatives and a conservative full-cost crossover. Otherwise record no trigger and do not create apparatus."
+}
