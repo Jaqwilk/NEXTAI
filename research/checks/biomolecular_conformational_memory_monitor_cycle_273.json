@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "cycle": 273,
+  "mode": "event_triggered_biomolecular_conformational_memory_monitor",
+  "status": "completed",
+  "frozen_at": "2026-09-02T04:49:58Z",
+  "source_cutoff": "SRC-0345",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_checks": [
+    "research/checks/conserved_biological_computation_trigger_cycle_260.json",
+    "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+    "research/checks/epigenetic_chromatin_memory_monitor_cycle_271.json",
+    "research/checks/mechanical_material_memory_monitor_cycle_272.json"
+  ],
+  "non_duplicate_boundary": "Unlike cycle 271 chromatin memory, this monitor requires a protein conformational, prion-like or condensate state to be the factor-specifically manipulated carrier. Unlike cycle 260 behavioral habituation, it requires a molecular write/read intervention and unrelated-function transfer rather than phenotype analogy.",
+  "question": "Does a primary factor-specific experiment show that transient unlabeled exposure writes a local protein conformational, prion-like or condensate state rule that persists through turnover or division and causally improves response across at least two unrelated stress or function families, beyond genetics, expression, metabolites, selection, persistent stimulus and generic stress gain at full cost?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0001_through_SRC_0345",
+    "exposure_induced_protein_conformation_assembly_or_condensate_state_is_measured_and_factor_specifically_perturbed",
+    "same_conversion_maintenance_and_read_rule_constants_across_at_least_two_unrelated_stress_or_function_families",
+    "experience_in_one_family_improves_an_unseen_unrelated_family_or_function_not_only_repeat_stimulus_or_related_variant_response",
+    "matched_genotype_expression_protein_abundance_metabolite_growth_survival_population_composition_and_persistent_stimulus_controls",
+    "state_specific_cure_erase_blocked_conversion_or_seed_removal_preserves_nonconformational_exposure_effects",
+    "strong_controls_include_fixed_expression_generic_stress_response_chromatin_memory_population_selection_and_classical_persistent_state",
+    "state_and_capability_persist_through_protein_turnover_or_at_least_one_cell_division_and_are_measured_at_three_population_or_time_scales",
+    "local_incremental_conversion_without_global_resynthesis_exhaustive_selection_or_task_specific_ontology",
+    "full_cost_includes_stimulus_sensing_synthesis_conversion_chaperones_maintenance_partitioning_read_response_growth_cure_reset_and_reuse_horizon",
+    "result_adds_information_beyond_a_fixed_bistable_switch_associative_aggregate_or_bet_hedging_under_cycle_261_boundaries"
+  ],
+  "automatic_rejections": [
+    "review_theory_correlation_proteomics_or_condensate_imaging_without_factor_specific_causal_intervention",
+    "same_stressor_nutrient_pathogen_or_related_variant_only",
+    "prion_or_condensate_state_is_inherited_but_not_written_by_within_lifetime_experience",
+    "fitness_gain_is_population_selection_of_preexisting_state_or_genetic_variant",
+    "persistent_protein_abundance_transcription_metabolite_or_stimulus_explains_memory_without_conformational_conversion",
+    "state_is_a_fixed_evolved_sensor_switch_with_no_observation_learned_rule",
+    "experimenter_supplied_promoter_pathway_or_stress_marker_encodes_the_function",
+    "single_scale_no_full_cost_or_no_source_identical_cross_family_transfer"
+  ],
+  "candidate_audits": [
+    {
+      "source_ids": ["SRC-0346"],
+      "mechanism": "Whi3_mnemon_after_deceptive_courtship",
+      "strongest_observation": "Prolonged pheromone exposure writes a Whi3 super-assembly that persists in the mother cell and causally releases cell-cycle arrest.",
+      "factor_specificity": "strong_polyQ_polyN_and_Hsp70_dependent_carrier_evidence",
+      "rejection": "one_authored_pheromone_response_only_asymmetric_mother_retention_no_unrelated_family_transfer_three_scale_or_full_cost_test"
+    },
+    {
+      "source_ids": ["SRC-0347", "SRC-0348"],
+      "mechanism": "stress_modulated_PSI_plus_and_wild_prion_bet_hedging",
+      "strongest_observation": "Stress can raise PSI+ switching by up to 60-fold, while Hsp104-dependent prions in wild yeasts causally expose diverse genotype-dependent phenotypes and trade-offs.",
+      "factor_specificity": "strong_curing_and_nonaggregating_prion_domain_controls",
+      "rejection": "stress_changes_sampling_rate_of_preexisting_bistable_states_and_population_selection_then_reads_cryptic_genetic_variation_not_experience_specific_cross_family_learning"
+    },
+    {
+      "source_ids": ["SRC-0349"],
+      "mechanism": "transient_overexpression_induced_protein_based_inheritance",
+      "strongest_observation": "Transient overexpression of about 50 yeast proteins creates stable traits that can be transferred to naive cells with protein alone.",
+      "factor_specificity": "strong_protein_only_transmission_but_authored_overexpression_write",
+      "rejection": "experimenter_selected_ORF_overexpression_generates_fixed_heritable_states_without_unlabeled_experience_transfer_matched_abundance_or_full_cost"
+    },
+    {
+      "source_ids": ["SRC-0350"],
+      "mechanism": "Pub1_stress_condensate_material_state",
+      "strongest_observation": "Starvation and heat induce different Pub1 condensate material states with different recovery kinetics.",
+      "factor_specificity": "measured_condensation_and_chaperone_dependent_disaggregation",
+      "rejection": "current_stress_adaptation_and_recovery_not_persistent_post_exposure_memory_or_cross_family_learned_rule"
+    },
+    {
+      "source_ids": ["SRC-0351"],
+      "mechanism": "Ctt1_abundance_based_acquired_stress_resistance",
+      "strongest_observation": "Salt pretreatment creates daughter-inherited hydrogen-peroxide resistance through long-lived catalase Ctt1.",
+      "factor_specificity": "causal_long_lived_protein_abundance_control",
+      "rejection": "explicit_persistent_protein_abundance_not_conformational_conversion_and_one_generic_cross_stress_gain"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_BIOMOLECULAR_CONFORMATIONAL_MEMORY_ROUTE_AS_STIMULUS_SPECIFIC_MNEMON_STRESS_MODULATED_BET_HEDGING_OR_PERSISTENT_ABUNDANCE",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "completed_at": "2026-09-02T04:52:01Z",
+  "next_discriminator": "Audit CRISPR spacer acquisition and primed adaptation only for a primary experiment where one source-identical observation-written molecular update improves defense against an unseen unrelated mobile-element family beyond exact sequence matching, population selection and authored target identity, with acquisition-off and interference-off controls, three repertoire or challenge scales and full acquisition, maintenance, search, interference, autoimmunity, reset and reuse cost."
+}
