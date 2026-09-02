@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "cycle": 272,
+  "mode": "event_triggered_mechanical_material_memory_monitor",
+  "status": "complete",
+  "frozen_at": "2026-09-02T04:42:41Z",
+  "source_cutoff": "SRC-0340",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_checks": [
+    "research/checks/cross_substrate_physical_learning_trigger_cycle_259.json",
+    "research/checks/reversible_thermodynamic_adaptive_computation_monitor_cycle_268.json",
+    "research/checks/nonequilibrium_self_assembly_learning_monitor_cycle_269.json",
+    "research/checks/epigenetic_chromatin_memory_monitor_cycle_271.json"
+  ],
+  "non_duplicate_boundary": "Cycle 259 tested supervised free-versus-clamped physical credit and cross-substrate coupled learning. This monitor instead requires unlabeled load history to alter local material state and create useful transfer to a qualitatively unrelated load or function without a supplied target clamp, external optimizer or global redesign.",
+  "question": "Does a primary physical experiment show that unlabeled mechanical history writes one source-identical local material-state update rule that causally transfers useful response across at least two qualitatively unrelated load or function families, beyond fixed hysteresis, damage, fatigue, plasticity, directed aging, selection and external control at full cost?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0001_through_SRC_0340",
+    "physical_material_or_active_matter_system_updates_internal_state_from_unlabeled_experience_without_target_clamps_or_external_optimizer",
+    "factor_specific_intervention_on_the_local_write_maintenance_or_read_rule",
+    "same_material_update_rule_constants_and_initialization_across_at_least_two_unrelated_load_or_function_families",
+    "training_on_one_family_improves_an_unseen_unrelated_family_or_function_not_only_recall_of_amplitude_direction_frequency_or_path",
+    "matched_frozen_update_hysteresis_fatigue_damage_plastic_creep_extra_material_and_external_controller_controls",
+    "useful_response_at_matched_quality_against_strong_classical_frozen_or_reconfigurable_material_controls",
+    "three_physical_scales_with_local_update_and_a_distinct_transfer_or_experience_curve_signature",
+    "full_cost_includes_fabrication_material_training_cycles_sensing_actuation_dissipation_state_readout_reset_degradation_and_reuse_horizon",
+    "result_adds_information_beyond_gradient_equivalent_coupled_learning_fixed_energy_landscape_or_threshold_memory_under_cycles_259_268_and_269"
+  ],
+  "automatic_rejections": [
+    "theory_simulation_review_or_digitally_designed_geometry_without_physical_material_learning",
+    "memory_is_only_return_point_hysteresis_training_amplitude_direction_frequency_or_path_recall",
+    "training_is_supervised_by_target_clamps_manual_adjustment_or_external_digital_optimization",
+    "apparent_learning_is_damage_fatigue_plastic_deformation_creep_or_survival_selection_without_factor_specific_separation",
+    "one_load_family_one_function_or_two_instances_of_the_same_material_task",
+    "learned_state_is_a_fixed_reservoir_or_task_specific_geometry_with_only_external_readout_training",
+    "no_frozen_update_or_strong_classical_material_control",
+    "single_scale_projected_cost_or_omitted_fabrication_training_sensing_reset_and_degradation"
+  ],
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0341",
+      "study": "multiple transient memories in cyclically sheared suspension",
+      "strongest_observation": "A physical non-Brownian suspension stores several training amplitudes, and added noise can stabilize otherwise transient memories.",
+      "admission_failures": [
+        "memory_is_training_amplitude_threshold_recall_within_one_shear_family",
+        "no_unrelated_function_transfer_or_useful_OOD_task",
+        "no_factor_specific_write_rule_intervention_or_strong_classical_control",
+        "no_three_scale_or_full_cost_measurement"
+      ],
+      "verdict": "reject_as_random_organization_and_amplitude_memory"
+    },
+    {
+      "source_id": "SRC-0342",
+      "study": "memristive neuromorphic metasheet",
+      "strongest_observation": "A 2-by-2 physical dome-memristor array accumulates pairwise loading events as Hopfield weights and reports 90 to 95 percent offline retrieval of corrupted versions of stored patterns.",
+      "admission_failures": [
+        "the_rule_is_the_known_Hebbian_Hopfield_outer_product_not_a_new_causal_thesis",
+        "patterns_are_manually_imposed_and_retrieval_energy_minimization_is_offline",
+        "test_patterns_are_corruptions_of_stored_patterns_not_unrelated_family_transfer",
+        "no_three_scale_or_full_fabrication_write_read_reset_cost_comparison"
+      ],
+      "verdict": "reject_as_physical_classical_associative_memory"
+    },
+    {
+      "source_id": "SRC-0343",
+      "study": "non-Abelian history memory in a periodic mechanical metamaterial",
+      "strongest_observation": "A frustrated periodic metamaterial maps the order of externally applied manipulations into distinguishable final states from which the operation sequence can be inferred.",
+      "admission_failures": [
+        "geometry_and_transition_landscape_are_designed_and_fixed_before_use",
+        "history_is_logged_but_no_response_quality_improves_from_experience",
+        "no_transfer_from_one_load_family_to_an_unseen_function",
+        "no_learned_rule_ablation_three_scale_or_full_cost_crossover"
+      ],
+      "verdict": "reject_as_fixed_noncommutative_state_machine"
+    },
+    {
+      "source_id": "SRC-0344",
+      "study": "trainable and thermally resettable liquid-crystal-elastomer arrays",
+      "strongest_observation": "The same LCE array can be directed-aged into an auxetic bulk response, thermally reset, then separately retrained for local allostery; material-specific and thermal erase controls support a persistent physical state.",
+      "admission_failures": [
+        "auxetic_and_allosteric_functions_are_sequentially_erased_and_retrained_not_transferred",
+        "training_directly_clamps_the_desired_bulk_or_source_target_deformation_for_24_to_48_hours",
+        "the_mechanism_is_directed_aging_and_liquid_crystal_alignment_under_a_supplied_target",
+        "no_unseen_function_generalization_three_scale_or_full_cost_comparison"
+      ],
+      "verdict": "reject_as_target_imprinted_directed_aging_despite_pluripotency"
+    },
+    {
+      "source_id": "SRC-0345",
+      "study": "autonomous stiffness adaptation of a reprogrammable metamaterial",
+      "strongest_observation": "A 16-element physical beam uses local strain sensing and discrete stiffness actuation to adapt in seconds to three previously unknown external loads and remains robust to imperfections and tested damage.",
+      "admission_failures": [
+        "desired_global_deformation_is_preencoded_as_local_strain_targets",
+        "an_Arduino_executes_the_model_free_selection_and_actuation_algorithm",
+        "all_physical_tests_optimize_one_target_tip_displacement_function",
+        "hyperparameters_are_Pareto_selected_and_no_unlabeled_cross_function_transfer_or_full_cost_crossover_is_shown"
+      ],
+      "verdict": "reject_as_supplied_target_feedback_control_retain_as_hardware_trigger"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_MECHANICAL_MATERIAL_MEMORY_ROUTE_AS_THRESHOLD_RECALL_DIRECTED_AGING_HOPFIELD_STORAGE_OR_TARGET_DRIVEN_RECONFIGURATION",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
