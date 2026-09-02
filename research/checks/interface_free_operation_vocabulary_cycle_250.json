@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "cycle": 250,
+  "mode": "search_no_scoring",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "g1_window_id": "G1-POST-EXP-0059-V1",
+  "g1_qualifying_experiment_count": 3,
+  "neighborhood": "interface_free_operation_vocabulary_acquisition",
+  "causal_cases": {
+    "observation_only_without_symmetry_breaker": "unidentifiable_as_controllable_operation",
+    "relation_marker_policy_diversity_or_alignment_present": "duplicate_of_mixture_inverse_dynamics_behavioral_quotient_or_supervised_alignment"
+  },
+  "mandatory_duplicate_controls": [
+    "dreamcoder_stitch_library_learning",
+    "alphatensor_alphadev_fixed_dsl_and_verifier",
+    "clrs_hand_aligned_algorithm_traces",
+    "predictive_state_cssr_bisimulation",
+    "query_generated_behavioral_quotient",
+    "inverse_dynamics_and_minimum_volume_nmf",
+    "routing_addressing_macros_and_learned_update_rules"
+  ],
+  "primary_sources_added": [
+    "SRC-0261",
+    "SRC-0262",
+    "SRC-0263",
+    "SRC-0264",
+    "SRC-0265",
+    "SRC-0266"
+  ],
+  "admission_gates": {
+    "causal_non_equivalence": "fail",
+    "identifiable_without_hidden_ontology": "fail",
+    "natural_existing_three_family_contract": "fail",
+    "externally_executable_without_alignment": "fail",
+    "prospective_full_cost_crossover": "unsupported"
+  },
+  "decision": "REJECT_INTERFACE_FREE_OPERATION_VOCABULARY_AS_UNIDENTIFIABLE_OR_DUPLICATE",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "user_authorized_no_scoring_override": true,
+  "next_cycle": "Broaden SEARCH MODE to closed-loop environmental computation; require a natural checkable transformation, source identity, deduplication against active sensing/external memory/indexing/tool use and prospective full-cost crossover before any apparatus or score."
+}
