@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "cycle": 271,
+  "mode": "event_triggered_epigenetic_chromatin_memory_monitor",
+  "status": "complete",
+  "frozen_at": "2026-09-02T04:35:17Z",
+  "source_cutoff": "SRC-0336",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_checks": [
+    "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+    "research/reviews/GEN-1-CONSTRAINT-PRESERVING-ADAPTATION-CYCLE-252-2026-09-02.md",
+    "research/checks/adaptive_immune_repertoire_computation_monitor_cycle_270.json"
+  ],
+  "historical_exclusions": [
+    "HYP-0005_local_plasticity_and_state_repair",
+    "nonstationary_online_update_and_predictive_state_families",
+    "associative_memory_energy_and_fixed_gain_state",
+    "selection_survival_growth_and_population_composition_as_credit",
+    "homeostatic_target_statistics_and_persistent_metabolic_priming",
+    "task_specific_cached_state_or_frozen_feature_map_aliases"
+  ],
+  "question": "Does a primary factor-specific experiment show that unlabeled exposure writes a source-identical local epigenetic or chromatin state rule that causally improves OOD response across unrelated stress or task families and cell divisions, beyond genetics, population selection, persistence, growth, metabolism and fixed priming at full cost?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0001_through_SRC_0336",
+    "exposure_induced_chromatin_or_epigenetic_state_is_measured_and_factor_specifically_perturbed",
+    "same_write_maintenance_and_read_mechanism_constants_across_at_least_two_unrelated_stress_pathogen_or_function_families",
+    "training_on_one_family_improves_unseen_unrelated_family_or_function_not_only_repeat_or_related_variant_response",
+    "matched_genetic_lineage_initial_cell_count_growth_survival_composition_metabolic_state_persistent_stimulus_and_sample_count_controls",
+    "source_identical_erased_blocked_or_shuffled_chromatin_state_control_preserves_non_epigenetic_exposure_effects",
+    "strong_controls_include_fixed_priming_persistent_gain_homeostatic_adaptation_population_selection_and_classical_online_state",
+    "state_and_capability_persist_across_at_least_one_cell_division_and_are_evaluated_at_three_population_or_problem_scales",
+    "local_incremental_write_without_global_reprogramming_exhaustive_selection_or_task_specific_resynthesis",
+    "full_cost_includes_stimulus_acquisition_signalling_metabolism_chromatin_write_maintenance_replication_read_response_growth_death_reset_and_reuse_horizon",
+    "result_adds_information_beyond_survival_selection_more_cells_persistent_metabolites_constitutive_gene_expression_or_supplied_stress_ontology_under_cycle_252_and_cycle_261_boundaries"
+  ],
+  "automatic_rejections": [
+    "review_theory_correlation_or_omics_signature_without_factor_specific_causal_intervention",
+    "same_stressor_pathogen_antigen_gene_or_related_variant_only",
+    "histone_or_methylation_mark_is_correlated_but_not_required_and_sufficient",
+    "gain_disappears_after_matching_cell_count_growth_survival_composition_or_metabolic_state",
+    "persistent_stimulus_protein_metabolite_or_feedback_loop_explains_memory_without_chromatin_write",
+    "selection_of_preexisting_subpopulation_or_genetic_variant_supplies_the_effect",
+    "experimenter_defined_promoter_pathway_or_stress_specific_marker_encodes_the_ontology",
+    "single_scale_no_full_cost_or_no_source_identical_cross_family_transfer"
+  ],
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0337",
+      "study": "Candida and beta-glucan training of monocytes",
+      "strongest_observation": "T-cell- and B-cell-independent protection and persistent heterologous monocyte cytokine responses were linked to dectin-1/Raf-1 signalling and H3K4 trimethylation.",
+      "admission_failures": [
+        "the_primary_in_vivo_endpoint_is_reinfection_with_the_same_pathogen",
+        "heterologous_endpoints_are_broad_cytokine_gain_not_unrelated_functional_task_transfer",
+        "chromatin_state_is_not_isolated_from_metabolic_priming_composition_and_persistent_effector_state",
+        "no_three_scale_or_full_cost_comparison"
+      ],
+      "verdict": "reject_for_scoring_retain_as_trained_immunity_trigger"
+    },
+    {
+      "source_id": "SRC-0338",
+      "study": "BCG-induced NOD2-dependent trained immunity in humans",
+      "strongest_observation": "BCG increased responses to unrelated bacterial and fungal pathogens for at least three months, with NOD2 dependence and increased H3K4me3 at inflammatory promoters.",
+      "admission_failures": [
+        "readout_is_nonspecific_inflammatory_gain_rather_than_a_portable_learned_representation",
+        "epigenetic_marks_are_not_jointly_isolated_from_cell_turnover_metabolism_and_population_state",
+        "no_source_identical_erased_or_shuffled_state_control_preserving_other_exposure_effects",
+        "no_three_scale_or_full_end_to_end_cost_comparison"
+      ],
+      "verdict": "reject_for_scoring_retain_as_heterologous_human_trigger"
+    },
+    {
+      "source_id": "SRC-0339",
+      "study": "C/EBPbeta-dependent HSC epigenetic memory",
+      "strongest_observation": "Acute LPS exposure left persistent myeloid-enhancer accessibility in HSCs, and C/EBPbeta deletion erased the long-term marks and expression response while protection against Pseudomonas aeruginosa improved.",
+      "admission_failures": [
+        "LPS_training_and_gram_negative_Pseudomonas_challenge_do_not_establish_unrelated_family_transfer",
+        "C_EBPbeta_deletion_is_not_a_state_specific_erase_control_preserving_all_non_epigenetic_exposure_effects",
+        "no_matched_classical_state_or_full_cost_baselines",
+        "no_three_scale_test"
+      ],
+      "verdict": "reject_for_scoring_retain_as_factor_specific_chromatin_causality_trigger"
+    },
+    {
+      "source_id": "SRC-0340",
+      "study": "reciprocal influenza and Mycobacterium avium HSPC cross-protection",
+      "strongest_observation": "Transplanted HSPCs trained by influenza improved M. avium immunity and M. avium-trained HSPCs improved influenza outcomes, with effects persisting through progeny and long rest intervals.",
+      "admission_failures": [
+        "no_factor_specific_chromatin_writer_reader_or_state_erasure_intervention",
+        "rare_population_expansion_lineage_bias_and_enhanced_metabolism_remain_live_explanations",
+        "reported_effect_is_generic_innate_activation_not_operator_discovery",
+        "no_three_scale_or_full_cost_comparison"
+      ],
+      "verdict": "reject_for_scoring_retain_as_cross_pathogen_transfer_trigger"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "KEEP_EPIGENETIC_TRAINED_IMMUNITY_EVENT_TRIGGERED_BUT_REJECT_SOFTWARE_SCORING_WITHOUT_JOINT_CAUSAL_ISOLATION",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
