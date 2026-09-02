@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "cycle": 260,
+  "mode": "prospective_primary_source_conserved_biological_computation_trigger",
+  "status": "complete",
+  "screen_frozen_at": "2026-09-02T03:14:44Z",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "causal_claim_required": "One quantitatively specified observation-driven local state-update law, with the same normalized variables, equations, constants and update order, is independently instantiated during organism lifetime in at least two unrelated natural sensing or adaptation systems, causally improves adaptation to unseen conditions, and has a measured energy-state-time advantage over classical fixed or globally fitted alternatives.",
+  "admission_gates_in_order": [
+    "primary_empirical_intervention_source_for_each_natural_system",
+    "at_least_two_unrelated_systems_not_homologous_variants_of_one_pathway",
+    "same_normalized_state_variables_update_equations_constants_and_order",
+    "within_lifetime_observation_driven_update_not_population_selection_or_developmental_hardcoding",
+    "factor_specific_loss_and_rescue_or_orthogonal_perturbation_in_each_system",
+    "heldout_or_novel_environment_adaptation_gain_over_no_update_and_strong_classical_models",
+    "no_supplied_task_ontology_reward_label_or_researcher_selected_behavior_carries_the_effect",
+    "qualitative_signature_not_explained_by_integral_feedback_bayesian_filtering_hebbian_plasticity_or_selection",
+    "measured_sensing_update_memory_energy_state_time_and_reuse_cost_with_a_plausible_crossover"
+  ],
+  "automatic_rejections": [
+    "review_theory_or_model_fit_without_intervention",
+    "same_gene_receptor_or_homologous_pathway_across_species",
+    "shared_verbal_principle_but_different_state_variables_constants_or_update_order",
+    "evolution_population_selection_or_developmental_program_presented_as_online_learning",
+    "ordinary_integral_feedback_fold_change_detection_receptor_saturation_or_homeostasis",
+    "ordinary_bayesian_kalman_evidence_accumulation_or_predictive_coding_without_a_distinct_factor",
+    "ordinary_hebbian_stdp_reinforcement_or_reward_modulation",
+    "behavioral_adaptation_without_factor_specific_perturbation_and_rescue",
+    "task_or_environment_semantics_supplied_by_the_experimenter",
+    "energy_efficiency_or_scaling_claim_without_measured_complete_boundary"
+  ],
+  "result_reading_policy": "Audit molecular or cellular mechanism identity and intervention before behavioral fit. Admit at most one causal thesis; otherwise reject the biological universality route without constructing a benchmark or candidate.",
+  "candidate_audits": [
+    {
+      "candidate": "fold_change_detection_across_bacterial_chemotaxis_and_wnt_signaling",
+      "sources": ["SRC-0294", "SRC-0295", "SRC-0296"],
+      "gate_vector": [true, true, false, false, false, false, false, false, false],
+      "outcome": "reject_hardwired_control_and_distinct_molecular_realizations"
+    },
+    {
+      "candidate": "habituation_across_physarum_and_mimosa",
+      "sources": ["SRC-0297", "SRC-0298"],
+      "gate_vector": [true, true, false, true, false, false, false, false, false],
+      "outcome": "reject_behavioral_analogy_without_common_causal_update_law"
+    },
+    {
+      "candidate": "physarum_habituation_transfer_and_periodic_anticipation",
+      "sources": ["SRC-0297", "SRC-0299", "SRC-0300"],
+      "gate_vector": [true, false, false, true, false, false, false, false, false],
+      "outcome": "reject_single_system_behavior_without_identified_factor_or_full_cost"
+    }
+  ],
+  "decision": "CLOSE_DIRECT_BIOMIMETIC_UNIVERSALITY_ROUTE_NO_SOURCE_IDENTICAL_WITHIN_LIFETIME_RULE",
+  "completed_at": "2026-09-02T03:16:52Z",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
