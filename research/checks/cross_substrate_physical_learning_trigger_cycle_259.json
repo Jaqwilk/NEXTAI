@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "cycle": 259,
+  "mode": "prospective_primary_source_cross_substrate_physical_learning_trigger",
+  "status": "complete",
+  "screen_frozen_at": "2026-09-02T03:08:00Z",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "causal_claim_required": "One source-identical local learning-by-physical-relaxation rule and constants, executed by at least two unrelated physical substrates, reaches matched useful quality with a measured end-to-end energy-time-state crossover that cannot be attributed to an external digital optimizer, fixed reservoir or classical frozen solver.",
+  "admission_gates_in_order": [
+    "primary_empirical_source_with_physical_learning_hardware",
+    "at_least_two_unrelated_physical_substrates_not_two_layouts_of_one_device_class",
+    "identical_executable_local_update_rule_constants_initialization_and_update_order",
+    "no_external_digital_gradient_optimizer_global_solver_or_hidden_model_performs_learning",
+    "factor_off_or_locality_destroying_ablation_on_each_substrate",
+    "matched_digital_and_strong_classical_physical_controls_on_each_task",
+    "matched_useful_quality_on_nontrivial_tasks_not_only_curve_fit_or_logic_gate_demo",
+    "qualitative_signature_of_local_physical_relaxation_or_size_independent_parallel_update",
+    "measured_full_fabrication_calibration_clamping_relaxation_readout_update_state_energy_time_and_reuse_crossover"
+  ],
+  "automatic_rejections": [
+    "simulation_or_theory_without_physical_training_measurement",
+    "one_substrate_or_two_material_instances_with_the_same_physics",
+    "same_equation_name_but_device_specific_rule_gain_timing_or_calibration",
+    "weights_computed_digitally_then_programmed_into_hardware",
+    "fixed_physical_reservoir_with_only_a_digitally_trained_readout",
+    "equilibrium_or_contrastive_gradient_equivalence_without_a_measured_full_cost_crossover",
+    "no_factor_off_ablation_or_no_matched_strong_control",
+    "task_specific_wiring_or_manual_ontology_carries_the_solution",
+    "energy_or_latency_excludes_clamping_relaxation_readout_programming_calibration_or_state",
+    "projected_advantage_only_with_no_measured_end_to_end_system"
+  ],
+  "result_reading_policy": "Audit physical training path, substrate identity, constants, ablations and complete measurement boundary before accepting accuracy or energy claims. Admit at most one causal thesis; otherwise close the hardware-only A13 residual without apparatus.",
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0291",
+      "candidate": "coupled_learning_flow_and_elastic_models",
+      "gate_results": ["N", "P", "N", "P", "P", "Y", "P", "P", "N"],
+      "rejection": "computational_models_not_physical_training_substrate_specific_conductance_and_rest_length_rules_no_measured_hardware_cost",
+      "diagnostic_value": "establishes_the_gradient_equivalent_abstract_family_and_directed_aging_control"
+    },
+    {
+      "source_id": "SRC-0292",
+      "candidate": "twin_variable_resistor_learning_machine",
+      "gate_results": ["Y", "N", "N", "Y", "N", "P", "P", "Y", "N"],
+      "rejection": "one_electrical_substrate_discrete_sign_rule_no_factor_off_control_and_500_edge_crossover_is_projected_while_10_to_25_mw_excludes_training_system_boundary",
+      "diagnostic_value": "autonomous_spatially_local_physical_updates_and_damage_recovery_on_real_hardware"
+    },
+    {
+      "source_id": "SRC-0293",
+      "candidate": "spring_turnbuckle_coupled_learning",
+      "gate_results": ["Y", "N", "N", "N", "N", "P", "N", "N", "N"],
+      "rejection": "manual_measurement_clamping_and_turnbuckle_updates_different_continuous_rule_and_task_specific_learning_rates_proof_of_concept_tasks_no_full_cost",
+      "diagnostic_value": "physical_elastic_response_exposes_buckling_and_human_operator_failure_modes"
+    },
+    {
+      "combined_sources": ["SRC-0292", "SRC-0293"],
+      "candidate": "cross_substrate_coupled_learning_claim",
+      "gate_results": ["Y", "Y", "N", "N", "N", "N", "N", "N", "N"],
+      "rejection": "shared_contrastive_slogan_but_electrical_twin_boolean_resistance_updates_and_mechanical_sequential_manual_rest_length_updates_are_not_source_identical_and_neither_publication_measures_common_full_cost"
+    }
+  ],
+  "gate_survivors": [],
+  "strongest_single_substrate_result": "SRC-0292_twin_variable_resistor_learning_machine",
+  "decision": "CLOSE_HARDWARE_ONLY_A13_RESIDUAL_NO_SOURCE_IDENTICAL_CROSS_SUBSTRATE_FULL_COST_EVIDENCE",
+  "completed_at": "2026-09-02T03:09:48Z",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_cycle": "Perform a no-scoring strategic redirection synthesis outside local digital architecture and engineered learning hardware. Search conserved biological computation for a quantitatively specified observation-driven update law independently instantiated across at least two unrelated natural sensing or adaptation systems, then deduplicate integral control, Bayesian filtering, Hebbian plasticity and supplied reward before considering any experiment."
+}
