@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "cycle": 255,
+  "mode": "prospective_primary_source_anomaly_audit",
+  "screen_frozen_at": "2026-09-02T02:34:56Z",
+  "claim_required": "One unchanged executable observation-learning mechanism operates across at least three qualitatively unrelated natural interfaces.",
+  "methods_admission_before_result_reading": {
+    "primary_empirical_source": true,
+    "ordinary_natural_interfaces_count_min": 3,
+    "same_executable_code_and_constants_required": true,
+    "implementation_and_constants_exposed_enough_to_audit": true,
+    "no_family_adapter_or_manual_ontology": true,
+    "learned_factor_only_ablation_required": true,
+    "classical_and_frozen_controls_required": true,
+    "full_acquisition_fit_update_state_communication_and_reuse_cost_required": true
+  },
+  "automatic_rejections": [
+    "review_or_perspective_without_primary_experiment",
+    "same_model_name_but_modality_specific_frontends_or_hyperparameters",
+    "three_datasets_from_one_authored_interface",
+    "simulation_only_claim_presented_as_natural_interface",
+    "domain_labels_axioms_action_semantics_or_privileged_support",
+    "accuracy_or_task_energy_without_full_system_cost",
+    "headline_or_abstract_claim_not_auditable_from_methods"
+  ],
+  "candidate": {
+    "source_id": "SRC-0285",
+    "title": "DayDreamer: World Models for Physical Robot Learning",
+    "headline_trigger": "same Dreamer hyperparameters on four physical robots spanning locomotion, manipulation and navigation",
+    "methods_audited_before_accepting_result": true
+  },
+  "gate_order": [
+    "ordinary_natural_interface",
+    "source_identical_three_systems",
+    "no_ontology_or_privileged_support",
+    "learned_factor_only_ablation",
+    "classical_or_frozen_exclusion",
+    "qualitative_signature",
+    "matched_quality_full_cost_crossover"
+  ],
+  "gate_results": ["N", "N", "N", "N", "N", "P", "N"],
+  "rejection_reasons": [
+    "task-specific environment configs and adapters",
+    "continuous versus discrete action gradient branches",
+    "manual task rewards, coordinate actions, safety restrictions and navigation reward oracle",
+    "no all-robot world-model-disabled or frozen learned-factor ablation",
+    "different task-specific model-free baselines",
+    "no common full acquisition-to-reuse cost envelope"
+  ],
+  "new_contract_anomaly": "rule universality, representation transfer and foreign-source causal gain are distinct claims; recent NEXTAI cohorts heavily test the latter two while the fixed objective and G1 rule may only require the first plus causal gain in multiple families",
+  "decision": "REJECT_DAYDREAMER_TRIGGER_BUT_OPEN_RULE_VS_STATE_TRANSFER_AUDIT",
+  "completed_at": "2026-09-02T02:36:36Z",
+  "experiment_created": false,
+  "plan_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_cycle": "Cross-ledger contract audit separating rule universality, representation transfer and foreign-source causal gain; admit a thesis only if a level-1 rule retained the same non-classical qualitative gain in at least two families at plausible full cost."
+}
