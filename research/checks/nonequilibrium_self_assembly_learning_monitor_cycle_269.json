@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "cycle": 269,
+  "mode": "event_triggered_nonequilibrium_self_assembly_learning_monitor",
+  "status": "completed",
+  "frozen_at": "2026-09-02T04:19:45Z",
+  "source_cutoff": "SRC-0328",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_check": "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+  "historical_exclusions": [
+    "SRC-0270_chemical_reservoir_with_task_specific_linear_readout",
+    "HYP-0001_associative_energy_memory",
+    "HYP-0005_local_plasticity",
+    "HYP-0006_neural_cellular_automata",
+    "HYP-0019_energy_based_factor_graph",
+    "fixed_Hopfield_Boltzmann_kernel_reservoir_nucleation_template_and_manual_pair_interaction_aliases"
+  ],
+  "question": "Does a primary physical self-assembly experiment show that unlabeled exposure autonomously changes one source-identical local interaction-update rule, enabling OOD recognition or construction across unrelated pattern families beyond fixed pair interactions, concentration templates and classical associative controls at full cost?",
+  "admission_requires": [
+    "new_primary_empirical_physical_source_not_SRC_0001_through_SRC_0328",
+    "interaction_or_update_rule_changes_from_observed_exposures_without_manual labels rewards target structures or task identities",
+    "same_executable_local_update chemistry constants and ordering across at_least_two_unrelated_pattern_or_function_families",
+    "post_exposure_transfer_to_unseen_compositions_scales_or_corruptions_without redesigning species interactions or readout",
+    "factor_specific_control freezes shuffles or blocks learned interaction change while matching species material concentration trials and measurement",
+    "strong_controls_include_fixed_associative_energy_landscape_nearest_template_concentration_classifier_Hopfield_Boltzmann_and_task_specific_readout",
+    "at_least_three_problem_scales_with_quality_and assembly_or_recognition_cost_signature",
+    "local incorporation_or_update_without global resynthesis retraining or exhaustive search",
+    "full_cost_includes molecular synthesis preparation exposure fuel material mixing incubation sensing separation reset waste and reuse horizon",
+    "result_adds_information_beyond supplied interactions templates labels selection or additional samples under_cycle_261_boundary"
+  ],
+  "automatic_rejections": [
+    "theory_simulation_or_computational_model_without_physical learning experiment",
+    "desired patterns are directly encoded in pairwise affinities species identities templates seeds or concentrations",
+    "assembly performs inference but interaction parameters never learn from exposure",
+    "only a classical digital readout is trained on fixed chemical trajectories",
+    "single pattern task substrate or scale",
+    "manual molecular species or target ontology carries correspondence",
+    "selection replication survival or repeated trials provide the gain without within_system_learning_rule",
+    "synthesis sensing separation reset fuel or waste cost is omitted",
+    "no_source_identical_cross_family_rule_or_no_OOD_transfer"
+  ],
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0329",
+      "mechanism": "DNA-tile competitive nucleation classifier",
+      "physical_experiment": true,
+      "interaction_learning_from_exposure": false,
+      "source_identical_cross_family_transfer": false,
+      "factor_specific_control": false,
+      "full_cost_reported": false,
+      "outcome": "reject_fixed_interactions_and_in_silico_pixel_to_tile_mapping"
+    },
+    {
+      "source_id": "SRC-0330",
+      "mechanism": "detailed-balanced chemical reaction network ensemble",
+      "physical_experiment": false,
+      "interaction_learning_from_exposure": "theoretical_construction_only",
+      "source_identical_cross_family_transfer": false,
+      "factor_specific_control": false,
+      "full_cost_reported": "thermodynamic_analysis_not_end_to_end_hardware",
+      "outcome": "reject_theory_and_simulation_without_physical_learning_experiment"
+    },
+    {
+      "source_id": "SRC-0331",
+      "mechanism": "multifarious assembly mixture",
+      "physical_experiment": false,
+      "interaction_learning_from_exposure": false,
+      "source_identical_cross_family_transfer": false,
+      "factor_specific_control": false,
+      "full_cost_reported": false,
+      "outcome": "reject_designed_pair_interactions_and_seeded_associative_retrieval"
+    },
+    {
+      "source_id": "SRC-0332",
+      "mechanism": "evolutionary reinforcement-learning controller for simulated self-assembly",
+      "physical_experiment": false,
+      "interaction_learning_from_exposure": false,
+      "source_identical_cross_family_transfer": false,
+      "factor_specific_control": false,
+      "full_cost_reported": false,
+      "outcome": "reject_external_rewarded_digital_controller_and_simulation"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_NONEQUILIBRIUM_SELF_ASSEMBLY_LEARNING_ROUTE_AS_IN_SILICO_MAPPING_FIXED_INTERACTIONS_OR_EXTERNAL_CONTROL",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false
+}
