@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "cycle": 266,
+  "mode": "event_triggered_collective_information_emergence_monitor",
+  "status": "complete",
+  "frozen_at": "2026-09-02T03:58:15Z",
+  "source_cutoff": "SRC-0316",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_boundary_check": "research/checks/causal_information_boundary_synthesis_cycle_261.json",
+  "historical_exclusions": [
+    "SRC-0232",
+    "SRC-0267",
+    "SRC-0268",
+    "research/reviews/GEN-1-CLOSED-LOOP-ENVIRONMENTAL-COMPUTATION-CYCLE-251-2026-09-02.md"
+  ],
+  "question": "Does a primary empirical collective system learn during its lifetime one reusable local interaction rule whose group-level causal gain cannot be reproduced by pooling individual observations, fixed communication or quorum protocols, selection, environmental memory or a centralized classical estimator?",
+  "admission_requires": [
+    "new_primary_empirical_source_not_SRC_0232_SRC_0267_SRC_0268_or_SRC_0301_through_SRC_0316",
+    "interaction_rule_learned_during_system_lifetime_from_ordinary_local_observations",
+    "same_executable_rule_code_constants_and_update_order_in_at_least_two_unrelated_systems_or_tasks",
+    "no_authored_message_semantics_role_identity_reward_global_target_verifier_or_family_adapter",
+    "collective_interaction_makes_a_relation_or_capability_identifiable_that_pooled_individual_observations_do_not",
+    "factor_specific_disable_or_shuffle_of_learned_interaction_against_solo_pooled_centralized_consensus_and_fixed_protocol_controls",
+    "qualitative_scaling_robustness_local_update_or_amortization_signature_beyond_group_size_accuracy",
+    "measured_or_conservatively_bounded_full_sensing_communication_coordination_fit_query_update_state_and_reuse_cost",
+    "result_adds_an_information_edge_or_overturns_a_cycle_261_channel_fate"
+  ],
+  "automatic_rejections": [
+    "evolved_or_programmed_quorum_consensus_averaging_voting_or_recruitment_rule",
+    "explicit_pheromone_message_blackboard_graph_topology_or_role_interface",
+    "centrally_trained_decentralized_execution_under_global_reward_or_labels",
+    "single_swarm_species_platform_task_or_simulation_family",
+    "collective_gain_explained_by_more_samples_redundancy_diversity_or_majority_vote",
+    "environmental_trace_is_the_information_carrier_without_a_learned_rule",
+    "missing_factor_intervention_strong_classical_controls_or_full_cost"
+  ],
+  "candidate_audits": [
+    {
+      "candidate": "adaptive_human_social_foraging",
+      "source": "SRC-0317",
+      "gate_vector": ["pass", "partial", "fail", "fail", "fail", "partial", "partial", "fail", "fail"],
+      "outcome": "reject_no_aggregate_social_gain_no_meta_learning_explicit_reward_and_visible_success_semantics"
+    },
+    {
+      "candidate": "cumulative_pigeon_route_culture",
+      "source": "SRC-0318",
+      "gate_vector": ["pass", "partial", "fail", "fail", "pass", "partial", "pass", "fail", "fail"],
+      "outcome": "reject_unidentified_social_transmission_rule_payoff_pruning_single_species_task_no_full_cost"
+    },
+    {
+      "candidate": "parallel_biological_artificial_fish_social_development",
+      "source": "SRC-0319",
+      "gate_vector": ["pass", "partial", "fail", "fail", "fail", "partial", "pass", "fail", "fail"],
+      "outcome": "reject_behavioral_analogy_not_rule_identity_artificial_RL_curiosity_reward_one_social_family"
+    },
+    {
+      "candidate": "distributed_audio_visual_robot_formation",
+      "source": "SRC-0320",
+      "gate_vector": ["pass", "fail", "fail", "fail", "fail", "partial", "pass", "partial", "fail"],
+      "outcome": "reject_master_TDMA_markers_fixed_consensus_PID_Kalman_predefined_formations_no_learned_rule"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "CLOSE_COLLECTIVE_EMERGENCE_ROUTE_AS_POOLING_COMMUNICATION_SELECTION_OR_FIXED_PROTOCOL",
+  "completed_at": "2026-09-02T03:59:42Z",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_action": "Do not score collective-intelligence, social-learning, cumulative-culture, swarm-consensus, stigmergy or distributed-sensing aliases. Keep event-triggered monitoring only for a primary empirical result that identifies a lifetime-learned source-identical local interaction rule across unrelated systems and causally exceeds pooled observations, fixed protocols, selection, external memory and centralized classical estimation under full cost."
+}
