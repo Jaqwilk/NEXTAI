@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "cycle": 258,
+  "mode": "prospective_primary_source_real_hardware_extrinsic_plasticity_trigger",
+  "status": "complete",
+  "screen_frozen_at": "2026-09-02T03:00:40Z",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "causal_claim_required": "One frozen observation-driven local extrinsic-plasticity rule and constants, without a supplied sensor-to-motor inverse model, produces quantitatively useful adaptation on at least two unrelated real robot morphologies and has a plausible full interaction-to-reuse cost advantage over classical controls.",
+  "admission_gates_in_order": [
+    "primary_empirical_source_with_physical_hardware",
+    "at_least_two_unrelated_robot_morphologies",
+    "identical_executable_update_rule_constants_initialization_and_update_order",
+    "no_aligned_inverse_sensor_to_motor_model_task_ontology_reward_or_privileged_support",
+    "disabled_and_shuffled_extrinsic_signal_ablation_on_each_morphology",
+    "differential_hebbian_and_strong_classical_adaptive_controls_on_each_morphology",
+    "external_quantitative_useful_task_or_perturbation_recovery_measure",
+    "qualitative_signature_of_body_environment_symmetry_breaking_or_affordance_discovery",
+    "conservative_full_interaction_acquisition_fit_query_update_state_communication_and_reuse_cost_advantage"
+  ],
+  "automatic_rejections": [
+    "simulation_only_or_hardware_used_only_for_a_demo_without_measurement",
+    "two_devices_with_the_same_sensor_actuator_topology_or_one_robot_with_multiple_tasks",
+    "rule_name_shared_but_gain_delay_normalization_or_controller_constants_tuned_per_body",
+    "known_kinematics_inverse_dynamics_joint_correspondence_or_engineered_reflex_supplies_the_effect",
+    "goal_reward_task_label_or_manual_behavior_selection_drives_the_update",
+    "no_source_identical_factor_off_or_shuffled_causal_ablation",
+    "qualitative_video_without_external_quantitative_measurement",
+    "no_matched_classical_control_or_no_conservative_full_cost_bound",
+    "ordinary_adaptive_control_system_identification_reservoir_or_policy_gradient_without_a_distinct_factor"
+  ],
+  "result_reading_policy": "Audit methods, hardware identity, constants and causal controls before accepting behavioral outcomes. Admit at most one thesis; otherwise close active extrinsic plasticity and leave all apparatus unchanged.",
+  "candidate_audits": [
+    {
+      "source_id": "SRC-0289",
+      "candidate": "dep_myorobotics_tendon_arm",
+      "gate_results": ["Y", "N", "N", "N", "N", "N", "P", "Y", "N"],
+      "rejection": "one_physical_morphology_engineered_tendon_sensor_motor_correspondence_inverse_model_empirical_constants_no_factor_ablation_controls_or_full_cost",
+      "diagnostic_value": "real_hardware_affordance_discovery_on_one_tendon_arm_with_multiple_attached_objects"
+    },
+    {
+      "source_id": "SRC-0287",
+      "candidate": "bddhl_multi_morphology_demonstrations",
+      "gate_results": ["N", "Y", "P", "N", "N", "P", "N", "Y", "N"],
+      "rejection": "physically_realistic_simulations_not_hardware_inverse_response_mapping_empirical_gain_and_time_scale_qualitative_behavior"
+    },
+    {
+      "source_id": "SRC-0290",
+      "candidate": "short_circuit_dep_reach_space",
+      "gate_results": ["N", "N", "P", "N", "N", "N", "Y", "P", "N"],
+      "rejection": "simulated_2dof_open_loop_arm_identity_inverse_model_and_4096_value_grid_search_not_extrinsic_hardware_adaptation"
+    }
+  ],
+  "gate_survivors": [],
+  "strongest_real_hardware_near_candidate": "SRC-0289_dep_myorobotics_tendon_arm",
+  "decision": "CLOSE_ACTIVE_EXTRINSIC_PLASTICITY_NO_REAL_HARDWARE_CROSS_MORPHOLOGY_EVIDENCE",
+  "completed_at": "2026-09-02T03:02:42Z",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_cycle": "Prospective primary-source trigger audit for source-identical local contrastive learning performed by physical relaxation in at least two unrelated non-robotic substrates, with a factor-off ablation, digital and classical physical controls, matched useful quality, and measured end-to-end energy-time-state cost; otherwise close the hardware-only A13 residual and request strategic redirection rather than build apparatus."
+}
