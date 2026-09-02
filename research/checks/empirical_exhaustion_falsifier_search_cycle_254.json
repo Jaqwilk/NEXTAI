@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "cycle": 254,
+  "mode": "search_no_scoring",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "claim_under_test": "At least one published empirical mechanism falsifies cycle-253 conditional exhaustion by independently satisfying all seven admission gates.",
+  "domains_searched": [
+    "developmental_and_regenerative_biology",
+    "embodied_physical_learning",
+    "artificial_life",
+    "distributed_protocol_synthesis",
+    "automated_scientific_discovery"
+  ],
+  "candidates": {
+    "ergodic_sensor_learning": ["N", "N", "N", "I", "N", "P", "N"],
+    "muscle_positional_regeneration": ["P", "N", "N", "I", "I", "P", "N"],
+    "smt_self_stabilizing_synthesis": ["N", "N", "N", "N", "N", "P", "N"],
+    "ai_descartes": ["N", "N", "N", "I", "N", "P", "N"],
+    "open_ended_artificial_life": ["I", "N", "N", "I", "I", "P", "N"]
+  },
+  "gate_order": [
+    "natural_ordinary_interface",
+    "source_identical_three_systems",
+    "no_ontology_or_privileged_support",
+    "learned_factor_causal_ablation",
+    "classical_or_frozen_exclusion",
+    "qualitative_signature",
+    "matched_quality_full_cost_crossover"
+  ],
+  "admitted_mechanism": null,
+  "primary_sources_added": ["SRC-0281", "SRC-0282", "SRC-0283", "SRC-0284"],
+  "decision": "PRESERVE_CONDITIONAL_EXHAUSTION_AND_ENTER_TRIGGERED_EVIDENCE_MONITORING",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "user_authorized_no_scoring_override": true,
+  "next_cycle": "Run one prospective anomaly-trigger audit for a primary empirical system claiming unchanged executable learning across at least three unrelated natural interfaces; reopen selection only if methods independently pass gates 1-5."
+}
