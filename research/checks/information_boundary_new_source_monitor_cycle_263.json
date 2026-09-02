@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "cycle": 263,
+  "mode": "event_triggered_new_primary_source_monitor",
+  "status": "complete",
+  "frozen_at": "2026-09-02T03:38:06Z",
+  "source_cutoff": "2026-09-02T03:29:16Z",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "parent_monitor_check": "research/checks/information_boundary_anomaly_monitor_cycle_262.json",
+  "trigger_policy": "inherit_parent_trigger_requires_all_and_automatic_rejections_without_change",
+  "eligible_observations": [
+    "genuinely_new_primary_empirical_source_not_SRC_0301_through_SRC_0306",
+    "genuinely_new_local_observation"
+  ],
+  "candidate_audits": [
+    {
+      "candidate": "mouse_within_task_reusable_neural_modules",
+      "source": "SRC-0307",
+      "gate_vector": ["pass", "fail", "partial", "fail", "partial", "pass", "fail", "fail"],
+      "outcome": "reject_single_authored_task_representation_reuse_model_cluster_ablation_no_learning_rule_or_full_cost"
+    },
+    {
+      "candidate": "global_dopaminergic_dynamic_learning_rate",
+      "source": "SRC-0308",
+      "gate_vector": ["pass", "fail", "pass", "fail", "partial", "pass", "fail", "fail"],
+      "outcome": "reject_single_rewarded_foraging_task_known_credit_edge_no_cross_family_rule_or_full_cost"
+    }
+  ],
+  "trigger_found": false,
+  "decision": "NO_NEW_SOURCE_INFORMATION_BOUNDARY_TRIGGER",
+  "completed_at": "2026-09-02T03:39:04Z",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_monitor_rule": "Do not repeat SRC-0301 through SRC-0308. Inspect only a genuinely new primary empirical source or local observation that adds an information edge or causally overturns an existing edge under the unchanged parent gate."
+}
