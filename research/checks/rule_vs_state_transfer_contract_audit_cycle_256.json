@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "cycle": 256,
+  "mode": "search_no_scoring_cross_ledger_contract_audit",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "inventory": {
+    "latest_hypotheses": 59,
+    "accounting_controls_excluded": ["HYP-0012"],
+    "architectural_hypotheses_classified": 58,
+    "scientifically_invalid_results_excluded": [
+      "EXP-20260830-0046",
+      "EXP-20260830-0047",
+      "EXP-20260831-0004",
+      "EXP-20260901-0002"
+    ]
+  },
+  "level_definitions": {
+    "L0": "One family, one task family, scale transfer or a sequence whose executable rule changed.",
+    "L1": "One exact rule independently initialized and learned in each family has learned-factor causal gain over controls in at least two qualitatively different families.",
+    "L2": "Pooled learned representation or state improves an unseen world over the same rule fitted independently.",
+    "L3": "Foreign-family source data improves a target over target or support-only learning."
+  },
+  "highest_tested_contract": {
+    "L0_single_family_or_changed_rule": [
+      "HYP-0001", "HYP-0002", "HYP-0003", "HYP-0004", "HYP-0005", "HYP-0006", "HYP-0007", "HYP-0008", "HYP-0009", "HYP-0010", "HYP-0011", "HYP-0013", "HYP-0016", "HYP-0017", "HYP-0030", "HYP-0031", "HYP-0032", "HYP-0033", "HYP-0034", "HYP-0035", "HYP-0036", "HYP-0037", "HYP-0038", "HYP-0039", "HYP-0040", "HYP-0041", "HYP-0044", "HYP-0045", "HYP-0046", "HYP-0047", "HYP-0048", "HYP-0050", "HYP-0051", "HYP-0052", "HYP-0053", "HYP-0054", "HYP-0056", "HYP-0057", "HYP-0058"
+    ],
+    "L2_within_one_authored_family_or_mechanism_cohort": [
+      "HYP-0021", "HYP-0022", "HYP-0023", "HYP-0042", "HYP-0043"
+    ],
+    "L2_cross_family_representation_transfer": [
+      "HYP-0014", "HYP-0015", "HYP-0018", "HYP-0019", "HYP-0020", "HYP-0055"
+    ],
+    "L3_foreign_source_causal_transfer": [
+      "HYP-0024", "HYP-0025", "HYP-0026", "HYP-0027", "HYP-0028", "HYP-0029", "HYP-0049", "HYP-0059"
+    ]
+  },
+  "classification_counts": {
+    "L0_single_family_or_changed_rule": 39,
+    "L2_within_one_authored_family_or_mechanism_cohort": 5,
+    "L2_cross_family_representation_transfer": 6,
+    "L3_foreign_source_causal_transfer": 8,
+    "total": 58,
+    "duplicates": 0,
+    "missing": 0
+  },
+  "cross_family_level1_reaudit": {
+    "HYP-0014": "fail_fixed_lms_dominates_shared_and_independent",
+    "HYP-0015": "fail_unusable_minimum_family_and_specialist_dominance",
+    "HYP-0018": "fail_valid_exp0041_0042_evidence_only_invalid_exp0046_excluded",
+    "HYP-0019": "fail_shared_and_independent_unusable_zero_minimum_family",
+    "HYP-0020": "fail_zero_minimum_family_and_contextual_chow_liu_dominance",
+    "HYP-0055": "fail_sparse_and_dense_equally_unusable",
+    "HYP-0024": "fail_instability_and_persistence_dominance",
+    "HYP-0025": "fail_average_gain_but_worst_family_regression_and_no_universal_control_win",
+    "HYP-0026": "fail_worst_family_collapse_and_shared_independent_failure",
+    "HYP-0027": "fail_persistence_more_accurate_stable_and_cheaper",
+    "HYP-0028": "fail_only_wt_positive_independent_rule_fails_other_three_families_and_classical_explanation_unisolated",
+    "HYP-0029": "fail_persistence_gain_below_effect_cell_regressions_higher_cost_no_pareto",
+    "HYP-0049": "fail_frozen_partition_and_classical_control_win_every_family",
+    "HYP-0059": "fail_target_standard_adaptive_sa_same_quality_about_11_5x_lower_r16_cost"
+  },
+  "level1_cross_family_hypotheses_audited": 14,
+  "level1_survivors": [],
+  "closest_partial_signals": {
+    "HYP-0028": "replicated WT-only gain with bounded local update and depth signature, but no second family and unresolved DMDc_VAR_RLS explanation",
+    "HYP-0025": "family-balanced average gain from related-data regularization but worst-family regression versus persistence",
+    "HYP-0029": "shared regularization gain but sub-threshold aggregate effect, four cell regressions and higher full cost"
+  },
+  "contract_finding": "L2 or L3 is stronger than the fixed G1 minimum; failure of transferred state does not logically falsify L1, but no completed mechanism passes L1 after direct re-audit.",
+  "decision": "NO_PORTFOLIO_RESCUE_BUT_BROADEN_TO_INDEPENDENT_RULE_UNIVERSALITY",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "user_authorized_no_scoring_override": true,
+  "next_cycle": "Search primary evidence for one exact independently instantiated learning rule with isolated causal gain and plausible full-cost advantage in at least two qualitatively different natural domains; deduplicate known dense, classical and supplied-interface explanations before any experiment."
+}
