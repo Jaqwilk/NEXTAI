@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "cycle": 251,
+  "mode": "search_no_scoring",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "g1_window_id": "G1-POST-EXP-0059-V1",
+  "g1_qualifying_experiment_count": 3,
+  "neighborhood": "closed_loop_environmental_computation",
+  "causal_partition": {
+    "explicit_environmental_write_read": "external_memory_or_communication",
+    "passive_environmental_dynamics": "fixed_substrate_specific_reservoir",
+    "learned_problem_rearrangement": "preprocessing_compilation_indexing_or_preconditioning"
+  },
+  "local_evidence": [
+    "EXP-20260830-0023",
+    "EXP-20260901-0030",
+    "EXP-20260901-0034",
+    "EXP-20260901-0036",
+    "EXP-20260902-0001"
+  ],
+  "primary_sources_added": [
+    "SRC-0267",
+    "SRC-0268",
+    "SRC-0269",
+    "SRC-0270",
+    "SRC-0271"
+  ],
+  "admission_gates": {
+    "natural_nonsemantic_interaction_channel": "fail",
+    "observation_learned_transformation": "fail_for_passive_physical_examples",
+    "source_identical_across_three_qualitative_families": "fail",
+    "non_equivalent_to_external_memory_or_classical_transform": "fail",
+    "prospective_full_cost_crossover": "unsupported",
+    "current_cohort_can_discriminate": "fail"
+  },
+  "decision": "REJECT_CLOSED_LOOP_ENVIRONMENTAL_COMPUTATION_AS_EXTERNAL_MEMORY_OR_SUBSTRATE_SPECIFIC_RESERVOIR",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "user_authorized_no_scoring_override": true,
+  "next_cycle": "Broaden SEARCH MODE to constraint-preserving adaptation without scalar credit; require a natural violation signal, source-identical local restoration rule, disabled-restoration ablation, classical feasibility controls and prospective full-cost crossover before any apparatus or score."
+}
