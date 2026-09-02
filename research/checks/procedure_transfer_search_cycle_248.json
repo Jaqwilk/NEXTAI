@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "cycle": 248,
+  "mode": "search_no_scoring",
+  "active_benchmark_unchanged": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "g1_window_id": "G1-POST-EXP-0059-V1",
+  "g1_qualifying_experiment_count": 3,
+  "audited_experiments": [
+    "EXP-20260901-0060",
+    "EXP-20260901-0062",
+    "EXP-20260902-0001",
+    "EXP-20260830-0043",
+    "EXP-20260831-0009"
+  ],
+  "selected_neighborhood": "meta_discovered_compact_update_procedures",
+  "causal_non_equivalence": {
+    "prior_nextai_interventions": "fixed learner with learned rate, gate, table, representation, proposal, retention or prolongation parameters",
+    "prospective_factor": "learned function that generates prediction targets or fast-state updates and is frozen or compiled into one source-identical procedure",
+    "novelty_claim_allowed": false
+  },
+  "admission_gates": {
+    "natural_common_interface_across_three_existing_families": "unresolved",
+    "no_family_or_semantic_ontology": "unresolved",
+    "permutation_equivariance": "required",
+    "strong_classical_update_controls": "required",
+    "foreign_source_vs_support_only_causal_gain": "required",
+    "prospective_full_cost_crossover": "unresolved",
+    "new_benchmark_allowed": false
+  },
+  "primary_sources_added": [
+    "SRC-0255",
+    "SRC-0256",
+    "SRC-0257",
+    "SRC-0258",
+    "SRC-0259",
+    "SRC-0260"
+  ],
+  "decision": "KEEP_SEARCH_SELECT_PROCEDURE_TRANSFER_NEIGHBORHOOD",
+  "experiment_created": false,
+  "hypothesis_created": false,
+  "plan_created": false,
+  "candidate_created": false,
+  "seed_realized": false,
+  "scoring_performed": false,
+  "protected_files_changed": false,
+  "scientific_evidence_changed": false,
+  "confidence_changed": false,
+  "next_cycle": "Cycle 249 must audit only existing frozen cohorts for a natural common predict-observe interface, causal non-equivalence and a prospective full-cost crossover bound. It is the second and final no-scoring wake; failure abandons the neighborhood without a benchmark, while a complete pass may authorize one later quick."
+}
