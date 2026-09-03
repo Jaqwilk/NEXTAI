@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "kind": "program_level_beliefs",
+  "status": "draft_from_external_audit",
+  "created_at": "2026-09-03T00:00:00Z",
+  "source": "research/reviews/EXTERNAL-AUDIT-2026-09-03.md",
+  "purpose": "Fixed list of program-level questions with explicit probabilities. Intended as the reward target for a redesigned autoresearch loop: a cycle counts as progress only if it changes at least one entry by at least `minimum_reportable_shift`. Probabilities are the external auditor's estimates on 2026-09-03; they are beliefs, not evidence, and must never be edited retroactively. Append a new event to `history` on every change.",
+  "rules": {
+    "minimum_reportable_shift": 0.05,
+    "every_cycle_must_name_touched_belief_ids": true,
+    "literature_only_cycles_may_not_change_probabilities_without_a_primary_source_id": true,
+    "no_belief_may_be_moved_by_a_gate_failure_alone": "A failed preregistered gate moves `p_gate_passes_for_mechanism`, never `p_principle_true`, unless the gate's sensitivity has been measured on a positive control (B01).",
+    "confidence_vocabulary": {
+      "gate_fail_confidence": "confidence that a preregistered conjunction failed for a specific mechanism on a specific cohort",
+      "mechanism_false_posterior": "probability that the exact mechanism has no useful effect in the tested class",
+      "principle_false_posterior": "probability that the general principle has no useful effect at any feasible scale"
+    }
+  },
+  "beliefs": [
+    {
+      "id": "B01",
+      "question": "The current G1 gate conjunction would admit a known-good learned system (e.g. a small GPU transformer or SSM on a task where its advantage over PPM/CTW is established) at matched budget.",
+      "p_prior_before_nextai": 0.80,
+      "p_now": 0.25,
+      "why_now": "No positive control was ever run through the gates in 99 experiments. Gates require simultaneously source-identical, cross-family, adversarial, R16 full-cost Pareto and frozen-ablation gain. The only transformer (CAL-20260901-0001) trained for 0.68 s.",
+      "evidence": ["AGENTS.md#post-exp-0059-g1-decision-window", "research/checks/real_system_calibration_cycle_228.json", "research/reviews/EXTERNAL-AUDIT-2026-09-03.md#F"],
+      "what_would_raise": "A preregistered positive-control run in which a small transformer/SSM passes the gates on a byte-level text task.",
+      "what_would_lower": "The same positive control fails the gates despite known capability advantage.",
+      "priority": "highest: every other belief's update rule depends on this"
+    },
+    {
+      "id": "B02",
+      "question": "Operation counts and bytes touched, as used in every NEXTAI Pareto front, are a monotone predictor of measured GPU/CPU latency and energy across the algorithm classes compared (pointer-chasing classical vs dense parallel learned).",
+      "p_prior_before_nextai": 0.60,
+      "p_now": 0.05,
+      "why_now": "CAL-20260901-0001: small transformer 2.9e11 work units in 0.48 s vs PPM 9.9e7 work units in 1.72 s; misprediction of roughly four orders of magnitude in the direction that favours classical controls.",
+      "evidence": ["research/checks/real_system_calibration_cycle_228.json", "research/reviews/GEN-1-REAL-SYSTEM-CALIBRATION-CYCLE-228-2026-09-01.md"],
+      "what_would_raise": "A regression of measured time on ops per algorithm class with high R^2 across all existing controls.",
+      "what_would_lower": "More calibration points showing class-dependent inversions.",
+      "priority": "highest"
+    },
+    {
+      "id": "B03",
+      "question": "RC2 as observed ('a classical sufficient statistic dominates the learned candidate at full cost') survives when cost is measured on hardware rather than counted as operations.",
+      "p_prior_before_nextai": null,
+      "p_now": 0.45,
+      "why_now": "RC2 is the most replicated pattern (~40 experiments) but every instance used op counts; B02 implies the cost axis may be inverted for exactly the classical controls that won.",
+      "evidence": ["research/reviews/GEN-1-CROSS-EXPERIMENT-FAILURE-SYNTHESIS-CYCLE-237-2026-09-02.md", "research/checks/real_system_calibration_cycle_228.json"],
+      "what_would_raise": "Re-measuring 10 representative RC2 comparisons on GPU+CPU and finding the classical control still cheaper at matched quality.",
+      "what_would_lower": "The same re-measurement showing learned candidates cheaper in wall time on parallel hardware."
+    },
+    {
+      "id": "B04",
+      "question": "The WT recurrent-residual gain (EXP-20260831-0006/0007) is caused by learned recurrent state rather than by slot-local RLS alone.",
+      "p_prior_before_nextai": null,
+      "p_now": 0.50,
+      "why_now": "Replicated, full-cost Pareto-nondominated, H96 extrapolation, but the plan never ran a recurrence-off/RLS-on ablation; the analysis itself names DMDc/VAR+RLS as a complete classical explanation. The cross-family quick (EXP-20260831-0008) does not discriminate this question.",
+      "evidence": ["research/analyses/EXP-20260831-0007.md", "research/analyses/EXP-20260831-0008.md", "research/reviews/GEN-1-RULE-VS-STATE-TRANSFER-CONTRACT-AUDIT-CYCLE-256-2026-09-02.md"],
+      "what_would_raise": "Source-identical recurrence-off ablation loses the H96 margin; DMDc/VAR+RLS control does not match it.",
+      "what_would_lower": "RLS-only or DMDc+RLS matches the candidate at lower measured cost."
+    },
+    {
+      "id": "B05",
+      "question": "An observation-learned recurrent/stack state can extrapolate systematically beyond training depth on a real (non-synthetic-generator) sequence task.",
+      "p_prior_before_nextai": 0.50,
+      "p_now": 0.70,
+      "why_now": "EXP-20260901-0041/0042: 144/144 exact spans on a hash-disjoint Python-source corpus at depths 3-5 from training depth <=2, three seeds, ablations at 0. EXP-20260901-0044 tested a different operation and does not lower this belief. Task is still a 7-symbol delimiter projection of real code.",
+      "evidence": ["research/analyses/EXP-20260901-0042.md", "research/analyses/EXP-20260901-0044.md"],
+      "what_would_raise": "Same signature on a second, non-delimiter real sequence task with a matched small transformer failing to extrapolate.",
+      "what_would_lower": "Failure to replicate on any second real task; or a matched transformer extrapolating equally well at lower measured cost."
+    },
+    {
+      "id": "B06",
+      "question": "The learned pushdown mechanism (HYP-0050) is a reusable operator that transfers to a different operation inside the same grammar without retraining.",
+      "p_prior_before_nextai": null,
+      "p_now": 0.10,
+      "why_now": "EXP-20260901-0044: 0/144 on inverse push reconstruction. This is a valid negative for the reusable-operator claim; it is not a negative for B05.",
+      "evidence": ["research/analyses/EXP-20260901-0044.md"],
+      "what_would_raise": "A bidirectional variant preregistered as a new mechanism succeeding on both operations.",
+      "what_would_lower": "Nothing further needed; already low."
+    },
+    {
+      "id": "B07",
+      "question": "A single source-identical learner with frozen constants can transfer useful representation across >=3 anonymised, heterogeneous world families (the L2/L3 cross-family claim as operationalised in NEXTAI).",
+      "p_prior_before_nextai": 0.30,
+      "p_now": 0.05,
+      "why_now": "Fourteen cross-family-capable hypotheses, zero L1/L2/L3 survivors (cycle 256). Consistent across synthetic four-family and real three-family cohorts. Caveat: anonymisation and zero-padding destroyed channel semantics, so this is evidence about the operationalisation as much as about transfer.",
+      "evidence": ["research/reviews/GEN-1-RULE-VS-STATE-TRANSFER-CONTRACT-AUDIT-CYCLE-256-2026-09-02.md", "research/analyses/EXP-20260831-0008.md"],
+      "what_would_raise": "Transfer under a natural, non-privileged relation between observations (cycle 238 'relation-marked experience') in three real families.",
+      "what_would_lower": "Already low; further negatives add little."
+    },
+    {
+      "id": "B08",
+      "question": "The cross-family source-identical requirement is a necessary condition for an LLM successor (as opposed to a NEXTAI methodological preference).",
+      "p_prior_before_nextai": null,
+      "p_now": 0.10,
+      "why_now": "Not present in the original manifest; introduced 2026-08-30 12:22. A dense LLM is not source-identical across anonymised physical sensor families either.",
+      "evidence": ["docs/ORIGINAL_MANIFEST.md", "research/events.jsonl", "research/reviews/EXTERNAL-AUDIT-2026-09-03.md#B"],
+      "what_would_raise": "An argument that capability/cost advantage cannot exist without such transfer.",
+      "what_would_lower": "A system-first prototype showing a cost-slope advantage on one real task class without cross-family transfer."
+    },
+    {
+      "id": "B09",
+      "question": "Near-zero knowledge-size query slope (dC/dK ~ 0) is by itself informative evidence for a better computational principle.",
+      "p_prior_before_nextai": 0.60,
+      "p_now": 0.05,
+      "why_now": "Every indexed control achieves it; RC5 shows locality savings are downstream of having the correct address/state. This is one of the program's most robust findings.",
+      "evidence": ["research/reviews/GEN-1-CROSS-EXPERIMENT-FAILURE-SYNTHESIS-CYCLE-237-2026-09-02.md", "research/analyses/EXP-20260830-0001.md"],
+      "what_would_raise": "Nothing plausible.",
+      "what_would_lower": "Already low."
+    },
+    {
+      "id": "B10",
+      "question": "The advantage of a dynamically structured learned system over a dense autoregressive model, if it exists, appears only as an interaction of components (memory x representation x routing x local update x compilation), not in any isolated primitive.",
+      "p_prior_before_nextai": 0.40,
+      "p_now": 0.55,
+      "why_now": "58 isolated primitives failed while three isolated signatures (recurrent depth extrapolation, slot-local update, exact index with K-independent access) are individually real. No system with more than one principle was ever built (cycle 256 explicitly forbade it).",
+      "evidence": ["research/reviews/GEN-1-RULE-VS-STATE-TRANSFER-CONTRACT-AUDIT-CYCLE-256-2026-09-02.md", "docs/ORIGINAL_MANIFEST.md#23"],
+      "what_would_raise": "A system-first prototype combining the three signatures beats matched transformer on a cost-vs-K slope while each single-component ablation does not.",
+      "what_would_lower": "The combined prototype shows no signature beyond its best single component."
+    },
+    {
+      "id": "B11",
+      "question": "The R1/R4/R16 reuse horizon is a realistic amortisation boundary for an LLM-successor candidate.",
+      "p_prior_before_nextai": null,
+      "p_now": 0.05,
+      "why_now": "EXP-20260901-0036 crossover extrapolates to R~50-55; EXP-0033 to thousands of queries. Deployed language systems answer 1e6-1e9 queries per learned artifact.",
+      "evidence": ["research/analyses/EXP-20260901-0036.md", "research/analyses/EXP-20260830-0033.md"],
+      "what_would_raise": "An argument that discovery must be re-paid per task at deployment.",
+      "what_would_lower": "Already low."
+    },
+    {
+      "id": "B12",
+      "question": "Closed-generator synthetic micro-worlds as used in NEXTAI can, in principle, exhibit a learned advantage over the strongest classical control at full cost.",
+      "p_prior_before_nextai": 0.60,
+      "p_now": 0.15,
+      "why_now": "Cycles 239-242: the agent could not construct a world where relations carry information unavailable to a degree-2 ridge or spectral control. Every generator has a computable sufficient statistic by construction.",
+      "evidence": ["research/checks/anonymous_repeated_measurement_ood_v1_cycle_240.json", "research/checks/rid_contract_001_falsification_cycle_242.json"],
+      "what_would_raise": "A synthetic world with a preregistered proof that no polynomial-time classical statistic recovers the target while a learner does.",
+      "what_would_lower": "Further failed discriminator constructions."
+    },
+    {
+      "id": "B13",
+      "question": "Signatures found on NEXTAI micro-worlds (depth extrapolation, local update, warm reuse) transfer to any language-like task.",
+      "p_prior_before_nextai": 0.40,
+      "p_now": 0.40,
+      "why_now": "Untested. Zero contact with language, planning or code as a task in 99 experiments. Prior unchanged by the program.",
+      "evidence": ["research/reviews/EXTERNAL-AUDIT-2026-09-03.md#V"],
+      "what_would_raise": "A minimal real capability benchmark (byte/token text with K-scaled facts and 1-4 step composition) reproducing at least one signature.",
+      "what_would_lower": "The same benchmark showing none."
+    },
+    {
+      "id": "B14",
+      "question": "The 'conditional information-boundary exhaustion' conclusion (cycle 261) holds at the scale of models and compute relevant to the grand objective.",
+      "p_prior_before_nextai": null,
+      "p_now": 0.15,
+      "why_now": "Derived from 58 hypotheses tested as 1-seed quicks of hand-coded learners (width 16-32, 180 s CPU, K<=32). Cycle 237 itself assigns <0.20 to extrapolation to LLM scale.",
+      "evidence": ["research/reviews/GEN-1-CAUSAL-INFORMATION-BOUNDARY-SYNTHESIS-CYCLE-261-2026-09-02.md", "research/reviews/GEN-1-CROSS-EXPERIMENT-FAILURE-SYNTHESIS-CYCLE-237-2026-09-02.md"],
+      "what_would_raise": "The same failure taxonomy reproduced with gradient-trained candidates of >=1e6 parameters on GPU at K>=1e4.",
+      "what_would_lower": "Any positive from B04, B05, B10 at that scale."
+    },
+    {
+      "id": "B15",
+      "question": "The current autoresearch loop (AGENTS.md + program.md rules as of cycle 282) produces net positive expected information gain per cycle.",
+      "p_prior_before_nextai": null,
+      "p_now": 0.05,
+      "why_now": "Cycles 248-282: ~35 consecutive no-scoring cycles, each ending with 0.995 confidence and no belief change; 'exact next action' rule produces an unbounded literature chain.",
+      "evidence": ["research/reviews/GEN-1-CEPHALOPOD-DISTRIBUTED-ARM-LEARNING-TRANSFER-MONITOR-CYCLE-282-2026-09-02.md", "research/events.jsonl"],
+      "what_would_raise": "A redesigned loop that reports a belief-shift >= minimum_reportable_shift in at least 1 of 3 cycles.",
+      "what_would_lower": "Continued zero-shift cycles."
+    },
+    {
+      "id": "B16",
+      "question": "The grand objective (materially better capability per unit of end-to-end inference cost than dense autoregressive LLMs, via a dynamically structured learned system) is achievable at some scale.",
+      "p_prior_before_nextai": 0.15,
+      "p_now": 0.15,
+      "why_now": "Unchanged. No experiment in the ledger operates at a scale, on a task, or with a cost model that bears on this question. Beliefs B01-B15 explain why.",
+      "evidence": ["research/reviews/EXTERNAL-AUDIT-2026-09-03.md#AA"],
+      "what_would_raise": "B10 success trigger: matched capability, measured GPU cost slope vs K lower than transformer on 3 scales, 3 seeds, 2 task classes, R* < 1e3.",
+      "what_would_lower": "Section W stop criteria all satisfied after gate calibration."
+    }
+  ],
+  "history": [
+    {
+      "at": "2026-09-03T00:00:00Z",
+      "actor": "external_audit",
+      "change": "initial draft of B01-B16",
+      "reference": "research/reviews/EXTERNAL-AUDIT-2026-09-03.md"
+    }
+  ]
+}
