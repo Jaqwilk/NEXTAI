@@ -1,11 +1,11 @@
 {
   "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
-  "certificate_sha256": "cd2af0dc290e7e8c2c54b33aaecdbe74f0e20ff4870b6edb100cc676ca418d11",
-  "created_at": "2026-09-05T21:05:10Z",
-  "evaluator_sha256": "d07be89c0d938db672c238235a3b9964330cd3a90f65da172d6336f4a15f98d7",
+  "certificate_sha256": "e6ef08a49bb62f70e5ef8755a931a8826677ab6abb4f520e4ac2302b93e8e8b2",
+  "created_at": "2026-09-05T20:53:57Z",
+  "evaluator_sha256": "cbb32b3d1a68e06e2f76fff91e1eeba175105e274baf77fa65afd85d6cbd2dc3",
   "files": {
     "baseline_registry": "5509bc5c9a64ad83f1aab7b28118f5758e2c3668260a804397fd5441f597605a",
-    "manifest": "e3cac78223fd787ff81e40637e87379b96d1bfefd55c250aee94bc284841c3df",
+    "manifest": "7dad0a0581506fb91af2f603869d6f25b5661629feec502fbf067bbdea5a41ad",
     "runner": "3de7203eae1da32f02564a3688810ff32d1e32a86cc03c9c5cd0ba4cb158ee75",
     "schema:experiment_plan": "aca47fb6908bd049b710a9096c8f757efe964d8d75c289c3bb0c49fcafd23c8f",
     "schema:experiment_result": "c6dad3fd6c0067dcb9233a1d8190a072d6e4e28d15023a8c104983b2bb6c5fb0",

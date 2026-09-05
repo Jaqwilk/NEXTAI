@@ -1,7 +1,7 @@
 {
   "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
-  "candidate_bundle_sha256": "4696c9d502cc74cd4eb60d37e54ea45d2891896c5881c44c3e011535235445d5",
-  "created_at": "2026-09-05T21:05:10Z",
+  "candidate_bundle_sha256": "040daf95c467e2aed94ed20a7fab997dca11104edd55deeef0fdae133f06348f",
+  "created_at": "2026-09-05T21:04:34Z",
   "evaluator_sha256": "d07be89c0d938db672c238235a3b9964330cd3a90f65da172d6336f4a15f98d7",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
@@ -893,7 +893,7 @@
     "tests/test_stack_depth_disjoint_corpus_v12.py": "0d2d415e0bb28a6e5ae1f7d1142f328da568e25093deb99cd2f158aefbf9a6ea",
     "tests/test_stack_depth_masked_infilling_v8.py": "ea824d37860e0d0b81d96440950803830d5436cec12d1462e0256b10571e56e6",
     "tests/test_stack_depth_recoverable_push_v13.py": "f2bf7377537312c3274b44a52082153320bca4d8426d106d82bb5bb8ab4292e1",
-    "tests/test_suitesparse_cross_matrix_prolongation_v1.py": "ada14bcc9ddabd3a2e875a53cc0a01166560b566948cfbd36e5462b3de110e07",
+    "tests/test_suitesparse_cross_matrix_prolongation_v1.py": "15a42de2fa8331dc53af7967d32571ec959d24cd5236e5921036f9cbd3c4726a",
     "tests/test_tensor_rls_equivalence.py": "2847af3d4b6f4c50f83f171aec99858253837204dfde903e25621a8b273f45ee",
     "tests/test_three_family_continuous_transfer.py": "ed26dd323be80436652f42c2fe4b25d0fc0cf6f9f7e7f56753ce5a2e18511884",
     "tests/test_v2_migration_integrity.py": "a99b512824583c1e475ab3b1661381dfba15380e3a9d606d2b0851b826c29725",

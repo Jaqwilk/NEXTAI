@@ -2,10 +2,10 @@
 
 ## Current WT-01 development authorization (2026-09-05)
 
-The user's exact approval "zatwierdzam WT-01-DEV-1 w opisanym zakresie" is
+The user's exact approval "zatwierdzam WT-01-DEV-1 w opisanym zakresie" was
 recorded in `research/laboratory/WT-01-DEV1-20260905-V1.json`, with the
 prospective integration plan in `research/plans/WT-01-DEV1-ACTIVATION-V1.json`.
-It authorizes exactly one registered quick run of all eight frozen R×U×C cells
+It authorized exactly one registered quick run of all eight frozen R×U×C cells
 and the separate VAR(2)/ARX control at K=18/36/54 and H=16/32/96, with one
 runner-random channel permutation. Fit may use files 0-5 and evaluation may use
 only visible development files 6-7. Files 8-9, dataset downloads, retry, a
@@ -13,6 +13,14 @@ second registration/seed, tuning, replication/transfer/economic/novelty claims
 and architecture promotion remain forbidden. Freeze and preregister first,
 execute only through `uv run nextai run --plan ...`, preserve every outcome,
 then stop at WT-01-DECISION and synchronize GitHub `master` and `main`.
+
+That single registration was consumed by `EXP-20260905-0006` and invalidated
+before seed realization because the historical PC-01 closure incorrectly treats
+the append-only `research/plan_registry.jsonl` as a permanently fixed whole-file
+hash. No WT array was opened and no development attempt was executed. Keep the
+benchmark in maintenance. Do not repair the closure, re-freeze an executable
+evaluator, register a replacement or score until a separate user decision
+explicitly authorizes the corrective maintenance and one replacement registration.
 
 ## Current final-series authorization (2026-09-05)
 

@@ -2,15 +2,16 @@
 
 ## Current WT-01 decision state (2026-09-05)
 
-The user approved exactly one WT-01-DEV-1 attempt in
+The user approved exactly one WT-01-DEV-1 registration in
 `research/laboratory/WT-01-DEV1-20260905-V1.json`; follow the prospective
-integration plan `research/plans/WT-01-DEV1-ACTIVATION-V1.json`. Freeze the
-validated runner and preregister one quick EXP before realizing one runner-random
-seed. Run all eight frozen R×U×C cells and the separate VAR(2)/ARX control at
-K=18/36/54 and H=16/32/96. Fit files are 0-5; evaluation is restricted to the
-visible development files 6-7. Files 8-9, downloads, retries, a second plan or
-seed, and tuning remain forbidden. The cohort has zero fresh same-protocol
-physical recordings, so hidden-holdout, replication and transfer claims are barred.
+integration plan `research/plans/WT-01-DEV1-ACTIVATION-V1.json`. The integration
+passed 949/949 tests and was frozen, but the one registration
+`EXP-20260905-0006` exposed a pre-seed lifecycle blocker and was append-only
+invalidated. The historical PC-01 closure requires the entire append-only
+`research/plan_registry.jsonl` to retain its old terminal hash, so any legitimate
+new registration makes doctor fail. No scoring seed was realized and no WT array
+was opened. Keep maintenance and stop at WT-01-DECISION. A closure correction,
+new evaluator freeze and replacement registration require separate user authority.
 
 All eight R×U×C roles share one core. R is recursive self-feeding, U is post-reveal
 slot-local RLS, and C is origin-relative clipping at +/-4. The separately named
@@ -19,10 +20,10 @@ contrast is NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1); its causal-attribution threshold is
 0.03343253453162794, exactly 10% of the already observed historical quality gap.
 This threshold can only explain that old positive; it is not a general quality
 gate. `wt_walks_v1` remains deferred as a different-operation adversarial source.
-Synthetic equivalence and the prior full regression passed. After the one
-authorized terminal result, preserve its analysis and receipt, synchronize
-GitHub `master` and `main`, and stop at WT-01-DECISION. A positive result is
-descriptive mechanism evidence only and cannot open files 8-9 automatically.
+Synthetic equivalence and the prior full regression passed. Preserve the
+invalidated preregistration and blocker receipt, synchronize GitHub `master` and
+`main`, and do not score. Files 8-9, downloads, retries, a second plan/seed and
+tuning remain forbidden.
 
 ## Historical final-series authorization (2026-09-05)
 

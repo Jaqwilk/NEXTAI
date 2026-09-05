@@ -1,6 +1,6 @@
 {
   "inputs": {
-    "config_sha256": "441ae601ec0622b9b10708b1a57997c8bb8d8534db318435c1708663863e714c",
+    "config_sha256": "f6f47d80457d03eb5273c56c3d7be2d0f654e07f5715ce6f42c171617495e47e",
     "documents": {
       "research/plans/EXP-20260830-0001.json": "7c8bb6a2804e50a24fc38c328ac4989a512e92d0820c1da216362749750d1c7c",
       "research/plans/EXP-20260830-0002.json": "777ded0d75ac03435d91d54cc4e6a6fbfe1edfa535a46d2883b0d810d66fc2c3",
@@ -222,6 +222,6 @@
     },
     "validity_sha256": "64bf36f1a5e32b685e2bab2ca658792fedbffa90ab936d12f8085cd182878aa9"
   },
-  "report_sha256": "4ebeec0a1b18bccd3fd2d7dcf69fc2675b66b4ca57b1bb1ff242986cd582331c",
+  "report_sha256": "731e17490c03b587412ce242b83127d153c9cbaa69f4a3f36d06d311f183670c",
   "schema_version": 1
 }

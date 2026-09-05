@@ -2,12 +2,16 @@
 
 ## Aktualny stan decyzji — WT-01-DEV-1 (2026-09-05)
 
-Użytkownik zatwierdził dokładnie jedną próbę w
+Użytkownik zatwierdził dokładnie jedną rejestrację w
 `research/laboratory/WT-01-DEV1-20260905-V1.json`; wiążący plan integracji to
 `research/plans/WT-01-DEV1-ACTIVATION-V1.json`. Najpierw walidacja, freeze i
-prerejestracja jednego quick EXP, potem dokładnie jeden run przez audytowany
-runner. Commity wypychamy bez force do istniejącego origin, utrzymując `master`
-i `main` na tym samym commicie.
+prerejestracja jednego quick EXP. Integracja przeszła 949/949 testów, ale jedyna
+rejestracja `EXP-20260905-0006` ujawniła blocker przed seedem i została
+append-only unieważniona: historyczne zamknięcie PC-01 wymaga niezmiennego hasha
+całego append-only `research/plan_registry.jsonl`. Nie otwarto żadnej tablicy WT
+i nie zużyto próby obliczeniowej. Utrzymać maintenance i stop na
+WT-01-DECISION. Poprawka closure, nowy freeze i rejestracja zastępcza wymagają
+osobnej jawnej zgody. Commity wypychamy bez force, synchronizując `master` i `main`.
 
 Zakres danych jest diagnostyczny i wcześniej widziany: 0-5 historyczny fit,
 6-7 visible development, 8-9 visible historical diagnostic. Świeżych śladów tego
@@ -16,12 +20,11 @@ lub transfer. Osiem ról R×U×C ma jeden rdzeń, a osobna kontrola VAR(2)/ARX m
 być równoważna R1-U1-C1 do 1e-12 na danych syntetycznych. Próg kontrastu
 NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1) wynosi 0.03343253453162794 i służy wyłącznie
 atrybucji starego dodatniego wyniku. `wt_walks_v1` pozostaje niepobranym testem
-innej operacji. Autoryzowany run obejmuje wszystkie osiem komórek i kontrolę
+innej operacji. Planowany run obejmował wszystkie osiem komórek i kontrolę
 VAR(2)/ARX, K=18/36/54, H=16/32/96 oraz jeden seed permutacji. Fit używa 0-5,
 ocena wyłącznie visible development 6-7. Pliki 8-9 są zabronione. Nie wolno
-stroić, ponawiać ani rejestrować drugiego EXP. Po terminalnym wyniku zatrzymać
-się na WT-01-DECISION; dodatni wynik pozostaje opisowym sygnałem mechanizmu,
-bez replikacji, transferu, przewagi ekonomicznej, nowości czy promocji.
+stroić, ponawiać, poprawiać lifecycle ani rejestrować drugiego EXP bez nowej
+zgody. Aktualny stan to WT-01-DECISION bez wyniku scoringowego.
 
 ## Historia — zgoda na trzy repliki finalne PC-01
 
