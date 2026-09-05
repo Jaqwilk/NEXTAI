@@ -1,0 +1,109 @@
+{
+  "curve": [
+    {
+      "bits_per_byte": 8.03572533155095,
+      "checkpoint_sha256": "8108873b06fead40df778fd4ec695914ee8e6d58b93b1112d2f233ff3619fe23",
+      "update": 0
+    },
+    {
+      "bits_per_byte": 2.917121690022527,
+      "checkpoint_sha256": "280af707e599ffd38626144ae5a000c3c6adb31f35036a6d650fe7b2bc05e9c8",
+      "update": 250
+    },
+    {
+      "bits_per_byte": 2.474165019314745,
+      "checkpoint_sha256": "2fb14165aec2318fcafcef92214efe4a2e5ea5dcaf2a80731005a50447eda133",
+      "update": 500
+    },
+    {
+      "bits_per_byte": 2.332121162801827,
+      "checkpoint_sha256": "9745c5028cb45ba5f5c58ece3d19d83b04ee9a9d60274682df31b78b827b60f6",
+      "update": 750
+    },
+    {
+      "bits_per_byte": 2.240681607526996,
+      "checkpoint_sha256": "7eb64a05d45de100ff25e5e5ed39370f69c45b9f831c3f1c835f10459b516e02",
+      "update": 1000
+    },
+    {
+      "bits_per_byte": 2.1897011147143948,
+      "checkpoint_sha256": "47ac16695a6c7167b493a380b2f9e41c0f8eaf1418f1d23d4df9a93da90b98c3",
+      "update": 1250
+    },
+    {
+      "bits_per_byte": 2.192126020356105,
+      "checkpoint_sha256": "d987602840a01ea294197c102ebd0686a2a93daaad35c13b2e4d49e0af824111",
+      "update": 1500
+    },
+    {
+      "bits_per_byte": 2.168965852917446,
+      "checkpoint_sha256": "0016ac549f2e9961ceb516ad7be6fc6ead788effb949399218431886adf24a5b",
+      "update": 1750
+    },
+    {
+      "bits_per_byte": 2.1777682011153776,
+      "checkpoint_sha256": "be5a5f4097c9cae9d7569b382c149057d7720003d3dd05b2e45afc2cb205ebd5",
+      "update": 2000
+    },
+    {
+      "bits_per_byte": 2.189679086466596,
+      "checkpoint_sha256": "67751206ac114b6831ccab517e20a37b7307253d385e6bf9ec271e0d640f4c3f",
+      "update": 2250
+    },
+    {
+      "bits_per_byte": 2.224617055664147,
+      "checkpoint_sha256": "ee2a185838af7a01f63a25ad983acd8b3ad01d06d1180d1364559bf1d5e8fef9",
+      "update": 2500
+    },
+    {
+      "bits_per_byte": 2.250482728232873,
+      "checkpoint_sha256": "6d03a523be72c9aae2f104d608a07da04b99ad48defd1bec9a85f5bfa4c1ee5d",
+      "update": 2750
+    },
+    {
+      "bits_per_byte": 2.290391747485347,
+      "checkpoint_sha256": "e219c6d6eb200daddb06ac23fa58486672d85c3cc2bddbd96555d21f85d2e9a6",
+      "update": 3000
+    },
+    {
+      "bits_per_byte": 2.334738510131293,
+      "checkpoint_sha256": "81f982213e61e4a25b12ca6cbd640f80cb011e96f44945a3bcfa3dcc7daf5258",
+      "update": 3250
+    },
+    {
+      "bits_per_byte": 2.3539208810036687,
+      "checkpoint_sha256": "dc8f6260e6d81130edbe651f6486f4912d617635e35996c3f9fba43fa1cee1bd",
+      "update": 3500
+    },
+    {
+      "bits_per_byte": 2.4035257531292453,
+      "checkpoint_sha256": "6fa477b9c5a3943aea5af1297e06bfecb3812798a5c0ffe1f825157f1131a3ce",
+      "update": 3750
+    },
+    {
+      "bits_per_byte": 2.433183012480597,
+      "checkpoint_sha256": "a52e84bfa516b76fb8660ce77bbc66d642829ce517a11c4511658211a4800564",
+      "update": 4000
+    },
+    {
+      "bits_per_byte": 2.4810371699768794,
+      "checkpoint_sha256": "798dfe7d0aec29df4f695b8a339b801f48a1d684ba2af01960e734fcf6bacfe4",
+      "update": 4250
+    },
+    {
+      "bits_per_byte": 2.512079579017767,
+      "checkpoint_sha256": "9823478414f596452cd7003597972393acf1502503fc55387b7f6540d938bc9e",
+      "update": 4500
+    },
+    {
+      "bits_per_byte": 2.526652210665642,
+      "checkpoint_sha256": "5c647cc8afef024b1d3629f81a189caae11c0380ad9a9e346a289ad42d58d073",
+      "update": 4750
+    },
+    {
+      "bits_per_byte": 2.5538803685182403,
+      "checkpoint_sha256": "865526ea7f9356fc70e2d58a8b5197e449a093da6106064432a088b83c605d77",
+      "update": 5000
+    }
+  ]
+}
