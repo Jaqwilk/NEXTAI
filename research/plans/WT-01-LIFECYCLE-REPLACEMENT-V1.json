@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-LIFECYCLE-REPLACEMENT-V1",
+  "kind": "prospective_append_only_lifecycle_correction_and_single_replacement_run_plan",
+  "created_at": "2026-09-05T22:15:00Z",
+  "deadline_at": "2026-09-06T00:15:00Z",
+  "authority": "research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json",
+  "parent_blocker_receipt": "research/laboratory/WT-01-DEV1-PREREGISTRATION-BLOCKER-V1.receipt.json",
+  "objective": "Correct the historical PC-01 closure so the immutable Git-authenticated plan-registry prefix remains exact while later complete JSONL records may append, then freeze and execute exactly one replacement WT-01-DEV-1 run in the unchanged visible-development scope.",
+  "maintenance_before_scoring": [
+    "Authenticate the historical research/plan_registry.jsonl bytes from the closure Git commit and require them to be the exact live-file prefix.",
+    "Parse every byte after that prefix as complete UTF-8 JSONL and reject malformed, partial, changed, deleted or reordered history.",
+    "Preserve exact whole-file hash verification for every other current immutable PC-01 evidence file.",
+    "Add positive append and negative historical-prefix mutation, truncation and reorder tests.",
+    "Run targeted and full regression, integrity and doctor, then archive and replace the frozen manifest and preflight certificate before replacement preregistration."
+  ],
+  "replacement_execution": {
+    "replaces_invalidated_experiment": "EXP-20260905-0006",
+    "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
+    "data_role": "visible_development_only",
+    "fit_files": [0, 1, 2, 3, 4, 5],
+    "evaluation_files": [6, 7],
+    "forbidden_files": [8, 9],
+    "candidates": [
+      "wt01_r0_u0_c0_v1", "wt01_r0_u0_c1_v1", "wt01_r0_u1_c0_v1", "wt01_r0_u1_c1_v1",
+      "wt01_r1_u0_c0_v1", "wt01_r1_u0_c1_v1", "wt01_r1_u1_c0_v1", "wt01_r1_u1_c1_v1",
+      "wt01_var2_rls_bound_v1"
+    ],
+    "knowledge_sizes": [18, 36, 54],
+    "horizons": [16, 32, 96],
+    "queries_per_cell": 18,
+    "seed_policy": {"method": "runner_random_v1", "count": 1, "minimum": 1000000, "maximum": 2147483647},
+    "candidate_wall_seconds": 180,
+    "sum_candidate_wall_seconds_cap": 1620,
+    "state_budget_bytes": 16777216
+  },
+  "fixed_contrast": {
+    "formula": "NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1)",
+    "cells": ["wt01_r0_u1_c1_v1", "wt01_r1_u1_c1_v1"],
+    "smallest_effect_of_interest": 0.03343253453162794,
+    "per_file_sign_required": true
+  },
+  "budgets": {
+    "corrective_maintenance_cycles": 1,
+    "replacement_experiment_registrations": 1,
+    "replacement_scoring_runs": 1,
+    "replacement_runner_random_seeds": 1,
+    "downloads": 0,
+    "dependency_installs": 0
+  },
+  "claim_boundary": "Visible-development causal attribution only. No replication, transfer, economic advantage, architectural novelty or promotion claim is permitted.",
+  "stop_condition": "Stop after a terminal replacement result and immutable analysis/receipt, or immediately on any correction, freeze, preregistration, integrity, scope, runtime or budget failure. No retry."
+}
