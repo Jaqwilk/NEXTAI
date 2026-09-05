@@ -2,11 +2,12 @@
 
 ## Aktualny stan decyzji — WT-01-DEV-1 (2026-09-05)
 
-Cykl według `research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json` i planu
-`research/plans/WT-01-DATA-HARNESS-V1.json` został ukończony. Był to drugi i ostatni ograniczony cykl
-WT-01 (maks. 60 minut), bez treningu, scoringu, rejestracji EXP, odczytu tablic
-rzeczywistych danych WT i pobierania archiwów. Commity wypychamy bez force do
-istniejącego origin, utrzymując `master` i `main` na tym samym commicie.
+Użytkownik zatwierdził dokładnie jedną próbę w
+`research/laboratory/WT-01-DEV1-20260905-V1.json`; wiążący plan integracji to
+`research/plans/WT-01-DEV1-ACTIVATION-V1.json`. Najpierw walidacja, freeze i
+prerejestracja jednego quick EXP, potem dokładnie jeden run przez audytowany
+runner. Commity wypychamy bez force do istniejącego origin, utrzymując `master`
+i `main` na tym samym commicie.
 
 Zakres danych jest diagnostyczny i wcześniej widziany: 0-5 historyczny fit,
 6-7 visible development, 8-9 visible historical diagnostic. Świeżych śladów tego
@@ -15,9 +16,12 @@ lub transfer. Osiem ról R×U×C ma jeden rdzeń, a osobna kontrola VAR(2)/ARX m
 być równoważna R1-U1-C1 do 1e-12 na danych syntetycznych. Próg kontrastu
 NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1) wynosi 0.03343253453162794 i służy wyłącznie
 atrybucji starego dodatniego wyniku. `wt_walks_v1` pozostaje niepobranym testem
-innej operacji. Po receipt zatrzymać się na WT-01-DEV-1 do osobnej zgody; żaden
-run na danych rzeczywistych nie wynika automatycznie z gotowego harnessu.
-Aktualnie obowiązuje stop do jawnej decyzji użytkownika na `WT-01-DEV-1`.
+innej operacji. Autoryzowany run obejmuje wszystkie osiem komórek i kontrolę
+VAR(2)/ARX, K=18/36/54, H=16/32/96 oraz jeden seed permutacji. Fit używa 0-5,
+ocena wyłącznie visible development 6-7. Pliki 8-9 są zabronione. Nie wolno
+stroić, ponawiać ani rejestrować drugiego EXP. Po terminalnym wyniku zatrzymać
+się na WT-01-DECISION; dodatni wynik pozostaje opisowym sygnałem mechanizmu,
+bez replikacji, transferu, przewagi ekonomicznej, nowości czy promocji.
 
 ## Historia — zgoda na trzy repliki finalne PC-01
 

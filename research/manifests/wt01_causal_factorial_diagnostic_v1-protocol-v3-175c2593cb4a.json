@@ -1,8 +1,8 @@
 {
   "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
   "candidate_bundle_sha256": "3754be212e28e01b3e7536a775f5b1ed8ec173052f0af9657827b4b580077fb7",
-  "created_at": "2026-09-05T20:53:57Z",
-  "evaluator_sha256": "cbb32b3d1a68e06e2f76fff91e1eeba175105e274baf77fa65afd85d6cbd2dc3",
+  "created_at": "2026-09-05T20:50:40Z",
+  "evaluator_sha256": "9371306bc2d35b72d0f8b6ff232e54d1423dad6136c59626ebcba2a98d5dc16e",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -850,7 +850,7 @@
     "tests/test_orthogonal_double_matching_source_swap_v1.py": "d5a35a1a5bea348eaed590094bbb3d56cd8405d725cbd4c89d5bac53fbdb1969",
     "tests/test_orthogonal_reservoir_byte.py": "7783818d53b2c85645cc002757a75cf0954f59585ba35fe269e11c0deb45cee4",
     "tests/test_parallel_masked_infilling.py": "b88d8855a717842b70278950323dcacfda9d6457701b60092b9201864073b748",
-    "tests/test_pc01_activation.py": "d8eede15e8446e84372a4a413ad437398bfc741af8b49d307622276a03ea7bb9",
+    "tests/test_pc01_activation.py": "0d13d18986f42bcdc0fc2b9cfe88b05746131397cb0eb0f3b23f093c588331ad",
     "tests/test_pc01_closure.py": "4996d60a1f8862a8fe13aff8730f42c1edfd30f163ac77d69c2f00d63ebf7c21",
     "tests/test_pc01_dev2.py": "b063ea4bc03cbe8f91b9431f9c562b5cae77081ae10a4a3ddc036d4f6c6097f9",
     "tests/test_pc01_execution.py": "b69d81cedd850cc9954c4e4cdb308db1c0044404e6a9ee6523ef5faeacc7ba8f",

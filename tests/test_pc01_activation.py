@@ -106,8 +106,11 @@ def test_real_authorization_denies_final_and_legacy_without_mutation(monkeypatch
     from nextai_autoresearch import pc01_final_authority
     monkeypatch.setattr(pc01_final_authority, "authority", lambda root: None)
     before = sha256_file(root / "research/plan_registry.jsonl")
-    with pytest.raises(gates.GateViolation):
-        gates.ensure_can_create_plan(root)
+    # Generic plan creation is now reserved for the separate WT-01 DEV-1
+    # authority; the historical PC-01 dev overlay must still deny legacy use.
+    assert laboratory.pc01_scope_problems(
+        root, candidate="pc01_byte_gpt_v1", phase="legacy"
+    )
     with pytest.raises(gates.GateViolation):
         execution.create_plan(root, candidate="pc01_byte_gpt_v1", phase="final", question="must be denied")
     with pytest.raises(gates.GateViolation):

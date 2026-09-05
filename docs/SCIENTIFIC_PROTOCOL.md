@@ -1,5 +1,17 @@
 # Scientific protocol v3 — scoped evidence, verified measurement
 
+### Prospective WT-01 visible-development diagnostic (2026-09-05)
+
+WT-01-DEV1-20260905-V1 permits one preregistered quick factorial run after
+integration tests and a new manifest/preflight freeze. The only evaluation
+units are visible development files 6-7; files 8-9 remain inaccessible. The
+run includes all eight source-identical R×U×C cells and the separate algebraic
+VAR(2)/ARX control at every frozen K/H cell with one runner-random permutation.
+The aggregate recurrence contrast and both per-file signs are descriptive
+mechanism checks. They cannot establish replication, transfer, matched-quality
+economics, architectural novelty or promotion. Any terminal outcome consumes
+the one attempt; no tuning or automatic retry follows.
+
 ### Prospective PC-01 final adapter, no execution authority (2026-09-05)
 
 PC-01-FINAL-PREP-V1 pins the completed v2 dev selection while measuring future

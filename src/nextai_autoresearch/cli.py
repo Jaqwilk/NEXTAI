@@ -284,6 +284,12 @@ def _wt_prequential_protocol(config: ResearchConfig) -> dict[str, Any]:
     return protocol
 
 
+def _wt01_factorial_protocol() -> dict[str, Any]:
+    from .wt01_dev1 import expected_protocol
+
+    return expected_protocol()
+
+
 def _active_sensor_protocol(config: ResearchConfig) -> dict[str, Any]:
     active = config.raw["active_sensor"]
     return {
@@ -495,6 +501,28 @@ def command_plan_new(args: argparse.Namespace) -> int:
         plan["matrix"]["reasoning_depths"] = list(wt["horizons"])
         plan["matrix"]["queries_per_cell"] = 18
         plan["wt_prequential_protocol"] = _wt_prequential_protocol(config)
+    if config.benchmark_version == "wt01_causal_factorial_diagnostic_v1":
+        from .wt01_dev1 import CANDIDATES, PRIMARY_METRICS, validate_plan
+
+        if tuple(args.candidates) != CANDIDATES or args.budget != "quick":
+            raise ValueError("WT-01 DEV-1 requires the exact nine roles and quick budget")
+        plan["matrix"] = {
+            "knowledge_sizes": [18, 36, 54],
+            "reasoning_depths": [16, 32, 96],
+            "queries_per_cell": 18,
+            "seed_policy": {
+                "method": "runner_random_v1",
+                "count": 1,
+                "minimum": 1_000_000,
+                "maximum": 2_147_483_647,
+            },
+        }
+        plan["primary_metrics"] = list(PRIMARY_METRICS)
+        plan["metric_directions"] = {
+            name: configured_directions[name] for name in PRIMARY_METRICS
+        }
+        plan["wt01_factorial_protocol"] = _wt01_factorial_protocol()
+        validate_plan(plan)
     if config.benchmark_version.startswith("cross_family_"):
         transfer = config.raw["transfer"]
         if all(key in transfer for key in (

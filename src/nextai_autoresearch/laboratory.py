@@ -177,6 +177,12 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
                         series_freeze: bool = False) -> list[str]:
     """One registered development attempt; invalidation does not replenish it."""
     try:
+        from .wt01_dev1 import authority as wt01_authority, scope_problems as wt01_scope
+        if wt01_authority(base) is not None and (
+            experiment_id is not None
+            or (candidate is None and phase is None and not series_freeze)
+        ):
+            return wt01_scope(base, experiment_id=experiment_id)
         from .pc01_final_authority import authority as final_authority, scope as final_scope
         final = final_authority(base)
         if final is not None:
@@ -292,6 +298,24 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
             harness = wt01_harness_status(base) if finished else None
             if harness is not None:
                 ready = harness["complete"]
+                from .wt01_dev1 import status as wt01_dev1_status
+                dev1 = wt01_dev1_status(base) if ready else None
+                if dev1 is not None:
+                    stopped = dev1["terminal"]
+                    return {**progress, "activation_id": dev1["id"],
+                            "development_registrations_used": dev1["registrations_used"],
+                            "development_registrations_cap": 1,
+                            "final_registrations_used": 3, "final_registrations_cap": 3,
+                            "final_completed": 3, "final_access_authorized": False,
+                            "scoring_authorized": not stopped,
+                            "user_decision_required": stopped,
+                            "next_action_id": "WT-01-DECISION" if stopped else "WT-01-DEV-1",
+                            "next_action": "Review the one preserved WT-01 development outcome; no retry or diagnostic-file access."
+                                if stopped else "Freeze, register and execute exactly one visible-development WT-01 factorial run.",
+                            "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                            "lifecycle_migration_complete": True,
+                            "wt01_contract": wt01, "wt01_harness": harness,
+                            "wt01_dev1": dev1}
                 return {**progress, "activation_id": historical["id"],
                         "development_registrations_used": 2, "development_registrations_cap": 2,
                         "final_registrations_used": 3, "final_registrations_cap": 3,
@@ -462,6 +486,18 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
         wt01 = wt01_status(base) if completed is not None else None
         from .wt01_harness import PLAN_PATH as WT01_HARNESS_PLAN_PATH, status as wt01_harness_status
         harness = wt01_harness_status(base) if wt01 is not None and wt01["complete"] else None
+        from .wt01_dev1 import status as wt01_dev1_status
+        dev1 = wt01_dev1_status(base) if harness is not None and harness["complete"] else None
+        if dev1 is not None:
+            stopped = dev1["terminal"]
+            return {**contract,
+                    "status": "preparation_only" if stopped else "dev_authorized",
+                    "scoring_authorized": not stopped,
+                    "maintenance_plan": "research/plans/WT-01-DEV1-ACTIVATION-V1.json" if stopped else None,
+                    "activation_id": dev1["id"], "original_status": contract["status"],
+                    "lifecycle_migration_complete": True,
+                    "wt01_contract_ready": True, "wt01_harness_ready": True,
+                    "wt01_dev1_terminal": stopped}
         return {**contract, "status": "preparation_only", "scoring_authorized": False,
                 "maintenance_plan": WT01_HARNESS_PLAN_PATH if harness is not None else
                     WT01_PLAN_PATH if wt01 is not None else
@@ -516,13 +552,17 @@ def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> l
         return [f"laboratory contract: {exc}"]
     problems = []
     if contract["status"] == "dev_authorized":
-        from .pc01_execution import registered_plans
         try:
-            plans = registered_plans(base)
-            if dev2_authority(base) is not None:
-                _dev2_plans(base, dev2_authority(base))
-            elif plans:
-                problems.extend(pc01_scope_problems(base, experiment_id=plans[0]["experiment_id"]))
+            from .wt01_dev1 import authority as wt01_authority, status as wt01_status
+            if wt01_authority(base) is not None:
+                wt01_status(base)
+            else:
+                from .pc01_execution import registered_plans
+                plans = registered_plans(base)
+                if dev2_authority(base) is not None:
+                    _dev2_plans(base, dev2_authority(base))
+                elif plans:
+                    problems.extend(pc01_scope_problems(base, experiment_id=plans[0]["experiment_id"]))
         except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
             problems.append(f"PC-01 activation registrations: {exc}")
     if contract["status"] == "preparation_only" and config.benchmark_status != "maintenance":

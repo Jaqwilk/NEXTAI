@@ -79,7 +79,11 @@ def test_retained_config_and_preseed_baseline_discovery_match_contract() -> None
     # The completed final series remains verifiable through the Git-backed closure.
     from nextai_autoresearch.pc01_final_authority import authority
     assert authority(project_root())["id"] == "PC-01-FINAL-ACTIVATION-20260905-V1"
-    assert config["project"]["benchmark_status"] == "maintenance"
+    # The separate hash-bound WT-01 DEV-1 authority activates only its visible
+    # development evaluator; it does not reactivate SuiteSparse or final data.
+    assert config["project"]["benchmark_status"] == "active"
+    from nextai_autoresearch.wt01_dev1 import authority as wt01_authority
+    assert wt01_authority(project_root())["final_data_access_authorized"] is False
     protocol = config["suitesparse_cross_matrix"]
     assert protocol["source_identical_contract"] == bench.SOURCE_IDENTICAL_CONTRACT
     plan = {"suitesparse_transfer_protocol": {

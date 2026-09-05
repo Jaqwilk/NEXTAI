@@ -809,6 +809,70 @@
         }
       }
     },
+    "wt01_factorial_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_path", "authority_sha256", "activation_plan_path",
+        "activation_plan_sha256", "corpus_id", "manifest_sha256", "data_role",
+        "split_unit", "fit_files", "evaluation_files", "forbidden_files",
+        "hidden_holdout", "fresh_physical_replications", "replication_claim_permitted",
+        "candidate_metadata", "predict_then_atomic_artifact_then_reveal",
+        "factorial_candidates", "classical_control", "historical_cell",
+        "primary_contrast", "causal_attribution_threshold",
+        "equivalence_absolute_tolerance", "equivalence_relative_tolerance",
+        "knowledge_sizes", "fit_depth", "fit_horizon", "declared_horizons",
+        "runner_random_channel_permutation", "normalization", "state_budget_bytes",
+        "declared_reuses", "pareto_capability_metrics", "invalidation_rules"
+      ],
+      "properties": {
+        "authority_path": {"const": "research/laboratory/WT-01-DEV1-20260905-V1.json"},
+        "authority_sha256": {"const": "18c46d6cbc221e1e6c102842aed0b192ad962c4e2e4741a1237452427d112c1b"},
+        "activation_plan_path": {"const": "research/plans/WT-01-DEV1-ACTIVATION-V1.json"},
+        "activation_plan_sha256": {"const": "4ec7a549a08a69bb662be574633e0c5c326e3cfcc35b10dde87cfed2e585fe30"},
+        "corpus_id": {"const": "causal_chambers_wt_changepoints_v1"},
+        "manifest_sha256": {"const": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e"},
+        "data_role": {"const": "visible_development_only"},
+        "split_unit": {"const": "whole_csv_file_sha256"},
+        "fit_files": {"const": [0, 1, 2, 3, 4, 5]},
+        "evaluation_files": {"const": [6, 7]},
+        "forbidden_files": {"const": [8, 9]},
+        "hidden_holdout": {"const": false},
+        "fresh_physical_replications": {"const": 0},
+        "replication_claim_permitted": {"const": false},
+        "candidate_metadata": {"const": "anonymous_permuted_tensors_and_random_slot_only"},
+        "predict_then_atomic_artifact_then_reveal": {"const": true},
+        "factorial_candidates": {"const": [
+          "wt01_r0_u0_c0_v1", "wt01_r0_u0_c1_v1", "wt01_r0_u1_c0_v1", "wt01_r0_u1_c1_v1",
+          "wt01_r1_u0_c0_v1", "wt01_r1_u0_c1_v1", "wt01_r1_u1_c0_v1", "wt01_r1_u1_c1_v1"
+        ]},
+        "classical_control": {"const": "wt01_var2_rls_bound_v1"},
+        "historical_cell": {"const": "wt01_r1_u1_c1_v1"},
+        "primary_contrast": {"const": ["wt01_r0_u1_c1_v1", "wt01_r1_u1_c1_v1"]},
+        "causal_attribution_threshold": {"const": 0.03343253453162794},
+        "equivalence_absolute_tolerance": {"const": 1e-12},
+        "equivalence_relative_tolerance": {"const": 1e-12},
+        "knowledge_sizes": {"const": [18, 36, 54]},
+        "fit_depth": {"const": 32},
+        "fit_horizon": {"const": 32},
+        "declared_horizons": {"const": [16, 32, 96]},
+        "runner_random_channel_permutation": {"const": true},
+        "normalization": {"const": "fit_files_only_mechanical_partition"},
+        "state_budget_bytes": {"const": 16777216},
+        "declared_reuses": {"const": [1, 4, 16]},
+        "pareto_capability_metrics": {"const": [
+          "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
+          "worst_transition_normalized_rmse", "rollout_16_nrmse", "rollout_32_nrmse",
+          "rollout_96_nrmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+          "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+          "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+          "workload_ops_r4", "workload_ops_r16"
+        ]},
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 8
+        }
+      }
+    },
     "entity_addressing_protocol": {
       "type": "object",
       "additionalProperties": false,
@@ -916,6 +980,41 @@
     }
   },
   "allOf": [
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "wt01_causal_factorial_diagnostic_v1"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["evaluator_sha256", "wt01_factorial_protocol", "metric_directions"],
+        "properties": {
+          "budget": {"const": "quick"},
+          "parent_experiment_id": {"const": null},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [18, 36, 54]},
+            "reasoning_depths": {"const": [16, 32, 96]},
+            "queries_per_cell": {"const": 18},
+            "seed_policy": {"const": {
+              "method": "runner_random_v1", "count": 1,
+              "minimum": 1000000, "maximum": 2147483647
+            }}
+          }},
+          "candidates": {"const": [
+            "wt01_r0_u0_c0_v1", "wt01_r0_u0_c1_v1", "wt01_r0_u1_c0_v1", "wt01_r0_u1_c1_v1",
+            "wt01_r1_u0_c0_v1", "wt01_r1_u0_c1_v1", "wt01_r1_u1_c0_v1", "wt01_r1_u1_c1_v1",
+            "wt01_var2_rls_bound_v1"
+          ]},
+          "primary_metrics": {"const": [
+            "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
+            "worst_transition_normalized_rmse", "rollout_16_nrmse", "rollout_32_nrmse",
+            "rollout_96_nrmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+            "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+            "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+            "workload_ops_r4", "workload_ops_r16"
+          ]}
+        }
+      }
+    },
     {
       "if": {
         "properties": {"benchmark": {"const": "heldout_suitesparse_cross_matrix_prolongation_v1"}},

@@ -1,5 +1,19 @@
 # NEXTAI autonomous research rules
 
+## Current WT-01 development authorization (2026-09-05)
+
+The user's exact approval "zatwierdzam WT-01-DEV-1 w opisanym zakresie" is
+recorded in `research/laboratory/WT-01-DEV1-20260905-V1.json`, with the
+prospective integration plan in `research/plans/WT-01-DEV1-ACTIVATION-V1.json`.
+It authorizes exactly one registered quick run of all eight frozen R×U×C cells
+and the separate VAR(2)/ARX control at K=18/36/54 and H=16/32/96, with one
+runner-random channel permutation. Fit may use files 0-5 and evaluation may use
+only visible development files 6-7. Files 8-9, dataset downloads, retry, a
+second registration/seed, tuning, replication/transfer/economic/novelty claims
+and architecture promotion remain forbidden. Freeze and preregister first,
+execute only through `uv run nextai run --plan ...`, preserve every outcome,
+then stop at WT-01-DECISION and synchronize GitHub `master` and `main`.
+
 ## Current final-series authorization (2026-09-05)
 
 The user explicitly approved PC-01-FINAL-ACTIVATION-20260905-V1: exactly three

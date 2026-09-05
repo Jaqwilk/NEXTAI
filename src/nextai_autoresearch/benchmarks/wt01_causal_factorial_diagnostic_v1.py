@@ -16,6 +16,8 @@ import numpy as np
 
 from . import heldout_wt_changepoints_prequential_v1 as historical
 from .successor_graph_v1 import load_candidate, percentile
+from ..utils import load_json, project_root, sha256_file
+from ..wt01_dev1 import CANDIDATES, expected_protocol
 from ..wt_prequential_contract import PredictionArtifact, WTQuery, WTReveal, WTTraining, WTEpisode
 
 
@@ -34,13 +36,35 @@ CAUSAL_ATTRIBUTION_THRESHOLD = 0.03343253453162794
 
 
 def verify_static_contract(root=None) -> dict[str, Any]:
-    value = historical.verify_static_contract(root)
-    return {**value, "data_role": "visible_historical_diagnostic_only",
-            "hidden_holdout": False, "fresh_physical_replications": 0}
+    base = (root or project_root()).resolve()
+    manifest_path = base / "research/data/wt_changepoints_v1/manifest.json"
+    manifest = load_json(manifest_path)
+    records = {str(item["file"]): item for item in manifest["files"]}
+    if manifest.get("dataset_id") != "causal_chambers_wt_changepoints_v1":
+        raise ValueError("WT dataset identity mismatch")
+    # DEV-1 deliberately does not open or hash files 8-9.
+    for seed in (*TRAIN_SEEDS, *VISIBLE_DEVELOPMENT_SEEDS):
+        path = historical._data_path(base, seed)
+        record = records.get(path.name)
+        if record is None or sha256_file(path) != record["sha256"]:
+            raise ValueError(f"WT frozen fit/development file mismatch: seed {seed}")
+    if any(historical._data_path(base, seed).name not in records for seed in VISIBLE_DIAGNOSTIC_SEEDS):
+        raise ValueError("WT manifest lacks preserved historical diagnostic identities")
+    return {
+        "files_verified": 8,
+        "manifest_sha256": sha256_file(manifest_path),
+        "fit": list(TRAIN_SEEDS),
+        "development": list(VISIBLE_DEVELOPMENT_SEEDS),
+        "forbidden_files_opened": False,
+        "data_role": "visible_development_only",
+        "hidden_holdout": False,
+        "fresh_physical_replications": 0,
+    }
 
 
 def _run_trial(candidate_name: str, knowledge: int, horizon: int, scoring_seed: int,
-               evaluation_seeds: tuple[int, ...], state_limit: int) -> list[dict[str, Any]]:
+               evaluation_seeds: tuple[int, ...], state_limit: int,
+               data_role: str) -> list[dict[str, Any]]:
     ordered_train, evaluation, acquisition, preprocessing = historical._dataset(
         scoring_seed, evaluation_seeds
     )
@@ -61,7 +85,9 @@ def _run_trial(candidate_name: str, knowledge: int, horizon: int, scoring_seed: 
     rows, total_query_ops, total_update_ops = [], 0.0, 0.0
     query_bytes = update_bytes = 0.0
     peak_state = historical._number(candidate, "state_bytes")
-    for private_file, (slot, episodes) in enumerate(zip(slots, evaluation)):
+    for private_file, (physical_file, slot, episodes) in enumerate(
+        zip(evaluation_seeds, slots, evaluation)
+    ):
         squared, episode_nrmse, first16_area, recovery_nrmse = [], [], [], []
         latencies, update_latencies, digests = [], [], []
         stable = 0
@@ -121,7 +147,8 @@ def _run_trial(candidate_name: str, knowledge: int, horizon: int, scoring_seed: 
             "prediction_artifact_count": len(digests),
             "prediction_artifact_chain_sha256": hashlib.sha256("".join(digests).encode()).hexdigest(),
             "private_file_index": private_file,
-            "data_role": "visible_historical_diagnostic",
+            "visible_development_file": int(physical_file),
+            "data_role": data_role,
         }
         rows.append(row)
     steps = sum(row["query_count"] for row in rows)
@@ -138,15 +165,20 @@ def _run_trial(candidate_name: str, knowledge: int, horizon: int, scoring_seed: 
 
 
 def run_suite(candidate_name: str, plan: dict[str, Any]) -> list[dict[str, Any]]:
-    if candidate_name not in (*FACTORIAL_CANDIDATES, CLASSICAL_CONTROL):
+    if candidate_name not in CANDIDATES:
         raise ValueError("WT-01 diagnostic accepts only the frozen factorial and VAR control")
     matrix, protocol = plan["matrix"], plan["wt01_factorial_protocol"]
     if tuple(matrix["knowledge_sizes"]) != KNOWLEDGE_SIZES or tuple(matrix["reasoning_depths"]) != HORIZONS:
         raise ValueError("WT-01 diagnostic matrix changed")
-    if protocol.get("data_role") != "visible_historical_diagnostic_only":
-        raise ValueError("WT-01 data role must not be relabeled as hidden/fresh")
+    if protocol != expected_protocol():
+        raise ValueError("WT-01 DEV-1 protocol changed")
+    evaluation_seeds = tuple(int(value) for value in protocol["evaluation_files"])
+    if evaluation_seeds != VISIBLE_DEVELOPMENT_SEEDS:
+        raise ValueError("WT-01 DEV-1 may evaluate only visible development files 6-7")
+    if set(evaluation_seeds) & set(protocol["forbidden_files"]):
+        raise ValueError("WT-01 forbidden historical diagnostic file requested")
     state_limit = int(protocol["state_budget_bytes"])
     return [row for seed in matrix["seeds"] for knowledge in matrix["knowledge_sizes"]
             for horizon in matrix["reasoning_depths"] for row in _run_trial(
                 candidate_name, int(knowledge), int(horizon), int(seed),
-                VISIBLE_DIAGNOSTIC_SEEDS, state_limit)]
+                evaluation_seeds, state_limit, "visible_development")]

@@ -2,13 +2,14 @@
 
 ## Current WT-01 decision state (2026-09-05)
 
-The user-approved `research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json`
-service cycle is complete. It was the second and final bounded WT-01 service
-cycle (<=60 minutes), with no training,
-scoring, EXP registration, real WT-array access or dataset download. Follow
-`research/plans/WT-01-DATA-HARNESS-V1.json`. The cohort is explicitly limited to
-a visible historical mechanism diagnostic: files 0-5 are historical fit, 6-7
-visible development and 8-9 visible diagnostic. There are zero fresh same-protocol
+The user approved exactly one WT-01-DEV-1 attempt in
+`research/laboratory/WT-01-DEV1-20260905-V1.json`; follow the prospective
+integration plan `research/plans/WT-01-DEV1-ACTIVATION-V1.json`. Freeze the
+validated runner and preregister one quick EXP before realizing one runner-random
+seed. Run all eight frozen R×U×C cells and the separate VAR(2)/ARX control at
+K=18/36/54 and H=16/32/96. Fit files are 0-5; evaluation is restricted to the
+visible development files 6-7. Files 8-9, downloads, retries, a second plan or
+seed, and tuning remain forbidden. The cohort has zero fresh same-protocol
 physical recordings, so hidden-holdout, replication and transfer claims are barred.
 
 All eight R×U×C roles share one core. R is recursive self-feeding, U is post-reveal
@@ -18,9 +19,10 @@ contrast is NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1); its causal-attribution threshold is
 0.03343253453162794, exactly 10% of the already observed historical quality gap.
 This threshold can only explain that old positive; it is not a general quality
 gate. `wt_walks_v1` remains deferred as a different-operation adversarial source.
-Synthetic equivalence and full regression passed. The laboratory is stopped at
-WT-01-DEV-1 for explicit review. Scoring and any real-data access still require
-a separate prospective authority.
+Synthetic equivalence and the prior full regression passed. After the one
+authorized terminal result, preserve its analysis and receipt, synchronize
+GitHub `master` and `main`, and stop at WT-01-DECISION. A positive result is
+descriptive mechanism evidence only and cannot open files 8-9 automatically.
 
 ## Historical final-series authorization (2026-09-05)
 

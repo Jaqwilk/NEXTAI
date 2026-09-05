@@ -82,13 +82,20 @@ def test_migrated_laboratory_identity_advances_only_through_verified_wt_contract
     root = project_root()
     contract = laboratory.laboratory_contract(root)
     progress = laboratory.laboratory_progress(root)
-    assert contract["status"] == "preparation_only"
-    assert contract["scoring_authorized"] is False
+    from nextai_autoresearch.wt01_dev1 import status as wt01_dev1_status
+    dev1 = wt01_dev1_status(root)
+    assert contract["status"] == ("preparation_only" if dev1["terminal"] else "dev_authorized")
+    assert contract["scoring_authorized"] is (not dev1["terminal"])
     assert contract["lifecycle_migration_complete"] is True
     assert contract["wt01_contract_ready"] is True
     assert progress["wt01_contract"]["artifacts_ready"] is True
     if progress["wt01_contract"]["complete"]:
-        if progress.get("wt01_harness") is not None:
+        if progress.get("wt01_dev1") is not None:
+            assert progress["next_action_id"] == ("WT-01-DECISION" if dev1["terminal"] else "WT-01-DEV-1")
+            assert progress["user_decision_required"] is dev1["terminal"]
+            assert progress["scoring_authorized"] is (not dev1["terminal"])
+            assert progress["wt01_dev1"]["registrations_cap"] == 1
+        elif progress.get("wt01_harness") is not None:
             assert progress["next_action_id"] in {"WT-01-DATA-HARNESS", "WT-01-DEV-1"}
             assert progress["user_decision_required"] is progress["wt01_harness"]["complete"]
         else:
