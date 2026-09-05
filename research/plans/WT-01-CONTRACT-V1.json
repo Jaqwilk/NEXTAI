@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-CONTRACT-V1",
+  "kind": "no_scoring_causal_contract_preparation",
+  "authority": "research/laboratory/WT-01-CONTRACT-20260905-V1.json",
+  "created_at": "2026-09-05T19:33:29Z",
+  "deadline_at": "2026-09-05T20:33:29Z",
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "scientific_result_created": false,
+  "objective": "Determine exactly what the historical WT positive can and cannot establish, then freeze a falsifiable factorial design that isolates recursive history use, post-reveal RLS adaptation and origin-relative clipping before any new outcome is inspected.",
+  "causal_question": "Does recursive use of predicted state/history contribute quality or recovery beyond a classical affine VAR(2)/ARX predictor, post-reveal RLS adaptation and clipping, or is the historical gain fully explained by those classical mechanisms and stabilization?",
+  "scope": [
+    "Resolve EXP-20260831-0006 and EXP-20260831-0007 candidate plus dependencies from their immutable result hashes and Git commit; do not execute historical code.",
+    "Record the exact algebraic identity of ridge on [1, x_t, x_t-x_(t-1), u_t] as an affine controlled VAR(2), with separate RLS and clipping operations.",
+    "Freeze one source-identical 2x2x2 implementation contract with recurrence/history-delta R, post-reveal RLS U and origin-relative bound C as the only causal switches.",
+    "Define R=0 as one-step prediction from the last revealed history followed by persistence of that predicted level across the requested horizon; it neither recursively feeds predictions nor uses a predicted history delta.",
+    "Require the R1-U1-C1 cell to reproduce historical source behavior on outcome-free fixtures and require a separately named algebraic VAR(2)+RLS+bound control to match it within declared floating-point tolerance.",
+    "Define paired factorial estimands over independent physical trace units, not overlapping windows or runner permutations; preserve per-unit, per-horizon, stability, recovery, operation, byte-touch and state-memory outputs.",
+    "Separate known-data historical diagnosis, genuinely new same-protocol physical traces for replication and wt_walks_v1 only as a possible different-operation adversarial stratum.",
+    "Record that all ten local wt_changepoints_v1 files are already visible/used and cannot become fresh final replication data by repartitioning.",
+    "Do not freeze a numerical effect threshold until measurement noise and a development-only scale are documented prospectively; freeze it before final access in the next service cycle or stop.",
+    "Validate the immutable records, run focused tests, the complete pytest suite, doctor and integrity without invoking the scored runner."
+  ],
+  "required_controls": [
+    "exact algebraic VAR(2)/ARX representation of the historical affine rule",
+    "persistence and one-step-hold controls",
+    "frozen-update counterpart for every recurrence/bound configuration",
+    "unbounded counterpart for every recurrence/update configuration with divergence recorded rather than repaired",
+    "a fairly charged nonlinear NARX control only if its degree/features/regularization are frozen from development data before final access"
+  ],
+  "claim_boundaries": {
+    "primary": "causal learned mechanism effect",
+    "economic": "not established by a quality win and requires a separate matched-quality full-cost conclusion",
+    "transfer": "not established without cross-family source identity and independent data",
+    "architecture_promotion": "not authorized"
+  },
+  "success": "The historical identity and classical equivalence are hash-bound; every factorial cell and estimand is unambiguous; the independent-data receipt prevents seed/file pseudo-replication; tests, doctor and integrity pass with scoring closed; the exact remaining data/harness decision is stated.",
+  "failure": "Preserve every record and stop with the exact ambiguity, provenance, independence, validation or integrity blocker. Do not invent a threshold, inspect a new outcome, weaken a gate or start a development/scored experiment.",
+  "budget": {
+    "service_minutes": 60,
+    "training_seconds": 0,
+    "scoring_runs": 0,
+    "development_attempts": 0,
+    "dependency_installs": 0,
+    "downloads": 0
+  },
+  "next_action_on_success": "Stop for explicit review before the second and final WT-01 service cycle: data acquisition/receipt plus source-identical harness implementation and pre-outcome freeze, still without scoring unless separately authorized.",
+  "next_action_on_failure": "Stop at WT-01-CONTRACT with the concrete blocker; no factorial run."
+}

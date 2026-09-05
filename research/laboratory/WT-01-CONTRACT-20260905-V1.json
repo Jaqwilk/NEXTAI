@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-CONTRACT-20260905-V1",
+  "kind": "user_authorized_bounded_no_training_no_scoring_contract_preparation",
+  "created_at": "2026-09-05T19:33:29Z",
+  "user_approval": "kontynuuj; pamiętaj aby wypychać commity na GitHuba",
+  "parent_decision": "WT-01-CONTRACT",
+  "parent_receipt": "research/laboratory/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1-COMPLETION-ADDENDUM.json",
+  "parent_receipt_sha256": "34d49e603b362ee4d6b594695adfce10676880edb144a02239e9758eaf5a2aaf",
+  "parent_git_commit": "81bc764e905c9aa0e7e6c922d201c887ec2e2a87",
+  "started_at": "2026-09-05T19:33:29Z",
+  "deadline_at": "2026-09-05T20:33:29Z",
+  "service_minutes_cap": 60,
+  "wt01_service_cycle": 1,
+  "wt01_service_cycles_cap": 2,
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "final_data_access_authorized": false,
+  "development_attempt_authorized": false,
+  "new_scored_experiment_authorized": false,
+  "dataset_download_authorized": false,
+  "historical_identity": {
+    "experiments": [
+      "EXP-20260831-0006",
+      "EXP-20260831-0007"
+    ],
+    "source_git_commit": "49525156586e765c07f96e2f41ea17c709a3debb",
+    "candidate_path": "src/nextai_autoresearch/candidates/wt_candidate_under_test.py",
+    "candidate_sha256": "4471f2a999f9432e9d2e6fb56d309ebe7af52cca6dff246ab1b439b38f035104",
+    "known_dataset": "research/data/wt_changepoints_v1/manifest.json",
+    "known_dataset_role": "visible_historical_diagnostic_only"
+  },
+  "allowed_changes": [
+    "one immutable WT-01 contract-preparation plan and this authority record",
+    "one hash-resolved historical WT evidence and dependency-bundle receipt",
+    "one prospective factorial contract defining all eight recurrence-by-RLS-by-bound cells, estimands, controls, invalidation rules and claim boundaries",
+    "one data-independence feasibility receipt that distinguishes historical diagnosis, same-class replication and a different-operation adversarial test",
+    "one fail-closed contract validator and synthetic/unit tests that do not load evaluation outcomes",
+    "current queue documentation, append-only events, analysis, completion receipt and generated no-scoring reports",
+    "non-force commits and pushes to synchronize the existing GitHub master and main branches"
+  ],
+  "forbidden_changes": [
+    "edit a completed experiment plan, result, historical report or prior event",
+    "implement or tune a WT candidate, train a model, realize a seed, access final data or perform scoring",
+    "download a dataset or use remote-lab/API access in this service cycle",
+    "reuse runner permutation seeds as independent physical replication",
+    "call wt_walks_v1 a same-task replication of wt_changepoints_v1",
+    "reuse the historical 0.132526 threshold without a claim-specific measurement justification",
+    "claim architectural novelty, economic advantage or transfer from historical WT quality",
+    "change a schedule, deploy, publish, force-push or add an external model/API"
+  ],
+  "completion": "Freeze the causal question and its eight-cell semantics; bind the old positive to exact Git bytes and its classical VAR(2)/ARX interpretation; record the present independent-trace gap without inspecting new outcomes; validate the contract and full repository; publish both GitHub branches; then stop before WT-01 data acquisition, harness implementation, development or scoring."
+}
