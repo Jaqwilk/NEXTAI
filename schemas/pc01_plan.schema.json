@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PC-01 diagnostic registered plan (not legacy matrix experiment)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "pc01_diagnostic_plan"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^EXP-[0-9]{8}-[0-9]{4}$"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "status": {
+      "const": "planned"
+    },
+    "benchmark": {
+      "const": "pc01_byte_lm_learning_measurement_v1"
+    },
+    "phase": {
+      "enum": [
+        "dev",
+        "final"
+      ]
+    },
+    "candidate": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,63}$"
+    },
+    "contract_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "data_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "evaluator_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "recipe_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "series_sha256": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "development_seed": {
+      "const": 1103
+    },
+    "final_seed_policy": {
+      "const": {
+        "method": "runner_random_v1",
+        "minimum": 10000,
+        "maximum": 2147483647,
+        "count": 1
+      }
+    },
+    "architecture_promoted": {
+      "const": false
+    },
+    "budget": {
+      "const": "pc01_fixed_v1"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attempt": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "experiment_id",
+    "created_at",
+    "status",
+    "benchmark",
+    "phase",
+    "candidate",
+    "contract_sha256",
+    "data_sha256",
+    "evaluator_sha256",
+    "recipe_sha256",
+    "series_sha256",
+    "development_seed",
+    "final_seed_policy",
+    "architecture_promoted",
+    "budget",
+    "question",
+    "attempt"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "dev"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "series_sha256": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "series_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    }
+  ]
+}
