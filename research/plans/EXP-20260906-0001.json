@@ -1,0 +1,215 @@
+{
+  "alternative_explanations": [
+    "The old WT gain may be fully explained by the classical affine controlled VAR(2)/ARX identity and slot-local RLS rather than a novel architecture."
+  ],
+  "architecture_family": "source_identical_affine_factorial_diagnostic",
+  "benchmark": "wt01_causal_factorial_diagnostic_v1",
+  "budget": "quick",
+  "candidates": [
+    "wt01_r0_u0_c0_v1",
+    "wt01_r0_u0_c1_v1",
+    "wt01_r0_u1_c0_v1",
+    "wt01_r0_u1_c1_v1",
+    "wt01_r1_u0_c0_v1",
+    "wt01_r1_u0_c1_v1",
+    "wt01_r1_u1_c0_v1",
+    "wt01_r1_u1_c1_v1",
+    "wt01_var2_rls_bound_v1"
+  ],
+  "confounds": [
+    "Only two already visible physical development files are evaluated; the one runner seed changes channel permutation and is not an independent physical replication."
+  ],
+  "created_at": "2026-09-05T22:37:53Z",
+  "evaluator_sha256": "870fe289903f3c7d42a41526124b4084072c5088b24d0772fe57076d5d1ea8d0",
+  "experiment_id": "EXP-20260906-0001",
+  "falsification_criteria": [
+    "Reject descriptive recurrence support if the aggregate contrast is below 0.03343253453162794, either per-file contrast is non-positive, any role/cell diverges or fails, VAR(2)/ARX equivalence exceeds 1e-12, a state/cost/integrity gate fails, or any file outside 0-7 is accessed."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "2073dd4cc52bca351daeea4d3bd00452306a1ad5",
+    "dirty": false
+  },
+  "hypothesis_id": "HYP-0028",
+  "matrix": {
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "queries_per_cell": 18,
+    "reasoning_depths": [
+      16,
+      32,
+      96
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "adaptation_ops": "minimize",
+    "data_acquisition_ops": "minimize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "normalized_rmse": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "rollout_16_nrmse": "minimize",
+    "rollout_32_nrmse": "minimize",
+    "rollout_96_nrmse": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize",
+    "worst_file_normalized_rmse": "minimize",
+    "worst_transition_normalized_rmse": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Record the frozen recurrence contribution as unsupported on visible development, preserve every result and cost, do not tune or retry, and stop for review.",
+    "null": "Record the frozen recurrence effect as unsupported at the smallest effect of interest, do not tune or retry, and stop for review.",
+    "positive": "Record only descriptive causal-mechanism support, keep HYP-0028 dormant for broad transfer, and stop for review without opening files 8-9 or authorizing replication."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The aggregate NRMSE contrast R0-U1-C1 minus R1-U1-C1 will be at least 0.03343253453162794 and positive separately on visible development files 6 and 7; every frozen role will complete, remain stable and preserve numerical VAR(2)/ARX equivalence within 1e-12.",
+  "primary_metrics": [
+    "stable_rollout_rate",
+    "normalized_rmse",
+    "worst_file_normalized_rmse",
+    "worst_transition_normalized_rmse",
+    "rollout_16_nrmse",
+    "rollout_32_nrmse",
+    "rollout_96_nrmse",
+    "data_acquisition_ops",
+    "preprocessing_ops",
+    "fit_ops",
+    "adaptation_ops",
+    "mean_query_ops",
+    "update_ops",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "This one-seed two-visible-file development diagnostic cannot promote an architecture or establish replication, transfer, economic advantage or novelty."
+  ],
+  "research_question": "Does recursive self-feeding have the preregistered descriptive causal effect inside the frozen affine WT mechanism on both visible development files?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "Frozen WT-01 recurrence attribution on visible development",
+  "wt01_factorial_protocol": {
+    "activation_plan_path": "research/plans/WT-01-DEV1-ACTIVATION-V1.json",
+    "activation_plan_sha256": "4ec7a549a08a69bb662be574633e0c5c326e3cfcc35b10dde87cfed2e585fe30",
+    "authority_path": "research/laboratory/WT-01-DEV1-20260905-V1.json",
+    "authority_sha256": "18c46d6cbc221e1e6c102842aed0b192ad962c4e2e4741a1237452427d112c1b",
+    "candidate_metadata": "anonymous_permuted_tensors_and_random_slot_only",
+    "causal_attribution_threshold": 0.03343253453162794,
+    "classical_control": "wt01_var2_rls_bound_v1",
+    "corpus_id": "causal_chambers_wt_changepoints_v1",
+    "data_role": "visible_development_only",
+    "declared_horizons": [
+      16,
+      32,
+      96
+    ],
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "equivalence_absolute_tolerance": 1e-12,
+    "equivalence_relative_tolerance": 1e-12,
+    "evaluation_files": [
+      6,
+      7
+    ],
+    "factorial_candidates": [
+      "wt01_r0_u0_c0_v1",
+      "wt01_r0_u0_c1_v1",
+      "wt01_r0_u1_c0_v1",
+      "wt01_r0_u1_c1_v1",
+      "wt01_r1_u0_c0_v1",
+      "wt01_r1_u0_c1_v1",
+      "wt01_r1_u1_c0_v1",
+      "wt01_r1_u1_c1_v1"
+    ],
+    "fit_depth": 32,
+    "fit_files": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "fit_horizon": 32,
+    "forbidden_files": [
+      8,
+      9
+    ],
+    "fresh_physical_replications": 0,
+    "hidden_holdout": false,
+    "historical_cell": "wt01_r1_u1_c1_v1",
+    "invalidation_rules": [
+      "Invalidate on any frozen manifest or visible fit/development CSV hash mismatch.",
+      "Invalidate if any file outside fit files 0-5 and development files 6-7 is loaded.",
+      "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+      "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+      "Invalidate if normalization or mechanical channel discovery reads development outcomes.",
+      "Invalidate if a reveal mutates shared slow state or another anonymous slot.",
+      "Invalidate if any of the eight factorial roles or the VAR(2)/ARX control is omitted or changed.",
+      "Invalidate on a second registration, second seed, retry, post-score tuning, external model/API use, state breach or evaluator-integrity change."
+    ],
+    "knowledge_sizes": [
+      18,
+      36,
+      54
+    ],
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "normalization": "fit_files_only_mechanical_partition",
+    "pareto_capability_metrics": [
+      "stable_rollout_rate",
+      "normalized_rmse",
+      "worst_file_normalized_rmse",
+      "worst_transition_normalized_rmse",
+      "rollout_16_nrmse",
+      "rollout_32_nrmse",
+      "rollout_96_nrmse",
+      "data_acquisition_ops",
+      "preprocessing_ops",
+      "fit_ops",
+      "adaptation_ops",
+      "mean_query_ops",
+      "update_ops",
+      "state_bytes",
+      "peak_state_bytes",
+      "mean_bytes_touched",
+      "workload_ops_r1",
+      "workload_ops_r4",
+      "workload_ops_r16"
+    ],
+    "predict_then_atomic_artifact_then_reveal": true,
+    "primary_contrast": [
+      "wt01_r0_u1_c1_v1",
+      "wt01_r1_u1_c1_v1"
+    ],
+    "replacement_authority_path": "research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json",
+    "replacement_authority_sha256": "4518cd1c3d28a674f1628412c64b6140d80215ca606cf85b1b1542c79e23ca80",
+    "replacement_plan_path": "research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json",
+    "replacement_plan_sha256": "8bf5bead1797acacd3d99be1a0008179db0f4dcecdc325b400c2f092a80f77c1",
+    "replaces_invalidated_experiment": "EXP-20260905-0006",
+    "replication_claim_permitted": false,
+    "runner_random_channel_permutation": true,
+    "split_unit": "whole_csv_file_sha256",
+    "state_budget_bytes": 16777216
+  }
+}
