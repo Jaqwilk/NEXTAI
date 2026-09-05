@@ -133,3 +133,4 @@
 {"experiment_id":"EXP-20260905-0001","path":"research/plans/EXP-20260905-0001.json","plan_sha256":"3286682aeb04cacc71922ca786d8578debe6ccd291d4dc12bd63345f827c4391","registered_at":"2026-09-05T13:04:27Z"}
 {"experiment_id":"EXP-20260905-0002","path":"research/plans/EXP-20260905-0002.json","plan_sha256":"6b617d2c0880ea619b705930b1f12dedb9f128919c4c40e3ddf61769d4175988","registered_at":"2026-09-05T14:12:41Z"}
 {"experiment_id":"EXP-20260905-0003","path":"research/plans/EXP-20260905-0003.json","plan_sha256":"1f3da1f5429725926e75d434f88f5d9ec9fca14f5758f09fc77daaf90818f291","registered_at":"2026-09-05T17:19:23Z"}
+{"experiment_id":"EXP-20260905-0004","path":"research/plans/EXP-20260905-0004.json","plan_sha256":"990c2326db8ae6ff587fd2a86f345170755ad9ecebfb86e052567358a5abf336","registered_at":"2026-09-05T18:10:09Z"}
