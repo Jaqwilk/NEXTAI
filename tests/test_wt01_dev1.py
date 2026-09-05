@@ -65,6 +65,13 @@ def test_hash_bound_authority_is_present_and_parent_receipt_unchanged():
     assert value["execution"]["evaluation_files"] == [6, 7]
     assert value["execution"]["forbidden_files"] == [8, 9]
 
+    replacement = wt01_dev1.replacement_authority(project_root())
+    assert replacement is not None
+    assert replacement["invalidated_experiment_id"] == "EXP-20260905-0006"
+    assert replacement["replacement_experiment_registrations_authorized"] == 1
+    assert replacement["execution"]["evaluation_files"] == [6, 7]
+    assert replacement["execution"]["forbidden_files"] == [8, 9]
+
 
 def test_exact_plan_contract_and_schema_reject_scope_drift():
     plan = _plan()
@@ -80,6 +87,10 @@ def test_exact_plan_contract_and_schema_reject_scope_drift():
     changed["candidates"].pop()
     with pytest.raises(ValueError, match="nine frozen roles"):
         wt01_dev1.validate_plan(changed)
+
+    replacement = copy.deepcopy(plan)
+    replacement["wt01_factorial_protocol"] = wt01_dev1.expected_protocol(replacement=True)
+    wt01_dev1.validate_plan(replacement)
 
 
 def test_evaluator_routes_every_cell_only_to_visible_development(monkeypatch):

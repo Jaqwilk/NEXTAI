@@ -78,15 +78,16 @@ def test_retained_config_and_preseed_baseline_discovery_match_contract() -> None
     # The lifecycle migration changes only the live identity; retained SuiteSparse stays historical.
     assert config["project"]["benchmark_version"] == "wt01_causal_factorial_diagnostic_v1"
     assert config["project"]["protocol_version"] == 3
-    # The pre-seed WT registration exposed the closure's whole-file ledger bug.
+    # The pre-seed WT registration exposed the closure's whole-file ledger bug;
+    # the corrected verifier now authenticates the historical prefix and append.
     from nextai_autoresearch.pc01_final_authority import authority
-    with pytest.raises(ValueError, match="append-only|plan_registry|current immutable"):
-        authority(project_root())
-    # The one WT-01 registration ended pre-seed and returned the live gate to maintenance.
-    assert config["project"]["benchmark_status"] == "maintenance"
+    assert authority(project_root())["terminal"] is True
+    # The original registration remains invalidated while one explicit replacement is open.
+    assert config["project"]["benchmark_status"] == "active"
     from nextai_autoresearch.wt01_dev1 import authority as wt01_authority, status as wt01_status
     assert wt01_authority(project_root())["final_data_access_authorized"] is False
-    assert wt01_status(project_root())["terminal"] is True
+    assert wt01_status(project_root())["terminal"] is False
+    assert wt01_status(project_root())["replacement_authorized"] is True
     protocol = config["suitesparse_cross_matrix"]
     assert protocol["source_identical_contract"] == bench.SOURCE_IDENTICAL_CONTRACT
     plan = {"suitesparse_transfer_protocol": {

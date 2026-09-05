@@ -287,7 +287,7 @@ def _wt_prequential_protocol(config: ResearchConfig) -> dict[str, Any]:
 def _wt01_factorial_protocol() -> dict[str, Any]:
     from .wt01_dev1 import expected_protocol
 
-    return expected_protocol()
+    return expected_protocol(replacement=True)
 
 
 def _active_sensor_protocol(config: ResearchConfig) -> dict[str, Any]:

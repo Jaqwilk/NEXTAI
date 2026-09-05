@@ -36,6 +36,29 @@ def git_bytes(root: Path, commit: str, relative: str) -> bytes:
     return _git(root, "show", f"{commit}:{relative}")
 
 
+def _verify_append_only_jsonl(root: Path, commit: str, relative: str) -> int:
+    """Authenticate a Git snapshot as the exact prefix and parse every later record."""
+    historical = git_bytes(root, commit, relative)
+    live = (root / relative).read_bytes()
+    require(live.startswith(historical),
+            f"current append-only PC-01 evidence historical prefix changed: {relative}")
+    appended = live[len(historical):]
+    if not appended:
+        return 0
+    require(historical.endswith(b"\n") and appended.endswith(b"\n"),
+            f"current append-only PC-01 evidence has an incomplete JSONL record: {relative}")
+    try:
+        lines = appended.decode("utf-8").splitlines()
+        records = [json.loads(line) for line in lines if line]
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError(
+            f"current append-only PC-01 evidence has malformed JSONL: {relative}"
+        ) from exc
+    require(len(records) == len(lines) and all(isinstance(record, dict) for record in records),
+            f"current append-only PC-01 evidence has malformed JSONL: {relative}")
+    return len(records)
+
+
 @lru_cache(maxsize=4)
 def _verify_git_bundle(root_text: str) -> None:
     """Git objects are immutable; avoid dozens of repeated subprocess reads."""
@@ -127,8 +150,13 @@ def closure(root: Path) -> dict | None:
     require(isinstance(live, list) and len(live) == len(set(live)) and live,
             "invalid current immutable evidence list")
     for relative in live:
-        require(relative in historical and sha256_file(root / relative) == historical[relative],
+        require(relative in historical,
                 f"current immutable PC-01 evidence changed: {relative}")
+        if relative == "research/plan_registry.jsonl":
+            _verify_append_only_jsonl(root, commit, relative)
+        else:
+            require(sha256_file(root / relative) == historical[relative],
+                    f"current immutable PC-01 evidence changed: {relative}")
 
     _verify_git_bundle(str(root.resolve()))
     decision = value.get("terminal_decision", {})

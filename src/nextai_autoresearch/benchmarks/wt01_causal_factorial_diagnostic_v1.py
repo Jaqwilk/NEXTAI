@@ -170,7 +170,7 @@ def run_suite(candidate_name: str, plan: dict[str, Any]) -> list[dict[str, Any]]
     matrix, protocol = plan["matrix"], plan["wt01_factorial_protocol"]
     if tuple(matrix["knowledge_sizes"]) != KNOWLEDGE_SIZES or tuple(matrix["reasoning_depths"]) != HORIZONS:
         raise ValueError("WT-01 diagnostic matrix changed")
-    if protocol != expected_protocol():
+    if protocol not in (expected_protocol(), expected_protocol(replacement=True)):
         raise ValueError("WT-01 DEV-1 protocol changed")
     evaluation_seeds = tuple(int(value) for value in protocol["evaluation_files"])
     if evaluation_seeds != VISIBLE_DEVELOPMENT_SEEDS:

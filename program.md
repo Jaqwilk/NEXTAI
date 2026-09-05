@@ -1,6 +1,20 @@
 # NEXTAI laboratory cycle — protocol v3
 
-## Current WT-01 decision state (2026-09-05)
+## Current WT-01 corrective execution state (2026-09-06)
+
+The user explicitly authorized the bounded append-only lifecycle correction,
+one new evaluator/preflight freeze and exactly one replacement WT-01-DEV-1
+registration/run in `research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`.
+Follow `research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. Authenticate the
+historical PC-01 plan-registry bytes as the exact live prefix, parse all later
+JSONL records, preserve every other exact evidence hash, and test append,
+mutation, truncation and reorder behavior. Only after full regression, integrity,
+doctor, manifest freeze and preflight pass may one replacement plan be registered.
+Run it once through the audited runner on files 6-7 and stop at its terminal
+outcome. Files 8-9, tuning, retry, another registration/seed and broad claims
+remain forbidden. Synchronize GitHub `master` and `main`.
+
+## Historical WT-01 decision state (2026-09-05)
 
 The user approved exactly one WT-01-DEV-1 registration in
 `research/laboratory/WT-01-DEV1-20260905-V1.json`; follow the prospective
@@ -10,8 +24,8 @@ passed 949/949 tests and was frozen, but the one registration
 invalidated. The historical PC-01 closure requires the entire append-only
 `research/plan_registry.jsonl` to retain its old terminal hash, so any legitimate
 new registration makes doctor fail. No scoring seed was realized and no WT array
-was opened. Keep maintenance and stop at WT-01-DECISION. A closure correction,
-new evaluator freeze and replacement registration require separate user authority.
+was opened. The required separate authority was granted on 2026-09-06 as recorded
+above; this does not rewrite or replenish the original registration.
 
 All eight R×U×C roles share one core. R is recursive self-feeding, U is post-reveal
 slot-local RLS, and C is origin-relative clipping at +/-4. The separately named

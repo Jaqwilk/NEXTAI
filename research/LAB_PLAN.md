@@ -1,6 +1,25 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Aktualny stan decyzji — WT-01-DEV-1 (2026-09-05)
+## Aktualny etap — poprawka lifecycle i zastępczy WT-01-DEV-1 (2026-09-06)
+
+Użytkownik jawnie zatwierdził poprawkę append-only lifecycle, ponowny freeze i
+jedną zastępczą rejestrację/run w
+`research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`. Wiążący plan:
+`research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. Najpierw historyczne bajty
+`research/plan_registry.jsonl` z commita closure muszą pozostać dokładnym
+prefiksem, a wszystkie późniejsze rekordy muszą być kompletnym poprawnym JSONL.
+Pozostałe dowody PC-01 nadal wymagają dokładnych hashy całych plików. Testujemy
+append oraz odrzucenie mutacji, obcięcia i zmiany kolejności; następnie pełna
+regresja, integrity, doctor, nowy manifest i preflight.
+
+Dopiero po PASS wolno zarejestrować jeden zamiennik unieważnionego pre-seed
+`EXP-20260905-0006` i wykonać go raz przez runner. Zakres pozostaje identyczny:
+osiem komórek R×U×C, VAR(2)/ARX, K=18/36/54, H=16/32/96, jeden seed permutacji,
+fit 0-5 i ocena wyłącznie 6-7. Pliki 8-9, pobrania, tuning, kolejny zamiennik,
+retry i szerokie twierdzenia są zakazane. Po wyniku: WT-01-DECISION i push
+`master`/`main` bez force.
+
+## Historyczny stan decyzji — WT-01-DEV-1 (2026-09-05)
 
 Użytkownik zatwierdził dokładnie jedną rejestrację w
 `research/laboratory/WT-01-DEV1-20260905-V1.json`; wiążący plan integracji to
@@ -10,8 +29,8 @@ rejestracja `EXP-20260905-0006` ujawniła blocker przed seedem i została
 append-only unieważniona: historyczne zamknięcie PC-01 wymaga niezmiennego hasha
 całego append-only `research/plan_registry.jsonl`. Nie otwarto żadnej tablicy WT
 i nie zużyto próby obliczeniowej. Utrzymać maintenance i stop na
-WT-01-DECISION. Poprawka closure, nowy freeze i rejestracja zastępcza wymagają
-osobnej jawnej zgody. Commity wypychamy bez force, synchronizując `master` i `main`.
+WT-01-DECISION. Wymagana osobna zgoda została udzielona 2026-09-06 i jest opisana
+powyżej; pierwotna rejestracja i jej unieważnienie pozostają niezmienne.
 
 Zakres danych jest diagnostyczny i wcześniej widziany: 0-5 historyczny fit,
 6-7 visible development, 8-9 visible historical diagnostic. Świeżych śladów tego

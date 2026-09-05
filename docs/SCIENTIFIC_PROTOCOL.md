@@ -1,5 +1,16 @@
 # Scientific protocol v3 — scoped evidence, verified measurement
 
+### WT-01 append-only correction and single replacement (2026-09-06)
+
+WT-01-LIFECYCLE-REPLACEMENT-20260906-V1 authorizes one bounded correction of
+the PC-01 closure: its Git-authenticated `research/plan_registry.jsonl` snapshot
+is an immutable byte prefix, while every later byte must form complete valid
+JSONL records. All other historical evidence remains whole-file immutable.
+After positive append and negative mutation/truncation/reorder tests, full
+regression, refreeze and preflight, exactly one replacement for invalidated
+pre-seed EXP-20260905-0006 may run. Its scope is unchanged and remains limited
+to visible development files 6-7; files 8-9 and retry remain forbidden.
+
 ### Prospective WT-01 visible-development diagnostic (2026-09-05)
 
 WT-01-DEV1-20260905-V1 permits one preregistered quick factorial run after

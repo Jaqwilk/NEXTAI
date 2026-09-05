@@ -47,6 +47,8 @@ FIXED_PROTECTED_FILES = (
     "research/laboratory/PC-01-DEV2-20260905-V1.json",
     "research/laboratory/WT-01-DEV1-20260905-V1.json",
     "research/plans/WT-01-DEV1-ACTIVATION-V1.json",
+    "research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json",
+    "research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json",
     "scripts/validate_pc01_dev2.py",
     "research/plans/PC-01-GPU-METADATA-V1.json",
     "scripts/validate_pc01_gpu_metadata.py",

@@ -48,6 +48,51 @@ def test_closure_rejects_mutated_current_evidence(monkeypatch):
         pc01_closure.closure(root)
 
 
+def test_append_only_registry_accepts_complete_records(monkeypatch, tmp_path):
+    historical = b'{"experiment_id":"EXP-1"}\n'
+    relative = "research/plan_registry.jsonl"
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True)
+    path.write_bytes(historical + b'{"experiment_id":"EXP-2"}\n')
+    monkeypatch.setattr(pc01_closure, "git_bytes",
+                        lambda _root, _commit, _relative: historical)
+    assert pc01_closure._verify_append_only_jsonl(tmp_path, "a" * 40, relative) == 1
+
+
+@pytest.mark.parametrize("changed", [
+    b'{"experiment_id":"CHANGED"}\n',
+    b'{"experiment_id":"EXP-1"',
+    b'{"experiment_id":"EXP-0"}\n{"experiment_id":"EXP-1"}\n',
+])
+def test_append_only_registry_rejects_prefix_mutation_truncation_or_reorder(
+    monkeypatch, tmp_path, changed
+):
+    historical = b'{"experiment_id":"EXP-1"}\n'
+    relative = "research/plan_registry.jsonl"
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True)
+    path.write_bytes(changed)
+    monkeypatch.setattr(pc01_closure, "git_bytes",
+                        lambda _root, _commit, _relative: historical)
+    with pytest.raises(ValueError, match="historical prefix changed"):
+        pc01_closure._verify_append_only_jsonl(tmp_path, "a" * 40, relative)
+
+
+@pytest.mark.parametrize("appended", [b'{"experiment_id":"EXP-2"}', b'not-json\n', b'\n'])
+def test_append_only_registry_rejects_partial_malformed_or_blank_records(
+    monkeypatch, tmp_path, appended
+):
+    historical = b'{"experiment_id":"EXP-1"}\n'
+    relative = "research/plan_registry.jsonl"
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True)
+    path.write_bytes(historical + appended)
+    monkeypatch.setattr(pc01_closure, "git_bytes",
+                        lambda _root, _commit, _relative: historical)
+    with pytest.raises(ValueError, match="incomplete|malformed"):
+        pc01_closure._verify_append_only_jsonl(tmp_path, "a" * 40, relative)
+
+
 def _function(source: str, name: str) -> str:
     node = next(item for item in ast.parse(source).body
                 if isinstance(item, (ast.FunctionDef, ast.AsyncFunctionDef)) and item.name == name)

@@ -13,6 +13,14 @@ AUTHORITY_PATH = "research/laboratory/WT-01-DEV1-20260905-V1.json"
 AUTHORITY_SHA256 = "18c46d6cbc221e1e6c102842aed0b192ad962c4e2e4741a1237452427d112c1b"
 ACTIVATION_PLAN_PATH = "research/plans/WT-01-DEV1-ACTIVATION-V1.json"
 ACTIVATION_PLAN_SHA256 = "4ec7a549a08a69bb662be574633e0c5c326e3cfcc35b10dde87cfed2e585fe30"
+REPLACEMENT_AUTHORITY_PATH = "research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json"
+REPLACEMENT_AUTHORITY_SHA256 = "4518cd1c3d28a674f1628412c64b6140d80215ca606cf85b1b1542c79e23ca80"
+REPLACEMENT_PLAN_PATH = "research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json"
+REPLACEMENT_PLAN_SHA256 = "8bf5bead1797acacd3d99be1a0008179db0f4dcecdc325b400c2f092a80f77c1"
+BLOCKER_RECEIPT_PATH = "research/laboratory/WT-01-DEV1-PREREGISTRATION-BLOCKER-V1.receipt.json"
+BLOCKER_RECEIPT_SHA256 = "75ea4a1d01f901537a59332162eba3801158a44ee05f5a432c5e82409b705ab1"
+INVALIDATED_EXPERIMENT_ID = "EXP-20260905-0006"
+INVALIDATED_PLAN_SHA256 = "d20dc0b70255bee2fefab87c9fd32c87f308e19f7fc20478085131504e17b6a7"
 PARENT_RECEIPT_PATH = "research/laboratory/WT-01-DATA-HARNESS-V1.receipt.json"
 PARENT_RECEIPT_SHA256 = "a8bc516e98781e9d337469ccf8c6465e5a28b308581a51d86a6825fa57537b72"
 BENCHMARK = "wt01_causal_factorial_diagnostic_v1"
@@ -66,8 +74,74 @@ def authority(base: Path) -> dict[str, Any] | None:
     return value
 
 
-def expected_protocol() -> dict[str, Any]:
-    return {
+def replacement_authority(base: Path) -> dict[str, Any] | None:
+    """Verify the one explicit lifecycle correction and replacement-run grant."""
+    events = [
+        event for event in read_jsonl(base / "research/events.jsonl")
+        if event.get("event") == "wt01_lifecycle_replacement_authorized"
+    ]
+    path = base / REPLACEMENT_AUTHORITY_PATH
+    if not path.exists() and not events:
+        return None
+    if (
+        not path.is_file()
+        or sha256_file(path) != REPLACEMENT_AUTHORITY_SHA256
+        or len(events) != 1
+        or events[0].get("authority_path") != REPLACEMENT_AUTHORITY_PATH
+        or events[0].get("authority_sha256") != REPLACEMENT_AUTHORITY_SHA256
+        or events[0].get("plan_path") != REPLACEMENT_PLAN_PATH
+        or events[0].get("plan_sha256") != REPLACEMENT_PLAN_SHA256
+    ):
+        raise ValueError("WT-01 lifecycle replacement authority is missing, changed or repeated")
+    if sha256_file(base / REPLACEMENT_PLAN_PATH) != REPLACEMENT_PLAN_SHA256:
+        raise ValueError("WT-01 lifecycle replacement plan changed")
+    if sha256_file(base / BLOCKER_RECEIPT_PATH) != BLOCKER_RECEIPT_SHA256:
+        raise ValueError("WT-01 preregistration blocker receipt changed")
+    value = load_json(path)
+    execution = value.get("execution", {})
+    if (
+        value.get("parent_authority_path") != AUTHORITY_PATH
+        or value.get("parent_authority_sha256") != AUTHORITY_SHA256
+        or value.get("parent_blocker_receipt_path") != BLOCKER_RECEIPT_PATH
+        or value.get("parent_blocker_receipt_sha256") != BLOCKER_RECEIPT_SHA256
+        or value.get("invalidated_experiment_id") != INVALIDATED_EXPERIMENT_ID
+        or value.get("replacement_experiment_registrations_authorized") != 1
+        or value.get("replacement_scoring_runs_authorized") != 1
+        or value.get("replacement_runner_random_seeds_authorized") != 1
+        or value.get("automatic_retry_authorized") is not False
+        or value.get("final_data_access_authorized") is not False
+        or execution.get("evaluation_files") != [6, 7]
+        or execution.get("forbidden_files") != [8, 9]
+        or tuple(execution.get("factorial_candidates", ())) != FACTORIAL_CANDIDATES
+        or execution.get("classical_control") != CLASSICAL_CONTROL
+        or execution.get("knowledge_sizes") != [18, 36, 54]
+        or execution.get("horizons") != [16, 32, 96]
+    ):
+        raise ValueError("WT-01 lifecycle replacement authority scope changed")
+    records = {
+        str(event.get("experiment_id")): str(event.get("plan_sha256"))
+        for event in read_jsonl(research_dir(base) / "plan_registry.jsonl")
+    }
+    statuses = latest_plan_statuses(base)
+    invalidation = statuses.get(INVALIDATED_EXPERIMENT_ID, {})
+    scoring_starts = [
+        event for event in read_jsonl(base / "research/events.jsonl")
+        if event.get("event") == "experiment_scoring_started"
+        and event.get("experiment_id") == INVALIDATED_EXPERIMENT_ID
+    ]
+    if (
+        records.get(INVALIDATED_EXPERIMENT_ID) != INVALIDATED_PLAN_SHA256
+        or invalidation.get("status") != "invalidated"
+        or (research_dir(base) / "results" / f"{INVALIDATED_EXPERIMENT_ID}.json").exists()
+        or (research_dir(base) / "tmp" / INVALIDATED_EXPERIMENT_ID).exists()
+        or scoring_starts
+    ):
+        raise ValueError("WT-01 replacement does not follow the exact preserved pre-seed invalidation")
+    return value
+
+
+def expected_protocol(*, replacement: bool = False) -> dict[str, Any]:
+    protocol = {
         "authority_path": AUTHORITY_PATH,
         "authority_sha256": AUTHORITY_SHA256,
         "activation_plan_path": ACTIVATION_PLAN_PATH,
@@ -111,6 +185,15 @@ def expected_protocol() -> dict[str, Any]:
             "Invalidate on a second registration, second seed, retry, post-score tuning, external model/API use, state breach or evaluator-integrity change.",
         ],
     }
+    if replacement:
+        protocol.update({
+            "replacement_authority_path": REPLACEMENT_AUTHORITY_PATH,
+            "replacement_authority_sha256": REPLACEMENT_AUTHORITY_SHA256,
+            "replacement_plan_path": REPLACEMENT_PLAN_PATH,
+            "replacement_plan_sha256": REPLACEMENT_PLAN_SHA256,
+            "replaces_invalidated_experiment": INVALIDATED_EXPERIMENT_ID,
+        })
+    return protocol
 
 
 def validate_plan(plan: dict[str, Any]) -> None:
@@ -132,7 +215,8 @@ def validate_plan(plan: dict[str, Any]) -> None:
         }
     ):
         raise ValueError("WT-01 DEV-1 matrix or one-seed policy changed")
-    if plan.get("wt01_factorial_protocol") != expected_protocol():
+    protocol = plan.get("wt01_factorial_protocol")
+    if protocol not in (expected_protocol(), expected_protocol(replacement=True)):
         raise ValueError("WT-01 DEV-1 protocol changed")
     if tuple(plan.get("primary_metrics", ())) != PRIMARY_METRICS:
         raise ValueError("WT-01 DEV-1 metrics changed")
@@ -141,7 +225,7 @@ def validate_plan(plan: dict[str, Any]) -> None:
 
 
 def registered_plans(base: Path) -> list[dict[str, Any]]:
-    """Find and authenticate the at-most-one WT-01 DEV-1 registration."""
+    """Authenticate the original registration and at most one authorized replacement."""
     records = {
         str(event.get("experiment_id")): str(event.get("plan_sha256"))
         for event in read_jsonl(research_dir(base) / "plan_registry.jsonl")
@@ -156,8 +240,25 @@ def registered_plans(base: Path) -> list[dict[str, Any]]:
             raise ValueError("WT-01 DEV-1 plan is not immutably registered")
         validate_plan(plan)
         plans.append(plan)
-    if len(plans) > 1:
-        raise ValueError("WT-01 DEV-1 single registration cap exceeded")
+    replacement = replacement_authority(base)
+    originals = [
+        plan for plan in plans
+        if plan.get("wt01_factorial_protocol") == expected_protocol()
+    ]
+    replacements = [
+        plan for plan in plans
+        if plan.get("wt01_factorial_protocol") == expected_protocol(replacement=True)
+    ]
+    if replacement is None:
+        if len(plans) > 1:
+            raise ValueError("WT-01 DEV-1 single registration cap exceeded")
+    elif (
+        len(originals) != 1
+        or originals[0].get("experiment_id") != INVALIDATED_EXPERIMENT_ID
+        or len(replacements) > 1
+        or len(plans) != len(originals) + len(replacements)
+    ):
+        raise ValueError("WT-01 DEV-1 replacement registration history changed or exceeded")
     return plans
 
 
@@ -165,7 +266,15 @@ def status(base: Path) -> dict[str, Any] | None:
     policy = authority(base)
     if policy is None:
         return None
+    replacement = replacement_authority(base)
+    if replacement is not None:
+        policy = replacement
     plans = registered_plans(base)
+    if replacement is not None:
+        plans = [
+            plan for plan in plans
+            if plan.get("wt01_factorial_protocol") == expected_protocol(replacement=True)
+        ]
     terminal_statuses = latest_plan_statuses(base)
     terminal = False
     result_complete = False
@@ -185,6 +294,7 @@ def status(base: Path) -> dict[str, Any] | None:
         "plans": plans,
         "registrations_used": len(plans),
         "registrations_cap": 1,
+        "replacement_authorized": replacement is not None,
         "result_complete": result_complete,
         "terminal": terminal,
     }
@@ -200,11 +310,11 @@ def scope_problems(base: Path, *, experiment_id: str | None = None) -> list[str]
             return ["WT-01 DEV-1 cannot activate another benchmark"]
         plans = policy["plans"]
         if experiment_id is None:
-            return [] if not plans else ["WT-01 DEV-1 single registration already consumed"]
+            return [] if not plans else ["WT-01 DEV-1 authorized registration already consumed"]
         if len(plans) != 1 or plans[0]["experiment_id"] != experiment_id:
             return ["WT-01 DEV-1 does not cover this experiment"]
         if policy["terminal"]:
-            return ["WT-01 DEV-1 is terminal; retry or replacement is forbidden"]
+            return ["WT-01 DEV-1 is terminal; retry is forbidden"]
         return []
     except (OSError, ValueError, KeyError, TypeError) as exc:
         return [f"WT-01 DEV-1 activation: {exc}"]

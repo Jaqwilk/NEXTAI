@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-LIFECYCLE-CORRECTION-CERTIFICATE-V1",
+  "created_at": "2026-09-05T22:26:53Z",
+  "status": "complete",
+  "decision": "append_only_prefix_correction_validated_replacement_registration_ready",
+  "authority_path": "research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json",
+  "authority_sha256": "4518cd1c3d28a674f1628412c64b6140d80215ca606cf85b1b1542c79e23ca80",
+  "plan_path": "research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json",
+  "plan_sha256": "8bf5bead1797acacd3d99be1a0008179db0f4dcecdc325b400c2f092a80f77c1",
+  "parent_blocker_receipt_path": "research/laboratory/WT-01-DEV1-PREREGISTRATION-BLOCKER-V1.receipt.json",
+  "parent_blocker_receipt_sha256": "75ea4a1d01f901537a59332162eba3801158a44ee05f5a432c5e82409b705ab1",
+  "correction": {
+    "historical_source": "Git commit f08cd02fb1cc80ed169b63c1917eb1b979c0b238:research/plan_registry.jsonl",
+    "historical_prefix_bytes": 27881,
+    "historical_prefix_sha256": "c88d73dca479844b761bcd1d703c78d13cc56f12efea6a5efef062946f93588f",
+    "live_appended_records_before_replacement": 1,
+    "complete_utf8_jsonl_required": true,
+    "blank_appended_records_rejected": true,
+    "historical_prefix_mutation_rejected": true,
+    "historical_prefix_truncation_rejected": true,
+    "historical_prefix_reorder_rejected": true,
+    "all_other_current_immutable_evidence_whole_file_hashes_preserved": true
+  },
+  "targeted_regression": {
+    "tests": 90,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "full_regression_v1": {
+    "path": "research/laboratory/WT-01-LIFECYCLE-CORRECTION-FULL-REGRESSION-V1.xml",
+    "sha256": "0b92786828921deb232aa273304d0695c6dc511a0946c6894aa88349c0b34f61",
+    "tests": 956,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "passed": false,
+    "cause": "research/REPORT.md was stale after the prospective authority and lifecycle implementation changed content inputs."
+  },
+  "full_regression_v2": {
+    "path": "research/laboratory/WT-01-LIFECYCLE-CORRECTION-FULL-REGRESSION-V2.xml",
+    "sha256": "20b7c488bfa779ffe1558ec4139cfdc9a0658926f52f9a1984ae6ef850c640f5",
+    "tests": 956,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 140.345,
+    "passed": true
+  },
+  "implementation_files": {
+    "src/nextai_autoresearch/pc01_closure.py": "63b7ec4fe7b9ccd19243ce59f83a4dcd97f6ce65c9343ff012605eb2a2dfa3a5",
+    "tests/test_pc01_closure.py": "d466600fa61dea8bcb0b1a6217f5a05779d7fee6fc0e5fdb7e14e3ef99d5fcc6",
+    "src/nextai_autoresearch/wt01_dev1.py": "9d4537f38dd9c8ddb4802793c3280ed9a0598db4393f20e089c7f00955e4fedc",
+    "tests/test_wt01_dev1.py": "694d6e60b1d16afebd28a517c648efee668239bd376832d5a24e83e426fc75d3"
+  },
+  "freeze": {
+    "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
+    "benchmark_status": "active",
+    "protected_files": 909,
+    "prior_manifest_archive_path": "research/manifests/wt01_causal_factorial_diagnostic_v1-protocol-v3-382f6b880dc1.json",
+    "prior_manifest_archive_sha256": "e3cac78223fd787ff81e40637e87379b96d1bfefd55c250aee94bc284841c3df",
+    "eval_manifest_sha256": "94c8dfdb4462a42ec4fd65b9b72c0b3eda788f0c8b757a20577121e0ec4033a0",
+    "evaluator_sha256": "e36cf43b3a0aa56b41b159a9908dea22cc887168fada57868c3fd221fc375c59",
+    "candidate_bundle_sha256": "9ad4033a2ed702030d6a8e84b0d3bcb7dd36c48580989108a428f05e69df2b22",
+    "preflight_file_sha256": "50fb7aa5bf88c8322f2fd2ace0c987e7cf95fb9d212c357a3fb3f51a0bde2343",
+    "preflight_certificate_sha256": "73a7807d1ea29f3b0cf019b30962456fa78fe345a85677d7104e0c529b339964",
+    "integrity_passed": true,
+    "doctor_passed": true,
+    "lab_scoring_ready": true
+  },
+  "execution_state": {
+    "replacement_experiment_registered": false,
+    "replacement_scoring_seed_realized": false,
+    "development_arrays_loaded": false,
+    "forbidden_files_opened": false,
+    "development_attempts_used": 0,
+    "next_action": "register exactly one replacement WT-01-DEV-1 experiment under the frozen evaluator"
+  }
+}

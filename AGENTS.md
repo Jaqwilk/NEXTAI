@@ -1,6 +1,27 @@
 # NEXTAI autonomous research rules
 
-## Current WT-01 development authorization (2026-09-05)
+## Current WT-01 lifecycle correction and replacement authorization (2026-09-06)
+
+The user's exact approval "Zatwierdzam poprawkę append-only lifecycle, ponowny
+freeze oraz jedną zastępczą rejestrację i run WT-01-DEV-1 w niezmienionym
+zakresie, wyłącznie na plikach 6–7, bez dostępu do 8–9." is recorded in
+`research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`; the
+prospective plan is `research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`.
+First correct the historical closure so Git-authenticated bytes of
+`research/plan_registry.jsonl` remain the exact prefix and every later JSONL
+record is complete and valid. Preserve exact whole-file hashes for all other
+PC-01 evidence. Add positive append and negative mutation/truncation/reorder
+tests, run the full regression, then re-freeze evaluator and preflight.
+
+After those gates pass, register exactly one replacement for invalidated pre-seed
+`EXP-20260905-0006` and run it once. The scientific scope is unchanged: all eight
+R×U×C cells plus VAR(2)/ARX, K=18/36/54, H=16/32/96, one runner-random channel
+permutation, fit files 0-5, evaluation files 6-7 only. Files 8-9, downloads,
+tuning, another replacement/seed, retry, replication/transfer/economic/novelty
+claims and promotion remain forbidden. Stop at the terminal outcome and sync
+GitHub `master` and `main`.
+
+## Historical WT-01 development authorization (2026-09-05)
 
 The user's exact approval "zatwierdzam WT-01-DEV-1 w opisanym zakresie" was
 recorded in `research/laboratory/WT-01-DEV1-20260905-V1.json`, with the
@@ -14,13 +35,12 @@ and architecture promotion remain forbidden. Freeze and preregister first,
 execute only through `uv run nextai run --plan ...`, preserve every outcome,
 then stop at WT-01-DECISION and synchronize GitHub `master` and `main`.
 
-That single registration was consumed by `EXP-20260905-0006` and invalidated
+That original registration was consumed by `EXP-20260905-0006` and invalidated
 before seed realization because the historical PC-01 closure incorrectly treats
 the append-only `research/plan_registry.jsonl` as a permanently fixed whole-file
-hash. No WT array was opened and no development attempt was executed. Keep the
-benchmark in maintenance. Do not repair the closure, re-freeze an executable
-evaluator, register a replacement or score until a separate user decision
-explicitly authorizes the corrective maintenance and one replacement registration.
+hash. No WT array was opened and no development attempt was executed. The
+2026-09-06 authority above supersedes only the former decision wait; all historical
+records and the original one-registration accounting remain immutable.
 
 ## Current final-series authorization (2026-09-05)
 
