@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-DEV1-20260905-V1",
+  "kind": "user_authorized_single_visible_development_wt01_factorial_attempt",
+  "created_at": "2026-09-05T20:36:44Z",
+  "user_approval": "zatwierdzam WT-01-DEV-1 w opisanym zakresie",
+  "parent_decision": "WT-01-DEV-1",
+  "parent_receipt": "research/laboratory/WT-01-DATA-HARNESS-V1.receipt.json",
+  "parent_receipt_sha256": "a8bc516e98781e9d337469ccf8c6465e5a28b308581a51d86a6825fa57537b72",
+  "parent_git_commit": "ba533e2535ab70f66ea2a927345b4e550e363ad9",
+  "started_at": "2026-09-05T20:36:44Z",
+  "deadline_at": "2026-09-05T22:36:44Z",
+  "stage_minutes_cap": 120,
+  "experiment_registration_authorized": true,
+  "development_attempt_authorized": true,
+  "development_attempts_authorized": 1,
+  "scoring_authorized": true,
+  "training_authorized": true,
+  "final_data_access_authorized": false,
+  "diagnostic_data_access_authorized": false,
+  "dataset_download_authorized": false,
+  "automatic_retry_authorized": false,
+  "replication_authorized": false,
+  "transfer_test_authorized": false,
+  "architecture_promotion_authorized": false,
+  "execution": {
+    "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
+    "data_role": "visible_development_only",
+    "fit_files": [0, 1, 2, 3, 4, 5],
+    "evaluation_files": [6, 7],
+    "forbidden_files": [8, 9],
+    "factorial_candidates": [
+      "wt01_r0_u0_c0_v1", "wt01_r0_u0_c1_v1", "wt01_r0_u1_c0_v1", "wt01_r0_u1_c1_v1",
+      "wt01_r1_u0_c0_v1", "wt01_r1_u0_c1_v1", "wt01_r1_u1_c0_v1", "wt01_r1_u1_c1_v1"
+    ],
+    "classical_control": "wt01_var2_rls_bound_v1",
+    "knowledge_sizes": [18, 36, 54],
+    "horizons": [16, 32, 96],
+    "runner_random_seed_count": 1,
+    "physical_evaluation_files": 2,
+    "candidate_wall_seconds": 180,
+    "sum_candidate_wall_seconds_cap": 1620,
+    "state_budget_bytes": 16777216
+  },
+  "allowed_changes": [
+    "one immutable activation plan and this authority record before runner integration",
+    "minimal schema, CLI, lifecycle, runner and evaluator integration required to register and execute exactly one WT-01 visible-development factorial plan",
+    "fail-closed checks proving the plan evaluates files 6-7 and cannot access files 8-9",
+    "one frozen manifest, preflight certificate and one preregistered EXP plan after integration validation",
+    "one execution through uv run nextai run --plan using all nine frozen roles and the full matrix",
+    "append-only result, analysis, hypothesis event, laboratory event and terminal receipt",
+    "non-force commits and pushes that keep GitHub master and main synchronized"
+  ],
+  "forbidden_changes": [
+    "edit any completed plan, result, receipt, historical event, source-identical candidate implementation or frozen factor semantics",
+    "evaluate or inspect files 8-9, relabel any visible file as hidden, or download wt_walks_v1",
+    "omit a factorial cell, omit the VAR(2)/ARX control, shrink the matrix, change ridge 0.001, bound 4.0, width 10 or reveal order",
+    "tune after seeing files 6-7, retry a failed or negative attempt, register a second EXP or realize a second scoring seed",
+    "claim replication, transfer, economic advantage, architectural novelty or promotion",
+    "use an external model/API, credentials, remote laboratory, force-push, deployment or publication"
+  ],
+  "completion": "Freeze and validate the exact visible-development execution path, preregister one plan, run it once, preserve every cell and cost, analyze the fixed recurrence contrast descriptively, synchronize GitHub, and stop for decision review."
+}
