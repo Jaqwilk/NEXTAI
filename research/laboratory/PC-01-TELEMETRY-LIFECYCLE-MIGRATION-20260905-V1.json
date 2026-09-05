@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-TELEMETRY-LIFECYCLE-MIGRATION-20260905-V1",
+  "kind": "user_authorized_bounded_no_training_lifecycle_migration",
+  "created_at": "2026-09-05T18:54:47Z",
+  "user_approval": "kontynuuj; remember to push commits to GitHub",
+  "parent_decision": "PC-01-TELEMETRY-LIFECYCLE-DECISION",
+  "parent_receipt": "research/laboratory/PC-01-POSTRUN-TELEMETRY-MAINTENANCE-V1.receipt.json",
+  "parent_receipt_sha256": "ebba21b9256a2b6e288f1ff4aceadd1a369a7842fa14f065a7c6befe98552c2f",
+  "parent_git_commit": "8a7a0ed9faee2111522f3af92bd90ce8a05e91db",
+  "started_at": "2026-09-05T18:54:47Z",
+  "deadline_at": "2026-09-05T19:54:47Z",
+  "service_minutes_cap": 60,
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "final_data_access_authorized": false,
+  "pc01_retry_authorized": false,
+  "wt01_scoring_authorized": false,
+  "new_scored_experiment_authorized": false,
+  "historical_identity": {
+    "benchmark_version": "pc01_byte_lm_learning_measurement_v3",
+    "eval_manifest_path": "research/eval_manifest.json",
+    "eval_manifest_sha256": "38869bfadd4095e0b1947477867c54fee104567d1c9747175dfe50ab193e201e",
+    "evaluator_sha256": "5942eead94d9f5a18d4d1b76a1e786ce7452efd9862b15a3eec80a093f59aa44",
+    "execution_certificate_path": "research/laboratory/PC-01-EXECUTION-CERTIFICATE-V7.json",
+    "execution_certificate_sha256": "7dbc40f37d2ee3eba17565710d753589b1681371f0a1e93c87c53ac6f67ac4ba",
+    "final_series_path": "research/laboratory/PC-01-FINAL-SERIES-V1.json",
+    "final_series_sha256": "f5e8f810d3fc58df0d26d68b3a2dd0965f29252e0e54847e5d5447a7759b584e",
+    "final_series_canonical_sha256": "ed34bb754a81e086ba0efb827be62f68cb2ca63ad788594c917595ae4911515e",
+    "telemetry_v1_path": "src/nextai_autoresearch/pc01_telemetry.py",
+    "telemetry_v1_sha256": "4b998b96132011b3f8359cfcce9cd315bca4d474432c40907a4ba6b7f75ad209",
+    "result_sha256": {
+      "research/results/EXP-20260905-0003.json": "88033a52fdd8f7326bb35fbe6a698706b945ed630d79e8f9b5d22e9bb451553d",
+      "research/results/EXP-20260905-0004.json": "716aa0076ddbf66835026733a88252e9c8b7c09bf01625488e0ae30ce8eb0958",
+      "research/results/EXP-20260905-0005.json": "ba04cd29957f53c60b964634e0fd5328810d5e6fb925748e23fe5d0c539bea38"
+    }
+  },
+  "prospective_identity": {
+    "telemetry_v2_source": "research/laboratory/versions/PC-01-TELEMETRY-V2/pc01_telemetry.py",
+    "telemetry_v2_sha256": "fe116cd65ff93e6234ca326ba6e51508345a25f588ce07a27de91b50a86b54ed",
+    "benchmark_version": "wt01_causal_revalidation_preparation_v1",
+    "benchmark_status": "maintenance"
+  },
+  "allowed_changes": [
+    "one immutable migration plan and authorization record",
+    "one fail-closed historical PC-01 closure verifier bound to exact Git bytes",
+    "activate the already validated V2 telemetry read behavior in the prospective source identity",
+    "one maintenance-only benchmark identity with no scoring entry point",
+    "tests, a newly frozen evaluator manifest, append-only events, analysis, receipt and generated reports"
+  ],
+  "forbidden_changes": [
+    "edit any completed experiment plan, result, certificate, final-series artifact or prior report",
+    "erase or reinterpret the preserved V1 FileNotFoundError failures",
+    "replace, omit or rerun a PC-01 seed",
+    "train a model, access final data or perform scoring",
+    "change PC-01 metrics, thresholds, verdict, beliefs or architecture status",
+    "activate WT-01 scoring, a schedule, deployment or external model/API"
+  ],
+  "completion": "Prove historical PC-01 evidence from exact Git bytes independently of current source paths; activate V2 under a new maintenance-only identity; require zero failures, errors and skips in the full suite plus doctor and integrity success; publish the verified commits to both master and main; then stop before WT-01 contract work."
+}

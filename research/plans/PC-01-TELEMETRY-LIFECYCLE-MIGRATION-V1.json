@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1",
+  "kind": "no_scoring_execution_identity_migration",
+  "authority": "research/laboratory/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-20260905-V1.json",
+  "created_at": "2026-09-05T18:54:47Z",
+  "deadline_at": "2026-09-05T19:54:47Z",
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "scientific_result_created": false,
+  "objective": "Decouple the terminal PC-01 decision from mutable live evaluator paths while preserving its exact historical evidence, then make the validated telemetry V2 behavior current under a new maintenance-only cohort identity.",
+  "causal_change": "Replace live-path dependence for terminal PC-01 verification with a fail-closed closure record whose file hashes are verified against commit 8a7a0ed9faee2111522f3af92bd90ce8a05e91db. Only after that verifier passes, integrate the already validated FileNotFoundError handling and move the live benchmark to a non-scoring maintenance identity.",
+  "scope": [
+    "Create one append-only PC-01 closure record binding the final series, V7 certificate, v3 evaluator manifest, three final results and frozen V1 source to exact Git bytes.",
+    "Add a verifier that rejects a missing commit, path, hash, malformed closure, substituted result or inconsistent terminal verdict.",
+    "Keep the original pre-closure verification path fail-closed; allow the terminal aggregate decision to use the verified closure after the live cohort changes.",
+    "Apply only the separately validated V2 read behavior to the live telemetry module and preserve writer AST semantics.",
+    "Preserve the V1 failure as deterministic historical evidence while requiring the live V2 concurrency tests to pass.",
+    "Create a maintenance-only WT-01 preparation benchmark module, change config to maintenance, freeze a fresh manifest, and prove all run/scoring gates remain closed.",
+    "Run focused migration tests, the complete pytest suite, authenticated PC-01 aggregate verification, report, doctor, lab status and integrity verification."
+  ],
+  "success": "Historical closure and authenticated aggregate verification pass after the live cohort transition; V1 defect evidence remains reproducible; V2 dedicated and concurrency controls pass; full regression has zero failures/errors/skips; current status is maintenance with scoring disabled; doctor and integrity pass; both GitHub branches point to the same verified commit.",
+  "failure": "Preserve every report and stop. Do not weaken a verifier, skip a failing test, restore scoring, rerun PC-01 or start WT-01 contract work in this cycle.",
+  "budget": {
+    "service_minutes": 60,
+    "training_seconds": 0,
+    "scoring_runs": 0,
+    "dependency_installs": 0,
+    "downloads": 0
+  },
+  "next_action_on_success": "Stop at explicit user review before a separate WT-01 no-scoring contract-preparation cycle.",
+  "next_action_on_failure": "Stop with the exact lifecycle or regression blocker; no PC-01 retry."
+}
