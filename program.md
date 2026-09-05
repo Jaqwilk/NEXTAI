@@ -1,18 +1,19 @@
 # NEXTAI laboratory cycle — protocol v3
 
-## Current WT-01 corrective execution state (2026-09-06)
+## Current WT-01 terminal decision state (2026-09-06)
 
 The user explicitly authorized the bounded append-only lifecycle correction,
 one new evaluator/preflight freeze and exactly one replacement WT-01-DEV-1
 registration/run in `research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`.
-Follow `research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. Authenticate the
-historical PC-01 plan-registry bytes as the exact live prefix, parse all later
-JSONL records, preserve every other exact evidence hash, and test append,
-mutation, truncation and reorder behavior. Only after full regression, integrity,
-doctor, manifest freeze and preflight pass may one replacement plan be registered.
-Run it once through the audited runner on files 6-7 and stop at its terminal
-outcome. Files 8-9, tuning, retry, another registration/seed and broad claims
-remain forbidden. Synchronize GitHub `master` and `main`.
+The lifecycle correction and re-freeze passed, and `EXP-20260906-0001` consumed
+the one replacement registration, seed and run. It completed all 162 trials on
+visible-development files 6-7; files 8-9 were not opened. The primary recurrence
+contrast was 0.1627937252458549 versus the frozen 0.03343253453162794 threshold,
+positive on each file. The numerically equivalent VAR(2)/ARX control matched
+within 3.552713678800501e-15, so preserve only a narrow classical-mechanism
+attribution. Current action is WT-01-DECISION. Do not score, retry, tune, open
+files 8-9, register another plan/seed, or claim replication, transfer, economic
+advantage, novelty or promotion. Synchronize GitHub `master` and `main`.
 
 ## Historical WT-01 decision state (2026-09-05)
 

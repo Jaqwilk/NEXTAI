@@ -82,12 +82,14 @@ def test_retained_config_and_preseed_baseline_discovery_match_contract() -> None
     # the corrected verifier now authenticates the historical prefix and append.
     from nextai_autoresearch.pc01_final_authority import authority
     assert authority(project_root())["terminal"] is True
-    # The original registration remains invalidated while one explicit replacement is open.
-    assert config["project"]["benchmark_status"] == "active"
+    # The original registration remains invalidated and the one replacement is terminal.
+    assert config["project"]["benchmark_status"] == "maintenance"
     from nextai_autoresearch.wt01_dev1 import authority as wt01_authority, status as wt01_status
     assert wt01_authority(project_root())["final_data_access_authorized"] is False
-    assert wt01_status(project_root())["terminal"] is False
-    assert wt01_status(project_root())["replacement_authorized"] is True
+    terminal = wt01_status(project_root())
+    assert terminal["terminal"] is True
+    assert terminal["result_complete"] is True
+    assert terminal["replacement_authorized"] is True
     protocol = config["suitesparse_cross_matrix"]
     assert protocol["source_identical_contract"] == bench.SOURCE_IDENTICAL_CONTRACT
     plan = {"suitesparse_transfer_protocol": {

@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-05T22:56:35Z
+Generated: 2026-09-05T23:14:01Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1512,3 +1512,19 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-000
 | EXP-20260830-0002 | indexed_graph | implementable | complete | 1 | 3 | 21.25 | - | - | - | 0 (3) | 73864 |  |
 | EXP-20260830-0002 | memoized_graph | implementable | complete | 1 | 3 | 18.01 | - | - | - | 0.1434 (3) | 74936 |  |
 | EXP-20260830-0002 | compiled_jump | implementable | complete | 1 | 3 | 1 | - | - | - | 0 (3) | 516664 |  |
+
+## wt01_causal_factorial_diagnostic_v1 / quick
+
+Pareto axes: maximize `stable_rollout_rate`; minimize `normalized_rmse, worst_file_normalized_rmse, worst_transition_normalized_rmse, rollout_16_nrmse, rollout_32_nrmse, rollout_96_nrmse, data_acquisition_ops, preprocessing_ops, fit_ops, adaptation_ops, mean_query_ops, update_ops, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260906-0001 | wt01_r0_u0_c0_v1 | implementable | complete | 0.5458 | 1 | 470 | 321 | 1.203e+04 | 8.26e+06 | -6.39e-31 (3) | 16896 |  |
+| EXP-20260906-0001 | wt01_r0_u0_c1_v1 | implementable | complete | 0.5458 | 1 | 470 | 321 | 1.203e+04 | 8.26e+06 | -6.39e-31 (3) | 16896 |  |
+| EXP-20260906-0001 | wt01_r0_u1_c0_v1 | implementable | complete | 0.5475 | 1 | 470 | 321 | 2.406e+04 | 1.031e+07 | -6.39e-31 (3) | 16896 |  |
+| EXP-20260906-0001 | wt01_r0_u1_c1_v1 | implementable | complete | 0.5475 | 1 | 470 | 321 | 2.406e+04 | 1.031e+07 | -6.39e-31 (3) | 16896 |  |
+| EXP-20260906-0001 | wt01_r1_u0_c0_v1 | implementable | complete | 0.5975 | 1 | 2.256e+04 | 321 | 1.203e+04 | 1.462e+07 | 0 (3) | 16896 |  |
+| EXP-20260906-0001 | wt01_r1_u0_c1_v1 | implementable | complete | 0.5975 | 1 | 2.256e+04 | 321 | 1.203e+04 | 1.462e+07 | 0 (3) | 16896 |  |
+| EXP-20260906-0001 | wt01_r1_u1_c0_v1 | implementable | complete | 0.6003 | 1 | 2.256e+04 | 321 | 2.406e+04 | 1.667e+07 | 0 (3) | 16896 |  |
+| EXP-20260906-0001 | wt01_r1_u1_c1_v1 | implementable | complete | 0.6003 | 1 | 2.256e+04 | 321 | 2.406e+04 | 1.667e+07 | 0 (3) | 16896 |  |
+| EXP-20260906-0001 | wt01_var2_rls_bound_v1 | implementable | complete | 0.6003 | 1 | 2.256e+04 | 321 | 2.406e+04 | 1.667e+07 | 0 (3) | 16896 |  |

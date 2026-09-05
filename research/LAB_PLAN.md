@@ -1,23 +1,25 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Aktualny etap — poprawka lifecycle i zastępczy WT-01-DEV-1 (2026-09-06)
+## Aktualny etap — WT-01-DECISION po zastępczym WT-01-DEV-1 (2026-09-06)
 
 Użytkownik jawnie zatwierdził poprawkę append-only lifecycle, ponowny freeze i
 jedną zastępczą rejestrację/run w
 `research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`. Wiążący plan:
-`research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. Najpierw historyczne bajty
-`research/plan_registry.jsonl` z commita closure muszą pozostać dokładnym
-prefiksem, a wszystkie późniejsze rekordy muszą być kompletnym poprawnym JSONL.
-Pozostałe dowody PC-01 nadal wymagają dokładnych hashy całych plików. Testujemy
-append oraz odrzucenie mutacji, obcięcia i zmiany kolejności; następnie pełna
-regresja, integrity, doctor, nowy manifest i preflight.
+`research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. Poprawka, testy i ponowny
+freeze przeszły. `EXP-20260906-0001` wykorzystał dokładnie jedną zastępczą
+rejestrację, jeden seed i jeden run przez runner. Wszystkie 162 próby dla ośmiu
+komórek R×U×C oraz VAR(2)/ARX zakończyły się stabilnie na plikach 6-7; plików
+8-9 nie otwarto.
 
-Dopiero po PASS wolno zarejestrować jeden zamiennik unieważnionego pre-seed
-`EXP-20260905-0006` i wykonać go raz przez runner. Zakres pozostaje identyczny:
-osiem komórek R×U×C, VAR(2)/ARX, K=18/36/54, H=16/32/96, jeden seed permutacji,
-fit 0-5 i ocena wyłącznie 6-7. Pliki 8-9, pobrania, tuning, kolejny zamiennik,
-retry i szerokie twierdzenia są zakazane. Po wyniku: WT-01-DECISION i push
-`master`/`main` bez force.
+Kontrast NRMSE R0-U1-C1 minus R1-U1-C1 wyniósł 0,1627937252458549 przy progu
+0,03343253453162794 i był dodatni osobno na obu plikach. Kontrola VAR(2)/ARX
+była równoważna numerycznie do 3,552713678800501e-15. To zachowujemy jako wąski
+opisowy efekt rekurencji w klasycznym mechanizmie afinicznym, bez twierdzenia o
+nowości, replikacji, transferze lub przewadze ekonomicznej. Aktualny stan to
+WT-01-DECISION: zakaz kolejnego scoringu, retry, tuningu, plików 8-9, kolejnej
+rejestracji/ziarna, pobrań i promocji. Następna replikacja wymaga osobnej zgody,
+prospektywnego freeze i co najmniej pięciu niezależnych fizycznych nagrań tego
+samego protokołu. Zsynchronizować `master` i `main` bez force.
 
 ## Historyczny stan decyzji — WT-01-DEV-1 (2026-09-05)
 

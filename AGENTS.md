@@ -1,25 +1,26 @@
 # NEXTAI autonomous research rules
 
-## Current WT-01 lifecycle correction and replacement authorization (2026-09-06)
+## Current WT-01 terminal decision state (2026-09-06)
 
 The user's exact approval "Zatwierdzam poprawkę append-only lifecycle, ponowny
 freeze oraz jedną zastępczą rejestrację i run WT-01-DEV-1 w niezmienionym
 zakresie, wyłącznie na plikach 6–7, bez dostępu do 8–9." is recorded in
 `research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`; the
-prospective plan is `research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`.
-First correct the historical closure so Git-authenticated bytes of
-`research/plan_registry.jsonl` remain the exact prefix and every later JSONL
-record is complete and valid. Preserve exact whole-file hashes for all other
-PC-01 evidence. Add positive append and negative mutation/truncation/reorder
-tests, run the full regression, then re-freeze evaluator and preflight.
+prospective plan is `research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. The
+append-only lifecycle correction, tests and re-freeze passed. Replacement
+`EXP-20260906-0001` then completed exactly once through the audited runner on
+files 6-7 with one runner-random permutation seed; files 8-9 were not opened.
 
-After those gates pass, register exactly one replacement for invalidated pre-seed
-`EXP-20260905-0006` and run it once. The scientific scope is unchanged: all eight
-R×U×C cells plus VAR(2)/ARX, K=18/36/54, H=16/32/96, one runner-random channel
-permutation, fit files 0-5, evaluation files 6-7 only. Files 8-9, downloads,
-tuning, another replacement/seed, retry, replication/transfer/economic/novelty
-claims and promotion remain forbidden. Stop at the terminal outcome and sync
-GitHub `master` and `main`.
+The immutable result and analysis are `research/results/EXP-20260906-0001.json`
+and `research/analyses/EXP-20260906-0001.md`. The primary NRMSE contrast was
+0.1627937252458549 versus the frozen 0.03343253453162794 threshold and was
+positive on both files. All 162 trials completed stably. The VAR(2)/ARX control
+matched R1-U1-C1 within 3.552713678800501e-15, so this is narrow descriptive
+support for recurrence inside a classical affine mechanism, not architectural
+novelty. The current queue is WT-01-DECISION. No retry, files 8-9, tuning,
+another registration/seed, download, replication/transfer/economic claim or
+promotion is authorized. A fresh same-protocol physical replication requires a
+new prospective plan, new user authority and at least five independent recordings.
 
 ## Historical WT-01 development authorization (2026-09-05)
 
