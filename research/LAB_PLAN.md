@@ -1,9 +1,9 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Aktualna zgoda — WT-01-DATA-HARNESS, cykl serwisowy 2/2 (2026-09-05)
+## Aktualny stan decyzji — WT-01-DEV-1 (2026-09-05)
 
-Obowiązuje `research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json` i plan
-`research/plans/WT-01-DATA-HARNESS-V1.json`. To drugi i ostatni ograniczony cykl
+Cykl według `research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json` i planu
+`research/plans/WT-01-DATA-HARNESS-V1.json` został ukończony. Był to drugi i ostatni ograniczony cykl
 WT-01 (maks. 60 minut), bez treningu, scoringu, rejestracji EXP, odczytu tablic
 rzeczywistych danych WT i pobierania archiwów. Commity wypychamy bez force do
 istniejącego origin, utrzymując `master` i `main` na tym samym commicie.
@@ -17,6 +17,7 @@ NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1) wynosi 0.03343253453162794 i służy wyłącznie
 atrybucji starego dodatniego wyniku. `wt_walks_v1` pozostaje niepobranym testem
 innej operacji. Po receipt zatrzymać się na WT-01-DEV-1 do osobnej zgody; żaden
 run na danych rzeczywistych nie wynika automatycznie z gotowego harnessu.
+Aktualnie obowiązuje stop do jawnej decyzji użytkownika na `WT-01-DEV-1`.
 
 ## Historia — zgoda na trzy repliki finalne PC-01
 

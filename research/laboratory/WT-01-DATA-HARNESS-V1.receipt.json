@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-DATA-HARNESS-V1-RECEIPT",
+  "created_at": "2026-09-05T20:26:19Z",
+  "status": "complete",
+  "decision": "diagnostic_harness_ready_user_review_required",
+  "authority_path": "research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json",
+  "authority_sha256": "48a251d47cf6f177b74eca863ea63770d1c9a5c3000f49353975f47c26ae9933",
+  "plan_path": "research/plans/WT-01-DATA-HARNESS-V1.json",
+  "plan_sha256": "c1b448d454861e231ea2638c9a0c053c0f53889d2dd05b5cde02fa3b2050e4be",
+  "preregistration_git_commit": "eb6c4d0231b0c2e4d7efa57f053cdd10b11a93b7",
+  "implementation_git_commit": "b979458c92518909e2f2051de3efc9de31ee6f6f",
+  "artifact_sha256": {
+    "research/laboratory/WT-01-FACTORIAL-EXECUTION-CONTRACT-V1.json": "7b0b60963b86234bf0101e730d4bca487cc04baa0a8b076b296101152f90c5cd",
+    "research/laboratory/WT-01-DATA-FREEZE-V1.json": "22738453eddf5340c93dfc9863115fe1c2a0a7ff391e178b8e8b0e997277ee5b",
+    "src/nextai_autoresearch/wt01_factorial_core.py": "e33cfb0a51a86c0ac33c066d1cd25ae12ca416f2a843a7620846dc114f3d05ff",
+    "src/nextai_autoresearch/benchmarks/wt01_causal_factorial_diagnostic_v1.py": "5a7b2dc3d410fa1d5f097361a2c2a2db50e1115ca92ed6cc629a1a47937928ad",
+    "tests/test_wt01_data_harness.py": "5fcafc9c0def2b269e5864f0607e7f69749cb7674a61d730322f3eb896cb99ee",
+    "research/analyses/WT-01-DATA-HARNESS-V1.md": "bf7fc592323ec235de851486feeb919b12380e37a34894e34a86abb0d2a242e1",
+    "research/laboratory/WT-01-DATA-HARNESS-FULL-REGRESSION-V1.xml": "ed19e15d5c57084ae08e55aedc7681a625c0194576b5b437075bd7a0df549cf0",
+    "research/laboratory/WT-01-DATA-HARNESS-FULL-REGRESSION-V2.xml": "619922fa5cd8c72736d5d1b21413436c80e107254dade2276b6ab65c1dd497f2",
+    "research/laboratory/WT-01-DATA-HARNESS-TARGETED-V1.xml": "da047d2e689ceacf1ae029e722fced2134f66f9bd4f79c6370f95298e3f5f0ef"
+  },
+  "historical_git_commit_verified": "49525156586e765c07f96e2f41ea17c709a3debb",
+  "historical_candidate_sha256": "4471f2a999f9432e9d2e6fb56d309ebe7af52cca6dff246ab1b439b38f035104",
+  "historical_synthetic_equivalence": {
+    "fit_state_bit_identical": true,
+    "predictions_bit_identical": true,
+    "post_reveal_state_bit_identical": true,
+    "operations_bytes_state_identical": true
+  },
+  "classical_var2_arx_equivalence": {
+    "absolute_tolerance": 1e-12,
+    "relative_tolerance": 1e-12,
+    "passed": true,
+    "architectural_novelty_established": false
+  },
+  "factorial_cells": 8,
+  "shared_core_count": 1,
+  "primary_contrast": "NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1)",
+  "causal_attribution_threshold": 0.03343253453162794,
+  "threshold_is_general_quality_gate": false,
+  "fresh_same_protocol_physical_recordings": 0,
+  "visible_historical_diagnostic_files": 2,
+  "hidden_holdout_claim_permitted": false,
+  "replication_claim_permitted": false,
+  "transfer_claim_permitted": false,
+  "economic_advantage_established": false,
+  "wt_walks_v1_downloaded": false,
+  "full_regression_v1": {
+    "tests": 945, "failures": 1, "errors": 0, "skipped": 0,
+    "seconds": 213.636, "passed": false,
+    "cause": "A historical lifecycle fixture still required the review stop after WT-01 service cycle 1 and did not recognize the separately authorized cycle 2."
+  },
+  "full_regression": {
+    "tests": 945, "failures": 0, "errors": 0, "skipped": 0,
+    "seconds": 137.195, "passed": true
+  },
+  "targeted_regression": {
+    "tests": 11, "failures": 0, "errors": 0, "skipped": 0,
+    "seconds": 4.667, "passed": true
+  },
+  "implementation_freeze": {
+    "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
+    "benchmark_status": "maintenance",
+    "protected_files": 903,
+    "evaluator_sha256": "f7bfb8bace49f1d1081c71e438df525c2f746ae49b8741ad55cea6375c99eb6e",
+    "eval_manifest_sha256": "d56d57d35d237e957e1620a9bf9a6c97794c5331b538f9d0e62b5cd70340521d",
+    "preflight_certificate_sha256": "44a01125c40d37b6b7955c33c57007c0af9071f171b8efc1c45dd59477e27292",
+    "doctor_passed": true
+  },
+  "training_performed": false,
+  "scoring_performed": false,
+  "experiment_registered": false,
+  "final_data_accessed": false,
+  "development_attempts_used": 0,
+  "dataset_downloads": 0,
+  "beliefs_changed": false,
+  "architecture_promoted": false,
+  "service_minutes_conservatively_charged": 60,
+  "service_minutes_cap": 60,
+  "wt01_service_cycles_used": 2,
+  "wt01_service_cycles_cap": 2,
+  "free_disk_bytes": 109024141312,
+  "next_action_id": "WT-01-DEV-1",
+  "next_action": "Stop for explicit user review. A separate prospective authority may permit at most one visible-development factorial run; it does not authorize files 8-9, replication or transfer claims."
+}

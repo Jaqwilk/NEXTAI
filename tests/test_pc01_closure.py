@@ -88,8 +88,12 @@ def test_migrated_laboratory_identity_advances_only_through_verified_wt_contract
     assert contract["wt01_contract_ready"] is True
     assert progress["wt01_contract"]["artifacts_ready"] is True
     if progress["wt01_contract"]["complete"]:
-        assert progress["next_action_id"] == "WT-01-DATA-HARNESS"
-        assert progress["user_decision_required"] is True
+        if progress.get("wt01_harness") is not None:
+            assert progress["next_action_id"] in {"WT-01-DATA-HARNESS", "WT-01-DEV-1"}
+            assert progress["user_decision_required"] is progress["wt01_harness"]["complete"]
+        else:
+            assert progress["next_action_id"] == "WT-01-DATA-HARNESS"
+            assert progress["user_decision_required"] is True
     else:
         assert progress["next_action_id"] == "WT-01-CONTRACT"
         assert progress["user_decision_required"] is False

@@ -1,9 +1,10 @@
 # NEXTAI laboratory cycle — protocol v3
 
-## Current WT-01 data/harness authority (2026-09-05)
+## Current WT-01 decision state (2026-09-05)
 
-The user approved `research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json`:
-the second and final bounded WT-01 service cycle (<=60 minutes), with no training,
+The user-approved `research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json`
+service cycle is complete. It was the second and final bounded WT-01 service
+cycle (<=60 minutes), with no training,
 scoring, EXP registration, real WT-array access or dataset download. Follow
 `research/plans/WT-01-DATA-HARNESS-V1.json`. The cohort is explicitly limited to
 a visible historical mechanism diagnostic: files 0-5 are historical fit, 6-7
@@ -17,8 +18,9 @@ contrast is NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1); its causal-attribution threshold is
 0.03343253453162794, exactly 10% of the already observed historical quality gap.
 This threshold can only explain that old positive; it is not a general quality
 gate. `wt_walks_v1` remains deferred as a different-operation adversarial source.
-After synthetic equivalence, full regression, freeze and Git synchronization,
-stop at WT-01-DEV-1 for explicit review. Scoring still requires separate authority.
+Synthetic equivalence and full regression passed. The laboratory is stopped at
+WT-01-DEV-1 for explicit review. Scoring and any real-data access still require
+a separate prospective authority.
 
 ## Historical final-series authorization (2026-09-05)
 
