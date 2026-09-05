@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1-ADDENDUM",
+  "kind": "append_only_preregistration_clerical_correction",
+  "created_at": "2026-09-05T19:05:23Z",
+  "authority_path": "research/laboratory/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-20260905-V1.json",
+  "authority_sha256": "fd1e3f265724334588abd330825d4ca9bc5168418b93c9e27cea56bbf7f4b7b3",
+  "field": "historical_identity.final_series_canonical_sha256",
+  "recorded_value": "ed34bb754a81e086ba0efb827be62f68cb2ca63ad788594c917595ae4911515e",
+  "correct_value": "ed34b36af69d30cb7f0c9c60473ab3ccd8f107428614a56167053fde0b8ad691",
+  "evidence_git_commit": "f08cd02fb1cc80ed169b63c1917eb1b979c0b238",
+  "evidence_path": "research/laboratory/PC-01-FINAL-SERIES-V1.json",
+  "evidence_file_sha256": "f5e8f810d3fc58df0d26d68b3a2dd0965f29252e0e54847e5d5447a7759b584e",
+  "derivation": "sha256 of canonical JSON bytes with UTF-8, sorted keys, ensure_ascii=false and separators comma/colon",
+  "scope_effect": "Corrects only a transcription error in a pre-existing deterministic hash. It does not change the plan, evidence bytes, thresholds, outcome, allowed actions or budgets."
+}
