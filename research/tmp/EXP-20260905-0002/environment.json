@@ -1,0 +1,25 @@
+{
+  "attention_events": [
+    "aten::_scaled_dot_product_efficient_attention",
+    "aten::scaled_dot_product_attention"
+  ],
+  "compile": false,
+  "cuda": "12.4",
+  "device": "NVIDIA GeForce RTX 4070",
+  "energy_measured": false,
+  "git_branch": "master",
+  "git_commit": "ac3db74f36e5c33a9f3334fe825f11c2fb9ad992",
+  "git_dirty": true,
+  "gpu_driver_clocks_load_snapshot": null,
+  "load_seconds": 0.08276119999936782,
+  "logical_cpus": 24,
+  "numpy": "2.5.2",
+  "physical_cpus": 16,
+  "platform": "Windows-10-10.0.19044-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "python": "3.13.13",
+  "ram_bytes": 34088464384,
+  "tf32": false,
+  "timing_scope": "B1 next-byte latency and teacher-forced throughput; not autoregressive throughput",
+  "torch": "2.6.0+cu124"
+}

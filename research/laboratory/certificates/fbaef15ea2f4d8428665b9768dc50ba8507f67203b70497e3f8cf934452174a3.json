@@ -1,0 +1,18 @@
+{
+  "benchmark_version": "heldout_suitesparse_cross_matrix_prolongation_v1",
+  "certificate_sha256": "23232014f3e10a160a2496f8b3f7ec595dd82684547301d7ee6dfffd93814352",
+  "created_at": "2026-09-04T19:51:34Z",
+  "evaluator_sha256": "ada60e0196413ea72a4223f246062edc4dda5b103d90e97c8367e692ad8f3c40",
+  "files": {
+    "baseline_registry": "5509bc5c9a64ad83f1aab7b28118f5758e2c3668260a804397fd5441f597605a",
+    "manifest": "a0c945af93aa7b8b500f7f58e0762b6e70ef7e2a09a175af0c6981dd8fd2ecdc",
+    "runner": "5a2bb5dc27f4a4712e6b6834555ccf24db54c6683dbd0ecceaf45273af199f48",
+    "schema:experiment_plan": "d601089e266866c808f2cd867b22031b306553a2e6492d7941fafd583893ffa9",
+    "schema:experiment_result": "c6dad3fd6c0067dcb9233a1d8190a072d6e4e28d15023a8c104983b2bb6c5fb0",
+    "schema:hypothesis": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
+    "schema:laboratory_restart": "2c48b9e31acdd1d32c3f33bc1e70b90222622e330ce2b26e786ef00758a8cd02",
+    "schema:research_state": "f155fb268b3ef422b9e1547a450222c2bdf040ef7d2d28a9025eec8281bb41bd",
+    "schema:source": "dbacf05397d719e2e8594af5c0061fc03b191df50f0985ea42b01d09464ae057"
+  },
+  "schema_version": 1
+}

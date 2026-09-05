@@ -1,0 +1,36 @@
+{
+  "audit": {
+    "files": {
+      "src/nextai_autoresearch/candidates/pc01_byte_gpt_v1.py": "426bfa8b9da43fb7cd991e104e48dfd366cf037dd9e840330d671b2174706aaa"
+    },
+    "sha256": "27c90b510333990d4943b0c79f12286912971be60bcb00eb2f532421a5a73d3d"
+  },
+  "created_at": "2026-09-05T13:09:02Z",
+  "plan": {
+    "architecture_promoted": false,
+    "attempt": 1,
+    "benchmark": "pc01_byte_lm_learning_measurement_v1",
+    "budget": "pc01_fixed_v1",
+    "candidate": "pc01_byte_gpt_v1",
+    "contract_sha256": "f9e3d889485ff5e63c9f74caae3118f2f44c3872b91400931e72c8e1ce67a280",
+    "created_at": "2026-09-05T13:04:27Z",
+    "data_sha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+    "development_seed": 1103,
+    "evaluator_sha256": "ad311a51ff3652e5bdf9ac283b9b4d24ea1a9734c7f2a43641426793183a0f77",
+    "experiment_id": "EXP-20260905-0001",
+    "final_seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 10000
+    },
+    "kind": "pc01_diagnostic_plan",
+    "phase": "dev",
+    "question": "PC-01 single authorized development attempt: execute the frozen PC-01-CONTRACT-V1 byte GPT recipe for 5000 updates on train/dev only, seed 1103; test learned versus source-identical frozen control and measurement validity. Fit cap 1200 s, worker cap 1800 s. Preserve crash/timeout as inconclusive; no retry, final access, architecture, economics or transfer claim.",
+    "recipe_sha256": "fa4a920b9c9b1848f3818e6bd7a3f6052a04619a3d8c75e4804a53883a872966",
+    "schema_version": 1,
+    "series_sha256": null,
+    "status": "planned"
+  },
+  "seed": 1103
+}

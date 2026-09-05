@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "dataset_id": "suitesparse_real_pde_v1",
+  "sequence_contract_id": "suitesparse_cross_matrix_recycling_v1",
+  "completed_at": "2026-09-02T00:59:00Z",
+  "sequence_manifest_sha256": "c2f2527aae6063e29c4a1d085223f7348c7a24b83ee13617b3aeb19a8f635ef4",
+  "sequence_audit_sha256": "82bac4874eac4cf94e89be5eeeae68b2011e20b658072482fdefd926bd824ea3",
+  "sequence_count": 3,
+  "matrix_count": 6,
+  "archive_bytes": 6540007,
+  "extracted_bytes": 18846640,
+  "free_bytes_before_download": 96247271424,
+  "free_bytes_after_download_extract_and_audit": 96242802688,
+  "minimum_free_bytes": 10737418240,
+  "disk_gate_passed": true,
+  "all_patterns_identical_within_sequence": true,
+  "all_target_rebuilds_complete": true,
+  "all_recycling_variants_converge": false,
+  "recycling_outcomes": {
+    "thermal": "complete_converged",
+    "cfd": "complete_converged_with_iteration_penalty",
+    "generic_2d3d": "complete_quality_failure_at_2000_iterations"
+  },
+  "interpretation": "The failed generic_2d3d recycling rows are completed bounded control outcomes, not missing artifacts, crashes or infrastructure invalidations.",
+  "payload_tracking": "archives and extracted matrices are local and gitignored; individual archive and matrix hashes are stored in recycling_audit.json",
+  "scientific_evidence": false,
+  "scoring_performed": false
+}

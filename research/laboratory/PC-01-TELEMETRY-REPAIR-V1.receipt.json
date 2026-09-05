@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-TELEMETRY-REPAIR-V1",
+  "cycle": 288,
+  "created_at": "2026-09-05T13:51:53Z",
+  "status": "validated_maintenance_only",
+  "decision": "keep_repair",
+  "artifact_sha256": {
+    "research/plans/PC-01-TELEMETRY-REPAIR-V1.json": "9cee710f1d927153ae7aa72962f22e1721f47707da19392cf0a1343d784377f1",
+    "research/plans/PC-01-TELEMETRY-REPAIR-V1-READ-ADDENDUM.json": "a3009d8cffc7e54f92761885c580eaad4507ea064af7156c435990f2a386adb5",
+    "research/analyses/PC-01-TELEMETRY-REPAIR-V1.md": "4e423f3e23a664a32d2a4bc76b47c3e92191f6b3502d659bb7f76c09f8afbd62",
+    "research/laboratory/PC-01-TELEMETRY-REPRODUCTION-V1.xml": "ef5b730d837ca9b789525b4db3576f1f0f708ca1c3e261f7d7899a5f67b95632",
+    "research/laboratory/PC-01-TELEMETRY-TEST-1.xml": "17af23f46e1dc6c25edf48337c0da228bf8732f43eb2ec69652fafe5712e7476",
+    "research/laboratory/PC-01-TELEMETRY-TEST-2.xml": "6d457aaaff1fa87aed87da2e029437d6fe8402120a4f394e32142d161797bef9",
+    "research/laboratory/PC-01-TELEMETRY-TEST-3.xml": "a6e783ed123b5ccf4313d57dd6b0f80e063d004a17280eff04b9d749dabba53c",
+    "research/laboratory/PC-01-TELEMETRY-CONFORMANCE-V3.xml": "582f4cf5f02feed34f71316274d8f682d972e6d8fa409144de920ff7c729570f",
+    "research/laboratory/PC-01-EXECUTION-CERTIFICATE-V3.json": "f30f677673e28642789b927d0b3f679c0e94b4ce9175e627892d694bcf1b7b03",
+    "research/manifests/PC-01-TELEMETRY-REPAIR-BEFORE.json": "3b10f618b19dc42f0b33f073691a006598042f321fbe45abb7c98c5af423a4c8",
+    "src/nextai_autoresearch/pc01_telemetry.py": "4b998b96132011b3f8359cfcce9cd315bca4d474432c40907a4ba6b7f75ad209",
+    "src/nextai_autoresearch/pc01_worker.py": "fb786e555f9b4597a1ee40729cff85f6b355fcb516595cab604b884ca2707f59",
+    "src/nextai_autoresearch/pc01_execution.py": "c7eebe0c903a65f9f3b0845eda5c5e90d21b7a0312154d985e66b5ab49d49689",
+    "scripts/validate_pc01_telemetry_repair.py": "b93af16f1b7bcba202c2bf3bb707dc002d21a4e714249a40c40a095dd1680ad5"
+  },
+  "free_disk_bytes": 110601162752,
+  "historical_result_sha256": "db815b440bf0bcc7b289547931178b5f1a7fa4c143367a93035348cd45a8a3dc",
+  "historical_checkpoint_sha256": "c08a4cbf0f41f40edbdf59eef405864e2989d124814ca57fe299698a41a28454",
+  "service_minutes_elapsed": 26,
+  "self_imposed_service_minutes_cap": 45,
+  "tests": 834,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "test_seconds": 123.02,
+  "stress": [
+    {
+      "name": "test_concurrent_reader_and_two_thousand_device_writes[0]",
+      "properties": [
+        {
+          "name": "writes",
+          "value": "2000"
+        },
+        {
+          "name": "reads",
+          "value": "10196"
+        },
+        {
+          "name": "retry_count",
+          "value": "121"
+        },
+        {
+          "name": "seconds",
+          "value": "10.367788100000325"
+        }
+      ]
+    },
+    {
+      "name": "test_concurrent_reader_and_two_thousand_device_writes[1]",
+      "properties": [
+        {
+          "name": "writes",
+          "value": "2000"
+        },
+        {
+          "name": "reads",
+          "value": "9851"
+        },
+        {
+          "name": "retry_count",
+          "value": "115"
+        },
+        {
+          "name": "seconds",
+          "value": "10.124867700000323"
+        }
+      ]
+    },
+    {
+      "name": "test_concurrent_reader_and_two_thousand_device_writes[2]",
+      "properties": [
+        {
+          "name": "writes",
+          "value": "2000"
+        },
+        {
+          "name": "reads",
+          "value": "10114"
+        },
+        {
+          "name": "retry_count",
+          "value": "130"
+        },
+        {
+          "name": "seconds",
+          "value": "10.339809900000546"
+        }
+      ]
+    }
+  ],
+  "evaluator_sha256": "c6865a2443b011943a7ce3a5aad3ba03a594569596a55894528e37cfa88e6d6d",
+  "archived_protected_files": 861,
+  "integrity_checked_files": 868,
+  "historical_nonledger_files_verified": 348,
+  "historical_ledger_prefixes_preserved": true,
+  "completed_results_unchanged": 100,
+  "development_attempts_unchanged": 1,
+  "fit_seconds_charged_unchanged": 1200,
+  "training_performed": false,
+  "scoring_performed": false,
+  "final_evaluation_performed": false,
+  "original_service_accounting_reset": false,
+  "new_scored_cohort_activated": false,
+  "next_action_id": "PC-01-DECISION",
+  "next_action": "Separate authorization and new cohort identity/preregistration before one dev attempt from initialization; same model/recipe and 1200/1800 second caps, no final access."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "restart_id": "LAB-RESTART-20260904-V1",
+  "protocol_version": 3,
+  "status": "preparation_only",
+  "scoring_authorized": false,
+  "next_action_id": "PC-01-CONTRACT",
+  "next_action": "Prepare and freeze a new positive-control learning and measurement contract: licensed local corpus and split, competent small-transformer recipe, bounded development, independent controls, quality thresholds, batch=1 and throughput timing, full costs and uncertainty. No candidate training or scoring in the contract-design cycle.",
+  "required_documents": [
+    "research/LAB_PLAN.md",
+    "research/laboratory/BELIEFS_POLICY.md",
+    "docs/SCIENTIFIC_PROTOCOL.md",
+    "docs/archive/SCIENTIFIC_PROTOCOL_V2_2026-09-04.md"
+  ],
+  "milestones": [
+    {"id": "PC-01", "max_service_cycles": 2, "max_development_attempts": 3, "exit_artifact": "Immutable learning/measurement control contract and diagnostic result with a pass/fail/inconclusive review; not architecture evidence."},
+    {"id": "WT-01", "max_service_cycles": 2, "max_development_attempts": 2, "exit_artifact": "Hash-resolved WT bundle, frozen factorial contract, independent trace receipt and scoped causal/economic analysis."},
+    {"id": "REVIEW-01", "max_service_cycles": 1, "max_development_attempts": 0, "exit_artifact": "Decision review of R0, PC-01 and WT-01; request the user's decision before a language-system prototype or more investment."}
+  ]
+}

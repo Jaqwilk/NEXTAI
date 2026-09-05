@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-HARNESS-V1",
+  "restart_id": "LAB-RESTART-20260904-V1",
+  "cycle": 285,
+  "service_attempt": 2,
+  "status": "partial_preparation_not_executable_cohort",
+  "proposed_cohort": "pc01_byte_lm_learning_measurement_v1",
+  "active_cohort_changed": false,
+  "scoring_authorized": false,
+  "training_performed": false,
+  "architecture_promoted": false,
+  "artifact_sha256": {
+    "src/nextai_autoresearch/pc01.py": "3938b2aa291d604bcded93d7a4eb9c4f547c76ecd34dae10dae63bf9dd74f293",
+    "src/nextai_autoresearch/laboratory.py": "946f52bc1def78befb36513c8aa0734d55623794c4af8b6dbc1cc5cc35fc7615",
+    "src/nextai_autoresearch/audit.py": "3a84cd96305b29945bd90566992dea3a5a11fd53ae6eb3acc571e3b68aa44d43",
+    "src/nextai_autoresearch/cli.py": "aea1781f193a83da7853211156e9bfa3bb4a05a5d5d43b7c734ee138a0a72d71",
+    "src/nextai_autoresearch/doctor.py": "fe16bb7e830670690303f97190d79963b92f5dc2298fec018b0e033d47a084bd",
+    "src/nextai_autoresearch/schemas.py": "fc48c85a8de6e7173bd0d6b4ea4a73c22adb725b31fa84c8da26a3257c920599",
+    "schemas/pc01_replica.schema.json": "ab8dc09cd3268a6107a54cde0b9e5e4e590334291fe4f8a290269782f9a67365",
+    "tests/test_pc01_harness.py": "338d3036d124385bcb14618cade05a619623eb8d485dec83fba0332e397e161a",
+    "tests/test_lab_restart.py": "f69ff8af4db84532adf52031112ed4501cbe3ccf765540153003927e5b14a4dd",
+    "research/plans/PC-01-CONTRACT-V1.json": "f9e3d889485ff5e63c9f74caae3118f2f44c3872b91400931e72c8e1ce67a280",
+    "research/data/pc01_tinyshakespeare_v1/acquisition.json": "e2ef831342838921588e6699ea501cdc911ffe869323714907fc13b48fb9931f"
+  },
+  "verified_components": [
+    "exact corpus/split hashes and development-only data view",
+    "stable bits-per-byte and complete tail/mask accounting",
+    "checkpoint selection from the full dev curve only",
+    "causality/learning-off/precision negative controls",
+    "synchronized timing callback boundaries with reference CPU outputs and separate batch scenarios",
+    "cooperative resource checks, not a parent watchdog",
+    "three-record claim gate with distinct seeds and matching provenance fields, not ledger authentication",
+    "append-only progress and exhausted-cycle handling",
+    "candidate import boundary excluding the private PC-01 evaluator"
+  ],
+  "missing_components": [
+    {
+      "id": "EXECUTION_ADAPTER",
+      "required": "PC-01-specific registered EXP plan schema and CLI, audited Candidate interface and worker adapter; dev seed 1103 and one runner-random seed per final EXP; no fictitious K/D axes.",
+      "evidence_paths": [
+        "src/nextai_autoresearch/cli.py",
+        "src/nextai_autoresearch/worker.py",
+        "schemas/experiment_plan.schema.json"
+      ],
+      "observed": "No PC-01 benchmark run_suite module or adapter is installed."
+    },
+    {
+      "id": "AUTHORITATIVE_SERIES_LEDGER",
+      "required": "Freeze one final series before first final access; derive attempt/seed usage and provenance from registered plans, runtime receipts and failures, reject replay/omitted attempts/changed source, enforce cumulative training and storage caps.",
+      "evidence_paths": [
+        "src/nextai_autoresearch/runner.py",
+        "src/nextai_autoresearch/pc01.py"
+      ],
+      "observed": "series_decision validates supplied records only and explicitly reports runner_authenticity_checked=false."
+    },
+    {
+      "id": "PARENT_AND_DEVICE_ENFORCEMENT",
+      "required": "Parent-supervised 1200 s fit deadline, 1800 s worker deadline, actual peak RSS/VRAM capture and cumulative accounting through crashes; preserve every failure.",
+      "evidence_paths": [
+        "src/nextai_autoresearch/runner.py",
+        "src/nextai_autoresearch/pc01.py"
+      ],
+      "observed": "Legacy parent supervises total wall/RSS; new BudgetGuard is cooperative and not yet wired into a real fit phase."
+    },
+    {
+      "id": "END_TO_END_CONFORMANCE",
+      "required": "Test integrated positive and intentionally broken worker fixtures, legal baseline data access, failure persistence and result/report exclusion from architecture rankings; freeze the resulting executable cohort and its semantic certificate.",
+      "evidence_paths": [
+        "tests/test_pc01_harness.py",
+        "src/nextai_autoresearch/report.py",
+        "src/nextai_autoresearch/baseline_semantics.py"
+      ],
+      "observed": "Synthetic primitive tests are not an end-to-end candidate/runner or learned positive-control validation."
+    }
+  ],
+  "decision": "inconclusive_readiness_at_service_cycle_cap",
+  "next_action_id": "PC-01-DECISION",
+  "no_automatic_third_service_cycle": true,
+  "legacy_validator_note": "PC-01-CONTRACT-V1's validator pins the former live eval_manifest. Preserve it unchanged; the harness validator checks that exact prior manifest in the archive instead of redefining its original assertion."
+}

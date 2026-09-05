@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Laboratory restart preparation contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "restart_id", "protocol_version", "status", "scoring_authorized", "next_action_id", "next_action", "required_documents", "milestones"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "restart_id": {"const": "LAB-RESTART-20260904-V1"},
+    "protocol_version": {"const": 3},
+    "status": {"const": "preparation_only"},
+    "scoring_authorized": {"const": false},
+    "next_action_id": {"const": "PC-01-CONTRACT"},
+    "next_action": {"type": "string", "minLength": 30},
+    "required_documents": {
+      "type": "array", "minItems": 4, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^(research|docs)/[^\\\\:]+$"}
+    },
+    "milestones": {
+      "type": "array", "minItems": 3,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "max_service_cycles", "max_development_attempts", "exit_artifact"],
+        "properties": {
+          "id": {"type": "string", "minLength": 3},
+          "max_service_cycles": {"type": "integer", "minimum": 1, "maximum": 2},
+          "max_development_attempts": {"type": "integer", "minimum": 0, "maximum": 3},
+          "exit_artifact": {"type": "string", "minLength": 10}
+        }
+      }
+    }
+  }
+}

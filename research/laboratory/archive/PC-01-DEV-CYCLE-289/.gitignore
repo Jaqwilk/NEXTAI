@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Runtime artifacts. Scientific ledgers and result JSON files stay tracked.
+research/run.lock
+research/tmp/
+research/logs/*.log
+STOP
+PAUSE
+
+# Keep large benchmark payloads local; acquisition metadata and manifests stay tracked.
+research/data/*/archive/
+research/data/*/extracted/
+research/data/**/*.zip
+research/data/**/*.h5
+research/data/**/*.npy
+research/data/**/*.mat

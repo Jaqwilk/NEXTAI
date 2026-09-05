@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-GPU-METADATA-V1",
+  "kind": "no_scoring_maintenance_plan",
+  "user_approval": "okej kontynuuj: continue the proposed bounded GPU metadata repair and validation, without training or final evaluation",
+  "started_at": "2026-09-05T15:44:39Z",
+  "deadline_at": "2026-09-05T16:29:39Z",
+  "self_imposed_service_minutes_cap": 45,
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "final_access_authorized": false,
+  "additional_dev_attempts": 0,
+  "question": "Can a narrowly scoped trusted NVIDIA metadata subprocess return complete identified GPU driver, clocks and load under the sanitized worker environment, while incomplete probes fail closed?",
+  "prior_evidence": "research/laboratory/PC-01-DEV2-GPU-METADATA-DIAGNOSTIC-V1.json",
+  "prior_dev_receipt": "research/laboratory/PC-01-DEV-CYCLE-289-V1.receipt.json",
+  "prior_dev_receipt_sha256": "c014a41e79fd94e85ac6b599f901d8cbbe061f2cde84c16f633d9293f279f6e1",
+  "prior_evaluator_sha256": "bbb174b5f8bab4717c483a4b152e27bdbf5cebc803a37d3aa1b5a88ae1233773",
+  "archive": "research/laboratory/archive/PC-01-DEV-CYCLE-289",
+  "archive_manifest": "research/manifests/PC-01-GPU-METADATA-BEFORE.json",
+  "prospective_cohort": "pc01_byte_lm_learning_measurement_v3",
+  "cohort_status": "maintenance; not executable or approved for scoring",
+  "inherits": "PC-01-CONTRACT-V1 model, train/dev/final split, source, recipe, controls, quality thresholds, 5000 updates, selection rule and resource/attempt limits remain unchanged.",
+  "sole_measurement_change": "Require validated, time-stamped GPU metadata before fit and after timing for v3 only; preserve legacy v1/v2 schemas, result interpretation and receipts without retroactive requirements.",
+  "implementation": [
+    "Keep the candidate/worker sanitized environment unchanged. Only the nvidia-smi child may receive a registry-derived ProgramW6432 path on Windows.",
+    "Use a bounded five-second read-only query; record command, executable, timestamp, elapsed time, return code, stdout/stderr and explicit failure details. Never silently accept null metadata.",
+    "Require one identified GPU with UUID, name, driver, positive SM/memory clocks, utilization in 0..100 percent, nonnegative memory use, and matching identity across snapshots.",
+    "Write failure evidence before rejecting a prospective v3 run; pre-fit failure must not start training. Post-timing failure makes the prospective measurement inconclusive.",
+    "Do not rewrite completed EXP results or refill their missing historical driver/load snapshot. Do not implement a final-series authority or evaluator-compatibility exemption in this maintenance stage."
+  ],
+  "validation": [
+    "Pure fixtures for complete and malformed CSV, missing executable, timeout, NVML failure, missing field, nonfinite/negative values, multi-GPU ambiguity, device identity drift and missing metadata.",
+    "Verify environment copy isolation and that ordinary candidate subprocess policy remains byte-identical.",
+    "Run at most three paired real nvidia-smi probes inside fresh sanitized subprocesses: original probe versus repaired helper; no model import, data access or training. Preserve all outcomes.",
+    "Exercise prospective worker pre-fit rejection and parent completeness gate using synthetic fixtures only; legacy completed records must still validate.",
+    "Full regression, immutable history/ledger-prefix verification, new evaluator freeze and conformance certificate, doctor PASS; maintenance must deny dev/final/replay/legacy/series freeze."
+  ],
+  "decision": "Keep only if all required positive/negative checks pass. Otherwise preserve failures and report the bounded blocker. Completion returns to PC-01-DECISION and grants no training.",
+  "historical_counts": {"completed_results": 101, "dev_attempts": 2, "fit_seconds_charged": 1500.4259332000001},
+  "original_service_accounting_reset": false
+}

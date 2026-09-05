@@ -1,0 +1,34 @@
+{
+  "id": "PC-01-ACTIVATION-PREFIX-PROOF-V1",
+  "snapshot": "research/laboratory/PC-01-INTEGRATION-HISTORY-BEFORE.json",
+  "historical_entries": 349,
+  "identical_full_files": 348,
+  "registry_change": "Exactly one new registration, 205 bytes; prior 26856 bytes unchanged",
+  "prefix_proofs": {
+    "research/events.jsonl": {
+      "historical_bytes": 580175,
+      "historical_sha256": "8dcf3fdc96897ffe605b61aeee3e380e18d7d1889f9be1b1c96ddefddc91b6d2",
+      "current_bytes": 587143,
+      "current_sha256": "291763205437057df81d5d384c3a65bc11830da2483f3efa179e40a08192de37"
+    },
+    "research/sources.jsonl": {
+      "historical_bytes": 359421,
+      "historical_sha256": "5e26e629389775991874f8c312a98e4bfb38ec971f429ade6735321af06b5322",
+      "current_bytes": 359421,
+      "current_sha256": "5e26e629389775991874f8c312a98e4bfb38ec971f429ade6735321af06b5322"
+    },
+    "research/plan_registry.jsonl": {
+      "historical_bytes": 26856,
+      "historical_sha256": "4f6dac87f113d90d1360e05e18c5433b2734791bcf2cb65a49786756f91260c2",
+      "current_bytes": 27061,
+      "current_sha256": "c330d254ccbd7ebf5063f93e32b2343c844997d42e8e84f551dc43d3d8f011dd"
+    },
+    "research/plan_status_events.jsonl": {
+      "historical_bytes": 14310,
+      "historical_sha256": "0b6dbe4a8a112ebe166002179349eca24015113604c32b4a20730eb3b27e1fc8",
+      "current_bytes": 14310,
+      "current_sha256": "0b6dbe4a8a112ebe166002179349eca24015113604c32b4a20730eb3b27e1fc8"
+    }
+  },
+  "evaluator_changed_after_registration": false
+}

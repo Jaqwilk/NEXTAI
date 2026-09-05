@@ -1,113 +1,96 @@
-# NEXTAI Autoresearch
+# NEXTAI — laboratorium badawcze
 
-To jest natywne dla Codexa środowisko do długotrwałych, falsyfikowalnych badań nad architekturami obliczeniowymi mogącymi kiedyś stanowić alternatywę dla dzisiejszych LLM-ów.
+## Aktualna zgoda — trzy repliki finalne
 
-Nie ma tu klienta OpenAI API, klucza API ani osobnego modelu sterującego. Codex jest naukowcem: czyta `AGENTS.md` i `program.md`, tworzy prerejestrację, implementuje jeden ograniczony eksperyment, uruchamia lokalny harness i aktualizuje ledger. Harmonogram Codexa może okresowo wracać do tej samej rozmowy i wykonać kolejny cykl.
+Obowiązuje research/laboratory/PC-01-FINAL-ACTIVATION-20260905-V1.json.
+Użytkownik zatwierdził trzy świeże repliki niezmienionego modelu v3, po jednej
+na cykl, 1200 s fit / 1800 s procesu każda, bez kolejnego dev, strojenia,
+resume ani automatycznych powtórek. Najpierw freeze/certyfikat i rejestracja.
+Awaria lub nieważny wynik zatrzymuje serię do przeglądu. Trzy kompletne wyniki
+oceniamy razem według niezmienionych progów; bez awansu architektury.
+Zatwierdzono także commity i nie-siłowy push do istniejącego GitHub origin;
+duże dane i checkpointy zostają lokalnie. Nie zmieniamy harmonogramu.
+Poniższe opisy zakończonych etapów pozostają historią, nie aktualnym zakazem.
 
-## Co już jest rozstrzygnięte
+Aktualny etap: `research/plans/PC-01-FINAL-PREP-V1.json` — przygotowanie
+przejścia dev v2 → pomiar v3 i oceny trzech replik. Bez treningu i bez testu
+finalnego. Po zakończeniu: PC-01-DECISION; uruchomienie wymaga osobnej zgody.
+Stan i receipt mają pierwszeństwo przed opisami historycznych etapów poniżej.
 
-Manifest jest sensowny jako **program badań nad prawami skalowania**, lecz nie jako dowód, że ACC/SCCS albo jakakolwiek konkretna architektura zadziała. Repozytorium wymusza więc:
+Cel: szukać i rygorystycznie sprawdzać zasady obliczeniowe, które mogą poprawić
+zdolność na jednostkę pełnego kosztu inferencji względem gęstych LLM.
+Nie ma tu zewnętrznego modelu sterującego, klienta API ani gwarancji przełomu.
 
-- wiele małych, różnorodnych zakładów;
-- prerejestrację przewidywań i kryteriów porażki;
-- niezmienność harnessu ewaluacyjnego;
-- porównania przy dopasowanych budżetach;
-- rozdzielenie obserwacji od interpretacji;
-- replikację niespodziewanych wyników;
-- pełny koszt końca-do-końca bez ukrywania pracy w LLM-ie, retrieverze lub przygotowaniu danych;
-- osobny front Pareto dla implementowalnych kandydatów oraz oracle jako lower bounds;
-- trwałe zachowanie nieudanych eksperymentów.
+## Aktualny plan
 
-Pełna ocena znajduje się w `docs/OCENA_POMYSLU.md`, a kanoniczny protokół w `docs/SCIENTIFIC_PROTOCOL.md`.
+Od 2026-09-04 obowiązuje LAB-RESTART-20260904-V1 i protokół v3.
+Pełny plan: [research/LAB_PLAN.md](research/LAB_PLAN.md).
 
-Dokumentacja projektu obejmuje również:
+Kolejność: odtwarzalność i źródła -> pozytywna kontrola uczenia/pomiarów ->
+wyjaśnienie wyniku WT -> przegląd decyzji -> dopiero warunkowo mały system
+pamięci, aktualizacji i kompozycji z wejściem naturalnopodobnym.
 
-- `docs/ORIGINAL_MANIFEST.md` — zachowany tekst źródłowy (znormalizowane zakończenia linii);
-- `docs/PRIOR_ART.md` — najbliżsi poprzednicy i test granicy nowości;
-- `docs/IDEA_CATALOG.md` — pełny katalog rodzin i tanich testów zabijających;
-- `docs/ROADMAP.md` — generacje G0–G8 z bramami dowodowymi;
-- `docs/METRICS.md` i `docs/DATA_MODEL.md` — rachunek kosztów, Pareto i schemat historii;
-- `docs/SAFETY.md` — granice autonomii, zasobów i zaufania;
-- `docs/CODEX_SETUP.md` — działanie wyłącznie w Codexie i zasady wybudzeń.
+Zachowano 99 historycznych wyników EXP i wszystkie porażki. Nowa faza
+G2/infrastructure jest resetem strategii, nie dowodem zaliczenia dawnej G2.
+Stara kohorta SuiteSparse nie jest aktywna; scoped gate blokuje jej scoring.
+Archiwum pełnego protokołu v2 jest pod docs/archive/.
 
-## Szybki start
+## Sprawdzenie gotowości
 
-W PowerShell:
+W istniejącym lokalnym środowisku:
 
 ```powershell
-uv sync --extra dev
 uv run nextai doctor
+uv run nextai lab status
+uv run nextai provenance --experiment EXP-20260831-0007 --candidate wt_candidate_under_test --revision 4952515
 uv run pytest
-uv run nextai report
 ```
 
-Pierwszy kontrolny eksperyment:
+Doctor PASS oznacza spójność infrastruktury. Lab status rozróżnia gotowość
+przygotowania i gotowość scoringu. Aktualną kolejkę wyznaczają zweryfikowane
+zgody i wyniki: PC-01-DEV2-20260905-V1 dopuszcza tylko jedną nową próbę dev
+w kohorcie v2 po naprawie telemetrii, a po jej wyniku wymaga przeglądu.
+Dev 2 zakończono. Aktualny PC-01-GPU-METADATA-V1 obejmuje tylko naprawę zapisu
+metadanych GPU bez treningu; v3 pozostaje maintenance po walidacji.
+Brak zgody na final lub automatyczny retry. Nie powtarzamy CAL-20260901-0001.
 
-```powershell
-uv run nextai plan new `
-  --hypothesis HYP-0001 `
-  --title "Generation-0 baseline" `
-  --question "Czy harness odzyskuje znane różnice skalowania K i D?" `
-  --family "infrastructure_control" `
-  --candidates random_guess linear_scan indexed_graph memoized_graph compiled_jump dense_recurrent `
-  --budget quick `
-  --prediction "Kontrole odzyskają jakościowo odmienne prawa kosztu." `
-  --kill-criterion "Harness nie rozdziela znanych praw skalowania." `
-  --promotion-criterion "Wszystkie kontrole zachowują się zgodnie z mechanizmem." `
-  --alternative "Instrumentacja, a nie mechanizm, tworzy obserwowane różnice." `
-  --confound "Mikrobenchmark jest zbyt mały dla stabilnego pomiaru czasu." `
-  --positive-conclusion "Infrastruktura nadaje się do kolejnego testu G0." `
-  --null-conclusion "Należy poprawić instrumentację bez wnioskowania o rodzinach." `
-  --negative-conclusion "Harness nie nadaje się jeszcze do badań architektury."
-uv run nextai run --plan research/plans/<utworzony-plik>.json
-uv run nextai report
-```
+Nowe środowisko: najpierw sprawdź wolne miejsce i oszacuj środowisko, cache
+oraz rozpakowane dane; minimum 10 GiB musi pozostać. Dopiero potem
+uv sync --frozen --extra dev. Używamy uv.lock; nie pobieramy modeli ani danych
+automatycznie. Konfiguracja Cloud Agent znajduje się w .cursor/ i stosuje tę
+samą zasadę, a po instalacji uruchamia doctor. Bootstrap wymaga już dostępnego
+Python 3.11+ i uv (lokalnie zweryfikowano 0.11.15); brak narzędzia zgłasza jako
+blokadę, nie wykonuje nieprzypiętego instalatora sieciowego. Szacuje pełny zapas
+dysku z uv.lock i trzyma cache oraz środowisko na sprawdzanym woluminie.
 
-Polecenie `plan new` wypisuje dokładną ścieżkę. Plan jest niezmienny od chwili rejestracji; błędny plan zachowuje się i unieważnia poleceniem `nextai plan invalidate`. Nowy plan zapisuje politykę i liczbę seedów, natomiast ich wartości runner losuje dopiero po zamrożeniu i audycie kodu, a następnie utrwala w wyniku.
+## Zasady i historia
 
-## Jak działa jeden cykl Codexa
+- AGENTS.md — niezmienne zasady rzetelności, uprawnienia i aktualna faza.
+- program.md — jeden ograniczony cykl i konkretne warunki zatrzymania.
+- docs/SCIENTIFIC_PROTOCOL.md — oddzielne testy mechanizmu, ekonomii i transferu.
+- research/laboratory/restart.json — chroniona kolejka startowa.
+- research/laboratory/BELIEFS_POLICY.md — opinie audytora nie są funkcją nagrody.
+- research/plans, results, analyses, events.jsonl — nieusuwalna historia.
+- research/REPORT.md + REPORT.provenance.json — raport z kontrolą treści wejść.
+- docs/ORIGINAL_MANIFEST.md — zachowana pierwotna wizja.
+- docs/ROADMAP.md — historyczna mapa G0–G8, nie aktualna kolejka.
 
-1. Sprawdza `STOP`, `PAUSE`, blokadę i integralność harnessu.
-2. Czyta stan, ledger, hipotezy i ostatnie wyniki.
-3. Wybiera pytanie o największej oczekiwanej wartości informacyjnej.
-4. Zapisuje plan **przed** implementacją i uruchomieniem; tylko jeden plan może oczekiwać.
-5. Implementuje lub wybiera kandydata w dozwolonym zakresie.
-6. Uruchamia `quick` na niewidocznych wcześniej seedach; dopiero wynik zasługujący na replikację dostaje `screen`.
-7. Zapisuje obserwację, interpretację, pewność i następny test rozróżniający.
-8. Aktualizuje hipotezę oraz raport; nie usuwa porażek.
+Raport odświeża uv run nextai report. Nie naprawia się integralności przez
+dotykanie dat plików ani zmianę starych wyników. Git ma jawne EOL z trzema
+wyjątkami zachowującymi historyczne hashe. Zmiana chronionego harnessu wymaga
+udokumentowanej migracji i nowego manifestu, nie automatycznej akceptacji.
 
-Szczegółowy kontrakt znajduje się w `program.md`.
+## Zatrzymanie i ograniczenia
 
-## Bezpieczne zatrzymanie
+STOP lub PAUSE w katalogu głównym blokują kolejne cykle, plany i scoring.
+Nie usuwać ich bez decyzji użytkownika. Aktywna blokada także zatrzymuje pracę.
+Jeden cykl nie uruchamia drugiego eksperymentu ani zaległych serii catch-up.
 
-- Utwórz plik `STOP`, aby kolejne cykle nie rozpoczynały pracy.
-- Utwórz `PAUSE`, aby wstrzymać nowe eksperymenty bez zamykania projektu.
-- Usuń odpowiedni plik dopiero wtedy, gdy chcesz wznowić pracę.
-- `doctor`, `plan new` i `run` traktują te pliki jako błędy blokujące, a nie informacyjne ostrzeżenia.
-- Aktywne zadanie cykliczne można niezależnie wstrzymać w widoku Scheduled w aplikacji.
+Harmonogram aplikacji jest osobną konfiguracją. Zmiana dokumentacji go nie
+uruchamia i nie potwierdza jego stanu. Tekst przyszłego wybudzenia znajduje
+się w docs/AUTOMATION_PROMPT.md.
 
-## Stan protokołu v2
-
-- G0 zakończyło się po 35 wynikach jako szeroki screening metodologiczny; nie odkryto jeszcze promowanego następcy ani niedominowanej przewagi learned end-to-end.
-- Projekt jest w G1/consolidation. Ostatni benchmark jest oznaczony `retired`, a EXP-0036 unieważniony bez scoringu. Nowy cykl musi najpierw przygotować czystą kohortę v2 i zamrozić jej manifest.
-- `STOP/PAUSE`, kompletność plan→wynik→analiza→raport, kadencje review oraz promocje są egzekwowane przez kod.
-
-## Ograniczenia wersji 0.2
-
-- Harness uruchamia kandydatów w osobnym procesie, usuwa sekrety ze środowiska, kontroluje czas/RSS i audytuje importy. To ogranicza błędy, ale **nie jest granicą bezpieczeństwa systemu operacyjnego**.
-- Pierwszy mikroworld bada pamięć, lokalne wnioskowanie, głębokość, aktualizacje i koszt. Nie mierzy jeszcze języka ani inteligencji ogólnej.
-- Prawdziwie ślepy holdout wymaga izolowanego ewaluatora, którego Codex nie może odczytać. Wynik lokalny jest screeningiem, nie podstawą do twierdzeń o przełomie.
-- Obecny harness jest CPU-first; osobna, jawnie wersjonowana konfiguracja GPU będzie potrzebna przed porównaniami z nowoczesnym Transformerem, Mambą lub BLT.
-
-## Najważniejsze katalogi
-
-```text
-AGENTS.md                 stałe instrukcje ładowane przez Codexa
-program.md                dokładny protokół pojedynczego cyklu
-config/                   budżety i niezmienne definicje metryk
-docs/                     ocena, doktryna, metodologia i roadmapa
-schemas/                  kontrakty danych JSON Schema
-src/nextai_autoresearch/  lokalny harness bez modelu/API
-research/                 stan, hipotezy, plany, wyniki i ledger
-tests/                    testy integralności i zachowania
-```
+Widoczne lokalne dane są screeningiem, nie niezależnie ślepym holdoutem.
+Audyt importów i osobny proces nie są pełnym sandboxem systemu operacyjnego.
+Porównania GPU/CPU wymagają jawnych scenariuszy, jakości i pełnego kosztu.
+Nie twierdzimy, że laboratorium ma już następcę LLM.

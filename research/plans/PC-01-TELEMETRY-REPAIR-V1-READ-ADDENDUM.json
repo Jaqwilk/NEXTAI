@@ -1,0 +1,11 @@
+{
+  "id": "PC-01-TELEMETRY-REPAIR-V1-READ-ADDENDUM",
+  "parent": "PC-01-TELEMETRY-REPAIR-V1",
+  "reason": "Initial implementation tests preserved in PC-01-TELEMETRY-TEST-1.xml: all three stress readers failed opening the concurrently replaced target (Windows PermissionError errno 13). Writer-only recovery is insufficient.",
+  "scope": "Same authorized no-training repair cycle and original 45-minute bound. No scoring or extra dev attempt.",
+  "prospective_change": "A PC-01-only single-attempt read reports transient Windows access contention to the parent, without sleeping. Parent keeps checking STOP, wall/fit/RSS/storage limits every loop, preserves monotonic last peaks, and fails after one second of continuous read unavailability. Never accept final success with an unresolved read; never ignore malformed JSON or unrelated errors.",
+  "disclosure": "CUDA telemetry may be unavailable for up to one second; the independent worker allocator cap and worker checks remain. This is not a hard OS telemetry guarantee. Record conflict count and maximum read gap in supervisor output.",
+  "tests": "Repeat the same three 2000-write stress cases with the production single-attempt reader; require coherent monotonic JSON and bounded recovery. Add persistent read denial, malformed JSON, and STOP during reader contention checks.",
+  "budgets_reset": false,
+  "training_authorized": false
+}

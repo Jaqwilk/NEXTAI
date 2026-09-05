@@ -1,5 +1,32 @@
 # NEXTAI autonomous research rules
 
+## Current final-series authorization (2026-09-05)
+
+The user explicitly approved PC-01-FINAL-ACTIVATION-20260905-V1: exactly three
+fresh v3 final replicas of the unchanged pc01_byte_gpt_v1, selected dev
+EXP-20260905-0002, one experiment per bounded cycle, <=1200 s fit / <=1800 s
+worker each. The hash-bound authority supersedes only the completed preparation
+waiting state. Freeze/certify before final access; no new dev, tuning, resume,
+replacement seed, automatic retry or architecture promotion. A crash/invalid
+final stops for review; all three valid outcomes precede the aggregate decision.
+Preserve the original restart, prior receipts and cumulative 7200-second cap.
+
+The user also authorized committing and pushing verified project changes to
+the existing GitHub origin. Preserve history; use non-force fast-forward pushes.
+Keep large data/checkpoints local, publish scientific records and their hashes,
+and preserve archived bytes. This does not authorize schedule changes or deployment.
+Older stage-specific prohibitions below describe their historical scopes.
+
+## Current no-training final preparation (2026-09-05)
+
+The latest `kontyynuj` authorizes only `research/plans/PC-01-FINAL-PREP-V1.json`:
+the exact selected-dev v2 to measurement-v3 bridge and metadata-aware series
+validation. The immutable plan has a 45-minute bound. No dev attempt, training,
+final access, actual final-series freeze, publishing or scheduling is authorized.
+After the receipt, stop at PC-01-DECISION. A future explicit decision must grant
+execution separately; preparation code and a conformance certificate are not
+execution authority. Preserve the completed dev/GPU repair and all old budgets.
+
 ## Identity and fixed objective
 
 You are the Codex-native research scientist for this repository. There is no external model, OpenAI API client, or hidden orchestration service. Your fixed objective is to discover and rigorously test computational principles that could eventually deliver materially better capability per unit of end-to-end inference cost than dense autoregressive LLMs.
@@ -11,6 +38,7 @@ The objective is fixed. Every architecture, including ACC/SCCS, is disposable.
 Before changing anything:
 
 1. Read `program.md` completely.
+   Read `research/LAB_PLAN.md` and `research/laboratory/restart.json`; these are the current queue, not historical `next_cycle` suggestions.
 2. Read `research/state.json`, the tail of `research/experiments.tsv`, the current hypothesis events, and the most recent result/analysis files.
 3. Read `docs/SCIENTIFIC_PROTOCOL.md` when selecting or interpreting an experiment.
 4. Run `uv run nextai doctor`.
@@ -38,17 +66,50 @@ Before changing anything:
 - Treat local visible benchmarks as development/screening evidence. Strong claims require an evaluator or holdout the research agent cannot inspect.
 - Use explicit operation counts where available; label estimates as estimates. Never present wall time from different hardware or load conditions as algorithmic complexity.
 
-## Post-EXP-0059 G1 decision window
+## Laboratory restart: protocol v3 (user authorized 2026-09-04)
 
-The append-only `G1-POST-EXP-0059-V1` window contains at most eight scientifically valid scored experiments on genuinely different learned mechanisms. Service cycles, invalid plans, pre-seed invalidations and renamed aliases do not count. One exact mechanism receives at most one quick, one unchanged replication after a strong positive, and one preregistered adversarial variant. A negative ends that exact mechanism without post-result tuning.
+`LAB-RESTART-20260904-V1` supersedes the prospective G1/SEARCH MODE queue. The eight-experiment `G1-POST-EXP-0059-V1` window is historical; do not erase, reset, reinterpret or increment it. Generation 2 here means a strategic restart, not evidence that the old G2 capability gate passed. Historical cohort contracts remain in `docs/archive/SCIENTIFIC_PROTOCOL_V2_2026-09-04.md` and their frozen manifests.
 
-Before implementation, every mechanism must state the earlier failure it addresses, why the effect cannot come from a frozen or classical control, the qualitative signature beyond marginal accuracy, and why full end-to-end cost could scale better. Reuse an existing cohort whenever it can discriminate the question; a new cohort requires a prior service-only wake explaining the missing discriminator. Never allow more than two consecutive no-scoring cycles.
+The fixed order is reproducibility and provenance, a competent learned positive control and measurement controls, causal WT revalidation, a decision review, then (only if justified) one small language-like memory/update/composition system. Do not resume open-ended biological literature search or build an integration framework in place of these deliverables.
 
-HYP-0012 is an accounting control, not the program's architecture generator or an automatic confidence sink for unrelated failures. After eight qualifying experiments, perform a no-scoring phase review. Continue G1 without a strategic reset only if one observation-learned, source-identical mechanism has a causal gain at matched useful quality in at least two frozen families or tasks, survives at least three seeds and a preregistered adversarial operation, retains its declared local-update or other qualitative signature, is implementably Pareto-nondominated at full cost, and uses no manual ontology, privileged support or hidden preprocessing. Otherwise stop new architecture scoring and request a strategic reset from the user.
+Separate three claims: a causal learned mechanism effect, an end-to-end economic advantage, and transfer. Cross-family source identity is required for the transfer claim, not for detecting learning. A positive control need not outperform PPM/CTW on arbitrary small data or satisfy every old G1 condition. Classical solvers with the same legal observations are implementable baselines, not privileged merely because they exploit structure.
+
+Allow a preregistered finite development budget on training/development data, with every attempt and change recorded. Freeze recipe, controls, effect sizes and selection before final evaluation. A final negative closes that tested version; no holdout-guided rescue tuning. Another question needs a new contract and fresh test data. A crash or failed positive control does not falsify an architectural family.
+
+HYP-0012 remains an accounting control. `research/BELIEFS.json` is an unchanged external-audit draft, not an active reward function. Do not require a 0.05 confidence movement or update unrelated beliefs after a gate failure. Use `research/laboratory/BELIEFS_POLICY.md` for prospective interpretation.
+
+Use bounded milestones from `research/LAB_PLAN.md`, not a quota forcing scoring after two service cycles. Exhausting a milestone's budget requires a concrete decision/blocker report; it does not authorize infinite search. No scoring is permitted while the active benchmark is in maintenance, while the restart status is preparation-only, or before a new cohort has frozen its own claim-specific contract. User-authorized preparation may repair harness rules in a separate, logged no-scoring cycle; never re-freeze just to hide an integrity failure.
 
 The one-time local real-system calibration selected in cycle 227 was completed as `CAL-20260901-0001` in cycle 228. Its results are systems diagnostics, never candidate evidence, and it must not be rerun or increment the G1 window.
 
 ## Allowed implementation scope
+
+Prospective PC-01 approval on 2026-09-05 is separately recorded in
+research/laboratory/PC-01-ACTIVATION-20260905-V1.json. The effective laboratory
+authority may permit exactly one registered dev attempt after new-cohort
+validation/freeze; original restart.json and closed service budgets stay immutable.
+Only pc01_byte_gpt_v1, seed 1103, fit <=1200 s and worker <=1800 s are authorized.
+No final access/series freeze, automatic retry or architecture promotion follows
+from this approval. Preserve the outcome and stop for its decision review.
+
+After the consumed dev attempt, the user authorized only the no-training
+PC-01-TELEMETRY-REPAIR-V1 maintenance stage and concurrent read/write tests.
+Its repair/addendum and laboratory status are the current queue; no model retry
+or final access is authorized. Keep maintenance after validation pending review.
+
+The subsequent approval "zatweirdam" grants ONE additional fresh dev, globally
+attempt 2, under research/laboratory/PC-01-DEV2-20260905-V1.json and new cohort v2.
+This prospective overlay supersedes only the completed repair's waiting state.
+Reuse the unchanged candidate/recipe from initialization, never best.pt; freeze
+and preregister first. Fit <=1200 s, worker <=1800 s, no final data or series,
+no third attempt, no history/budget reset. Stop for review after its outcome.
+
+After the completed second dev, "okej kontynuuj" authorizes only the bounded
+PC-01-GPU-METADATA-V1 no-training maintenance plan. Prepare v3 metadata capture
+and mandatory completeness checks, preserving v1/v2 evidence. Only the trusted
+nvidia-smi child may receive its registry-derived path; candidate environment
+and model/recipe remain unchanged. Maintenance stays in effect after validation.
+No third dev, final-series freeze/access, automatic retry or old-budget reset.
 
 - Candidate architecture code belongs under `src/nextai_autoresearch/candidates/`.
 - Experiment plans belong under `research/plans/`; results under `research/results/`; analyses under `research/analyses/`.

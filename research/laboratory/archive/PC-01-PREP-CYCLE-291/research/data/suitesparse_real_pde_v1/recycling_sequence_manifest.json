@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "dataset_id": "suitesparse_real_pde_v1",
+  "sequence_contract_id": "suitesparse_cross_matrix_recycling_v1",
+  "frozen_at": "2026-09-02T00:55:00Z",
+  "status": "frozen_before_sequence_payload_download",
+  "index_sha256": "9bc797ab989331afbc9e0e51236d9145c2ac7f76c0913e9677ae07c4913a2aad",
+  "selection_rule": {
+    "required_matrix_properties": [
+      "real == 1",
+      "posdef == 1 in the frozen SuiteSparse index",
+      "rows == cols",
+      "is2d3d == 1",
+      "1000 <= rows <= 500000"
+    ],
+    "pair_metadata": "same SuiteSparse group, dimension, numerical nnz and application kind",
+    "diversity": "one smallest-download pair from each distinct available application kind; a second thermal pair is excluded prospectively",
+    "required_post_download_gate": "exact CSR sparsity-pattern identity after preserving explicit entries; finite symmetric values; both matrices independently solvable at the common residual contract",
+    "candidate_visibility": "group, names, pair order and application kind are evaluator-only; a future learner receives only anonymous sparse numeric operators",
+    "replacement_policy": "no replacement after solver outcomes; a failed pair remains diagnostic history"
+  },
+  "disk_gate": {
+    "free_bytes_before_download": 96247271424,
+    "declared_archive_bytes": 6540007,
+    "conservative_extracted_and_working_bound_bytes": 268435456,
+    "minimum_free_bytes_after_operation": 10737418240,
+    "passed_before_download": true
+  },
+  "sequences": [
+    {
+      "sequence_slot": "thermal",
+      "kind": "thermal problem",
+      "dimension": 10605,
+      "numerical_nnz": 144579,
+      "matrices": [
+        {"group":"Bindel","name":"ted_B","archive_bytes":436003,"url":"http://sparse-files.engr.tamu.edu/MM/Bindel/ted_B.tar.gz"},
+        {"group":"Bindel","name":"ted_B_unscaled","archive_bytes":443914,"url":"http://sparse-files.engr.tamu.edu/MM/Bindel/ted_B_unscaled.tar.gz"}
+      ]
+    },
+    {
+      "sequence_slot": "cfd",
+      "kind": "computational fluid dynamics problem",
+      "dimension": 81920,
+      "numerical_nnz": 327680,
+      "matrices": [
+        {"group":"MaxPlanck","name":"shallow_water1","archive_bytes":2686831,"url":"http://sparse-files.engr.tamu.edu/MM/MaxPlanck/shallow_water1.tar.gz"},
+        {"group":"MaxPlanck","name":"shallow_water2","archive_bytes":2693065,"url":"http://sparse-files.engr.tamu.edu/MM/MaxPlanck/shallow_water2.tar.gz"}
+      ]
+    },
+    {
+      "sequence_slot": "generic_2d3d",
+      "kind": "2D/3D problem",
+      "dimension": 9801,
+      "numerical_nnz": 87025,
+      "matrices": [
+        {"group":"Norris","name":"fv2","archive_bytes":140733,"url":"http://sparse-files.engr.tamu.edu/MM/Norris/fv2.tar.gz"},
+        {"group":"Norris","name":"fv3","archive_bytes":139461,"url":"http://sparse-files.engr.tamu.edu/MM/Norris/fv3.tar.gz"}
+      ]
+    }
+  ],
+  "prohibitions": {
+    "hypothesis_created": false,
+    "plan_created": false,
+    "candidate_created": false,
+    "runner_seed_realized": false,
+    "scoring_performed": false
+  }
+}

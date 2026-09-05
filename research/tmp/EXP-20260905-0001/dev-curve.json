@@ -1,0 +1,24 @@
+{
+  "curve": [
+    {
+      "bits_per_byte": 8.128573081664243,
+      "checkpoint_sha256": "71e047ed5806d7f370865529f5899025dbcb1e6de8d72d0a4547cd0566c94d51",
+      "update": 0
+    },
+    {
+      "bits_per_byte": 2.959368253657654,
+      "checkpoint_sha256": "c416674abcc0cdf82990e64e829a76a16737a8a2ff6280231041415f6c5850d9",
+      "update": 250
+    },
+    {
+      "bits_per_byte": 2.4720044282098574,
+      "checkpoint_sha256": "713f17e9fc1db2d619fc0cb820dec5127fa4bd467f6cca748bffe2e7960881fb",
+      "update": 500
+    },
+    {
+      "bits_per_byte": 2.336437023032063,
+      "checkpoint_sha256": "5d56242cfd411bc803267f4921bebb1e24b48cea26b86b1ce1a5eb785ebc86c1",
+      "update": 750
+    }
+  ]
+}

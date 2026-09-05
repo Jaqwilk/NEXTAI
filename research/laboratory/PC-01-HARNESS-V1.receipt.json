@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-HARNESS-V1-RECEIPT",
+  "created_at": "2026-09-05T09:15:54Z",
+  "cycle": 285,
+  "restart_id": "LAB-RESTART-20260904-V1",
+  "milestone_id": "PC-01",
+  "attempt": 2,
+  "kind": "completed_partial_harness_service_not_scored_experiment",
+  "status": "preparation_blocked",
+  "started_at": "2026-09-04T23:43:51.6820405Z",
+  "resumed_at_approximate": "2026-09-05T09:11:00Z",
+  "artifact_sha256": {
+    "research/analyses/PC-01-HARNESS-V1.md": "a766664b0cf52ac784df89676f558643e3c9e1f8fcb74854a578fb77b2fd6087",
+    "research/laboratory/PC-01-HARNESS-V1.json": "e685fa4c268b423a3ad6d5cb2bc77fcd0c07f9a8f25fb5b044de1c70c787c1ad",
+    "research/laboratory/PC-01-HARNESS-HISTORY-BEFORE.json": "85cba1a334e8cf7a1d2068052244310dbda2e0d5131c1645f3b499fd97ba9535",
+    "research/laboratory/PC-01-HARNESS-REGRESSION-RESUME-1.xml": "216dc5f6228ed5fdafb975c3748b99545fa118d7d238175feb620078fc52ee9d",
+    "research/laboratory/PC-01-HARNESS-REGRESSION-RESUME-2.xml": "c4bf26fe2072e72d4088dd2f00def9f9ae221ea843e26248364348945ebca303",
+    "scripts/validate_pc01_harness.py": "692aaa6c7edf11e4025adbdb55a256a17e853e7f40b95c5270d9be8c5029a68c"
+  },
+  "validations": {
+    "doctor": "PASS",
+    "protected_files": 847,
+    "pytest_passed": 748,
+    "pytest_failed": 0,
+    "pytest_errors": 0,
+    "pytest_skipped": 0,
+    "pytest_exit_code": 0,
+    "pytest_seconds": 76.42,
+    "historical_files_unchanged": 341,
+    "ledger_prefixes_preserved": true,
+    "sealed_harness_artifacts_verified": 11,
+    "data_payload_and_split_hashes": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "interrupted_regression": {
+    "original_terminal_result": "unavailable; not certified",
+    "lastfailed_cache": "Six obsolete test node names; explicit invocation collected zero tests and returned not found. Not six reproduced current regressions.",
+    "diagnostic_zero_test_report": "research/laboratory/PC-01-HARNESS-REGRESSION-RESUME-1.xml",
+    "stale_node_ids": [
+      "tests/test_shared_transition_adaptive_compute.py::test_near_boundary_is_safe_but_charges_late_learned_halt",
+      "tests/test_dronepropa_factor_recombination.py::test_maintenance_evaluator_cannot_score",
+      "tests/test_parallel_masked_infilling.py::test_v5_schema_rejects_role_substitution_and_candidate_does_not_exist_yet",
+      "tests/test_orthogonal_double_matching_source_swap_v1.py::test_strong_legal_spectral_and_cca_controls_pass",
+      "tests/test_orthogonal_double_matching_source_swap_v1.py::test_full_falsification_contract_certifies_before_any_scoring",
+      "tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_active_config_and_preseed_baseline_discovery_match_contract"
+    ],
+    "cache_deleted": false,
+    "tests_removed": false,
+    "thresholds_relaxed": false
+  },
+  "scientific_state": {
+    "completed_experiments": 99,
+    "pending_plans": 0,
+    "training_performed": false,
+    "scoring_performed": false,
+    "seed_realized": false,
+    "positive_control_success_demonstrated": false,
+    "executable_cohort_ready": false,
+    "benchmark_status": "maintenance",
+    "restart_status": "preparation_only"
+  },
+  "cumulative_budget": {
+    "service_cycles_used": 2,
+    "service_cycles_cap": 2,
+    "service_minutes_conservatively_charged": 120,
+    "service_minutes_cap": 120,
+    "remaining_service_minutes": 0,
+    "development_attempts_used": 0,
+    "development_attempts_cap": 3,
+    "total_fit_seconds_used": 0,
+    "total_fit_seconds_cap_including_final": 7200,
+    "final_replicates_used": 0,
+    "final_replicates_cap": 3
+  },
+  "budget_caveat": "Full 60-minute allowance reserved conservatively for this interrupted/resumed cycle plus 60 previously charged. 120 is not measured active runtime. Overnight interruption not counted as active work. Cycle-count cap independently exhausted.",
+  "missing_components": [
+    "EXECUTION_ADAPTER",
+    "AUTHORITATIVE_SERIES_LEDGER",
+    "PARENT_AND_DEVICE_ENFORCEMENT",
+    "END_TO_END_CONFORMANCE"
+  ],
+  "next_action_id": "PC-01-DECISION",
+  "next_action": "Request user authorization for one additional explicitly bounded integration service cycle. No automatic extra service, candidate training or scoring.",
+  "schedule_changed": false,
+  "pushed": false,
+  "git_branches_merged": false
+}

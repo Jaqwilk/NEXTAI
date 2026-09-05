@@ -68,10 +68,17 @@ def test_five_controls_execute_their_declared_hierarchy_semantics() -> None:
     assert none is None and setup == update == 0.0
 
 
-def test_active_config_and_preseed_baseline_discovery_match_contract() -> None:
+def test_retained_config_and_preseed_baseline_discovery_match_contract() -> None:
     with (project_root() / "config/research.toml").open("rb") as handle:
         config = tomllib.load(handle)
-    assert config["project"]["benchmark_version"] == bench.BENCHMARK_VERSION
+    historical = load_json(project_root() / "research/manifests/PC-01-ACTIVATION-BEFORE.json")
+    assert historical["benchmark_version"] == bench.BENCHMARK_VERSION
+    # New diagnostic activation does not change the retained SuiteSparse contract.
+    assert config["project"]["benchmark_version"] == "pc01_byte_lm_learning_measurement_v3"
+    assert config["project"]["protocol_version"] == 3
+    # The separately authorized final series activates v3, never the retained cohort.
+    from nextai_autoresearch.pc01_final_authority import authority
+    assert authority(project_root())["id"] == "PC-01-FINAL-ACTIVATION-20260905-V1"
     assert config["project"]["benchmark_status"] == "active"
     protocol = config["suitesparse_cross_matrix"]
     assert protocol["source_identical_contract"] == bench.SOURCE_IDENTICAL_CONTRACT

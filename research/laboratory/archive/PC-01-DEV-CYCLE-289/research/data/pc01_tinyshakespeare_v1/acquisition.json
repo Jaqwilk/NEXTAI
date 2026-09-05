@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-DATA-V1",
+  "created_at": "2026-09-04T21:17:43.717976+00:00",
+  "source_id": "SRC-0424",
+  "url": "https://raw.githubusercontent.com/karpathy/char-rnn/6f9487a6fe5b420b7ca9afb0d7c078e37c1d1b4e/data/tinyshakespeare/input.txt",
+  "revision": "6f9487a6fe5b420b7ca9afb0d7c078e37c1d1b4e",
+  "path": "research/data/pc01_tinyshakespeare_v1/archive/input.txt",
+  "bytes": 1115394,
+  "sha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+  "license_notice_path": "research/data/pc01_tinyshakespeare_v1/LICENSE-NOTICE.md",
+  "disk_free_before_bytes": 111754723328,
+  "disk_free_after_bytes": 111753605120,
+  "bounded_acquisition_footprint_bytes": 2097152,
+  "required_free_reserve_bytes": 10737418240,
+  "content_displayed": false,
+  "training_or_quality_evaluation": false,
+  "independently_inaccessible_holdout": false,
+  "splits": {
+    "train": {
+      "start_inclusive": 0,
+      "end_exclusive": 948084,
+      "bytes": 948084,
+      "sha256": "5559b80f0dc9dbf2f87dd919dee582571219b3ceb3cb65c19b5d6d5ff748811b"
+    },
+    "dev": {
+      "start_inclusive": 948084,
+      "end_exclusive": 1003854,
+      "bytes": 55770,
+      "sha256": "8b4bd6cd36fbd781744c6e9d23c99812f6f1ecc94dea5c6dce65c14596389082"
+    },
+    "final": {
+      "start_inclusive": 1003854,
+      "end_exclusive": 1115394,
+      "bytes": 111540,
+      "sha256": "c54f3753a4e6e3c3d1759212815a7caf826e68a33021b25312984400bed40a1f"
+    }
+  }
+}

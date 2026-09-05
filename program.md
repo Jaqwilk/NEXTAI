@@ -1,118 +1,181 @@
-# Codex-native autoresearch program
+# NEXTAI laboratory cycle — protocol v3
 
-This file is the operational contract for one autonomous research cycle. `AGENTS.md` contains the non-negotiable rules; this file contains the procedure.
+## Current final-series authorization (2026-09-05)
 
-The active Codex heartbeat schedules one discrete wakeup every two hours in this same task. It does not keep a process computing between wakeups and cannot guarantee uninterrupted 24/7 execution; durable repository state is the recovery mechanism.
+The user explicitly approved PC-01-FINAL-ACTIVATION-20260905-V1: exactly three
+fresh v3 final replicas of the unchanged pc01_byte_gpt_v1, selected dev
+EXP-20260905-0002, one experiment per bounded cycle, <=1200 s fit / <=1800 s
+worker each. The hash-bound authority supersedes only the completed preparation
+waiting state. Freeze/certify before final access; no new dev, tuning, resume,
+replacement seed, automatic retry or architecture promotion. A crash/invalid
+final stops for review; all three valid outcomes precede the aggregate decision.
+Preserve the original restart, prior receipts and cumulative 7200-second cap.
 
-## 1. Start gate
+The user also authorized committing and pushing verified project changes to
+the existing GitHub origin. Preserve history; use non-force fast-forward pushes.
+Keep large data/checkpoints local, publish scientific records and their hashes,
+and preserve archived bytes. This does not authorize schedule changes or deployment.
+Older stage-specific prohibitions below describe their historical scopes.
 
-1. Read the required files listed in `AGENTS.md`.
-2. Run `uv run nextai doctor`.
-3. Stop the autonomous cycle without modifying research state if `STOP`, `PAUSE`, an active non-stale lock, schema failure, or evaluation-integrity failure is present. Explicit user-authorized maintenance may repair the failed gate, but may not score an experiment and must append a maintenance event.
-4. Inspect `git status`. Preserve unrelated user changes. Do not use reset/checkout to erase work.
-5. Identify whether a plan is already pending. Run it or append an explicit invalidation with `nextai plan invalidate`; never delete or edit it. The CLI permits only one pending plan.
-6. Before installing a local tool/dependency or downloading research data, apply the standing authorization and disk gate in `AGENTS.md`: record free space, bound the expected installed/extracted footprint when possible, require at least 10 GiB free afterward, and recheck after mutation. Insufficient or unbounded disk capacity stops the cycle before installation/download.
+## Current preparation overlay
 
-## 2. Observe
+Follow `research/plans/PC-01-FINAL-PREP-V1.json` and laboratory status. This is
+only the v2-to-v3 selection bridge and synthetic final-series validation, with
+no training or final access. After completion or its fixed deadline, stop at
+PC-01-DECISION. Do not freeze a production series or infer activation from tests.
 
-Summarize only evidence already in the ledger:
+This is the operational contract. Read AGENTS.md first. The active work queue is
+research/LAB_PLAN.md and research/laboratory/restart.json. Historical analyses,
+hypothesis next_experiment fields and events are evidence, not the current queue.
+Preparing this repository does not start or change an app schedule.
+`nextai lab status` resolves the current action from validated append-only
+`lab_milestone_progress` completions; restart.json retains the initial contract.
+Do not repeat PC-01-CONTRACT after its completion. If status reports
+user_decision_required, stop: unused minutes do not authorize a third service
+cycle, and a doctor PASS does not override the completed milestone's cap.
+The user authorized exactly one extra no-training service cycle on 2026-09-05:
+research/laboratory/PC-01-EXTENSION-20260905-V1.json. Its deadline is binding;
+the original 2/2 history stays intact. Completion is a separate append-only
+lab_extension_completed event, not a reset or a new scientific experiment.
 
-- current Pareto frontier;
-- strongest and weakest scaling signatures;
-- failed replications and crashes;
-- portfolio imbalance;
-- unresolved confounds;
-- hypotheses awaiting the cheapest decisive test.
+The subsequent user approval "zatwierdzam etap" authorizes prospective activation
+and ONE dev attempt, recorded in PC-01-ACTIVATION-20260905-V1.json. It is not a
+reset of the closed service accounting. `nextai lab status` uses this hash-bound
+overlay; restart.json remains the immutable original preparation state.
+Only pc01_byte_gpt_v1 / dev / seed 1103 may be registered once, after evaluator
+freeze and conformance certification. Implement the candidate after registration.
+Fit <=1200 s and worker <=1800 s; preserve timeout/crash, no automatic retry.
+No final-series freeze/access or architecture promotion is authorized. Review
+the single outcome before another attempt. Maintenance/STOP/integrity still apply.
 
-Do not treat an interpretation from an earlier run as a fact.
+After EXP-20260905-0001 crashed on device telemetry, the user authorized one
+no-training repair stage: research/plans/PC-01-TELEMETRY-REPAIR-V1.json.
+The read-side addendum records the concurrent-read failure discovered in synthetic
+stress tests. Keep benchmark_status=maintenance and scoring disabled. Preserve
+the consumed dev attempt, old evaluator/source archive and 1200 s charge.
+Validate the scoped I/O repair, including persistent errors and STOP/deadlines;
+the agent-imposed service bound is 45 minutes, with no old-budget reset.
+The new prefix-aware history validator supersedes the pre-registration-only
+check for this maintenance stage without editing that historical script.
+Completion returns to PC-01-DECISION; it does not authorize training or final data.
 
-## 3. Select one question
+The later explicit approval "zatweirdam" is recorded separately in
+research/laboratory/PC-01-DEV2-20260905-V1.json. Current action: PC-01-DEV-2,
+ONE additional dev after new v2 cohort freeze/certification/preregistration.
+Retain the failed v1 attempt and its 1200 s charge. No candidate/recipe tuning,
+resume, final-series freeze/access, or third attempt. Start from initialization;
+5000 updates and all controls, fit <=1200 s, worker <=1800 s. A terminal result
+or invalidation consumes this permission and returns to the decision review.
 
-Choose the experiment with the highest expected information gain per bounded cost. Priority order:
+After completion of dev 2, "okej kontynuuj" authorizes the no-training plan
+research/plans/PC-01-GPU-METADATA-V1.json (agent-imposed cap 45 minutes).
+Current action PC-01-GPU-METADATA: repair the trusted NVIDIA metadata subprocess
+and enforce completeness prospectively in v3. V3 remains maintenance; historical
+v1/v2 records retain their original validators. Never refill missing in-run
+metadata in a completed result. Completion/expiry returns to PC-01-DECISION,
+with no third dev, final freeze/access, training, schedule or publishing authority.
 
-1. verify a surprising positive;
-2. falsify the current leading explanation;
-3. resolve an ambiguity that blocks several hypotheses;
-4. test a genuinely different architecture family;
-5. improve a promising implementation only when the principle has earned exploitation.
+## 1. Start safely
 
-Avoid superficial hyperparameter search unless needed as a control.
-
-### 3a. G1 window procedure after EXP-0059
-
-Use the append-only `G1-POST-EXP-0059-V1` event as the canonical window boundary. Count only scientifically valid scored results whose preregistered causal mechanism is genuinely distinct; do not count service work, invalid plans, pre-seed invalidations or aliases. Before creating a plan, record the mechanism identity and answer the four pre-implementation questions in `AGENTS.md`. Reject a duplicate or a mechanism whose expected effect is already supplied by its frozen/classical control.
-
-An exact mechanism may have one quick, then only after a strong positive one unchanged multi-seed replication and one preregistered adversarial variant. A negative closes it. Existing cohorts take priority; a new cohort requires a separate service-only wake proving that no frozen cohort measures the required qualitative signature. No more than two consecutive wakes may omit scoring.
-
-Cycle 228 completed the one-time real-system calibration selected by cycle 227 as `CAL-20260901-0001`. It used the frozen real repository corpus, local PyTorch/CUDA and no external model, API, weights, dataset or dependency. Its Transformer, retrieval and classical controls were frozen before test measurement; cold/warm latency, throughput, peak VRAM/RAM, fit, query, update, state, workload and available transfer measurements remain separate from NEXTAI evidence. Do not rerun it or count it in the G1 window.
-
-After the eighth qualifying result, spend one full no-scoring cycle on the G1 phase review. Apply the continuation gate in `AGENTS.md`; if it fails, stop architecture scoring and ask the user for a strategic reset.
-
-## 4. Preregister before implementation
-
-Create the immutable plan with `uv run nextai plan new`. The plan must state:
-
-- hypothesis and causal research question;
-- candidate and matched baselines;
-- budget tier, scoring-seed policy/count, K values and D values;
-- primary metrics and their explicit directions;
-- predicted result;
-- explicit kill/promotion evidence;
-- plausible alternative explanations and confounds;
-- what will be concluded for positive, null, and negative outcomes.
-
-Before registration, freeze the evaluator/contract and obtain its evaluator digest. After the plan is registered, do not edit it. If it is wrong, invalidate it append-only and create a new plan with a parent ID. Implement the tested candidate only after registration, keep all new candidate support code under `candidates/`, and re-freeze the full bundle; this is accepted only while the evaluator digest remains unchanged. Fixed development seeds live in configuration; runner-random scoring seeds are realized only after integrity checks and the transitive candidate audit.
-
-## 5. Implement minimally
-
-- Implement the smallest candidate able to test the registered principle.
-- Keep benchmark/oracle/evaluator files untouched.
-- Add focused tests for candidate semantics and instrumentation.
-- Run `uv run pytest` before the scored experiment.
-- If the source audit rejects the candidate, fix the design; never bypass the audit.
-
-## 6. Execute within budget
-
-Run only through:
+Read the complete required startup set in AGENTS.md. Run:
 
 ```powershell
-uv run nextai run --plan research/plans/EXP-....json
+uv run nextai doctor
+uv run nextai lab status
 ```
 
-The runner enforces lifecycle and cadence gates, verifies the harness and plan hash, transitively audits all candidate dependencies, then realizes blinded scoring seeds and starts each candidate in a sanitized subprocess. It monitors time and memory and appends the result. A timeout, memory breach, audit failure, or integrity change is a recorded outcome.
+Inspect Git changes, STOP, PAUSE and research/run.lock. A stop file, live lock,
+schema/integrity/lifecycle error stops the cycle. Explicitly authorized maintenance
+may repair a gate, without scoring, and must append a maintenance event.
+Do not discard another task's changes. A pending experiment must be completed or
+append-only invalidated before creating another one. Check available disk space
+and bound installed/extracted footprint before every installation or download;
+at least 10 GiB must remain. Preserve dependency locks and acquisition receipts.
 
-Begin with `quick`. Use `screen` only after the cheap test survives. Use `deep` only for replicated, non-dominated principles or a deliberately registered scaling test.
+## 2. Read the current milestone, not the old search backlog
 
-## 7. Analyze without rewriting history
+LAB-RESTART-20260904-V1 starts with the positive-control design milestone PC-01.
+The old eight-result G1-POST-EXP-0059-V1 window is historical, not restarted.
+Cycle 228 completed CAL-20260901-0001: do not rerun it, overwrite it or count it
+as candidate evidence. PC-01 is a new learning/measurement calibration with a
+new contract, task, recipe and result identity, not a replay of that diagnostic.
 
-Create `research/analyses/<experiment_id>.md` containing exactly these top-level sections:
+One wake performs one bounded deliverable or resumes the one in progress.
+The first package is reproducibility + positive controls + WT causal isolation,
+followed by a decision. No language prototype, new architecture search, paid
+service, external model/API, publication or deployment is implicit in preparation.
 
-```text
+## 3. Service and development are explicit work, not scoring
+
+When benchmark_status is maintenance or the effective laboratory authority is preparation_only:
+do not create/run an EXP plan. Produce only the next named preparation artifact.
+For PC-01, select a licensed local corpus and an established small-transformer
+recipe; freeze data units, split, training budget, controls, thresholds, timing
+scenarios and instrumentation tests before candidate implementation/training.
+Record primary sources, size/space checks and what remains unknown. Do not claim
+positive-control success from unit tests or from the old 0.68-second fit.
+
+Each milestone has a fixed maximum number of service cycles and development
+attempts in LAB_PLAN.md. Append lab_milestone_progress to research/events.jsonl
+with milestone_id, attempt, artifact paths/hashes, observed checks, next action
+and cumulative budget. At the cap, stop and report ready, failed or blocked;
+do not rename the milestone to get more attempts. No forced score after two
+service cycles; no unbounded literature-only loop.
+
+## 4. Open a scored cohort only after its contract exists
+
+Do not reactivate the retained SuiteSparse cohort to escape maintenance.
+A new benchmark/cohort must name one of: mechanism, economics, transfer.
+Its frozen contract must specify per-task useful-quality thresholds, required
+controls and failure policies, metrics/directions, hardware/scenario, full-cost
+boundary, seed policy, independent data units, development cap, final selection,
+uncertainty analysis and invalidation rules. No automatic global 0.95 threshold
+for loss tasks. Implement and test the claim-specific gates before activation;
+the legacy promotion CLI alone does not establish a protocol-v3 claim.
+
+Freeze a new evaluator and semantic-baseline certificate before registration.
+Use nextai plan new to register the immutable experiment and evaluator digest.
+Then implement the tested change under candidates/, using only preregistered
+development data/attempts. Re-freeze candidate changes only if the evaluator is
+unchanged. Invalid plans are append-only invalidated, not edited. Final recipes
+and source hashes must be frozen before any final holdout result is visible.
+Do not use current filenames as proof of historical implementation identity:
+nextai provenance checks hashes from the immutable result against local/Git bytes.
+
+## 5. Run and interpret one experiment
+
+Only the audited nextai run --plan research/plans/EXP-....json route may create
+scored evidence. Source audit and integrity precede runner-random seed realization.
+No bypass runner, deleted failure or hidden training/preprocessing is allowed.
+A single seed screens only. A replicated claim requires at least three seeds
+and independent data units appropriate to the question, not just permutations
+of the same trace. Keep all timing samples, failed cells and resource overruns.
+
+For each analysis keep these exact top-level sections:
+
 OBSERVATION
 INTERPRETATION
 CONFIDENCE
 ALTERNATIVE EXPLANATIONS
 DECISION
 NEXT DISCRIMINATING EXPERIMENT
-```
 
-Quantify uncertainty. A slope from fewer than three distinct scale points is labeled screening-only. Compare slopes and the implementable Pareto position, not only averages; report oracle controls separately as lower bounds. Distinguish a candidate implementation failure from evidence against the general principle.
+Separate learning, economic advantage and transfer. Report narrower positives
+even when the full economic contract fails. Do not promote them into architecture
+success. Conversely, a bad control invalidates that comparison, not all learning.
+Record adverse results, exact scope and the next discriminating question.
+Never rescue-tune on a final test. Use a new question and fresh test set.
 
-Append a hypothesis update with `nextai hypothesis update`; do not delete the old event. Machine-enforced `promising`/`promoted` transitions require replicated screen/deep evidence, seed stability, integrity, checked primary prior art and an implementable non-dominated candidate. Then run `nextai report`.
+## 6. Close durably
 
-## 8. Reflection cadence
+Append events and, only when warranted, hypothesis updates. Preserve all old
+probabilities and completed artifacts. A belief shift is not a reward target.
+Refresh nextai report (content provenance, not file timestamps). Run doctor and
+pytest, record exact results and any unverified platform. Update state without
+resetting the 99 historical results or old cycle counter; service work is not
+a new scientific result. At most one scored experiment per wake.
+Report milestone/experiment ID, immutable contract/plan, observations, confidence,
+decision, budget/integrity and exact next action. End this cycle.
 
-After the configured number of completed experiments, use the entire cycle for a review instead of a mutation. Write `research/reviews/GEN-<n>-REVIEW-<date>.md` answering:
-
-1. What was objectively learned?
-2. Which assumptions were falsified?
-3. Which results replicated?
-4. Is the portfolio trapped in one family?
-5. Are we optimizing implementation details rather than principles?
-6. What result would most change current beliefs?
-7. Which prior work already contains the apparent novelty?
-8. Which next test has the highest expected information gain?
-
-## 9. End gate
-
-Run `uv run nextai doctor` and `uv run pytest`. Report the experiment ID, decision, budget/integrity status and one next experiment. End the scheduled run after this single bounded cycle. The next Codex wakeup continues from durable repository state.
+Review cadences still apply to completed experiments. A milestone review may be
+earlier. Schedule behavior remains best-effort; no catch-up or overlapping runs.

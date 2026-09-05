@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="17" time="31.866" timestamp="2026-09-05T15:29:58.475414+02:00" hostname="3vilOS20"><testcase classname="tests.test_pc01_telemetry" name="test_legacy_writer_reproduces_windows_reader_denial" file="tests\test_pc01_telemetry.py" line="28" time="0.363"><properties><property name="reproduced_winerror" value="5" /></properties></testcase><testcase classname="tests.test_pc01_telemetry" name="test_transient_reader_lock_recovers_without_partial_json" file="tests\test_pc01_telemetry.py" line="44" time="0.372"><properties><property name="retries" value="21" /></properties></testcase><testcase classname="tests.test_pc01_telemetry" name="test_persistent_reader_lock_fails_at_bounded_deadline" file="tests\test_pc01_telemetry.py" line="61" time="2.062" /><testcase classname="tests.test_pc01_telemetry" name="test_retry_error_classification_and_deadline_are_exact[5]" file="tests\test_pc01_telemetry.py" line="78" time="0.006" /><testcase classname="tests.test_pc01_telemetry" name="test_retry_error_classification_and_deadline_are_exact[32]" file="tests\test_pc01_telemetry.py" line="78" time="0.006" /><testcase classname="tests.test_pc01_telemetry" name="test_retry_error_classification_and_deadline_are_exact[33]" file="tests\test_pc01_telemetry.py" line="78" time="0.006" /><testcase classname="tests.test_pc01_telemetry" name="test_retry_error_classification_and_deadline_are_exact[112]" file="tests\test_pc01_telemetry.py" line="78" time="0.002" /><testcase classname="tests.test_pc01_telemetry" name="test_retry_error_classification_and_deadline_are_exact[None]" file="tests\test_pc01_telemetry.py" line="78" time="0.001" /><testcase classname="tests.test_pc01_telemetry" name="test_stop_and_pause_interrupt_telemetry_retry[STOP]" file="tests\test_pc01_telemetry.py" line="102" time="0.001" /><testcase classname="tests.test_pc01_telemetry" name="test_stop_and_pause_interrupt_telemetry_retry[PAUSE]" file="tests\test_pc01_telemetry.py" line="102" time="0.001" /><testcase classname="tests.test_pc01_telemetry" name="test_concurrent_reader_and_two_thousand_device_writes[0]" file="tests\test_pc01_telemetry.py" line="119" time="8.620"><failure message="AssertionError: Traceback (most recent call last):&#10;    File &quot;C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py&quot;, line 84, in &lt;module&gt;&#10;      main()&#10;      ~~~~^^&#10;    File &quot;C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py&quot;, line 50, in main&#10;      with path.open(encoding=&quot;utf-8&quot;) as stream:&#10;           ~~~~~~~~~^^^^^^^^^^^^^^^^^^&#10;    File &quot;C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\pathlib\_local.py&quot;, line 537, in open&#10;      return io.open(self, mode, buffering, encoding, errors, newline)&#10;             ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#10;  PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-5119\\test_concurrent_reader_and_two0\\device.json'&#10;  &#10;assert 1 == 0&#10; +  where 1 = &lt;Popen: returncode: 1 args: ['C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\...&gt;.returncode">tmp_path = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-5119/test_concurrent_reader_and_two0')
+repetition = 0
+record_property = &lt;function record_property.&lt;locals&gt;.append_property at 0x000001BB72CB0D60&gt;
+
+    @pytest.mark.parametrize("repetition", range(3))
+    def test_concurrent_reader_and_two_thousand_device_writes(tmp_path, repetition, record_property):
+        from nextai_autoresearch.pc01_telemetry import write_device_sample
+        path = tmp_path / "device.json"
+        atomic_write_json(path, {"allocated": 0, "reserved": 0})
+        reader = start_reader(tmp_path, mode="reader")
+        started, retries = time.monotonic(), 0
+        try:
+            for index in range(1, 2001):
+                assert time.monotonic() - started &lt; 30, "stress wall budget"
+                retries += write_device_sample(path, {"allocated": index, "reserved": 2*index}, tmp_path)
+        finally:
+            (tmp_path / "reader-stop").touch()
+            stdout, stderr = reader.communicate(timeout=5)
+&gt;       assert reader.returncode == 0, stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py", line 84, in &lt;module&gt;
+E             main()
+E             ~~~~^^
+E           File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py", line 50, in main
+E             with path.open(encoding="utf-8") as stream:
+E                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+E           File "C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\pathlib\_local.py", line 537, in open
+E             return io.open(self, mode, buffering, encoding, errors, newline)
+E                    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-5119\\test_concurrent_reader_and_two0\\device.json'
+E         
+E       assert 1 == 0
+E        +  where 1 = &lt;Popen: returncode: 1 args: ['C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\...&gt;.returncode
+
+tests\test_pc01_telemetry.py:134: AssertionError</failure></testcase><testcase classname="tests.test_pc01_telemetry" name="test_concurrent_reader_and_two_thousand_device_writes[1]" file="tests\test_pc01_telemetry.py" line="119" time="8.709"><failure message="AssertionError: Traceback (most recent call last):&#10;    File &quot;C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py&quot;, line 84, in &lt;module&gt;&#10;      main()&#10;      ~~~~^^&#10;    File &quot;C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py&quot;, line 50, in main&#10;      with path.open(encoding=&quot;utf-8&quot;) as stream:&#10;           ~~~~~~~~~^^^^^^^^^^^^^^^^^^&#10;    File &quot;C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\pathlib\_local.py&quot;, line 537, in open&#10;      return io.open(self, mode, buffering, encoding, errors, newline)&#10;             ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#10;  PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-5119\\test_concurrent_reader_and_two1\\device.json'&#10;  &#10;assert 1 == 0&#10; +  where 1 = &lt;Popen: returncode: 1 args: ['C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\...&gt;.returncode">tmp_path = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-5119/test_concurrent_reader_and_two1')
+repetition = 1
+record_property = &lt;function record_property.&lt;locals&gt;.append_property at 0x000001BB723614E0&gt;
+
+    @pytest.mark.parametrize("repetition", range(3))
+    def test_concurrent_reader_and_two_thousand_device_writes(tmp_path, repetition, record_property):
+        from nextai_autoresearch.pc01_telemetry import write_device_sample
+        path = tmp_path / "device.json"
+        atomic_write_json(path, {"allocated": 0, "reserved": 0})
+        reader = start_reader(tmp_path, mode="reader")
+        started, retries = time.monotonic(), 0
+        try:
+            for index in range(1, 2001):
+                assert time.monotonic() - started &lt; 30, "stress wall budget"
+                retries += write_device_sample(path, {"allocated": index, "reserved": 2*index}, tmp_path)
+        finally:
+            (tmp_path / "reader-stop").touch()
+            stdout, stderr = reader.communicate(timeout=5)
+&gt;       assert reader.returncode == 0, stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py", line 84, in &lt;module&gt;
+E             main()
+E             ~~~~^^
+E           File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py", line 50, in main
+E             with path.open(encoding="utf-8") as stream:
+E                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+E           File "C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\pathlib\_local.py", line 537, in open
+E             return io.open(self, mode, buffering, encoding, errors, newline)
+E                    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-5119\\test_concurrent_reader_and_two1\\device.json'
+E         
+E       assert 1 == 0
+E        +  where 1 = &lt;Popen: returncode: 1 args: ['C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\...&gt;.returncode
+
+tests\test_pc01_telemetry.py:134: AssertionError</failure></testcase><testcase classname="tests.test_pc01_telemetry" name="test_concurrent_reader_and_two_thousand_device_writes[2]" file="tests\test_pc01_telemetry.py" line="119" time="9.246"><failure message="AssertionError: Traceback (most recent call last):&#10;    File &quot;C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py&quot;, line 84, in &lt;module&gt;&#10;      main()&#10;      ~~~~^^&#10;    File &quot;C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py&quot;, line 50, in main&#10;      with path.open(encoding=&quot;utf-8&quot;) as stream:&#10;           ~~~~~~~~~^^^^^^^^^^^^^^^^^^&#10;    File &quot;C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\pathlib\_local.py&quot;, line 537, in open&#10;      return io.open(self, mode, buffering, encoding, errors, newline)&#10;             ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#10;  PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-5119\\test_concurrent_reader_and_two2\\device.json'&#10;  &#10;assert 1 == 0&#10; +  where 1 = &lt;Popen: returncode: 1 args: ['C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\...&gt;.returncode">tmp_path = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-5119/test_concurrent_reader_and_two2')
+repetition = 2
+record_property = &lt;function record_property.&lt;locals&gt;.append_property at 0x000001BB72360040&gt;
+
+    @pytest.mark.parametrize("repetition", range(3))
+    def test_concurrent_reader_and_two_thousand_device_writes(tmp_path, repetition, record_property):
+        from nextai_autoresearch.pc01_telemetry import write_device_sample
+        path = tmp_path / "device.json"
+        atomic_write_json(path, {"allocated": 0, "reserved": 0})
+        reader = start_reader(tmp_path, mode="reader")
+        started, retries = time.monotonic(), 0
+        try:
+            for index in range(1, 2001):
+                assert time.monotonic() - started &lt; 30, "stress wall budget"
+                retries += write_device_sample(path, {"allocated": index, "reserved": 2*index}, tmp_path)
+        finally:
+            (tmp_path / "reader-stop").touch()
+            stdout, stderr = reader.communicate(timeout=5)
+&gt;       assert reader.returncode == 0, stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py", line 84, in &lt;module&gt;
+E             main()
+E             ~~~~^^
+E           File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\tests\fixtures\pc01_telemetry_fixture.py", line 50, in main
+E             with path.open(encoding="utf-8") as stream:
+E                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+E           File "C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\pathlib\_local.py", line 537, in open
+E             return io.open(self, mode, buffering, encoding, errors, newline)
+E                    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         PermissionError: [Errno 13] Permission denied: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-5119\\test_concurrent_reader_and_two2\\device.json'
+E         
+E       assert 1 == 0
+E        +  where 1 = &lt;Popen: returncode: 1 args: ['C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\...&gt;.returncode
+
+tests\test_pc01_telemetry.py:134: AssertionError</failure></testcase><testcase classname="tests.test_pc01_telemetry" name="test_supervisor_retains_deadlines_limits_and_worker_failure[producer-loop-fit_timeout]" file="tests\test_pc01_telemetry.py" line="144" time="0.827" /><testcase classname="tests.test_pc01_telemetry" name="test_supervisor_retains_deadlines_limits_and_worker_failure[producer-cuda-cuda_limit]" file="tests\test_pc01_telemetry.py" line="144" time="0.198" /><testcase classname="tests.test_pc01_telemetry" name="test_supervisor_retains_deadlines_limits_and_worker_failure[producer-denied-None]" file="tests\test_pc01_telemetry.py" line="144" time="1.172" /><testcase classname="tests.test_pc01_telemetry" name="test_supervisor_stop_during_device_publication" file="tests\test_pc01_telemetry.py" line="161" time="0.171" /></testsuite></testsuites>

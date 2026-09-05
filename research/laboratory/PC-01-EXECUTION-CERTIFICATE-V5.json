@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-EXECUTION-CERTIFICATE-V5",
+  "kind": "pc01_execution_conformance",
+  "created_at": "2026-09-05T16:00:13Z",
+  "cycle": 290,
+  "all_required_checks_passed": true,
+  "contract_sha256": "f9e3d889485ff5e63c9f74caae3118f2f44c3872b91400931e72c8e1ce67a280",
+  "files": {
+    "src/nextai_autoresearch/pc01.py": "d1aa3621f8053a61ecc216e6bf89be7ac7e1fcd334f72f79321ddd2d04cf8921",
+    "src/nextai_autoresearch/pc01_execution.py": "d620afafeca9160ec57716837f26b7588c290294ad00cc177d15bba33ada96c8",
+    "src/nextai_autoresearch/pc01_worker.py": "252de6c89dfcf1095232433d606971c64d69a41198bc772c645dd6026dcadace",
+    "src/nextai_autoresearch/runner.py": "3de7203eae1da32f02564a3688810ff32d1e32a86cc03c9c5cd0ba4cb158ee75",
+    "src/nextai_autoresearch/cli.py": "ec2fcdccaa6dbfd25ce361f38b3f7d26f8f00c6efec52e7957f2c682be8c0492",
+    "src/nextai_autoresearch/gates.py": "1a41765e5a375d3cf38135b302b50520596e7b954b76174e7a570966e6d40c24",
+    "src/nextai_autoresearch/schemas.py": "72db9b341b56b44b80ef06a2677cd15e184d95619061bc2b929e8ddc977830af",
+    "src/nextai_autoresearch/audit.py": "1e4189f585a83a8c478583bddfd905d5afe229ec7b14e35665fe526b5adceb52",
+    "src/nextai_autoresearch/report.py": "e6fd0f5720bcbac577cda4aa67118e4d1e3f5a406bcdcccc88ee027f8ccd11de",
+    "schemas/pc01_plan.schema.json": "c99d35a113f7f572de59660c1846c0f3339e329450eb71734afcccdb2b96304c",
+    "schemas/pc01_result.schema.json": "ff51e5d130d0dcd7a59ff4fc72fca677c65b25d04842898b6277e4155801b288",
+    "schemas/pc01_replica.schema.json": "ab8dc09cd3268a6107a54cde0b9e5e4e590334291fe4f8a290269782f9a67365",
+    "tests/test_pc01_execution.py": "1d822f7484b6d2f035fa7502338770f9529002dee5611e9c2ce1047e0e08d2df",
+    "tests/test_pc01_harness.py": "338d3036d124385bcb14618cade05a619623eb8d485dec83fba0332e397e161a",
+    "tests/fixtures/pc01_process_fixture.py": "2246a3e52ee47183e44c959ea1bc262a071bc981ceea2a54c8d8554250ed73f1",
+    "src/nextai_autoresearch/laboratory.py": "713172d5bda1112b99046f2689cf310e35113932da12d6cafe095ed3d51d7c72",
+    "tests/test_pc01_activation.py": "c9141190119921e06dd3b39c92fe5e2cedbac9a8e087bf7c0a866ed7d33175c3",
+    "research/laboratory/PC-01-ACTIVATION-20260905-V1.json": "9ea8810d50a4495770dba9f774ce6d006d62ba0632eb346b271c46b1ed1ca6ca",
+    "src/nextai_autoresearch/pc01_telemetry.py": "4b998b96132011b3f8359cfcce9cd315bca4d474432c40907a4ba6b7f75ad209",
+    "tests/test_pc01_telemetry.py": "837a00ad3c06be6104e6360b4dbe179c72580593e6fb35e1fa7ee5037839cbed",
+    "tests/fixtures/pc01_telemetry_fixture.py": "fcdd1ad8d7a0732257451c26f5bd5a497982c594a1d4a33f3b3e695a6862fe2f",
+    "research/laboratory/PC-01-DEV2-20260905-V1.json": "d595da85d8a16f70fde42375579f5e7012804ee61ddc225b5313b185f5664008",
+    "tests/test_pc01_dev2.py": "6bbc6ffcdfcad539a0d0a153297b97d0b1128c3df15e096dc9ef47bb0d647083",
+    "src/nextai_autoresearch/pc01_gpu_metadata.py": "9d8ac7c7780f7516728663ffe6d8b67d3680af72fc7734bf7e168b49c001ff98",
+    "tests/test_pc01_gpu_metadata.py": "27786e4e234ab1067b7d76aa3bffa563910e7f0fc6532817bfa01244f1d9e8da",
+    "research/plans/PC-01-GPU-METADATA-V1.json": "f0d14d68e266a9701ab6aaa66638e1375618eb59d2acae284c915830de69ed8e"
+  },
+  "tests": 886,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 131.05,
+  "evaluator_sha256": "687c0a7534808d7158213e9d9594ea936eea03d6366061c10b3d7e0dcc452e69",
+  "test_report": "research/laboratory/PC-01-GPU-METADATA-CONFORMANCE-V5.xml",
+  "test_report_sha256": "63d5563b2a5b80ea0026c88ae7916877c717c492a21d15ad5004cdb16742d2aa",
+  "scope": "Prospective v3 mandatory GPU metadata; isolated NVIDIA-child environment; legacy v1/v2 validation preserved; full regression. Maintenance only.",
+  "training_performed": false,
+  "scoring_authorized": false,
+  "final_access_authorized": false,
+  "positive_learning_demonstrated": false,
+  "real_metadata_tests": [
+    {
+      "classname": "tests.test_pc01_gpu_metadata",
+      "name": "test_real_sanitized_probe_pair_without_training",
+      "file": "tests\\test_pc01_gpu_metadata.py",
+      "line": "173",
+      "time": "0.113",
+      "properties": {
+        "paired_probe": "{\"environment_unchanged\": true, \"original\": {\"return_code\": 255, \"stderr\": \"\", \"stdout\": \"Failed to initialize NVML: Unknown Error\\n\"}, \"repaired\": {\"arguments\": [\"--query-gpu=index,uuid,name,driver_version,clocks.sm,clocks.mem,utilization.gpu,memory.used\", \"--format=csv,noheader,nounits\"], \"completed_at\": \"2026-09-05T15:57:49Z\", \"elapsed_seconds\": 0.04144630000155303, \"environment_policy\": \"nvidia_child_only_registry_ProgramW6432\", \"error\": null, \"executable\": \"C:\\\\Windows\\\\System32\\\\nvidia-smi.exe\", \"gpu\": {\"driver_version\": \"551.78\", \"index\": 0, \"memory_clock_mhz\": 405, \"memory_used_mib\": 1029, \"name\": \"NVIDIA GeForce RTX 4070\", \"sm_clock_mhz\": 210, \"utilization_percent\": 27, \"uuid\": \"GPU-53e40ab4-0b69-c994-91af-620aca6a9153\"}, \"kind\": \"pc01_gpu_metadata\", \"return_code\": 0, \"schema_version\": 1, \"started_at\": \"2026-09-05T15:57:49Z\", \"status\": \"complete\", \"stderr\": \"\", \"stdout\": \"0, GPU-53e40ab4-0b69-c994-91af-620aca6a9153, NVIDIA GeForce RTX 4070, 551.78, 210, 405, 27, 1029\\n\"}}"
+      }
+    }
+  ]
+}

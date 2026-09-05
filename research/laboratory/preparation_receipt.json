@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "LAB-PREP-20260904-0001",
+  "restart_id": "LAB-RESTART-20260904-V1",
+  "created_at": "2026-09-04T19:55:47Z",
+  "kind": "user_authorized_preparation_not_an_experiment",
+  "plan_path": "research/LAB_PLAN.md",
+  "plan_sha256": "bb7e24a46f30c407cd51a7dbeba47c70b54e864c9ab9fa0869a895595c3d8b83",
+  "manifest_sha256": "a0c945af93aa7b8b500f7f58e0762b6e70ef7e2a09a175af0c6981dd8fd2ecdc",
+  "evaluator_sha256": "ada60e0196413ea72a4223f246062edc4dda5b103d90e97c8367e692ad8f3c40",
+  "historical_groups_unchanged": true,
+  "historical_ledgers_unchanged_before_append": true,
+  "previous_events_bytes": 571886,
+  "previous_events_prefix_sha256": "f9de65166bc962c9a1656baf49a6c4256f7a87e3f602bce5122330c2999603e6",
+  "completed_experiments": 99,
+  "pending_plans": 0,
+  "scoring_performed": false,
+  "candidate_training_performed": false,
+  "scoring_seed_realized": false,
+  "legacy_calibration_rerun": false,
+  "full_suite": {
+    "passed": 689,
+    "failed": 0,
+    "seconds": 72.17
+  },
+  "initial_full_suite": {
+    "passed": 686,
+    "failed": 2,
+    "seconds": 106.55,
+    "failures": [
+      "Old preflight certificate no longer matched new harness; original preserved and v3 certificate created separately.",
+      "SuiteSparse test expected active status; updated deployment assertion to maintenance without changing numerical baseline conformance."
+    ]
+  },
+  "checkout_checks": [
+    {
+      "os": "Windows",
+      "core_autocrlf": false,
+      "doctor": "PASS",
+      "tests_passed": 47
+    },
+    {
+      "os": "Windows",
+      "core_autocrlf": true,
+      "doctor": "PASS",
+      "tests_passed": 47
+    }
+  ],
+  "checkout_caveat": "Git-only checkout passed all 837 protected hashes but correctly failed doctor because ignored SuiteSparse payloads were absent. Both checkout tests passed after copying 227732138 bytes of existing local data, which the unchanged benchmark verified. No dataset download. This is not a native Linux run.",
+  "bootstrap": {
+    "footprint_estimate_bytes": 31552487876,
+    "reserve_bytes": 10737418240,
+    "dependencies_installed": false,
+    "metadata_only_http_heads": true,
+    "package_bodies_downloaded": false,
+    "cloud_install_executed": false,
+    "requires_existing_uv": true
+  },
+  "schedule_changed_or_started": false,
+  "published_or_pushed": false,
+  "next_action": "PC-01-CONTRACT",
+  "next_action_scope": "One bounded no-training/no-scoring cycle to freeze the new positive learning and measurement control contract."
+}

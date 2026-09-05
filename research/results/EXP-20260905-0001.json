@@ -1,0 +1,75 @@
+{
+  "architecture_promoted": false,
+  "benchmark": "pc01_byte_lm_learning_measurement_v1",
+  "candidates": [],
+  "completed_at": "2026-09-05T13:10:07Z",
+  "error": "worker_crash",
+  "evidence_scope": "local_single_corpus_diagnostic",
+  "execution": {
+    "cuda_allocated_bytes": 1768945152,
+    "cuda_reserved_bytes": 1893728256,
+    "disk_free_bytes": 110830465024,
+    "fit_seconds": 58.18191139999908,
+    "fit_seconds_charged": 1200,
+    "limits": {
+      "cuda_bytes": 10737418240,
+      "disk_reserve_bytes": 10737418240,
+      "fit_seconds": 1200,
+      "payload_bytes": 2147483648,
+      "rss_bytes": 10737418240,
+      "worker_seconds": 1800
+    },
+    "network_policy": "forbidden_by_audit_not_os_sandboxed",
+    "persisted_bytes": 44406874,
+    "return_code": 1,
+    "rss_bytes": 1421934592,
+    "runtime_path": "research/tmp/EXP-20260905-0001/pc01-runtime.json",
+    "sampling_interval_seconds": 0.05,
+    "source_audit": {
+      "files": {
+        "src/nextai_autoresearch/candidates/pc01_byte_gpt_v1.py": "426bfa8b9da43fb7cd991e104e48dfd366cf037dd9e840330d671b2174706aaa"
+      },
+      "sha256": "27c90b510333990d4943b0c79f12286912971be60bcb00eb2f532421a5a73d3d"
+    },
+    "termination_reason": null,
+    "worker_artifacts": {
+      "dev-curve.json": "37b1aa0c9e6774ebf8b16a788333ec14244fa5434c73f9c279fad558fc0bb85c",
+      "device.json": "712033a7afaaa24f56b45a9b17d97306112802fc3c559869134af8b87a9a6721",
+      "fit-granted.json": "2722ed3f61dc0dcb94cfacf5ade0c332e934772201b98cf0613cda64830b3a46",
+      "fit-request.json": "25d16e9f4b9c1254c3171646c95738076bbd1a89e09c24f5be83a528302c0b5a",
+      "pc01-runtime.json": "920e078acca658034bfae7c6107a5ea365c0ed348d54f4fcffae961df4767857",
+      "supervisor.json": "977e17254d92a22ef7c0812b69f6769d38e5ecc5179e8560fa59ef6a4682c5c2",
+      "worker.log": "70d7e42323504af0f212168ec08f0b4d8fa40a220cb9445825f7b48adab94e75"
+    },
+    "worker_seconds": 64.85887999999977
+  },
+  "experiment_id": "EXP-20260905-0001",
+  "integrity_after": {
+    "benchmark_version": "pc01_byte_lm_learning_measurement_v1",
+    "candidate_bundle_sha256": "ee826bdeca8b8ab20fd06ac4cb77dd201ecd9608e94ea0b142114671f0d0c7c7",
+    "checked_files": 861,
+    "evaluator_sha256": "ad311a51ff3652e5bdf9ac283b9b4d24ea1a9734c7f2a43641426793183a0f77",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "integrity_before": {
+    "benchmark_version": "pc01_byte_lm_learning_measurement_v1",
+    "candidate_bundle_sha256": "ee826bdeca8b8ab20fd06ac4cb77dd201ecd9608e94ea0b142114671f0d0c7c7",
+    "checked_files": 861,
+    "evaluator_sha256": "ad311a51ff3652e5bdf9ac283b9b4d24ea1a9734c7f2a43641426793183a0f77",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "kind": "pc01_diagnostic_result",
+  "measurement": null,
+  "pareto_front": [],
+  "phase": "dev",
+  "plan_path": "research/plans/EXP-20260905-0001.json",
+  "plan_sha256": "3286682aeb04cacc71922ca786d8578debe6ccd291d4dc12bd63345f827c4391",
+  "runtime_sha256": "7f5143462134db6a569b853aecc9c7cd07ddb2437811142229f4b0d802b8cc24",
+  "schema_version": 1,
+  "started_at": "2026-09-05T13:09:02Z",
+  "status": "inconclusive"
+}

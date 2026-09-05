@@ -1,0 +1,34 @@
+{
+  "audit": {
+    "files": {
+      "src/nextai_autoresearch/candidates/pc01_byte_gpt_v1.py": "426bfa8b9da43fb7cd991e104e48dfd366cf037dd9e840330d671b2174706aaa"
+    },
+    "sha256": "27c90b510333990d4943b0c79f12286912971be60bcb00eb2f532421a5a73d3d"
+  },
+  "benchmark": "pc01_byte_lm_learning_measurement_v3",
+  "candidate": "pc01_byte_gpt_v1",
+  "contract_sha256": "f9e3d889485ff5e63c9f74caae3118f2f44c3872b91400931e72c8e1ce67a280",
+  "created_at": "2026-09-05T17:19:20Z",
+  "data_sha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+  "development_attempts_sha256": "3d2db0c2c5b7df7c97a79a3346df8db6e4488ef15b24ddc7b36a4672c24019f4",
+  "development_plans": {
+    "EXP-20260905-0001": "3286682aeb04cacc71922ca786d8578debe6ccd291d4dc12bd63345f827c4391",
+    "EXP-20260905-0002": "6b617d2c0880ea619b705930b1f12dedb9f128919c4c40e3ddf61769d4175988"
+  },
+  "evaluator_sha256": "5942eead94d9f5a18d4d1b76a1e786ce7452efd9862b15a3eec80a093f59aa44",
+  "kind": "pc01_final_series",
+  "max_fit_seconds": 7200,
+  "recipe_sha256": "fa4a920b9c9b1848f3818e6bd7a3f6052a04619a3d8c75e4804a53883a872966",
+  "replicates": 3,
+  "selected_dev_id": "EXP-20260905-0002",
+  "transition": {
+    "contract_path": "research/plans/PC-01-FINAL-PREP-V1.json",
+    "contract_sha256": "a6e38d7c0afda28ef6e899f09ee0f7055ac0079236ce99ba05e0ff868e8a041f",
+    "selected_dev_id": "EXP-20260905-0002",
+    "selected_evaluator_sha256": "bbb174b5f8bab4717c483a4b152e27bdbf5cebc803a37d3aa1b5a88ae1233773",
+    "selected_plan_sha256": "6b617d2c0880ea619b705930b1f12dedb9f128919c4c40e3ddf61769d4175988",
+    "selected_result_sha256": "53744bbbf3d8980c95fce59e86083f387b4659ba78012e5391f0bde9bc80616c",
+    "target_cohort": "pc01_byte_lm_learning_measurement_v3",
+    "target_evaluator_sha256": "5942eead94d9f5a18d4d1b76a1e786ce7452efd9862b15a3eec80a093f59aa44"
+  }
+}

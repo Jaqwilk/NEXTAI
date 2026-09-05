@@ -16,6 +16,8 @@ from .scientific_validity import invalid_experiment_ids, problems as validity_pr
 from .baseline_semantics import required_baseline_names
 from .pareto import complete_metric_axes, is_privileged_candidate, pareto_front
 from .utils import load_json, project_root, sha256_json
+from .report import report_provenance_problems
+from .laboratory import laboratory_problems, pc01_scope_problems
 
 
 class GateViolation(RuntimeError):
@@ -105,6 +107,24 @@ def lifecycle_problems(root: Path | None = None) -> list[str]:
     for experiment_id in registry:
         if experiment_id not in plans:
             problems.append(f"registered plan file is missing: {experiment_id}")
+    if any(p.get("kind") == "pc01_diagnostic_plan" for p in plans.values()):
+        try:
+            from .pc01_execution import attempt_history
+            attempts = attempt_history(base)
+            unfinished = [attempt["experiment_id"] for attempt in attempts if not attempt["complete"]]
+            live = False
+            lock_path = research / "run.lock"
+            state_path = research / "state.json"
+            if len(unfinished) == 1 and lock_path.exists() and state_path.exists():
+                import psutil
+                import socket
+                lock = load_json(lock_path)
+                live = (load_json(state_path).get("active_experiment_id") == unfinished[0]
+                        and lock.get("host") == socket.gethostname() and psutil.pid_exists(int(lock.get("pid", -1))))
+            if unfinished and not live:
+                problems.append("PC-01 has an unresolved started attempt; preserve its reservation and request recovery")
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            problems.append(f"PC-01 attempt provenance: {exc}")
 
     status_events = latest_plan_statuses(base)
     for experiment_id, event in status_events.items():
@@ -153,12 +173,8 @@ def lifecycle_problems(root: Path | None = None) -> list[str]:
         except (KeyError, TypeError, ValueError) as exc:
             problems.append(f"review cadence cannot be evaluated: {exc}")
 
-    report_path = research / "REPORT.md"
-    if results and (
-        not report_path.is_file()
-        or report_path.stat().st_mtime < max(path.stat().st_mtime for path, _ in results)
-    ):
-        problems.append("research/REPORT.md is stale relative to scored results")
+    if results:
+        problems.extend(report_provenance_problems(base))
     return problems
 
 
@@ -167,10 +183,14 @@ def _raise_if(problems: list[str], action: str) -> None:
         raise GateViolation(f"{action} blocked: " + "; ".join(problems))
 
 
-def ensure_can_create_plan(root: Path | None = None) -> None:
+def ensure_can_create_plan(root: Path | None = None, *, pc01_candidate: str | None = None,
+                           pc01_phase: str | None = None, pc01_series_freeze: bool = False) -> None:
     base = (root or project_root()).resolve()
     config = load_config(base)
-    problems = [*stop_gate_problems(base), *lifecycle_problems(base)]
+    problems = [*stop_gate_problems(base), *lifecycle_problems(base), *laboratory_problems(base, scoring=True)]
+    if config.protocol_version >= 3:
+        problems.extend(pc01_scope_problems(base, candidate=pc01_candidate, phase=pc01_phase,
+                                            series_freeze=pc01_series_freeze))
     if config.benchmark_status != "active":
         problems.append(
             f"benchmark {config.benchmark_version!r} is {config.benchmark_status!r}, not active"
@@ -196,7 +216,9 @@ def ensure_can_create_plan(root: Path | None = None) -> None:
 def ensure_can_run_plan(experiment_id: str, root: Path | None = None) -> None:
     base = (root or project_root()).resolve()
     config = load_config(base)
-    problems = [*stop_gate_problems(base), *lifecycle_problems(base)]
+    problems = [*stop_gate_problems(base), *lifecycle_problems(base), *laboratory_problems(base, scoring=True)]
+    if config.protocol_version >= 3:
+        problems.extend(pc01_scope_problems(base, experiment_id=experiment_id))
     if config.benchmark_status != "active":
         problems.append(
             f"benchmark {config.benchmark_version!r} is {config.benchmark_status!r}, not active"

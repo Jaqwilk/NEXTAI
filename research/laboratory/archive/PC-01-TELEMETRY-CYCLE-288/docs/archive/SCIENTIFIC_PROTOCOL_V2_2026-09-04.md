@@ -1,0 +1,1265 @@
+# Scientific protocol
+
+## Protocol version
+
+Protocol v2 became active after the 35-result G0 portfolio audit. It preserves every v1 plan and result but applies the rules below only to new cohorts. EXP-20260830-0036 is preserved and append-only invalidated; it was never scored.
+
+## Unit of research
+
+The unit is not a code change. It is an immutable tuple:
+
+```text
+(hypothesis, prediction, intervention, controls, budget, observations, decision)
+```
+
+Every scored run has a preregistered JSON plan and a result whose `plan_sha256` matches the append-only registry.
+
+## Evidence hierarchy
+
+From weakest to strongest:
+
+1. intuition or verbal mechanism;
+2. one implementation on one visible toy task;
+3. controlled ablation with a meaningful baseline;
+4. multi-seed replication;
+5. adversarial and OOD variants;
+6. transfer to a different task family;
+7. matched-capability scaling curve;
+8. independent or blind replication.
+
+Statuses must reflect this hierarchy. `promising` requires at least level 4 plus a prior-art check. `promoted` requires the configured gates and a concrete reason to allocate deeper compute.
+
+## Preregistration
+
+A valid plan states:
+
+- one causal question;
+- the changed principle;
+- matched controls;
+- K/D/seeds/budget;
+- primary metrics and directions;
+- quantitative or qualitative predicted signature;
+- kill and promotion evidence;
+- alternative explanations and confounds;
+- conclusions permitted for positive, null and negative outcomes.
+
+Editing a registered plan invalidates it. Create a child plan instead. Protocol-v2 plans commit the evaluator digest. Candidate implementation may follow preregistration and may update only the candidate bundle; changing the evaluator digest requires append-only invalidation and a new plan.
+
+## Baselines
+
+Choose baselines that isolate the question:
+
+- negative/random control to detect evaluator leakage;
+- simplest heuristic;
+- appropriate symbolic/algorithmic solver;
+- conventional neural control when the task tests learned representations;
+- strongest relevant prior architecture that fits the same budget.
+
+Never compare a specialized structured solver with a general LLM and call lower cost a win. Conversely, do not force an LLM baseline onto a task where an indexed table is the scientifically appropriate control.
+
+## Budgets
+
+`quick` may kill an implementation or reveal a large signal. It cannot promote a family.
+
+`screen` uses at least three runner-realized scoring seeds and a broader K/D grid. It can justify `promising` only when the implementable effect is non-dominated and robust.
+
+`deep` is reserved for replicated principles, targeted scaling measurements, or an experiment whose information value justifies the cost.
+
+Within a cohort, every compared candidate receives the same matrix and limits. Unsupported scales are recorded, not silently removed.
+
+## Randomness and uncertainty
+
+- The plan fixes the scoring-seed generation method, count and range. Exact scoring seeds are sampled by the runner only after plan validation, integrity verification and transitive candidate-source audit, then stored in the immutable result.
+- Fixed development seeds are public and disjoint in purpose: they may be used for debugging but never reported as blinded scoring evidence.
+- Report realized seeds, per-seed values, mean, relative dispersion and failed seeds.
+- Do not use repeated seed search as architecture search.
+- A surprising effect requires the configured replication count and an adversarial variant.
+- Latency is a noisy systems metric. Use repeated measurements and interpret exact operation counts separately.
+
+## Observation versus explanation
+
+Each analysis has six sections:
+
+1. `OBSERVATION`: numbers and externally visible behavior only.
+2. `INTERPRETATION`: candidate causal account.
+3. `CONFIDENCE`: calibrated probability or low/medium/high with reasons.
+4. `ALTERNATIVE EXPLANATIONS`: at least one credible competitor.
+5. `DECISION`: keep, discard, inconclusive, replicate or promote.
+6. `NEXT DISCRIMINATING EXPERIMENT`: cheapest test separating explanations.
+
+“Candidate A scored higher” is an observation. “Local computation causes the gain” is an interpretation until an ablation isolates locality.
+
+If a post-result audit discovers a preregistered invalidation condition, preserve the immutable result and append an `experiment_scientific_validity_correction` event with a reason. Doctor validates each correction. Reports and hypothesis-transition gates exclude scientifically invalid results even when their technical integrity hashes passed. Invalidity is terminal for that experiment ID; a corrected test requires a new plan and result.
+
+## Kill rules
+
+Reduce priority when repeated discriminating tests show any of:
+
+- no held-out composition;
+- dependence on a human-written ontology that carries the solution;
+- full scans of dormant knowledge;
+- compute or bytes moved grow with irrelevant K;
+- large external model does the essential work;
+- no path from the toy representation to learned real inputs;
+- architecture collapses into an existing baseline without a distinct signature;
+- improvements disappear under matched capability/budget.
+
+Stop patching a family when patches change the thesis rather than test it. Preserve it as `dormant` or `falsified` with evidence.
+
+## Scaling inference
+
+A two-point log-log slope is descriptive screening evidence only. Inferential slope fields require at least three distinct scale points and include point count, regression standard error and R². Strong scaling claims require a broader range, interaction-aware specification and an adversarial variant; a perfect two-point fit is not uncertainty evidence.
+
+## Promotion rules
+
+Promotion requires all configured gates and at least one unusual property:
+
+- near-zero K slope at fixed bounded relevance;
+- strong systematic/OOD composition;
+- reusable learned operations;
+- local continual updates;
+- declining warm inference cost with experience;
+- favorable scaling relative to a strong matched baseline;
+- transfer across task families.
+
+The result must be on the accuracy-gated **implementable** Pareto frontier. Oracle candidates are reported separately as attainable lower bounds and can never be promoted. Missing metric values never count as favorable comparisons; only axes measured for every row in the cohort enter dominance.
+
+Aggregation must preserve every declared Pareto metric present in all complete
+raw trials. If a candidate's complete summary omits such a field, the runner
+stops before Pareto computation instead of silently deleting the candidate or
+axis. A genuinely missing raw metric or failed/timeout outcome remains recorded
+and is excluded from the frontier without erasing complete candidates.
+
+The CLI enforces the configured minimum seed count, maximum seed CV, minimum per-cell accuracy, integrity, analysis presence, primary-source prior-art linkage and non-dominance. `promoted` additionally requires multiple qualifying cohorts, an adversarial or transfer variant and at least one deep result.
+
+## Benchmark evolution
+
+Protected harness files are frozen in `research/eval_manifest.json`.
+
+Protocol v2 protects the complete local Python harness and candidate tree, tests, schemas, dependency lock, configuration and scientific contract. Re-freezing archives the previous manifest by content hash before writing the new one.
+
+A valid harness correction or new benchmark requires:
+
+1. document the defect or new question;
+2. increment `benchmark_version`;
+3. create a new comparison cohort;
+4. rerun required baselines;
+5. freeze a new manifest;
+6. never compare old and new metrics as if identical.
+
+Autonomous scheduled cycles may not perform this migration without user approval.
+
+## Cross-family transfer cohorts
+
+A cross-family claim requires one source-identical candidate and update rule across at least three frozen existing world families. The evaluator may serialize public observations into one common format, but may not expose family labels, native type names, oracle fields, hand-derived roles or separately tuned hyperparameters. Training-world seeds are public and fixed in the immutable plan; test worlds derive only from runner-realized scoring seeds after integrity and source audit.
+
+The plan must include a machine-readable `transfer_protocol` naming the families, training seeds, shared candidate, specialist controls, declared horizons and invalidation rules. Test-result access during meta-fit, a train/test seed collision, family-specific candidate logic, test-time tuning or oracle-derived serialization invalidates the cohort rather than becoming a negative score.
+
+Report overall unseen-world transfer and the minimum family mean. A high average cannot hide failure in one family. Full accounting includes observation acquisition, common serialization, pooled meta-fit, test support fit, updates, queries, bytes moved, all resident state and the declared repeated-use workload. A specialist ensemble pays the summed costs and states of every component. Native oracles remain separate lower bounds.
+
+One scoring seed can only kill an implementation or justify a replicated screen. Cross-family success additionally requires the shared candidate to beat its no-cross-family ablation and avoid implementable Pareto dominance by a simpler shared probabilistic control or the fully charged specialist suite.
+
+## Nonstationary online-update cohorts
+
+An online-update claim uses a strict prequential boundary: the candidate predicts from the current public observation before the evaluator reveals its target, and only then may mutate fast state. Fit may inspect fixed-seed meta-training streams but never runner-random test observations, targets, schedules or coefficients. A test query contains no mechanism, regime, phase, boundary or future-time field. Violation invalidates the cohort rather than becoming a low score.
+
+The immutable plan must include `online_update_protocol` with at least three mechanisms, fixed training-stream seeds, runner-random test-seed source, the shared candidate, classical controls, state budgets, horizons and invalidation rules. One source-identical slow model, feature rule and update law serves every anonymous test slot. An independent per-mechanism fit is an ablation, not a shared learner.
+
+Report normalized prequential capability, minimum mechanism, worst phase, post-switch recovery, recurrence retention, distractor interference and raw loss. Full cost includes observation/target acquisition, feature construction, pooled meta-fit, every chronological query and update, bytes read/written, replay or dictionary storage, peak resident state and R1/R4/R16 workloads. Oracle segmentation is privileged and reported separately.
+
+Required nulls include no update, LMS/delta, RLS/Kalman where realizable, a declared nonlinear feature or kernel estimator, change-point model banks and bounded replay/dictionary memory. A learned update must beat its independent ablation and the strongest fixed adaptive estimator at matched capability, remain within the declared state boundary and be implementably non-dominated. One seed may kill an implementation or authorize replication; it cannot promote.
+
+## Lossless cross-family transfer v2 cohorts
+
+Version 2 reuses the four frozen probabilistic, predictive-state, local-dynamics and behavioral-program world generators. Fixed development seeds create training worlds; every test world is derived only from runner-realized scoring seeds. All derived seeds must be disjoint.
+
+The implementable interface is one lossless recursive serialization of public dataclasses, mappings, sequences, booleans, integers, floats and nulls. It preserves structural markers and every public value while omitting field names, class names, family labels, paths, native types, oracle objects and latent roles. Truncation, family-specific adapters and post-test tuning invalidate the cohort. Slow parameters are pooled once and frozen before test-world queries; test updates are explicit and charged.
+
+One source-identical learner, representation rule, head, state limit and hyperparameter set serves every anonymous test slot. The causal transfer control is the same learner trained independently by family. Required shared controls are contextual Chow–Liu, empirical joint and autoregressive models; fully charged specialist suites use the same three model classes through native public views. Oracles are privileged lower bounds only.
+
+Primary capability is runner-seed unseen-world accuracy, with minimum-family accuracy as a hard guardrail. Success requires a material advantage over the independent ablation, no family collapse and implementable Pareto non-dominance after charging acquisition, lossless serialization, pooled and support fit, all queries and updates, bytes touched, peak/resident state and R1/R4/R16 workloads. A one-seed quick can discard or authorize a replicated adversarial screen, never promote.
+
+## Shared predictive-state transfer v3 cohorts
+
+Version 3 preserves the v2 lossless public boundary and the same four frozen generators, but changes the tested causal mechanism. The shared candidate is one width-32 recurrent predictive-state update and readout rule whose slow parameters are fitted once over pooled training worlds. The independent ablation is source-identical except that the same rule is fitted separately to anonymous training-world groups before matching test support; no family label, native type or specialist branch is available to either candidate.
+
+Test support may initialize world-local state only through the same frozen recurrent rule, and all support scanning, state construction and storage are charged. Test queries and targets remain absent during fit. The mandatory controls are the actual native contextual Chow–Liu, empirical-joint and autoregressive specialist suites plus a privileged oracle. Mislabeled nearest-template modes from v2 are not controls in this cohort.
+
+Success requires at least `0.95` overall and `0.90` minimum-family transfer, at least `0.05` advantage over the source-identical independent ablation on both measures, and no Pareto dominance by an implementable specialist suite after acquisition, pooled/independent fit, support adaptation, queries, updates, state, bytes moved and R16 work. Quick remains one-seed screening and cannot promote.
+
+## Relation-fragment graph transfer v4 cohorts
+
+Version 4 retires the repeatedly failed recurrent-state route while preserving the v2 lossless public encoder, the same four generators, fixed training seeds, runner-random disjoint test worlds and native specialist controls. The changed causal mechanism is an anonymous graph of at most 64 induced input-output relation fragments. One frozen extractor creates typed structural fragments without field names, classes, family labels or native objects; one equality-join rule composes fragments and emits output components.
+
+The shared candidate induces one pooled fragment graph. Its source-identical independent ablation differs only by inducing separate anonymous graphs before the same charged support matching. Atom relabeling and anonymous-world permutation must commute with extraction, composition and decoded output. A protected two-fragment fixture must require a translated two-component answer that no single stored complete example can emit. Retaining or selecting full training examples without a multi-fragment trace invalidates the cohort.
+
+## Sparse set-memory transfer v5 cohorts
+
+Version 5 is a service-only role successor over the byte-identical v2
+lossless evaluator and the same four frozen probabilistic, predictive-state,
+local-dynamics and behavioral-program generators. It preserves fixed training
+seeds, runner-random disjoint test worlds, K=`8/32`, D=`1/4/6`, Q=`8`, public
+serialization, targets, metrics, directions, update events, cost equations,
+state boundary and the contextual Chow-Liu, empirical-joint, autoregressive
+and privileged cross-family controls. Historical v1-v4 plans, results,
+analyses, evaluators and candidate roles remain immutable and cohort-separated.
+
+The prospective source-identical roles are pooled sparse set memory,
+independently fitted sparse set memory, pooled dense set attention and pooled
+sparse memory with frozen routing keys. All four resolve to one implementation
+and freeze width 32, 32 memory slots, top-k 4, one attention head, 24 Adam
+epochs, batch size 32, learning rate 0.001 and squared-Euclidean routing. They
+share lossless tokenization, embedding, set encoder, memory, initialization,
+fit order, query, update, output, constants and accounting. They may differ
+only in pooled versus independent fit, sparse versus dense slot access, or
+learned versus frozen routing keys. Sparse queries touch at most four slots;
+dense queries touch all 32. Every routing, serialization, memory-traffic,
+update and fallback operation is charged.
+
+Anonymous public values may not expose family labels, native types, class or
+field names, paths, semantic channel names, latent roles or test outcomes.
+Consistent anonymous-token and world permutation must commute with encoding,
+routing and output. A mixed v3/v4/v5 causal-role contract is invalid. The
+migration creates no hypothesis, experiment plan, candidate implementation,
+runner seed or score. After full semantic gates, pytest, preflight, integrity
+and doctor PASS, the next wake must preregister one quick before implementing
+the common core. One positive seed may authorize only unchanged three-seed
+replication; a negative closes this exact rule without tuning.
+
+## DronepropA factor recombination v6 preflight contract
+
+Version 6 is a maintenance-only successor to v5. It preserves the frozen data split and scoring task while adding a pre-seed certificate over the evaluator digest, runner, result/plan schemas, semantic baseline registry and evaluation manifest. A mismatch blocks the runner before seed realization. Final result metrics use shared domains: NRMSE and charged costs are nonnegative, accuracies and rates lie in `[0,1]`, and continuous conditional log loss may be any finite real number. Pareto axes are the plan's frozen benchmark contract; failed, timed-out or metric-incomplete candidates remain recorded but cannot delete axes or enter the implementable frontier. Any mandatory control that fails to complete blocks promotion.
+
+The former v2 controls with `oracle` in their names remain immutable historical records. In v6 their unchanged computations are registered as `privileged_all_condition_support_arx_v3` and `privileged_same_condition_support_arx_v3`: privileged support controls, not oracles, bounds or promotion candidates. Their support acquisition, fit, query and state remain fully charged, and v6 reports a signed `privileged_support_gain` rather than an oracle-gap claim.
+
+Every plan fixes the 64-fragment cap, `typed_equality_join_then_component_emit_v1`, the same four native suites, state boundary and all acquisition, fit, meta-fit, query, update, bytes, resident/peak state and R16 directions. Success retains the v3 thresholds: at least `0.95` overall, `0.90` minimum-family, a `0.05` shared advantage on both capability measures and no implementable Pareto dominance. One quick seed can discard or authorize adversarial replication only.
+
+## Held-out parallel masked-infilling cohorts
+
+The corpus is a frozen whole-file SHA-256 split disjoint from the repository-compression cohort. Training and validation bytes are visible only through anonymous file slots. Runner-random scoring seeds choose a 256-byte relabeling, test files and mask offsets after integrity and candidate audit; the same unknown relabeling applies to train, validation and test bytes. Local visible source remains screening evidence, not an independent hidden holdout.
+
+One public refinement query contains a corrupted snapshot, the positions still masked and the current/maximum round. A candidate must return distributions for every currently masked position from that immutable snapshot in one call. The evaluator validates the complete batch before filling any position, then reveals only candidate-selected predictions between rounds. Truth is never revealed to an implementable candidate. Within-round teacher forcing, filesystem/path access, future snapshots or target access invalidate the cohort.
+
+Span lengths are registered independently of refinement rounds and include a span longer than every quick round count. Report conditional bits per byte, byte accuracy, exact-span accuracy, maximum declared critical-path steps, every position-round probability and full work. Critical path includes candidate-declared internal sequential steps plus logarithmic confidence selection/reveal depth; source audit must reject hidden per-position dependencies. These counts are algorithmic estimates, separate from measured latency.
+
+Mandatory controls are uniform and unigram sanity bounds, left-to-right PPM, context-tree weighting, a small dense autoregressive model, exact finite-order bidirectional Markov inference, parallel fixed Markov belief propagation, the same masked learner in one pass, and a privileged conditional oracle. Full accounting includes corpus verification and relabeling, allocation/corruption, fit/validation, every probability, confidence sort/reveal, bytes touched, resident/peak state and R1/R4/R16 workloads.
+
+Baseline names are not semantic evidence. Before scoring, conformance tests must show that PPM and context-tree controls use registered higher-order context on a sequence where a first-order transition model is ambiguous; analogous named controls require a discriminating semantic fixture rather than only import and shape checks.
+
+Quick success requires a preregistered loss and exact-span margin over implementable controls, strict improvement over the one-pass ablation, bounded critical depth as span length grows, and implementable Pareto non-dominance on quality, total work, critical path and state. A one-seed quick can discard or authorize a new-corpus three-seed screen; it cannot promote.
+
+Reject before planning if fixed bidirectional inference solves all registered spans exactly, targets are not probabilistically identifiable beyond a uniform bound, simultaneous snapshot execution cannot be audited, or corpus/mask metadata leaks.
+
+Version 3 is a service-only successor to masked infilling v2. It preserves all
+48 whole-file hashes and roles, runner-random byte relabeling, masks, spans,
+rounds, immutable-snapshot execution, metrics, cost formulas, state boundary,
+seed policy, Pareto axes and eight classical controls. It changes only the
+prospective causal roles to a locally learned sparse predictive code, its
+source-identical forced-one-pass ablation and its source-identical frozen-code
+ablation. The three roles must share patch geometry, latent width, sparsity,
+initialization, data order, decoder and output rule; only inference iteration
+and code learning may differ as preregistered. No candidate exists in the
+migration cycle. Historical v1/v2 plans, results, analyses and manifests remain
+immutable and are never reinterpreted.
+
+The v3 quick plan generator must emit K=`8/32`, refinement rounds=`1/4/6`
+and eight cases per K/round cell. A single-round global quick default is invalid
+because it makes the learned iterative role observationally identical to its
+forced-one-pass ablation.
+
+Version 4 is a service-only successor to masked infilling v3. It preserves all
+48 whole-file hashes and roles, runner-random byte relabeling, masks, spans,
+rounds, immutable-snapshot execution, metrics, cost formulas, state boundary,
+seed policy, Pareto axes and eight classical controls. It changes only the
+prospective causal roles to a learned fixed-rank Born uniform matrix-product
+state with tree contraction, the same learned tensor contracted sequentially,
+and the same initialized tensor with learning disabled. Historical cohorts and
+their plans, results, analyses, manifests and hashes remain immutable.
+
+The three v4 roles must share token representation, tensor rank, initialization,
+training examples and order, update count, normalization and output
+probabilities. Only the preregistered contraction schedule and tensor-learning
+interventions may differ. The parallel role must charge its real contraction
+critical path and may not hide a sequential scan; conversely, the sequential
+role may not report tree depth. Before candidate implementation, the next
+immutable quick plan freezes rank, initialization, normalization, fit/update
+rule and every numerical constant. This migration creates no hypothesis, plan,
+seed, candidate or scored result. One subsequent scout seed may discard the
+exact mechanism or authorize unchanged replication, never promotion.
+
+Version 5 is a service-only successor to v4. It re-exports the unchanged v4
+evaluator and therefore preserves the 48 file hashes and roles, splits, masks,
+byte relabeling, K=`8/32`, rounds=`1/4/6`, spans=`8/32/128`, eight cases per
+cell, immutable snapshots, metrics, costs, state boundary, Pareto axes and all
+eight controls. Only three prospective role identifiers and their causal
+contract change: a sparse learned energy factor graph, the source-identical
+graph restricted to one relaxation sweep, and the source-identical initialized
+graph with factor learning frozen. No candidate, plan, seed or score exists in
+the migration cycle, and v1-v4 history remains immutable.
+
+All v5 roles must share byte representation, graph construction, constants,
+initialization, training examples/order, relaxation update and output rule.
+Only learned versus frozen factors and the preregistered one-sweep intervention
+may differ. Before scoring, candidate-specific semantic tests must use the
+frozen multi-factor fixture to demonstrate completion requiring overlapping
+factors, nonincreasing energy across accepted relaxation steps, equivariance
+under a consistent byte relabeling, absence of target access, and explicit
+factor-by-iteration operation accounting. Failure replaces the unrun plan; it
+may not be waived after seed realization. The following wake must preregister
+and run exactly one cheap HYP-0007 revival scout; a valid negative ends this
+exact energy-factor rule without tuning, while a positive only authorizes an
+unchanged replication cohort.
+
+Version 6 is a service-only successor to v5. It re-exports the unchanged v5
+evaluator and therefore preserves all 48 file hashes and roles, whole-file
+splits, runner-random byte relabeling, masks, K=`8/32`, rounds=`1/4/6`,
+spans=`8/32/128`, eight cases per cell, immutable-snapshot execution, metrics,
+cost formulas, state boundary, Pareto axes, seed policy and all eight semantic
+controls. Historical v1-v5 plans, results, analyses, candidates and manifests
+remain immutable and cohort-separated.
+
+V6 changes only the three prospective role identifiers to a recursive learned
+equality grammar, its source-identical grammar flattened to one learned rule
+level and its source-identical grammar with rule learning frozen. Every role
+must share byte representation, grammar extractor, constants, initialization,
+training files/order, query alignment and output probabilities. Only recursive
+rule composition, flattening and grammar learning may differ as preregistered.
+The mechanism may use symbol equality and learned repeated motifs but no byte
+arithmetic, supplied token ontology, path, file role or target. Before scoring,
+semantic fixtures must require at least two grammar levels, defeat the flat
+ablation, commute with a consistent byte relabeling and charge rule discovery,
+indexing, alignment and expansion. No candidate, hypothesis, plan, seed or
+score exists in this migration cycle.
+
+The rejected parity/factor proposal is not a v6 role. XOR is not equivariant
+under the cohort's arbitrary 256-symbol permutation. Replacing XOR with learned
+pair tables is observationally the already-scored v5 energy-factor graph, while
+soft local messages are covered by parallel Markov BP. This rejection is a
+pre-seed identifiability decision, not evidence from a new experiment.
+
+## Held-out repository sequence-compression cohorts
+
+A real-sequence screening cohort uses immutable, hashed, whole-file train/validation/test roles. An implementable candidate receives only evaluator-supplied anonymous bytes: never paths, roles, file names, extensions, hashes, test offsets, future bytes or filesystem access. Corpus mismatch, fragment-level splitting or cross-slot test-state leakage invalidates the cohort. Local visible source is screening evidence only.
+
+The immutable plan must include `compression_protocol`, runner-random scoring seeds, a predict-then-reveal boundary, a bounded state budget and explicit invalidation rules. `knowledge_size` is the declared offline byte budget; `reasoning_depth` is raw context length. Test updates may mutate only slot-local fast state. Shared slow parameters remain frozen, so cold held-out performance is reported separately from online adaptation.
+
+Report mean, worst-file and cold bits per byte plus top-1 byte accuracy. Full accounting includes corpus verification/acquisition, train and validation selection, fit/meta-selection, every 256-way probability query, every revealed-byte update, bytes touched, resident and peak state, and R1/R4/R16 workload. Required implementable nulls are unigram, variable-order PPM, context-tree weighting, LZ-style dictionary prediction and a small dense autoregressive model; uniform coding is a sanity bound and a test-table oracle is privileged. One seed cannot promote.
+
+Version 3 is a service-only successor to repository compression v2. It preserves
+all 43 whole-file hashes and roles, anonymous bytes, predict-then-reveal order,
+K=`8/20/32`, D=`4/16/64`, query allocation, loss and cost formulas, state
+boundary, seed policy, Pareto axes and six classical controls. It changes only
+the prospective three causal role identifiers from the completed layer-local
+credit experiment to an orthogonal recurrent reservoir, a source-identical
+recurrence-disabled ablation and a source-identical frozen-readout ablation.
+The next immutable plan must freeze every reservoir constant before candidate
+implementation. Historical v1/v2 plans, results, candidates and manifests
+remain append-only and are never reinterpreted.
+
+Version 4 is a service-only successor to repository compression v3. It preserves
+all 43 whole-file hashes and roles, anonymous-byte boundary, predict-then-reveal
+execution, K=`8/20/32`, D=`4/16/64`, query allocation, metrics, cost formulas,
+state boundary, seed policy, Pareto axes and six classical controls. It changes
+only the three prospective causal role identifiers to a learned conditional-
+execution byte learner, its source-identical all-experts ablation and its
+source-identical frozen-router ablation. All roles must share the expert bank,
+constants, initialization, chronological data order, input, update and output
+rules; only preregistered router learning and active-expert count may differ.
+No candidate, hypothesis, plan or scoring seed exists in the migration cycle.
+Historical v1-v3 artifacts remain immutable and cohort-separated.
+
+Version 5 is a service-only successor to repository compression v4. It preserves
+all 43 whole-file hashes and roles, anonymous-byte boundary, predict-then-reveal
+execution, K=`8/20/32`, D=`4/16/64`, query allocation, metrics, cost formulas,
+state boundary, seed policy, Pareto axes and six classical controls. It changes
+only the prospective causal role identifiers to a surprise-gated transition
+machine, its source-identical dense-clock ablation and its source-identical
+frozen-transition ablation. All roles must share state width, transition map,
+constants, initialization, chronological data order, context, input, update and
+output rules except for the preregistered surprise gate, dense clock and
+transition-learning interventions. Before seed realization, semantic fixtures
+must prove predict-before-reveal ordering, byte-relabeling equivariance,
+sparse no-event state preservation, dense execution on every revealed byte and
+explicit event/dense update cost. This migration creates no candidate,
+hypothesis, plan, seed or score. Historical v1-v4 artifacts remain immutable and
+cohort-separated. Held-out file sequences test transfer to unseen byte contexts;
+they do not by themselves establish systematic operator composition.
+
+Version 6 is a service-only successor to repository compression v5. It reuses
+the identical corpus, split, anonymous-byte boundary, evaluator, matrix,
+metrics, costs and six mandatory controls. Only the prospective causal roles
+change: an input-selective diagonal state-space learner, its source-identical
+fixed-selection ablation and its source-identical recurrence-disabled
+ablation. All three must resolve to one implementation and share embedding,
+state width, diagonal dynamics, readout, initialization, fit order, context,
+update, output, constants and accounting. The migration creates no candidate,
+hypothesis, plan, seed or score. A later immutable plan must freeze the exact
+numerical rule before implementation; a valid negative closes that rule.
+
+## Held-out anonymous mechanism-recombination cohorts
+
+This cohort tests a narrower claim than raw cross-family representation learning. Three existing deterministic mechanisms are normalized by one frozen numeric rule and lifted by the same Feistel construction onto 144 opaque states. Implementable candidates receive only anonymous state-to-state examples with equal public shapes; module names, source families, native types, extraction paths and composition graphs remain evaluator-only.
+
+Training contains singleton mechanisms and registered ordered-pair factorial coverage. The ordered `CB` pair is absent from training while both constituents and both order positions are present. Runner-random scoring seeds conjugate every state ID with one common permutation, shuffle anonymous worlds and choose support/query partitions only after integrity, semantic-baseline and candidate-source audit. Any train/test composition overlap, shape classifier above chance plus `0.10`, privileged metadata exposure or post-score tuning invalidates the cohort.
+
+Mandatory implementable controls are unigram, order-5 Markov, complete-map nearest-template and exact MDL module-library search. The same learner fitted independently and without cross-mechanism sharing are causal ablations. The composition-graph oracle is privileged and reported separately. Baseline names require registered implementation/test hashes and discriminating semantic fixtures before scoring-seed realization.
+
+Report held-out accuracy and minimum-combination accuracy. Full accounting includes acquisition, common serialization, structure search/meta-fit, support fit, all queries and updates, bytes moved, resident/peak state and R1/R4/R16 workload. Success requires at least `0.95` held-out and `0.90` minimum-combination accuracy, a `0.10` advantage over both source-identical ablations and no implementable Pareto dominance. One quick seed can discard or authorize a three-seed adversarial screen; it cannot promote.
+
+Version 2 preserves the v1 worlds, split, public/privileged boundary, metrics, directions, budgets and seed policy. It corrects only result serialization, candidate-semantic digest roles and durable post-seed failure recording. V1 and V2 results are separate cohorts and must not be presented as identical runs.
+
+Version 4 is a visible synthetic experience-curve cohort over the same three frozen source mechanisms. It trains on anonymous length-one/two operator views, holds out the length-four `CBAC` composition, supplies raw-distinct exact-equivalent pairs and pair-breaking negatives, measures exposures 1/4/16 at K=8/32/128, and tests local mutation plus retention. Mandatory implementable controls are exact interpretation, raw-key cache, structural-result cache, canonical-table cache, verified anti-unification cache, nearest canonical fallback and random output. A one-seed result is scout evidence only.
+
+Version 5 is a maintenance-only successor to v4. It preserves every source table, split, term encoding, candidate, control, K/exposure cell, query, mutation, metric formula, direction, budget and seed policy. It adds the already emitted `continual_new_fact_accuracy` trial field to the common aggregate summary and freezes universal Pareto axes to exact quality, false reuse and full acquisition/fit/query/update/state/bytes/R1/R4/R16 costs. `reuse_coverage` remains diagnostic and cannot prevent a simpler exact control from dominating. Historical v4 and EXP-20260901-0002 remain immutable and scientifically invalid; they are never recomputed or reinterpreted.
+
+Version 6 is a breadth-mode scaling successor, not a reinterpretation of v4/v5. It keeps the same three source tables, length-one/two training set, anonymous term encoding, exact controls, K values, query count, cost formulas, state budget and runner-random conjugation. It replaces the overloaded exposure-count depth axis with three genuinely held-out program lengths 4/8/16 (`CBAC`, `CBACABAC`, `CBACABACBCABCBAC`) and executes sixteen fresh re-encoding exposures in every cell. The prospective mechanism is a learned partial-evaluation macro DAG, not the rejected whole-operator behavioral fingerprint: its source-identical rebuild and frozen-macro ablations may differ only in preregistered cross-query macro learning and reuse. The cohort asks whether exact total charged work crosses below interpretation as composition depth grows; a one-seed scout cannot promote.
+
+## Held-out DronePropA factor-recombination cohorts
+
+The v1 cohort uses the DOI-pinned DronePropA version-1 archive and a frozen whole-MAT-file split. Implementable candidates receive anonymous slots containing only QDrone motor-command rows 47/49/51/53 and gyroscope/accelerometer rows 27–32. Source names, paths, hashes, fault/severity, speed, trajectory, drone, repetition, timestamps and all other channels are evaluator-private. Defective ESC rows 48/50/52/54 are excluded uniformly; raw files remain unchanged.
+
+Train, validation and test contain 64, 8 and 24 whole flights. The unseen test pairs are F1/SV3, F2/SV2 and F3/SV1; validation is F3/SV3. Healthy D2/D3 flights are OOD diagnostics only and all t4 flights are reserved adversarial evidence. No file or history/target window may cross roles. Candidate-visible normalization uses training anchors only.
+
+One-step prediction is teacher-forced. Ten- and 50-step predictions are recursive state rollouts with evaluator-supplied future motor controls delivered identically to every model; future state targets remain hidden. Test adaptation is restricted to 32 deterministic examples in the first fifth of the central usable interval. Runner-random evaluation anchors are realized only after integrity, baseline semantics and source audit.
+
+Mandatory controls are persistence, pooled ridge ARX, RLS ARX, nearest operator template, source-identical independent ARX, no-sharing pooled ARX, empirical Gaussian joint and contextual Gaussian Chow–Liu. A fully charged condition specialist and same-condition oracle are privileged diagnostics excluded from the implementable frontier. Every named control requires an exact version/specification, implementation hash and discriminating conformance-test hash before scoring.
+
+Report mean, worst-flight, worst-condition and per-horizon normalized RMSE, conditional log loss where defined, finite/stable rollout rate, minimum condition/trajectory transfer gain and oracle-gap closure. Full accounting includes archive acquisition, extracted-byte verification, preprocessing, pooled fit, adaptation, query/update work, bytes touched, resident/peak state and R1/R4/R16 totals. Success additionally requires positive transfer in all three held-out conditions and at least three trajectories, advantage over the source-identical independent/no-sharing controls and no Pareto domination. One seed cannot promote.
+
+Version 1 remains in maintenance and has no scientific results. A pre-score execution audit proved that every exact held-out fault/severity pair is absent from training, so the registered exact-condition specialist and same-condition oracle are undefined on all test flights. They may not silently fall back to another condition or use reserved `t4` targets. A corrected evaluator requires a new cohort version with renamed, explicitly identifiable privileged controls before activation.
+
+Version 2 preserves the 64/8/24 train/validation/test files, candidate-visible boundary, anchors, normalization, horizons, metrics and implementable controls. It changes only the 26 `t4` files from unused adversarial reserve to evaluator-only `privileged_oracle_support`. The fully charged condition specialist fits all 26 support flights and dispatches by exact evaluator-private condition. The same-condition oracle fits only the six support flights matching the three test conditions. Both are privileged, forbidden to implementable candidates, barred from Pareto evidence and charged for support acquisition, preprocessing, fit, state and queries. Test targets remain forbidden. V1 and v2 are separate cohorts; no v1 result exists.
+
+Version 3 is a pre-score metadata-wiring correction over v2. It preserves the v2 corpus, split, execution path, candidates, controls, budgets, thresholds, seeds and every numerical metric. It only registers the already-required `workload_ops_r1` and `workload_ops_r4` axes as minimized costs so the CLI can create a schema-valid immutable plan. V2 and v3 remain version-separated cohorts; v2 has no scientific result.
+
+Version 4 is a second pre-score schema-wiring correction over v3. DronePropA evaluates fixed rollout horizons 1/10/50 inside every cell, so its generic `reasoning_depths` matrix is intentionally `[1]`; duplicating D would repeat identical trials. V4 permits one D value only for `heldout_dronepropa_*` plans while every other cohort retains the historical minimum of two. Corpus, split, execution, controls, metrics, directions, budgets, thresholds and seed policy are unchanged. V3 and v4 are version-separated cohorts and neither v2 nor v3 has a scientific result.
+
+Version 5 is a post-EXP-0058 result-integrity correction over v4. Continuous `conditional_log_loss` is a differential log-density score and may be any finite real number, including negative values; its minimize direction and formula are unchanged. After each candidate process, the parent atomically stores a supervisor-normalized artifact before aggregate validation, including timeout, memory-limit, audit-failure and crash outcomes, and hashes those artifacts in any post-seed failure event. Corpus, split, execution semantics, candidates, baselines, matrices, budgets, thresholds and seed policy are unchanged. EXP-0058 remains terminally invalid and is never reinterpreted.
+
+## Held-out raw-sensor active-identification v1 cohort
+
+This breadth scout replaces the supplied binary codebook of
+`active_information_acquisition_v1` with noisy continuous observations. The
+evaluator generates fixed meta-training worlds and a runner-random held-out
+world from one frozen nonlinear sensor family. Every world independently
+permutes class identities and sensor slots and flips sensor signs. Candidates
+receive three labeled support observations per anonymous class but never
+latent codes, sensor weights, permutations, signs, query targets or unprobed
+sensor values. A query exposes only a single-use charged probe interface.
+
+The fixed matrix is K=`8/32/128`, probe budgets=`4/8/16`, 48 sensors and 32
+queries per cell. One shared learner, its source-identical support-only ablation
+and its source-identical frozen-representation ablation must share encoder,
+probe policy, constants, support order, query, update and output code; only
+meta-world access and preregistered representation learning versus freezing may
+differ. The candidate is intentionally absent from the service migration and
+may be implemented only after an immutable plan freezes every numerical rule.
+
+Mandatory controls are no-probe prior, observe-all nearest prototype, random
+probing, support-fitted Fisher ordering, adaptive Gaussian information gain,
+adaptive kernel information gain and a privileged target control. Every named
+control requires a registered implementation hash and a discriminating test.
+Full cost includes meta-world and held-out support acquisition, fit, every
+addressed probe, posterior or kernel scoring, state, bytes and R1/R4/R16
+workloads. Pareto quality uses accuracy and minimum held-out-world accuracy;
+probe count is a minimized cost, not a substitute for matched capability.
+
+The one-seed quick is scout evidence only and can never promote. A positive may
+only authorize an unchanged three-seed adversarial successor and requires the
+shared role to beat both source-identical ablations and every complete
+implementable classical control at matched accuracy without Pareto dominance.
+A valid null or negative ends this exact raw-sensor rule without tuning. This
+synthetic cohort tests whether representation acquisition changes active
+measurement economics; it is not a real-world perception holdout or evidence
+of general intelligence.
+
+Version 2 is a service-only successor to raw-sensor v1. It preserves the exact
+world generator, three fixed meta-world seeds, runner-random held-out transform,
+anonymous support and single-use probe boundary, K=`8/32/128`, probe budgets
+`4/8/16`, 32 queries per cell, metrics, directions, full-cost formulas, state
+limit, seed policy, Pareto axes and all seven semantic controls. Historical v1
+plans, results, analyses, candidates and manifests remain immutable and are not
+reinterpreted.
+
+V2 changes only the three prospective causal role identifiers to a learned
+posterior-partition decision DAG, its source-identical support-only DAG and its
+source-identical frozen-policy DAG. The three roles must resolve to one core,
+constants, support order, charged probe boundary, query traversal and output
+rule; only the preregistered meta-world, held-out-support or frozen source of the
+compiled partition policy may differ. A mixed v1/v2 role contract is rejected
+before scoring. This migration creates no hypothesis, plan, seed, candidate
+implementation or score. The next immutable quick plan must freeze DAG growth,
+split objective, leaf rule, tie handling, stopping and every numerical constant
+before implementation.
+
+## Claims language
+
+Allowed early claim:
+
+> On successor_graph_v1, candidate X preserved exact accuracy while measured query operations had a K slope near zero over the preregistered range.
+
+Forbidden early claim:
+
+> Candidate X proves knowledge and computation are decoupled or replaces LLMs.
+
+## Held-out WT changepoint prequential v1 cohort
+
+This local-visible screening cohort uses the frozen Causal Chambers
+`wt_changepoints_v1` archive. Whole files 0--5 are fit-only, 6--7 are
+development-only and 8--9 are test-only. The archive, manifest and all ten CSV
+hashes are immutable. Test files remain locally inspectable, so results are
+screening evidence rather than an independent hidden holdout.
+
+A train-only mechanical rule selects the sole control channel and ten varying
+response channels. Candidate-visible values are normalized with train-only
+statistics and then consistently permuted into anonymous channels. A query
+contains only a 32-sample prechange history, the current anonymous control,
+an anonymous slot and horizon 16, 32 or 96. File identity, channel names,
+timestamps, intervention markers, future controls and targets are forbidden.
+The evaluator validates, copies, freezes and hashes the complete prediction
+artifact before it reads the corresponding target and issues a reveal/update.
+Updates may mutate only slot-local fast state.
+
+Plans freeze K=18/36/54 training episodes, fit depth and fit horizon 32, the
+three test horizons, a 16 MiB state limit and persistence, pooled mean, exact
+control-level residual bank, normalized LMS, RLS, prechange transition bank,
+bounded replay and fixed ridge FIR controls. Each named control requires an
+exact implementation hash and a discriminating semantic test before runner
+seed realization. Channel-permutation equivariance and the query--artifact--
+reveal--update ordering are mandatory fixtures.
+
+Report overall, worst-file, worst-transition and per-horizon normalized RMSE,
+rollout stability, acquisition and preprocessing, fit, every query and update,
+bytes touched, resident state and R1/R4/R16 workload. The implementable Pareto
+frontier uses the plan-frozen universal capability and cost axes. Incomplete
+mandatory controls block promotion without deleting complete candidates from
+the frontier. Horizon 96 tests evaluator-created depth extrapolation beyond the
+32 fitted target samples; it is not claimed as naturally occurring response-
+length OOD. One seed may discard an implementation or authorize replication,
+never promote.
+
+Version 2 is a service-only successor to WT v1. It preserves all ten CSV
+hashes, whole-file train/development/test roles, train-only normalization,
+anonymous channel permutation, prediction-artifact-reveal-update ordering,
+K=`18/36/54`, H=`16/32/96`, metrics, directions, meaningful-effect threshold,
+16 MiB state cap, costs, seed policy, Pareto axes and eight semantic baselines.
+It changes only the three prospective causal role identifiers to a learned
+multiresolution lifting predictor, its source-identical single-scale ablation
+and its source-identical frozen-lifting ablation. The roles must share one
+dyadic representation, constants, initialization, fit order, update schedule
+and output rule; only preregistered cross-scale composition and lifting learning
+may differ. The next immutable plan freezes all numerical constants before
+candidate implementation. Historical WT v1 plans, results and manifests remain
+immutable and cohort-separated. The migration creates no hypothesis, plan,
+seed, candidate or scored result.
+
+Version 3 is a service-only successor to WT v2. It preserves all ten CSV
+hashes, whole-file splits, train-only normalization, anonymous channel
+permutation, artifact-before-reveal ordering, K/H matrix, metrics, directions,
+meaningful-effect threshold, state cap, cost formulas, seed policy, Pareto axes
+and the eight historical controls. It changes only the three prospective causal
+role identifiers to an action-conditioned predictive-state learner, its
+source-identical frozen-state ablation and its source-identical observation-
+history ablation, and adds coverage-aware spectral PSR and train-only
+discretized CSSR as mandatory implementable controls. All three causal roles
+must share windows, rank, features, control conditioning, constants,
+initialization, fit order, update schedule and output code except for the
+preregistered state-learning, freeze and history-projection interventions.
+No hypothesis, plan, seed or score was created by the prospective contract.
+V3 became active only after both added controls received exact semantic
+registrations, transitive source audits, hand-checkable discriminating tests,
+real-file development smoke, and the complete repository test gate.
+
+## Whole-I/O amortized exact-search v3 cohort
+
+Version 3 preserves the v2 binary two-state program class, noisy whole-I/O
+supports, held-out programs, anonymous tapes, targets and random/nearest/dense/
+enumerative-MDL/privileged controls. It adds K=`16` so descriptive scaling uses
+three points and adds explicit acquisition, peak-state, bytes-touched and
+R1/R4/R16 accounting. Historical v2 and EXP-20260830-0022 remain immutable and
+are not reinterpreted.
+
+The prospective learned, support-only and frozen roles share one complete
+branch-and-bound MDL solver, objective, tie handling, constants, support parser,
+program execution and output. They may differ only in whether branch and
+constraint priorities come from meta-training, the current public support or a
+frozen order. Every role must prove the same minimum-error optimum as complete
+enumeration; an approximate answer or uncharged search is invalid. The scout
+tests whether experience reduces exact cold search nodes on unseen programs,
+not whether a learned approximation can replace the solver. This migration
+creates no hypothesis, plan, candidate, seed or scored result.
+
+## Whole-I/O verified-incumbent exact-search v4 cohort
+
+Version 4 preserves the v3 program class, noisy whole-I/O supports, held-out
+programs, anonymous inputs, comparison matrix, five controls, metrics and full
+R1/R4/R16 cost boundary. Historical v2/v3 plans and results remain immutable.
+
+The three prospective roles share one complete minimum-error MDL solver,
+objective, bounds, ties, constants, support parser, verifier, fallback, fixed
+branch order, execution and output. They differ only in whether the proposed
+initial incumbent comes from meta-training, current public support or a frozen
+rule. Every proposal must be verified or rejected before use, and unchanged
+exact search must still prove the same optimum as enumeration. Proposal work,
+verification and all fallback nodes are charged. This is neither the approximate
+latent program of EXP-20260830-0022 nor the learned branch order of
+EXP-20260901-0036. This migration creates no hypothesis, plan, candidate, seed
+or scored result.
+
+The next wake may preregister one breadth quick. Exactness in every cell is a
+hard gate; success additionally requires lower cold search work than both
+source-identical ablations and complete MDL, without full-cost Pareto dominance.
+One seed can select the mechanism for replication but cannot promote it. A
+negative quick ends this exact rule without tuning the incumbent mechanism.
+
+## Whole-I/O certified pattern-bound v5 cohort
+
+Version 5 is a service-only role successor to v4. It preserves the complete
+binary program class, noisy whole-I/O supports, held-out programs, anonymous
+inputs, K=`8/16/32`, D=`1/4/6`, Q=`8`, objective, metrics, directions,
+state boundary, full R1/R4/R16 accounting and all five classical controls.
+Historical v2-v4 plans, results, analyses, manifests and candidate roles remain
+immutable and cohort-separated.
+
+The prospective meta, support-only and frozen roles share one complete exact
+solver, objective, initial incumbent, branch order, tie handling, support
+parser, execution and output. They may differ only in the preregistered source
+of an abstract pattern bound. Every bound used for pruning must carry a
+mechanically checked admissibility certificate, and the unchanged solver must
+still prove the same minimum-error MDL optimum as complete enumeration. Pattern
+induction, certificate construction and checking, every rejected bound, search
+node, query, update, byte and state allocation are charged.
+
+This migration creates no hypothesis, plan, candidate implementation, scoring
+seed or result. Before implementation, the next immutable quick plan must
+freeze the pattern language, abstraction map, bound equation, certificate,
+fallback, constants and operation accounting. Success requires exactness in
+every cell, fewer certified search nodes and lower full workload than both
+source-identical ablations and complete MDL, and implementable Pareto
+non-dominance. A valid negative closes the exact abstraction without tuning;
+one positive seed only authorizes unchanged replication and cannot promote.
+
+## Three-family continuous transfer v2 Pareto contract
+
+Version 2 preserves every world, split, tensor, normalization, causal assignment, baseline, metric value and budget from `heldout_three_family_continuous_transfer_v1`. It changes only prospective decision semantics. Historical v1 plans and results remain immutable and are never recomputed.
+
+The implementable Pareto frontier uses only capability and full-cost fields present for every complete implementable row: transfer accuracy, minimum-family accuracy, rollout stability, normalized RMSE, acquisition, preprocessing, fit, adaptation, query work, resident/peak state, bytes touched and R1/R4/R16 workloads. Candidate-specific causal contrasts are not universal dominance axes.
+
+`shared_vs_independent_gain` on the shared row and `cross_family_transfer_gain` on the cross-family-only row remain mandatory hard gates. Both summaries are minima over all family/K/seed cells and must be strictly positive before `promising` or `promoted` is admissible. Missing, zero, negative or incomplete causal controls block promotion. Timeouts remain durable failures; a timed-out mandatory control also blocks promotion but does not erase the capability frontier of completed candidates.
+
+## Three-family continuous transfer v3 predictive-index controls
+
+Version 3 preserves the v2 real worlds, train/test separation, anonymous tensor mapping,
+training-only normalization, metrics, directions, causal contrasts, budgets, Pareto axes and
+promotion semantics. Historical v1/v2 plans, results and analyses remain immutable. V3 adds
+only two mandatory implementable controls needed to distinguish a learned predictive binding
+from classical indexing: exact raw-window nearest-prototype lookup and a frozen random-projection
+hash. Both use the same 32-bucket limit, eight samples per bucket, masked affine ridge operator
+with lambda 0.001, touched-bucket-only public-support update and 64 MiB state boundary.
+
+The prospective learned candidate and its independent, cross-family-only and support-only
+ablations must use one source and frozen constants. The comparison matrix is K=4/6/9. Query
+work and bytes touched must remain structurally independent of dormant training-window count;
+representation fit, index construction, collision handling, local inserts, state and R1/R4/R16
+work are charged. Candidate code may not read family labels, native types, paths, semantic
+channel names or test outputs. Semantic conformance includes a future-equivalence counterexample
+to raw proximity plus slot relabeling, world-order and consistent channel-permutation fixtures.
+V3 was activated in a service-only cycle with no hypothesis, plan, scoring seed or scored result.
+
+## Three-family continuous transfer v4 empty-bucket contract
+
+Version 4 is a maintenance-only successor to v3. It preserves every real world, split, anonymous
+tensor, training-only normalization, learner bit, target moment, bucket count and cap, local ridge
+operator, support update, metric, direction, threshold, K value, budget, seed policy, Pareto axis
+and causal promotion gate. Historical v3 and EXP-20260831-0004 remain immutable and cohort-separated.
+
+V4 corrects only the inherited fallback when a selected index bucket has no stored rows and all
+32 current input coordinates are evaluator-public controls. The fallback is the same padded
+persistence rule already used by the tensor baseline: copy any mechanically available trailing
+state coordinates and zero-pad the remainder to the declared output width. It never reads a target,
+changes a bucket key or operator, or adds fit/query dependence on dormant knowledge. Before a seed
+can be realized, a real-file continuous-event fixture with 32 visible input/control coordinates,
+at least one required output coordinate and a deliberately emptied selected bucket must complete
+for the true random-hash control and all four source-identical predictive-index roles.
+
+## Three-family continuous transfer v5 report provenance contract
+
+Version 5 is a service-only successor to v4. It preserves every world, split, tensor,
+normalization, candidate, control, metric, direction, threshold, K value, budget, seed policy,
+Pareto axis and causal promotion gate. Historical v4 and EXP-20260831-0005 remain immutable.
+
+V5 corrects only evidence-report provenance. A report cohort obtains universal Pareto axes from
+the immutable result `pareto_metrics` written by the audited runner, never from the broader plan
+`primary_metrics`. Candidate-specific causal contrasts remain visible as promotion-only gates and
+never enter universal dominance. If a scientifically valid legacy result lacks `pareto_metrics`,
+or valid results in one benchmark/budget cohort disagree, the report shows the exact problem and
+computes no frontier for that cohort instead of guessing, intersecting or silently deleting axes.
+
+## Three-family continuous transfer v6 recurrent-residual roles
+
+Version 6 is a service-only successor to v5. It preserves every real world, split, anonymous
+tensor, training-only normalization, K value, metric, direction, threshold, baseline, full-cost
+boundary, seed policy, Pareto axis and causal promotion gate. Historical v1-v5 plans, results,
+analyses, manifests and hashes remain immutable and cohort-separated.
+
+V6 changes only the four prospective causal role identifiers to shared, independent,
+cross-family-only and support-only bounded recurrent residual roles. All four resolve to one
+source-identical implementation with frozen constants and update law; only the evaluator-private
+training-data assignment may differ. Family labels, native types, paths, semantic channel names,
+handwritten ontologies and test outputs remain forbidden. The candidate is intentionally neither
+implemented nor scored in this migration: implementation may begin only after a later immutable
+experiment plan preregisters its exact constants and success, invalidation and seed rules.
+
+## Three-family continuous transfer v8 invariant residual-module roles
+
+Version 8 is a service-only successor to v7. It preserves every real world,
+train/test split, anonymous tensor, training-only normalization, K value,
+metric, direction, threshold, classical baseline, full-cost boundary, seed
+policy, Pareto axis and causal promotion gate. Historical v1-v7 plans, results,
+analyses, manifests and hashes remain immutable and cohort-separated.
+
+The candidate-visible `Training.worlds` tuple supplies 12, 18 or 27 anonymous
+world boundaries at K=`4/6/9`; these boundaries may define environments, but
+`World.slot` is forbidden. Tensor masks may only exclude padded cells from a
+source-identical scalar relation extractor. A role may not branch, key, select
+modules or tune constants from a mask signature, valid width, family label,
+native type, path or semantic channel name.
+
+The prospective shared, independent, cross-family-only and support-only roles
+use one invariant residual-module learner and differ only in the evaluator-
+private assignment of training worlds. Two additional source-identical nulls
+receive pooled training: one disables environment-stability selection and one
+freezes the module partition before data. All six roles must share relation
+extraction, module representation, initialization, fit order, prediction,
+update, constants and accounting except for those registered interventions.
+Pooled ridge, RLS, empirical Gaussian joint, contextual Gaussian Chow--Liu,
+autoregressive, raw-window and random-hash controls remain mandatory.
+
+The migration creates no hypothesis, experiment plan, scoring seed, candidate
+implementation or result. A later immutable quick plan must freeze the exact
+residual statistic, stability test, partition rule, tie handling, thresholds,
+update and operation accounting before any candidate code. Success must beat
+both added nulls, the source-identical transfer ablations and the strongest
+complete classical control without worst-family collapse or Pareto dominance.
+One quick seed can only discard or authorize unchanged replication.
+
+## Parallel masked infilling v7 grammar-control correction
+
+Version 7 is a service-only successor to v6. It preserves the frozen corpus,
+whole-file split, evaluator, masks, permutation policy, simultaneous rounds,
+matrix, metrics, directions, costs, budgets, seed policy, eight historical
+controls and three prospective equality-grammar roles. Historical v1-v6 plans,
+results, analyses, manifests and hashes remain immutable and cohort-separated.
+
+V7 adds one mandatory implementable control: a genuine batch Re-Pair grammar
+transform with most-frequent-digram replacement, first-occurrence tie breaking,
+non-overlapping left-to-right replacement and recursive nonterminal expansion.
+Its frozen masked-completion adapter may use only public anchors and charges rule
+discovery, replacement, expansion, alignment, query and state work. Semantic
+fixtures require recursive rules, finite normalized completion, consistent byte
+relabeling equivariance and rejection of a flat-digram alias. The correction was
+made before candidate implementation or seed realization because the v6
+prior-art gate identified Sequitur/Re-Pair as a mandatory alternative. No
+hypothesis, experiment plan, seed or score is created by this migration.
+
+## Parallel masked infilling v8 learned pushdown depth transfer
+
+Version 8 is a service-only successor that reuses the v1 immutable whole-file
+corpus and masked-byte public interface but creates a separate comparison
+cohort. It does not reinterpret any v1-v7 plan, result, analysis or manifest.
+The evaluator tokenizes the already hashed Python files with the standard
+library solely to construct balanced delimiter-event traces; strings and
+comments are excluded. Paths, token kinds, original byte identities and the
+evaluator's delimiter ontology are never candidate-visible. Every runner seed
+applies a fresh 256-byte permutation before fit or query.
+
+Training and validation contain only real traces whose maximum nesting depth
+is at most two. Whole test files remain disjoint and evaluator-only. Scoring
+masks exactly one closing event at its deepest point in traces of exact depths
+three, four and five. The frozen corpus contains respectively 54, 21 and 6
+such test traces, so all three OOD scales exist before candidate design. The
+matrix is K=`8/32` KiB, depth=`3/4/5`, Q=`8`; acquisition, tokenization, fit,
+query, probabilities, state, bytes and R1/R4/R16 workload are charged.
+
+The prospective main role must learn opener/closer transitions and an
+unbounded-by-training-depth pushdown update from the permuted shallow traces.
+Its source-identical bounded-finite-state and frozen-transition ablations must
+share representation, constants, initialization, fit order, query alignment,
+output and accounting. Handwritten bracket identities, source paths and token
+labels are forbidden. All nine v7 controls remain mandatory, including true
+PPM, CTW, dense autoregressive, bidirectional/parallel Markov, Re-Pair and the
+privileged conditional support control. One quick seed may only reject the
+exact learned rule or authorize unchanged replication; it cannot promote.
+
+This migration creates no hypothesis, immutable experiment plan, scoring seed,
+candidate implementation or scientific result. Those actions are reserved for
+the next bounded wake after the protected evaluator, schema, manifest,
+preflight certificate, integrity and doctor all pass.
+
+### Parallel masked infilling v9 closure-chain correction
+
+V9 is a pre-score identifiability correction to v8. V8 remains immutable and
+has no hypothesis, plan, candidate, seed or result. Its single target was the
+first closer encountered at maximum depth. In a delimiter-event trace that
+closer is immediately preceded by its matching opener, so a first-order pair
+table can solve the registered target without a stack. V8 therefore cannot
+discriminate the intended causal mechanism and must never be scored as
+pushdown evidence.
+
+V9 preserves the same hashed whole files, split, standard-library tokenization,
+runner-random byte permutation, shallow training traces, K/depth/query matrix,
+public masked interface, metrics, costs, state limit and nine controls. It
+changes only target construction: for the first real opener chain reaching
+depth D, the evaluator simultaneously masks the matching closer for every
+level of that chain. The D=`3/4/5` cells therefore contain respectively three,
+four or five targets from one immutable snapshot. A full learned stack can
+push the opener chain and emit/pop at each masked closer; a source-identical
+state capped at the training depth two necessarily loses at least one outer
+opener. A fixed fixture `([{}])` must expose targets `}])`; the old adjacent-
+pair rule and a two-entry stack must fail exact completion.
+
+This correction is service-only and precedes any preregistration or candidate
+implementation. The next wake must preregister and score exactly one quick on
+v9; another no-scoring design cycle is forbidden unless integrity itself
+fails. One seed can only reject the exact learner or authorize unchanged
+replication.
+
+### Parallel masked infilling v10 privileged-target alignment correction
+
+V10 is a service-only successor to v9. It preserves the hashed whole-file
+corpus, split, tokenization, shallow training traces, runner-random byte
+permutation, closure-chain cases and targets, K/depth/query matrix, metrics,
+directions, costs, state boundary, learned roles and eight implementable
+controls. Historical v9, EXP-20260901-0039, its plan, result, analysis and
+control crash remain immutable and are not recomputed or reinterpreted.
+
+V10 replaces only the failed historical privileged conditional adapter with
+`privileged_conditional_masked_byte_v2`. The control receives the same
+evaluator-private target tuple, but maps it in the declared order of
+`zip(public.masked_positions, target)`. It rejects unequal tuple lengths and
+unmasked target positions before producing one-hot probabilities. The new ID
+prevents the corrected implementation from changing the meaning or registered
+hash of `oracle_conditional_masked_byte` v1, and its privileged prefix keeps it
+outside implementable Pareto evidence.
+
+A hand-checkable noncontiguous fixture must map positions `(1, 3, 6)` to three
+distinct target bytes in the same order, while a length mismatch must fail.
+This migration creates no hypothesis, experiment plan, scoring seed, candidate
+learner or scientific result. After activation, a separate wake may
+preregister one unchanged HYP-0050 quick; a one-seed outcome still cannot
+promote.
+
+### Parallel masked infilling v11 privileged-routing correction
+
+V11 is a service-only successor to v10. It preserves every frozen corpus,
+split, trace, closure-chain target, permutation, K/depth/query cell, metric,
+direction, cost, state boundary, learner, ablation and implementable control.
+All historical plans, results, analyses, manifests and hashes remain immutable.
+
+The only scientific-contract change is explicit evaluator routing of
+`privileged_conditional_masked_byte_v2` through `PrivilegedMaskedQuery`. All
+pre-v2 roles continue through the exact v9 evaluator path. The versioned
+control path reuses the historical scoring and accounting function and changes
+only the name-based private-query dispatch required by its registered semantic
+contract.
+
+A hand-checkable real delimiter trace `([{}])` must complete all three
+noncontiguous closure targets through `_run_case`. A separate one-cell smoke
+must load the immutable real-file corpus and complete through the same
+`run_suite` entry point used by scoring. This migration creates no hypothesis,
+experiment plan, seed or score. Only a later wake may preregister the unchanged
+HYP-0050 quick, and one seed still cannot promote.
+
+### Parallel masked infilling v12 disjoint-corpus replication cohort
+
+V12 is a service-only successor to v11 for adversarial replication. It keeps
+the balanced-Python delimiter representation, training-depth ceiling two,
+closure-chain masking target, runner-random byte permutation, K=`8/32`,
+D=`3/4/5`, query count, metrics, directions, state boundary, cost equations,
+thresholds and all twelve candidate implementations unchanged. Historical
+v8-v11 plans, results, analyses, manifests and corpus hashes remain immutable.
+
+The only scientific-contract change is a new whole-file local source split,
+frozen in `research/corpora/heldout_parallel_masked_infilling_v12.json`. No
+v12 path or SHA-256 may overlap the v8-v11 registry, train/validation/test paths
+are disjoint, and every scored role's own module and implementation core are
+excluded. The training role supplies exactly 8,192 whole-trace bytes at K=8
+and 32,709 at K=32; the 59-byte K=32 shortfall is disclosed rather than filled
+by splitting or duplicating a trace. Validation supplies 1,023 and 4,096 bytes.
+Three reserved test files yield 55/17/10 immutable traces at depths 3/4/5.
+This local visible corpus is replication screening evidence, not a hidden
+language holdout.
+
+Activation requires exact path/size/hash verification, zero historical
+overlap, the effective-byte and depth-count regression, unchanged privileged
+query routing, all semantic baseline tests, full pytest, preflight, integrity
+and doctor. This cycle creates no hypothesis, experiment plan, seed or score.
+Only a later wake may preregister the unchanged three-runner-seed HYP-0050
+screen; it may reject or strengthen the principle but cannot by itself promote.
+
+### Parallel masked infilling v13 recoverable push-chain adversarial cohort
+
+V13 is a service-only adversarial successor to v12. It reuses the immutable
+v12 corpus registry, whole-file train/validation/test roles, shallow training
+bytes, training-depth ceiling two, runner-random 256-byte permutation,
+K=`8/32`, D=`3/4/5`, Q=`8`, public masked-query boundary, metrics,
+directions, state limit, cost equations, thresholds and all twelve candidate
+implementations. Historical v8-v12 plans, results, analyses, manifests and
+hashes remain immutable and cohort-separated.
+
+V13 changes only evaluator-private target construction. On the first opener
+chain reaching exact depth D, the outermost push remains visible and the
+remaining D-1 pushes are masked simultaneously. Every corresponding return
+remains visible. A trace is eligible only when at least one missing push has a
+different type from the visible outer push, so repeating or closing the visible
+top cannot recover the complete target. Under the anonymous pairing learned
+from shallow training, the intact return chain mechanically identifies every
+missing push. The literal fixture `([{}])` becomes `(??}])`, target `[{`;
+reversing the visible `}]` return suffix and applying the learned inverse
+pairing recovers the target, while single-type `((()))` is rejected as
+copyable. The frozen real test files provide 32/9/10 eligible traces at depths
+3/4/5 without synthesizing new data.
+
+Activation requires the literal recoverability and copy-alias fixtures, real-
+corpus availability at every depth, unchanged hashes for all twelve role
+modules and the shared pushdown core, all semantic baseline tests, full pytest,
+preflight, integrity and doctor. The migration creates no hypothesis,
+experiment plan, scoring seed, candidate change or result, and no candidate may
+be executed on a v13 case before preregistration. The next bounded wake must
+preregister one unchanged three-runner-seed HYP-0050 screen. Success requires
+exact-span accuracy 1.0 in every K/depth/seed cell, at least 0.25 exact-span
+advantage and lower bits than both source-identical ablations and the strongest
+complete implementable control, all mandatory controls complete, state-budget
+compliance and implementable Pareto non-dominance. The screen cannot promote;
+a valid negative makes the exact family dormant without tuning, while a
+positive remains narrow screening evidence pending an independent non-
+synthetic corpus.
+
+## WT changepoints prequential v4 local-credit roles
+
+V4 is a service-only role successor to v3. It reuses the byte-identical v3
+evaluator path and preserves all ten frozen CSV files and hashes, whole-file
+train/development/test split, anonymous runner-random channel permutation,
+train-only normalization, K=`18/36/54`, horizons `16/32/96`, query count,
+predict-then-atomic-artifact-then-reveal order, metrics, directions, meaningful
+effect, state limit, full-cost equations and all ten classical controls.
+Historical v1-v3 plans, results, analyses, manifests and evidence remain
+immutable and cohort-separated.
+
+Only four prospective causal role identifiers are changed. The future main
+role uses aligned bounded temporal eligibility with an error gate; its
+source-identical controls freeze the trace at zero, shuffle temporal credit or
+apply aligned dense credit. All four must resolve to one implementation and
+share features, initialization, fit order, prediction, rollout, update law,
+constants and accounting except for those registered interventions. Native
+channel names, paths, timestamps, future controls, target access before the
+artifact, replay, global refit, another slot's state and hand-written ontology
+remain forbidden.
+
+This migration creates no hypothesis, experiment plan, candidate code, runner
+seed or score. The next wake must preregister the exact feature map, trace
+recursion, decay, error threshold, update magnitude, shuffle policy, clipping,
+ties and operation/byte accounting before implementation. One quick seed may
+only discard the rule or authorize unchanged replication. Success requires the
+frozen development-derived NRMSE margin against every causal ablation and the
+strongest complete implementable control, no worst-file or worst-transition
+regression, stable H96 rollout, strictly slot-local updates, three-scale cost
+accounting and implementable Pareto non-dominance.
+
+### WT v5 bounded particle-proposal roles
+
+V5 is a service-only role successor over the unchanged v4 evaluator path. It
+preserves the ten real CSV files, split, anonymous channel permutation,
+train-only normalization, K=`18/36/54`, horizons `16/32/96`, atomic
+predict-before-reveal boundary, metrics, effect threshold, state cap, full-cost
+equations and all ten controls. Historical WT v1-v4 plans, results, analyses,
+manifests and candidates remain immutable and cohort-separated.
+
+The prospective main learns one bounded proposal distribution for a fixed-size
+particle predictive state from public training observations. Its source-
+identical ablations use bootstrap proposals or deterministic posterior-mean
+propagation. All three roles must resolve to one implementation and share state
+features, initialization, fit order, prediction, chronological update,
+constants, particle budget, output and accounting except for that registered
+proposal/aggregation intervention. The later immutable plan must freeze the
+state representation, particle count, proposal family, weighting, resampling,
+randomness, update order, fallbacks and exact operation/byte charges before
+implementation. Native names, hand-written regimes, future controls, target
+access before reveal, cross-slot state, replay and global test-time refit are
+forbidden.
+
+This migration creates no hypothesis, experiment plan, candidate, runner seed
+or score. The next wake must preregister and score exactly one cheap scout.
+Success requires a development-frozen meaningful gain over both source-
+identical ablations and the strongest complete adaptive control, stable long
+horizons, no worst-transition regression, bounded slot-local updates and
+implementable Pareto non-dominance at all three scales. One positive seed can
+only authorize unchanged replication; a valid negative closes this exact rule
+without tuning.
+
+## Continuous local cellular v1 cohort
+
+This breadth cohort revives HYP-0006 only under its recorded non-exhaustive continuous-state condition. Each runner-random world hides a signed permutation of four anonymous observation channels over a two-dimensional continuous latent state. Fit receives 384 one-step local-neighborhood transitions whose latent amplitudes are confined to `[-0.65, 0.65]`; scoring begins at absolute impulse amplitude `0.85` and therefore cannot be an exhaustive transition table. A sparse impulse evolves under one shared nonlinear nearest-neighbor rule on rings of 64, 256 and 1024 cells for held-out depths 4, 8 and 16. Only a radius-depth causal cone is active; the remaining cells are genuine dormant scale, not omitted dense work.
+
+The prospective sparse learner, its source-identical dense-synchronous and frozen-learning ablations must share representation, constants, fit/update law and output rule. Mandatory implementable controls are persistence, local affine ridge, quantized finite-state lookup and nonparametric kernel event simulation. `privileged_continuous_local_support` receives the hidden encoder and rule only as an evaluator-only lower bound and is excluded from Pareto evidence. One anonymous observation channel is corrupted after task creation while the clean target remains evaluator-private, testing whether consistency learned from clean continuous observations supports repair without a supplied majority code or channel ontology.
+
+The fixed matrix is K=`64/256/1024`, D=`4/8/16`, Q=`8`, with one runner-random quick seed. Report thresholded cell accuracy, continuous normalized RMSE, damage recovery, stability, continual update/retention, acquisition, fit, query, update, state, bytes and R1/R4/R16 workload. The development-only meaningful NRMSE gain is frozen at `0.01`, over five times the maximum response to a `0.002` anonymous-channel perturbation in the fixed development fixture. Success requires finite stable output, at least that margin over ridge/kernel controls, positive repair beyond the frozen role, lower inactive-area query slope than dense synchronous execution, OOD depth transfer and no implementable Pareto dominance. A quick is scout evidence only and cannot promote.
+
+### Continuous local cellular v2 role-only cohort
+
+V2 preserves the v1 evaluator, data generation, splits, anonymous encoding,
+matrix, metrics, costs, thresholds and mandatory controls byte-for-byte. It
+changes only the three prospective role identifiers for a breadth scout of a
+different structural principle: a learned factorization into local reaction
+and antisymmetric neighbour exchange, a source-identical monolithic-flow
+ablation and a frozen-learning ablation. The roles may use no channel names,
+latent coordinates or hand-written world ontology. Their exact algorithm,
+constants, development-only fixtures and quick success gates must be
+preregistered before implementation or seed realization in the next cycle.
+This migration creates no hypothesis, experiment plan, seed, candidate or
+score and does not reinterpret the valid negative v1 result.
+
+### Continuous local cellular v4 population-selection roles
+
+V4 preserves the v1 evaluator, runner-random worlds, training/scoring split,
+anonymous signed channel encoding, K/D/Q matrix, corruption, targets, metrics,
+directions, thresholds, costs, seed policy, state boundary and five controls.
+Historical v1-v3 plans, results, analyses and manifests remain immutable. Only
+the three prospective role identifiers change.
+
+The scout asks whether data-driven population selection can discover one short
+anonymous local rule program that transfers to unseen amplitudes, rollout
+depths and dormant-area scales. Main, shuffled-fitness and frozen-population
+roles must share the exact program language, initial population, constants,
+proposal stream, interpreter, clipping, output and accounting. They may differ
+only in true training fitness, a preregistered permutation of those same fitness
+values, or disabled selection. Scoring worlds and targets, latent coordinates,
+family labels and native mechanism names are forbidden during fit. Program
+evaluation, mutation/recombination, selection, execution, state and every
+failed proposal are charged. Exact language and numerical constants must be
+preregistered before candidate implementation. This role-only migration adds
+no hypothesis, plan, candidate, seed or score; a one-seed quick in the next
+wake can only discard or select an unchanged replication.
+
+## Latent entity binding retrieval v2 learned discrete addressing cohort
+
+V2 is a service-only successor to the development-only v1 entity-binding
+benchmark. V1 exposes paired positive views and only K=`8/32`, so it cannot
+discriminate learned addressing from supplied correspondence or measure a
+hundred-fold access-cost signature. V2 therefore creates a separate cohort;
+it does not reinterpret any historical plan, result or evidence.
+
+Each runner-random world maps anonymous three-dimensional latent entities into
+24 raw nonlinear observation channels using dense tanh and sinusoidal mixes.
+Fit supplies seven-view transition bursts with an unknown change point and no
+entity ID, key, latent coordinate, family label or target query. Scoring uses
+fresh raw observations, K=`32/320/3200`, traversal depths D=`1/4/8`, Q=`16`,
+and a new-entity insertion. The hundred-fold K range, confusable raw views,
+held-out observations and local insertion jointly test whether an observation-
+learned representation can become a discrete, verifiable address whose access
+cost grows sublinearly without a global refit.
+
+The future causal roles are frozen before implementation: (1) learned encoder
+to discrete key to bounded index to verifier to bounded fallback; (2) the same
+encoder and verifier with dense scan; (3) the same frozen encoder with bounded
+index; and (4) the same shuffled representation with bounded index. These four
+roles must share encoder source, architecture, initialization, data order,
+outputs, verifier, update law, constants and accounting outside the registered
+representation/access intervention. Controls are a raw-space nearest-neighbour
+full scan, a 32-unit locally trained dense transition GRU without external
+memory, and an evaluator-private exact-key control excluded from implementable
+Pareto evidence.
+
+The frozen learned-address constants are encoder widths `24/32/16`, 16 key
+bits, four probes, bucket capacity eight, at most eight verifier candidates,
+at most 32 fallback candidates, 32 Adam epochs, batch size 64, learning rate
+0.001, 64 MiB state, meaningful accuracy margin 0.02 and maximum K-cost slope
+0.30. Full accounting includes acquisition, encoding, fit, routing/index,
+verification, fallback, query, local update, state, bytes touched and workloads
+R1/R4/R16/R256/R4096. Pretrained weights, model APIs, network use and hidden
+ontology are forbidden; only the repository-pinned local Torch/CUDA runtime is
+allowed.
+
+This migration contains no HYP revision, experiment plan, runner seed, main
+candidate implementation or score. A later wake may preregister one quick
+under HYP-0012. A valid negative ends this exact learned-address rule without
+tuning; one positive seed can only authorize an unchanged three-seed screen.
+
+### V2 prospective candidate lifecycle correction
+
+The initial v2 regression required all four prospective learned-address files
+to remain absent unconditionally. That made the contract impossible to execute:
+after a valid immutable plan, the required candidate implementation would fail
+the frozen full-test gate. EXP-20260901-0052 and its fully specified child
+EXP-20260901-0053 were therefore append-only invalidated before candidate code,
+runner-seed realization or scoring.
+
+The corrected fixture accepts exactly two lifecycle states: all four role
+wrappers absent before implementation, or all four present and importing one
+shared `learned_addressing_v1` implementation after preregistration. A partial
+bundle or a wrapper outside that common core fails. The correction changes no
+world, observation, target, metric, cost, threshold, control or scientific
+result. This service cycle creates no candidate or score; the next wake must
+use a new immutable child plan and may not add another design-only cycle unless
+integrity itself fails.
+
+### Latent entity binding retrieval v3 hierarchical-routing cohort
+
+V3 is a service-only successor to v2. It reuses the byte-identical v2 world
+generator, anonymous 24-channel raw observations, seven-view change-point
+bursts, held-out query views, K=`32/320/3200`, D=`1/4/8`, Q=`16`, local
+insertion, metrics, cost formulas, state boundary, runner-random seed policy and
+the raw-scan, dense-GRU and privileged-key controls. Historical v1/v2 plans,
+results, analyses, candidates and manifests remain immutable and cohort-
+separated. EXP-0054 is not reinterpreted.
+
+V3 changes the prospective causal mechanism from one flat 16-bit threshold
+address to node-conditional balanced hierarchical routing. Main, dense,
+frozen-encoder and shuffled-representation roles must share one encoder source,
+24-32-16 architecture, initialization, pair loss, fixed data order, recursive
+tree builder, query verifier, insertion rule, constants and accounting except
+for the preregistered learned/dense/frozen/shuffled intervention. Tree depth is
+balanced recursive median splitting to singleton leaves; each node chooses its
+maximum-variance source coordinate with lowest-coordinate and fit-index ties.
+Bounded search uses beam width four, visits at most 64 nodes per traversal step,
+has no fallback scan and verifies by squared learned distance with fit-index
+ties. Insertion follows one search path and may neither rebalance the tree nor
+refit the encoder.
+
+The mandatory classical control `raw_balanced_kd_tree_v1` is an exact raw-space
+nearest-neighbour tree: it recursively uses maximum-variance coordinate medians,
+performs lower-bound-pruned exact search and inserts along one path without
+rebuild. It is registered with implementation hashes and fixtures proving
+agreement with the raw full scan, genuinely node-conditional axes and local
+insertion. This prevents a conventional metric tree from being credited to
+learned representation.
+
+The migration creates no hypothesis, experiment plan, scoring seed, main
+candidate implementation or result. The next wake may preregister one HYP-0012
+quick only after the four prospective wrappers are still absent and the plan
+commits the v3 evaluator digest and every constant above. Success requires
+accuracy within `0.02` of source-identical dense access, strict learned gains
+over frozen and shuffled routing at every K, new-fact accuracy `1.0`, R4096 K
+slope below `0.30`, a prospectively declared matched-quality break-even and no
+implementable Pareto dominance by either raw classical access control or the
+dense neural control. A valid negative closes the exact tree rule without
+tuning; one positive seed only authorizes unchanged three-seed replication.
+
+#### V3 pre-seed plan-schema correction
+
+The first EXP-0055 preregistration attempt was rejected before file creation,
+registry mutation or seed realization because the protected plan schema still
+accepted only the flat v2 addressing fields. The corrected schema keeps that
+historical v2 object valid and adds one disjoint v3 object requiring the frozen
+hierarchical fields, roles and four controls. A mixed flat/hierarchical object
+is invalid. This service correction changes no evaluator, world, metric, cost,
+candidate, result or evidence. EXP-0055 remains reserved for a later wake.
+
+## Anonymous repeated-measurement OOD v1 maintenance outcome
+
+Cycle 240 performed the protected, service-only implementation and contract
+falsification audit of `BRIDGE-U1-U2-V1`. The evaluator fixes source dimension
+16, anonymous input dimension 32, acquisition scales K=`64/256/1024`, exactly
+two records per source, 256 single-record queries per condition, the four
+single-corruption training conditions and unseen combined-corruption S1/S2/S3
+conditions frozen in cycle 239. The target is exactly `z^T q / 16`. Main
+coordinate hiding is five-bit reversal and the adversarial hiding is
+`pi(j)=(7j+3) mod 32`.
+
+The relation graph is constructed from acquisition membership immediately
+after latent records and before probes, targets or nuisance are realized. A
+single global batch shuffle follows data generation. Correct, shuffled,
+passive, random, classical and evaluator-only oracle roles share byte-identical
+records, targets, queries, query targets and batch order; only relation tables
+or masks differ. Shuffled and random are degree-one perfect matchings with no
+true pair. Passive exposes the same interface with every relation mask false.
+Evaluation targets, latent state, nuisance labels and coordinate inverses do not
+cross the public contract.
+
+All leakage, source-identity, permutation, oracle, nuisance, scale, cost and
+classical-feasibility checks passed. Nevertheless the contract is classified
+`P3`: relation-free degree-2 polynomial ridge on the anonymous flat records
+achieves the frozen useful OOD ceiling at K=1024 (S1/S2/S3 NRMSE approximately
+0.522/0.538/0.653). Because queries are single records and the bilinear target
+is already a degree-2 function of the candidate-visible input, correct
+relations can at most alter finite-sample estimation; they do not select an
+otherwise unavailable query representation. The mandatory all-scale
+classical-control conjunction therefore cannot establish the intended
+relational discriminator.
+
+Decision `E - benchmark cannot discriminate relational advantage`. The v1
+evaluator and diagnostic history are frozen in `maintenance`; scoring is hard
+stopped, no hypothesis or experiment plan was created, no runner-random seed
+was realized, and EXP-99 was not created. This result must not be repaired by
+changing the target, thresholds, corruption, scales or controls, and no v2 may
+be opened in this cycle.
+
+## Orthogonal double-matching source-swap v1 falsification contract
+
+`RID-CONTRACT-001` is a distinct protected, service-only successor to the
+failed repeated-measurement discriminator; it does not reinterpret or mutate
+that cohort. It fixes latent dimension 16, anonymous input dimension 48 and
+auxiliary relation scales K=`64/256/1024`. A Haar-orthogonal block mixer
+`[A B D]` produces `x=A*s+B*n+D*q`, with `s,n` uniform on the radius-`sqrt(16)`
+sphere and `q` standard Gaussian. Labeled train and IID queries enforce `n=s`;
+OOD queries draw `s,n` independently without changing either marginal. The
+target is `q^T*s/sqrt(16)`. Consequently the two hidden interpretations are
+pointwise identical on train/IID, while their population OOD NRMSEs are zero
+and `sqrt(2)`; the symmetric passive extension has NRMSE `1/sqrt(2)`.
+
+Each auxiliary pool contains two symmetric, edge-disjoint hidden perfect
+matchings. Correct exposes only the first; shuffled and random preserve degree
+and edge count while colliding with neither hidden matching; passive exposes
+the same slot shape with every relation inactive. The candidate boundary
+contains only anonymous flat records, legal labeled targets, label masks and
+anonymous relation endpoints/masks. Bases, latent blocks, matching identities,
+twin-world identity, OOD identity, semantic names and inverse transforms remain
+evaluator-private. A paired world exchange `A<->B`, `s<->n` and `M_s<->M_n`
+must leave the full passive public transcript byte-identical while swapping the
+scientifically correct OOD interpretation.
+
+Certification requires exact twin-world and train/IID ambiguity checks; the
+analytic OOD discriminator; convergence of the correct symmetrized relation
+operator to `A*A^T`; convergence of collision-free null operators to zero;
+role bit-identity outside endpoints and masks; target-leakage and ontology
+firewalls; paired finite-sample symmetry; all three fixed scales; and a strong
+legal spectral/regularized-CCA projected quadratic control. The control fixes
+rank 16, ridge and CCA regularization `1e-6`, eigensolver tolerance `1e-10` and
+subspace-projector orientation handling before diagnostics. Accounting includes
+acquisition operations/bytes, relation construction/synchronization,
+preprocessing, spectral work, fit, query, update, bytes touched, state, peak
+memory, wall-time diagnostics and R1/R4/R16 workloads.
+
+Cycle 242 may only implement and try to falsify this contract. Candidate
+execution is hard stopped. It creates no hypothesis, immutable experiment plan,
+learned candidate, architecture selection, runner-random scoring seed, score or
+EXP-99. A result other than `A_RID_EVALUATOR_CERTIFIED` stops the branch without
+same-cycle repair, threshold changes or a v2. Even decision A only permits a
+later wake to preregister one frozen generic learner after independently
+justifying why it is not a hard-coded spectral/CCA control.
+
+## Held-out SuiteSparse cross-matrix prolongation v1
+
+Cycle 246 activates a distinct real-system cohort only after the cycle-243
+causal thesis and cycle-245 recycling discriminator were fixed. Twelve source
+matrices are meta-training observations; `ted_B_unscaled`, `shallow_water2`
+and `fv3` are held out. The learner receives only anonymous CSR shape,
+indptr, indices and numeric data. Matrix/group/application names, pair identity,
+paths, geometry, PDE labels and hand-written near-nullspaces remain evaluator
+private.
+
+Shared, independent, cross-family-only and support-only roles use one local
+implementation and constants and differ only in evaluator-selected source
+matrices. Mandatory controls are per-target standard and adaptive smoothed
+aggregation, frozen source-hierarchy reuse, fixed-P/R numeric refresh and
+unpreconditioned CG. All use `rtol=1e-7`, `atol=0` and at most 2000 iterations.
+A completed solve above the residual threshold is a low-quality result, not an
+infrastructure failure. The known `fv2 -> fv3` recycling failure is preserved.
+
+Pareto capability axes are matched-residual quality, iterations, acquisition,
+fit, hierarchy setup/update, sparse solve work, bytes, resident/peak state and
+R1/R4/R16 workload. Shared-versus-independent and cross-family-only-versus-
+support-only gains are promotion gates, not universal Pareto axes. Selecting
+between rebuild and reuse is a classical admission policy and cannot be
+credited to a learner. Cycle 246 creates no learned candidate, hypothesis,
+plan, runner-random seed or score; a later quick requires preregistration.

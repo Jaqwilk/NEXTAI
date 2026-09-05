@@ -1,0 +1,53 @@
+{
+  "kind": "postrun_readonly_gpu_metadata_diagnostic",
+  "created_at": "2026-09-05T14:20:58Z",
+  "experiment_id": "EXP-20260905-0002",
+  "training_performed": false,
+  "completed_experiment_modified": false,
+  "command": "nvidia-smi --query-gpu=driver_version,name --format=csv,noheader",
+  "observations": [
+    {
+      "case": "sanitized",
+      "return_code": 255,
+      "stdout": "Failed to initialize NVML: Unknown Error",
+      "stderr": ""
+    },
+    {
+      "case": "ordinary",
+      "return_code": 0,
+      "stdout": "551.78, NVIDIA GeForce RTX 4070",
+      "stderr": ""
+    },
+    {
+      "case": "ProgramData",
+      "return_code": 255,
+      "stdout": "Failed to initialize NVML: Unknown Error",
+      "stderr": ""
+    },
+    {
+      "case": "ProgramFiles",
+      "return_code": 0,
+      "stdout": "551.78, NVIDIA GeForce RTX 4070",
+      "stderr": ""
+    },
+    {
+      "case": "ProgramW6432",
+      "return_code": 0,
+      "stdout": "551.78, NVIDIA GeForce RTX 4070",
+      "stderr": ""
+    },
+    {
+      "case": "LOCALAPPDATA",
+      "return_code": 255,
+      "stdout": "Failed to initialize NVML: Unknown Error",
+      "stderr": ""
+    },
+    {
+      "case": "APPDATA",
+      "return_code": 255,
+      "stdout": "Failed to initialize NVML: Unknown Error",
+      "stderr": ""
+    }
+  ],
+  "limitation": "Post-run observations cannot recover in-run clocks/load or replace the null worker snapshot. No environment policy was changed."
+}

@@ -1,0 +1,859 @@
+schema_version = 1
+
+[project]
+name = "NEXTAI Autoresearch"
+objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
+generation = 2
+protocol_version = 3
+benchmark_version = "pc01_byte_lm_learning_measurement_v1"
+benchmark_status = "maintenance"
+timezone = "Europe/Warsaw"
+
+[laboratory]
+restart_id = "LAB-RESTART-20260904-V1"
+contract_path = "research/laboratory/restart.json"
+# Scoped activation: PC-01-ACTIVATION-20260905-V1.json, one dev attempt only.
+# Historical SuiteSparse and original preparation contract remain immutable.
+
+[relational_ood]
+bridge_contract = "BRIDGE-U1-U2-V1"
+source_dimension = 16
+input_dimension = 32
+acquisition_scales = [64, 256, 1024]
+measurements_per_source = 2
+queries_per_condition = 256
+main_coordinate_permutation = "five_bit_reversal"
+adversarial_coordinate_permutation = "pi(j)=(7*j+3) mod 32"
+roles = ["correct", "shuffled", "passive", "random", "classical", "oracle"]
+scoring_authorized = false
+maintenance_decision = "E_no_relational_discrimination"
+ridge_regularization = 0.001
+cca_regularization = 0.001
+cca_rank = 16
+numerical_tolerance = 1e-10
+cost_fields = [
+  "acquisition_ops", "acquisition_bytes", "relation_construction_ops",
+  "relation_synchronization_ops", "preprocessing_ops", "fit_ops",
+  "query_ops", "update_ops", "bytes_touched", "state_bytes", "peak_bytes",
+  "wall_time_seconds", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
+
+[relational_identifiability]
+contract = "RID-CONTRACT-001"
+latent_dimension = 16
+input_dimension = 48
+acquisition_scales = [64, 256, 1024]
+labeled_train_records = 2048
+queries_per_split = 4096
+roles = ["correct", "shuffled", "random", "passive"]
+record_law = "x=A*s+B*n+D*q with orthogonal [A B D]"
+train_iid_constraint = "n=s"
+ood_constraint = "s and n independent with unchanged sphere marginals"
+target = "q^T*s/sqrt(d)"
+correct_relation = "first hidden perfect matching only"
+null_relations = "degree-matched and collision-free against both hidden matchings"
+scoring_authorized = false
+maintenance_decision = "pending_falsification_audit"
+runner_random_seed_realized = false
+spectral_rank = 16
+ridge_regularization = 0.000001
+cca_regularization = 0.000001
+eigensolver_tolerance = 0.0000000001
+cost_fields = [
+  "acquisition_ops", "acquisition_bytes", "relation_construction_ops",
+  "relation_synchronization_ops", "preprocessing_ops", "spectral_ops",
+  "fit_ops", "query_ops", "update_ops", "bytes_touched", "state_bytes",
+  "peak_bytes", "wall_time_seconds", "workload_ops_r1", "workload_ops_r4",
+  "workload_ops_r16",
+]
+
+[codex]
+# Codex is the only research agent. No OpenAI API client or external model is used.
+one_bounded_cycle_per_scheduled_run = true
+reflection_every_completed_experiments = 12
+literature_review_every_completed_experiments = 6
+maximum_new_hypotheses_per_cycle = 3
+
+[active_sensor]
+training_world_seeds = [1103, 2207, 3301]
+knowledge_sizes = [8, 32, 128]
+probe_budgets = [4, 8, 16]
+queries_per_cell = 32
+sensor_count = 48
+support_repetitions = 3
+noise_std = 0.20
+shared_candidate = "shared_posterior_partition_decision_dag_v1"
+support_only_ablation = "source_identical_support_only_partition_dag_v1"
+frozen_representation_ablation = "source_identical_frozen_partition_dag_v1"
+source_identical_contract = "probe_boundary_constants_support_order_query_output_identical_except_meta_support_or_frozen_partition_policy_v1"
+classical_baselines = [
+  "raw_sensor_no_probe_prior_v1",
+  "raw_sensor_observe_all_v1",
+  "raw_sensor_random_probe_v1",
+  "raw_sensor_fisher_fixed_probe_v1",
+  "raw_sensor_gaussian_information_gain_v1",
+  "raw_sensor_kernel_information_gain_v1",
+  "privileged_raw_sensor_target_v1",
+]
+state_budget_bytes = 16777216
+pareto_capability_metrics = [
+  "accuracy", "minimum_family_accuracy", "mean_probe_count",
+  "data_acquisition_ops", "fit_ops", "meta_fit_ops", "mean_query_ops",
+  "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+  "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
+invalidation_rules = [
+  "Invalidate on any collision between fixed meta-training world seeds and the runner-random scoring seed.",
+  "Invalidate if an implementable candidate receives latent codes, sensor weights, label permutations, hidden targets or unprobed sensor values.",
+  "Invalidate unless every sensor access passes through the charged single-use probe interface.",
+  "Invalidate if the three source-identical causal roles differ outside meta-world access and preregistered representation learning versus freezing.",
+  "Invalidate unless the three v2 decision-DAG roles resolve to one implementation and frozen constants, differing only in the preregistered meta, support-only or frozen partition-policy source.",
+  "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change.",
+]
+
+[transfer]
+families = [
+  "context_specific_probabilistic_circuit_v1",
+  "action_conditioned_predictive_equivalence_v1",
+  "nonlinear_local_state_transfer_v1",
+  "behavioral_conjugacy_library_transfer_v1",
+]
+training_world_seeds = [1103, 2207, 3301]
+knowledge_sizes = [8, 32]
+reasoning_depths = [1, 4, 6]
+queries_per_cell = 8
+shared_candidate = "shared_sparse_set_memory_v1"
+independent_ablation = "independent_sparse_set_memory_v1"
+specialist_baselines = [
+  "specialist_contextual_chow_liu_suite_v2",
+  "specialist_empirical_joint_suite_v2",
+  "specialist_autoregressive_suite_v2",
+  "oracle_cross_family_suite_v2",
+]
+declared_horizons = [1, 4, 16]
+representation_interface = "lossless_family_neutral_structural_tokens_v2"
+learner_contract = "permutation_equivariant_induced_sparse_set_memory_v1"
+shared_slow_fit_scope = "pooled_training_worlds_only"
+test_support_adaptation = "same_frozen_set_encoder_and_memory_rule_charged"
+source_identical_dense_ablation = "source_identical_dense_set_attention_v1"
+source_identical_frozen_router_ablation = "source_identical_frozen_sparse_router_v1"
+role_implementation = "sparse_set_memory_core_v1"
+source_identical_contract = "tokenization_embedding_set_encoder_memory_initialization_fit_order_query_update_output_constants_and_accounting_identical_except_pooled_independent_sparse_dense_or_frozen_routing_v1"
+embedding_width = 32
+memory_slots = 32
+sparse_top_k = 4
+attention_heads = 1
+fit_epochs = 24
+batch_size = 32
+optimizer = "adam"
+learning_rate = 0.001
+routing_distance = "squared_euclidean"
+permutation_equivariance = "consistent_anonymous_token_and_world_permutation"
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any derived training and scoring seed collision.",
+  "Invalidate if the shared candidate receives a family label or privileged native object.",
+  "Invalidate if any training or test value is truncated, sampled or encoded by a family-specific rule.",
+  "Invalidate if test results, targets or oracle fields are available during pooled meta-fit.",
+  "Invalidate on candidate tuning after any scoring output is observed.",
+  "Invalidate if the shared source dispatches on family, native type, slot identity or a hand-written ontology.",
+  "Invalidate unless the four causal roles resolve to one implementation and frozen constants, differing only in pooled versus independent fit, sparse versus dense access, or learned versus frozen routing keys.",
+  "Invalidate if sparse access touches more than four of the 32 memory slots per query, if dense access touches fewer than all slots, or if routing, serialization, memory traffic, update or fallback work is omitted.",
+]
+
+[online_update]
+mechanisms = ["mixed_linear", "mixed_quadratic", "mixed_periodic"]
+training_stream_seeds = [1103, 2207]
+shared_candidate = "shared_meta_update"
+classical_baselines = [
+  "no_update_online",
+  "delta_lms_online",
+  "rls_kalman_online",
+  "polynomial_rls_online",
+  "kernel_dictionary_online",
+  "changepoint_bank_rls_online",
+  "bounded_replay_online",
+  "additive_fast_weights_online",
+  "delta_fast_weights_online",
+  "independent_meta_update",
+  "oracle_segmented_online",
+]
+declared_horizons = [1, 4, 16]
+state_budget_bytes_per_slot = 262144
+shared_state_budget_bytes = 65536
+invalidation_rules = [
+  "Invalidate on any training and scoring seed collision.",
+  "Invalidate if prediction occurs after target reveal or future observations are accessed.",
+  "Invalidate if a non-oracle candidate receives mechanism, regime, phase or boundary information.",
+  "Invalidate on post-score tuning or evaluator-integrity change.",
+]
+
+[compression]
+corpus_id = "nextai_local_repository_sha256_v1"
+shared_candidate = "surprise_gated_transition_machine_byte"
+causal_ablation_1 = "source_identical_dense_transition_machine_byte"
+causal_ablation_2 = "source_identical_frozen_transition_machine_byte"
+shared_candidate_v6 = "selective_diagonal_state_space_byte_v1"
+causal_ablation_1_v6 = "source_identical_fixed_selection_state_space_byte_v1"
+causal_ablation_2_v6 = "source_identical_recurrence_disabled_state_space_byte_v1"
+role_implementation_v6 = "selective_diagonal_state_space_byte_core_v1"
+source_identical_contract_v6 = "embedding_state_width_diagonal_dynamics_readout_initialization_fit_order_context_input_update_output_constants_and_accounting_identical_except_preregistered_input_selection_and_recurrence_v1"
+knowledge_sizes = [8, 20, 32]
+context_depths = [4, 16, 64]
+queries_per_cell = 8
+classical_baselines = [
+  "uniform_byte",
+  "empirical_unigram_byte",
+  "ppm_d_order5_byte",
+  "ctw_depth2_byte",
+  "lz_dictionary_byte",
+  "dense_autoregressive_byte",
+]
+declared_horizons = [1, 4, 16]
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any frozen corpus hash or byte-length mismatch.",
+  "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
+  "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
+  "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
+  "Invalidate if the three transition-machine roles differ in state width, transition map, constants, initialization, data order, context, input, reveal-update or output rule beyond the preregistered surprise-gate, dense-clock and transition-learning interventions.",
+  "Invalidate unless pre-seed semantic fixtures prove predict-before-reveal ordering, byte-relabeling equivariance, sparse no-event state preservation, dense-update execution on every revealed byte and explicit event/dense update cost.",
+]
+invalidation_rules_v6 = [
+  "Invalidate on any frozen corpus hash or byte-length mismatch.",
+  "Invalidate if an implementable candidate receives paths, roles, offsets, future bytes or another test slot's state.",
+  "Invalidate if test updates change shared slow state or tuning occurs after scoring output.",
+  "Invalidate if a mandatory PPM, CTW, LZ or dense autoregressive control is absent.",
+  "Invalidate unless all three state-space roles resolve to one implementation and share embedding, state width, diagonal dynamics, readout, initialization, fit order, context, input, update, output, constants and accounting, differing only in input-dependent versus fixed selection or recurrence-disabled intervention.",
+  "Invalidate unless pre-seed semantic fixtures prove a history-dependent selective state, fixed-selection behavior, recurrence-disabled memorylessness, predict-before-reveal ordering, byte-relabeling equivariance and explicit fit/query/update/state cost.",
+]
+
+[masked_refinement]
+corpus_id = "nextai_disjoint_masked_corpus_sha256_v1"
+knowledge_sizes = [8, 32]
+refinement_rounds = [1, 4, 6]
+queries_per_cell = 8
+span_lengths = [8, 32, 128]
+context_bytes = 64
+shared_candidate = "recursive_equality_grammar_masked_byte"
+one_pass_ablation = "source_identical_one_pass_predictive_code_masked_byte"
+causal_ablation_1 = "source_identical_flat_equality_grammar_masked_byte"
+causal_ablation_2 = "source_identical_frozen_equality_grammar_masked_byte"
+classical_baselines = [
+  "uniform_masked_byte",
+  "empirical_unigram_masked_byte",
+  "left_to_right_ppm_masked_byte",
+  "context_tree_weighting_masked_byte",
+  "dense_autoregressive_masked_byte",
+  "bidirectional_markov_masked_byte",
+  "parallel_markov_bp_masked_byte",
+  "privileged_conditional_masked_byte_v2",
+  "re_pair_grammar_masked_byte",
+]
+declared_horizons = [1, 4, 16]
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any frozen corpus mismatch or overlap with the EXP-0044 corpus.",
+  "Invalidate if a public query exposes a path, target byte, uncorrupted span or future refinement snapshot.",
+  "Invalidate if predictions within one round observe another prediction from that same round.",
+  "Invalidate if candidate critical-path work is sequentially hidden inside a declared simultaneous step.",
+  "Invalidate if the three equality-grammar roles differ in byte representation, grammar extractor, initialization, training data/order, constants, query alignment or output probabilities beyond the preregistered recursive, flat and frozen-grammar interventions.",
+  "Invalidate unless preregistered semantic fixtures prove that recursive completion requires at least two learned grammar levels, the flat ablation cannot solve that fixture, consistent byte relabeling preserves probabilities, no target is accessible and rule discovery, indexing, alignment and expansion work are explicit.",
+  "Invalidate unless the mandatory Re-Pair control passes its registered recursive-rule, completion and byte-relabeling semantic fixtures before seed realization.",
+  "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
+]
+
+[stack_depth]
+corpus_id = "nextai_real_python_stack_traces_sha256_v1"
+knowledge_sizes = [8, 32]
+stack_depths = [3, 4, 5]
+training_max_depth = 2
+queries_per_cell = 8
+shared_candidate = "learned_pushdown_masked_byte"
+causal_ablation_1 = "source_identical_finite_state_pushdown_masked_byte"
+causal_ablation_2 = "source_identical_frozen_pushdown_masked_byte"
+state_budget_bytes = 4194304
+invalidation_rules = [
+  "Invalidate on any frozen corpus mismatch or overlap between whole-file train, validation and test roles.",
+  "Invalidate unless training traces have maximum delimiter depth two and held-out scoring traces have exact depths three, four and five.",
+  "Invalidate if an implementable role receives source paths, unpermuted delimiters, token kinds or hand-written opener/closer identities.",
+  "Invalidate unless all pushdown roles share code and constants and differ only in learned stack state, bounded finite state or frozen transition learning.",
+  "Invalidate if a public query exposes any masked target, another test slot, or an evaluator-private delimiter identity.",
+  "Invalidate on post-score tuning, seed leakage, byte-permutation leakage or evaluator-integrity change.",
+]
+
+[recombination]
+state_count = 144
+mechanism_source_seed = 1103
+source_mechanisms = ["program_table", "predictive_transition_outcome", "local_dynamics_rule"]
+train_compositions = ["A", "B", "C", "AB", "BC", "CA"]
+heldout_compositions = ["CBAC"]
+shared_candidate = "experience_operator_compiler"
+independent_ablation = "experience_operator_independent"
+no_cross_mechanism_ablation = "experience_operator_no_pairing"
+classical_baselines = [
+  "operator_interpreter",
+  "operator_exact_key_cache",
+  "operator_structural_result_cache",
+  "operator_canonical_table_cache",
+  "operator_anti_unification_cache",
+  "operator_nearest_canonical",
+  "operator_random",
+]
+declared_horizons = [1, 4, 16]
+knowledge_sizes = [8, 32, 128]
+exposure_counts = [1, 4, 16]
+composition_lengths_v6 = [4, 8, 16]
+heldout_compositions_v6 = ["CBAC", "CBACABAC", "CBACABACBCABCBAC"]
+shared_candidate_v6 = "learned_macro_operator_dag"
+independent_ablation_v6 = "source_identical_rebuild_macro_operator_dag"
+no_cross_mechanism_ablation_v6 = "source_identical_frozen_macro_operator_dag"
+source_identical_contract_v6 = "term_encoding_constants_initialization_training_order_execution_output_and_update_code_identical_except_preregistered_cross_query_macro_learning_and_reuse_v1"
+queries_per_cell = 8
+state_budget_bytes = 4194304
+pareto_capability_metrics = [
+  "accuracy",
+  "warm_accuracy",
+  "near_equivalent_accuracy",
+  "minimum_combination_accuracy",
+  "continual_new_fact_accuracy",
+  "continual_retention",
+  "false_reuse_rate",
+  "data_acquisition_ops",
+  "fit_ops",
+  "meta_fit_ops",
+  "mean_query_ops",
+  "mean_warm_query_ops",
+  "update_ops",
+  "state_bytes",
+  "peak_state_bytes",
+  "mean_bytes_touched",
+  "workload_ops_r1",
+  "workload_ops_r4",
+  "workload_ops_r16",
+]
+invalidation_rules = [
+  "Invalidate on any overlap between the length-one/two training programs and the held-out length-four composition.",
+  "Invalidate if primitive labels, native source families or evaluator canonical tables reach an implementable candidate.",
+  "Invalidate unless positive re-encodings are raw-distinct and exact-equivalent and pair-breaking negatives change the operator.",
+  "Invalidate if scoring conjugation or any runner-random program is realized before integrity and source audit.",
+  "Invalidate on target access before prediction, post-score tuning, state-budget breach or evaluator-integrity change.",
+  "Invalidate if exposure 1, 4 and 16 costs are extrapolated instead of measured through fresh re-encodings.",
+]
+invalidation_rules_v6 = [
+  "Invalidate on any overlap between the length-one/two training programs and the held-out length-four/eight/sixteen compositions.",
+  "Invalidate if primitive labels, native source families or evaluator canonical tables reach an implementable candidate.",
+  "Invalidate unless all source-identical roles share term encoding, constants, initialization, training order, execution, output and update code.",
+  "Invalidate if scoring conjugation or any runner-random program is realized before integrity and source audit.",
+  "Invalidate on target access before prediction, post-score tuning, state-budget breach or evaluator-integrity change.",
+  "Invalidate unless composition depths 4, 8 and 16 and sixteen fresh re-encoding exposures per cell are executed rather than extrapolated.",
+]
+
+[continuous_local_cellular]
+knowledge_sizes = [64, 256, 1024]
+reasoning_depths = [4, 8, 16]
+queries_per_cell = 8
+training_transitions = 384
+minimum_nrmse_gain = 0.01
+state_budget_bytes = 16777216
+shared_candidate = "evolved_anonymous_local_rule_program"
+dense_ablation = "source_identical_shuffled_fitness_local_rule_program"
+frozen_ablation = "source_identical_frozen_population_local_rule_program"
+shared_candidate_v5 = "error_novelty_split_local_expert_tree_v1"
+dense_ablation_v5 = "source_identical_shuffled_split_local_expert_tree_v1"
+frozen_ablation_v5 = "source_identical_frozen_partition_local_expert_tree_v1"
+shared_candidate_v6 = "learned_predictive_coordinate_chart_v1"
+dense_ablation_v6 = "source_identical_shuffled_predictive_coordinate_chart_v1"
+frozen_ablation_v6 = "source_identical_frozen_predictive_coordinate_chart_v1"
+classical_baselines = [
+  "continuous_local_persistence",
+  "continuous_local_ridge",
+  "continuous_local_quantized_fsm",
+  "continuous_local_kernel_event",
+  "privileged_continuous_local_support",
+]
+pareto_capability_metrics = [
+  "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+  "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+  "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+  "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+  "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
+invalidation_rules = [
+  "Invalidate if training latent amplitudes overlap the held-out scoring amplitude interval.",
+  "Invalidate if an implementable role receives latent coordinates, encoder permutation/signs, targets before prediction or privileged local coefficients.",
+  "Invalidate unless all three prospective roles share anonymous inputs, program language, initial population, constants, proposal order, execution, output bounds and accounting, differing only in true-fitness, preregistered shuffled-fitness or frozen-population selection.",
+  "Invalidate if dormant zero cells are omitted from dense-control cost or implicitly scanned without charging operations and bytes.",
+  "Invalidate if corruption is generated after the clean target is exposed or if repair uses evaluator-private channel semantics.",
+  "Invalidate if the program language, population size, mutation/recombination operators, selection rule, generation count, clipping or tie rule changes after any scoring output.",
+  "Invalidate if candidate fitness uses scoring worlds, scoring targets, family labels, native mechanism names or evaluator-private coefficients.",
+  "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+  "For continuous_local_cellular_v5, invalidate unless all three tree roles use identical anonymous inputs, features, constants, initialization, fit order, prediction, update, output bounds and accounting and differ only in error/novelty-aligned, preregistered shuffled, or frozen partition decisions.",
+  "For continuous_local_cellular_v5, invalidate if a split threshold, tree capacity, leaf model, novelty rule, shuffle, clipping or tie rule is selected from scoring worlds or changed after scoring output.",
+  "For continuous_local_cellular_v6, invalidate unless all three chart roles use identical anonymous inputs, chart capacity, feature library, fit order, prediction, update, output bounds and accounting and differ only in aligned, preregistered shuffled, or frozen chart selection.",
+  "For continuous_local_cellular_v6, invalidate if a coordinate chart, reconstruction or prediction score, bottleneck dimension, feature library, shuffle, clipping or tie rule is selected from scoring worlds or changed after scoring output.",
+]
+
+[whole_io_search]
+knowledge_sizes = [8, 16, 32]
+reasoning_depths = [1, 4, 6]
+queries_per_cell = 8
+shared_candidate = "learned_amortized_constraint_order_vm"
+support_only_ablation = "source_identical_support_only_constraint_order_vm"
+frozen_ablation = "source_identical_frozen_constraint_order_vm"
+shared_candidate_v4 = "learned_verified_incumbent_program_vm"
+support_only_ablation_v4 = "source_identical_support_only_verified_incumbent_program_vm"
+frozen_ablation_v4 = "source_identical_frozen_verified_incumbent_program_vm"
+shared_candidate_v5 = "learned_certified_pattern_bound_program_vm"
+support_only_ablation_v5 = "source_identical_support_only_certified_pattern_bound_program_vm"
+frozen_ablation_v5 = "source_identical_frozen_certified_pattern_bound_program_vm"
+classical_baselines = [
+  "random_whole_io", "nearest_whole_io", "dense_whole_io",
+  "enumerative_mdl_vm", "oracle_latent_vm",
+]
+state_budget_bytes = 16777216
+pareto_capability_metrics = [
+  "accuracy", "program_induction_accuracy", "length_extrapolation_accuracy",
+  "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+  "mean_search_ops", "update_ops", "state_bytes", "peak_state_bytes",
+  "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
+invalidation_rules = [
+  "Invalidate if any implementable role receives the hidden program, execution trace or task identity.",
+  "Invalidate unless all three causal roles share the exact complete solver, objective, bound, ties, constants, support parser, verifier, fallback, fixed branch order, execution and output.",
+  "Invalidate if the roles differ beyond the preregistered meta, support-only or frozen source of the initial incumbent proposal.",
+  "Invalidate unless every proposal is verified or rejected and the unchanged solver proves the same minimum-error MDL optimum as complete enumeration.",
+  "Invalidate if acquisition, proposal/meta-fit, verification, every visited fallback node, execution, query, update, state or bytes touched is omitted from full cost.",
+  "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change.",
+]
+invalidation_rules_v5 = [
+  "Invalidate if any implementable role receives the hidden program, execution trace or task identity.",
+  "Invalidate unless all three causal roles share the exact complete solver, objective, initial incumbent, branch order, ties, support parser, execution and output.",
+  "Invalidate if the roles differ beyond the preregistered meta, support-only or frozen source of an admissible pattern bound.",
+  "Invalidate unless every learned bound is mechanically certified admissible before pruning and the unchanged solver proves the same minimum-error MDL optimum as complete enumeration.",
+  "Invalidate if acquisition, pattern induction, certification, every visited fallback node, execution, query, update, state or bytes touched is omitted from full cost.",
+  "Invalidate on post-score tuning, external model or API use, state-budget breach or evaluator-integrity change.",
+]
+
+[dronepropa]
+corpus_id = "dronepropa_doi_10.17632_ftdyxrr3c5_v1"
+files_manifest = "research/data/dronepropa_v1/files.jsonl"
+files_manifest_sha256 = "76a27c66b38b634cbee362a8a2af250b02b2a1dea44eb9328d1d731472b24f53"
+split_manifest = "research/checks/dronepropa_anonymous_split_v2.jsonl"
+split_manifest_sha256 = "fddd1c98aae13460ec58af25dbbea94f6f25177486da59a1e94f6a25f844a0e4"
+archive_sha256 = "a7255dc4393a2314ba2a684beb3684106dbb6de23ba141eaa0529bd21ba3d825"
+archive_bytes = 4438911840
+extracted_bytes = 4537694153
+input_qdrone_rows_1based = [47, 49, 51, 53]
+state_qdrone_rows_1based = [27, 28, 29, 30, 31, 32]
+excluded_esc_rows_1based = [48, 50, 52, 54]
+history_samples = 32
+train_anchors_per_file = 128
+adaptation_anchors_per_file = 32
+evaluation_anchors_per_file = 128
+shared_candidate = "shared_operator_subspace_arx"
+independent_ablation = "source_identical_independent_arx_v1"
+no_sharing_ablation = "no_sharing_pooled_arx_v1"
+classical_baselines = [
+  "persistence_state_v1",
+  "ridge_arx_v1",
+  "rls_arx_v1",
+  "nearest_operator_template_v1",
+  "source_identical_independent_arx_v1",
+  "no_sharing_pooled_arx_v1",
+  "empirical_gaussian_joint_v1",
+  "contextual_gaussian_chow_liu_v1",
+  "privileged_all_condition_support_arx_v3",
+  "privileged_same_condition_support_arx_v3",
+]
+privileged_support_control = "privileged_same_condition_support_arx_v3"
+teacher_forced_horizon = 1
+rollout_horizons = [10, 50]
+declared_horizons = [1, 10, 50]
+state_budget_bytes = 67108864
+declared_reuses = [1, 4, 16]
+invalidation_rules = [
+  "Invalidate on any archive, file-manifest, split-manifest, raw MAT or numeric-payload hash mismatch.",
+  "Invalidate if any implementable candidate receives a source name, path, factor label, trajectory, speed, drone, repetition, timestamp or condition ID.",
+  "Invalidate if any file or history/target window crosses train, validation, test, OOD or privileged-oracle-support roles.",
+  "Invalidate if any candidate-visible feature reads outside the frozen adaptation boundary or if evaluation targets reach fit/adaptation.",
+  "Invalidate if normalization, rank, ridge, horizons, anchors, thresholds or baseline semantics change after scoring output.",
+  "Invalidate if a mandatory baseline hash or conformance test fails before runner seed realization.",
+  "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+]
+
+[three_family_continuous]
+families = ["ncmapss_ds08a", "dronepropa", "continuous_event"]
+tensor_contract_sha256 = "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"
+shared_candidate = "shared_invariant_residual_module_v1"
+independent_ablation = "independent_invariant_residual_module_v1"
+cross_family_only_ablation = "cross_family_only_invariant_residual_module_v1"
+support_only_ablation = "support_only_invariant_residual_module_v1"
+pooled_without_invariance_ablation = "pooled_without_invariance_residual_module_v1"
+frozen_partition_ablation = "frozen_partition_invariant_residual_module_v1"
+classical_baselines = [
+  "tensor_persistence_v1",
+  "tensor_ridge_arx_v1",
+  "tensor_rls_arx_v1",
+  "tensor_empirical_gaussian_joint_v1",
+  "tensor_contextual_gaussian_chow_liu_v1",
+  "tensor_autoregressive_v1",
+  "tensor_raw_window_local_linear_v1",
+  "tensor_random_projection_hash_v1",
+  "privileged_tensor_support_v1",
+]
+privileged_support_control = "privileged_tensor_support_v1"
+knowledge_sizes = [4, 6, 9]
+reasoning_depths = [1]
+state_budget_bytes = 67108864
+declared_reuses = [1, 4, 16]
+invalidation_rules = [
+  "Invalidate if any candidate receives a family label, source path, native type or semantic channel name.",
+  "Invalidate if normalization reads a holdout output or any value outside assigned slow-fit worlds.",
+  "Invalidate if a history, support or forecast window crosses a whole-world or DS08a cycle boundary.",
+  "Invalidate if shared, independent, cross-family-only or support-only changes learner source or hyperparameters.",
+  "Invalidate if any invariant-module role reads World.slot or uses a tensor mask signature, valid width or family-identifying shape as a routing key.",
+  "Invalidate unless all six causal roles share relation extraction, module representation, fit order, prediction, update, constants and accounting, differing only in assigned training scope, disabled environment-stability selection or frozen partition.",
+  "Invalidate if masked loss is not averaged within world and equally across the three evaluator-private families.",
+  "Invalidate if acquisition, normalization, fit, adaptation, query, update, bytes, state or R1/R4/R16 cost is omitted.",
+  "Invalidate on post-score tuning, scoring-seed leakage, external model/API use or evaluator-integrity change.",
+]
+
+[wt_prequential]
+corpus_id = "causal_chambers_wt_changepoints_v1"
+manifest_sha256 = "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e"
+train_files = [0, 1, 2, 3, 4, 5]
+development_files = [6, 7]
+test_files = [8, 9]
+shared_candidate = "wt_action_conditioned_predictive_state_v1"
+causal_ablation_1 = "wt_source_identical_frozen_predictive_state_v1"
+causal_ablation_2 = "wt_source_identical_observation_history_v1"
+shared_candidate_v4 = "wt_error_triggered_eligibility_trace_v1"
+causal_ablation_1_v4 = "wt_source_identical_frozen_eligibility_trace_v1"
+causal_ablation_2_v4 = "wt_source_identical_shuffled_eligibility_trace_v1"
+causal_ablation_3_v4 = "wt_source_identical_dense_eligibility_trace_v1"
+role_implementation_v4 = "wt_local_credit_trace_core_v1"
+shared_candidate_v5 = "wt_learned_particle_proposal_predictive_state_v1"
+causal_ablation_1_v5 = "wt_source_identical_bootstrap_particle_proposal_v1"
+causal_ablation_2_v5 = "wt_source_identical_deterministic_posterior_mean_v1"
+role_implementation_v5 = "wt_particle_proposal_predictive_state_core_v1"
+classical_baselines = [
+  "wt_persistence_v1",
+  "wt_pooled_mean_v1",
+  "wt_control_level_bank_v1",
+  "wt_lms_v1",
+  "wt_rls_v1",
+  "wt_transition_bank_v1",
+  "wt_bounded_replay_v1",
+  "wt_ridge_fir_v1",
+  "wt_coverage_aware_spectral_psr_v1",
+  "wt_train_only_discretized_cssr_v1",
+]
+knowledge_sizes = [18, 36, 54]
+horizons = [16, 32, 96]
+fit_depth = 32
+fit_horizon = 32
+state_budget_bytes = 16777216
+declared_reuses = [1, 4, 16]
+saturation_nrmse = 0.50
+saturation_worst_file_nrmse = 0.75
+invalidation_rules = [
+  "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+  "Invalidate if train, development or test whole-file roles overlap.",
+  "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+  "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+  "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+  "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+  "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+  "Invalidate if the three predictive-state roles differ in windows, rank, features, control conditioning, constants, initialization, fit order, update schedule or output rule beyond the preregistered state-learning, frozen-state and observation-history interventions.",
+  "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
+  "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+]
+invalidation_rules_v4 = [
+  "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+  "Invalidate if train, development or test whole-file roles overlap.",
+  "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+  "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+  "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+  "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+  "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+  "Invalidate unless all four causal roles share features, initialization, fit order, prediction, rollout, update, constants and accounting, differing only by the preregistered error gate, temporal credit alignment or dense-credit intervention.",
+  "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
+  "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+]
+invalidation_rules_v5 = [
+  "Invalidate on any archive, manifest or frozen CSV hash mismatch.",
+  "Invalidate if train, development or test whole-file roles overlap.",
+  "Invalidate if a candidate receives native channel names, file identity, marker, timestamp or future control schedule.",
+  "Invalidate if a target is revealed before the complete prediction artifact is validated and frozen.",
+  "Invalidate if normalization or mechanical channel discovery reads development or test outcomes.",
+  "Invalidate if a test update mutates shared slow state or another anonymous slot.",
+  "Invalidate if any mandatory baseline hash or semantic conformance test fails before seed realization.",
+  "Invalidate unless all three causal roles share state features, initialization, fit order, prediction, update, constants, particle budget, output and accounting, differing only by the preregistered learned, bootstrap or deterministic proposal aggregation.",
+  "Invalidate if a causal role uses family or channel names, a hand-written ontology, future controls, test targets before reveal, replay, a global refit or another slot's state.",
+  "Invalidate on post-score tuning, external model/API use, state-budget breach or evaluator-integrity change.",
+]
+
+[entity_addressing]
+knowledge_sizes = [32, 320, 3200]
+reasoning_depths = [1, 4, 8]
+queries_per_cell = 16
+observation_dimension = 24
+encoder_widths = [24, 32, 16]
+key_bits = 16
+probes = 4
+bucket_capacity = 8
+verifier_candidates = 8
+fallback_candidates = 32
+fit_epochs = 32
+batch_size = 64
+optimizer = "adam"
+learning_rate = 0.001
+meaningful_quality_margin = 0.02
+maximum_k_cost_slope = 0.30
+state_budget_bytes = 67108864
+declared_reuses = [1, 4, 16, 256, 4096]
+shared_candidate = "learned_discrete_address_index_v1"
+dense_ablation = "source_identical_dense_scan_v1"
+frozen_ablation = "source_identical_frozen_encoder_index_v1"
+shuffled_ablation = "source_identical_shuffled_representation_index_v1"
+classical_baselines = [
+  "raw_nearest_neighbour_scan_v1",
+  "local_dense_transition_gru_v1",
+  "privileged_exact_entity_key_v1",
+]
+source_identical_contract = "encoder_architecture_initialization_data_order_output_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_addressing_v1"
+invalidation_rules = [
+  "Invalidate if an implementable role receives entity IDs, ready keys, latent coordinates, family/class labels, paths, scoring targets or privileged routing.",
+  "Invalidate if encoder fitting sees runner-random test queries or outcomes, or if any constant changes after scoring output.",
+  "Invalidate unless the four causal roles share encoder source, architecture, initialization, data order, outputs, verifier, update, constants and accounting outside the registered representation/access intervention.",
+  "Invalidate if fallback examines more than 32 records or grows with K, if local insertion triggers global encoder refit, or if encoder/routing/index/verifier/fallback cost or bytes are omitted.",
+  "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change.",
+]
+
+[hierarchical_addressing]
+knowledge_sizes = [32, 320, 3200]
+reasoning_depths = [1, 4, 8]
+queries_per_cell = 16
+observation_dimension = 24
+encoder_widths = [24, 32, 16]
+fit_epochs = 32
+batch_size = 64
+optimizer = "adam"
+learning_rate = 0.001
+tree_depth_rule = "balanced_recursive_median_until_singleton"
+split_objective = "node_local_maximum_source_variance"
+split_ties = "lowest_coordinate_then_fit_index"
+beam_width = 4
+visited_node_cap = 64
+verifier = "squared_learned_distance_with_fit_index_tie"
+fallback_candidates = 0
+update = "single_search_path_leaf_insert_without_rebalance_or_encoder_refit"
+meaningful_quality_margin = 0.02
+maximum_k_cost_slope = 0.30
+state_budget_bytes = 67108864
+declared_reuses = [1, 4, 16, 256, 4096]
+shared_candidate = "learned_balanced_hierarchical_router_v1"
+dense_ablation = "source_identical_dense_hierarchical_representation_v1"
+frozen_ablation = "source_identical_frozen_hierarchical_router_v1"
+shuffled_ablation = "source_identical_shuffled_hierarchical_router_v1"
+classical_baselines = [
+  "raw_balanced_kd_tree_v1",
+  "raw_nearest_neighbour_scan_v1",
+  "local_dense_transition_gru_v1",
+  "privileged_exact_entity_key_v1",
+]
+source_identical_contract = "encoder_architecture_initialization_pair_loss_data_order_tree_builder_query_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_hierarchical_routing_v1"
+invalidation_rules = [
+  "Invalidate if an implementable role receives entity IDs, ready keys, latent coordinates, family/class labels, paths, scoring targets or privileged routing.",
+  "Invalidate if encoder or tree fitting sees runner-random test queries or outcomes, or if any constant changes after scoring output.",
+  "Invalidate unless the four causal roles share encoder source, architecture, initialization, pair loss, data order, tree construction, query, verifier, update, constants and accounting outside the registered learned/dense/frozen/shuffled intervention.",
+  "Invalidate if routing is equivalent to the completed flat 16-bit threshold code, visits more than 64 nodes per traversal step, uses a K-growing fallback, or insertion triggers global encoder refit or tree rebuild.",
+  "Invalidate if encoder, tree construction, node traversal, verification, update, state or bytes touched are omitted from full cost.",
+  "Invalidate on pretrained weights, model API, network use, state-budget breach, seed leakage, missing mandatory control, preflight mismatch or evaluator-integrity change.",
+]
+
+[suitesparse_cross_matrix]
+dataset_id = "suitesparse_real_pde_v1"
+target_sizes = [9801, 10605, 81920]
+reasoning_depths = [1]
+queries_per_cell = 1
+relative_residual_maximum = 0.0000001
+maximum_iterations = 2000
+declared_horizons = [1, 4, 16]
+state_budget_bytes = 1073741824
+shared_candidate = "shared_anonymous_prolongation_v1"
+independent_ablation = "independent_anonymous_prolongation_v1"
+cross_family_only_ablation = "cross_family_only_anonymous_prolongation_v1"
+support_only_ablation = "support_only_anonymous_prolongation_v1"
+classical_baselines = [
+  "target_standard_sa_v1",
+  "target_adaptive_sa_v1",
+  "source_frozen_hierarchy_v1",
+  "fixed_pr_numeric_refresh_v1",
+  "unpreconditioned_cg_v1",
+]
+source_identical_contract = "anonymous_csr_numeric_operator_core_constants_fit_build_output_and_accounting_identical_except_preregistered_source_matrix_scope_v1"
+pareto_capability_metrics = [
+  "accuracy", "transfer_accuracy", "minimum_family_accuracy",
+  "relative_residual", "solver_iterations", "data_acquisition_ops",
+  "preprocessing_ops", "fit_ops", "adaptation_ops", "mean_query_ops",
+  "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+  "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+]
+invalidation_rules = [
+  "Invalidate if any held-out target or target-derived outcome is visible during fit.",
+  "Invalidate if an implementable role receives group, matrix name, application kind, pair identity, geometry, PDE label, path, hand-written near-nullspace or family-specific constants.",
+  "Invalidate unless shared, independent, cross-family-only and support-only use one implementation and constants and differ only in evaluator-selected source matrices.",
+  "Invalidate if a result omits acquisition, fit, hierarchy build or update, every sparse solve operation, bytes, resident and peak state or R1 R4 R16 workload.",
+  "Invalidate on residual above the declared quality gate being treated as success, post-score tuning, seed leakage, missing control, baseline semantic mismatch, preflight mismatch or evaluator-integrity change.",
+]
+
+[execution]
+mode = "audited_subprocess"
+allow_network_in_candidate = false
+require_source_audit = true
+poll_interval_seconds = 0.10
+kill_grace_seconds = 2.0
+stale_lock_seconds = 7200
+allow_legacy_fixed_seed_plans = false
+allowed_import_roots = [
+  "__future__",
+  "abc",
+  "collections",
+  "dataclasses",
+  "functools",
+  "heapq",
+  "itertools",
+  "math",
+  "nextai_autoresearch",
+  "numpy",
+  "pyamg",
+  "random",
+  "scipy",
+  "statistics",
+  "torch",
+  "typing",
+]
+forbidden_builtins = ["open", "eval", "exec", "compile", "__import__", "input"]
+
+[budgets.quick]
+wall_seconds_per_candidate = 180
+max_rss_mb = 1536
+knowledge_sizes = [8, 32]
+reasoning_depths = [1]
+queries_per_cell = 128
+development_seeds = [1103]
+scoring_seed_count = 1
+
+[budgets.screen]
+wall_seconds_per_candidate = 600
+max_rss_mb = 4096
+knowledge_sizes = [8, 32, 64]
+reasoning_depths = [1]
+queries_per_cell = 128
+development_seeds = [1103, 2207, 3301]
+scoring_seed_count = 3
+
+[budgets.deep]
+wall_seconds_per_candidate = 1800
+max_rss_mb = 10240
+knowledge_sizes = [16, 32, 64]
+reasoning_depths = [1]
+queries_per_cell = 128
+development_seeds = [1103, 2207, 3301, 4409, 5519]
+scoring_seed_count = 5
+
+[decision]
+minimum_screen_accuracy = 0.95
+minimum_replication_seeds = 3
+maximum_relative_seed_cv = 0.10
+promotion_requires_screen = true
+promotion_requires_non_dominated_result = true
+promotion_requires_prior_art_check = true
+promotion_requires_no_integrity_violation = true
+promotion_requires_deep = true
+promotion_requires_adversarial_variant = true
+minimum_promotion_results = 2
+falsification_requires_discriminating_test = true
+minimum_scaling_points = 3
+
+[metrics]
+maximize = [
+  "accuracy",
+  "continual_new_fact_accuracy",
+  "continual_retention",
+  "warm_accuracy",
+  "near_equivalent_accuracy",
+  "transfer_accuracy",
+  "minimum_family_accuracy",
+  "minimum_combination_accuracy",
+  "exact_span_accuracy",
+  "stable_rollout_rate",
+  "oracle_gap_closed",
+  "privileged_support_gain",
+  "minimum_condition_transfer_gain",
+  "minimum_trajectory_transfer_gain",
+  "shared_vs_independent_gain",
+  "cross_family_transfer_gain",
+  "worst_phase_accuracy",
+  "post_switch_recovery",
+  "recurrence_retention",
+  "reuse_precision",
+  "reuse_coverage",
+  "program_induction_accuracy",
+  "length_extrapolation_accuracy",
+]
+minimize = [
+  "mean_query_ops",
+  "mean_warm_query_ops",
+  "p95_latency_us",
+  "state_bytes",
+  "fit_seconds",
+  "fit_ops",
+  "meta_fit_ops",
+  "data_acquisition_ops",
+  "mean_input_ops",
+  "mean_comparisons",
+  "mean_search_ops",
+  "mean_probe_count",
+  "mean_bytes_touched",
+  "update_ops",
+  "workload_ops",
+  "workload_ops_r1",
+  "workload_ops_r4",
+  "workload_ops_r16",
+  "workload_ops_r256",
+  "workload_ops_r4096",
+  "peak_state_bytes",
+  "false_reuse_rate",
+  "conditional_probability_mae",
+  "prequential_loss",
+  "bits_per_byte",
+  "cold_bits_per_byte",
+  "worst_file_bits_per_byte",
+  "compression_ratio",
+  "distractor_interference",
+  "critical_path_steps",
+  "worst_span_bits_per_byte",
+  "conditional_log_loss",
+  "normalized_rmse",
+  "relative_residual",
+  "solver_iterations",
+  "worst_file_normalized_rmse",
+  "worst_transition_normalized_rmse",
+  "rollout_16_nrmse",
+  "rollout_32_nrmse",
+  "rollout_96_nrmse",
+  "worst_flight_normalized_rmse",
+  "worst_condition_normalized_rmse",
+  "teacher_forced_nrmse",
+  "rollout_10_nrmse",
+  "rollout_50_nrmse",
+  "preprocessing_ops",
+  "adaptation_ops",
+  "calibration_error",
+  "circuit_nodes",
+  "knowledge_compute_slope",
+  "depth_compute_slope",
+]

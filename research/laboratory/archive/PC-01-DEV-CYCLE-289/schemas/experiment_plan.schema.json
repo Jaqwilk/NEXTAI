@@ -1,0 +1,3131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextai.local/schemas/experiment_plan.schema.json",
+  "title": "Immutable experiment preregistration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "parent_experiment_id",
+    "created_at",
+    "status",
+    "hypothesis_id",
+    "title",
+    "research_question",
+    "architecture_family",
+    "candidates",
+    "benchmark",
+    "budget",
+    "matrix",
+    "primary_metrics",
+    "predicted_outcome",
+    "falsification_criteria",
+    "promotion_criteria",
+    "alternative_explanations",
+    "confounds",
+    "outcome_policy",
+    "git_before"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "experiment_id": {"type": "string", "pattern": "^EXP-[0-9]{8}-[0-9]{4}$"},
+    "parent_experiment_id": {
+      "type": ["string", "null"],
+      "pattern": "^EXP-[0-9]{8}-[0-9]{4}$"
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "status": {"const": "planned"},
+    "hypothesis_id": {"type": "string", "pattern": "^HYP-[0-9]{4}$"},
+    "title": {"type": "string", "minLength": 5, "maxLength": 180},
+    "research_question": {"type": "string", "minLength": 20},
+    "architecture_family": {"type": "string", "minLength": 2},
+    "candidates": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "benchmark": {"type": "string", "minLength": 3},
+    "evaluator_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "budget": {"enum": ["quick", "screen", "deep"]},
+    "matrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["knowledge_sizes", "reasoning_depths", "queries_per_cell"],
+      "oneOf": [
+        {"required": ["seeds"], "not": {"required": ["seed_policy"]}},
+        {"required": ["seed_policy"], "not": {"required": ["seeds"]}}
+      ],
+      "properties": {
+        "knowledge_sizes": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 4},
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "reasoning_depths": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 1},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "queries_per_cell": {"type": "integer", "minimum": 1},
+        "seeds": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 0},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "seed_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["method", "count", "minimum", "maximum"],
+          "properties": {
+            "method": {"const": "runner_random_v1"},
+            "count": {"type": "integer", "minimum": 1, "maximum": 64},
+            "minimum": {"type": "integer", "minimum": 0},
+            "maximum": {"type": "integer", "minimum": 1, "maximum": 2147483647}
+          }
+        }
+      }
+    },
+    "primary_metrics": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "metric_directions": {
+      "type": "object",
+      "additionalProperties": {"enum": ["maximize", "minimize"]},
+      "minProperties": 1
+    },
+    "transfer_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "families",
+        "training_world_seeds",
+        "test_world_seed_source",
+        "shared_candidate",
+        "specialist_baselines",
+        "family_specific_rules",
+        "family_labels",
+        "test_tuning",
+        "declared_horizons",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "families": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3},
+          "minItems": 3,
+          "maxItems": 4,
+          "uniqueItems": true
+        },
+        "training_world_seeds": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 0},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "test_world_seed_source": {"const": "runner_scoring_seeds"},
+        "shared_candidate": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "independent_ablation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "specialist_baselines": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "family_specific_rules": {"const": "forbidden"},
+        "family_labels": {"const": "forbidden"},
+        "test_tuning": {"const": "forbidden"},
+        "representation_interface": {
+          "const": "lossless_family_neutral_structural_tokens_v2"
+        },
+        "learner_contract": {"type": "string", "minLength": 12},
+        "shared_slow_fit_scope": {"const": "pooled_training_worlds_only"},
+        "test_support_adaptation": {
+          "enum": [
+            "same_frozen_rule_charged",
+            "same_frozen_fragment_extractor_charged",
+            "same_frozen_set_encoder_and_memory_rule_charged"
+          ]
+        },
+        "fragment_capacity": {"type": "integer", "minimum": 2},
+        "composition_rule": {"type": "string", "minLength": 12},
+        "permutation_equivariance": {"type": "string", "minLength": 12},
+        "source_identical_dense_ablation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "source_identical_frozen_router_ablation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "role_implementation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "source_identical_contract": {"type": "string", "minLength": 24},
+        "embedding_width": {"type": "integer", "minimum": 1},
+        "memory_slots": {"type": "integer", "minimum": 2},
+        "sparse_top_k": {"type": "integer", "minimum": 1},
+        "attention_heads": {"type": "integer", "minimum": 1},
+        "fit_epochs": {"type": "integer", "minimum": 1},
+        "batch_size": {"type": "integer", "minimum": 1},
+        "optimizer": {"type": "string", "minLength": 3},
+        "learning_rate": {"type": "number", "exclusiveMinimum": 0},
+        "routing_distance": {"type": "string", "minLength": 3},
+        "test_result_access_during_fit": {"const": "forbidden"},
+        "declared_horizons": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 1},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "state_budget_bytes": {"type": "integer", "minimum": 65536},
+        "invalidation_rules": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 12},
+          "minItems": 1
+        }
+      }
+    },
+    "online_update_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mechanisms",
+        "training_stream_seeds",
+        "test_stream_seed_source",
+        "predict_then_reveal",
+        "shared_candidate",
+        "classical_baselines",
+        "mechanism_labels",
+        "test_tuning",
+        "declared_horizons",
+        "state_budget_bytes_per_slot",
+        "shared_state_budget_bytes",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "mechanisms": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3},
+          "minItems": 3,
+          "uniqueItems": true
+        },
+        "training_stream_seeds": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 0},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "test_stream_seed_source": {"const": "runner_scoring_seeds"},
+        "predict_then_reveal": {"const": true},
+        "shared_candidate": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "classical_baselines": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+          "minItems": 5,
+          "uniqueItems": true
+        },
+        "mechanism_labels": {"const": "forbidden"},
+        "test_tuning": {"const": "forbidden"},
+        "declared_horizons": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 1},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "state_budget_bytes_per_slot": {"type": "integer", "minimum": 1024},
+        "shared_state_budget_bytes": {"type": "integer", "minimum": 1024},
+        "invalidation_rules": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 12},
+          "minItems": 1
+        }
+      }
+    },
+    "compression_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "corpus_id",
+        "split_unit",
+        "test_file_access",
+        "predict_then_reveal",
+        "shared_candidate",
+        "classical_baselines",
+        "shared_slow_state_updates",
+        "test_tuning",
+        "declared_horizons",
+        "state_budget_bytes",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "corpus_id": {"const": "nextai_local_repository_sha256_v1"},
+        "split_unit": {"const": "whole_files_sha256"},
+        "test_file_access": {"const": "evaluator_only"},
+        "predict_then_reveal": {"const": true},
+        "shared_candidate": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "classical_baselines": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+          "minItems": 5,
+          "uniqueItems": true,
+          "anyOf": [
+            {"allOf": [
+              {"contains": {"const": "ppm_byte"}},
+              {"contains": {"const": "context_tree_weighting_byte"}},
+              {"contains": {"const": "lz_dictionary_byte"}},
+              {"contains": {"const": "dense_autoregressive_byte"}}
+            ]},
+            {"allOf": [
+              {"contains": {"const": "ppm_d_order5_byte"}},
+              {"contains": {"const": "ctw_depth2_byte"}},
+              {"contains": {"const": "lz_dictionary_byte"}},
+              {"contains": {"const": "dense_autoregressive_byte"}}
+            ]}
+          ]
+        },
+        "shared_slow_state_updates": {"const": "forbidden"},
+        "test_tuning": {"const": "forbidden"},
+        "declared_horizons": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 1},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "state_budget_bytes": {"type": "integer", "minimum": 65536},
+        "credit_assignment_roles": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true
+        },
+        "causal_roles": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true
+        },
+        "role_implementation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+        "source_identical_contract": {"type": "string", "minLength": 24},
+        "pareto_capability_metrics": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "invalidation_rules": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 12},
+          "minItems": 1
+        }
+      }
+    },
+    "masked_refinement_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "corpus_id",
+        "split_unit",
+        "test_file_access",
+        "simultaneous_snapshot_rounds",
+        "span_lengths",
+        "context_bytes",
+        "runner_random_masks_and_permutation",
+        "shared_candidate",
+        "classical_baselines",
+        "declared_horizons",
+        "state_budget_bytes",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "corpus_id": {"enum": ["nextai_disjoint_masked_corpus_sha256_v1", "nextai_real_python_stack_traces_sha256_v1"]},
+        "split_unit": {"const": "whole_files_sha256"},
+        "test_file_access": {"const": "evaluator_only"},
+        "simultaneous_snapshot_rounds": {"const": true},
+        "span_lengths": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 2},
+          "minItems": 3,
+          "uniqueItems": true,
+          "contains": {"const": 128}
+        },
+        "context_bytes": {"type": "integer", "minimum": 8},
+        "runner_random_masks_and_permutation": {"const": true},
+        "shared_candidate": {
+          "enum": [
+            "iterative_masked_learner",
+            "local_sparse_predictive_code_masked_byte",
+            "parallel_born_mps_masked_byte",
+            "sparse_learned_energy_factor_graph_masked_byte",
+            "recursive_equality_grammar_masked_byte",
+            "learned_pushdown_masked_byte"
+          ]
+        },
+        "one_pass_ablation": {
+          "enum": [
+            "one_pass_masked_learner",
+            "source_identical_one_pass_predictive_code_masked_byte"
+          ]
+        },
+        "causal_ablation_2": {
+          "enum": [
+            "source_identical_frozen_code_predictive_byte",
+            "source_identical_frozen_born_mps_masked_byte",
+            "source_identical_frozen_energy_factor_graph_masked_byte",
+            "source_identical_frozen_equality_grammar_masked_byte",
+            "source_identical_frozen_pushdown_masked_byte"
+          ]
+        },
+        "causal_ablation_1": {
+          "enum": [
+            "source_identical_sequential_born_mps_masked_byte",
+            "source_identical_one_sweep_energy_factor_graph_masked_byte",
+            "source_identical_flat_equality_grammar_masked_byte",
+            "source_identical_finite_state_pushdown_masked_byte"
+          ]
+        },
+        "source_identical_contract": {"type": "string", "minLength": 24},
+        "training_max_depth": {"type": "integer", "minimum": 1},
+        "test_depths": {
+          "type": "array", "items": {"type": "integer", "minimum": 2},
+          "minItems": 3, "uniqueItems": true
+        },
+        "task_unit": {"type": "string", "minLength": 16},
+        "classical_baselines": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"},
+          "minItems": 8,
+          "uniqueItems": true,
+          "allOf": [
+            {"contains": {"const": "left_to_right_ppm_masked_byte"}},
+            {"contains": {"const": "context_tree_weighting_masked_byte"}},
+            {"contains": {"const": "dense_autoregressive_masked_byte"}},
+            {"contains": {"const": "bidirectional_markov_masked_byte"}},
+            {"contains": {"const": "parallel_markov_bp_masked_byte"}}
+          ]
+        },
+        "declared_horizons": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 1},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "state_budget_bytes": {"type": "integer", "minimum": 65536},
+        "invalidation_rules": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 12},
+          "minItems": 4
+        }
+      }
+    },
+    "mechanism_recombination_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_count", "mechanism_source_seed", "source_mechanisms",
+        "train_compositions", "heldout_compositions",
+        "runner_random_state_conjugation", "equal_public_shapes",
+        "shared_candidate", "independent_ablation", "no_cross_mechanism_ablation",
+        "classical_baselines", "declared_horizons", "state_budget_bytes",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "state_count": {"const": 144},
+        "mechanism_source_seed": {"const": 1103},
+        "source_mechanisms": {"const": ["program_table", "predictive_transition_outcome", "local_dynamics_rule"]},
+        "train_compositions": {"oneOf": [
+          {"const": ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]},
+          {"const": ["A", "B", "C", "AB", "BC", "CA"]}
+        ]},
+        "heldout_compositions": {"oneOf": [
+          {"const": ["CB"]},
+          {"const": ["CBAC"]},
+          {"const": ["CBAC", "CBACABAC", "CBACABACBCABCBAC"]}
+        ]},
+        "runner_random_state_conjugation": {"const": true},
+        "equal_public_shapes": {"const": true},
+        "shared_candidate": {"enum": ["shared_latent_mechanism_library", "operator_algebra_completion", "experience_operator_compiler", "learned_macro_operator_dag"]},
+        "independent_ablation": {"enum": ["independent_latent_mechanism_library", "operator_algebra_independent", "experience_operator_independent", "source_identical_rebuild_macro_operator_dag"]},
+        "no_cross_mechanism_ablation": {"enum": ["no_cross_mechanism_factorizer", "operator_algebra_no_relations", "experience_operator_no_pairing", "source_identical_frozen_macro_operator_dag"]},
+        "classical_baselines": {"oneOf": [
+          {"const": ["unigram_recombination", "markov5_recombination", "nearest_template_recombination", "exact_mdl_module_library", "oracle_composition_graph"]},
+          {"const": ["operator_interpreter", "operator_exact_key_cache", "operator_structural_result_cache", "operator_canonical_table_cache", "operator_anti_unification_cache", "operator_nearest_canonical", "operator_random"]}
+        ]},
+        "declared_horizons": {"const": [1, 4, 16]},
+        "composition_lengths": {"const": [4, 8, 16]},
+        "exposure_count": {"const": 16},
+        "source_identical_contract": {"type": "string", "minLength": 24},
+        "state_budget_bytes": {"type": "integer", "minimum": 65536},
+        "pareto_capability_metrics": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "invalidation_rules": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 12},
+          "minItems": 5
+        }
+      }
+    },
+    "continuous_local_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shared_candidate", "dense_ablation", "frozen_ablation",
+        "classical_baselines", "source_identical_contract", "state_budget_bytes",
+        "minimum_nrmse_gain", "pareto_capability_metrics", "invalidation_rules"
+      ],
+      "properties": {
+        "shared_candidate": {"enum": ["learned_sparse_continuous_local_rule", "learned_factorized_flux_reaction_local_rule", "learned_dyadic_lifted_local_propagator", "evolved_anonymous_local_rule_program", "error_novelty_split_local_expert_tree_v1", "learned_predictive_coordinate_chart_v1"]},
+        "dense_ablation": {"enum": ["source_identical_dense_continuous_local_rule", "source_identical_monolithic_local_flow_rule", "source_identical_sequential_lifted_local_propagator", "source_identical_shuffled_fitness_local_rule_program", "source_identical_shuffled_split_local_expert_tree_v1", "source_identical_shuffled_predictive_coordinate_chart_v1"]},
+        "frozen_ablation": {"enum": ["source_identical_frozen_continuous_local_rule", "source_identical_frozen_flux_reaction_local_rule", "source_identical_frozen_lift_dyadic_local_propagator", "source_identical_frozen_population_local_rule_program", "source_identical_frozen_partition_local_expert_tree_v1", "source_identical_frozen_predictive_coordinate_chart_v1"]},
+        "classical_baselines": {"const": [
+          "continuous_local_persistence", "continuous_local_ridge",
+          "continuous_local_quantized_fsm", "continuous_local_kernel_event",
+          "privileged_continuous_local_support"
+        ]},
+        "source_identical_contract": {"enum": [
+          "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1",
+          "anonymous_inputs_constants_rows_initialization_update_order_output_bounds_identical_except_factorized_monolithic_or_frozen_learning_v2",
+          "anonymous_inputs_constants_lift_features_fit_update_output_identical_except_dyadic_sequential_or_frozen_propagation_v3",
+          "anonymous_inputs_program_language_population_constants_proposals_execution_output_identical_except_true_shuffled_or_frozen_fitness_selection_v4",
+          "anonymous_inputs_features_constants_initialization_fit_prediction_update_accounting_identical_except_error_novelty_split_shuffled_split_or_frozen_partition_v5",
+          "anonymous_inputs_chart_capacity_feature_library_fit_prediction_update_accounting_identical_except_aligned_shuffled_or_frozen_predictive_coordinate_chart_v6"
+        ]},
+        "state_budget_bytes": {"const": 16777216},
+        "minimum_nrmse_gain": {"const": 0.01},
+        "pareto_capability_metrics": {
+          "type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true
+        },
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5
+        }
+      }
+    },
+    "whole_io_search_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shared_candidate", "support_only_ablation", "frozen_ablation",
+        "classical_baselines", "source_identical_contract", "state_budget_bytes",
+        "pareto_capability_metrics", "invalidation_rules"
+      ],
+      "properties": {
+        "shared_candidate": {"enum": ["learned_amortized_constraint_order_vm", "learned_verified_incumbent_program_vm", "learned_certified_pattern_bound_program_vm"]},
+        "support_only_ablation": {"enum": ["source_identical_support_only_constraint_order_vm", "source_identical_support_only_verified_incumbent_program_vm", "source_identical_support_only_certified_pattern_bound_program_vm"]},
+        "frozen_ablation": {"enum": ["source_identical_frozen_constraint_order_vm", "source_identical_frozen_verified_incumbent_program_vm", "source_identical_frozen_certified_pattern_bound_program_vm"]},
+        "classical_baselines": {"const": [
+          "random_whole_io", "nearest_whole_io", "dense_whole_io",
+          "enumerative_mdl_vm", "oracle_latent_vm"
+        ]},
+        "source_identical_contract": {"enum": ["complete_solver_objective_ties_support_execution_output_identical_except_meta_support_or_frozen_search_priority_v1", "complete_solver_objective_bounds_ties_support_execution_output_verifier_fallback_and_fixed_branch_order_identical_except_meta_support_or_frozen_initial_incumbent_v1", "complete_solver_objective_initial_incumbent_branch_order_ties_support_execution_output_identical_except_meta_support_or_frozen_admissible_pattern_bound_v1"]},
+        "role_implementation": {"enum": ["verified_incumbent_program_vm_core_v1", "certified_pattern_bound_program_vm_core_v1"]},
+        "state_budget_bytes": {"const": 16777216},
+        "pareto_capability_metrics": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+        "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5}
+      }
+    },
+    "active_sensor_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "training_world_seeds", "test_world_seed_source", "raw_sensor_values",
+        "shared_candidate", "support_only_ablation", "frozen_representation_ablation",
+        "classical_baselines", "sensor_count", "support_repetitions", "noise_std",
+        "source_identical_contract", "state_budget_bytes", "pareto_capability_metrics",
+        "scout_only_no_promotion", "invalidation_rules"
+      ],
+      "properties": {
+        "training_world_seeds": {"const": [1103, 2207, 3301]},
+        "test_world_seed_source": {"const": "runner_scoring_seeds"},
+        "raw_sensor_values": {"const": "anonymous_continuous_single_probe_access"},
+        "shared_candidate": {"enum": ["shared_raw_sensor_probe_learner_v1", "shared_posterior_partition_decision_dag_v1"]},
+        "support_only_ablation": {"enum": ["source_identical_support_only_raw_sensor_probe_v1", "source_identical_support_only_partition_dag_v1"]},
+        "frozen_representation_ablation": {"enum": ["source_identical_frozen_raw_sensor_probe_v1", "source_identical_frozen_partition_dag_v1"]},
+        "classical_baselines": {"const": [
+          "raw_sensor_no_probe_prior_v1", "raw_sensor_observe_all_v1",
+          "raw_sensor_random_probe_v1", "raw_sensor_fisher_fixed_probe_v1",
+          "raw_sensor_gaussian_information_gain_v1", "raw_sensor_kernel_information_gain_v1",
+          "privileged_raw_sensor_target_v1"
+        ]},
+        "sensor_count": {"const": 48},
+        "support_repetitions": {"const": 3},
+        "noise_std": {"const": 0.2},
+        "source_identical_contract": {"enum": ["encoder_probe_policy_constants_support_order_query_update_output_identical_except_meta_world_access_and_preregistered_representation_learning_or_freezing_v1", "probe_boundary_constants_support_order_query_output_identical_except_meta_support_or_frozen_partition_policy_v1"]},
+        "state_budget_bytes": {"const": 16777216},
+        "pareto_capability_metrics": {"const": [
+          "accuracy", "minimum_family_accuracy", "mean_probe_count",
+          "data_acquisition_ops", "fit_ops", "meta_fit_ops", "mean_query_ops",
+          "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+          "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+        ]},
+        "scout_only_no_promotion": {"const": true},
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5
+        }
+      }
+    },
+    "dronepropa_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "corpus_id", "split_unit", "split_manifest_sha256", "candidate_metadata",
+        "shared_candidate", "independent_ablation", "no_sharing_ablation",
+        "classical_baselines", "history_samples", "train_anchors_per_file",
+        "adaptation_anchors_per_file", "evaluation_anchors_per_file",
+        "teacher_forced_horizon", "rollout_horizons",
+        "runner_random_evaluation_anchors", "future_controls", "future_targets",
+        "test_tuning", "state_budget_bytes", "declared_reuses", "invalidation_rules"
+      ],
+      "properties": {
+        "corpus_id": {"const": "dronepropa_doi_10.17632_ftdyxrr3c5_v1"},
+        "split_unit": {"const": "whole_mat_file_sha256"},
+        "split_manifest_sha256": {"const": "fddd1c98aae13460ec58af25dbbea94f6f25177486da59a1e94f6a25f844a0e4"},
+        "candidate_metadata": {"const": "anonymous_slots_only"},
+        "shared_candidate": {"const": "shared_operator_subspace_arx"},
+        "independent_ablation": {"const": "source_identical_independent_arx_v1"},
+        "no_sharing_ablation": {"const": "no_sharing_pooled_arx_v1"},
+        "classical_baselines": {"oneOf": [
+          {"const": ["persistence_state_v1", "ridge_arx_v1", "rls_arx_v1", "nearest_operator_template_v1", "source_identical_independent_arx_v1", "no_sharing_pooled_arx_v1", "empirical_gaussian_joint_v1", "contextual_gaussian_chow_liu_v1", "oracle_charged_condition_specialist_arx_v2", "privileged_same_condition_oracle_arx_v2"]},
+          {"const": ["persistence_state_v1", "ridge_arx_v1", "rls_arx_v1", "nearest_operator_template_v1", "source_identical_independent_arx_v1", "no_sharing_pooled_arx_v1", "empirical_gaussian_joint_v1", "contextual_gaussian_chow_liu_v1", "privileged_all_condition_support_arx_v3", "privileged_same_condition_support_arx_v3"]}
+        ]},
+        "privileged_support_control": {"const": "privileged_same_condition_support_arx_v3"},
+        "history_samples": {"const": 32},
+        "train_anchors_per_file": {"const": 128},
+        "adaptation_anchors_per_file": {"const": 32},
+        "evaluation_anchors_per_file": {"const": 128},
+        "teacher_forced_horizon": {"const": 1},
+        "rollout_horizons": {"const": [10, 50]},
+        "runner_random_evaluation_anchors": {"const": true},
+        "future_controls": {"const": "evaluator_supplied_identically"},
+        "future_targets": {"const": "forbidden"},
+        "test_tuning": {"const": "forbidden"},
+        "state_budget_bytes": {"const": 67108864},
+        "declared_reuses": {"const": [1, 4, 16]},
+        "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 7}
+      }
+    },
+    "suitesparse_transfer_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataset_id", "candidate_boundary", "target_metadata",
+        "target_result_access_during_fit", "shared_candidate",
+        "independent_ablation", "cross_family_only_ablation",
+        "support_only_ablation", "classical_baselines",
+        "source_identical_contract", "relative_residual_maximum",
+        "maximum_iterations", "declared_horizons", "state_budget_bytes",
+        "pareto_capability_metrics", "invalidation_rules"
+      ],
+      "properties": {
+        "dataset_id": {"const": "suitesparse_real_pde_v1"},
+        "candidate_boundary": {"const": "anonymous_csr_shape_indptr_indices_data_only"},
+        "target_metadata": {"const": "evaluator_private"},
+        "target_result_access_during_fit": {"const": "forbidden"},
+        "shared_candidate": {"const": "shared_anonymous_prolongation_v1"},
+        "independent_ablation": {"const": "independent_anonymous_prolongation_v1"},
+        "cross_family_only_ablation": {"const": "cross_family_only_anonymous_prolongation_v1"},
+        "support_only_ablation": {"const": "support_only_anonymous_prolongation_v1"},
+        "classical_baselines": {"const": [
+          "target_standard_sa_v1", "target_adaptive_sa_v1",
+          "source_frozen_hierarchy_v1", "fixed_pr_numeric_refresh_v1",
+          "unpreconditioned_cg_v1"
+        ]},
+        "source_identical_contract": {"const": "anonymous_csr_numeric_operator_core_constants_fit_build_output_and_accounting_identical_except_preregistered_source_matrix_scope_v1"},
+        "relative_residual_maximum": {"const": 1e-7},
+        "maximum_iterations": {"const": 2000},
+        "declared_horizons": {"const": [1, 4, 16]},
+        "state_budget_bytes": {"const": 1073741824},
+        "pareto_capability_metrics": {"const": [
+          "accuracy", "transfer_accuracy", "minimum_family_accuracy",
+          "relative_residual", "solver_iterations", "data_acquisition_ops",
+          "preprocessing_ops", "fit_ops", "adaptation_ops", "mean_query_ops",
+          "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+          "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+        ]},
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12},
+          "minItems": 5
+        }
+      }
+    },
+    "continuous_transfer_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "families", "tensor_contract_sha256", "shared_candidate",
+        "independent_ablation", "cross_family_only_ablation", "support_only_ablation",
+        "classical_baselines", "privileged_support_control", "family_labels",
+        "semantic_channel_alignment", "normalization", "loss", "state_budget_bytes",
+        "declared_reuses", "invalidation_rules"
+      ],
+      "properties": {
+        "families": {"const": ["ncmapss_ds08a", "dronepropa", "continuous_event"]},
+        "tensor_contract_sha256": {"const": "63c0e64273a1ffb2d4fd2fd6f24fc2d8701066ef9fd07d46eafeefa73fbf0296"},
+        "shared_candidate": {"enum": ["shared_tensor_dynamics_v1", "shared_predictive_index_v1", "shared_bounded_recurrent_residual_v1", "shared_local_update_law_v1", "shared_invariant_residual_module_v1"]},
+        "independent_ablation": {"enum": ["independent_tensor_dynamics_v1", "independent_predictive_index_v1", "independent_bounded_recurrent_residual_v1", "independent_local_update_law_v1", "independent_invariant_residual_module_v1"]},
+        "cross_family_only_ablation": {"enum": ["cross_family_only_tensor_dynamics_v1", "cross_family_only_predictive_index_v1", "cross_family_only_bounded_recurrent_residual_v1", "cross_family_only_local_update_law_v1", "cross_family_only_invariant_residual_module_v1"]},
+        "support_only_ablation": {"enum": ["support_only_tensor_dynamics_v1", "support_only_predictive_index_v1", "support_only_bounded_recurrent_residual_v1", "support_only_local_update_law_v1", "support_only_invariant_residual_module_v1"]},
+        "classical_baselines": {"oneOf": [
+          {"const": [
+            "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
+            "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
+            "tensor_autoregressive_v1", "privileged_tensor_support_v1"
+          ]},
+          {"const": [
+            "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
+            "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
+            "tensor_autoregressive_v1", "tensor_raw_window_local_linear_v1",
+            "tensor_random_projection_hash_v1", "privileged_tensor_support_v1"
+          ]}
+        ]},
+        "privileged_support_control": {"const": "privileged_tensor_support_v1"},
+        "family_labels": {"const": "evaluator_private"},
+        "semantic_channel_alignment": {"const": "forbidden"},
+        "normalization": {"const": "masked_training_worlds_only"},
+        "loss": {"const": "family_balanced_masked_normalized_mse"},
+        "state_budget_bytes": {"const": 67108864},
+        "declared_reuses": {"const": [1, 4, 16]},
+        "pareto_capability_metrics": {"oneOf": [
+          {"const": [
+            "transfer_accuracy", "minimum_family_accuracy", "stable_rollout_rate",
+            "normalized_rmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+            "adaptation_ops", "mean_query_ops", "state_bytes", "peak_state_bytes",
+            "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+          ]},
+          {"const": [
+            "transfer_accuracy", "minimum_family_accuracy", "stable_rollout_rate",
+            "normalized_rmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+            "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+            "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+            "workload_ops_r4", "workload_ops_r16"
+          ]}
+        ]},
+        "causal_promotion_gates": {"const": [
+          "shared_vs_independent_gain", "cross_family_transfer_gain"
+        ]},
+        "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 7}
+      }
+    },
+    "wt_prequential_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "corpus_id", "manifest_sha256", "split_unit", "train_files",
+        "development_files", "test_files", "candidate_metadata",
+        "predict_then_atomic_artifact_then_reveal", "shared_candidate",
+        "classical_baselines", "knowledge_sizes", "fit_depth", "fit_horizon",
+        "declared_horizons", "runner_random_channel_permutation",
+        "normalization", "state_budget_bytes", "declared_reuses",
+        "minimum_meaningful_nrmse_effect", "saturation_nrmse",
+        "saturation_worst_file_nrmse", "pareto_capability_metrics",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "corpus_id": {"const": "causal_chambers_wt_changepoints_v1"},
+        "manifest_sha256": {"const": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e"},
+        "split_unit": {"const": "whole_csv_file_sha256"},
+        "train_files": {"const": [0, 1, 2, 3, 4, 5]},
+        "development_files": {"const": [6, 7]},
+        "test_files": {"const": [8, 9]},
+        "candidate_metadata": {"const": "anonymous_permuted_tensors_and_random_slot_only"},
+        "predict_then_atomic_artifact_then_reveal": {"const": true},
+        "shared_candidate": {"enum": [
+          "wt_candidate_under_test", "wt_multiresolution_lifting_v1",
+          "wt_action_conditioned_predictive_state_v1",
+          "wt_error_triggered_eligibility_trace_v1",
+          "wt_learned_particle_proposal_predictive_state_v1"
+        ]},
+        "causal_roles": {"oneOf": [
+          {"const": [
+            "wt_multiresolution_lifting_v1",
+            "wt_source_identical_single_scale_lifting_v1",
+            "wt_source_identical_frozen_lifting_v1"
+          ]},
+          {"const": [
+            "wt_action_conditioned_predictive_state_v1",
+            "wt_source_identical_frozen_predictive_state_v1",
+            "wt_source_identical_observation_history_v1"
+          ]},
+          {"const": [
+            "wt_error_triggered_eligibility_trace_v1",
+            "wt_source_identical_frozen_eligibility_trace_v1",
+            "wt_source_identical_shuffled_eligibility_trace_v1",
+            "wt_source_identical_dense_eligibility_trace_v1"
+          ]},
+          {"const": [
+            "wt_learned_particle_proposal_predictive_state_v1",
+            "wt_source_identical_bootstrap_particle_proposal_v1",
+            "wt_source_identical_deterministic_posterior_mean_v1"
+          ]}
+        ]},
+        "source_identical_contract": {"enum": [
+          "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1",
+          "history_future_windows_rank_features_control_conditioning_constants_initialization_fit_order_update_schedule_and_output_identical_except_preregistered_predictive_state_learning_freeze_or_observation_history_projection_v1",
+          "features_initialization_fit_order_prediction_rollout_update_constants_and_accounting_identical_except_preregistered_error_gate_temporal_credit_alignment_or_dense_credit_v1",
+          "state_features_initialization_fit_order_prediction_update_constants_particle_budget_output_and_accounting_identical_except_preregistered_learned_bootstrap_or_deterministic_proposal_aggregation_v1"
+        ]},
+        "role_implementation": {"enum": [
+          "wt_local_credit_trace_core_v1",
+          "wt_particle_proposal_predictive_state_core_v1"
+        ]},
+        "classical_baselines": {"oneOf": [
+          {"const": [
+            "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+            "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+            "wt_bounded_replay_v1", "wt_ridge_fir_v1"
+          ]},
+          {"const": [
+            "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+            "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+            "wt_bounded_replay_v1", "wt_ridge_fir_v1",
+            "wt_coverage_aware_spectral_psr_v1", "wt_train_only_discretized_cssr_v1"
+          ]}
+        ]},
+        "knowledge_sizes": {"const": [18, 36, 54]},
+        "fit_depth": {"const": 32},
+        "fit_horizon": {"const": 32},
+        "declared_horizons": {"const": [16, 32, 96]},
+        "runner_random_channel_permutation": {"const": true},
+        "normalization": {"const": "train_files_only_mechanical_partition"},
+        "state_budget_bytes": {"const": 16777216},
+        "declared_reuses": {"const": [1, 4, 16]},
+        "minimum_meaningful_nrmse_effect": {"const": 0.1325268421060828},
+        "saturation_nrmse": {"const": 0.5},
+        "saturation_worst_file_nrmse": {"const": 0.75},
+        "pareto_capability_metrics": {"const": [
+          "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
+          "worst_transition_normalized_rmse", "rollout_16_nrmse", "rollout_32_nrmse",
+          "rollout_96_nrmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+          "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+          "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+          "workload_ops_r4", "workload_ops_r16"
+        ]},
+        "invalidation_rules": {
+          "type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 8
+        }
+      }
+    },
+    "entity_addressing_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_dimension", "encoder_widths", "fallback_candidates",
+        "fit_epochs", "batch_size", "optimizer", "learning_rate",
+        "meaningful_quality_margin", "maximum_k_cost_slope", "state_budget_bytes",
+        "declared_reuses", "shared_candidate", "dense_ablation", "frozen_ablation",
+        "shuffled_ablation", "classical_baselines", "source_identical_contract",
+        "invalidation_rules"
+      ],
+      "properties": {
+        "observation_dimension": {"const": 24},
+        "encoder_widths": {"const": [24, 32, 16]},
+        "key_bits": {"const": 16}, "probes": {"const": 4},
+        "bucket_capacity": {"const": 8}, "verifier_candidates": {"const": 8},
+        "tree_depth_rule": {"const": "balanced_recursive_median_until_singleton"},
+        "split_objective": {"const": "node_local_maximum_source_variance"},
+        "split_ties": {"const": "lowest_coordinate_then_fit_index"},
+        "beam_width": {"const": 4}, "visited_node_cap": {"const": 64},
+        "verifier": {"const": "squared_learned_distance_with_fit_index_tie"},
+        "update": {"const": "single_search_path_leaf_insert_without_rebalance_or_encoder_refit"},
+        "fallback_candidates": {"enum": [0, 32]},
+        "fit_epochs": {"const": 32},
+        "batch_size": {"const": 64},
+        "optimizer": {"const": "adam"},
+        "learning_rate": {"const": 0.001},
+        "meaningful_quality_margin": {"const": 0.02},
+        "maximum_k_cost_slope": {"const": 0.3},
+        "state_budget_bytes": {"const": 67108864},
+        "declared_reuses": {"const": [1, 4, 16, 256, 4096]},
+        "shared_candidate": {"type": "string"}, "dense_ablation": {"type": "string"},
+        "frozen_ablation": {"type": "string"}, "shuffled_ablation": {"type": "string"},
+        "classical_baselines": {"type": "array", "items": {"type": "string"}},
+        "source_identical_contract": {"type": "string"},
+        "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 5}
+      },
+      "oneOf": [
+        {
+          "required": ["key_bits", "probes", "bucket_capacity", "verifier_candidates"],
+          "properties": {
+            "fallback_candidates": {"const": 32},
+            "shared_candidate": {"const": "learned_discrete_address_index_v1"},
+            "dense_ablation": {"const": "source_identical_dense_scan_v1"},
+            "frozen_ablation": {"const": "source_identical_frozen_encoder_index_v1"},
+            "shuffled_ablation": {"const": "source_identical_shuffled_representation_index_v1"},
+            "classical_baselines": {"const": ["raw_nearest_neighbour_scan_v1", "local_dense_transition_gru_v1", "privileged_exact_entity_key_v1"]},
+            "source_identical_contract": {"const": "encoder_architecture_initialization_data_order_output_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_addressing_v1"}
+          }
+        },
+        {
+          "required": ["tree_depth_rule", "split_objective", "split_ties", "beam_width", "visited_node_cap", "verifier", "update"],
+          "properties": {
+            "fallback_candidates": {"const": 0},
+            "shared_candidate": {"const": "learned_balanced_hierarchical_router_v1"},
+            "dense_ablation": {"const": "source_identical_dense_hierarchical_representation_v1"},
+            "frozen_ablation": {"const": "source_identical_frozen_hierarchical_router_v1"},
+            "shuffled_ablation": {"const": "source_identical_shuffled_hierarchical_router_v1"},
+            "classical_baselines": {"const": ["raw_balanced_kd_tree_v1", "raw_nearest_neighbour_scan_v1", "local_dense_transition_gru_v1", "privileged_exact_entity_key_v1"]},
+            "source_identical_contract": {"const": "encoder_architecture_initialization_pair_loss_data_order_tree_builder_query_verifier_update_constants_and_accounting_identical_except_learned_dense_frozen_or_shuffled_hierarchical_routing_v1"}
+          }
+        }
+      ]
+    },
+    "predicted_outcome": {"type": "string", "minLength": 20},
+    "falsification_criteria": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 12},
+      "minItems": 1
+    },
+    "promotion_criteria": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 12},
+      "minItems": 1
+    },
+    "alternative_explanations": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 12},
+      "minItems": 1
+    },
+    "confounds": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 8},
+      "minItems": 1
+    },
+    "outcome_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["positive", "null", "negative"],
+      "properties": {
+        "positive": {"type": "string", "minLength": 12},
+        "null": {"type": "string", "minLength": 12},
+        "negative": {"type": "string", "minLength": 12}
+      }
+    },
+    "git_before": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commit", "branch", "dirty"],
+      "properties": {
+        "commit": {"type": ["string", "null"]},
+        "branch": {"type": ["string", "null"]},
+        "dirty": {"type": "boolean"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_suitesparse_cross_matrix_prolongation_v1"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["suitesparse_transfer_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [9801, 10605, 81920]},
+            "reasoning_depths": {"const": [1]},
+            "queries_per_cell": {"const": 1}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_anonymous_prolongation_v1"}},
+            {"contains": {"const": "independent_anonymous_prolongation_v1"}},
+            {"contains": {"const": "cross_family_only_anonymous_prolongation_v1"}},
+            {"contains": {"const": "support_only_anonymous_prolongation_v1"}},
+            {"contains": {"const": "target_standard_sa_v1"}},
+            {"contains": {"const": "target_adaptive_sa_v1"}},
+            {"contains": {"const": "source_frozen_hierarchy_v1"}},
+            {"contains": {"const": "fixed_pr_numeric_refresh_v1"}},
+            {"contains": {"const": "unpreconditioned_cg_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "minimum_family_accuracy"}},
+            {"contains": {"const": "relative_residual"}},
+            {"contains": {"const": "solver_iterations"}},
+            {"contains": {"const": "shared_vs_independent_gain"}},
+            {"contains": {"const": "cross_family_transfer_gain"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "latent_entity_binding_retrieval_v2"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["entity_addressing_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [32, 320, 3200]},
+            "reasoning_depths": {"const": [1, 4, 8]},
+            "queries_per_cell": {"const": 16}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_discrete_address_index_v1"}},
+            {"contains": {"const": "source_identical_dense_scan_v1"}},
+            {"contains": {"const": "source_identical_frozen_encoder_index_v1"}},
+            {"contains": {"const": "source_identical_shuffled_representation_index_v1"}},
+            {"contains": {"const": "raw_nearest_neighbour_scan_v1"}},
+            {"contains": {"const": "local_dense_transition_gru_v1"}},
+            {"contains": {"const": "privileged_exact_entity_key_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "continual_new_fact_accuracy"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}},
+            {"contains": {"const": "workload_ops_r256"}},
+            {"contains": {"const": "workload_ops_r4096"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "latent_entity_binding_retrieval_v3"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["entity_addressing_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [32, 320, 3200]},
+            "reasoning_depths": {"const": [1, 4, 8]},
+            "queries_per_cell": {"const": 16}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_balanced_hierarchical_router_v1"}},
+            {"contains": {"const": "source_identical_dense_hierarchical_representation_v1"}},
+            {"contains": {"const": "source_identical_frozen_hierarchical_router_v1"}},
+            {"contains": {"const": "source_identical_shuffled_hierarchical_router_v1"}},
+            {"contains": {"const": "raw_balanced_kd_tree_v1"}},
+            {"contains": {"const": "raw_nearest_neighbour_scan_v1"}},
+            {"contains": {"const": "local_dense_transition_gru_v1"}},
+            {"contains": {"const": "privileged_exact_entity_key_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "continual_new_fact_accuracy"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}},
+            {"contains": {"const": "workload_ops_r256"}},
+            {"contains": {"const": "workload_ops_r4096"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_raw_sensor_active_identification_v1"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["active_sensor_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [8, 32, 128]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 32}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_raw_sensor_probe_learner_v1"}},
+            {"contains": {"const": "source_identical_support_only_raw_sensor_probe_v1"}},
+            {"contains": {"const": "source_identical_frozen_raw_sensor_probe_v1"}},
+            {"contains": {"const": "raw_sensor_no_probe_prior_v1"}},
+            {"contains": {"const": "raw_sensor_observe_all_v1"}},
+            {"contains": {"const": "raw_sensor_random_probe_v1"}},
+            {"contains": {"const": "raw_sensor_fisher_fixed_probe_v1"}},
+            {"contains": {"const": "raw_sensor_gaussian_information_gain_v1"}},
+            {"contains": {"const": "raw_sensor_kernel_information_gain_v1"}},
+            {"contains": {"const": "privileged_raw_sensor_target_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "minimum_family_accuracy"}},
+            {"contains": {"const": "mean_probe_count"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "meta_fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5", "heldout_three_family_continuous_transfer_v6", "heldout_three_family_continuous_transfer_v7", "heldout_three_family_continuous_transfer_v8"]}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_transfer_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"enum": [[4, 9], [4, 6, 9]]},
+            "reasoning_depths": {"const": [1]}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "tensor_persistence_v1"}},
+            {"contains": {"const": "tensor_ridge_arx_v1"}},
+            {"contains": {"const": "tensor_rls_arx_v1"}},
+            {"contains": {"const": "tensor_empirical_gaussian_joint_v1"}},
+            {"contains": {"const": "tensor_contextual_gaussian_chow_liu_v1"}},
+            {"contains": {"const": "tensor_autoregressive_v1"}},
+            {"contains": {"const": "privileged_tensor_support_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "transfer_accuracy"}},
+            {"contains": {"const": "minimum_family_accuracy"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "shared_vs_independent_gain"}},
+            {"contains": {"const": "cross_family_transfer_gain"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "preprocessing_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "adaptation_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]},
+          "metric_directions": {
+            "required": [
+              "transfer_accuracy", "minimum_family_accuracy", "normalized_rmse",
+              "shared_vs_independent_gain", "cross_family_transfer_gain",
+              "data_acquisition_ops", "preprocessing_ops", "fit_ops", "adaptation_ops",
+              "mean_query_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ],
+            "properties": {
+              "transfer_accuracy": {"const": "maximize"},
+              "minimum_family_accuracy": {"const": "maximize"},
+              "normalized_rmse": {"const": "minimize"},
+              "shared_vs_independent_gain": {"const": "maximize"},
+              "cross_family_transfer_gain": {"const": "maximize"},
+              "data_acquisition_ops": {"const": "minimize"},
+              "preprocessing_ops": {"const": "minimize"},
+              "fit_ops": {"const": "minimize"},
+              "adaptation_ops": {"const": "minimize"},
+              "mean_query_ops": {"const": "minimize"},
+              "state_bytes": {"const": "minimize"},
+              "peak_state_bytes": {"const": "minimize"},
+              "mean_bytes_touched": {"const": "minimize"},
+              "workload_ops_r1": {"const": "minimize"},
+              "workload_ops_r4": {"const": "minimize"},
+              "workload_ops_r16": {"const": "minimize"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2"]}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {"properties": {"knowledge_sizes": {"const": [4, 9]}}},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_tensor_dynamics_v1"}},
+            {"contains": {"const": "independent_tensor_dynamics_v1"}},
+            {"contains": {"const": "cross_family_only_tensor_dynamics_v1"}},
+            {"contains": {"const": "support_only_tensor_dynamics_v1"}}
+          ]},
+          "continuous_transfer_protocol": {"properties": {
+            "shared_candidate": {"const": "shared_tensor_dynamics_v1"},
+            "independent_ablation": {"const": "independent_tensor_dynamics_v1"},
+            "cross_family_only_ablation": {"const": "cross_family_only_tensor_dynamics_v1"},
+            "support_only_ablation": {"const": "support_only_tensor_dynamics_v1"},
+            "classical_baselines": {"const": [
+              "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
+              "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
+              "tensor_autoregressive_v1", "privileged_tensor_support_v1"
+            ]}
+          }}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5"]}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {"properties": {"knowledge_sizes": {"const": [4, 6, 9]}}},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_predictive_index_v1"}},
+            {"contains": {"const": "independent_predictive_index_v1"}},
+            {"contains": {"const": "cross_family_only_predictive_index_v1"}},
+            {"contains": {"const": "support_only_predictive_index_v1"}},
+            {"contains": {"const": "tensor_raw_window_local_linear_v1"}},
+            {"contains": {"const": "tensor_random_projection_hash_v1"}}
+          ]},
+          "continuous_transfer_protocol": {"properties": {
+            "shared_candidate": {"const": "shared_predictive_index_v1"},
+            "independent_ablation": {"const": "independent_predictive_index_v1"},
+            "cross_family_only_ablation": {"const": "cross_family_only_predictive_index_v1"},
+            "support_only_ablation": {"const": "support_only_predictive_index_v1"},
+            "classical_baselines": {"const": [
+              "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
+              "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
+              "tensor_autoregressive_v1", "tensor_raw_window_local_linear_v1",
+              "tensor_random_projection_hash_v1", "privileged_tensor_support_v1"
+            ]}
+          }}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_three_family_continuous_transfer_v6"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {"properties": {"knowledge_sizes": {"const": [4, 6, 9]}}},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_bounded_recurrent_residual_v1"}},
+            {"contains": {"const": "independent_bounded_recurrent_residual_v1"}},
+            {"contains": {"const": "cross_family_only_bounded_recurrent_residual_v1"}},
+            {"contains": {"const": "support_only_bounded_recurrent_residual_v1"}},
+            {"contains": {"const": "tensor_raw_window_local_linear_v1"}},
+            {"contains": {"const": "tensor_random_projection_hash_v1"}}
+          ]},
+          "continuous_transfer_protocol": {"properties": {
+            "shared_candidate": {"const": "shared_bounded_recurrent_residual_v1"},
+            "independent_ablation": {"const": "independent_bounded_recurrent_residual_v1"},
+            "cross_family_only_ablation": {"const": "cross_family_only_bounded_recurrent_residual_v1"},
+            "support_only_ablation": {"const": "support_only_bounded_recurrent_residual_v1"},
+            "classical_baselines": {"const": [
+              "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
+              "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
+              "tensor_autoregressive_v1", "tensor_raw_window_local_linear_v1",
+              "tensor_random_projection_hash_v1", "privileged_tensor_support_v1"
+            ]}
+          }}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_three_family_continuous_transfer_v7"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {"properties": {"knowledge_sizes": {"const": [4, 6, 9]}}},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_local_update_law_v1"}},
+            {"contains": {"const": "independent_local_update_law_v1"}},
+            {"contains": {"const": "cross_family_only_local_update_law_v1"}},
+            {"contains": {"const": "support_only_local_update_law_v1"}},
+            {"contains": {"const": "tensor_raw_window_local_linear_v1"}},
+            {"contains": {"const": "tensor_random_projection_hash_v1"}}
+          ]},
+          "continuous_transfer_protocol": {"properties": {
+            "shared_candidate": {"const": "shared_local_update_law_v1"},
+            "independent_ablation": {"const": "independent_local_update_law_v1"},
+            "cross_family_only_ablation": {"const": "cross_family_only_local_update_law_v1"},
+            "support_only_ablation": {"const": "support_only_local_update_law_v1"},
+            "pareto_capability_metrics": {"const": [
+              "transfer_accuracy", "minimum_family_accuracy", "stable_rollout_rate",
+              "normalized_rmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+              "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+              "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+              "workload_ops_r4", "workload_ops_r16"
+            ]},
+            "classical_baselines": {"const": [
+              "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
+              "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
+              "tensor_autoregressive_v1", "tensor_raw_window_local_linear_v1",
+              "tensor_random_projection_hash_v1", "privileged_tensor_support_v1"
+            ]}
+          }}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_three_family_continuous_transfer_v8"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {"properties": {"knowledge_sizes": {"const": [4, 6, 9]}}},
+          "candidates": {"allOf": [
+            {"contains": {"const": "shared_invariant_residual_module_v1"}},
+            {"contains": {"const": "independent_invariant_residual_module_v1"}},
+            {"contains": {"const": "cross_family_only_invariant_residual_module_v1"}},
+            {"contains": {"const": "support_only_invariant_residual_module_v1"}},
+            {"contains": {"const": "pooled_without_invariance_residual_module_v1"}},
+            {"contains": {"const": "frozen_partition_invariant_residual_module_v1"}},
+            {"contains": {"const": "tensor_raw_window_local_linear_v1"}},
+            {"contains": {"const": "tensor_random_projection_hash_v1"}}
+          ]},
+          "continuous_transfer_protocol": {"properties": {
+            "shared_candidate": {"const": "shared_invariant_residual_module_v1"},
+            "independent_ablation": {"const": "independent_invariant_residual_module_v1"},
+            "cross_family_only_ablation": {"const": "cross_family_only_invariant_residual_module_v1"},
+            "support_only_ablation": {"const": "support_only_invariant_residual_module_v1"},
+            "pareto_capability_metrics": {"const": [
+              "transfer_accuracy", "minimum_family_accuracy", "stable_rollout_rate",
+              "normalized_rmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+              "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+              "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+              "workload_ops_r4", "workload_ops_r16"
+            ]},
+            "classical_baselines": {"const": [
+              "tensor_persistence_v1", "tensor_ridge_arx_v1", "tensor_rls_arx_v1",
+              "tensor_empirical_gaussian_joint_v1", "tensor_contextual_gaussian_chow_liu_v1",
+              "tensor_autoregressive_v1", "tensor_raw_window_local_linear_v1",
+              "tensor_random_projection_hash_v1", "privileged_tensor_support_v1"
+            ]}
+          }}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5", "heldout_three_family_continuous_transfer_v6"]}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "continuous_transfer_protocol": {"properties": {
+            "pareto_capability_metrics": {"const": [
+              "transfer_accuracy", "minimum_family_accuracy", "stable_rollout_rate",
+              "normalized_rmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+              "adaptation_ops", "mean_query_ops", "state_bytes", "peak_state_bytes",
+              "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"enum": ["heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5", "heldout_three_family_continuous_transfer_v6", "heldout_three_family_continuous_transfer_v7", "heldout_three_family_continuous_transfer_v8"]}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "primary_metrics": {"contains": {"const": "stable_rollout_rate"}},
+          "metric_directions": {
+            "required": ["stable_rollout_rate"],
+            "properties": {"stable_rollout_rate": {"const": "maximize"}}
+          },
+          "continuous_transfer_protocol": {
+            "required": ["pareto_capability_metrics", "causal_promotion_gates"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"enum": [
+            "heldout_wt_changepoints_prequential_v1",
+            "heldout_wt_changepoints_prequential_v2",
+            "heldout_wt_changepoints_prequential_v3",
+            "heldout_wt_changepoints_prequential_v4",
+            "heldout_wt_changepoints_prequential_v5"
+          ]}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["wt_prequential_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [18, 36, 54]},
+            "reasoning_depths": {"const": [16, 32, 96]},
+            "queries_per_cell": {"const": 18}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "wt_persistence_v1"}},
+            {"contains": {"const": "wt_pooled_mean_v1"}},
+            {"contains": {"const": "wt_control_level_bank_v1"}},
+            {"contains": {"const": "wt_lms_v1"}},
+            {"contains": {"const": "wt_rls_v1"}},
+            {"contains": {"const": "wt_transition_bank_v1"}},
+            {"contains": {"const": "wt_bounded_replay_v1"}},
+            {"contains": {"const": "wt_ridge_fir_v1"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "worst_file_normalized_rmse"}},
+            {"contains": {"const": "worst_transition_normalized_rmse"}},
+            {"contains": {"const": "rollout_16_nrmse"}},
+            {"contains": {"const": "rollout_32_nrmse"}},
+            {"contains": {"const": "rollout_96_nrmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "preprocessing_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "adaptation_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]},
+          "metric_directions": {
+            "required": [
+              "stable_rollout_rate", "normalized_rmse", "worst_file_normalized_rmse",
+              "worst_transition_normalized_rmse", "rollout_16_nrmse", "rollout_32_nrmse",
+              "rollout_96_nrmse", "data_acquisition_ops", "preprocessing_ops", "fit_ops",
+              "adaptation_ops", "mean_query_ops", "update_ops", "state_bytes",
+              "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1",
+              "workload_ops_r4", "workload_ops_r16"
+            ],
+            "properties": {
+              "stable_rollout_rate": {"const": "maximize"},
+              "normalized_rmse": {"const": "minimize"},
+              "worst_file_normalized_rmse": {"const": "minimize"},
+              "worst_transition_normalized_rmse": {"const": "minimize"},
+              "rollout_16_nrmse": {"const": "minimize"},
+              "rollout_32_nrmse": {"const": "minimize"},
+              "rollout_96_nrmse": {"const": "minimize"},
+              "data_acquisition_ops": {"const": "minimize"},
+              "preprocessing_ops": {"const": "minimize"},
+              "fit_ops": {"const": "minimize"},
+              "adaptation_ops": {"const": "minimize"},
+              "mean_query_ops": {"const": "minimize"},
+              "update_ops": {"const": "minimize"},
+              "state_bytes": {"const": "minimize"},
+              "peak_state_bytes": {"const": "minimize"},
+              "mean_bytes_touched": {"const": "minimize"},
+              "workload_ops_r1": {"const": "minimize"},
+              "workload_ops_r4": {"const": "minimize"},
+              "workload_ops_r16": {"const": "minimize"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_wt_changepoints_prequential_v1"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {"contains": {"const": "wt_candidate_under_test"}},
+          "wt_prequential_protocol": {
+            "properties": {"shared_candidate": {"const": "wt_candidate_under_test"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_wt_changepoints_prequential_v2"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {"allOf": [
+            {"contains": {"const": "wt_multiresolution_lifting_v1"}},
+            {"contains": {"const": "wt_source_identical_single_scale_lifting_v1"}},
+            {"contains": {"const": "wt_source_identical_frozen_lifting_v1"}}
+          ]},
+          "wt_prequential_protocol": {
+            "required": ["causal_roles", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "wt_multiresolution_lifting_v1"},
+              "causal_roles": {"const": [
+                "wt_multiresolution_lifting_v1",
+                "wt_source_identical_single_scale_lifting_v1",
+                "wt_source_identical_frozen_lifting_v1"
+              ]},
+              "source_identical_contract": {"const": "dyadic_representation_constants_initialization_fit_order_update_schedule_output_identical_except_preregistered_cross_scale_composition_and_lifting_learning_v1"},
+              "classical_baselines": {"const": [
+                "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+                "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+                "wt_bounded_replay_v1", "wt_ridge_fir_v1"
+              ]}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_wt_changepoints_prequential_v3"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {"allOf": [
+            {"contains": {"const": "wt_action_conditioned_predictive_state_v1"}},
+            {"contains": {"const": "wt_source_identical_frozen_predictive_state_v1"}},
+            {"contains": {"const": "wt_source_identical_observation_history_v1"}},
+            {"contains": {"const": "wt_coverage_aware_spectral_psr_v1"}},
+            {"contains": {"const": "wt_train_only_discretized_cssr_v1"}}
+          ]},
+          "wt_prequential_protocol": {
+            "required": ["causal_roles", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "wt_action_conditioned_predictive_state_v1"},
+              "causal_roles": {"const": [
+                "wt_action_conditioned_predictive_state_v1",
+                "wt_source_identical_frozen_predictive_state_v1",
+                "wt_source_identical_observation_history_v1"
+              ]},
+              "source_identical_contract": {"const": "history_future_windows_rank_features_control_conditioning_constants_initialization_fit_order_update_schedule_and_output_identical_except_preregistered_predictive_state_learning_freeze_or_observation_history_projection_v1"},
+              "classical_baselines": {"const": [
+                "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+                "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+                "wt_bounded_replay_v1", "wt_ridge_fir_v1",
+                "wt_coverage_aware_spectral_psr_v1", "wt_train_only_discretized_cssr_v1"
+              ]}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_wt_changepoints_prequential_v4"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {"allOf": [
+            {"contains": {"const": "wt_error_triggered_eligibility_trace_v1"}},
+            {"contains": {"const": "wt_source_identical_frozen_eligibility_trace_v1"}},
+            {"contains": {"const": "wt_source_identical_shuffled_eligibility_trace_v1"}},
+            {"contains": {"const": "wt_source_identical_dense_eligibility_trace_v1"}},
+            {"contains": {"const": "wt_coverage_aware_spectral_psr_v1"}},
+            {"contains": {"const": "wt_train_only_discretized_cssr_v1"}}
+          ]},
+          "wt_prequential_protocol": {
+            "required": ["causal_roles", "source_identical_contract", "role_implementation"],
+            "properties": {
+              "shared_candidate": {"const": "wt_error_triggered_eligibility_trace_v1"},
+              "causal_roles": {"const": [
+                "wt_error_triggered_eligibility_trace_v1",
+                "wt_source_identical_frozen_eligibility_trace_v1",
+                "wt_source_identical_shuffled_eligibility_trace_v1",
+                "wt_source_identical_dense_eligibility_trace_v1"
+              ]},
+              "source_identical_contract": {"const": "features_initialization_fit_order_prediction_rollout_update_constants_and_accounting_identical_except_preregistered_error_gate_temporal_credit_alignment_or_dense_credit_v1"},
+              "role_implementation": {"const": "wt_local_credit_trace_core_v1"},
+              "classical_baselines": {"const": [
+                "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+                "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+                "wt_bounded_replay_v1", "wt_ridge_fir_v1",
+                "wt_coverage_aware_spectral_psr_v1", "wt_train_only_discretized_cssr_v1"
+              ]}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_wt_changepoints_prequential_v5"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {"allOf": [
+            {"contains": {"const": "wt_learned_particle_proposal_predictive_state_v1"}},
+            {"contains": {"const": "wt_source_identical_bootstrap_particle_proposal_v1"}},
+            {"contains": {"const": "wt_source_identical_deterministic_posterior_mean_v1"}},
+            {"contains": {"const": "wt_coverage_aware_spectral_psr_v1"}},
+            {"contains": {"const": "wt_train_only_discretized_cssr_v1"}}
+          ]},
+          "wt_prequential_protocol": {
+            "required": ["causal_roles", "source_identical_contract", "role_implementation"],
+            "properties": {
+              "shared_candidate": {"const": "wt_learned_particle_proposal_predictive_state_v1"},
+              "causal_roles": {"const": [
+                "wt_learned_particle_proposal_predictive_state_v1",
+                "wt_source_identical_bootstrap_particle_proposal_v1",
+                "wt_source_identical_deterministic_posterior_mean_v1"
+              ]},
+              "source_identical_contract": {"const": "state_features_initialization_fit_order_prediction_update_constants_particle_budget_output_and_accounting_identical_except_preregistered_learned_bootstrap_or_deterministic_proposal_aggregation_v1"},
+              "role_implementation": {"const": "wt_particle_proposal_predictive_state_core_v1"},
+              "classical_baselines": {"const": [
+                "wt_persistence_v1", "wt_pooled_mean_v1", "wt_control_level_bank_v1",
+                "wt_lms_v1", "wt_rls_v1", "wt_transition_bank_v1",
+                "wt_bounded_replay_v1", "wt_ridge_fir_v1",
+                "wt_coverage_aware_spectral_psr_v1", "wt_train_only_discretized_cssr_v1"
+              ]}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"not": {"pattern": "^(heldout_dronepropa_|heldout_three_family_continuous_transfer_v[12345678]$|heldout_suitesparse_cross_matrix_prolongation_v1$)"}}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "reasoning_depths": {"minItems": 2}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "matrix": {"required": ["seed_policy"]}
+        }
+      },
+      "then": {"required": ["evaluator_sha256", "metric_directions"]}
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"pattern": "^cross_family_"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {"required": ["transfer_protocol"]}
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "cross_family_shared_representation_v2"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "transfer_protocol": {
+            "required": [
+              "representation_interface",
+              "test_result_access_during_fit",
+              "state_budget_bytes"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "cross_family_shared_representation_v3"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "shared_recurrent_predictive_state"}},
+              {"contains": {"const": "independent_recurrent_predictive_state"}},
+              {"contains": {"const": "specialist_contextual_chow_liu_suite_v2"}},
+              {"contains": {"const": "specialist_empirical_joint_suite_v2"}},
+              {"contains": {"const": "specialist_autoregressive_suite_v2"}},
+              {"contains": {"const": "oracle_cross_family_suite_v2"}}
+            ]
+          },
+          "transfer_protocol": {
+            "required": [
+              "representation_interface",
+              "test_result_access_during_fit",
+              "state_budget_bytes",
+              "independent_ablation",
+              "learner_contract",
+              "shared_slow_fit_scope",
+              "test_support_adaptation"
+            ],
+            "properties": {
+              "shared_candidate": {"const": "shared_recurrent_predictive_state"},
+              "independent_ablation": {"const": "independent_recurrent_predictive_state"},
+              "learner_contract": {"const": "tied_recurrent_predictive_state_width32_v1"},
+              "specialist_baselines": {
+                "const": [
+                  "specialist_contextual_chow_liu_suite_v2",
+                  "specialist_empirical_joint_suite_v2",
+                  "specialist_autoregressive_suite_v2",
+                  "oracle_cross_family_suite_v2"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "cross_family_relation_fragment_transfer_v4"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "shared_relation_fragment_graph"}},
+              {"contains": {"const": "independent_relation_fragment_graph"}},
+              {"contains": {"const": "specialist_contextual_chow_liu_suite_v2"}},
+              {"contains": {"const": "specialist_empirical_joint_suite_v2"}},
+              {"contains": {"const": "specialist_autoregressive_suite_v2"}},
+              {"contains": {"const": "oracle_cross_family_suite_v2"}}
+            ]
+          },
+          "primary_metrics": {
+            "allOf": [
+              {"contains": {"const": "transfer_accuracy"}},
+              {"contains": {"const": "minimum_family_accuracy"}},
+              {"contains": {"const": "data_acquisition_ops"}},
+              {"contains": {"const": "fit_ops"}},
+              {"contains": {"const": "meta_fit_ops"}},
+              {"contains": {"const": "mean_query_ops"}},
+              {"contains": {"const": "update_ops"}},
+              {"contains": {"const": "state_bytes"}},
+              {"contains": {"const": "peak_state_bytes"}},
+              {"contains": {"const": "mean_bytes_touched"}},
+              {"contains": {"const": "workload_ops_r16"}}
+            ]
+          },
+          "metric_directions": {
+            "required": [
+              "transfer_accuracy", "minimum_family_accuracy", "data_acquisition_ops",
+              "fit_ops", "meta_fit_ops", "mean_query_ops", "update_ops",
+              "state_bytes", "peak_state_bytes", "mean_bytes_touched", "workload_ops_r16"
+            ],
+            "properties": {
+              "transfer_accuracy": {"const": "maximize"},
+              "minimum_family_accuracy": {"const": "maximize"},
+              "data_acquisition_ops": {"const": "minimize"},
+              "fit_ops": {"const": "minimize"},
+              "meta_fit_ops": {"const": "minimize"},
+              "mean_query_ops": {"const": "minimize"},
+              "update_ops": {"const": "minimize"},
+              "state_bytes": {"const": "minimize"},
+              "peak_state_bytes": {"const": "minimize"},
+              "mean_bytes_touched": {"const": "minimize"},
+              "workload_ops_r16": {"const": "minimize"}
+            }
+          },
+          "transfer_protocol": {
+            "required": [
+              "representation_interface", "test_result_access_during_fit",
+              "state_budget_bytes", "independent_ablation", "learner_contract",
+              "shared_slow_fit_scope", "test_support_adaptation", "fragment_capacity",
+              "composition_rule", "permutation_equivariance"
+            ],
+            "properties": {
+              "shared_candidate": {"const": "shared_relation_fragment_graph"},
+              "independent_ablation": {"const": "independent_relation_fragment_graph"},
+              "learner_contract": {"const": "anonymous_relation_fragment_graph_v1"},
+              "test_support_adaptation": {"const": "same_frozen_fragment_extractor_charged"},
+              "fragment_capacity": {"const": 64},
+              "composition_rule": {"const": "typed_equality_join_then_component_emit_v1"},
+              "permutation_equivariance": {"const": "atom_relabeling_and_anonymous_world_permutation"},
+              "specialist_baselines": {
+                "const": [
+                  "specialist_contextual_chow_liu_suite_v2",
+                  "specialist_empirical_joint_suite_v2",
+                  "specialist_autoregressive_suite_v2",
+                  "oracle_cross_family_suite_v2"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "cross_family_sparse_set_memory_v5"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "const": [
+              "shared_sparse_set_memory_v1",
+              "independent_sparse_set_memory_v1",
+              "source_identical_dense_set_attention_v1",
+              "source_identical_frozen_sparse_router_v1",
+              "specialist_contextual_chow_liu_suite_v2",
+              "specialist_empirical_joint_suite_v2",
+              "specialist_autoregressive_suite_v2",
+              "oracle_cross_family_suite_v2"
+            ]
+          },
+          "primary_metrics": {
+            "allOf": [
+              {"contains": {"const": "transfer_accuracy"}},
+              {"contains": {"const": "minimum_family_accuracy"}},
+              {"contains": {"const": "data_acquisition_ops"}},
+              {"contains": {"const": "fit_ops"}},
+              {"contains": {"const": "meta_fit_ops"}},
+              {"contains": {"const": "mean_query_ops"}},
+              {"contains": {"const": "update_ops"}},
+              {"contains": {"const": "state_bytes"}},
+              {"contains": {"const": "peak_state_bytes"}},
+              {"contains": {"const": "mean_bytes_touched"}},
+              {"contains": {"const": "workload_ops_r16"}}
+            ]
+          },
+          "metric_directions": {
+            "required": [
+              "transfer_accuracy", "minimum_family_accuracy", "data_acquisition_ops",
+              "fit_ops", "meta_fit_ops", "mean_query_ops", "update_ops",
+              "state_bytes", "peak_state_bytes", "mean_bytes_touched", "workload_ops_r16"
+            ],
+            "properties": {
+              "transfer_accuracy": {"const": "maximize"},
+              "minimum_family_accuracy": {"const": "maximize"},
+              "data_acquisition_ops": {"const": "minimize"},
+              "fit_ops": {"const": "minimize"},
+              "meta_fit_ops": {"const": "minimize"},
+              "mean_query_ops": {"const": "minimize"},
+              "update_ops": {"const": "minimize"},
+              "state_bytes": {"const": "minimize"},
+              "peak_state_bytes": {"const": "minimize"},
+              "mean_bytes_touched": {"const": "minimize"},
+              "workload_ops_r16": {"const": "minimize"}
+            }
+          },
+          "transfer_protocol": {
+            "required": [
+              "representation_interface", "test_result_access_during_fit",
+              "state_budget_bytes", "independent_ablation", "learner_contract",
+              "shared_slow_fit_scope", "test_support_adaptation",
+              "source_identical_dense_ablation",
+              "source_identical_frozen_router_ablation", "role_implementation",
+              "source_identical_contract", "embedding_width", "memory_slots",
+              "sparse_top_k", "attention_heads", "fit_epochs", "batch_size",
+              "optimizer", "learning_rate", "routing_distance",
+              "permutation_equivariance"
+            ],
+            "not": {
+              "anyOf": [
+                {"required": ["fragment_capacity"]},
+                {"required": ["composition_rule"]}
+              ]
+            },
+            "properties": {
+              "shared_candidate": {"const": "shared_sparse_set_memory_v1"},
+              "independent_ablation": {"const": "independent_sparse_set_memory_v1"},
+              "source_identical_dense_ablation": {"const": "source_identical_dense_set_attention_v1"},
+              "source_identical_frozen_router_ablation": {"const": "source_identical_frozen_sparse_router_v1"},
+              "learner_contract": {"const": "permutation_equivariant_induced_sparse_set_memory_v1"},
+              "shared_slow_fit_scope": {"const": "pooled_training_worlds_only"},
+              "test_support_adaptation": {"const": "same_frozen_set_encoder_and_memory_rule_charged"},
+              "role_implementation": {"const": "sparse_set_memory_core_v1"},
+              "source_identical_contract": {"const": "tokenization_embedding_set_encoder_memory_initialization_fit_order_query_update_output_constants_and_accounting_identical_except_pooled_independent_sparse_dense_or_frozen_routing_v1"},
+              "embedding_width": {"const": 32},
+              "memory_slots": {"const": 32},
+              "sparse_top_k": {"const": 4},
+              "attention_heads": {"const": 1},
+              "fit_epochs": {"const": 24},
+              "batch_size": {"const": 32},
+              "optimizer": {"const": "adam"},
+              "learning_rate": {"const": 0.001},
+              "routing_distance": {"const": "squared_euclidean"},
+              "permutation_equivariance": {"const": "consistent_anonymous_token_and_world_permutation"},
+              "specialist_baselines": {
+                "const": [
+                  "specialist_contextual_chow_liu_suite_v2",
+                  "specialist_empirical_joint_suite_v2",
+                  "specialist_autoregressive_suite_v2",
+                  "oracle_cross_family_suite_v2"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"pattern": "^nonstationary_online_update_"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {"required": ["online_update_protocol"]}
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_repository_sequence_compression_v2"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 20, 32]},
+              "reasoning_depths": {"const": [4, 16, 64]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "layer_local_goodness_byte"}},
+            {"contains": {"const": "source_identical_end_to_end_gradient_byte"}},
+            {"contains": {"const": "source_identical_frozen_hidden_byte"}},
+            {"contains": {"const": "uniform_byte"}},
+            {"contains": {"const": "empirical_unigram_byte"}},
+            {"contains": {"const": "ppm_d_order5_byte"}},
+            {"contains": {"const": "ctw_depth2_byte"}},
+            {"contains": {"const": "lz_dictionary_byte"}},
+            {"contains": {"const": "dense_autoregressive_byte"}}
+          ]},
+          "compression_protocol": {
+            "required": ["credit_assignment_roles", "source_identical_contract", "pareto_capability_metrics"],
+            "properties": {
+              "shared_candidate": {"const": "layer_local_goodness_byte"},
+              "classical_baselines": {"const": [
+                "uniform_byte", "empirical_unigram_byte", "ppm_d_order5_byte",
+                "ctw_depth2_byte", "lz_dictionary_byte", "dense_autoregressive_byte"
+              ]},
+              "credit_assignment_roles": {"const": [
+                "layer_local_goodness_byte", "source_identical_end_to_end_gradient_byte",
+                "source_identical_frozen_hidden_byte"
+              ]},
+              "source_identical_contract": {"const": "topology_constants_initialization_data_order_update_count_input_output_identical_v1"},
+              "pareto_capability_metrics": {"const": [
+                "bits_per_byte", "worst_file_bits_per_byte", "cold_bits_per_byte",
+                "accuracy", "data_acquisition_ops", "fit_ops", "meta_fit_ops",
+                "mean_query_ops", "update_ops", "state_bytes", "peak_state_bytes",
+                "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4",
+                "workload_ops_r16"
+              ]}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"pattern": "^heldout_repository_sequence_"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {"required": ["compression_protocol"]}
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_repository_sequence_compression_v4"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 20, 32]},
+              "reasoning_depths": {"const": [4, 16, 64]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_conditional_execution_byte"}},
+            {"contains": {"const": "source_identical_all_experts_byte"}},
+            {"contains": {"const": "source_identical_frozen_router_byte"}}
+          ]},
+          "compression_protocol": {
+            "required": ["causal_roles", "source_identical_contract", "pareto_capability_metrics"],
+            "properties": {
+              "shared_candidate": {"const": "learned_conditional_execution_byte"},
+              "causal_roles": {"const": [
+                "learned_conditional_execution_byte",
+                "source_identical_all_experts_byte",
+                "source_identical_frozen_router_byte"
+              ]},
+              "source_identical_contract": {"const": "expert_bank_constants_initialization_data_order_input_update_output_identical_except_preregistered_router_learning_and_active_expert_count_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_repository_sequence_compression_v5"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 20, 32]},
+              "reasoning_depths": {"const": [4, 16, 64]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "surprise_gated_transition_machine_byte"}},
+            {"contains": {"const": "source_identical_dense_transition_machine_byte"}},
+            {"contains": {"const": "source_identical_frozen_transition_machine_byte"}}
+          ]},
+          "compression_protocol": {
+            "required": ["causal_roles", "source_identical_contract", "pareto_capability_metrics"],
+            "properties": {
+              "shared_candidate": {"const": "surprise_gated_transition_machine_byte"},
+              "causal_roles": {"const": [
+                "surprise_gated_transition_machine_byte",
+                "source_identical_dense_transition_machine_byte",
+                "source_identical_frozen_transition_machine_byte"
+              ]},
+              "source_identical_contract": {"const": "state_width_transition_map_constants_initialization_data_order_context_input_update_output_identical_except_preregistered_surprise_gate_dense_clock_and_transition_learning_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_repository_sequence_compression_v6"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 20, 32]},
+              "reasoning_depths": {"const": [4, 16, 64]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "selective_diagonal_state_space_byte_v1"}},
+            {"contains": {"const": "source_identical_fixed_selection_state_space_byte_v1"}},
+            {"contains": {"const": "source_identical_recurrence_disabled_state_space_byte_v1"}}
+          ]},
+          "compression_protocol": {
+            "required": ["causal_roles", "role_implementation", "source_identical_contract", "pareto_capability_metrics"],
+            "properties": {
+              "shared_candidate": {"const": "selective_diagonal_state_space_byte_v1"},
+              "causal_roles": {"const": [
+                "selective_diagonal_state_space_byte_v1",
+                "source_identical_fixed_selection_state_space_byte_v1",
+                "source_identical_recurrence_disabled_state_space_byte_v1"
+              ]},
+              "role_implementation": {"const": "selective_diagonal_state_space_byte_core_v1"},
+              "source_identical_contract": {"const": "embedding_state_width_diagonal_dynamics_readout_initialization_fit_order_context_input_update_output_constants_and_accounting_identical_except_preregistered_input_selection_and_recurrence_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"pattern": "^heldout_parallel_masked_"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {"required": ["masked_refinement_protocol"]}
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"pattern": "^heldout_parallel_masked_infilling_v[12]$"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "masked_refinement_protocol": {
+            "required": ["one_pass_ablation"],
+            "properties": {
+              "shared_candidate": {"const": "iterative_masked_learner"},
+              "one_pass_ablation": {"const": "one_pass_masked_learner"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v3"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "local_sparse_predictive_code_masked_byte"}},
+              {"contains": {"const": "source_identical_one_pass_predictive_code_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_code_predictive_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["one_pass_ablation", "causal_ablation_2"],
+            "properties": {
+              "shared_candidate": {"const": "local_sparse_predictive_code_masked_byte"},
+              "one_pass_ablation": {"const": "source_identical_one_pass_predictive_code_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_code_predictive_byte"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v4"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "parallel_born_mps_masked_byte"}},
+              {"contains": {"const": "source_identical_sequential_born_mps_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_born_mps_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "parallel_born_mps_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_sequential_born_mps_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_born_mps_masked_byte"},
+              "source_identical_contract": {"const": "tensor_rank_token_representation_initialization_training_order_update_count_and_probabilities_identical_except_preregistered_contraction_schedule_and_tensor_learning_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v5"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "sparse_learned_energy_factor_graph_masked_byte"}},
+              {"contains": {"const": "source_identical_one_sweep_energy_factor_graph_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_energy_factor_graph_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "sparse_learned_energy_factor_graph_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_one_sweep_energy_factor_graph_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_energy_factor_graph_masked_byte"},
+              "source_identical_contract": {"const": "factor_graph_byte_representation_constants_initialization_training_order_update_rule_and_output_identical_except_preregistered_factor_learning_one_sweep_and_freeze_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v6"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "recursive_equality_grammar_masked_byte"}},
+              {"contains": {"const": "source_identical_flat_equality_grammar_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_equality_grammar_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "recursive_equality_grammar_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_flat_equality_grammar_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_equality_grammar_masked_byte"},
+              "source_identical_contract": {"const": "equality_byte_representation_grammar_extractor_constants_initialization_training_order_query_alignment_and_output_identical_except_preregistered_recursion_flattening_and_grammar_learning_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v7"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [1, 4, 6]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "recursive_equality_grammar_masked_byte"}},
+              {"contains": {"const": "source_identical_flat_equality_grammar_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_equality_grammar_masked_byte"}},
+              {"contains": {"const": "re_pair_grammar_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract"],
+            "properties": {
+              "shared_candidate": {"const": "recursive_equality_grammar_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_flat_equality_grammar_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_equality_grammar_masked_byte"},
+              "source_identical_contract": {"const": "equality_byte_representation_grammar_extractor_constants_initialization_training_order_query_alignment_and_output_identical_except_preregistered_recursion_flattening_and_grammar_learning_v1"},
+              "classical_baselines": {
+                "allOf": [
+                  {"minItems": 9},
+                  {"contains": {"const": "re_pair_grammar_masked_byte"}}
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v8"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [3, 4, 5]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "learned_pushdown_masked_byte"}},
+              {"contains": {"const": "source_identical_finite_state_pushdown_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_pushdown_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract", "training_max_depth", "test_depths", "task_unit"],
+            "properties": {
+              "corpus_id": {"const": "nextai_real_python_stack_traces_sha256_v1"},
+              "shared_candidate": {"const": "learned_pushdown_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_finite_state_pushdown_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_pushdown_masked_byte"},
+              "training_max_depth": {"const": 2},
+              "test_depths": {"const": [3, 4, 5]},
+              "task_unit": {"const": "balanced_real_python_delimiter_trace"},
+              "source_identical_contract": {"const": "delimiter_trace_representation_constants_initialization_training_order_query_alignment_and_output_identical_except_learned_pushdown_finite_state_and_frozen_transition_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {"const": "heldout_parallel_masked_infilling_v9"}
+        },
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32]},
+              "reasoning_depths": {"const": [3, 4, 5]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "learned_pushdown_masked_byte"}},
+              {"contains": {"const": "source_identical_finite_state_pushdown_masked_byte"}},
+              {"contains": {"const": "source_identical_frozen_pushdown_masked_byte"}}
+            ]
+          },
+          "masked_refinement_protocol": {
+            "required": ["causal_ablation_1", "causal_ablation_2", "source_identical_contract", "training_max_depth", "test_depths", "task_unit"],
+            "properties": {
+              "corpus_id": {"const": "nextai_real_python_stack_traces_sha256_v1"},
+              "shared_candidate": {"const": "learned_pushdown_masked_byte"},
+              "causal_ablation_1": {"const": "source_identical_finite_state_pushdown_masked_byte"},
+              "causal_ablation_2": {"const": "source_identical_frozen_pushdown_masked_byte"},
+              "training_max_depth": {"const": 2},
+              "test_depths": {"const": [3, 4, 5]},
+              "task_unit": {"const": "balanced_real_python_closure_chain"},
+              "source_identical_contract": {"const": "delimiter_trace_representation_constants_initialization_training_order_query_alignment_and_output_identical_except_learned_pushdown_finite_state_and_frozen_transition_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"pattern": "^heldout_dronepropa_"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["dronepropa_protocol"],
+        "properties": {
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "shared_operator_subspace_arx"}},
+              {"contains": {"const": "persistence_state_v1"}},
+              {"contains": {"const": "ridge_arx_v1"}},
+              {"contains": {"const": "rls_arx_v1"}},
+              {"contains": {"const": "nearest_operator_template_v1"}},
+              {"contains": {"const": "source_identical_independent_arx_v1"}},
+              {"contains": {"const": "no_sharing_pooled_arx_v1"}},
+              {"contains": {"const": "empirical_gaussian_joint_v1"}},
+              {"contains": {"const": "contextual_gaussian_chow_liu_v1"}}
+            ]
+          },
+          "primary_metrics": {
+            "allOf": [
+              {"contains": {"const": "teacher_forced_nrmse"}},
+              {"contains": {"const": "rollout_10_nrmse"}},
+              {"contains": {"const": "rollout_50_nrmse"}},
+              {"contains": {"const": "worst_flight_normalized_rmse"}},
+              {"contains": {"const": "data_acquisition_ops"}},
+              {"contains": {"const": "preprocessing_ops"}},
+              {"contains": {"const": "fit_ops"}},
+              {"contains": {"const": "adaptation_ops"}},
+              {"contains": {"const": "mean_query_ops"}},
+              {"contains": {"const": "state_bytes"}},
+              {"contains": {"const": "peak_state_bytes"}},
+              {"contains": {"const": "mean_bytes_touched"}},
+              {"contains": {"const": "workload_ops_r1"}},
+              {"contains": {"const": "workload_ops_r4"}},
+              {"contains": {"const": "workload_ops_r16"}},
+              {"contains": {"const": "minimum_condition_transfer_gain"}},
+              {"contains": {"const": "minimum_trajectory_transfer_gain"}}
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_dronepropa_factor_recombination_v6"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "dronepropa_protocol": {"required": ["privileged_support_control"]},
+          "candidates": {"allOf": [
+            {"contains": {"const": "privileged_all_condition_support_arx_v3"}},
+            {"contains": {"const": "privileged_same_condition_support_arx_v3"}}
+          ]},
+          "primary_metrics": {"contains": {"const": "privileged_support_gain"}}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"pattern": "^heldout_dronepropa_factor_recombination_v[1-5]$"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "candidates": {"allOf": [
+            {"contains": {"const": "oracle_charged_condition_specialist_arx_v2"}},
+            {"contains": {"const": "privileged_same_condition_oracle_arx_v2"}}
+          ]},
+          "primary_metrics": {"contains": {"const": "oracle_gap_closed"}}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"enum": ["heldout_mechanism_recombination_v1", "heldout_mechanism_recombination_v2", "heldout_mechanism_recombination_v3"]}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["mechanism_recombination_protocol"],
+        "properties": {
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "unigram_recombination"}},
+              {"contains": {"const": "markov5_recombination"}},
+              {"contains": {"const": "nearest_template_recombination"}},
+              {"contains": {"const": "exact_mdl_module_library"}},
+              {"contains": {"const": "oracle_composition_graph"}}
+            ]
+          },
+          "primary_metrics": {
+            "allOf": [
+              {"contains": {"const": "accuracy"}},
+              {"contains": {"const": "minimum_combination_accuracy"}},
+              {"contains": {"const": "data_acquisition_ops"}},
+              {"contains": {"const": "fit_ops"}},
+              {"contains": {"const": "meta_fit_ops"}},
+              {"contains": {"const": "mean_query_ops"}},
+              {"contains": {"const": "update_ops"}},
+              {"contains": {"const": "state_bytes"}},
+              {"contains": {"const": "peak_state_bytes"}},
+              {"contains": {"const": "mean_bytes_touched"}},
+              {"contains": {"const": "workload_ops"}},
+              {"contains": {"const": "workload_ops_r16"}}
+            ]
+          },
+          "metric_directions": {
+            "required": ["accuracy", "minimum_combination_accuracy", "data_acquisition_ops", "fit_ops", "meta_fit_ops", "mean_query_ops", "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched", "workload_ops", "workload_ops_r16"],
+            "properties": {
+              "accuracy": {"const": "maximize"},
+              "minimum_combination_accuracy": {"const": "maximize"},
+              "data_acquisition_ops": {"const": "minimize"},
+              "fit_ops": {"const": "minimize"},
+              "meta_fit_ops": {"const": "minimize"},
+              "mean_query_ops": {"const": "minimize"},
+              "update_ops": {"const": "minimize"},
+              "state_bytes": {"const": "minimize"},
+              "peak_state_bytes": {"const": "minimize"},
+              "mean_bytes_touched": {"const": "minimize"},
+              "workload_ops": {"const": "minimize"},
+              "workload_ops_r16": {"const": "minimize"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"enum": ["heldout_mechanism_recombination_v1", "heldout_mechanism_recombination_v2"]}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "properties": {
+          "mechanism_recombination_protocol": {
+            "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]},
+              "heldout_compositions": {"const": ["CB"]},
+              "classical_baselines": {"const": ["unigram_recombination", "markov5_recombination", "nearest_template_recombination", "exact_mdl_module_library", "oracle_composition_graph"]},
+              "shared_candidate": {"const": "shared_latent_mechanism_library"},
+              "independent_ablation": {"const": "independent_latent_mechanism_library"},
+              "no_cross_mechanism_ablation": {"const": "no_cross_mechanism_factorizer"}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "shared_latent_mechanism_library"}},
+              {"contains": {"const": "independent_latent_mechanism_library"}},
+              {"contains": {"const": "no_cross_mechanism_factorizer"}}
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_mechanism_recombination_v3"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["mechanism_recombination_protocol"],
+        "properties": {
+          "mechanism_recombination_protocol": {
+            "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AA", "AB", "AC", "BA", "BB", "BC", "CA", "CC"]},
+              "heldout_compositions": {"const": ["CB"]},
+              "classical_baselines": {"const": ["unigram_recombination", "markov5_recombination", "nearest_template_recombination", "exact_mdl_module_library", "oracle_composition_graph"]},
+              "shared_candidate": {"const": "operator_algebra_completion"},
+              "independent_ablation": {"const": "operator_algebra_independent"},
+              "no_cross_mechanism_ablation": {"const": "operator_algebra_no_relations"}
+            }
+          },
+          "candidates": {
+            "allOf": [
+              {"contains": {"const": "operator_algebra_completion"}},
+              {"contains": {"const": "operator_algebra_independent"}},
+              {"contains": {"const": "operator_algebra_no_relations"}}
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_mechanism_recombination_v4"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["mechanism_recombination_protocol"],
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32, 128]},
+              "reasoning_depths": {"const": [1, 4, 16]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "mechanism_recombination_protocol": {
+            "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AB", "BC", "CA"]},
+              "heldout_compositions": {"const": ["CBAC"]},
+              "shared_candidate": {"const": "experience_operator_compiler"},
+              "independent_ablation": {"const": "experience_operator_independent"},
+              "no_cross_mechanism_ablation": {"const": "experience_operator_no_pairing"},
+              "classical_baselines": {"const": ["operator_interpreter", "operator_exact_key_cache", "operator_structural_result_cache", "operator_canonical_table_cache", "operator_anti_unification_cache", "operator_nearest_canonical", "operator_random"]}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "experience_operator_compiler"}},
+            {"contains": {"const": "experience_operator_independent"}},
+            {"contains": {"const": "experience_operator_no_pairing"}},
+            {"contains": {"const": "operator_interpreter"}},
+            {"contains": {"const": "operator_exact_key_cache"}},
+            {"contains": {"const": "operator_structural_result_cache"}},
+            {"contains": {"const": "operator_canonical_table_cache"}},
+            {"contains": {"const": "operator_anti_unification_cache"}},
+            {"contains": {"const": "operator_nearest_canonical"}},
+            {"contains": {"const": "operator_random"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "warm_accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "false_reuse_rate"}},
+            {"contains": {"const": "continual_new_fact_accuracy"}},
+            {"contains": {"const": "continual_retention"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "meta_fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "mean_warm_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_mechanism_recombination_v5"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["mechanism_recombination_protocol"],
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32, 128]},
+              "reasoning_depths": {"const": [1, 4, 16]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "mechanism_recombination_protocol": {
+            "required": ["pareto_capability_metrics"],
+            "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AB", "BC", "CA"]},
+              "heldout_compositions": {"const": ["CBAC"]},
+              "shared_candidate": {"const": "experience_operator_compiler"},
+              "independent_ablation": {"const": "experience_operator_independent"},
+              "no_cross_mechanism_ablation": {"const": "experience_operator_no_pairing"},
+              "classical_baselines": {"const": ["operator_interpreter", "operator_exact_key_cache", "operator_structural_result_cache", "operator_canonical_table_cache", "operator_anti_unification_cache", "operator_nearest_canonical", "operator_random"]},
+              "pareto_capability_metrics": {"const": ["accuracy", "warm_accuracy", "near_equivalent_accuracy", "minimum_combination_accuracy", "continual_new_fact_accuracy", "continual_retention", "false_reuse_rate", "data_acquisition_ops", "fit_ops", "meta_fit_ops", "mean_query_ops", "mean_warm_query_ops", "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"]}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "experience_operator_compiler"}},
+            {"contains": {"const": "experience_operator_independent"}},
+            {"contains": {"const": "experience_operator_no_pairing"}},
+            {"contains": {"const": "operator_interpreter"}},
+            {"contains": {"const": "operator_exact_key_cache"}},
+            {"contains": {"const": "operator_structural_result_cache"}},
+            {"contains": {"const": "operator_canonical_table_cache"}},
+            {"contains": {"const": "operator_anti_unification_cache"}},
+            {"contains": {"const": "operator_nearest_canonical"}},
+            {"contains": {"const": "operator_random"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "warm_accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "minimum_combination_accuracy"}},
+            {"contains": {"const": "false_reuse_rate"}},
+            {"contains": {"const": "continual_new_fact_accuracy"}},
+            {"contains": {"const": "continual_retention"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "meta_fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "mean_warm_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "heldout_mechanism_recombination_v6"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["mechanism_recombination_protocol"],
+        "properties": {
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {"const": [8, 32, 128]},
+              "reasoning_depths": {"const": [4, 8, 16]},
+              "queries_per_cell": {"const": 8}
+            }
+          },
+          "mechanism_recombination_protocol": {
+            "required": ["composition_lengths", "exposure_count", "source_identical_contract", "pareto_capability_metrics"],
+            "properties": {
+              "train_compositions": {"const": ["A", "B", "C", "AB", "BC", "CA"]},
+              "heldout_compositions": {"const": ["CBAC", "CBACABAC", "CBACABACBCABCBAC"]},
+              "composition_lengths": {"const": [4, 8, 16]},
+              "exposure_count": {"const": 16},
+              "shared_candidate": {"const": "learned_macro_operator_dag"},
+              "independent_ablation": {"const": "source_identical_rebuild_macro_operator_dag"},
+              "no_cross_mechanism_ablation": {"const": "source_identical_frozen_macro_operator_dag"},
+              "source_identical_contract": {"const": "term_encoding_constants_initialization_training_order_execution_output_and_update_code_identical_except_preregistered_cross_query_macro_learning_and_reuse_v1"},
+              "classical_baselines": {"const": ["operator_interpreter", "operator_exact_key_cache", "operator_structural_result_cache", "operator_canonical_table_cache", "operator_anti_unification_cache", "operator_nearest_canonical", "operator_random"]},
+              "pareto_capability_metrics": {"const": ["accuracy", "warm_accuracy", "near_equivalent_accuracy", "minimum_combination_accuracy", "continual_new_fact_accuracy", "continual_retention", "false_reuse_rate", "data_acquisition_ops", "fit_ops", "meta_fit_ops", "mean_query_ops", "mean_warm_query_ops", "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"]}
+            }
+          },
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_macro_operator_dag"}},
+            {"contains": {"const": "source_identical_rebuild_macro_operator_dag"}},
+            {"contains": {"const": "source_identical_frozen_macro_operator_dag"}},
+            {"contains": {"const": "operator_interpreter"}},
+            {"contains": {"const": "operator_exact_key_cache"}},
+            {"contains": {"const": "operator_structural_result_cache"}},
+            {"contains": {"const": "operator_canonical_table_cache"}},
+            {"contains": {"const": "operator_anti_unification_cache"}},
+            {"contains": {"const": "operator_nearest_canonical"}},
+            {"contains": {"const": "operator_random"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "continuous_local_cellular_v1"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_local_protocol"],
+        "properties": {
+          "continuous_local_protocol": {"properties": {
+            "shared_candidate": {"const": "learned_sparse_continuous_local_rule"},
+            "dense_ablation": {"const": "source_identical_dense_continuous_local_rule"},
+            "frozen_ablation": {"const": "source_identical_frozen_continuous_local_rule"},
+            "source_identical_contract": {"const": "anonymous_channels_constants_fit_update_output_identical_except_sparse_dense_or_frozen_learning_v1"},
+            "pareto_capability_metrics": {"const": [
+              "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+              "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+              "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+              "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [64, 256, 1024]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_sparse_continuous_local_rule"}},
+            {"contains": {"const": "source_identical_dense_continuous_local_rule"}},
+            {"contains": {"const": "source_identical_frozen_continuous_local_rule"}},
+            {"contains": {"const": "continuous_local_persistence"}},
+            {"contains": {"const": "continuous_local_ridge"}},
+            {"contains": {"const": "continuous_local_quantized_fsm"}},
+            {"contains": {"const": "continuous_local_kernel_event"}},
+            {"contains": {"const": "privileged_continuous_local_support"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "continuous_local_cellular_v2"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_local_protocol"],
+        "properties": {
+          "continuous_local_protocol": {"properties": {
+            "shared_candidate": {"const": "learned_factorized_flux_reaction_local_rule"},
+            "dense_ablation": {"const": "source_identical_monolithic_local_flow_rule"},
+            "frozen_ablation": {"const": "source_identical_frozen_flux_reaction_local_rule"},
+            "source_identical_contract": {"const": "anonymous_inputs_constants_rows_initialization_update_order_output_bounds_identical_except_factorized_monolithic_or_frozen_learning_v2"},
+            "pareto_capability_metrics": {"const": [
+              "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+              "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+              "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+              "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [64, 256, 1024]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_factorized_flux_reaction_local_rule"}},
+            {"contains": {"const": "source_identical_monolithic_local_flow_rule"}},
+            {"contains": {"const": "source_identical_frozen_flux_reaction_local_rule"}},
+            {"contains": {"const": "continuous_local_persistence"}},
+            {"contains": {"const": "continuous_local_ridge"}},
+            {"contains": {"const": "continuous_local_quantized_fsm"}},
+            {"contains": {"const": "continuous_local_kernel_event"}},
+            {"contains": {"const": "privileged_continuous_local_support"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "continuous_local_cellular_v3"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_local_protocol"],
+        "properties": {
+          "continuous_local_protocol": {"properties": {
+            "shared_candidate": {"const": "learned_dyadic_lifted_local_propagator"},
+            "dense_ablation": {"const": "source_identical_sequential_lifted_local_propagator"},
+            "frozen_ablation": {"const": "source_identical_frozen_lift_dyadic_local_propagator"},
+            "source_identical_contract": {"const": "anonymous_inputs_constants_lift_features_fit_update_output_identical_except_dyadic_sequential_or_frozen_propagation_v3"},
+            "pareto_capability_metrics": {"const": [
+              "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+              "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+              "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+              "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [64, 256, 1024]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_dyadic_lifted_local_propagator"}},
+            {"contains": {"const": "source_identical_sequential_lifted_local_propagator"}},
+            {"contains": {"const": "source_identical_frozen_lift_dyadic_local_propagator"}},
+            {"contains": {"const": "continuous_local_persistence"}},
+            {"contains": {"const": "continuous_local_ridge"}},
+            {"contains": {"const": "continuous_local_quantized_fsm"}},
+            {"contains": {"const": "continuous_local_kernel_event"}},
+            {"contains": {"const": "privileged_continuous_local_support"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "continuous_local_cellular_v4"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_local_protocol"],
+        "properties": {
+          "continuous_local_protocol": {"properties": {
+            "shared_candidate": {"const": "evolved_anonymous_local_rule_program"},
+            "dense_ablation": {"const": "source_identical_shuffled_fitness_local_rule_program"},
+            "frozen_ablation": {"const": "source_identical_frozen_population_local_rule_program"},
+            "source_identical_contract": {"const": "anonymous_inputs_program_language_population_constants_proposals_execution_output_identical_except_true_shuffled_or_frozen_fitness_selection_v4"},
+            "pareto_capability_metrics": {"const": [
+              "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+              "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+              "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+              "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [64, 256, 1024]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "evolved_anonymous_local_rule_program"}},
+            {"contains": {"const": "source_identical_shuffled_fitness_local_rule_program"}},
+            {"contains": {"const": "source_identical_frozen_population_local_rule_program"}},
+            {"contains": {"const": "continuous_local_persistence"}},
+            {"contains": {"const": "continuous_local_ridge"}},
+            {"contains": {"const": "continuous_local_quantized_fsm"}},
+            {"contains": {"const": "continuous_local_kernel_event"}},
+            {"contains": {"const": "privileged_continuous_local_support"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "continuous_local_cellular_v5"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_local_protocol"],
+        "properties": {
+          "continuous_local_protocol": {"properties": {
+            "shared_candidate": {"const": "error_novelty_split_local_expert_tree_v1"},
+            "dense_ablation": {"const": "source_identical_shuffled_split_local_expert_tree_v1"},
+            "frozen_ablation": {"const": "source_identical_frozen_partition_local_expert_tree_v1"},
+            "source_identical_contract": {"const": "anonymous_inputs_features_constants_initialization_fit_prediction_update_accounting_identical_except_error_novelty_split_shuffled_split_or_frozen_partition_v5"},
+            "pareto_capability_metrics": {"const": [
+              "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+              "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+              "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+              "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [64, 256, 1024]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "error_novelty_split_local_expert_tree_v1"}},
+            {"contains": {"const": "source_identical_shuffled_split_local_expert_tree_v1"}},
+            {"contains": {"const": "source_identical_frozen_partition_local_expert_tree_v1"}},
+            {"contains": {"const": "continuous_local_persistence"}},
+            {"contains": {"const": "continuous_local_ridge"}},
+            {"contains": {"const": "continuous_local_quantized_fsm"}},
+            {"contains": {"const": "continuous_local_kernel_event"}},
+            {"contains": {"const": "privileged_continuous_local_support"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "continuous_local_cellular_v6"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["continuous_local_protocol"],
+        "properties": {
+          "continuous_local_protocol": {"properties": {
+            "shared_candidate": {"const": "learned_predictive_coordinate_chart_v1"},
+            "dense_ablation": {"const": "source_identical_shuffled_predictive_coordinate_chart_v1"},
+            "frozen_ablation": {"const": "source_identical_frozen_predictive_coordinate_chart_v1"},
+            "source_identical_contract": {"const": "anonymous_inputs_chart_capacity_feature_library_fit_prediction_update_accounting_identical_except_aligned_shuffled_or_frozen_predictive_coordinate_chart_v6"},
+            "pareto_capability_metrics": {"const": [
+              "accuracy", "warm_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+              "continual_new_fact_accuracy", "continual_retention", "normalized_rmse",
+              "data_acquisition_ops", "fit_ops", "mean_query_ops", "mean_warm_query_ops",
+              "update_ops", "state_bytes", "peak_state_bytes", "mean_bytes_touched",
+              "workload_ops_r1", "workload_ops_r4", "workload_ops_r16"
+            ]}
+          }},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [64, 256, 1024]},
+            "reasoning_depths": {"const": [4, 8, 16]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_predictive_coordinate_chart_v1"}},
+            {"contains": {"const": "source_identical_shuffled_predictive_coordinate_chart_v1"}},
+            {"contains": {"const": "source_identical_frozen_predictive_coordinate_chart_v1"}},
+            {"contains": {"const": "continuous_local_persistence"}},
+            {"contains": {"const": "continuous_local_ridge"}},
+            {"contains": {"const": "continuous_local_quantized_fsm"}},
+            {"contains": {"const": "continuous_local_kernel_event"}},
+            {"contains": {"const": "privileged_continuous_local_support"}}
+          ]},
+          "primary_metrics": {"allOf": [
+            {"contains": {"const": "accuracy"}},
+            {"contains": {"const": "near_equivalent_accuracy"}},
+            {"contains": {"const": "stable_rollout_rate"}},
+            {"contains": {"const": "normalized_rmse"}},
+            {"contains": {"const": "data_acquisition_ops"}},
+            {"contains": {"const": "fit_ops"}},
+            {"contains": {"const": "mean_query_ops"}},
+            {"contains": {"const": "update_ops"}},
+            {"contains": {"const": "state_bytes"}},
+            {"contains": {"const": "peak_state_bytes"}},
+            {"contains": {"const": "mean_bytes_touched"}},
+            {"contains": {"const": "workload_ops_r1"}},
+            {"contains": {"const": "workload_ops_r4"}},
+            {"contains": {"const": "workload_ops_r16"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "program_induction_from_whole_io_v3"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["whole_io_search_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [8, 16, 32]},
+            "reasoning_depths": {"const": [1, 4, 6]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_amortized_constraint_order_vm"}},
+            {"contains": {"const": "source_identical_support_only_constraint_order_vm"}},
+            {"contains": {"const": "source_identical_frozen_constraint_order_vm"}},
+            {"contains": {"const": "random_whole_io"}},
+            {"contains": {"const": "nearest_whole_io"}},
+            {"contains": {"const": "dense_whole_io"}},
+            {"contains": {"const": "enumerative_mdl_vm"}},
+            {"contains": {"const": "oracle_latent_vm"}}
+          ]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "program_induction_from_whole_io_v4"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["whole_io_search_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [8, 16, 32]},
+            "reasoning_depths": {"const": [1, 4, 6]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_verified_incumbent_program_vm"}},
+            {"contains": {"const": "source_identical_support_only_verified_incumbent_program_vm"}},
+            {"contains": {"const": "source_identical_frozen_verified_incumbent_program_vm"}},
+            {"contains": {"const": "random_whole_io"}},
+            {"contains": {"const": "nearest_whole_io"}},
+            {"contains": {"const": "dense_whole_io"}},
+            {"contains": {"const": "enumerative_mdl_vm"}},
+            {"contains": {"const": "oracle_latent_vm"}}
+          ]},
+          "whole_io_search_protocol": {
+            "required": ["role_implementation"],
+            "properties": {
+              "shared_candidate": {"const": "learned_verified_incumbent_program_vm"},
+              "support_only_ablation": {"const": "source_identical_support_only_verified_incumbent_program_vm"},
+              "frozen_ablation": {"const": "source_identical_frozen_verified_incumbent_program_vm"},
+              "source_identical_contract": {"const": "complete_solver_objective_bounds_ties_support_execution_output_verifier_fallback_and_fixed_branch_order_identical_except_meta_support_or_frozen_initial_incumbent_v1"},
+              "role_implementation": {"const": "verified_incumbent_program_vm_core_v1"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"benchmark": {"const": "program_induction_from_whole_io_v5"}},
+        "required": ["benchmark"]
+      },
+      "then": {
+        "required": ["whole_io_search_protocol"],
+        "properties": {
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [8, 16, 32]},
+            "reasoning_depths": {"const": [1, 4, 6]},
+            "queries_per_cell": {"const": 8}
+          }},
+          "candidates": {"allOf": [
+            {"contains": {"const": "learned_certified_pattern_bound_program_vm"}},
+            {"contains": {"const": "source_identical_support_only_certified_pattern_bound_program_vm"}},
+            {"contains": {"const": "source_identical_frozen_certified_pattern_bound_program_vm"}},
+            {"contains": {"const": "random_whole_io"}},
+            {"contains": {"const": "nearest_whole_io"}},
+            {"contains": {"const": "dense_whole_io"}},
+            {"contains": {"const": "enumerative_mdl_vm"}},
+            {"contains": {"const": "oracle_latent_vm"}}
+          ]},
+          "whole_io_search_protocol": {
+            "required": ["role_implementation"],
+            "properties": {
+              "shared_candidate": {"const": "learned_certified_pattern_bound_program_vm"},
+              "support_only_ablation": {"const": "source_identical_support_only_certified_pattern_bound_program_vm"},
+              "frozen_ablation": {"const": "source_identical_frozen_certified_pattern_bound_program_vm"},
+              "source_identical_contract": {"const": "complete_solver_objective_initial_incumbent_branch_order_ties_support_execution_output_identical_except_meta_support_or_frozen_admissible_pattern_bound_v1"},
+              "role_implementation": {"const": "certified_pattern_bound_program_vm_core_v1"}
+            }
+          }
+        }
+      }
+    }
+  ]
+}

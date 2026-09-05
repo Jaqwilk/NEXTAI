@@ -23,3 +23,7 @@ research/data/**/*.zip
 research/data/**/*.h5
 research/data/**/*.npy
 research/data/**/*.mat
+
+# PC-01 licensed corpus bytes and model state stay local; metadata remains tracked.
+research/data/pc01_tinyshakespeare_v1/input.txt
+research/pc01_payload/**/*.pt

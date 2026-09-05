@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-INTEGRATION-V1-RECEIPT",
+  "created_at": "2026-09-05T10:03:59Z",
+  "cycle": 286,
+  "authorization_id": "PC-01-EXTENSION-20260905-V1",
+  "kind": "completed_authorized_integration_service_not_scored_experiment",
+  "status": "conformance_verified_activation_requires_user_decision",
+  "artifact_sha256": {
+    "research/analyses/PC-01-INTEGRATION-V1.md": "5301b6d8e370c63981a941df1a741e803e65c406faf7dc1e5525613bae36d346",
+    "research/laboratory/PC-01-INTEGRATION-V1.json": "a36368373a79f2ea6e9658415199ffe573d9218db8b218e89e277db53aa304b9",
+    "research/laboratory/PC-01-EXECUTION-CERTIFICATE-V1.json": "e11c36b85c37462894f0ced2753876eb2cbcd00bf135af71dca3f09f7a23440c",
+    "research/laboratory/PC-01-INTEGRATION-HISTORY-BEFORE.json": "c2b754b3cb928837dd551d7c511854e5602460b59d56d58ad2e1686c4f4aef50",
+    "research/laboratory/PC-01-INTEGRATION-RUNBOOK-V1.md": "8a68f385cd22e032d6d1b3fd3ddb3ad4434de0cd0bfb9a2ac8510cd283f2922e",
+    "research/laboratory/PC-01-EXTENSION-20260905-V1.json": "863e659a69416c7efe96441f841e893e22fd436396822fcaa6679e4c6a237799",
+    "research/laboratory/PC-01-INTEGRATION-CONFORMANCE-V1.xml": "8ec1c63137e0136bff4cdc35338f1dd399cc18d24917a82f6b9b8be4689f4a21",
+    "research/laboratory/PC-01-INTEGRATION-REGRESSION-V1.xml": "4fc5f854385e78fa4226f35886a20b189df3159ea15b55f66244e0ea13395bf6",
+    "research/laboratory/PC-01-INTEGRATION-TEST-1.xml": "6781e8fb09760d44b78effb0c47593921d4ee61767a73ef8cd6094c6c9f5a6b0",
+    "research/laboratory/PC-01-INTEGRATION-TEST-2.xml": "142955e4d8b44883f1c847b0f547cec1753dac94bc3a9d8a08bccc2bcfbd3a50",
+    "research/laboratory/PC-01-INTEGRATION-TEST-3.xml": "521cc1aa9e0c66d81d123f4f9d9907cb9ab65a3a1e6d6a16db37f63a6d3c8b7c",
+    "research/laboratory/PC-01-INTEGRATION-TEST-4.xml": "e7d4305fe324459235d03b004bbdc07c47e0451973df180fec32f15be0679cc0",
+    "research/laboratory/PC-01-INTEGRATION-TEST-5.xml": "284085557e2677fdb849e8f4c2ae9832ebaa3dd2599921719d0425c4d405ed73",
+    "research/laboratory/PC-01-INTEGRATION-TEST-6.xml": "4559e9e821859e83549228c7fd3736e18394ed1d9d51d69b31eb33e6b76e72e2"
+  },
+  "reports": [
+    {
+      "sha256": "8ec1c63137e0136bff4cdc35338f1dd399cc18d24917a82f6b9b8be4689f4a21",
+      "tests": 132,
+      "skipped": 0,
+      "errors": 0,
+      "path": "research/laboratory/PC-01-INTEGRATION-CONFORMANCE-V1.xml",
+      "seconds": 13.69,
+      "failures": 0
+    },
+    {
+      "sha256": "4fc5f854385e78fa4226f35886a20b189df3159ea15b55f66244e0ea13395bf6",
+      "tests": 797,
+      "skipped": 0,
+      "errors": 0,
+      "path": "research/laboratory/PC-01-INTEGRATION-REGRESSION-V1.xml",
+      "seconds": 86.714,
+      "failures": 0
+    },
+    {
+      "sha256": "6781e8fb09760d44b78effb0c47593921d4ee61767a73ef8cd6094c6c9f5a6b0",
+      "tests": 26,
+      "skipped": 0,
+      "errors": 0,
+      "path": "research/laboratory/PC-01-INTEGRATION-TEST-1.xml",
+      "seconds": 7.139,
+      "failures": 0
+    },
+    {
+      "sha256": "142955e4d8b44883f1c847b0f547cec1753dac94bc3a9d8a08bccc2bcfbd3a50",
+      "tests": 35,
+      "skipped": 0,
+      "errors": 0,
+      "path": "research/laboratory/PC-01-INTEGRATION-TEST-2.xml",
+      "seconds": 9.618,
+      "failures": 1
+    },
+    {
+      "sha256": "521cc1aa9e0c66d81d123f4f9d9907cb9ab65a3a1e6d6a16db37f63a6d3c8b7c",
+      "tests": 118,
+      "skipped": 0,
+      "errors": 0,
+      "path": "research/laboratory/PC-01-INTEGRATION-TEST-3.xml",
+      "seconds": 13.037,
+      "failures": 0
+    },
+    {
+      "sha256": "e7d4305fe324459235d03b004bbdc07c47e0451973df180fec32f15be0679cc0",
+      "tests": 43,
+      "skipped": 0,
+      "errors": 0,
+      "path": "research/laboratory/PC-01-INTEGRATION-TEST-4.xml",
+      "seconds": 11.039,
+      "failures": 0
+    },
+    {
+      "sha256": "284085557e2677fdb849e8f4c2ae9832ebaa3dd2599921719d0425c4d405ed73",
+      "tests": 102,
+      "skipped": 0,
+      "errors": 0,
+      "path": "research/laboratory/PC-01-INTEGRATION-TEST-5.xml",
+      "seconds": 11.618,
+      "failures": 0
+    },
+    {
+      "sha256": "4559e9e821859e83549228c7fd3736e18394ed1d9d51d69b31eb33e6b76e72e2",
+      "tests": 132,
+      "skipped": 0,
+      "errors": 0,
+      "path": "research/laboratory/PC-01-INTEGRATION-TEST-6.xml",
+      "seconds": 13.792,
+      "failures": 0
+    }
+  ],
+  "validations": {
+    "doctor": "PASS",
+    "protected_files": 857,
+    "full_pytest_tests": 797,
+    "full_pytest_failures": 0,
+    "full_pytest_errors": 0,
+    "full_pytest_skipped": 0,
+    "full_pytest_seconds": 86.714,
+    "conformance_tests": 132,
+    "history_immutable_files": 349,
+    "prior_sealed_sources_archived": 11,
+    "new_sealed_artifacts": 25,
+    "ledger_prefixes_preserved": true,
+    "exact_prior_manifest_archived": true,
+    "candidate_bundle_unchanged": true,
+    "git_diff_check": "PASS"
+  },
+  "failure_disclosure": "TEST-2 retains one failed integration fixture (wrapper captured an already patched supervisor); fixed the fixture reference, no production thresholds relaxed. All final conformance and regression tests pass.",
+  "budget": {
+    "original_service_cycles_used": 2,
+    "original_service_cycles_cap": 2,
+    "original_service_minutes_reserved": 120,
+    "extension_service_cycles_used": 1,
+    "extension_service_cycles_cap": 1,
+    "extension_minutes_charged": 40,
+    "extension_minutes_cap": 60,
+    "total_minutes_reserved": 160,
+    "total_minutes_cap": 180,
+    "clocked_start": "2026-09-05T09:27:06Z",
+    "resumed_same_cycle": "2026-09-05T09:35:04Z",
+    "elapsed_to_validation_seconds": 2096,
+    "closing_reservation_ends_at": "2026-09-05T10:07:06Z",
+    "absolute_deadline_at": "2026-09-05T10:27:06Z",
+    "charge_is_conservative_reservation_not_exact_tool_time": true,
+    "unused_minutes_authorize_another_cycle": false,
+    "development_attempts": 0,
+    "final_replicates": 0,
+    "training_seconds": 0
+  },
+  "scientific_state": {
+    "completed_experiments": 99,
+    "pending_experiments": 0,
+    "training_performed": false,
+    "scoring_performed": false,
+    "scientific_seed_realized": false,
+    "synthetic_fixture_randomness_only": true,
+    "real_model_recipe_executed": false,
+    "positive_learning_demonstrated": false,
+    "architecture_promoted": false,
+    "active_cohort_changed": false
+  },
+  "limitations": [
+    "Activation-policy transition is not implemented/certified here; needs separate user authorization and a prospective contract, new cohort freeze and matching certificate.",
+    "Real 5000-update forward/backward and budget/quality feasibility have not been tested.",
+    "RSS/storage supervision is sampled, not an OS security sandbox; known overshoot is charged, lost parents block further runs.",
+    "Local final data are inspectable, not blind; exact past acquisition wall time remains unknown."
+  ],
+  "next_action_id": "PC-01-DECISION",
+  "next_discriminating_experiment": "After separately authorized/validated activation, preregister dev seed 1103, then implement the fixed Candidate model and run at most 1200 seconds fit/1800 worker through nextai run; no final access.",
+  "schedule_changed": false,
+  "pushed": false,
+  "branches_merged": false,
+  "installed_or_downloaded": false,
+  "destructive_cleanup": false
+}

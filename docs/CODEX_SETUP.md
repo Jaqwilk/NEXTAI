@@ -1,49 +1,53 @@
-# Uruchomienie wyłącznie w Codexie
+# Uruchomienie laboratorium w lokalnym zadaniu
 
-## Co faktycznie działa
+## Aktualna zgoda — trzy repliki finalne
 
-Sterowanie badaniami wykonuje ten sam Codex w tym lokalnym zadaniu. Trwałość nie pochodzi z procesu modelowego działającego w tle, lecz z dwóch warstw:
+Obowiązuje research/laboratory/PC-01-FINAL-ACTIVATION-20260905-V1.json.
+Użytkownik zatwierdził trzy świeże repliki niezmienionego modelu v3, po jednej
+na cykl, 1200 s fit / 1800 s procesu każda, bez kolejnego dev, strojenia,
+resume ani automatycznych powtórek. Najpierw freeze/certyfikat i rejestracja.
+Awaria lub nieważny wynik zatrzymuje serię do przeglądu. Trzy kompletne wyniki
+oceniamy razem według niezmienionych progów; bez awansu architektury.
+Zatwierdzono także commity i nie-siłowy push do istniejącego GitHub origin;
+duże dane i checkpointy zostają lokalnie. Nie zmieniamy harmonogramu.
+Poniższe opisy zakończonych etapów pozostają historią, nie aktualnym zakazem.
 
-1. repozytorium przechowuje stan, reguły, plany i wyniki;
-2. harmonogram Codexa okresowo wraca do tej samej rozmowy i wykonuje jeden cykl.
+Aktualny plan PC-01-FINAL-PREP-V1 przygotowuje kompatybilność serii v3.
+Walidacja: `uv run python scripts/validate_pc01_final_preparation.py` po
+ukończeniu i certyfikacji. Testy/manifest/certyfikat nie znoszą maintenance.
+Po receipt potrzebna jest osobna decyzja o wykonaniu serii, bez kolejnego dev.
 
-Nie ma osobnego modelu, API, klucza ani demona. Komputer oraz aplikacja Codex muszą działać, aby lokalne zaplanowane wybudzenie mogło się wykonać. To celowa właściwość rozwiązania natywnego.
+Sterowanie to bieżące zadanie Codexa i lokalny harness NEXTAI, bez dodatkowego
+modelu/API. Aktualne instrukcje są w program.md i research/LAB_PLAN.md.
+Trwały stan repozytorium ma pierwszeństwo przed historyczną kolejką w analizach.
 
-## Jednorazowa inicjalizacja
+Przygotowanie plików nie uruchamia automatyzacji. Jej rzeczywisty stan i prompt
+należy sprawdzić w aplikacji przed wznowieniem; nie wnioskuj o nich z events.jsonl.
+Tekst zgodny z protokołem v3 znajduje się w docs/AUTOMATION_PROMPT.md.
+Aktualny krok odczytaj z lab status; nie powtarzaj ukończonego PC-01-CONTRACT.
+Osobna zgoda PC-01-DEV2-20260905-V1 obejmuje tylko jedną nową próbę dev;
+po jej wyniku wymagany jest przegląd, bez final i automatycznych ponowień.
+Dev 2 ukończono; kolejny zatwierdzony PC-01-GPU-METADATA-V1 to wyłącznie
+naprawa metadanych bez treningu. V3 pozostaje maintenance po jej walidacji.
+
+## Kontrola lokalna
 
 ```powershell
-uv sync --extra dev
+uv run nextai doctor
+uv run nextai lab status
 uv run pytest
-uv run nextai integrity verify
-uv run nextai doctor
 ```
 
-Manifest integralności jest tworzony dopiero po zatwierdzeniu wersji benchmarku. Protokół v2 haszuje cały harness, kandydatów, testy, schematy, lockfile i kontrakt naukowy; nadpisanie manifestu najpierw archiwizuje poprzednią treść. Zmiana chronionego pliku ma zatrzymać scoring, a nie zostać automatycznie zaakceptowana.
+Przed instalacją uv sync --frozen --extra dev sprawdź wolne miejsce oraz
+rozpakowany rozmiar i cache. Musi pozostać co najmniej 10 GiB. Nowy komputer
+może wymagać lokalnych danych z manifestów; brak danych zgłasza się jawnie,
+nie zastępuje ich innym zbiorem. Dużych danych nie dodajemy do Git.
 
-## Kontrakt zaplanowanego wybudzenia
+Maintenance blokuje plan new i run, lecz nie blokuje dozwolonego przygotowania.
+Manifest v3 obejmuje aktualny kontrakt i zachowuje archiwum v2. Samo freeze nie
+uprawnia do scoringu. Nowa kohorta wymaga kontraktu, testów i certyfikatu.
 
-Każde wybudzenie ma wykonać dokładnie jeden cykl:
-
-1. przeczytać `AGENTS.md` i `program.md`;
-2. sprawdzić STOP/PAUSE/lock/integrity;
-3. dokończyć jedyny oczekujący plan, append-only go unieważnić albo wybrać jedno pytanie;
-4. prerejestrować je przed implementacją;
-5. uruchomić tylko lokalny, audytowany harness; dokładne scoring seeds ujawnia runner dopiero po audycie i zamrożeniu kodu;
-6. zachować porażki i oddzielić obserwację od interpretacji;
-7. zaktualizować raport, uruchomić testy i zakończyć do następnego wybudzenia.
-
-Dokładny tekst automatyzacji jest zachowany w `docs/AUTOMATION_PROMPT.md`. Częstotliwość nie zmienia limitów eksperymentu; zapobiegają temu lock, jeden oczekujący plan i cadence gates.
-
-## Ręczny cykl
-
-Użytkownik może w dowolnym momencie napisać w tym zadaniu „kontynuuj”. Codex odczytuje trwały stan i podejmuje następny krok. Do diagnostyki bez rozpoczynania eksperymentu:
-
-```powershell
-uv run nextai doctor
-uv run nextai hypothesis list
-uv run nextai report
-```
-
-## Zatrzymanie
-
-Utworzenie `STOP` lub `PAUSE` w katalogu głównym powoduje błąd `doctor`, `plan new` i `run`, więc blokada działa także wtedy, gdy prompt automatyzacji zostanie źle zinterpretowany. Harmonogram można również wstrzymać w aplikacji. Usunięcie pliku wznawia pracę tylko wtedy, gdy harmonogram nadal jest aktywny lub użytkownik poprosi Codexa o kontynuację.
+STOP, PAUSE i aktywna blokada zatrzymują cykle. Jeden cykl kończy jeden krok;
+brak nadrabiania równoległymi eksperymentami. Instrukcje nie gwarantują pracy
+24/7. Lokalna praca zaplanowana wymaga włączonego komputera i aplikacji;
+potwierdza to [oficjalna dokumentacja](https://learn.chatgpt.com/docs/automations?surface=app).

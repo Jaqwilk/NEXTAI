@@ -1,0 +1,24 @@
+{
+  "cuda_allocated_bytes": 1768945152,
+  "cuda_reserved_bytes": 2174746624,
+  "disk_free_bytes": 110525431808,
+  "fit_seconds": 300.42593320000015,
+  "fit_seconds_charged": 300.42593320000015,
+  "limits": {
+    "cuda_bytes": 10737418240,
+    "disk_reserve_bytes": 10737418240,
+    "fit_seconds": 1200,
+    "payload_bytes": 2147483648,
+    "rss_bytes": 10737418240,
+    "worker_seconds": 1800
+  },
+  "network_policy": "forbidden_by_audit_not_os_sandboxed",
+  "persisted_bytes": 87694906,
+  "return_code": 0,
+  "rss_bytes": 1418985472,
+  "sampling_interval_seconds": 0.05,
+  "telemetry_max_read_gap_seconds": 0.06166600000142353,
+  "telemetry_read_conflicts": 3,
+  "termination_reason": null,
+  "worker_seconds": 310.02556560000085
+}

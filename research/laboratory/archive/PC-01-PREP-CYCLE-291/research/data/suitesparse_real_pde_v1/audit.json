@@ -1,0 +1,638 @@
+{
+  "schema_version": 1,
+  "dataset_id": "suitesparse_real_pde_v1",
+  "manifest_sha256": "2049008d17bcf1f23168886c86b9066813658212756732770d9ca81fcca8a6df",
+  "pyamg_version": "5.3.0",
+  "numpy_version": "2.5.2",
+  "preconditioned_cg_contract": {
+    "rtol": 1e-07,
+    "atol": 0.0,
+    "maxiter": 2000
+  },
+  "matrix_count": 9,
+  "algebraic_metadata_pass": true,
+  "adaptive_sa_runnable_all_matrices": true,
+  "records": [
+    {
+      "group": "FIDAP",
+      "name": "ex33",
+      "family_slot": "cfd",
+      "scale_slot": "small",
+      "archive_bytes": 63940,
+      "archive_sha256": "2e42e1332c18ce91bf6d89c1069ea866206566ac76d65a5d02c5f4c5796b18b3",
+      "matrix_bytes": 319662,
+      "matrix_sha256": "6cb758c0e331ce6c4c44c23bec7efe2048c26c9a356dabf02e9c02b4771657de",
+      "shape": [
+        1733,
+        1733
+      ],
+      "stored_entries": 22189,
+      "numerical_nnz": 22189,
+      "explicit_zero_entries": 0,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 0.766830246047608,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 4,
+        "build_seconds_diagnostic": 0.005090299993753433,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 2.95002018937948e-06,
+          "solve_seconds_diagnostic": 0.020528299966827035
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 43,
+          "relative_residual": 3.442222876129471e-08,
+          "solve_seconds_diagnostic": 0.011039700009860098
+        }
+      },
+      "adaptive_sa": {
+        "levels": 3,
+        "reported_setup_work": 20.55793411149669,
+        "build_seconds_diagnostic": 0.007021100027486682,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 2.0598443412232948e-05,
+          "solve_seconds_diagnostic": 0.017525499977637082
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 1.0032981404991548e-05,
+          "solve_seconds_diagnostic": 0.016550500004086643
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 59,
+          "relative_residual": 8.801366151309844e-08,
+          "solve_seconds_diagnostic": 0.01262930000666529
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 58,
+          "relative_residual": 9.768934158428058e-08,
+          "solve_seconds_diagnostic": 0.01223210000898689
+        }
+      }
+    },
+    {
+      "group": "ACUSIM",
+      "name": "Pres_Poisson",
+      "family_slot": "cfd",
+      "scale_slot": "medium",
+      "archive_bytes": 3986512,
+      "archive_sha256": "2d97853e5a7de6376a4fde49a44256c747c694833b897cee25ae46b12c5411e6",
+      "matrix_bytes": 11224164,
+      "matrix_sha256": "9b59afe7fe7875e4eae1e40596c6c5933963636f4f172762c645c9c73cee6162",
+      "shape": [
+        14822,
+        14822
+      ],
+      "stored_entries": 715804,
+      "numerical_nnz": 715804,
+      "explicit_zero_entries": 0,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 0.00826408845609565,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 3,
+        "build_seconds_diagnostic": 0.09281989996088669,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.00017621973347775675,
+          "solve_seconds_diagnostic": 0.2400952000170946
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 43,
+          "relative_residual": 7.153566463254943e-08,
+          "solve_seconds_diagnostic": 0.17298139998456463
+        }
+      },
+      "adaptive_sa": {
+        "levels": 3,
+        "reported_setup_work": 20.042972657319602,
+        "build_seconds_diagnostic": 0.1549158000270836,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.018579354338247,
+          "solve_seconds_diagnostic": 0.23660230002133176
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.0007211902481887664,
+          "solve_seconds_diagnostic": 0.24693020002450794
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 60,
+          "relative_residual": 9.007033441963608e-08,
+          "solve_seconds_diagnostic": 0.22069859999464825
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 56,
+          "relative_residual": 7.647109308732363e-08,
+          "solve_seconds_diagnostic": 0.19240900001022965
+        }
+      }
+    },
+    {
+      "group": "Rothberg",
+      "name": "cfd2",
+      "family_slot": "cfd",
+      "scale_slot": "large",
+      "archive_bytes": 15828101,
+      "archive_sha256": "cf4588c54ddf73ebe815950c8285b8102e64f02eea26d3a9b806dfaf95682b8b",
+      "matrix_bytes": 41954205,
+      "matrix_sha256": "80faade5d176fce67517715f6e70b4de7046e666bf2251a0c52221e079aba844",
+      "shape": [
+        123440,
+        123440
+      ],
+      "stored_entries": 3087898,
+      "numerical_nnz": 3085406,
+      "explicit_zero_entries": 2492,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 1.0,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 4,
+        "build_seconds_diagnostic": 0.34529799997108057,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 1.3939344834534162e-05,
+          "solve_seconds_diagnostic": 1.4649158000247553
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 146,
+          "relative_residual": 9.562505760843081e-08,
+          "solve_seconds_diagnostic": 3.0442944999667816
+        }
+      },
+      "adaptive_sa": {
+        "levels": 4,
+        "reported_setup_work": 20.902066713343512,
+        "build_seconds_diagnostic": 0.6687684000353329,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 9.12034416139332e-05,
+          "solve_seconds_diagnostic": 1.4028672000276856
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.00013540982223954096,
+          "solve_seconds_diagnostic": 1.4440949999843724
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 367,
+          "relative_residual": 9.88683653023748e-08,
+          "solve_seconds_diagnostic": 7.508046599978115
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 354,
+          "relative_residual": 9.981817453658356e-08,
+          "solve_seconds_diagnostic": 7.26886219996959
+        }
+      }
+    },
+    {
+      "group": "Boeing",
+      "name": "msc01050",
+      "family_slot": "structural",
+      "scale_slot": "small",
+      "archive_bytes": 83901,
+      "archive_sha256": "e7e601f35053493ba475e313e45b16342f7f6f1fb0d2bb1fc867dc07863d7b6d",
+      "matrix_bytes": 352947,
+      "matrix_sha256": "0d59c54e4c665022e9c8de155e557db9dd3affe67c1a43db77a26acdde23488c",
+      "shape": [
+        1050,
+        1050
+      ],
+      "stored_entries": 29156,
+      "numerical_nnz": 26198,
+      "explicit_zero_entries": 2958,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 0.1599999836855,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 3,
+        "build_seconds_diagnostic": 0.004271299985703081,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.0001158606717572811,
+          "solve_seconds_diagnostic": 0.019769900012761354
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 192,
+          "relative_residual": 6.964524352143229e-08,
+          "solve_seconds_diagnostic": 0.04756259999703616
+        }
+      },
+      "adaptive_sa": {
+        "levels": 3,
+        "reported_setup_work": 10.0,
+        "build_seconds_diagnostic": 0.0083458999870345,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.00014222278182654104,
+          "solve_seconds_diagnostic": 0.020243500010110438
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 1.0978914952003637e-05,
+          "solve_seconds_diagnostic": 0.019615800003521144
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 208,
+          "relative_residual": 9.537926074872563e-08,
+          "solve_seconds_diagnostic": 0.0528385000070557
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 247,
+          "relative_residual": 9.630744710692384e-08,
+          "solve_seconds_diagnostic": 0.0700522999977693
+        }
+      }
+    },
+    {
+      "group": "Boeing",
+      "name": "bcsstk36",
+      "family_slot": "structural",
+      "scale_slot": "medium",
+      "archive_bytes": 5435971,
+      "archive_sha256": "5604590a92eb3f02acec595c144429a20efbd943ab4eaa18bfc11beb91dc3da2",
+      "matrix_bytes": 13696584,
+      "matrix_sha256": "99e5a45c250b18a5a62df60e888b657781e14f18403cfbce6f29c0d927ecb041",
+      "shape": [
+        23052,
+        23052
+      ],
+      "stored_entries": 1143140,
+      "numerical_nnz": 1143140,
+      "explicit_zero_entries": 0,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 0.04095800384,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 4,
+        "build_seconds_diagnostic": 0.16491180000593886,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 7.436230594522902e-05,
+          "solve_seconds_diagnostic": 0.3570151000167243
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 440,
+          "relative_residual": 9.912989105819727e-08,
+          "solve_seconds_diagnostic": 2.3427920000394806
+        }
+      },
+      "adaptive_sa": {
+        "levels": 3,
+        "reported_setup_work": 20.068154381790507,
+        "build_seconds_diagnostic": 0.3346364000462927,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.00034780072059527556,
+          "solve_seconds_diagnostic": 0.34808219998376444
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.0004175752044006894,
+          "solve_seconds_diagnostic": 0.3499465999775566
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 1598,
+          "relative_residual": 9.978908169561452e-08,
+          "solve_seconds_diagnostic": 8.456509199982975
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 1589,
+          "relative_residual": 9.891470987061364e-08,
+          "solve_seconds_diagnostic": 8.427918799978215
+        }
+      }
+    },
+    {
+      "group": "GHS_psdef",
+      "name": "vanbody",
+      "family_slot": "structural",
+      "scale_slot": "large",
+      "archive_bytes": 15159339,
+      "archive_sha256": "284a6aa8a7b5baf2e18cea171fe0a9dbcf316b90c90df331daf8cec18b4a20f7",
+      "matrix_bytes": 36274803,
+      "matrix_sha256": "83291e07f5aad85afab2de49321301ae0b6922790628f443c082c494a66a4574",
+      "shape": [
+        47072,
+        47072
+      ],
+      "stored_entries": 2336898,
+      "numerical_nnz": 2329056,
+      "explicit_zero_entries": 7842,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 0.0009521245231001927,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 4,
+        "build_seconds_diagnostic": 0.1230822000070475,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 2.1169858779943076e-05,
+          "solve_seconds_diagnostic": 0.9560450999997556
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 192,
+          "relative_residual": 9.210925624100407e-08,
+          "solve_seconds_diagnostic": 2.5238868999877013
+        }
+      },
+      "adaptive_sa": {
+        "levels": 3,
+        "reported_setup_work": 20.078420196345753,
+        "build_seconds_diagnostic": 0.23158739996142685,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.00014883706871584215,
+          "solve_seconds_diagnostic": 0.9600582999992184
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 100,
+          "relative_residual": 0.00017199509727708023,
+          "solve_seconds_diagnostic": 0.9514018999761902
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 402,
+          "relative_residual": 9.5826566526375e-08,
+          "solve_seconds_diagnostic": 5.1452555999858305
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 458,
+          "relative_residual": 9.128881479863808e-08,
+          "solve_seconds_diagnostic": 5.855171100003645
+        }
+      }
+    },
+    {
+      "group": "Bai",
+      "name": "mhd3200b",
+      "family_slot": "electromagnetics",
+      "scale_slot": "small",
+      "archive_bytes": 93985,
+      "archive_sha256": "509fc012379395072c2a976c48ba135a2844f7d1d70ff722a746c5b4f483965d",
+      "matrix_bytes": 282449,
+      "matrix_sha256": "95a6afaa7b0a886e370860941c7a28a102f076fb904d9a875286173da623d7ac",
+      "shape": [
+        3200,
+        3200
+      ],
+      "stored_entries": 18316,
+      "numerical_nnz": 18316,
+      "explicit_zero_entries": 0,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 2.27734937958e-12,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 6,
+        "build_seconds_diagnostic": 0.006145799998193979,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 7,
+          "relative_residual": 4.177803154140156e-09,
+          "solve_seconds_diagnostic": 0.002618199971038848
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 5,
+          "relative_residual": 8.736880846361793e-09,
+          "solve_seconds_diagnostic": 0.0018740000086836517
+        }
+      },
+      "adaptive_sa": {
+        "levels": 4,
+        "reported_setup_work": 23.124590521948022,
+        "build_seconds_diagnostic": 0.010857100016437471,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 20,
+          "relative_residual": 8.292966870737731e-09,
+          "solve_seconds_diagnostic": 0.00533820001874119
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 20,
+          "relative_residual": 8.305210729980541e-09,
+          "solve_seconds_diagnostic": 0.004677699995227158
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 7,
+          "relative_residual": 8.068096591952009e-08,
+          "solve_seconds_diagnostic": 0.0020573000074364245
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 7,
+          "relative_residual": 7.285586062595839e-08,
+          "solve_seconds_diagnostic": 0.0020134999649599195
+        }
+      }
+    },
+    {
+      "group": "Um",
+      "name": "2cubes_sphere",
+      "family_slot": "electromagnetics",
+      "scale_slot": "medium",
+      "archive_bytes": 11774237,
+      "archive_sha256": "c4b64b5aac534d0323197bb838d1cbbb20fbf68bb564186c0b754a1a51b182df",
+      "matrix_bytes": 26801921,
+      "matrix_sha256": "ff922c92844303fad9ae7c5795c857f42c5590231e38f605ff98fd91a508743e",
+      "shape": [
+        101492,
+        101492
+      ],
+      "stored_entries": 1647264,
+      "numerical_nnz": 1647264,
+      "explicit_zero_entries": 0,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 97.08418134759731,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 4,
+        "build_seconds_diagnostic": 0.2999042000155896,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 5,
+          "relative_residual": 1.984885367022637e-09,
+          "solve_seconds_diagnostic": 0.07530859997496009
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 4,
+          "relative_residual": 9.610640180895892e-09,
+          "solve_seconds_diagnostic": 0.07592250005109236
+        }
+      },
+      "adaptive_sa": {
+        "levels": 3,
+        "reported_setup_work": 21.436916001320977,
+        "build_seconds_diagnostic": 0.5162525000050664,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 6,
+          "relative_residual": 1.236902136575733e-09,
+          "solve_seconds_diagnostic": 0.09047479997389019
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 5,
+          "relative_residual": 8.823376785008592e-09,
+          "solve_seconds_diagnostic": 0.0759533999953419
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 4,
+          "relative_residual": 4.0450452309886845e-08,
+          "solve_seconds_diagnostic": 0.08577320002950728
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 4,
+          "relative_residual": 2.346618517082275e-08,
+          "solve_seconds_diagnostic": 0.07943570002680644
+        }
+      }
+    },
+    {
+      "group": "Um",
+      "name": "offshore",
+      "family_slot": "electromagnetics",
+      "scale_slot": "large",
+      "archive_bytes": 33575877,
+      "archive_sha256": "44e74d8fb3d16adbf2d6075590e39cddf0752394fa5e472f29bcbee7405d2e50",
+      "matrix_bytes": 72029092,
+      "matrix_sha256": "45e402df80f58465caa8d8e2bb5bf64f86287d938d74dbfc550d65df5e27185a",
+      "shape": [
+        259789,
+        259789
+      ],
+      "stored_entries": 4242673,
+      "numerical_nnz": 4242673,
+      "explicit_zero_entries": 0,
+      "finite_values": true,
+      "symmetry_max_abs": 0.0,
+      "diagonal_min": 175328.90789730052,
+      "diagonal_positive_fraction": 1.0,
+      "standard_sa": {
+        "levels": 4,
+        "build_seconds_diagnostic": 0.9377792999730445,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 12,
+          "relative_residual": 8.398608308289196e-09,
+          "solve_seconds_diagnostic": 0.5072894000331871
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 12,
+          "relative_residual": 8.740175817105699e-08,
+          "solve_seconds_diagnostic": 0.6279316999716684
+        }
+      },
+      "adaptive_sa": {
+        "levels": 4,
+        "reported_setup_work": 23.37474511940939,
+        "build_seconds_diagnostic": 1.8677472000126727,
+        "primary_rhs": {
+          "finite": true,
+          "iterations": 9,
+          "relative_residual": 8.766408359575622e-09,
+          "solve_seconds_diagnostic": 0.3842960000038147
+        },
+        "reused_hierarchy_second_rhs": {
+          "finite": true,
+          "iterations": 9,
+          "relative_residual": 9.180933686705123e-09,
+          "solve_seconds_diagnostic": 0.3790363000007346
+        },
+        "preconditioned_cg_primary_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 14,
+          "relative_residual": 8.026363351693197e-08,
+          "solve_seconds_diagnostic": 0.7285489999921992
+        },
+        "preconditioned_cg_reused_hierarchy_second_rhs": {
+          "converged": true,
+          "finite": true,
+          "iterations": 17,
+          "relative_residual": 9.631620217585323e-08,
+          "solve_seconds_diagnostic": 0.8879913999699056
+        }
+      }
+    }
+  ]
+}
