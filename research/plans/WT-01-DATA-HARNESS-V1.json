@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-DATA-HARNESS-V1",
+  "kind": "no_scoring_wt01_data_scope_and_harness_freeze",
+  "authority": "research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json",
+  "created_at": "2026-09-05T20:04:11Z",
+  "deadline_at": "2026-09-05T21:04:11Z",
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "scientific_result_created": false,
+  "objective": "Finish WT-01 service preparation by freezing an honest diagnostic-only data scope and a source-identical executable factorial harness that can later isolate recurrence, RLS and clipping without relabeling a classical VAR(2)/ARX rule as architectural novelty.",
+  "data_resolution": [
+    "Record zero available fresh same-protocol physical traces and preserve the five-recording minimum as an unmet replication gate.",
+    "Freeze wt_changepoints_v1 files 0-5 as historical fit, 6-7 as visible development and 8-9 as visible historical diagnostic; none is hidden or fresh.",
+    "Do not acquire wt_walks_v1 now. Preserve it only as a possible same-device, different-operation adversarial source after a positive mechanism result and a separate acquisition contract.",
+    "Forbid replication, transfer and hidden-holdout claims for the prospective diagnostic cohort."
+  ],
+  "implementation": [
+    "Implement one core with the exact historical ridge fit and switches R, U and C defined in WT-01-FACTORIAL-DESIGN-V1; expose all eight cells through thin wrappers that add no behavior.",
+    "Implement a separately named algebraic affine controlled VAR(2)/ARX query path with identical fit, slot-local RLS update and bound; require it to match R1-U1-C1 within absolute and relative tolerance 1e-12.",
+    "Load the exact historical candidate bytes from Git only inside synthetic tests; compare predictions, post-reveal precision/weights, operation counts, bytes and state without loading WT data.",
+    "Implement a maintenance-only evaluator for the fixed historical fit/development/diagnostic split, horizons 16/32/96 and knowledge sizes 18/36/54; keep the run gate closed.",
+    "Preserve predict-artifact-before-reveal, slot isolation, training-only normalization, forbidden semantic fields, every failed/divergent cell and complete full-cost accounting.",
+    "Freeze a primary conditional recurrence contrast R0-U1-C1 minus R1-U1-C1. The smallest effect of interest is exactly 10% of the known historical candidate-versus-best-complete-control NRMSE gap: 0.03343253453162794. This is a causal-attribution threshold for explaining the old positive, not a general quality threshold.",
+    "Require the recurrence contrast to be positive on both historical physical diagnostic files as a consistency check. Treat all uncertainty as descriptive because n=2; do not produce a replicated-positive claim.",
+    "Keep factorial main effects/interactions, per-file/horizon NRMSE, first-16 post-change error area, samples-13-to-16 recovery NRMSE, stability/divergence, operations, bytes, state and R1/R4/R16 workloads."
+  ],
+  "nonlinear_control_decision": "Do not add a nonlinear NARX control in this factorial. The question isolates three operations inside a fully affine classical identity; changing feature degree would introduce another causal factor. A nonlinear comparison requires a new preregistered question only if a residual survives the diagnostic.",
+  "success": "The final data receipt is diagnostic-only; all eight wrappers resolve to one core; exact Git-source, R1-U1-C1 and VAR/ARX equivalence pass on synthetic fixtures; cost/leakage/slot/divergence gates pass; the threshold and decision logic are immutable; a new maintenance manifest and preflight certificate pass; the complete suite has zero failures/errors/skips and GitHub branches match.",
+  "failure": "Preserve every failed report and stop. Do not weaken tolerance, change factor semantics, inspect real arrays, inherit another threshold, omit a cell, activate scoring or consume a development attempt.",
+  "budget": {
+    "service_minutes": 60,
+    "training_seconds": 0,
+    "scoring_runs": 0,
+    "development_attempts": 0,
+    "dependency_installs": 0,
+    "downloads": 0
+  },
+  "next_action_on_success": "Stop for explicit user review at WT-01-DEV-1. A separate authority may permit at most one visible-development harness attempt; no historical diagnostic scoring is implied.",
+  "next_action_on_failure": "Stop at WT-01-DATA-HARNESS with the exact data, equivalence, evaluator or integrity blocker."
+}
