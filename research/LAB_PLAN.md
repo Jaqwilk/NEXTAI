@@ -1,5 +1,23 @@
 # Plan uruchomienia laboratorium NEXTAI
 
+## Aktualny etap — REVIEW-01-DECISION (2026-09-06)
+
+Użytkownik zatwierdził jeden przygotowawczy cykl REVIEW-01, maksymalnie 60 minut,
+w `research/laboratory/REVIEW-01-20260906-V1.json`. Przegląd R0/PC-01/WT-01
+zapisano w `research/analyses/REVIEW-01-V1.md`, a konkretny, jeszcze nieaktywny
+kontrakt w `research/plans/MUC-01-PROPOSED-CONTRACT-V1.json`. R0 utrzymuje
+wiarygodność provenance, PC-01 potwierdza kontrolę uczenia, a WT-01 pozostaje
+opisową diagnostyką rekurencji w klasycznie równoważnym VAR(2)/ARX.
+
+Propozycja MUC-01 testuje wyłącznie lokalny delta-update pamięci na oryginalnym
+zadaniu z dokładną odpowiedzią, K=32/128/512 i niezależnym D=1/2/4. Obowiązkowe
+są: źródłowo identyczna ablacją append-only, kompetentny transformer, iteracyjny
+BM25+reader i jawny parser/hash-map. Pełny koszt obejmuje tekst, tokenizer, fit,
+indeks, ingest, update, query, RAM/VRAM i amortyzację. To propozycja do decyzji,
+nie EXP ani zgoda wykonawcza. Aktualna kolejka: REVIEW-01-DECISION. Bez nowej
+zgody nie implementować, nie trenować, nie pobierać, nie rejestrować/scorować,
+nie otwierać WT 8-9, nie replikować WT i nie zmieniać harmonogramu.
+
 ## Aktualny etap — WT-01-DECISION po zastępczym WT-01-DEV-1 (2026-09-06)
 
 Użytkownik jawnie zatwierdził poprawkę append-only lifecycle, ponowny freeze i

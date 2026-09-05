@@ -1,5 +1,18 @@
 # NEXTAI autonomous research rules
 
+## Current REVIEW-01 decision state (2026-09-06)
+
+The user authorized exactly one preparation-only, at-most-60-minute REVIEW-01
+cycle in `research/laboratory/REVIEW-01-20260906-V1.json`. The review of R0,
+PC-01 and WT-01 and the proposed contract are in
+`research/analyses/REVIEW-01-V1.md` and
+`research/plans/MUC-01-PROPOSED-CONTRACT-V1.json`. The proposal is not an
+experiment plan or execution authority. The current queue after validation is
+REVIEW-01-DECISION. Do not implement a candidate or generator, train, download,
+register an EXP, score, access WT files 8-9, replicate WT, change the schedule,
+or start the proposed stage without a new explicit user decision. Preserve the
+completed EXP-20260906-0001 and synchronized GitHub `master`/`main`.
+
 ## Current WT-01 terminal decision state (2026-09-06)
 
 The user's exact approval "Zatwierdzam poprawkę append-only lifecycle, ponowny

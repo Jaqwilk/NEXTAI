@@ -1,5 +1,16 @@
 # NEXTAI laboratory cycle — protocol v3
 
+## Current REVIEW-01 decision state (2026-09-06)
+
+The user authorized one preparation-only REVIEW-01 cycle, capped at 60 minutes,
+under `research/laboratory/REVIEW-01-20260906-V1.json`. The bounded plan is
+`research/plans/REVIEW-01-V1.json`; the completed review and proposed next
+contract are `research/analyses/REVIEW-01-V1.md` and
+`research/plans/MUC-01-PROPOSED-CONTRACT-V1.json`. This proposal does not grant
+implementation, training, downloads, EXP registration, scoring, WT files 8-9,
+WT replication or schedule changes. After validation and Git synchronization,
+stop at REVIEW-01-DECISION and request an explicit decision before any next step.
+
 ## Current WT-01 terminal decision state (2026-09-06)
 
 The user explicitly authorized the bounded append-only lifecycle correction,

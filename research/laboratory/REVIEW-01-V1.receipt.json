@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "REVIEW-01-V1-RECEIPT",
+  "created_at": "2026-09-05T23:40:24Z",
+  "status": "complete",
+  "decision": "proposed_contract_ready_for_user_decision",
+  "next_action_id": "REVIEW-01-DECISION",
+  "authority_path": "research/laboratory/REVIEW-01-20260906-V1.json",
+  "authority_sha256": "1602acc7018efa231f39f8bc368abcfc5654da19b811b1dd79c61dee89f13e82",
+  "preparation_plan_path": "research/plans/REVIEW-01-V1.json",
+  "preparation_plan_sha256": "15ef2ae7dd55dc82ddd887b55d2df2bab2b75cffb7406fd2f22a81673212f98a",
+  "review_path": "research/analyses/REVIEW-01-V1.md",
+  "review_sha256": "68454587d5f14e7ee8f4a3c4e36e2c4ce2eb42bba2d6471bc92342a8b0eb2c2f",
+  "proposed_contract_path": "research/plans/MUC-01-PROPOSED-CONTRACT-V1.json",
+  "proposed_contract_sha256": "58d54e8c10bbc74a0022fe0e8e0ed48aa9d32c8038a0e17998d953c55ca9866c",
+  "closure_precheck": {
+    "experiment_id": "EXP-20260906-0001",
+    "result_status": "complete",
+    "candidate_roles": 9,
+    "trials_complete": 162,
+    "trials_expected": 162,
+    "pending_plans": 0,
+    "result_sha256": "aff245cf2118df00316c5573c6ad74b2dca400cf612980be005410b06ee63a2b",
+    "analysis_sha256": "470907caf94e52d5ed014dca5bf5810bbee173ecd60e7103dea83df83b74fe70",
+    "terminal_receipt_sha256": "461735464e0a37b89ab3fd76eaab2032f63cd2018558ad5f54d84bacc58c5789",
+    "experiment_rerun": false,
+    "wt_files_8_9_opened": false
+  },
+  "github_precheck": {
+    "commit": "0d8a689ac5714784e0328a3960a5c2b26724efcb",
+    "local_master_equal_origin_master": true,
+    "origin_master_equal_origin_main": true,
+    "interrupted_previous_push": false
+  },
+  "evidence_review": {
+    "r0_decision": "keep_reproducibility_and_provenance_apparatus",
+    "pc01_decision": "positive_control_pass_only",
+    "wt01_decision": "keep_descriptive_recurrence_effect_with_complete_classical_var2_arx_explanation",
+    "wt_replication_started": false,
+    "wt_new_recording_search_started": false,
+    "architecture_promoted": false,
+    "economic_advantage_established": false,
+    "transfer_established": false
+  },
+  "source_review": {
+    "primary_source_ids_added": ["SRC-0429", "SRC-0430", "SRC-0431", "SRC-0432", "SRC-0433", "SRC-0434", "SRC-0435", "SRC-0436"],
+    "longmemeval_data_downloaded": false,
+    "other_data_or_models_downloaded": false,
+    "external_model_or_api_used": false,
+    "selection": "Original exact-answer procedural generator; LongMemEval, bAbI and CLUTRR are methodology-only references."
+  },
+  "validation": {
+    "targeted": {
+      "tests": 17,
+      "failures": 0,
+      "passed": true
+    },
+    "full_regression_v1": {
+      "tests": 961,
+      "failures": 1,
+      "errors": 0,
+      "passed": false,
+      "seconds": 137.96,
+      "report_path": "research/laboratory/REVIEW-01-FULL-REGRESSION-V1.xml",
+      "report_sha256": "3c2f3f9417835ffae8040294bdd297e048248f0fd5b7db0832ef43cfb38fb72b",
+      "cause": "Historical PC-01 closure test recognized only WT-01-DECISION and not the separately authorized REVIEW-01 terminal queue."
+    },
+    "correction": "Version only the queue expectation so a terminal WT result may advance to a verified completed REVIEW-01; no experiment, benchmark or candidate logic changed.",
+    "full_regression": {
+      "tests": 961,
+      "failures": 0,
+      "errors": 0,
+      "passed": true,
+      "seconds": 139.98,
+      "report_path": "research/laboratory/REVIEW-01-FULL-REGRESSION-V2.xml",
+      "report_sha256": "0a4d3749a8430a722e1afff3380698fd4befc1da62e51d9850093eb1b3cda894"
+    },
+    "doctor": "PASS",
+    "integrity": "PASS",
+    "protected_files": 913,
+    "benchmark_status": "maintenance",
+    "laboratory_status": "preparation_only",
+    "scoring_authorized": false,
+    "pending_plans": 0,
+    "evaluator_sha256": "0bea249c51203b342f9b1f2b56768e3c809cddc997080027b85cbb34155757d7",
+    "candidate_bundle_sha256": "769d354c1d818cbb72ec994e7f31832100651188618c0a878972dd868226f840",
+    "eval_manifest_sha256": "4df5a4c14c14f13c962f8e033fa42babd8387dbeeaba87260cece4098e89aeed",
+    "preflight_certificate_sha256": "59ff64f87778491b00350d9bed94a743cd206f0c8ed02af54ea5ee5ebc3c9e5b",
+    "preflight_file_sha256": "d40ffed6c5df5db53a86d22ff35ce51ccd6d425d169dca75830713df8f390aaf",
+    "free_disk_bytes": 108884549632
+  },
+  "preserved_validation_history": {
+    "prior_manifest_archive": "research/manifests/wt01_causal_factorial_diagnostic_v1-protocol-v3-ad683304f03b.json",
+    "prior_manifest_archive_sha256": "69b52e58cd3b971e868eb4b758d42c9e41d9b70e7c5ba66d6c05b06634d46cbb",
+    "intermediate_manifest_archive": "research/manifests/wt01_causal_factorial_diagnostic_v1-protocol-v3-091749df3345.json",
+    "intermediate_manifest_archive_sha256": "b0ca3582b9b7a09d5aacd0a8cdc3ba5204f6be78226e19d332bed124a2dabfc7",
+    "prior_preflight_archive": "research/laboratory/certificates/c02e0f78c96c83ef11ed6c404a354c805b58e08df5f87038b6ec37e1dc877cfd.json",
+    "prior_preflight_archive_sha256": "bdca2273bf8247271d6ebddcafba51d1ebca96cca47c010038e492c8ca6c8ee8",
+    "intermediate_preflight_archive": "research/laboratory/certificates/cd4690079799f033ffc9b05ef83bf150f4bb68f53eebb78a4f1335c22f30145b.json",
+    "intermediate_preflight_archive_sha256": "a0bc1afcd1c1740d7b4db33e2c7fec47655034cf6e633dff09e35ce7cce7a9f5"
+  },
+  "budget": {
+    "preparation_cycles_used": 1,
+    "preparation_cycles_cap": 1,
+    "preparation_minutes_conservatively_charged": 60,
+    "preparation_minutes_cap": 60,
+    "experiment_registrations": 0,
+    "scoring_runs": 0,
+    "training_runs": 0,
+    "downloads": 0,
+    "wt_files_8_9_reads": 0,
+    "schedule_changes": 0
+  },
+  "next_action": "Stop at REVIEW-01-DECISION. The proposed MUC-01 contract requires a separate explicit user authorization before any implementation, training, download, freeze for scoring, EXP registration or execution."
+}

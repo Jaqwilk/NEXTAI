@@ -302,6 +302,23 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
                 dev1 = wt01_dev1_status(base) if ready else None
                 if dev1 is not None:
                     stopped = dev1["terminal"]
+                    review = _review01_status(base) if stopped else None
+                    if review is not None:
+                        return {**progress, "activation_id": dev1["id"],
+                                "development_registrations_used": dev1["registrations_used"],
+                                "development_registrations_cap": 1,
+                                "final_registrations_used": 3, "final_registrations_cap": 3,
+                                "final_completed": 3, "final_access_authorized": False,
+                                "scoring_authorized": False,
+                                "user_decision_required": review["complete"],
+                                "next_action_id": "REVIEW-01-DECISION" if review["complete"] else "REVIEW-01",
+                                "next_action": "Review the proposed MUC-01 contract; no implementation or experiment is authorized."
+                                    if review["complete"] else
+                                    "Complete only the bounded R0/PC-01/WT-01 review and proposed contract.",
+                                "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                                "lifecycle_migration_complete": True,
+                                "wt01_contract": wt01, "wt01_harness": harness,
+                                "wt01_dev1": dev1, "review01": review}
                     return {**progress, "activation_id": dev1["id"],
                             "development_registrations_used": dev1["registrations_used"],
                             "development_registrations_cap": 1,
@@ -413,6 +430,63 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
                         next_action="Review prepared final-series adapter; execution requires separate authorization."
                         if stopped else "Prepare and test the exact v2-to-v3 bridge; no training or final access.")
     return progress
+
+
+def _review01_status(base: Path) -> dict[str, Any] | None:
+    """Resolve the one preparation-only REVIEW-01 overlay without widening authority."""
+    from .ledger import read_jsonl
+
+    relative = "research/laboratory/REVIEW-01-20260906-V1.json"
+    path = base / relative
+    if not path.is_file():
+        return None
+    authority = load_json(path)
+    required_false = (
+        "candidate_implementation_authorized", "candidate_training_authorized",
+        "dataset_or_model_download_authorized", "experiment_registration_authorized",
+        "scoring_authorized", "wt_replication_authorized",
+        "wt_files_8_9_access_authorized", "schedule_change_authorized",
+    )
+    if (authority.get("id") != "REVIEW-01-20260906-V1"
+            or authority.get("service_cycles_authorized") != 1
+            or authority.get("stage_minutes_cap") != 60
+            or any(authority.get(field) is not False for field in required_false)):
+        raise ValueError("REVIEW-01 authority changed or widens the preparation-only scope")
+    events = [event for event in read_jsonl(base / "research/events.jsonl")
+              if event.get("event") == "lab_milestone_progress"
+              and event.get("restart_id") == "LAB-RESTART-20260904-V1"
+              and event.get("milestone_id") == "REVIEW-01"]
+    if len(events) > 1:
+        raise ValueError("REVIEW-01 exceeds its one-cycle cap")
+    if not events:
+        return {"id": authority["id"], "complete": False,
+                "service_cycles_used": 1, "service_cycles_cap": 1,
+                "scoring_authorized": False}
+    event = events[0]
+    if (event.get("attempt") != 1 or event.get("status") != "review_completed"
+            or event.get("next_action_id") != "REVIEW-01-DECISION"
+            or event.get("training_performed") is not False
+            or event.get("scoring_performed") is not False
+            or event.get("experiment_registered") is not False
+            or event.get("downloads_performed") is not False
+            or event.get("wt_files_8_9_opened") is not False):
+        raise ValueError("REVIEW-01 completion is not a valid preparation-only terminal event")
+    budget = event.get("cumulative_budget", {})
+    if (budget.get("service_cycles_used") != 1 or budget.get("service_cycles_cap") != 1
+            or budget.get("service_minutes_conservatively_charged") != 60
+            or budget.get("service_minutes_cap") != 60):
+        raise ValueError("REVIEW-01 completion budget changed")
+    artifacts = event.get("artifact_sha256")
+    if not isinstance(artifacts, dict) or not artifacts:
+        raise ValueError("REVIEW-01 completion has no hash-linked artifacts")
+    for artifact_relative, digest in artifacts.items():
+        artifact = (base / artifact_relative).resolve()
+        if not artifact.is_relative_to(base) or not artifact.is_file() or sha256_file(artifact) != digest:
+            raise ValueError(f"REVIEW-01 artifact missing or changed: {artifact_relative}")
+    return {"id": authority["id"], "complete": True,
+            "service_cycles_used": 1, "service_cycles_cap": 1,
+            "service_minutes_charged": 60, "service_minutes_cap": 60,
+            "scoring_authorized": False, "receipt": event.get("receipt_path")}
 
 
 def _authorized_extension(base: Path, progress: dict[str, Any]) -> dict[str, Any]:

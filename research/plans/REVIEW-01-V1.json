@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "REVIEW-01-V1",
+  "kind": "bounded_preparation_review_not_an_experiment",
+  "created_at": "2026-09-05T23:20:00Z",
+  "deadline_at": "2026-09-06T00:20:00Z",
+  "authority_path": "research/laboratory/REVIEW-01-20260906-V1.json",
+  "objective": "Review the completed R0, PC-01 and WT-01 package and prepare one falsifiable small language-like memory-update-composition contract without implementing or executing it.",
+  "inputs": [
+    "research/laboratory/PREPARATION-20260904.md",
+    "research/analyses/PC-01-FINAL-SERIES-V1.md",
+    "research/analyses/EXP-20260906-0001.md",
+    "research/results/EXP-20260906-0001.json",
+    "docs/SCIENTIFIC_PROTOCOL.md",
+    "research/LAB_PLAN.md"
+  ],
+  "checks": [
+    "confirm EXP-20260906-0001 is terminal, complete, integrity-valid and has no pending plan",
+    "confirm local master, origin/master and origin/main are identical before preparation",
+    "separate apparatus, learning, mechanism, economics, transfer and novelty claims",
+    "use only primary papers and official repositories/documentation for methodological and availability claims",
+    "make the next proposal original and procedural so exact answer scoring requires no external judge",
+    "freeze three fact-count scales independently crossed with reasoning depth",
+    "freeze competent learned, retrieval and classical controls plus a source-identical mechanism ablation",
+    "include text, tokenization, indexing, fitting, update, query, state and amortization costs",
+    "freeze quality, effect, cost and invalidation gates before future implementation"
+  ],
+  "outputs": [
+    "research/analyses/REVIEW-01-V1.md",
+    "research/plans/MUC-01-PROPOSED-CONTRACT-V1.json",
+    "research/laboratory/REVIEW-01-V1.receipt.json"
+  ],
+  "budget": {
+    "preparation_cycles": 1,
+    "preparation_minutes_cap": 60,
+    "experiment_registrations": 0,
+    "scoring_runs": 0,
+    "training_runs": 0,
+    "downloads": 0,
+    "wt_files_8_9_reads": 0
+  },
+  "terminal_condition": "Publish a validated proposal and stop at REVIEW-01-DECISION, or preserve a concrete blocker and stop. No subsequent implementation or experiment starts automatically."
+}

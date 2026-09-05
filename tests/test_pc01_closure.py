@@ -136,7 +136,10 @@ def test_migrated_laboratory_identity_advances_only_through_verified_wt_contract
     assert progress["wt01_contract"]["artifacts_ready"] is True
     if progress["wt01_contract"]["complete"]:
         if progress.get("wt01_dev1") is not None:
-            assert progress["next_action_id"] == ("WT-01-DECISION" if dev1["terminal"] else "WT-01-DEV-1")
+            review = progress.get("review01")
+            expected = ("REVIEW-01-DECISION" if review and review["complete"] else "WT-01-DECISION") \
+                if dev1["terminal"] else "WT-01-DEV-1"
+            assert progress["next_action_id"] == expected
             assert progress["user_decision_required"] is dev1["terminal"]
             assert progress["scoring_authorized"] is (not dev1["terminal"])
             assert progress["wt01_dev1"]["registrations_cap"] == 1

@@ -1,5 +1,18 @@
 # Scientific protocol v3 — scoped evidence, verified measurement
 
+### REVIEW-01 decision and proposed MUC-01 contract (2026-09-06)
+
+REVIEW-01-20260906-V1 authorizes one preparation-only cycle and no experiment.
+The proposed `MUC-01-PROPOSED-CONTRACT-V1` crosses K=32/128/512 current facts
+with reasoning depth D=1/2/4, exact answers, replacements, similar distractors
+and unseen relation compositions. Its one tested mechanism is local delta
+correction in learned fast-weight memory; the source-identical append-only
+similarity ablation, dense transformer, iterative BM25 reader and symbolic
+last-write graph are mandatory controls. Full text/tokenizer/index/fit/update/
+query/state costs and amortization are mandatory. The current state after
+validation is REVIEW-01-DECISION: the proposal grants no implementation,
+training, download, EXP registration, scoring or automatic next stage.
+
 ### WT-01 append-only correction and single replacement (2026-09-06)
 
 WT-01-LIFECYCLE-REPLACEMENT-20260906-V1 authorizes one bounded correction of
