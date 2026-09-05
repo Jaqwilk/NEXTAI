@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-CONTRACT-V1-INTEGRITY-ADDENDUM",
+  "created_at": "2026-09-05T19:44:33Z",
+  "kind": "append_only_pre_scoring_integrity_identity_addendum",
+  "authority_path": "research/laboratory/WT-01-CONTRACT-20260905-V1.json",
+  "authority_sha256": "642080a48397cd262aa1e401a5497599f3c4dcd979e4293564089e8d2188d81e",
+  "plan_path": "research/plans/WT-01-CONTRACT-V1.json",
+  "plan_sha256": "d4cf2883782789c6e22a4af7739e00c68c54de276d855df67398223c5fbf1f5b",
+  "preregistration_git_commit": "48139721d1006efa5118a875716138ba33e1ad0c",
+  "observation": "The integrity freezer refused to overwrite the existing wt01_causal_revalidation_preparation_v1 evaluator manifest because changed protected contract code requires a distinct benchmark/cohort identity.",
+  "refused_manifest_path": "research/eval_manifest.json",
+  "refused_manifest_sha256": "f9f245e87fe0a785b5fbd942d8b8dcb7657b2a813d808999c1a78743a3e54ccc",
+  "prior_benchmark_version": "wt01_causal_revalidation_preparation_v1",
+  "prospective_benchmark_version": "wt01_causal_contract_v1",
+  "prospective_benchmark_status": "maintenance",
+  "allowed_resolution": [
+    "add one maintenance-only wt01_causal_contract_v1 benchmark module with no scoring entry point",
+    "change config benchmark_version to wt01_causal_contract_v1 while retaining benchmark_status maintenance",
+    "overwrite the live evaluator manifest exactly once under the distinct identity after all contract changes",
+    "verify scoring remains blocked and preserve the prior manifest in Git history"
+  ],
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "experiment_registration_authorized": false,
+  "final_data_access_authorized": false,
+  "outcomes_inspected": false,
+  "scientific_design_changed": false,
+  "note": "This addendum repairs lifecycle identity only. It does not modify the frozen R×U×C semantics, data-independence rules, effect-threshold status or claim boundaries."
+}
