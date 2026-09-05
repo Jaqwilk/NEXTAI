@@ -1,0 +1,84 @@
+{
+  "authority_path": "research/laboratory/PC-01-POSTRUN-TELEMETRY-MAINTENANCE-20260905-V1.json",
+  "authority_sha256": "3df416d7a60c6513dab9bcf2730c757a7a95176d28ec7b928110ca93fa81c872",
+  "controls": {
+    "malformed_json_fails_closed": true,
+    "malformed_schema_fails_closed": true,
+    "persistent_absence_reaches_parent_deadline": true,
+    "registered_windows_sharing_error_is_unavailable": true,
+    "transient_absence_returns_none": true,
+    "transient_absence_then_valid_recovers": true,
+    "unrelated_permission_error_fails_closed": true,
+    "valid_sample_exact": true
+  },
+  "created_at": "2026-09-05T18:45:23Z",
+  "final_data_accessed": false,
+  "kind": "pc01_postrun_telemetry_v2_validation",
+  "parent_source_path": "src/nextai_autoresearch/pc01_telemetry.py",
+  "parent_source_sha256": "4b998b96132011b3f8359cfcce9cd315bca4d474432c40907a4ba6b7f75ad209",
+  "plan_path": "research/plans/PC-01-POSTRUN-TELEMETRY-MAINTENANCE-V1.json",
+  "plan_sha256": "aeae17450dbd4e1b30e09d133013e5f33db6e761608044049618a81b30be02d1",
+  "preserved_final_result_sha256": {
+    "EXP-20260905-0003": "88033a52fdd8f7326bb35fbe6a698706b945ed630d79e8f9b5d22e9bb451553d",
+    "EXP-20260905-0004": "716aa0076ddbf66835026733a88252e9c8b7c09bf01625488e0ae30ce8eb0958",
+    "EXP-20260905-0005": "ba04cd29957f53c60b964634e0fd5328810d5e6fb925748e23fe5d0c539bea38"
+  },
+  "prospective_source_path": "research/laboratory/versions/PC-01-TELEMETRY-V2/pc01_telemetry.py",
+  "prospective_source_sha256": "fe116cd65ff93e6234ca326ba6e51508345a25f588ce07a27de91b50a86b54ed",
+  "schema_version": 1,
+  "scoring_performed": false,
+  "series_decision": {
+    "architecture_promoted": false,
+    "contextual_secondary_pass": true,
+    "decision": "positive_control_pass",
+    "delta_range": [
+      5.528301116150491,
+      5.634094730026742
+    ],
+    "economic_advantage_established": false,
+    "independent_corpus_count": 1,
+    "lower_95pct_t": 5.439192016820712,
+    "mean_delta": 5.574098606010886,
+    "paired_deltas": [
+      5.559899971855426,
+      5.634094730026742,
+      5.528301116150491
+    ],
+    "runner_authenticity_checked": true,
+    "sample_sd": 0.054307210323858456,
+    "scientific_result_created": false,
+    "transfer_established": false
+  },
+  "status": "complete",
+  "stress": [
+    {
+      "last_reader_value": 1999,
+      "reads": 10913,
+      "recovery_log_lines": 141,
+      "repetition": 0,
+      "seconds": 10.657591800001683,
+      "writer_retries": 146,
+      "writes": 2000
+    },
+    {
+      "last_reader_value": 1999,
+      "reads": 10548,
+      "recovery_log_lines": 132,
+      "repetition": 1,
+      "seconds": 10.579551299997547,
+      "writer_retries": 138,
+      "writes": 2000
+    },
+    {
+      "last_reader_value": 1999,
+      "reads": 10297,
+      "recovery_log_lines": 124,
+      "repetition": 2,
+      "seconds": 10.624068799996166,
+      "writer_retries": 136,
+      "writes": 2000
+    }
+  ],
+  "training_performed": false,
+  "writer_ast_identical": true
+}
