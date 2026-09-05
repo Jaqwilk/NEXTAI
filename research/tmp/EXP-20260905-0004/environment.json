@@ -1,0 +1,52 @@
+{
+  "attention_events": [
+    "aten::_scaled_dot_product_efficient_attention",
+    "aten::scaled_dot_product_attention"
+  ],
+  "compile": false,
+  "cuda": "12.4",
+  "device": "NVIDIA GeForce RTX 4070",
+  "energy_measured": false,
+  "git_branch": "master",
+  "git_commit": "fed278bfcdb54b946701113009663aa0f9573a98",
+  "git_dirty": true,
+  "gpu_driver_clocks_load_snapshot": {
+    "arguments": [
+      "--query-gpu=index,uuid,name,driver_version,clocks.sm,clocks.mem,utilization.gpu,memory.used",
+      "--format=csv,noheader,nounits"
+    ],
+    "completed_at": "2026-09-05T18:16:06Z",
+    "elapsed_seconds": 0.044094199998653494,
+    "environment_policy": "nvidia_child_only_registry_ProgramW6432",
+    "error": null,
+    "executable": "C:\\Windows\\System32\\nvidia-smi.exe",
+    "gpu": {
+      "driver_version": "551.78",
+      "index": 0,
+      "memory_clock_mhz": 10251,
+      "memory_used_mib": 4433,
+      "name": "NVIDIA GeForce RTX 4070",
+      "sm_clock_mhz": 2805,
+      "utilization_percent": 88,
+      "uuid": "GPU-53e40ab4-0b69-c994-91af-620aca6a9153"
+    },
+    "kind": "pc01_gpu_metadata",
+    "return_code": 0,
+    "schema_version": 1,
+    "started_at": "2026-09-05T18:16:06Z",
+    "status": "complete",
+    "stderr": "",
+    "stdout": "0, GPU-53e40ab4-0b69-c994-91af-620aca6a9153, NVIDIA GeForce RTX 4070, 551.78, 2805, 10251, 88, 4433\n"
+  },
+  "load_seconds": 0.08422439999776543,
+  "logical_cpus": 24,
+  "numpy": "2.5.2",
+  "physical_cpus": 16,
+  "platform": "Windows-10-10.0.19044-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "python": "3.13.13",
+  "ram_bytes": 34088464384,
+  "tf32": false,
+  "timing_scope": "B1 next-byte latency and teacher-forced throughput; not autoregressive throughput",
+  "torch": "2.6.0+cu124"
+}

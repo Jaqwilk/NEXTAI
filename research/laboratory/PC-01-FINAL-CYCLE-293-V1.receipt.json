@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-FINAL-CYCLE-293-V1",
+  "cycle": 293,
+  "created_at": "2026-09-05T18:20:09Z",
+  "experiment_id": "EXP-20260905-0004",
+  "status": "complete",
+  "decision": "replicate",
+  "artifact_sha256": {
+    "research/plans/EXP-20260905-0004.json": "523838923b80d54a0ab5fb866828c7ffa7309b9671df57efae9a9502542aec26",
+    "research/results/EXP-20260905-0004.json": "716aa0076ddbf66835026733a88252e9c8b7c09bf01625488e0ae30ce8eb0958",
+    "research/analyses/EXP-20260905-0004.md": "904ddf11fbfa9e01327e384df19c44961d48b0421bb45ba08b332c53bb2db01b",
+    "research/laboratory/PC-01-FINAL-2-POSTRUN-REGRESSION-V1.xml": "cee66d52169352ee3a7766628f33eb078a076ed8df622a5e5d79505536bab334",
+    "research/laboratory/PC-01-FINAL-CYCLE-292-V1.receipt.json": "995c974bffdfa1585af59556306ef28e91f9fac37441c9dd7df23baec0ffe979",
+    "research/laboratory/PC-01-FINAL-ACTIVATION-20260905-V1.json": "6512cc0f9a0967e48087db2935effd420eed5b60d792cae84da539c009232506",
+    "research/laboratory/PC-01-FINAL-SERIES-V1.json": "f5e8f810d3fc58df0d26d68b3a2dd0965f29252e0e54847e5d5447a7759b584e",
+    "research/laboratory/PC-01-EXECUTION-CERTIFICATE-V7.json": "7dbc40f37d2ee3eba17565710d753589b1681371f0a1e93c87c53ac6f67ac4ba",
+    "research/pc01_payload/EXP-20260905-0004/best.pt": "0e16ba70c2567c7003c34ca785150e36d4961440ad731f4fa59f8bd4883feb64"
+  },
+  "postrun_tests": 927,
+  "postrun_failures": 0,
+  "postrun_errors": 0,
+  "postrun_skipped": 0,
+  "postrun_seconds": 133.973,
+  "dev_attempts": 2,
+  "final_attempts": 2,
+  "replicates_required": 3,
+  "completed_results": 103,
+  "fit_seconds": 301.6966133999995,
+  "worker_seconds": 312.62896949999777,
+  "total_fit_seconds_charged": 2096.551346,
+  "max_total_fit_seconds": 7200,
+  "remaining_final_reservation_seconds": 1200,
+  "seeds": [
+    1239391372,
+    51543814
+  ],
+  "trained_final_bpb": [
+    2.480890632850043,
+    2.484464204871435
+  ],
+  "paired_deltas": [
+    5.559899971855426,
+    5.634094730026742
+  ],
+  "two_replica_mean_delta": 5.596997350941084,
+  "two_replica_range": [
+    5.559899971855426,
+    5.634094730026742
+  ],
+  "aggregate_interval_computed": false,
+  "controls_passed_each": 10,
+  "gpu_metadata_pair_complete_each": true,
+  "integrity_checked_files": 884,
+  "historical_archived_files_verified": 881,
+  "historical_nonledger_files_verified": 348,
+  "historical_prefixes_preserved": true,
+  "original_budgets_reset": false,
+  "free_disk_bytes": 109630906368,
+  "training_performed": true,
+  "final_evaluation_performed": true,
+  "architecture_promoted": false,
+  "series_verdict": "incomplete_two_of_three",
+  "economic_advantage_established": false,
+  "transfer_established": false,
+  "source_and_plan_published_before_final_access": true,
+  "prerun_git_commit": "fed278bfcdb54b946701113009663aa0f9573a98",
+  "publication_targets": [
+    "origin/master",
+    "origin/main"
+  ],
+  "checkpoint_published": false,
+  "schedule_modified": false,
+  "next_action_id": "PC-01-FINAL-3",
+  "next_action": "Next bounded cycle: unchanged final replica 3/3 with a fresh unique runner seed, fit <=1200 s and worker <=1800 s; then compute the preregistered aggregate decision."
+}
