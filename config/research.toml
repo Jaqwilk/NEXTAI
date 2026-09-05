@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 2
 protocol_version = 3
-benchmark_version = "wt01_causal_contract_v1"
+benchmark_version = "wt01_causal_factorial_diagnostic_v1"
 benchmark_status = "maintenance"
 timezone = "Europe/Warsaw"
 
@@ -13,7 +13,7 @@ timezone = "Europe/Warsaw"
 restart_id = "LAB-RESTART-20260904-V1"
 contract_path = "research/laboratory/restart.json"
 # PC-01 terminal evidence is preserved through PC-01-HISTORICAL-CLOSURE-V1.
-# WT-01 contract v1 remains maintenance-only; no scoring contract is executable.
+# WT-01 factorial diagnostic v1 remains maintenance-only; no scoring is authorized.
 
 [relational_ood]
 bridge_contract = "BRIDGE-U1-U2-V1"

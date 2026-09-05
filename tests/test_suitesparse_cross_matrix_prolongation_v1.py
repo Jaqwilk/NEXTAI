@@ -74,7 +74,7 @@ def test_retained_config_and_preseed_baseline_discovery_match_contract() -> None
     historical = load_json(project_root() / "research/manifests/PC-01-ACTIVATION-BEFORE.json")
     assert historical["benchmark_version"] == bench.BENCHMARK_VERSION
     # The lifecycle migration changes only the live identity; retained SuiteSparse stays historical.
-    assert config["project"]["benchmark_version"] == "wt01_causal_contract_v1"
+    assert config["project"]["benchmark_version"] == "wt01_causal_factorial_diagnostic_v1"
     assert config["project"]["protocol_version"] == 3
     # The completed final series remains verifiable through the Git-backed closure.
     from nextai_autoresearch.pc01_final_authority import authority

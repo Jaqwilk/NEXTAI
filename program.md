@@ -1,23 +1,24 @@
 # NEXTAI laboratory cycle — protocol v3
 
-## Current WT-01 contract-preparation authority (2026-09-05)
+## Current WT-01 data/harness authority (2026-09-05)
 
-The user approved `research/laboratory/WT-01-CONTRACT-20260905-V1.json`: exactly
-one bounded WT-01 service cycle (cycle 1 of 2, <=60 minutes), with no training,
-scoring, experiment registration, final-data access or dataset download. Follow
-`research/plans/WT-01-CONTRACT-V1.json`. This authority permits hash-resolved
-historical closure, the source-identical R×U×C mechanism design, data-independence
-receipt, fail-closed validation, tests and non-force GitHub synchronization only.
+The user approved `research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json`:
+the second and final bounded WT-01 service cycle (<=60 minutes), with no training,
+scoring, EXP registration, real WT-array access or dataset download. Follow
+`research/plans/WT-01-DATA-HARNESS-V1.json`. The cohort is explicitly limited to
+a visible historical mechanism diagnostic: files 0-5 are historical fit, 6-7
+visible development and 8-9 visible diagnostic. There are zero fresh same-protocol
+physical recordings, so hidden-holdout, replication and transfer claims are barred.
 
-The exact historical rule is an affine controlled VAR(2)/ARX representation with
-ridge initialization, post-reveal slot-local RLS and origin-relative clipping.
-The old quality result does not identify which operation caused the gain and does
-not establish economic advantage, independent physical replication, transfer or
-architectural novelty. Runner permutations are never physical replicates.
-`wt_walks_v1` is a possible same-device, different-operation adversarial source,
-not a same-task replication. A numerical effect threshold and any final split
-must remain unset until prospectively justified and frozen in the final service
-cycle. Stop for review after the contract receipt; scoring needs separate authority.
+All eight R×U×C roles share one core. R is recursive self-feeding, U is post-reveal
+slot-local RLS, and C is origin-relative clipping at +/-4. The separately named
+control is the same affine rule written as controlled VAR(2)/ARX. The primary
+contrast is NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1); its causal-attribution threshold is
+0.03343253453162794, exactly 10% of the already observed historical quality gap.
+This threshold can only explain that old positive; it is not a general quality
+gate. `wt_walks_v1` remains deferred as a different-operation adversarial source.
+After synthetic equivalence, full regression, freeze and Git synchronization,
+stop at WT-01-DEV-1 for explicit review. Scoring still requires separate authority.
 
 ## Historical final-series authorization (2026-09-05)
 

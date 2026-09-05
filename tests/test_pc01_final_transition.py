@@ -89,7 +89,7 @@ def anchors(tmp_path, monkeypatch):
             shutil.copy2(root / relative, destination)
     config = tmp_path / "config/research.toml"
     config.write_text(config.read_text().replace(
-        "wt01_causal_contract_v1", pc01.METADATA_COHORT
+        "wt01_causal_factorial_diagnostic_v1", pc01.METADATA_COHORT
     ))
     monkeypatch.setattr(execution, "audit_bundle", lambda *args: {"sha256": policy["candidate_audit_sha256"]})
     return tmp_path

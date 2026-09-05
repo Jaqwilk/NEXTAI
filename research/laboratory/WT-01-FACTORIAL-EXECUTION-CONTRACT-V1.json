@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-FACTORIAL-EXECUTION-CONTRACT-V1",
+  "created_at": "2026-09-05T20:18:00Z",
+  "kind": "append_only_no_scoring_mechanism_execution_contract",
+  "authority_path": "research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json",
+  "authority_sha256": "48a251d47cf6f177b74eca863ea63770d1c9a5c3000f49353975f47c26ae9933",
+  "plan_path": "research/plans/WT-01-DATA-HARNESS-V1.json",
+  "plan_sha256": "c1b448d454861e231ea2638c9a0c053c0f53889d2dd05b5cde02fa3b2050e4be",
+  "parent_design_path": "research/laboratory/WT-01-FACTORIAL-DESIGN-V1.json",
+  "parent_design_sha256": "05714559ec385ad08d72edd82e8267788ce7ccfe15702e644dc5cfa7c53ae240",
+  "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
+  "benchmark_status": "maintenance",
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "roles": {
+    "factorial": [
+      "wt01_r0_u0_c0_v1", "wt01_r0_u0_c1_v1", "wt01_r0_u1_c0_v1", "wt01_r0_u1_c1_v1",
+      "wt01_r1_u0_c0_v1", "wt01_r1_u0_c1_v1", "wt01_r1_u1_c0_v1", "wt01_r1_u1_c1_v1"
+    ],
+    "shared_core": "src/nextai_autoresearch/wt01_factorial_core.py",
+    "historical_cell": "wt01_r1_u1_c1_v1",
+    "classical_equivalence_control": "wt01_var2_rls_bound_v1"
+  },
+  "fixed_constants": {"ridge": 0.001, "residual_bound": 4.0, "response_width": 10},
+  "matrix": {"knowledge_sizes": [18, 36, 54], "horizons": [16, 32, 96]},
+  "primary_contrast": {
+    "formula": "NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1)",
+    "smallest_effect_of_interest": 0.03343253453162794,
+    "derivation": "exactly 10% of historical visible quality margin 0.3343253453162794",
+    "meaning": "causal attribution threshold for explaining the historical positive only"
+  },
+  "decision_logic": {
+    "mechanism_supported_descriptively": "primary contrast >= threshold and positive on each of the two visible diagnostic files",
+    "mechanism_not_supported": "primary contrast < threshold, non-positive on either file, any divergence, missing cell or equivalence failure",
+    "replication_claim_permitted": false,
+    "transfer_claim_permitted": false,
+    "economic_advantage_claim_permitted": false
+  },
+  "required_metrics": [
+    "per-file and per-horizon NRMSE", "first-16 post-change error area",
+    "samples-13-to-16 recovery NRMSE", "stability/divergence",
+    "fit/query/update operations", "bytes touched", "state and peak state",
+    "R1/R4/R16 end-to-end workloads"
+  ],
+  "equivalence_tolerance": {"absolute": 1e-12, "relative": 1e-12},
+  "nonlinear_narx": "excluded because feature nonlinearity is a fourth causal factor; requires a new preregistration"
+}

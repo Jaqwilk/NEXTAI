@@ -288,6 +288,21 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
         wt01 = wt01_status(base) if completed is not None else None
         if wt01 is not None:
             finished = wt01["complete"]
+            from .wt01_harness import status as wt01_harness_status
+            harness = wt01_harness_status(base) if finished else None
+            if harness is not None:
+                ready = harness["complete"]
+                return {**progress, "activation_id": historical["id"],
+                        "development_registrations_used": 2, "development_registrations_cap": 2,
+                        "final_registrations_used": 3, "final_registrations_cap": 3,
+                        "final_completed": 3, "final_access_authorized": False,
+                        "scoring_authorized": False, "user_decision_required": ready,
+                        "next_action_id": "WT-01-DEV-1" if ready else "WT-01-DATA-HARNESS",
+                        "next_action": "Review the frozen diagnostic harness before any separately authorized visible-development run."
+                            if ready else "Complete only the final no-training, no-scoring WT-01 data/harness service cycle.",
+                        "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                        "lifecycle_migration_complete": True,
+                        "wt01_contract": wt01, "wt01_harness": harness}
             return {**progress, "activation_id": historical["id"],
                     "development_registrations_used": 2, "development_registrations_cap": 2,
                     "final_registrations_used": 3, "final_registrations_cap": 3,
@@ -445,12 +460,16 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
         completed = migration_completed(base)
         from .wt01_contract import PLAN_PATH as WT01_PLAN_PATH, status as wt01_status
         wt01 = wt01_status(base) if completed is not None else None
+        from .wt01_harness import PLAN_PATH as WT01_HARNESS_PLAN_PATH, status as wt01_harness_status
+        harness = wt01_harness_status(base) if wt01 is not None and wt01["complete"] else None
         return {**contract, "status": "preparation_only", "scoring_authorized": False,
-                "maintenance_plan": WT01_PLAN_PATH if wt01 is not None else
+                "maintenance_plan": WT01_HARNESS_PLAN_PATH if harness is not None else
+                    WT01_PLAN_PATH if wt01 is not None else
                     "research/plans/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1.json",
                 "activation_id": historical["id"], "original_status": contract["status"],
                 "lifecycle_migration_complete": completed is not None,
-                "wt01_contract_ready": bool(wt01 and wt01["artifacts_ready"])}
+                "wt01_contract_ready": bool(wt01 and wt01["artifacts_ready"]),
+                "wt01_harness_ready": bool(harness and harness["complete"])}
     from .pc01_final_authority import authority as final_authority
     final = final_authority(base)
     if final is not None:

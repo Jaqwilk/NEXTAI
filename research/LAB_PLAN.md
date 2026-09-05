@@ -1,22 +1,22 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Aktualna zgoda — WT-01-CONTRACT, cykl serwisowy 1/2 (2026-09-05)
+## Aktualna zgoda — WT-01-DATA-HARNESS, cykl serwisowy 2/2 (2026-09-05)
 
-Obowiązuje `research/laboratory/WT-01-CONTRACT-20260905-V1.json` i plan
-`research/plans/WT-01-CONTRACT-V1.json`. Użytkownik zatwierdził jeden ograniczony
-cykl przygotowania kontraktu (maks. 60 minut), bez treningu, scoringu, nowego
-eksperymentu, dostępu do danych finalnych i pobierania archiwów. Commity wolno
-wypychać bez force do istniejącego origin, utrzymując `master` i `main` na tym
-samym zweryfikowanym commicie.
+Obowiązuje `research/laboratory/WT-01-DATA-HARNESS-20260905-V1.json` i plan
+`research/plans/WT-01-DATA-HARNESS-V1.json`. To drugi i ostatni ograniczony cykl
+WT-01 (maks. 60 minut), bez treningu, scoringu, rejestracji EXP, odczytu tablic
+rzeczywistych danych WT i pobierania archiwów. Commity wypychamy bez force do
+istniejącego origin, utrzymując `master` i `main` na tym samym commicie.
 
-Bieżący produkt to: hash-resolved bundle EXP-20260831-0006/0007, zamrożona
-semantyka factorialu 2×2×2 (rekurencja, RLS, bound), kontrola tożsamości VAR(2)/
-ARX i receipt niezależności danych. `wt_changepoints_v1` pozostaje znanym
-diagnostycznym zbiorem; jego 10 plików nie może zostać przemianowanych na świeży
-holdout. `wt_walks_v1` może być później tylko testem innej operacji/adversarial,
-nie replikacją zadania changepoint. Bez świeżych śladów tego samego protokołu
-wniosek replikacyjny pozostaje zablokowany. Po receipt potrzebna jest osobna
-decyzja przed drugim i ostatnim cyklem danych/harnessu. Scoring pozostaje zamknięty.
+Zakres danych jest diagnostyczny i wcześniej widziany: 0-5 historyczny fit,
+6-7 visible development, 8-9 visible historical diagnostic. Świeżych śladów tego
+samego protokołu jest zero; nie wolno twierdzić, że to hidden holdout, replikacja
+lub transfer. Osiem ról R×U×C ma jeden rdzeń, a osobna kontrola VAR(2)/ARX musi
+być równoważna R1-U1-C1 do 1e-12 na danych syntetycznych. Próg kontrastu
+NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1) wynosi 0.03343253453162794 i służy wyłącznie
+atrybucji starego dodatniego wyniku. `wt_walks_v1` pozostaje niepobranym testem
+innej operacji. Po receipt zatrzymać się na WT-01-DEV-1 do osobnej zgody; żaden
+run na danych rzeczywistych nie wynika automatycznie z gotowego harnessu.
 
 ## Historia — zgoda na trzy repliki finalne PC-01
 
