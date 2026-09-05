@@ -280,6 +280,23 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
             "user_decision_required": expected_next == "PC-01-DECISION",
             "progress_source": "research/events.jsonl", "completed_action_id": latest.get("action_id")}
     progress = _authorized_extension(base, progress)
+    from .pc01_closure import closure as pc01_closure, migration_completed
+    historical = pc01_closure(base)
+    if historical is not None:
+        completed = migration_completed(base)
+        return {**progress, "activation_id": historical["id"],
+                "development_registrations_used": 2, "development_registrations_cap": 2,
+                "final_registrations_used": 3, "final_registrations_cap": 3,
+                "final_completed": 3, "final_access_authorized": False,
+                "scoring_authorized": False,
+                "user_decision_required": completed is not None,
+                "next_action_id": "WT-01-CONTRACT" if completed is not None
+                    else "PC-01-TELEMETRY-LIFECYCLE-MIGRATION",
+                "next_action": "Review the verified migration before a separate WT-01 no-scoring contract-preparation cycle."
+                    if completed is not None else
+                    "Complete the bounded no-training lifecycle migration; no PC-01 retry or WT-01 scoring.",
+                "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                "lifecycle_migration_complete": completed is not None}
     from .pc01_final_authority import authority as final_authority
     final = final_authority(base)
     if final is not None:
@@ -406,6 +423,14 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
             raise ValueError(f"Missing or invalid laboratory document: {relative}")
     authority = activation_authority(base)
     second = dev2_authority(base)
+    from .pc01_closure import closure as pc01_closure, migration_completed
+    historical = pc01_closure(base)
+    if historical is not None:
+        completed = migration_completed(base)
+        return {**contract, "status": "preparation_only", "scoring_authorized": False,
+                "maintenance_plan": "research/plans/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1.json",
+                "activation_id": historical["id"], "original_status": contract["status"],
+                "lifecycle_migration_complete": completed is not None}
     from .pc01_final_authority import authority as final_authority
     final = final_authority(base)
     if final is not None:

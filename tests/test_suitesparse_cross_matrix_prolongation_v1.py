@@ -73,13 +73,13 @@ def test_retained_config_and_preseed_baseline_discovery_match_contract() -> None
         config = tomllib.load(handle)
     historical = load_json(project_root() / "research/manifests/PC-01-ACTIVATION-BEFORE.json")
     assert historical["benchmark_version"] == bench.BENCHMARK_VERSION
-    # New diagnostic activation does not change the retained SuiteSparse contract.
-    assert config["project"]["benchmark_version"] == "pc01_byte_lm_learning_measurement_v3"
+    # The lifecycle migration changes only the live identity; retained SuiteSparse stays historical.
+    assert config["project"]["benchmark_version"] == "wt01_causal_revalidation_preparation_v1"
     assert config["project"]["protocol_version"] == 3
-    # The separately authorized final series activates v3, never the retained cohort.
+    # The completed final series remains verifiable through the Git-backed closure.
     from nextai_autoresearch.pc01_final_authority import authority
     assert authority(project_root())["id"] == "PC-01-FINAL-ACTIVATION-20260905-V1"
-    assert config["project"]["benchmark_status"] == "active"
+    assert config["project"]["benchmark_status"] == "maintenance"
     protocol = config["suitesparse_cross_matrix"]
     assert protocol["source_identical_contract"] == bench.SOURCE_IDENTICAL_CONTRACT
     plan = {"suitesparse_transfer_protocol": {

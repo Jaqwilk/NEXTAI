@@ -4,7 +4,7 @@ import shutil
 
 import pytest
 
-from nextai_autoresearch import pc01, pc01_execution as execution, pc01_final_transition as bridge
+from nextai_autoresearch import pc01, pc01_closure, pc01_execution as execution, pc01_final_transition as bridge
 from nextai_autoresearch.ledger import register_plan
 from nextai_autoresearch.utils import project_root, load_json, atomic_write_json, sha256_file, sha256_json
 from test_pc01_execution import lab, plan, install_process
@@ -82,7 +82,15 @@ def anchors(tmp_path, monkeypatch):
     for relative in paths:
         destination = tmp_path / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(root / relative, destination)
+        if relative == "src/nextai_autoresearch/pc01_telemetry.py":
+            historical = pc01_closure.closure(root)
+            destination.write_bytes(pc01_closure.git_bytes(root, historical["git_commit"], relative))
+        else:
+            shutil.copy2(root / relative, destination)
+    config = tmp_path / "config/research.toml"
+    config.write_text(config.read_text().replace(
+        "wt01_causal_revalidation_preparation_v1", pc01.METADATA_COHORT
+    ))
     monkeypatch.setattr(execution, "audit_bundle", lambda *args: {"sha256": policy["candidate_audit_sha256"]})
     return tmp_path
 

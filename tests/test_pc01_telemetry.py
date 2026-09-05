@@ -206,6 +206,14 @@ def test_invalid_telemetry_is_not_treated_as_transient_contention(tmp_path, payl
         read_device_sample(path)
 
 
+def test_transient_missing_snapshot_is_nonblocking_but_continuous_absence_is_not_valid(tmp_path):
+    from nextai_autoresearch.pc01_telemetry import read_device_sample
+    path = tmp_path / "device.json"
+    assert read_device_sample(path) is None
+    atomic_write_json(path, {"allocated": 3, "reserved": 5})
+    assert read_device_sample(path) == {"allocated": 3, "reserved": 5}
+
+
 @pytest.mark.skipif(os.name != "nt", reason="Windows read error classification")
 def test_read_access_denial_is_nonblocking_but_other_errors_raise(tmp_path, monkeypatch):
     from nextai_autoresearch import pc01_telemetry as telemetry

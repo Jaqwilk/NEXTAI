@@ -13,6 +13,7 @@ SHA256 = "6512cc0f9a0967e48087db2935effd420eed5b60d792cae84da539c009232506"
 def authority(root: Path) -> dict | None:
     from .laboratory import final_preparation_status
     from .pc01_execution import registered_plans, attempt_history, SERIES
+    from .pc01_closure import closure
     from .pc01_final_transition import selected_transition
     events = [e for e in read_jsonl(root / "research/events.jsonl") if e.get("event") == "pc01_final_authorized"]
     path = root / PATH
@@ -25,7 +26,14 @@ def authority(root: Path) -> dict | None:
     policy = load_json(path)
     require(sha256_file(root / policy["preparation_receipt"]) == policy["preparation_receipt_sha256"], "final preparation receipt changed")
     require(final_preparation_status(root)["complete"], "final preparation incomplete")
-    selected_transition(root, policy["selected_dev_id"])
+    historical = closure(root)
+    if historical is None:
+        selected_transition(root, policy["selected_dev_id"])
+    else:
+        require(historical["terminal_decision"]["decision"] == "positive_control_pass",
+                "terminal PC-01 closure decision changed")
+        require(load_json(root / SERIES)["selected_dev_id"] == policy["selected_dev_id"],
+                "terminal PC-01 closure selected development changed")
     plans = registered_plans(root)
     require({p["experiment_id"]: sha256_json(p) for p in plans if p["phase"] == "dev"} == policy["dev_plans"],
             "final authority cannot add/omit/change dev")

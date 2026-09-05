@@ -1,8 +1,8 @@
 {
   "benchmark_version": "wt01_causal_revalidation_preparation_v1",
   "candidate_bundle_sha256": "f8c9920bcdbdd2ff7235402d1ec92f38beecb52a7e7d97f13db94d51eb71c75f",
-  "created_at": "2026-09-05T19:23:14Z",
-  "evaluator_sha256": "127d50bf8c70550813324e5036addefb0699f75af96e69bfb828c742a049202a",
+  "created_at": "2026-09-05T19:15:48Z",
+  "evaluator_sha256": "783dcc676c4294e9a4505476710ffbbb8e7a03e334cf76638a9f2df7908a7b9e",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -731,7 +731,7 @@
     "src/nextai_autoresearch/pareto.py": "be18de616fcd656836c23075a8b62a4bf32ffb173c0cdcac8cb6efbe06c16a21",
     "src/nextai_autoresearch/parity_energy_core.py": "a69529b39f09818d0c5624eff3bb513106dc7650475cecb0c60a5545e0cac532",
     "src/nextai_autoresearch/pc01.py": "33c24d445211d4a039a8fb9f889a1c1c50f8f4993974ecc18f87d14a14521456",
-    "src/nextai_autoresearch/pc01_closure.py": "5f20a07f5a72f524bfd07e2bc599ddd4c815987d561b2e19118e1ec16e436d42",
+    "src/nextai_autoresearch/pc01_closure.py": "6dfb08e8c4682acc24e3f649a1f97b74482e381a4d058703d2b3c8f2f5bad366",
     "src/nextai_autoresearch/pc01_execution.py": "005f6ac2c11769fb18c99ed98e6aab4408bec415ba6294cf581579f760663332",
     "src/nextai_autoresearch/pc01_final_authority.py": "2dd98027a16ec93bfb01af9538058a79adf5f345a1dad1d7624fc5bcc9f98998",
     "src/nextai_autoresearch/pc01_final_transition.py": "ba693c27e8dcc1d958ee98a50ebbc52ba27947b71b17ce9ad5519ed64288acc3",
@@ -834,7 +834,7 @@
     "tests/test_orthogonal_reservoir_byte.py": "7783818d53b2c85645cc002757a75cf0954f59585ba35fe269e11c0deb45cee4",
     "tests/test_parallel_masked_infilling.py": "b88d8855a717842b70278950323dcacfda9d6457701b60092b9201864073b748",
     "tests/test_pc01_activation.py": "5fa5bd465bc7481a2d53f2fad12aa41560a6268ceac2a59e8afaeb81d7974edf",
-    "tests/test_pc01_closure.py": "853f90fc86097225010189dc9dd2a8809e4de20da0ff2a13f17022f83b48e6c1",
+    "tests/test_pc01_closure.py": "9156be18d7783dd52111497751aab38f0dd555b84d1ef8e63c3de4876d3d6ba1",
     "tests/test_pc01_dev2.py": "99eaf303e90ab7aa9d137a8327263977018c966467a8ad30e3143f8c3d7e6dc5",
     "tests/test_pc01_execution.py": "4347895561a62729bbfb05dc4efeb156e3be8c37780b2408b233f7a6de4a4277",
     "tests/test_pc01_final_authority.py": "171f01471e41ba7cc9d45571fdb52f4abcce16de80b2eeb5a37bc9dbea4c8b74",

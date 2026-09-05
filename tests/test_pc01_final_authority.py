@@ -15,8 +15,10 @@ def policy():
             "terminal": False, "failed": False, "series_frozen": False}
 
 
-def test_final_scope_is_exact_and_single_use(policy):
+def test_final_scope_is_exact_and_single_use(policy, monkeypatch):
+    from types import SimpleNamespace
     root = project_root()
+    monkeypatch.setattr(final, "load_config", lambda root: SimpleNamespace(benchmark_version=policy["cohort"]))
     assert final.scope(root, policy, series_freeze=True) == []
     for kwargs in ({}, {"candidate": policy["candidate"], "phase": "dev"},
                    {"candidate": "other", "phase": "final"}, {"experiment_id": "EXP-20260905-0002"},

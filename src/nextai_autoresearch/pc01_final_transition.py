@@ -13,7 +13,15 @@ PLAN_SHA256 = "a6e38d7c0afda28ef6e899f09ee0f7055ac0079236ce99ba05e0ff868e8a041f"
 
 
 def selected_transition(root: Path, selected_dev_id: str) -> dict:
+    from .pc01_closure import closure
     from .pc01_execution import audit_bundle, recipe_digest
+    historical = closure(root)
+    if historical is not None:
+        series = load_json(root / "research/laboratory/PC-01-FINAL-SERIES-V1.json")
+        require(selected_dev_id == series["selected_dev_id"], "transition selected dev changed")
+        require(series["transition"]["target_cohort"] == METADATA_COHORT,
+                "historical target cohort changed")
+        return series["transition"]
     require(sha256_file(root / PLAN_PATH) == PLAN_SHA256, "transition contract changed")
     policy = load_json(root / PLAN_PATH)
     require(selected_dev_id == policy["selected_dev_id"], "transition selected dev changed")

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1-COMPLETION-ADDENDUM",
+  "kind": "append_only_completion_validation_addendum",
+  "created_at": "2026-09-05T19:26:03Z",
+  "receipt_path": "research/laboratory/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1.receipt.json",
+  "receipt_sha256": "628823c6a1fef60a0700824dcfe51cb780e350dd27ffc79bb503f207b45ab648",
+  "completion_event_created_at": "2026-09-05T19:19:43Z",
+  "reason": "The first post-completion readback showed that the receipt validator expected a flat full_regression_passed field although the immutable receipt records the passed run under full_regression_v2. The receipt and completion event remain unchanged. The validator now requires the exact nested passed flag and zero failures, errors and skips.",
+  "final_validation": {
+    "report_path": "research/laboratory/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-FULL-REGRESSION-V3.xml",
+    "report_sha256": "0862b6eefca021054c1ebd79ed15369d64e5bd7f5ed0ce899c803828cc8cb222",
+    "tests": 933,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 136.249
+  },
+  "final_identity": {
+    "benchmark_version": "wt01_causal_revalidation_preparation_v1",
+    "benchmark_status": "maintenance",
+    "evaluator_sha256": "127d50bf8c70550813324e5036addefb0699f75af96e69bfb828c742a049202a",
+    "eval_manifest_sha256": "f9f245e87fe0a785b5fbd942d8b8dcb7657b2a813d808999c1a78743a3e54ccc",
+    "preflight_certificate_sha256": "7029798609c726236ed71e6f988c1a4d3badbea50c0b28c794c48e8ad2562f84",
+    "closure_verifier_sha256": "5f20a07f5a72f524bfd07e2bc599ddd4c815987d561b2e19118e1ec16e436d42",
+    "closure_test_sha256": "853f90fc86097225010189dc9dd2a8809e4de20da0ff2a13f17022f83b48e6c1"
+  },
+  "pc01_decision": "positive_control_pass",
+  "training_performed": false,
+  "scoring_performed": false,
+  "final_data_accessed": false,
+  "next_action_id": "WT-01-CONTRACT",
+  "next_action": "Explicit user review is required before a separate no-scoring WT-01 contract-preparation cycle."
+}

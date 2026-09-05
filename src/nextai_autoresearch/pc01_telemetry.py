@@ -10,6 +10,10 @@ def read_device_sample(path: Path) -> dict | None:
     """One nonblocking attempt; None requires bounded parent-side gap handling."""
     try:
         value = load_json(path)
+    except FileNotFoundError:
+        # Atomic replacement can make the snapshot path briefly absent. The
+        # parent retains its independent one-second continuous-gap deadline.
+        return None
     except PermissionError as exc:
         if os.name == "nt" and (getattr(exc, "winerror", None) in {5, 32, 33} or exc.errno == 13):
             return None

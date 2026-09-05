@@ -5,15 +5,15 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 2
 protocol_version = 3
-benchmark_version = "pc01_byte_lm_learning_measurement_v3"
-benchmark_status = "active"
+benchmark_version = "wt01_causal_revalidation_preparation_v1"
+benchmark_status = "maintenance"
 timezone = "Europe/Warsaw"
 
 [laboratory]
 restart_id = "LAB-RESTART-20260904-V1"
 contract_path = "research/laboratory/restart.json"
-# Scoped activation: PC-01-FINAL-ACTIVATION-20260905-V1.json, three final replicas only.
-# Historical SuiteSparse and original preparation contract remain immutable.
+# PC-01 terminal evidence is preserved through PC-01-HISTORICAL-CLOSURE-V1.
+# WT-01 remains preparation-only; no scoring contract has been authorized.
 
 [relational_ood]
 bridge_contract = "BRIDGE-U1-U2-V1"

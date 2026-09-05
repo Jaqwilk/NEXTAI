@@ -298,6 +298,19 @@ def verify_series(root: Path) -> dict:
             and series.get("max_fit_seconds") == 7200 and series.get("data_sha256") == DATA_SHA256, "final series contract changed")
     events = [e for e in read_jsonl(root / "research/events.jsonl") if e.get("event") == "pc01_final_series_frozen"]
     require(len(events) == 1 and events[0]["series_sha256"] == sha256_json(series), "final series missing/changed/replaced")
+    from .pc01_closure import closure
+    historical = closure(root)
+    if historical is not None:
+        require(sha256_file(root / SERIES) == historical["historical_files"][SERIES],
+                "terminal final-series bytes changed")
+        require(sha256_json(series) == historical["series_canonical_sha256"],
+                "terminal final-series canonical hash changed")
+        dev = {p["experiment_id"]: sha256_json(p) for p in registered_plans(root) if p["phase"] == "dev"}
+        require(dev == series["development_plans"], "development added/omitted after terminal closure")
+        history = [r for r in attempt_history(root) if r["phase"] == "dev"]
+        require(sha256_json(history) == series["development_attempts_sha256"],
+                "development history changed after terminal closure")
+        return series
     require(series["audit"] == audit_bundle(series["candidate"], root), "source changed after final freeze")
     require(series["recipe_sha256"] == recipe_digest(root) and series["contract_sha256"] == CONTRACT_SHA256,
             "final recipe changed")
@@ -589,4 +602,9 @@ def authenticated_series_decision(root: Path) -> dict:
             "fit_seconds", "worker_seconds", "rss_bytes", "cuda_allocated_bytes", "cuda_reserved_bytes", "persisted_bytes", "disk_free_bytes")}}
         records.append(record)
     decision = series_decision(records, root=root, cohort=series.get("benchmark", COHORTS[0]))
+    from .pc01_closure import closure
+    historical = closure(root)
+    if historical is not None:
+        for key, expected in historical["terminal_decision"].items():
+            require(decision.get(key) == expected, f"terminal PC-01 decision changed: {key}")
     return {**decision, "runner_authenticity_checked": True, "scientific_result_created": False}
