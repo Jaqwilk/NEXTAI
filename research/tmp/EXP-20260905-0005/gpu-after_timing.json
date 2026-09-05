@@ -1,0 +1,28 @@
+{
+  "arguments": [
+    "--query-gpu=index,uuid,name,driver_version,clocks.sm,clocks.mem,utilization.gpu,memory.used",
+    "--format=csv,noheader,nounits"
+  ],
+  "completed_at": "2026-09-05T18:27:41Z",
+  "elapsed_seconds": 0.09734620000381256,
+  "environment_policy": "nvidia_child_only_registry_ProgramW6432",
+  "error": null,
+  "executable": "C:\\Windows\\System32\\nvidia-smi.exe",
+  "gpu": {
+    "driver_version": "551.78",
+    "index": 0,
+    "memory_clock_mhz": 10251,
+    "memory_used_mib": 3284,
+    "name": "NVIDIA GeForce RTX 4070",
+    "sm_clock_mhz": 2805,
+    "utilization_percent": 40,
+    "uuid": "GPU-53e40ab4-0b69-c994-91af-620aca6a9153"
+  },
+  "kind": "pc01_gpu_metadata",
+  "return_code": 0,
+  "schema_version": 1,
+  "started_at": "2026-09-05T18:27:41Z",
+  "status": "complete",
+  "stderr": "",
+  "stdout": "0, GPU-53e40ab4-0b69-c994-91af-620aca6a9153, NVIDIA GeForce RTX 4070, 551.78, 2805, 10251, 40, 3284\n"
+}

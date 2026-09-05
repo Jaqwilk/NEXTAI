@@ -1,0 +1,28 @@
+{
+  "acquisition_and_service_cost": "separate immutable PC-01 acquisition and service receipts; not assumed zero",
+  "amortized_repeated_workload_seconds": {
+    "1": 0.1632952,
+    "10": 1.632952,
+    "100": 16.32952
+  },
+  "complete_measured_boundary": "parent worker_seconds includes process startup, data verification, controls, fit, selection, evaluation, timing and serialization",
+  "economic_advantage_established": false,
+  "energy_measured": false,
+  "estimate_excludes": [
+    "normalization",
+    "GELU",
+    "softmax",
+    "optimizer",
+    "data copies"
+  ],
+  "matmul_forward_macs_estimate": {
+    "B1-next": 3045064704,
+    "B1-teacher": 3045064704,
+    "B32-teacher": 97442070528,
+    "B8-teacher": 24360517632
+  },
+  "parameter_count": 10818432,
+  "reuse_unit": "one complete 100-request batch=1 next-byte workload; add one-time worker preparation/fit/load separately",
+  "training_matmul_flops_estimate": 5846524231680000,
+  "uniform_reference_bpb": 8.0
+}
