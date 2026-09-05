@@ -1,8 +1,8 @@
 {
   "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
   "candidate_bundle_sha256": "9ad4033a2ed702030d6a8e84b0d3bcb7dd36c48580989108a428f05e69df2b22",
-  "created_at": "2026-09-05T22:35:19Z",
-  "evaluator_sha256": "870fe289903f3c7d42a41526124b4084072c5088b24d0772fe57076d5d1ea8d0",
+  "created_at": "2026-09-05T22:26:17Z",
+  "evaluator_sha256": "e36cf43b3a0aa56b41b159a9908dea22cc887168fada57868c3fd221fc375c59",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -54,7 +54,7 @@
     "research/plans/PC-01-TELEMETRY-REPAIR-V1.json": "9cee710f1d927153ae7aa72962f22e1721f47707da19392cf0a1343d784377f1",
     "research/plans/WT-01-DEV1-ACTIVATION-V1.json": "4ec7a549a08a69bb662be574633e0c5c326e3cfcc35b10dde87cfed2e585fe30",
     "research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json": "8bf5bead1797acacd3d99be1a0008179db0f4dcecdc325b400c2f092a80f77c1",
-    "schemas/experiment_plan.schema.json": "0e5d4ba3c369ebafb17fc9a528ee53c544322442a4697ef972848ac95813b231",
+    "schemas/experiment_plan.schema.json": "aca47fb6908bd049b710a9096c8f757efe964d8d75c289c3bb0c49fcafd23c8f",
     "schemas/experiment_result.schema.json": "c6dad3fd6c0067dcb9233a1d8190a072d6e4e28d15023a8c104983b2bb6c5fb0",
     "schemas/hypothesis.schema.json": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
     "schemas/laboratory_restart.schema.json": "2c48b9e31acdd1d32c3f33bc1e70b90222622e330ce2b26e786ef00758a8cd02",
@@ -902,7 +902,7 @@
     "tests/test_vsa_superposition.py": "52a0c1d5fad17b36a9521cbc22410a5ebfe8074fbb33944052e8c9320c672ea9",
     "tests/test_wt01_contract.py": "73ba9f529018d149c26e94b0d2561c7cd65b68e95bea20c8a81927d143ff8e6d",
     "tests/test_wt01_data_harness.py": "5fcafc9c0def2b269e5864f0607e7f69749cb7674a61d730322f3eb896cb99ee",
-    "tests/test_wt01_dev1.py": "d6668576536d81db139fc79d0dddc60acef82bc8f3573e950b32156b333cf50a",
+    "tests/test_wt01_dev1.py": "694d6e60b1d16afebd28a517c648efee668239bd376832d5a24e83e426fc75d3",
     "tests/test_wt_candidate_under_test.py": "4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754",
     "tests/test_wt_changepoints_prequential_v1.py": "8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03",
     "tests/test_wt_changepoints_prequential_v2.py": "81690f89318eb2f20f1b05c4549a2f6d8c7a516af77b6e4cd6cdec2828eeaa91",

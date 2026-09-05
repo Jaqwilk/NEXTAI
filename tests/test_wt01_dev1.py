@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 
 import pytest
+from jsonschema.exceptions import ValidationError
 
 from nextai_autoresearch import wt01_dev1
 from nextai_autoresearch.benchmarks import wt01_causal_factorial_diagnostic_v1 as diagnostic
@@ -91,6 +92,12 @@ def test_exact_plan_contract_and_schema_reject_scope_drift():
     replacement = copy.deepcopy(plan)
     replacement["wt01_factorial_protocol"] = wt01_dev1.expected_protocol(replacement=True)
     wt01_dev1.validate_plan(replacement)
+    validate_document("experiment_plan", replacement, project_root())
+
+    incomplete = copy.deepcopy(replacement)
+    incomplete["wt01_factorial_protocol"].pop("replacement_plan_sha256")
+    with pytest.raises(ValidationError, match="replacement_plan_sha256"):
+        validate_document("experiment_plan", incomplete, project_root())
 
 
 def test_evaluator_routes_every_cell_only_to_visible_development(monkeypatch):

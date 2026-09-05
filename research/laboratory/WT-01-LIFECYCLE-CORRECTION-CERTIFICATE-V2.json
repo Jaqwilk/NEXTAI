@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-LIFECYCLE-CORRECTION-CERTIFICATE-V2",
+  "created_at": "2026-09-05T22:36:10Z",
+  "status": "complete",
+  "decision": "append_only_correction_and_replacement_schema_validated_registration_ready",
+  "supersedes": "research/laboratory/WT-01-LIFECYCLE-CORRECTION-CERTIFICATE-V1.json",
+  "authority_path": "research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json",
+  "authority_sha256": "4518cd1c3d28a674f1628412c64b6140d80215ca606cf85b1b1542c79e23ca80",
+  "plan_path": "research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json",
+  "plan_sha256": "8bf5bead1797acacd3d99be1a0008179db0f4dcecdc325b400c2f092a80f77c1",
+  "preserved_preregistration_failure": {
+    "plan_created": false,
+    "registry_appended": false,
+    "seed_realized": false,
+    "development_arrays_loaded": false,
+    "reason": "The V1 implementation omitted the new replacement bindings from experiment_plan.schema.json; schema validation rejected creation before mutation."
+  },
+  "correction_contract": {
+    "historical_plan_registry_prefix_source": "f08cd02fb1cc80ed169b63c1917eb1b979c0b238:research/plan_registry.jsonl",
+    "historical_prefix_bytes": 27881,
+    "historical_prefix_sha256": "c88d73dca479844b761bcd1d703c78d13cc56f12efea6a5efef062946f93588f",
+    "complete_utf8_jsonl_after_prefix_required": true,
+    "mutation_truncation_reorder_partial_malformed_and_blank_append_rejected": true,
+    "all_other_pc01_current_evidence_requires_exact_whole_file_hash": true,
+    "replacement_bindings_are_schema_const_and_all_or_none": true
+  },
+  "schema_files": {
+    "schemas/experiment_plan.schema.json": "0e5d4ba3c369ebafb17fc9a528ee53c544322442a4697ef972848ac95813b231",
+    "tests/test_wt01_dev1.py": "d6668576536d81db139fc79d0dddc60acef82bc8f3573e950b32156b333cf50a"
+  },
+  "targeted_regression_v2": {
+    "tests": 29,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "full_regression_v3": {
+    "path": "research/laboratory/WT-01-LIFECYCLE-CORRECTION-FULL-REGRESSION-V3.xml",
+    "sha256": "54ce2d299ec77a7877e26e7ea81417486ca4005ee68284ad17a1c51fae098010",
+    "tests": 956,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "passed": false,
+    "cause": "The preflight certificate correctly detected that the experiment-plan schema had changed after the prior freeze."
+  },
+  "full_regression_v4": {
+    "path": "research/laboratory/WT-01-LIFECYCLE-CORRECTION-FULL-REGRESSION-V4.xml",
+    "sha256": "7aa438e861fe6fa55fedac147908e39a66eacf05d30b37d6eebb52e9559ed3a7",
+    "tests": 956,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 139.765,
+    "passed": true
+  },
+  "final_freeze": {
+    "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
+    "benchmark_status": "active",
+    "protected_files": 909,
+    "prior_manifest_archive_path": "research/manifests/wt01_causal_factorial_diagnostic_v1-protocol-v3-cd818493dfa9.json",
+    "prior_manifest_archive_sha256": "94c8dfdb4462a42ec4fd65b9b72c0b3eda788f0c8b757a20577121e0ec4033a0",
+    "eval_manifest_sha256": "d15c04a584b4cac151a7d8dd49db8929d5f67594f038049036deedc447c46660",
+    "evaluator_sha256": "870fe289903f3c7d42a41526124b4084072c5088b24d0772fe57076d5d1ea8d0",
+    "candidate_bundle_sha256": "9ad4033a2ed702030d6a8e84b0d3bcb7dd36c48580989108a428f05e69df2b22",
+    "preflight_file_sha256": "380567253070c29b4cfc95edf60a9c843037bda22cd7aa6d93c65c62a22497d8",
+    "preflight_certificate_sha256": "7dcb8331be97dbd4c6cad5a89b6e668ba7be0788cd7dd24cac2ff39b38c01ff8",
+    "integrity_passed": true,
+    "doctor_passed": true,
+    "lab_scoring_ready": true
+  },
+  "execution_state": {
+    "replacement_experiment_registered": false,
+    "replacement_scoring_seed_realized": false,
+    "development_arrays_loaded": false,
+    "forbidden_files_opened": false,
+    "replacement_registrations_remaining": 1,
+    "replacement_scoring_runs_remaining": 1,
+    "next_action": "commit the final freeze, then create exactly one replacement preregistration"
+  }
+}

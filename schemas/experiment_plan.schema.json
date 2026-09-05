@@ -830,6 +830,11 @@
         "authority_sha256": {"const": "18c46d6cbc221e1e6c102842aed0b192ad962c4e2e4741a1237452427d112c1b"},
         "activation_plan_path": {"const": "research/plans/WT-01-DEV1-ACTIVATION-V1.json"},
         "activation_plan_sha256": {"const": "4ec7a549a08a69bb662be574633e0c5c326e3cfcc35b10dde87cfed2e585fe30"},
+        "replacement_authority_path": {"const": "research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json"},
+        "replacement_authority_sha256": {"const": "4518cd1c3d28a674f1628412c64b6140d80215ca606cf85b1b1542c79e23ca80"},
+        "replacement_plan_path": {"const": "research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json"},
+        "replacement_plan_sha256": {"const": "8bf5bead1797acacd3d99be1a0008179db0f4dcecdc325b400c2f092a80f77c1"},
+        "replaces_invalidated_experiment": {"const": "EXP-20260905-0006"},
         "corpus_id": {"const": "causal_chambers_wt_changepoints_v1"},
         "manifest_sha256": {"const": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e"},
         "data_role": {"const": "visible_development_only"},
@@ -871,6 +876,13 @@
         "invalidation_rules": {
           "type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 8
         }
+      },
+      "dependentRequired": {
+        "replacement_authority_path": ["replacement_authority_sha256", "replacement_plan_path", "replacement_plan_sha256", "replaces_invalidated_experiment"],
+        "replacement_authority_sha256": ["replacement_authority_path", "replacement_plan_path", "replacement_plan_sha256", "replaces_invalidated_experiment"],
+        "replacement_plan_path": ["replacement_authority_path", "replacement_authority_sha256", "replacement_plan_sha256", "replaces_invalidated_experiment"],
+        "replacement_plan_sha256": ["replacement_authority_path", "replacement_authority_sha256", "replacement_plan_path", "replaces_invalidated_experiment"],
+        "replaces_invalidated_experiment": ["replacement_authority_path", "replacement_authority_sha256", "replacement_plan_path", "replacement_plan_sha256"]
       }
     },
     "entity_addressing_protocol": {
