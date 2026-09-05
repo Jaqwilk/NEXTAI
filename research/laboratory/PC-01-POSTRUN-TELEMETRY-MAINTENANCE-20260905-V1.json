@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-POSTRUN-TELEMETRY-MAINTENANCE-20260905-V1",
+  "kind": "user_authorized_bounded_no_training_maintenance",
+  "created_at": "2026-09-05T18:41:19Z",
+  "user_approval": "kontynuuj, following the explicit request for a separate no-training telemetry maintenance decision after PC-01 final review",
+  "parent_decision": "PC-01-DECISION",
+  "parent_cycle_receipt": "research/laboratory/PC-01-FINAL-CYCLE-294-V1.receipt.json",
+  "parent_cycle_receipt_sha256": "b000773017fd4675ffa1eca79f4467c457cf66cf4df6f9d5263109221a6d86a1",
+  "failed_report": "research/laboratory/PC-01-FINAL-3-POSTRUN-REGRESSION-V1.xml",
+  "failed_report_sha256": "551d26210e363bd35274995a26eb4d1de307d20fe1272340bb7da39dbe66b327",
+  "started_at": "2026-09-05T18:41:19Z",
+  "deadline_at": "2026-09-05T19:26:19Z",
+  "service_minutes_cap": 45,
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "final_data_access_authorized": false,
+  "pc01_retry_authorized": false,
+  "wt01_scoring_authorized": false,
+  "new_experiment_plan_authorized": false,
+  "source_scope": "Create and validate a prospective versioned PC-01 telemetry reader outside the frozen v3 execution bundle. Preserve the original source path and hashes used by all completed PC-01 results.",
+  "allowed_changes": [
+    "one immutable maintenance plan and authorization record",
+    "one versioned telemetry source under research/laboratory/versions/PC-01-TELEMETRY-V2",
+    "one bounded synthetic validator and its reports",
+    "append-only events, analysis, receipt and generated report updates"
+  ],
+  "forbidden_changes": [
+    "edit any completed experiment plan or result",
+    "edit src/nextai_autoresearch/pc01_telemetry.py or another frozen PC-01 v3 source",
+    "replace, omit or rerun a PC-01 seed",
+    "train a model or access final data",
+    "change metrics, thresholds, series decision, beliefs or architecture status",
+    "activate WT-01 scoring, a schedule, deployment or external model/API"
+  ],
+  "completion": "Preserve the failure, prove the versioned reader handles transient path absence while failing closed on malformed/unrelated errors, run full regression and doctor, then stop at the WT-01 preparation decision."
+}

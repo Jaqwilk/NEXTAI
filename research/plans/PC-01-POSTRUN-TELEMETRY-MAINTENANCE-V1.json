@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-POSTRUN-TELEMETRY-MAINTENANCE-V1",
+  "kind": "no_scoring_postrun_infrastructure_maintenance",
+  "authority": "research/laboratory/PC-01-POSTRUN-TELEMETRY-MAINTENANCE-20260905-V1.json",
+  "created_at": "2026-09-05T18:41:19Z",
+  "deadline_at": "2026-09-05T19:26:19Z",
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "scientific_result_created": false,
+  "problem": "The preserved cycle-294 full regression exposed FileNotFoundError from one concurrent Windows read of an atomically replaced device.json. Frozen v1 classifies registered sharing/access errors as temporary but not transient target absence.",
+  "parent_source": "src/nextai_autoresearch/pc01_telemetry.py",
+  "parent_source_sha256": "4b998b96132011b3f8359cfcce9cd315bca4d474432c40907a4ba6b7f75ad209",
+  "prospective_source": "research/laboratory/versions/PC-01-TELEMETRY-V2/pc01_telemetry.py",
+  "causal_change": "Classify one FileNotFoundError during a telemetry snapshot read as temporary unavailability by returning None. Preserve writer semantics, data validation and all other exception behavior. The parent remains responsible for the existing one-second continuous-gap deadline.",
+  "scope": [
+    "Copy the frozen source into a separately named prospective version; never edit the frozen source path.",
+    "Verify the writer function is AST-equivalent to the frozen version.",
+    "Verify a valid sample is read exactly and malformed JSON/schema still fail closed.",
+    "Verify one deterministic transient missing-path read returns None and a later valid read succeeds.",
+    "Verify continuous absence remains unavailable and is rejected by a simulated one-second parent deadline.",
+    "Repeat three independent subprocess-reader stress cases of 2000 atomic writes and require coherent monotonic samples, no reader failure and no temporary-file residue.",
+    "Run the full repository pytest suite without erasing the already failed report, then run report and doctor."
+  ],
+  "success": "All dedicated V2 controls pass; three stress repetitions complete; malformed/unrelated errors fail closed; frozen source and completed-result hashes remain unchanged; full regression has zero failures/errors/skips; doctor and integrity pass.",
+  "failure": "Preserve every report and stop for review. A passing rerun of the historical V1 test alone cannot erase the cycle-294 failure or establish the V2 repair.",
+  "budget": {
+    "service_minutes": 45,
+    "training_seconds": 0,
+    "scoring_runs": 0,
+    "dependency_installs": 0,
+    "downloads": 0
+  },
+  "next_action_on_success": "Stop at the WT-01 no-scoring preparation decision. This maintenance does not authorize WT-01 scoring.",
+  "next_action_on_failure": "Stop with the exact infrastructure blocker; no PC-01 retry."
+}
