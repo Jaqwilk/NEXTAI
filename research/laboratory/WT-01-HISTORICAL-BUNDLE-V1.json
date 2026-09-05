@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-HISTORICAL-BUNDLE-V1",
+  "created_at": "2026-09-05T19:40:00Z",
+  "kind": "git_backed_historical_wt_evidence_receipt",
+  "authority_path": "research/laboratory/WT-01-CONTRACT-20260905-V1.json",
+  "authority_sha256": "642080a48397cd262aa1e401a5497599f3c4dcd979e4293564089e8d2188d81e",
+  "historical_git_commit": "49525156586e765c07f96e2f41ea17c709a3debb",
+  "historical_git_commit_subject": "Record EXP-0006 recurrent residual quick",
+  "historical_source_executed": false,
+  "historical_files": {
+    "src/nextai_autoresearch/candidates/base.py": "4569d5001e4f2e70fadedc46763acc9d88d3a058199ad9fe19b2c2efbd29578b",
+    "src/nextai_autoresearch/candidates/wt_candidate_under_test.py": "4471f2a999f9432e9d2e6fb56d309ebe7af52cca6dff246ab1b439b38f035104",
+    "src/nextai_autoresearch/wt_prequential_contract.py": "12b36743d024db342f9e25255238bd9c1f10864e60e711d0a85955817b47149c"
+  },
+  "immutable_experiments": {
+    "EXP-20260831-0006": {
+      "plan_path": "research/plans/EXP-20260831-0006.json",
+      "plan_file_sha256": "0fe9ae8c69081d3de37684043df1f9f55c20c9eb280d20d4da93d002d4febe1b",
+      "registered_plan_sha256": "0e8a15283545f989049bcbb92bc54f2c665b598008347949d249438c11c53b83",
+      "result_path": "research/results/EXP-20260831-0006.json",
+      "result_file_sha256": "48de38544e4a1d6a7138b2ddf0c90d90cb95da9158d22fa85da689650fdc4534",
+      "evaluator_sha256": "1d16aef7d6e18632528dddf1a6f70715531dc5bc53ade5e79fce8b94e9b9aa0e",
+      "runner_seeds": [1150866618]
+    },
+    "EXP-20260831-0007": {
+      "plan_path": "research/plans/EXP-20260831-0007.json",
+      "plan_file_sha256": "e91f12a2c7bf7e44569e4a788308b2942691478ad9e1d5c50688cdfcf11dba1c",
+      "registered_plan_sha256": "2b71c08b3bb0b7b0dd970ec474f799cba04b102b0c45a2fbc48e5ba1cca74436",
+      "result_path": "research/results/EXP-20260831-0007.json",
+      "result_file_sha256": "b9bdb5b8166354d0d39420ff6de138488df5bde10d55c45abed0f3e4fcedfe2f",
+      "evaluator_sha256": "e2249a64b9c0a5b477cd2652cdae23af6f142c8744b70efca7b94615ee854012",
+      "runner_seeds": [199516530, 1203672543, 163025610]
+    }
+  },
+  "historical_dataset": {
+    "manifest_path": "research/data/wt_changepoints_v1/manifest.json",
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "file_count": 10,
+    "physical_test_files": ["load_in_seed_8.csv", "load_in_seed_9.csv"],
+    "independent_test_files": 2,
+    "runner_permutations_are_independent_physical_traces": false
+  },
+  "exact_rule": {
+    "ridge": 0.001,
+    "residual_bound": 4.0,
+    "response_width": 10,
+    "feature": "[1, x_t, x_t - x_(t-1), u_t]",
+    "fit_target": "x_(t+1) - x_t",
+    "query": "recursive predicted-delta rollout with cumulative displacement clipped to [-4, 4] relative to the last revealed origin",
+    "update": "post-reveal, slot-local recursive least squares over every revealed target row"
+  },
+  "algebraic_identity": {
+    "derivation": "If d_(t+1)=b+A*x_t+B*(x_t-x_(t-1))+c*u_t, then x_(t+1)=b+(I+A+B)*x_t-B*x_(t-1)+c*u_t before clipping.",
+    "classical_family": "affine controlled VAR(2)/ARX with ridge initialization, slot-local RLS and an origin-relative saturation nonlinearity",
+    "architectural_novelty_established": false
+  },
+  "historical_observations": {
+    "candidate_normalized_rmse": 0.6728036610592184,
+    "best_complete_simple_control": "wt_control_level_bank_v1",
+    "best_complete_simple_control_normalized_rmse": 1.0071290063754978,
+    "quality_margin": 0.3343253453162794,
+    "candidate_fit_ops": 1216512.0,
+    "control_fit_ops": 17280.0,
+    "candidate_mean_query_ops": 22560.0,
+    "control_mean_query_ops": 1920.0,
+    "candidate_workload_ops_r16": 16683197.0,
+    "control_workload_ops_r16": 7886525.0,
+    "stable_rollout_rate": 1.0,
+    "three_seed_values_near_identical": true
+  },
+  "interpretation": "The old quality gap is real for two visible physical test files under the old evaluator. It does not identify recurrence as the cause, establish a full-cost advantage, provide independent physical replication or show transfer."
+}

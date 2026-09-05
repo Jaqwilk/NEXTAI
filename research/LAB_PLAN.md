@@ -1,6 +1,24 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Aktualna zgoda — trzy repliki finalne
+## Aktualna zgoda — WT-01-CONTRACT, cykl serwisowy 1/2 (2026-09-05)
+
+Obowiązuje `research/laboratory/WT-01-CONTRACT-20260905-V1.json` i plan
+`research/plans/WT-01-CONTRACT-V1.json`. Użytkownik zatwierdził jeden ograniczony
+cykl przygotowania kontraktu (maks. 60 minut), bez treningu, scoringu, nowego
+eksperymentu, dostępu do danych finalnych i pobierania archiwów. Commity wolno
+wypychać bez force do istniejącego origin, utrzymując `master` i `main` na tym
+samym zweryfikowanym commicie.
+
+Bieżący produkt to: hash-resolved bundle EXP-20260831-0006/0007, zamrożona
+semantyka factorialu 2×2×2 (rekurencja, RLS, bound), kontrola tożsamości VAR(2)/
+ARX i receipt niezależności danych. `wt_changepoints_v1` pozostaje znanym
+diagnostycznym zbiorem; jego 10 plików nie może zostać przemianowanych na świeży
+holdout. `wt_walks_v1` może być później tylko testem innej operacji/adversarial,
+nie replikacją zadania changepoint. Bez świeżych śladów tego samego protokołu
+wniosek replikacyjny pozostaje zablokowany. Po receipt potrzebna jest osobna
+decyzja przed drugim i ostatnim cyklem danych/harnessu. Scoring pozostaje zamknięty.
+
+## Historia — zgoda na trzy repliki finalne PC-01
 
 Obowiązuje research/laboratory/PC-01-FINAL-ACTIVATION-20260905-V1.json.
 Użytkownik zatwierdził trzy świeże repliki niezmienionego modelu v3, po jednej

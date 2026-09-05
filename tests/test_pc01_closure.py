@@ -78,14 +78,20 @@ def test_historical_v1_failure_is_preserved_while_live_v2_handles_absence(tmp_pa
     assert read_device_sample(tmp_path / "missing.json") is None
 
 
-def test_migrated_laboratory_identity_is_maintenance_only():
+def test_migrated_laboratory_identity_advances_only_through_verified_wt_contract():
     root = project_root()
     contract = laboratory.laboratory_contract(root)
     progress = laboratory.laboratory_progress(root)
     assert contract["status"] == "preparation_only"
     assert contract["scoring_authorized"] is False
     assert contract["lifecycle_migration_complete"] is True
-    assert progress["next_action_id"] == "WT-01-CONTRACT"
-    assert progress["user_decision_required"] is True
+    assert contract["wt01_contract_ready"] is True
+    assert progress["wt01_contract"]["artifacts_ready"] is True
+    if progress["wt01_contract"]["complete"]:
+        assert progress["next_action_id"] == "WT-01-DATA-HARNESS"
+        assert progress["user_decision_required"] is True
+    else:
+        assert progress["next_action_id"] == "WT-01-CONTRACT"
+        assert progress["user_decision_required"] is False
     assert progress["final_access_authorized"] is False
     assert sha256_file(root / pc01_closure.PATH) == pc01_closure.SHA256

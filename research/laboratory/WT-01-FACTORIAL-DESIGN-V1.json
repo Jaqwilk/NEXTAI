@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-FACTORIAL-DESIGN-V1",
+  "created_at": "2026-09-05T19:40:00Z",
+  "status": "mechanism_semantics_frozen_not_executable",
+  "claim": "causal learned mechanism effect",
+  "scoring_authorized": false,
+  "historical_bundle": "research/laboratory/WT-01-HISTORICAL-BUNDLE-V1.json",
+  "invariants": {
+    "ridge": 0.001,
+    "response_width": 10,
+    "residual_bound": 4.0,
+    "fit_feature": "[1, observed x_t, observed x_t-observed x_(t-1), current scalar control]",
+    "fit_target": "observed x_(t+1)-observed x_t",
+    "fit_order": "chronological over frozen training episodes and target rows",
+    "query_horizons": [16, 32, 96],
+    "knowledge_sizes": [18, 36, 54],
+    "reveal_order": "predict and hash immutable artifact before target reveal; then optional slot-local update",
+    "normalization": "training-only statistics; no development/final outcome statistics",
+    "unbounded_failure": "record non-finite or numerical divergence as a cell failure; never rescue it with post-hoc clipping"
+  },
+  "factors": {
+    "R": {
+      "name": "recursive_self_feeding_and_predicted_delta_propagation",
+      "on": "At each horizon step, feed the preceding predicted level and its predicted delta into the unchanged affine rule.",
+      "off": "Compute exactly one next level from the last two revealed observations and current control, then persist that predicted level for all remaining requested steps; do not feed a prediction or predicted delta back into the rule."
+    },
+    "U": {
+      "name": "post_reveal_slot_local_rls",
+      "on": "After the immutable prediction artifact is recorded and the target is revealed, apply the exact historical RLS update sequentially to the slot-local precision and weights.",
+      "off": "Do not mutate precision or weights after reveal and charge zero update operations; all fit/query constants and event order remain unchanged."
+    },
+    "C": {
+      "name": "origin_relative_displacement_bound",
+      "on": "At every produced step clip cumulative displacement from the last revealed origin to [-4,4] channel-wise.",
+      "off": "Apply no saturation or replacement. Preserve finite raw predictions; record non-finite or declared numerical divergence as failure."
+    }
+  },
+  "cells": [
+    {"id": "R0-U0-C0", "R": false, "U": false, "C": false},
+    {"id": "R0-U0-C1", "R": false, "U": false, "C": true},
+    {"id": "R0-U1-C0", "R": false, "U": true, "C": false},
+    {"id": "R0-U1-C1", "R": false, "U": true, "C": true},
+    {"id": "R1-U0-C0", "R": true, "U": false, "C": false},
+    {"id": "R1-U0-C1", "R": true, "U": false, "C": true},
+    {"id": "R1-U1-C0", "R": true, "U": true, "C": false},
+    {"id": "R1-U1-C1", "R": true, "U": true, "C": true}
+  ],
+  "equivalence_controls": {
+    "historical_cell": "R1-U1-C1",
+    "historical_fixture_requirement": "Before any score, predictions, post-reveal state and operation accounting must match the exact Git-resolved historical rule on synthetic/outcome-free fixtures.",
+    "classical_control": "A separately named affine VAR(2)/ARX implementation with the same ridge, slot-local RLS and bound must match R1-U1-C1 prediction/state within absolute and relative tolerance 1e-12.",
+    "interpretation_if_equal": "The historical implementation is a classical model identity; quality equality is not evidence of a new architecture.",
+    "persistence_control": "Observed last level repeated across the horizon.",
+    "one_step_hold_control": "One affine next-level prediction from observed history, repeated across the horizon."
+  },
+  "nonlinear_control_decision": {
+    "included_in_this_factorial": false,
+    "reason": "The registered question isolates three operations inside an already affine classical rule. Adding feature degree or regularization would change a second fundamental factor and would not distinguish recurrence, RLS or clipping.",
+    "future_trigger": "Only if a development-only residual remains after the exact VAR identity and factorial contrasts may a new, preregistered and fully charged nonlinear NARX control be added before any final access."
+  },
+  "outcomes": {
+    "primary": "normalized RMSE, lower is better, reported per physical recording and horizon",
+    "secondary": [
+      "first-16-post-change normalized squared-error area",
+      "samples-13-through-16 recovery NRMSE",
+      "worst physical-recording NRMSE",
+      "finite rollout rate and divergence count",
+      "fit/query/update operations and bytes touched",
+      "resident and peak state bytes",
+      "R1/R4/R16 full workload operations",
+      "wall time as hardware-specific diagnostic only"
+    ]
+  },
+  "estimands": {
+    "recurrence_main": "mean over matched U,C cells and independent physical recordings of NRMSE(R0)-NRMSE(R1); positive favors recurrence",
+    "update_main": "mean over matched R,C cells and independent physical recordings of NRMSE(U0)-NRMSE(U1); positive favors post-reveal RLS",
+    "bound_main": "mean over matched R,U cells and independent physical recordings of NRMSE(C0)-NRMSE(C1); positive favors bounding",
+    "interactions": ["R_by_U", "R_by_C", "U_by_C", "R_by_U_by_C"],
+    "unit": "one independently recorded physical file/run; windows, horizons and runner permutations are repeated measures, not independent samples",
+    "uncertainty": "paired per-recording contrasts with all units shown; bootstrap/permutation may resample physical recordings only and is disallowed when fewer than five independent recordings exist"
+  },
+  "seed_policy": {
+    "runner_random_count": 3,
+    "role": "permutation/numerical robustness only",
+    "independent_replication_count": 0,
+    "note": "Three runner seeds over the same physical files never satisfy replication."
+  },
+  "effect_threshold": {
+    "status": "not_yet_frozen",
+    "historical_threshold_reused": false,
+    "required_before_scoring": "Freeze a smallest effect of interest from prospective measurement noise plus development-only scale before final data access. If this cannot be justified in service cycle 2, do not score."
+  },
+  "decision_rules": [
+    "If the exact VAR/ARX control and R1-U1-C1 differ beyond tolerance, invalidate the harness rather than interpret quality.",
+    "If U and/or C explain the gap while recurrence has no meaningful paired effect, conclude classical adaptation/stabilization is sufficient.",
+    "If recurrence has a preregistered positive paired effect after interactions and controls, retain only a narrow causal dynamics claim; do not claim economics or transfer.",
+    "If the effect disappears on genuinely new same-protocol physical traces, close this tested version.",
+    "If fresh same-protocol traces remain unavailable, permit historical causal diagnosis only and mark replication unresolved; do not substitute wt_walks_v1.",
+    "A quality win with greater full workload or memory is not an economic advantage."
+  ],
+  "invalidation": [
+    "target or future-control access before artifact freeze",
+    "semantic file, seed, channel or family routing visible to the candidate",
+    "post-outcome split, threshold, feature, constant or baseline selection",
+    "non-source-identical factor implementations outside the named switch",
+    "missing failed/divergent cell, omitted cost, cross-slot mutation or evaluator digest change",
+    "treating windows, horizons or runner permutations as independent physical units"
+  ]
+}

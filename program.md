@@ -1,6 +1,25 @@
 # NEXTAI laboratory cycle — protocol v3
 
-## Current final-series authorization (2026-09-05)
+## Current WT-01 contract-preparation authority (2026-09-05)
+
+The user approved `research/laboratory/WT-01-CONTRACT-20260905-V1.json`: exactly
+one bounded WT-01 service cycle (cycle 1 of 2, <=60 minutes), with no training,
+scoring, experiment registration, final-data access or dataset download. Follow
+`research/plans/WT-01-CONTRACT-V1.json`. This authority permits hash-resolved
+historical closure, the source-identical R×U×C mechanism design, data-independence
+receipt, fail-closed validation, tests and non-force GitHub synchronization only.
+
+The exact historical rule is an affine controlled VAR(2)/ARX representation with
+ridge initialization, post-reveal slot-local RLS and origin-relative clipping.
+The old quality result does not identify which operation caused the gain and does
+not establish economic advantage, independent physical replication, transfer or
+architectural novelty. Runner permutations are never physical replicates.
+`wt_walks_v1` is a possible same-device, different-operation adversarial source,
+not a same-task replication. A numerical effect threshold and any final split
+must remain unset until prospectively justified and frozen in the final service
+cycle. Stop for review after the contract receipt; scoring needs separate authority.
+
+## Historical final-series authorization (2026-09-05)
 
 The user explicitly approved PC-01-FINAL-ACTIVATION-20260905-V1: exactly three
 fresh v3 final replicas of the unchanged pc01_byte_gpt_v1, selected dev

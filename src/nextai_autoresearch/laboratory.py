@@ -284,6 +284,22 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
     historical = pc01_closure(base)
     if historical is not None:
         completed = migration_completed(base)
+        from .wt01_contract import status as wt01_status
+        wt01 = wt01_status(base) if completed is not None else None
+        if wt01 is not None:
+            finished = wt01["complete"]
+            return {**progress, "activation_id": historical["id"],
+                    "development_registrations_used": 2, "development_registrations_cap": 2,
+                    "final_registrations_used": 3, "final_registrations_cap": 3,
+                    "final_completed": 3, "final_access_authorized": False,
+                    "scoring_authorized": False, "user_decision_required": finished,
+                    "next_action_id": "WT-01-DATA-HARNESS" if finished else "WT-01-CONTRACT",
+                    "next_action": "Review the frozen mechanism contract and independent-trace blocker before the final WT-01 data/harness service cycle."
+                        if finished else
+                        "Complete only the authorized no-training, no-scoring WT-01 mechanism contract preparation.",
+                    "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                    "lifecycle_migration_complete": True,
+                    "wt01_contract": wt01}
         return {**progress, "activation_id": historical["id"],
                 "development_registrations_used": 2, "development_registrations_cap": 2,
                 "final_registrations_used": 3, "final_registrations_cap": 3,
@@ -427,10 +443,14 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
     historical = pc01_closure(base)
     if historical is not None:
         completed = migration_completed(base)
+        from .wt01_contract import PLAN_PATH as WT01_PLAN_PATH, status as wt01_status
+        wt01 = wt01_status(base) if completed is not None else None
         return {**contract, "status": "preparation_only", "scoring_authorized": False,
-                "maintenance_plan": "research/plans/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1.json",
+                "maintenance_plan": WT01_PLAN_PATH if wt01 is not None else
+                    "research/plans/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1.json",
                 "activation_id": historical["id"], "original_status": contract["status"],
-                "lifecycle_migration_complete": completed is not None}
+                "lifecycle_migration_complete": completed is not None,
+                "wt01_contract_ready": bool(wt01 and wt01["artifacts_ready"])}
     from .pc01_final_authority import authority as final_authority
     final = final_authority(base)
     if final is not None:

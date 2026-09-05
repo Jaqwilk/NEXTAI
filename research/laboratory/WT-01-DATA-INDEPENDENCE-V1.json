@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-DATA-INDEPENDENCE-V1",
+  "created_at": "2026-09-05T19:40:00Z",
+  "status": "replication_data_blocked_adversarial_source_feasible",
+  "outcomes_inspected_in_this_cycle": false,
+  "archive_downloaded_in_this_cycle": false,
+  "data_arrays_loaded_in_this_cycle": false,
+  "historical_diagnostic": {
+    "dataset": "wt_changepoints_v1",
+    "manifest_path": "research/data/wt_changepoints_v1/manifest.json",
+    "manifest_sha256": "3d91f9b82644a9e9d0092a0baec0c012ed6b790f8331bdbb3b044cb0cbd5091e",
+    "physical_system": "Wind Tunnel Mk1",
+    "configuration": "standard",
+    "files": 10,
+    "rows": 20297,
+    "historical_split": {
+      "train": [0, 1, 2, 3, 4, 5],
+      "development": [6, 7],
+      "test": [8, 9]
+    },
+    "independence_assessment": "All ten files and their metadata/outcomes were already locally visible and used in historical development/evaluation. They remain valid for exact reproduction and causal diagnosis, but repartitioning cannot create fresh replication or a hidden final set."
+  },
+  "same_class_replication": {
+    "required_identity": "fresh independently recorded Wind Tunnel Mk1 standard-configuration load_in changepoint traces generated under the same protocol and legal observation boundary",
+    "minimum_independent_physical_recordings": 5,
+    "availability": "not_present_in_the_repository_or_verified_public_archive",
+    "decision": "hard_blocker_for_replication_claim",
+    "forbidden_substitutes": [
+      "new runner permutations of load_in_seed_8 and load_in_seed_9",
+      "new overlapping windows from any existing file",
+      "moving existing train/development files into a renamed final split",
+      "wt_walks_v1 random walks or waveform runs"
+    ],
+    "resolution": "A later, separately authorized action must acquire fresh physical traces without outcome-guided selection and hash-bind their protocol, license and split before access; otherwise WT-01 must remain diagnostic-only."
+  },
+  "adversarial_candidate": {
+    "dataset": "wt_walks_v1",
+    "source_id": "SRC-0428",
+    "official_url": "https://github.com/juangamella/causal-chamber/tree/main/datasets/wt_walks_v1",
+    "version": "v1.1",
+    "published_md5": "19bb4e92cbe0b8dff49299b9b509ac36",
+    "previously_observed_archive_bytes": 46471335,
+    "physical_system": "Wind Tunnel Mk1",
+    "configuration": "standard",
+    "metadata": "Ten 10,000-measurement actuator-random-walk seeds, repeated slow/fast waveform runs, and two 320,000-observation regime-jump recordings are documented by the primary source.",
+    "role": "possible different-operation adversarial evaluation only",
+    "same_task_replication": false,
+    "why_adversarial": "It changes the actuation schedule and duration while retaining the same physical apparatus/configuration. This probes robustness to a harder operation but cannot reproduce the changepoint task.",
+    "preconditions": [
+      "separate user-authorized bounded download with pre/post free-space checks and verified checksum",
+      "outcome-blind experiment/run split frozen before arrays are loaded",
+      "one mechanically defined legal control/response interface without file-name, semantic target or future-schedule leakage",
+      "horizon, metric, effect threshold and source-identical controls frozen before scoring"
+    ]
+  },
+  "decision": "Freeze the mechanism semantics now. Do not activate scoring. In WT-01 service cycle 2 either hash-bind genuinely fresh same-protocol physical traces or explicitly narrow the program to historical diagnosis plus a separately preregistered different-operation adversarial test."
+}

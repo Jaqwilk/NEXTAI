@@ -30,7 +30,7 @@ def lab(tmp_path, monkeypatch):
     shutil.copy2(project_root() / "config/research.toml", tmp_path / "config/research.toml")
     config_path = tmp_path / "config/research.toml"
     config_path.write_text(config_path.read_text()
-                           .replace("wt01_causal_revalidation_preparation_v1", pc01.COHORT)
+                           .replace("wt01_causal_contract_v1", pc01.COHORT)
                            .replace(pc01.TELEMETRY_COHORT, pc01.COHORT)
                            .replace(pc01.METADATA_COHORT, pc01.COHORT))
     shutil.copy2(project_root() / pc01.CONTRACT_PATH, tmp_path / pc01.CONTRACT_PATH)
