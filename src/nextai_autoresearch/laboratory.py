@@ -177,6 +177,11 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
                         series_freeze: bool = False) -> list[str]:
     """One registered development attempt; invalidation does not replenish it."""
     try:
+        from .muc01_calibration import authority as muc_authority, scope_problems as muc_scope
+        if load_config(base).benchmark_version == "mutable_contact_ledger_v1" and muc_authority(base) is not None:
+            if experiment_id is not None or (candidate is None and phase is None and not series_freeze):
+                return muc_scope(base, experiment_id=experiment_id)
+            return ["MUC-01 calibration forbids PC-01 candidate, phase and series operations"]
         from .wt01_dev1 import authority as wt01_authority, scope_problems as wt01_scope
         if wt01_authority(base) is not None and (
             experiment_id is not None
@@ -304,6 +309,24 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
                     stopped = dev1["terminal"]
                     review = _review01_status(base) if stopped else None
                     if review is not None:
+                        from .muc01_calibration import status as muc01_status
+                        muc01 = muc01_status(base)
+                        if muc01 is not None:
+                            return {**progress, "activation_id": muc01["id"],
+                                    "development_registrations_used": muc01["registrations_used"],
+                                    "development_registrations_cap": 1,
+                                    "final_registrations_used": 3, "final_registrations_cap": 3,
+                                    "final_completed": 3, "final_access_authorized": False,
+                                    "scoring_authorized": muc01["scoring_authorized"],
+                                    "user_decision_required": muc01["terminal"],
+                                    "next_action_id": "MUC-01-CALIBRATION-DECISION" if muc01["terminal"] else "MUC-01-CALIBRATION",
+                                    "next_action": "Review the single preserved MUC-01 calibration; no retry or next stage."
+                                        if muc01["terminal"] else
+                                        "Freeze, preregister and execute exactly one MUC-01 baseline calibration.",
+                                    "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                                    "lifecycle_migration_complete": True,
+                                    "wt01_contract": wt01, "wt01_harness": harness,
+                                    "wt01_dev1": dev1, "review01": review, "muc01_calibration": muc01}
                         return {**progress, "activation_id": dev1["id"],
                                 "development_registrations_used": dev1["registrations_used"],
                                 "development_registrations_cap": 1,
@@ -624,6 +647,8 @@ def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> l
         laboratory_progress(base)
     except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
         return [f"laboratory contract: {exc}"]
+    from .muc01_calibration import authority as muc_authority
+    muc_active = config.benchmark_version == "mutable_contact_ledger_v1" and muc_authority(base) is not None
     problems = []
     if contract["status"] == "dev_authorized":
         try:
@@ -639,9 +664,9 @@ def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> l
                     problems.extend(pc01_scope_problems(base, experiment_id=plans[0]["experiment_id"]))
         except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
             problems.append(f"PC-01 activation registrations: {exc}")
-    if contract["status"] == "preparation_only" and config.benchmark_status != "maintenance":
+    if contract["status"] == "preparation_only" and config.benchmark_status != "maintenance" and not muc_active:
         problems.append("laboratory preparation requires benchmark_status=maintenance")
-    if scoring and not contract["scoring_authorized"]:
+    if scoring and not contract["scoring_authorized"] and not muc_active:
         problems.append(
             "laboratory scoring is not authorized: complete PC-01-CONTRACT and freeze a new claim-specific cohort"
         )

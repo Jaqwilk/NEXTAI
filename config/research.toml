@@ -5,8 +5,8 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 2
 protocol_version = 3
-benchmark_version = "wt01_causal_factorial_diagnostic_v1"
-benchmark_status = "maintenance"
+benchmark_version = "mutable_contact_ledger_v1"
+benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
 [laboratory]
@@ -15,6 +15,32 @@ contract_path = "research/laboratory/restart.json"
 # PC-01 terminal evidence is preserved through PC-01-HISTORICAL-CLOSURE-V1.
 # WT-01 factorial diagnostic v1 returned to maintenance after the one authorized
 # replacement run EXP-20260906-0001. No retry or further scoring is authorized.
+
+[muc01_calibration]
+contract_id = "MUC-01-PROPOSED-CONTRACT-V1"
+activation_id = "MUC-01-CALIBRATION-ACTIVATION-V1"
+knowledge_sizes = [32, 128, 512]
+reasoning_depths = [1, 2, 4]
+queries_per_cell = 16
+train_worlds_per_cell = 45
+development_worlds_per_cell = 15
+calibration_worlds_per_cell = 15
+candidates = ["dense_transformer_v1", "bm25_iterative_reader_v1", "symbolic_last_write_graph_v1"]
+classical_baselines = ["dense_transformer_v1", "bm25_iterative_reader_v1", "symbolic_last_write_graph_v1"]
+fit_steps_cap = 192
+fit_seconds_cap = 1200
+state_budget_bytes = 25769803776
+declared_reuses = [1, 4, 16]
+invalidation_rules = [
+  "Invalidate if any final answer, private map, path, query stratum or generator state reaches a system before its prediction.",
+  "Invalidate if train, development and calibration worlds or entity namespaces overlap.",
+  "Invalidate if any system receives different serialized statements or questions for the same cell.",
+  "Invalidate if the symbolic parser receives generator objects rather than the same raw UTF-8 text.",
+  "Invalidate if any learned role uses pretrained weights, an external model, an API, network access or test-guided tuning.",
+  "Invalidate if fit, text processing, index construction, update, query, state, RSS or VRAM cost is omitted.",
+  "Invalidate on a missing KxD cell, context truncation, nonfinite result, timeout, OOM, crash or evaluator-integrity change.",
+  "Stop after exactly one registered runner-random calibration attempt; no retry or replacement registration."
+]
 
 [relational_ood]
 bridge_contract = "BRIDGE-U1-U2-V1"
@@ -731,16 +757,18 @@ allowed_import_roots = [
   "numpy",
   "pyamg",
   "random",
+  "re",
   "scipy",
   "statistics",
+  "time",
   "torch",
   "typing",
 ]
 forbidden_builtins = ["open", "eval", "exec", "compile", "__import__", "input"]
 
 [budgets.quick]
-wall_seconds_per_candidate = 180
-max_rss_mb = 1536
+wall_seconds_per_candidate = 7200
+max_rss_mb = 24576
 knowledge_sizes = [8, 32]
 reasoning_depths = [1]
 queries_per_cell = 128

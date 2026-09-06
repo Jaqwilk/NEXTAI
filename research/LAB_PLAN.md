@@ -1,6 +1,27 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Aktualny etap — REVIEW-01-DECISION (2026-09-06)
+## Aktualny etap — MUC-01-CALIBRATION (2026-09-06)
+
+Użytkownik zatwierdził dokładnie jedną prerejestrowaną kalibrację zadania
+`mutable_contact_ledger_v1` i trzech baseline'ów. Zakres wiąże
+`research/laboratory/MUC-01-CALIBRATION-20260906-V1.json` oraz
+`research/plans/MUC-01-CALIBRATION-ACTIVATION-V1.json`: K=32/128/512,
+D=1/2/4, jedna losowa próba runnera, bez retry i rejestracji zastępczej.
+Najpierw zamrozić evaluator i prerejestrować EXP, potem wdrożyć wyłącznie
+`dense_transformer_v1`, `bm25_iterative_reader_v1` i
+`symbolic_last_write_graph_v1`, uruchomić je tylko audytowanym runnerem i
+zatrzymać się na `MUC-01-CALIBRATION-DECISION`. Mechanizm delta-memory,
+jego ablation, WT, pliki WT 8–9, zewnętrzne modele/API, pobrania i harmonogram
+pozostają poza zgodą.
+
+Kalibracja zachowuje 45/15 światów train/dev na komórkę i osobny losowy
+holdout 15 światów na komórkę; nie zużywa przyszłego finalnego ekranu
+kandydata. Jej jawny iteracyjny reader jest kalibracją plumbing/baseline, nie
+certyfikacją przyszłego jednoprzebiegowego dekodera 8192-tokenowego ani dowodem
+mechanizmu. Wynik dodatni, ujemny albo awaria kończy etap bez automatycznej
+kontynuacji.
+
+## Historyczny etap — REVIEW-01-DECISION (2026-09-06)
 
 Użytkownik zatwierdził jeden przygotowawczy cykl REVIEW-01, maksymalnie 60 minut,
 w `research/laboratory/REVIEW-01-20260906-V1.json`. Przegląd R0/PC-01/WT-01

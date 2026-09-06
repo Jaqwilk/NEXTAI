@@ -809,6 +809,31 @@
         }
       }
     },
+    "muc01_calibration_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_path", "activation_plan_path", "parent_contract_path",
+        "train_worlds_per_cell", "development_worlds_per_cell", "calibration_worlds_per_cell",
+        "classical_baselines", "fit_steps_cap", "fit_seconds_cap", "state_budget_bytes",
+        "declared_reuses", "control_thresholds", "invalidation_rules"
+      ],
+      "properties": {
+        "authority_path": {"const": "research/laboratory/MUC-01-CALIBRATION-20260906-V1.json"},
+        "activation_plan_path": {"const": "research/plans/MUC-01-CALIBRATION-ACTIVATION-V1.json"},
+        "parent_contract_path": {"const": "research/plans/MUC-01-PROPOSED-CONTRACT-V1.json"},
+        "train_worlds_per_cell": {"const": 45},
+        "development_worlds_per_cell": {"const": 15},
+        "calibration_worlds_per_cell": {"const": 15},
+        "classical_baselines": {"const": ["dense_transformer_v1", "bm25_iterative_reader_v1", "symbolic_last_write_graph_v1"]},
+        "fit_steps_cap": {"const": 192},
+        "fit_seconds_cap": {"const": 1200},
+        "state_budget_bytes": {"const": 25769803776},
+        "declared_reuses": {"const": [1, 4, 16]},
+        "control_thresholds": {"const": {"symbolic_overall_min": 0.995, "symbolic_parser_failure_max": 0.001, "dense_overall_min": 0.85, "dense_replacement_min": 0.8}},
+        "invalidation_rules": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 8}
+      }
+    },
     "wt01_factorial_protocol": {
       "type": "object",
       "additionalProperties": false,
@@ -992,6 +1017,23 @@
     }
   },
   "allOf": [
+    {
+      "if": {"properties": {"benchmark": {"const": "mutable_contact_ledger_v1"}}, "required": ["benchmark"]},
+      "then": {
+        "required": ["evaluator_sha256", "muc01_calibration_protocol", "metric_directions"],
+        "properties": {
+          "budget": {"const": "quick"},
+          "parent_experiment_id": {"const": null},
+          "matrix": {"properties": {
+            "knowledge_sizes": {"const": [32, 128, 512]},
+            "reasoning_depths": {"const": [1, 2, 4]},
+            "queries_per_cell": {"const": 16},
+            "seed_policy": {"const": {"method": "runner_random_v1", "count": 1, "minimum": 1000000, "maximum": 2147483647}}
+          }},
+          "candidates": {"const": ["dense_transformer_v1", "bm25_iterative_reader_v1", "symbolic_last_write_graph_v1"]}
+        }
+      }
+    },
     {
       "if": {
         "properties": {"benchmark": {"const": "wt01_causal_factorial_diagnostic_v1"}},

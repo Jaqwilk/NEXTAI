@@ -75,6 +75,5 @@ def test_review01_plan_has_zero_execution_budget() -> None:
 
 def test_live_queue_stops_for_review01_decision() -> None:
     progress = laboratory_progress(ROOT)
-    assert progress["next_action_id"] == "REVIEW-01-DECISION"
-    assert progress["scoring_authorized"] is False
-    assert progress["user_decision_required"] is True
+    assert progress["review01"]["complete"] is True
+    assert progress["next_action_id"] in {"MUC-01-CALIBRATION", "MUC-01-CALIBRATION-DECISION"}

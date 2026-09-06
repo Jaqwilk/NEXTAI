@@ -20,6 +20,8 @@ def authorized(tmp_path):
         "authorization_sha256": laboratory.ACTIVATION_SHA256})
     config = tmp_path / "config/research.toml"
     text = config.read_text().replace('benchmark_status = "maintenance"', 'benchmark_status = "active"')
+    text = text.replace('benchmark_version = "mutable_contact_ledger_v1"',
+                        'benchmark_version = "pc01_byte_lm_learning_measurement_v1"')
     text = text.replace('benchmark_version = "wt01_causal_factorial_diagnostic_v1"',
                         'benchmark_version = "pc01_byte_lm_learning_measurement_v1"')
     text = text.replace('benchmark_version = "pc01_byte_lm_learning_measurement_v3"',

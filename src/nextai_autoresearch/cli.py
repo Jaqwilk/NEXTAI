@@ -523,6 +523,41 @@ def command_plan_new(args: argparse.Namespace) -> int:
         }
         plan["wt01_factorial_protocol"] = _wt01_factorial_protocol()
         validate_plan(plan)
+    if config.benchmark_version == "mutable_contact_ledger_v1":
+        muc = config.raw["muc01_calibration"]
+        required = tuple(muc["candidates"])
+        if tuple(args.candidates) != required or args.budget != "quick":
+            raise ValueError("MUC-01 calibration requires the exact three baseline roles and quick budget")
+        plan["matrix"] = {
+            "knowledge_sizes": list(muc["knowledge_sizes"]),
+            "reasoning_depths": list(muc["reasoning_depths"]),
+            "queries_per_cell": int(muc["queries_per_cell"]),
+            "seed_policy": {"method": "runner_random_v1", "count": 1, "minimum": 1_000_000, "maximum": 2_147_483_647},
+        }
+        metrics = [
+            "accuracy", "continual_new_fact_accuracy", "continual_retention",
+            "exact_span_accuracy", "near_equivalent_accuracy", "stable_rollout_rate",
+            "preprocessing_ops", "fit_ops", "mean_query_ops", "mean_search_ops",
+            "update_ops", "p95_latency_us", "state_bytes", "peak_state_bytes",
+            "mean_bytes_touched", "workload_ops_r1", "workload_ops_r4", "workload_ops_r16",
+        ]
+        plan["primary_metrics"] = metrics
+        plan["metric_directions"] = {name: configured_directions[name] for name in metrics}
+        plan["muc01_calibration_protocol"] = {
+            "authority_path": "research/laboratory/MUC-01-CALIBRATION-20260906-V1.json",
+            "activation_plan_path": "research/plans/MUC-01-CALIBRATION-ACTIVATION-V1.json",
+            "parent_contract_path": "research/plans/MUC-01-PROPOSED-CONTRACT-V1.json",
+            "train_worlds_per_cell": int(muc["train_worlds_per_cell"]),
+            "development_worlds_per_cell": int(muc["development_worlds_per_cell"]),
+            "calibration_worlds_per_cell": int(muc["calibration_worlds_per_cell"]),
+            "classical_baselines": list(muc["classical_baselines"]),
+            "fit_steps_cap": int(muc["fit_steps_cap"]),
+            "fit_seconds_cap": int(muc["fit_seconds_cap"]),
+            "state_budget_bytes": int(muc["state_budget_bytes"]),
+            "declared_reuses": list(muc["declared_reuses"]),
+            "control_thresholds": {"symbolic_overall_min": 0.995, "symbolic_parser_failure_max": 0.001, "dense_overall_min": 0.85, "dense_replacement_min": 0.8},
+            "invalidation_rules": list(muc["invalidation_rules"]),
+        }
     if config.benchmark_version.startswith("cross_family_"):
         transfer = config.raw["transfer"]
         if all(key in transfer for key in (

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "MUC-01-CALIBRATION-ACTIVATION-V1",
+  "status": "authorized_preimplementation_calibration_contract",
+  "authority_path": "research/laboratory/MUC-01-CALIBRATION-20260906-V1.json",
+  "parent_contract_path": "research/plans/MUC-01-PROPOSED-CONTRACT-V1.json",
+  "purpose": "Calibrate the procedural task and three non-candidate baselines before any local-memory mechanism is implemented.",
+  "data": {
+    "source": "deterministic procedural text only",
+    "split_unit": "whole world",
+    "train_worlds_per_cell": 45,
+    "development_worlds_per_cell": 15,
+    "calibration_worlds_per_cell": 15,
+    "final_candidate_screen_consumed": false,
+    "entity_inventories": "split-disjoint T, D and F namespaces",
+    "final_seed": "one runner-random seed, unknown until audited execution"
+  },
+  "matrix": {"knowledge_sizes": [32, 128, 512], "reasoning_depths": [1, 2, 4], "queries_per_world": 16},
+  "roles": {
+    "dense_transformer_v1": "six-layer, six-head, width-384 transformer lexical reader applied by a full statement scan; trained from scratch; public surface parsing and iterative traversal disclosed",
+    "bm25_iterative_reader_v1": "the same independently fitted reader after charged top-4 lexical retrieval per hop",
+    "symbolic_last_write_graph_v1": "raw-text parser plus last-write hash map and generic traversal"
+  },
+  "calibration_limitation": "This bounded calibration uses a disclosed iterative reader scaffold rather than the future candidate-screen's one-shot 8192-token dense decoder. A pass validates task/control plumbing but does not certify that future dense reference implementation or any memory candidate.",
+  "metrics": ["overall exact match by K and D", "replacement exact match", "unchanged retention", "unseen composition", "UNKNOWN", "invalid answers", "text processing", "index/build", "fit", "query and update latency", "RSS/VRAM/state", "estimated operations and Q=1/4/16 workloads"],
+  "gates": {
+    "symbolic_overall_min": 0.995,
+    "symbolic_parser_failure_max": 0.001,
+    "dense_overall_min": 0.85,
+    "dense_replacement_min": 0.80,
+    "complete_cells_required": 9
+  },
+  "fit_recipe": {"optimizer": "AdamW", "learning_rate": 0.0003, "batch_size": 32, "optimizer_steps_cap": 192, "seconds_cap_per_learned_system": 1200, "pretrained_weights": false, "test_tuning": false},
+  "process": {"worker_wall_seconds_cap": 7200, "peak_rss_bytes_cap": 25769803776, "peak_vram_reserved_bytes_cap": 11811160064, "automatic_retry": false},
+  "terminal_rules": {
+    "pass": "If task and all controls pass, stop and identify one separately approvable local-memory experiment.",
+    "negative": "If learned quality fails with intact symbolic control, stop and revise or reject the learned baseline contract without test-guided rescue.",
+    "inconclusive": "On any missing cell, leakage, context error, timeout, OOM, crash, nonfinite value or integrity failure, preserve artifacts and stop without retry or replacement registration."
+  },
+  "forbidden": ["delta_fast_memory_v1", "append_only_similarity_memory_v1", "new architecture", "WT execution", "WT files 8-9", "external model or API", "download", "schedule change", "automatic retry", "replacement registration"]
+}
