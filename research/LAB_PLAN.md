@@ -1,6 +1,21 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Aktualny etap — MUC-01-CALIBRATION (2026-09-06)
+## Aktualny etap — MUC-01-CALIBRATION-DECISION (2026-09-06)
+
+Jedyna prerejestrowana próba `EXP-20260906-0002` została wykonana i jest
+terminalna. Symboliczny last-write graph przeszedł wszystkie komórki z accuracy
+1.0, lecz dense transformer osiągnął 0.189815 zamiast wymaganego 0.85, a BM25
+reader 0.755093. Kalibracja jest więc niekonkluzywna jako komplet uczonych
+kontroli i negatywna dla dokładnie tej receptury. Nie ma retry, rejestracji
+zastępczej ani zgody na implementację delta-memory. Analiza:
+`research/analyses/EXP-20260906-0002.md`; receipt:
+`research/laboratory/MUC-01-CALIBRATION-EXP-20260906-0002-V1.receipt.json`.
+
+Najbliższy sensowny, ale nieautoryzowany krok to osobny v2 baseline calibration
+z właściwym one-shot dense causal transformerem, pełnym BPE i poprawioną
+normalizacją kosztów. Do tego potrzebna jest nowa decyzja użytkownika.
+
+## Historyczny etap — MUC-01-CALIBRATION (2026-09-06)
 
 Użytkownik zatwierdził dokładnie jedną prerejestrowaną kalibrację zadania
 `mutable_contact_ledger_v1` i trzech baseline'ów. Zakres wiąże

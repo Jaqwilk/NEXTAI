@@ -1,8 +1,8 @@
 {
   "benchmark_version": "mutable_contact_ledger_v1",
   "candidate_bundle_sha256": "bc231926bb73e16298166f409e1c1ce4037eae8d1430d2bde54b80e8fe443357",
-  "created_at": "2026-09-06T00:45:50Z",
-  "evaluator_sha256": "5120d5dcef80f21cbf35499c95d41f9860f4b9a95e0b0489aad93da4f33688c8",
+  "created_at": "2026-09-06T00:42:54Z",
+  "evaluator_sha256": "2297e9144ef5828fa71ce023e1a935bf449c9dc4b1322358566810adb513dab8",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -866,7 +866,7 @@
     "tests/test_orthogonal_reservoir_byte.py": "7783818d53b2c85645cc002757a75cf0954f59585ba35fe269e11c0deb45cee4",
     "tests/test_parallel_masked_infilling.py": "b88d8855a717842b70278950323dcacfda9d6457701b60092b9201864073b748",
     "tests/test_pc01_activation.py": "fadcc22c1538268330c16dea1b3acd680be8352f9cb7296ca053618b654e6a02",
-    "tests/test_pc01_closure.py": "1a4d7f6470dd9efebe2e3f94c9b1dae60f85bb752d78dc7dd48d14ebf7009e7e",
+    "tests/test_pc01_closure.py": "77e2ca26ed9bd9f0a386af3a020d1798f5b61b0d12f4d539cd20e09007142acc",
     "tests/test_pc01_dev2.py": "e87c504204bdc04ebe641bbf2bfc51a5d2bc88a3e5304035c3330f33dd191ea1",
     "tests/test_pc01_execution.py": "1ecebf4f2f5fcc8ddfbd53ddb52220b015097edfa6050601b1a96184148a80b8",
     "tests/test_pc01_final_authority.py": "171f01471e41ba7cc9d45571fdb52f4abcce16de80b2eeb5a37bc9dbea4c8b74",

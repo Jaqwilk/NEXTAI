@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-09-06T00:30:32Z
+Generated: 2026-09-06T00:45:49Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1223,6 +1223,16 @@ Pareto axes: maximize `accuracy, warm_accuracy, continual_new_fact_accuracy, con
 | EXP-20260901-0056 | raw_nearest_neighbour_scan_v1 | implementable | complete | 1 | 1 | 3.694e+05 | 24 | 1.97e+06 | 9.659e+07 | 0.9995 (3) | 1.25479e+06 | yes |
 | EXP-20260901-0056 | local_dense_transition_gru_v1 | implementable | complete | 0 | 1 | 5.615e+04 | 24 | 1.109e+05 | 1.502e+09 | 0 (3) | 25588 |  |
 | EXP-20260901-0056 | privileged_exact_entity_key_v1 | privileged support control | complete | 1 | 1 | 28.33 | 24 | 261.3 | 2.066e+05 | 5.58e-32 (3) | 76824 |  |
+
+## mutable_contact_ledger_v1 / quick
+
+Pareto axes: maximize `accuracy, continual_new_fact_accuracy, continual_retention, exact_span_accuracy, near_equivalent_accuracy, stable_rollout_rate`; minimize `preprocessing_ops, fit_ops, mean_query_ops, mean_search_ops, update_ops, p95_latency_us, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20260906-0002 | dense_transformer_v1 | implementable | complete | 0.1898 | 1 | 9.398e+07 | 2715 | 4.584e+07 | 1.504e+09 | 0.5855 (3) | 4.58358e+07 |  |
+| EXP-20260906-0002 | bm25_iterative_reader_v1 | implementable | complete | 0.7551 | 1 | 3.539e+06 | 102.7 | 4.584e+07 | 5.721e+07 | -2.052e-31 (3) | 4.58358e+07 |  |
+| EXP-20260906-0002 | symbolic_last_write_graph_v1 | implementable | complete | 1 | 1 | 2560 | 5.91e+05 | 2.15e+04 | 6.496e+04 | 0.5671 (3) | 49152 | yes |
 
 ## noisy_nonexhaustive_causal_transfer_v3 / quick
 

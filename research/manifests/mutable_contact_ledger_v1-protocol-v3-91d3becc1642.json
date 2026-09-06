@@ -1,8 +1,8 @@
 {
   "benchmark_version": "mutable_contact_ledger_v1",
   "candidate_bundle_sha256": "bc231926bb73e16298166f409e1c1ce4037eae8d1430d2bde54b80e8fe443357",
-  "created_at": "2026-09-06T00:45:50Z",
-  "evaluator_sha256": "5120d5dcef80f21cbf35499c95d41f9860f4b9a95e0b0489aad93da4f33688c8",
+  "created_at": "2026-09-06T00:35:04Z",
+  "evaluator_sha256": "b1375a2d247dd07cea5e567c44d9f5838532c614d815212cb14b639e9ac20da0",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -21,7 +21,7 @@
     "docs/archive/SCIENTIFIC_PROTOCOL_V2_2026-09-04.md": "8e03fdd87da5b58dfbb3165c1225f862b255f2c11678c6128c0c137b6d5e15cd",
     "program.md": "20ae7521e41e7d5b001e2ed8311e70f1d7083627361e239806c73b642c9a8849",
     "pyproject.toml": "012e26980e0597bec10d250d963e339eeb1b5ead661ece37515b9cee022218fe",
-    "research/LAB_PLAN.md": "72d763eab9e1782df8332babf357247d484633f294e520b8b632f088895acca7",
+    "research/LAB_PLAN.md": "ca1da24073df25a25e0a06402b8adab6180be82be6194226f36606bd8f8e5834",
     "research/checks/dronepropa_anonymous_split_v1.jsonl": "8381cc9d8e245059cf6ce49a5ba988bb50a588a14de445e73cb72709fdaffed0",
     "research/checks/dronepropa_anonymous_split_v2.jsonl": "fddd1c98aae13460ec58af25dbbea94f6f25177486da59a1e94f6a25f844a0e4",
     "research/corpora/heldout_parallel_masked_infilling_v12.json": "7e002e170cd237b063cf79c4e83418f09a1fd664b32fc918f92a403dcc19673b",
@@ -866,7 +866,7 @@
     "tests/test_orthogonal_reservoir_byte.py": "7783818d53b2c85645cc002757a75cf0954f59585ba35fe269e11c0deb45cee4",
     "tests/test_parallel_masked_infilling.py": "b88d8855a717842b70278950323dcacfda9d6457701b60092b9201864073b748",
     "tests/test_pc01_activation.py": "fadcc22c1538268330c16dea1b3acd680be8352f9cb7296ca053618b654e6a02",
-    "tests/test_pc01_closure.py": "1a4d7f6470dd9efebe2e3f94c9b1dae60f85bb752d78dc7dd48d14ebf7009e7e",
+    "tests/test_pc01_closure.py": "bef88a47710fd6f1543d3d8486b46e26f1f64184d7b61d6345f96fa0ef29f34e",
     "tests/test_pc01_dev2.py": "e87c504204bdc04ebe641bbf2bfc51a5d2bc88a3e5304035c3330f33dd191ea1",
     "tests/test_pc01_execution.py": "1ecebf4f2f5fcc8ddfbd53ddb52220b015097edfa6050601b1a96184148a80b8",
     "tests/test_pc01_final_authority.py": "171f01471e41ba7cc9d45571fdb52f4abcce16de80b2eeb5a37bc9dbea4c8b74",

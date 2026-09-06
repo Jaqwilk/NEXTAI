@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "MUC-01-CALIBRATION-EXP-20260906-0002-V1",
+  "status": "terminal_inconclusive_learned_control_failure",
+  "experiment_id": "EXP-20260906-0002",
+  "plan_path": "research/plans/EXP-20260906-0002.json",
+  "registered_plan_sha256": "7b8b1affe2409b67a41ca36a636248c6b6ac589f35a4d43577e2dfaa36b09bcc",
+  "result_path": "research/results/EXP-20260906-0002.json",
+  "result_file_sha256": "94b97a5cbfabbaba7fbd511b3e6065c33e4e43a4ac3bae9899441c94800c20b6",
+  "analysis_path": "research/analyses/EXP-20260906-0002.md",
+  "runner_random_seed": 1633648558,
+  "result_integrity": true,
+  "complete_candidate_cell_trials": 27,
+  "expected_candidate_cell_trials": 27,
+  "gate_outcomes": {
+    "symbolic_control": "pass",
+    "dense_transformer_competence": "fail",
+    "retrieval_baseline": "complete_but_below_comparable_quality",
+    "full_calibration": "inconclusive"
+  },
+  "registrations_used": 1,
+  "registrations_cap": 1,
+  "scoring_runs_used": 1,
+  "scoring_runs_cap": 1,
+  "automatic_retries": 0,
+  "replacement_registrations": 0,
+  "memory_candidate_implemented_or_run": false,
+  "wt_experiments_run": 0,
+  "wt_files_8_9_opened": false,
+  "downloads": 0,
+  "external_models_or_apis": 0,
+  "next_action_id": "MUC-01-CALIBRATION-DECISION"
+}
