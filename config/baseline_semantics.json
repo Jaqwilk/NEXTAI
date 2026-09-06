@@ -877,6 +877,27 @@
       "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/fixed_pr_numeric_refresh_v1.py":"a2cf0eb23532afa4aa96e1e3d61e4f3a56d32eb79b6dd7a56314895752a02ac6"},
       "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"d33b0361017b9ccc0f4f756ef15bbe5140cff5f134bc504351dbcc83ed8c9383"}]
     },
+    "dense_transformer_v1": {
+      "baseline_id": "muc01_dense_transformer_calibration_v1",
+      "version": 1,
+      "specification": {"input":"raw UTF-8 ledger and question","reader":"six TransformerEncoder layers, six heads, width 384, trained from scratch","access":"full statement scan per hop","update":"append public statement only","scope":"baseline calibration, not a memory candidate"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/dense_transformer_v1.py":"1f57ea587bfdf77b3c7ed0ac9ce99b1f17efaa374c8ab00e4431e2f1976b017d","src/nextai_autoresearch/muc01_baseline_core.py":"0931f87664ad1498915ec3b9101bb542d9ed55c7333d77b8a4bdba9ce06b0fcc"},
+      "conformance_tests": [{"path":"tests/test_muc01_baselines.py","node_id":"tests/test_muc01_baselines.py::test_public_parsers_reject_non_grammar_and_parse_legal_text","sha256":"9f33d32261b990d187b890e7a9935177e8030f003a37488e3d16c6ea8f58d7bb"}]
+    },
+    "bm25_iterative_reader_v1": {
+      "baseline_id": "muc01_bm25_iterative_transformer_reader_v1",
+      "version": 1,
+      "specification": {"input":"same raw UTF-8 ledger and question","retrieval":"charged lexical top-4 per hop","reader":"independently fitted six-layer transformer reader","update":"append to statement index","scope":"ordinary retrieval calibration"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/bm25_iterative_reader_v1.py":"b14cd4307f4b21b41e01c157b31e7ee5f1bb20f0bb581f23db777bd275264b4b","src/nextai_autoresearch/muc01_baseline_core.py":"0931f87664ad1498915ec3b9101bb542d9ed55c7333d77b8a4bdba9ce06b0fcc"},
+      "conformance_tests": [{"path":"tests/test_muc01_baselines.py","node_id":"tests/test_muc01_baselines.py::test_public_parsers_reject_non_grammar_and_parse_legal_text","sha256":"9f33d32261b990d187b890e7a9935177e8030f003a37488e3d16c6ea8f58d7bb"}]
+    },
+    "symbolic_last_write_graph_v1": {
+      "baseline_id": "muc01_raw_text_last_write_graph_v1",
+      "version": 1,
+      "specification": {"input":"same raw UTF-8 ledger and question","parser":"public grammar only","state":"timestamped last-write hash map","query":"generic ordered pointer traversal","accounting":"parse, build, update, query and state charged"},
+      "implementation_files": {"src/nextai_autoresearch/candidates/symbolic_last_write_graph_v1.py":"edc01c13a1954b4c4ebd5bff4757fdbc930b0eef4fce25728fc01a4e2c33f5fb","src/nextai_autoresearch/muc01_baseline_core.py":"0931f87664ad1498915ec3b9101bb542d9ed55c7333d77b8a4bdba9ce06b0fcc"},
+      "conformance_tests": [{"path":"tests/test_muc01_baselines.py","node_id":"tests/test_muc01_baselines.py::test_symbolic_control_is_exact_on_replacement_retention_composition_and_unknown","sha256":"9f33d32261b990d187b890e7a9935177e8030f003a37488e3d16c6ea8f58d7bb"},{"path":"tests/test_muc01_baselines.py","node_id":"tests/test_muc01_baselines.py::test_symbolic_update_is_last_write_wins_and_local","sha256":"9f33d32261b990d187b890e7a9935177e8030f003a37488e3d16c6ea8f58d7bb"}]
+    },
     "unpreconditioned_cg_v1": {
       "baseline_id": "scipy_unpreconditioned_conjugate_gradient_v1", "version": 1,
       "specification": {"preconditioner":"none","outer":"scipy CG rtol=1e-7 atol=0 maxiter=2000","rhs":"A times runner-seed deterministic normal vector"},
