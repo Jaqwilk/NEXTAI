@@ -1,0 +1,141 @@
+{
+  "alternative_explanations": [
+    "Surface parsing and the disclosed iterative traversal scaffold may explain learned-control success without general language understanding.",
+    "The synthetic grammar may make the symbolic control dominant and overstate real-world update reliability."
+  ],
+  "architecture_family": "baseline_calibration",
+  "benchmark": "mutable_contact_ledger_v1",
+  "budget": "quick",
+  "candidates": [
+    "dense_transformer_v1",
+    "bm25_iterative_reader_v1",
+    "symbolic_last_write_graph_v1"
+  ],
+  "confounds": [
+    "One runner-random seed cannot estimate seed variability.",
+    "The calibration reader is not the future one-shot 8192-token dense reference."
+  ],
+  "created_at": "2026-09-06T00:31:36Z",
+  "evaluator_sha256": "b1375a2d247dd07cea5e567c44d9f5838532c614d815212cb14b639e9ac20da0",
+  "experiment_id": "EXP-20260906-0002",
+  "falsification_criteria": [
+    "Any missing KxD cell, leakage, parser failure above threshold, timeout, OOM, crash, or omitted full-boundary cost makes the calibration inconclusive and ends the stage without retry.",
+    "Dense overall accuracy below 0.85 or replacement accuracy below 0.80 rejects the learned-control calibration even if the symbolic control is exact."
+  ],
+  "git_before": {
+    "branch": "master",
+    "commit": "084ffaf365f754e51470e99aca4629cc58590cbc",
+    "dirty": false
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      2,
+      4
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "exact_span_accuracy": "maximize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_search_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "p95_latency_us": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "muc01_calibration_protocol": {
+    "activation_plan_path": "research/plans/MUC-01-CALIBRATION-ACTIVATION-V1.json",
+    "authority_path": "research/laboratory/MUC-01-CALIBRATION-20260906-V1.json",
+    "calibration_worlds_per_cell": 15,
+    "classical_baselines": [
+      "dense_transformer_v1",
+      "bm25_iterative_reader_v1",
+      "symbolic_last_write_graph_v1"
+    ],
+    "control_thresholds": {
+      "dense_overall_min": 0.85,
+      "dense_replacement_min": 0.8,
+      "symbolic_overall_min": 0.995,
+      "symbolic_parser_failure_max": 0.001
+    },
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "development_worlds_per_cell": 15,
+    "fit_seconds_cap": 1200,
+    "fit_steps_cap": 192,
+    "invalidation_rules": [
+      "Invalidate if any final answer, private map, path, query stratum or generator state reaches a system before its prediction.",
+      "Invalidate if train, development and calibration worlds or entity namespaces overlap.",
+      "Invalidate if any system receives different serialized statements or questions for the same cell.",
+      "Invalidate if the symbolic parser receives generator objects rather than the same raw UTF-8 text.",
+      "Invalidate if any learned role uses pretrained weights, an external model, an API, network access or test-guided tuning.",
+      "Invalidate if fit, text processing, index construction, update, query, state, RSS or VRAM cost is omitted.",
+      "Invalidate on a missing KxD cell, context truncation, nonfinite result, timeout, OOM, crash or evaluator-integrity change.",
+      "Stop after exactly one registered runner-random calibration attempt; no retry or replacement registration."
+    ],
+    "parent_contract_path": "research/plans/MUC-01-PROPOSED-CONTRACT-V1.json",
+    "state_budget_bytes": 25769803776,
+    "train_worlds_per_cell": 45
+  },
+  "outcome_policy": {
+    "negative": "If evaluator integrity or the symbolic control fails, treat the task calibration as invalid or inconclusive, preserve all artifacts, and stop.",
+    "null": "If symbolic is valid but learned controls are not competent, reject this calibration recipe and stop without test-guided repair.",
+    "positive": "Record that task and controls are operationally valid, identify the strongest baseline and one next discriminating local-memory experiment, then stop for user review."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "The symbolic control should be exact, while both learned controls should exceed the frozen competence thresholds and expose the expected dense versus retrieval cost difference.",
+  "primary_metrics": [
+    "accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "exact_span_accuracy",
+    "near_equivalent_accuracy",
+    "stable_rollout_rate",
+    "preprocessing_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_search_ops",
+    "update_ops",
+    "p95_latency_us",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "No architecture may be promoted; a valid calibration only supports asking for one separately authorized local-memory mechanism experiment."
+  ],
+  "research_question": "Do the frozen mutable-ledger task, learned transformer and retrieval controls, and symbolic last-write control provide a valid fully accounted calibration across fact scale, replacement, and composition depth?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "MUC-01 single baseline calibration"
+}
