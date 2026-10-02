@@ -39,6 +39,8 @@ def sha256_json(value: Any) -> str:
 
 
 def sha256_file(path: Path) -> str:
+    from .data_access import require_data_access
+    require_data_access(path)
     digest = hashlib.sha256()
     with path.open("rb") as handle:
         for block in iter(lambda: handle.read(1024 * 1024), b""):

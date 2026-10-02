@@ -1,67 +1,37 @@
 # NEXTAI — laboratorium badawcze
 
-## Aktualna zgoda — trzy repliki finalne
-
-Obowiązuje research/laboratory/PC-01-FINAL-ACTIVATION-20260905-V1.json.
-Użytkownik zatwierdził trzy świeże repliki niezmienionego modelu v3, po jednej
-na cykl, 1200 s fit / 1800 s procesu każda, bez kolejnego dev, strojenia,
-resume ani automatycznych powtórek. Najpierw freeze/certyfikat i rejestracja.
-Awaria lub nieważny wynik zatrzymuje serię do przeglądu. Trzy kompletne wyniki
-oceniamy razem według niezmienionych progów; bez awansu architektury.
-Zatwierdzono także commity i nie-siłowy push do istniejącego GitHub origin;
-duże dane i checkpointy zostają lokalnie. Nie zmieniamy harmonogramu.
-Poniższe opisy zakończonych etapów pozostają historią, nie aktualnym zakazem.
-
-Aktualny etap: `research/plans/PC-01-FINAL-PREP-V1.json` — przygotowanie
-przejścia dev v2 → pomiar v3 i oceny trzech replik. Bez treningu i bez testu
-finalnego. Po zakończeniu: PC-01-DECISION; uruchomienie wymaga osobnej zgody.
-Stan i receipt mają pierwszeństwo przed opisami historycznych etapów poniżej.
-
-Cel: szukać i rygorystycznie sprawdzać zasady obliczeniowe, które mogą poprawić
+Cel: szukać i rygorystycznie sprawdzać zasad obliczeniowych, które poprawiają
 zdolność na jednostkę pełnego kosztu inferencji względem gęstych LLM.
-Nie ma tu zewnętrznego modelu sterującego, klienta API ani gwarancji przełomu.
 
-## Aktualny plan
+Aktualny zakres: naprawy AUDIT-REPAIR-20261002-V1, walidacja na niezależnym
+klonie Git i jeden prerejestrowany eksperyment kalibracyjny MUC v2.
+Opis stanu: [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md).
+Źródłem kolejki i zużycia zgód jest zweryfikowane `uv run nextai lab status`.
 
-Od 2026-09-04 obowiązuje LAB-RESTART-20260904-V1 i protokół v3.
-Pełny plan: [research/LAB_PLAN.md](research/LAB_PLAN.md).
+PC-01 potwierdził lokalną kontrolę uczenia. WT potwierdził wąski efekt
+klasycznej rekurencji. MUC v1 nie przeszedł kalibracji uczonych kontroli;
+wadliwe koszty i etykiety pozostają jawnie opisane w audycie. Nie ma
+promowanej architektury, dowodu transferu ani przewagi nad LLM.
 
-Kolejność: odtwarzalność i źródła -> pozytywna kontrola uczenia/pomiarów ->
-wyjaśnienie wyniku WT -> przegląd decyzji -> dopiero warunkowo mały system
-pamięci, aktualizacji i kompozycji z wejściem naturalnopodobnym.
-
-Zachowano 99 historycznych wyników EXP i wszystkie porażki. Nowa faza
-G2/infrastructure jest resetem strategii, nie dowodem zaliczenia dawnej G2.
-Stara kohorta SuiteSparse nie jest aktywna; scoped gate blokuje jej scoring.
-Archiwum pełnego protokołu v2 jest pod docs/archive/.
+Historia, plany, wyniki i archiwa pozostają zachowane. Wersji benchmarków
+nie łączymy. Nie ma klienta zewnętrznego modelu/API ani gwarancji przełomu.
 
 ## Sprawdzenie gotowości
-
-W istniejącym lokalnym środowisku:
 
 ```powershell
 uv run nextai doctor
 uv run nextai lab status
-uv run nextai provenance --experiment EXP-20260831-0007 --candidate wt_candidate_under_test --revision 4952515
 uv run pytest
 ```
 
-Doctor PASS oznacza spójność infrastruktury. Lab status rozróżnia gotowość
-przygotowania i gotowość scoringu. Aktualną kolejkę wyznaczają zweryfikowane
-zgody i wyniki: PC-01-DEV2-20260905-V1 dopuszcza tylko jedną nową próbę dev
-w kohorcie v2 po naprawie telemetrii, a po jej wyniku wymaga przeglądu.
-Dev 2 zakończono. Aktualny PC-01-GPU-METADATA-V1 obejmuje tylko naprawę zapisu
-metadanych GPU bez treningu; v3 pozostaje maintenance po walidacji.
-Brak zgody na final lub automatyczny retry. Nie powtarzamy CAL-20260901-0001.
+Regresja ma obowiązkową ochronę WT 8–9. Testy fizycznych danych używają tylko
+legalnych plików 0–7; testy legacy v3/v4 używają syntetycznych epizodów.
+Doctor PASS potwierdza spójność, a nie uprawnienie do kolejnego eksperymentu.
 
-Nowe środowisko: najpierw sprawdź wolne miejsce i oszacuj środowisko, cache
-oraz rozpakowane dane; minimum 10 GiB musi pozostać. Dopiero potem
-uv sync --frozen --extra dev. Używamy uv.lock; nie pobieramy modeli ani danych
-automatycznie. Konfiguracja Cloud Agent znajduje się w .cursor/ i stosuje tę
-samą zasadę, a po instalacji uruchamia doctor. Bootstrap wymaga już dostępnego
-Python 3.11+ i uv (lokalnie zweryfikowano 0.11.15); brak narzędzia zgłasza jako
-blokadę, nie wykonuje nieprzypiętego instalatora sieciowego. Szacuje pełny zapas
-dysku z uv.lock i trzyma cache oraz środowisko na sprawdzanym woluminie.
+Nowe środowisko wymaga kontroli miejsca: po instalacji i rozpakowaniu co
+najmniej 10 GiB musi pozostać. Dopiero wtedy `uv sync --frozen --extra dev`.
+Nie pobieramy danych ani modeli automatycznie. Używamy lokalnego środowiska
+i audytowanego runnera `uv run nextai run --plan ...`.
 
 ## Zasady i historia
 

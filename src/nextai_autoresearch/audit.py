@@ -12,6 +12,9 @@ from .utils import project_root, sha256_file
 
 CANDIDATE_NAME = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FORBIDDEN_INTERNAL_PREFIXES = (
+    "nextai_autoresearch.muc01_task",
+    "nextai_autoresearch.muc02_task",
+    "nextai_autoresearch.data_access",
     "nextai_autoresearch.pc01_execution",
     "nextai_autoresearch.pc01_worker",
     "nextai_autoresearch.pc01",
@@ -172,11 +175,10 @@ def _local_module_path(module: str, package_root: Path) -> Path | None:
     return package_path if package_path.is_file() else None
 
 
-def _resolved_imports(
+def _import_modules(
     node: ast.Import | ast.ImportFrom,
     current_module: str,
-    package_root: Path,
-) -> list[tuple[str, Path]]:
+) -> list[str]:
     modules: list[str] = []
     if isinstance(node, ast.Import):
         modules.extend(alias.name for alias in node.names)
@@ -193,8 +195,12 @@ def _resolved_imports(
         if module:
             modules.append(module)
             modules.extend(f"{module}.{alias.name}" for alias in node.names)
+    return modules
+
+
+def _resolved_imports(node, current_module, package_root) -> list[tuple[str, Path]]:
     resolved: list[tuple[str, Path]] = []
-    for module in modules:
+    for module in _import_modules(node, current_module):
         path = _local_module_path(module, package_root)
         if path is not None:
             resolved.append((module, path))
@@ -249,6 +255,9 @@ def audit_candidate(
                         f"{display}:{node.lineno}: forbidden import {module!r}"
                     )
             if isinstance(node, (ast.Import, ast.ImportFrom)):
+                for module in _import_modules(node, current_module):
+                    if module.startswith(FORBIDDEN_INTERNAL_PREFIXES):
+                        problems.append(f"{display}:{node.lineno}: forbidden evaluator dependency {module!r}")
                 for module, dependency in _resolved_imports(
                     node, current_module, package_root
                 ):

@@ -30,6 +30,7 @@ from .ledger import (
 )
 from .metrics import aggregate_trials
 from .pareto import is_privileged_candidate, pareto_front
+from .comparison_contract import quality_contract, passes_quality
 from .schemas import validate_document
 from .utils import (
     atomic_write_json,
@@ -116,7 +117,12 @@ def _rss_tree(process: psutil.Process) -> int:
 
 
 def _terminate_tree(process: psutil.Process) -> None:
-    children = process.children(recursive=True)
+    try:
+        children = process.children(recursive=True)
+    except psutil.NoSuchProcess:
+        return
+    except psutil.AccessDenied:
+        children = []
     for child in reversed(children):
         try:
             child.terminate()
@@ -310,29 +316,43 @@ def _run_candidate(
     started = time.monotonic()
     peak_rss = 0
     termination_reason: str | None = None
+    from .worker import read_trial_journal
+    from .worker_resources import resource_problem
+    limits = plan.get("muc02_protocol", {})
+    device_gap_started = started
     with log_path.open("w", encoding="utf-8", newline="\n") as log:
-        process = subprocess.Popen(
-            command,
-            cwd=temporary,
-            env=_sanitized_environment(root),
-            stdout=log,
-            stderr=subprocess.STDOUT,
-            creationflags=creation_flags,
-        )
-        monitored = psutil.Process(process.pid)
-        while process.poll() is None:
-            elapsed = time.monotonic() - started
-            peak_rss = max(peak_rss, _rss_tree(monitored))
-            if elapsed > budget.wall_seconds_per_candidate:
-                termination_reason = "timeout"
+        process = None
+        monitored = None
+        return_code = None
+        try:
+            if any((root / name).exists() for name in ("STOP", "PAUSE")):
+                termination_reason = "stopped"
+            else:
+                process = subprocess.Popen(
+                    command, cwd=temporary, env=_sanitized_environment(root),
+                    stdout=log, stderr=subprocess.STDOUT, creationflags=creation_flags,
+                )
+                monitored = psutil.Process(process.pid)
+                while process.poll() is None:
+                    elapsed = time.monotonic() - started
+                    peak_rss = max(peak_rss, _rss_tree(monitored))
+                    if any((root / name).exists() for name in ("STOP", "PAUSE")):
+                        termination_reason = "stopped"
+                    elif elapsed > min(budget.wall_seconds_per_candidate, limits.get("worker_seconds_cap", float("inf"))):
+                        termination_reason = "timeout"
+                    elif peak_rss > min(budget.max_rss_mb * 1024 * 1024, limits.get("max_rss_bytes", float("inf"))):
+                        termination_reason = "memory_limit"
+                    elif limits:
+                        termination_reason, device_gap_started = resource_problem(output_path, limits, started, device_gap_started)
+                    if termination_reason:
+                        _terminate_tree(monitored)
+                        break
+                    time.sleep(float(config.raw["execution"]["poll_interval_seconds"]))
+                return_code = process.wait(timeout=5)
+        finally:
+            if process is not None and process.poll() is None and monitored is not None:
                 _terminate_tree(monitored)
-                break
-            if peak_rss > budget.max_rss_mb * 1024 * 1024:
-                termination_reason = "memory_limit"
-                _terminate_tree(monitored)
-                break
-            time.sleep(float(config.raw["execution"]["poll_interval_seconds"]))
-        return_code = process.wait()
+                process.wait(timeout=5)
     elapsed = time.monotonic() - started
 
     execution = {
@@ -345,13 +365,14 @@ def _run_candidate(
         "network_policy": "forbidden_by_audit_and_rules_not_os_sandboxed",
     }
     if termination_reason is not None:
+        preserved = read_trial_journal(output_path)
         return {
             "candidate": candidate,
             "status": termination_reason,
             "audit": audit_payload,
             "execution": execution,
-            "trials": [],
-            "summary": {"status": "failed", "completed_trials": 0, "total_trials": 0},
+            "trials": preserved,
+            "summary": {**aggregate_trials(preserved), "status": "partial" if preserved else "failed"},
         }
     if not output_path.is_file():
         return {
@@ -363,6 +384,11 @@ def _run_candidate(
             "summary": {"status": "failed", "completed_trials": 0, "total_trials": 0},
         }
     worker_output = load_json(output_path)
+    if return_code != 0 and worker_output.get("status") == "complete":
+        worker_output["status"] = "crash"
+        worker_output["error"] = "Worker reported complete but exited unsuccessfully"
+    if worker_output.get("candidate") != candidate:
+        raise ValueError("Worker output candidate identity mismatch")
     return {
         "candidate": candidate,
         "status": worker_output.get("status", "crash"),
@@ -438,12 +464,7 @@ def _frontier(
             )
         if missing or is_privileged_candidate(str(candidate["candidate"])):
             continue
-        accuracy = summary.get("accuracy")
-        loss_cohort = str(plan.get("benchmark", "")).startswith(
-            ("heldout_parallel_masked_", "heldout_wt_changepoints_",
-             "heldout_repository_sequence_")
-        )
-        if accuracy is None or (not loss_cohort and float(accuracy) < minimum_accuracy):
+        if not passes_quality(summary, quality_contract(plan, minimum_accuracy)):
             continue
         rows.append({"candidate": candidate["candidate"], **summary})
     front = (
@@ -545,6 +566,12 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
     stale_seconds = int(config.raw["execution"]["stale_lock_seconds"])
     started_at = utc_now()
     with RunLock(base, stale_seconds=stale_seconds):
+        # Repeat terminality under the lock: another run can finish while we wait.
+        ensure_can_run_plan(str(plan["experiment_id"]), base)
+        if result_path.exists():
+            raise FileExistsError(f"Result already exists: {result_path}")
+        if registered_plan_hash(plan["experiment_id"], base) != plan_digest:
+            raise ValueError("Plan registration changed before lock acquisition")
         state = load_state(base)
         if state.get("active_experiment_id") not in (None, plan["experiment_id"]):
             raise RuntimeError(
@@ -690,7 +717,7 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
             state["updated_at"] = utc_now()
             save_state(state, base)
             return result_path
-        except Exception as exc:
+        except BaseException as exc:
             recording_error: Exception | None = None
             try:
                 if evaluation_matrix is not None and runtime_plan_path.is_file():

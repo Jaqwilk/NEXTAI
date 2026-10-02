@@ -105,6 +105,11 @@ def command_lab_status(args: argparse.Namespace) -> int:
     report = run_doctor()
     contract = laboratory_contract()
     progress = laboratory_progress()
+    if progress.get("audit_repair") and not getattr(args, "include_history", False):
+        repair = progress["audit_repair"]
+        progress = {key: progress[key] for key in ("next_action_id", "next_action", "user_decision_required", "activation_id", "scoring_authorized")}
+        progress["current_scope"] = repair
+        progress["history"] = "Preserved; use --include-history for validated prior stages and exhausted budgets"
     print(json.dumps({
         "restart_id": contract["restart_id"],
         "preparation_ready": report.ok and not progress["user_decision_required"] and contract["status"] == "preparation_only",
@@ -558,6 +563,9 @@ def command_plan_new(args: argparse.Namespace) -> int:
             "control_thresholds": {"symbolic_overall_min": 0.995, "symbolic_parser_failure_max": 0.001, "dense_overall_min": 0.85, "dense_replacement_min": 0.8},
             "invalidation_rules": list(muc["invalidation_rules"]),
         }
+    if config.benchmark_version == "mutable_contact_ledger_v2":
+        from .muc02_plan import configure_plan
+        configure_plan(plan, args, root, configured_directions)
     if config.benchmark_version.startswith("cross_family_"):
         transfer = config.raw["transfer"]
         if all(key in transfer for key in (
@@ -1044,6 +1052,7 @@ def build_parser() -> argparse.ArgumentParser:
     lab = subcommands.add_parser("lab", help="Read the laboratory preparation state")
     lab_sub = lab.add_subparsers(dest="lab_command", required=True)
     lab_status = lab_sub.add_parser("status")
+    lab_status.add_argument("--include-history", action="store_true")
     lab_status.set_defaults(func=command_lab_status)
     pc01_series = lab_sub.add_parser("pc01-freeze-series", help="Freeze an explicitly selected development source before final access")
     pc01_series.add_argument("--selected-dev", required=True)
@@ -1127,6 +1136,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    from .data_access import install_data_access_guard
+    install_data_access_guard()
     parser = build_parser()
     args = parser.parse_args(argv)
     try:

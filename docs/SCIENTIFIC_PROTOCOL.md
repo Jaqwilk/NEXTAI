@@ -1,5 +1,16 @@
 # Scientific protocol v3 — scoped evidence, verified measurement
 
+## Current authority — audit repair (2026-10-02)
+
+The latest user decision authorizes AUDIT-REPAIR-20261002-V1: repair all audit
+findings, validate an independent Git clone, and execute exactly one new bounded
+mutable_contact_ledger_v2 calibration. See docs/CURRENT_STATUS.md and the
+hash-bound research/plans/AUDIT-REPAIR-20261002-V1.json. This supersedes only
+prior decision waits, not consumed attempts or scientific invariants. WT files
+8-9 remain forbidden. Use `uv run nextai lab status` for the verified queue.
+
+All stage-specific sections below are historical records, not the active queue.
+
 ### REVIEW-01 decision and proposed MUC-01 contract (2026-09-06)
 
 REVIEW-01-20260906-V1 authorizes one preparation-only cycle and no experiment.

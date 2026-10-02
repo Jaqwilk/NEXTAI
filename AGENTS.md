@@ -1,6 +1,17 @@
 # NEXTAI autonomous research rules
 
-## Current REVIEW-01 decision state (2026-09-06)
+## Current authority — audit repair (2026-10-02)
+
+The latest user decision authorizes AUDIT-REPAIR-20261002-V1: repair all audit
+findings, validate an independent Git clone, and execute exactly one new bounded
+mutable_contact_ledger_v2 calibration. See docs/CURRENT_STATUS.md and the
+hash-bound research/plans/AUDIT-REPAIR-20261002-V1.json. This supersedes only
+prior decision waits, not consumed attempts or scientific invariants. WT files
+8-9 remain forbidden. Use `uv run nextai lab status` for the verified queue.
+
+All stage-specific sections below are historical records, not the active queue.
+
+## Historical REVIEW-01 decision state (2026-09-06)
 
 The user authorized exactly one preparation-only, at-most-60-minute REVIEW-01
 cycle in `research/laboratory/REVIEW-01-20260906-V1.json`. The review of R0,
@@ -13,7 +24,7 @@ register an EXP, score, access WT files 8-9, replicate WT, change the schedule,
 or start the proposed stage without a new explicit user decision. Preserve the
 completed EXP-20260906-0001 and synchronized GitHub `master`/`main`.
 
-## Current WT-01 terminal decision state (2026-09-06)
+## Historical WT-01 terminal decision state (2026-09-06)
 
 The user's exact approval "Zatwierdzam poprawkę append-only lifecycle, ponowny
 freeze oraz jedną zastępczą rejestrację i run WT-01-DEV-1 w niezmienionym
@@ -56,7 +67,7 @@ hash. No WT array was opened and no development attempt was executed. The
 2026-09-06 authority above supersedes only the former decision wait; all historical
 records and the original one-registration accounting remain immutable.
 
-## Current final-series authorization (2026-09-05)
+## Historical final-series authorization (2026-09-05)
 
 The user explicitly approved PC-01-FINAL-ACTIVATION-20260905-V1: exactly three
 fresh v3 final replicas of the unchanged pc01_byte_gpt_v1, selected dev
@@ -73,7 +84,7 @@ Keep large data/checkpoints local, publish scientific records and their hashes,
 and preserve archived bytes. This does not authorize schedule changes or deployment.
 Older stage-specific prohibitions below describe their historical scopes.
 
-## Current no-training final preparation (2026-09-05)
+## Historical no-training final preparation (2026-09-05)
 
 The latest `kontyynuj` authorizes only `research/plans/PC-01-FINAL-PREP-V1.json`:
 the exact selected-dev v2 to measurement-v3 bridge and metadata-aware series

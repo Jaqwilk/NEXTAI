@@ -9,6 +9,7 @@ from .metrics import aggregate_trials
 from .ledger import read_jsonl
 from .scientific_validity import invalid_experiment_ids
 from .pareto import is_privileged_candidate, pareto_front
+from .comparison_contract import is_legacy_loss_cohort, quality_contract, passes_quality
 from .utils import atomic_write_json, load_json, project_root, sha256_file, sha256_json, utc_now
 
 
@@ -29,7 +30,7 @@ def report_inputs(root: Path) -> dict[str, Any]:
     code = Path(__file__).resolve().parent
     renderer = {
         name: sha256_file(code / name)
-        for name in ("report.py", "metrics.py", "pareto.py", "scientific_validity.py", "utils.py", "ledger.py", "config.py")
+        for name in ("report.py", "metrics.py", "pareto.py", "scientific_validity.py", "utils.py", "ledger.py", "config.py", "comparison_contract.py")
     }
     return {
         "documents": documents,
@@ -67,7 +68,7 @@ def _fmt(value: Any, digits: int = 4) -> str:
 
 
 def _is_loss_benchmark(benchmark: str) -> bool:
-    return benchmark.startswith(("heldout_parallel_masked_", "heldout_wt_changepoints_"))
+    return is_legacy_loss_cohort(benchmark)
 
 
 def _cohort_pareto_contract(
@@ -129,6 +130,7 @@ def collect_rows(root: Path) -> list[dict[str, Any]]:
                     "matrix_knowledge_points": len(matrix.get("knowledge_sizes", ())),
                     "matrix_depth_points": len(matrix.get("reasoning_depths", ())),
                     "pareto_metrics": result.get("pareto_metrics"),
+                    "eligibility_contract": quality_contract(plan),
                     "promotion_gates": tuple(
                         plan.get("continuous_transfer_protocol", {}).get(
                             "causal_promotion_gates", ()
@@ -174,8 +176,7 @@ def write_report(root: Path | None = None) -> Path:
             and row.get("scientifically_valid", True)
             and row.get("candidate_status") == "complete"
             and row.get("status") == "complete"
-            and row.get("accuracy") is not None
-            and (loss_cohort or float(row["accuracy"]) >= minimum_accuracy)
+            and passes_quality(row, row.get("eligibility_contract", quality_contract({"benchmark": benchmark})))
             and not row["is_privileged"]
         ]
         maximize, minimize, contract_problem = _cohort_pareto_contract(cohort)
@@ -207,8 +208,8 @@ def write_report(root: Path | None = None) -> Path:
             ])
         lines.extend(
             [
-                "| Experiment | Candidate | Role | Status | Acc. | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |",
-                "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|",
+                "| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |",
+                "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|",
             ]
         )
         for row in cohort:
@@ -228,7 +229,7 @@ def write_report(root: Path | None = None) -> Path:
             else:
                 slope_rendered = f"{_fmt(slope)} ({slope_points})"
             lines.append(
-                "| {experiment_id} | {candidate} | {role} | {candidate_status} | {accuracy} | "
+                "| {experiment_id} | {candidate} | {role} | {candidate_status} | {accuracy} | {bpb} | "
                 "{seeds} | {mean_query_ops} | {mean_input_ops} | {mean_bytes_touched} | "
                 "{workload_ops_r16} | {knowledge_compute_slope} | {state_bytes} | {marker} |".format(
                     experiment_id=row["experiment_id"],
@@ -240,6 +241,7 @@ def write_report(root: Path | None = None) -> Path:
                         else row["candidate_status"]
                     ),
                     accuracy=_fmt(row.get("accuracy")),
+                    bpb=_fmt(row.get("bits_per_byte")),
                     seeds=row.get("seed_count") or row.get("matrix_seed_count") or "-",
                     mean_query_ops=_fmt(row.get("mean_query_ops")),
                     mean_input_ops=_fmt(row.get("mean_input_ops")),

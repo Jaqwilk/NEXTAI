@@ -1,0 +1,146 @@
+{
+  "audit_id": "PROJECT-AUDIT-2026-10-02",
+  "date_europe_warsaw": "2026-10-02",
+  "kind": "read_only_review_evidence_not_experiment",
+  "reviewed_commit": "7b0ddaa0c3a31ddf19230ed3cacebbb8cc87b0bf",
+  "inventory": {
+    "tracked_files": 6710,
+    "source_python_files": 715,
+    "source_lines": 43907,
+    "candidate_directory_files": 531,
+    "benchmark_modules": 107,
+    "test_python_files": 137,
+    "result_envelopes": 106,
+    "result_kinds": {
+      "experiment": 101,
+      "pc01_diagnostic_result": 5
+    },
+    "result_statuses": {
+      "complete": 89,
+      "complete_with_failures": 16,
+      "inconclusive": 1
+    },
+    "hypotheses": 59,
+    "hypothesis_statuses": {
+      "dormant": 22,
+      "falsified": 36,
+      "testing": 1
+    },
+    "general_benchmark_versions": 89,
+    "single_result_general_cohorts": 80,
+    "general_experiment_seed_counts": {
+      "1": 90,
+      "3": 11
+    }
+  },
+  "verification": {
+    "doctor_before": "PASS; 923 protected files; 529 candidate source audits; scoring=False",
+    "full_regression_command": "uv run pytest --durations=12",
+    "full_regression_passed": 970,
+    "full_regression_seconds": 382.77,
+    "full_regression_scope_compliant": false,
+    "wt_historical_provenance": "3 of 3 dependency hashes resolved from 49525156586e765c07f96e2f41ea17c709a3debb; historical code not executed",
+    "doctor_after": "PASS; 923 protected files; 529 candidate source audits; scoring=False",
+    "scientific_record_hashes_rechecked_unchanged": 8,
+    "local_report_links_checked": 25,
+    "local_report_link_problems": []
+  },
+  "test_scope_incident": {
+    "disclosed_to_user": true,
+    "description": "The full legacy pytest suite accessed prohibited WT files 8-9. test_wt_local_credit_v4.py::test_v4_reuses_v3_data_evaluator_controls_and_baseline_numerics calls legacy v3 and v4 run_suite for wt_persistence_v1; both resolve to the old evaluator using TEST_SEEDS=(8,9). Legacy static contract tests also hash these files. The audit author should have excluded these tests before executing the full suite. No new EXP was registered and no metrics from these calls are used as scientific evidence. No further data-access tests were run after discovery.",
+    "identified_execution_test": "tests/test_wt_local_credit_v4.py:46",
+    "legacy_evaluation_route": "src/nextai_autoresearch/benchmarks/heldout_wt_changepoints_prequential_v1.py:241"
+  },
+  "synthetic_probes": {
+    "missing_answer": {
+      "fixture_expected_answers": 4,
+      "fixture_returned_answers": 3,
+      "reported_accuracy": 1.0,
+      "reported_query_count": 4,
+      "status": "complete"
+    },
+    "composition_flags": {
+      "synthetic_fixture": {
+        "K": 128,
+        "D": 4,
+        "seed": 12345,
+        "split": "F"
+      },
+      "questions": 16,
+      "marked_unseen": 8,
+      "heldout_tuples_before_unknown_variants": 14,
+      "unmarked_but_heldout": 6
+    },
+    "symbolic_counter": {
+      "identical_single_query_first_session": 1,
+      "identical_single_query_second_session": 2,
+      "reported_field": "mean_query_ops"
+    },
+    "live_lock": {
+      "second_lock_acquired_while_first_owner_alive": true,
+      "lock_missing_before_first_context_exit": true
+    },
+    "stop_watchdog": {
+      "real_worker_launched": false,
+      "stop_created_by_fake_process_after_launch": true,
+      "termination_requested": false,
+      "reported_status": "complete"
+    },
+    "private_generator_import": {
+      "candidate_executed": false,
+      "ast_audit_accepted_import_of_muc01_task_split_worlds": true
+    },
+    "training_input_inspection": {
+      "training_performed": false,
+      "available_worlds": 405,
+      "worlds_entered": 52,
+      "cells_entered": [
+        [
+          32,
+          1
+        ],
+        [
+          32,
+          2
+        ]
+      ],
+      "subjects_used": [
+        "ET000",
+        "ET001",
+        "ET002",
+        "ET003"
+      ],
+      "pairs": 4096,
+      "contradictory_negative_labels": 25
+    }
+  },
+  "scientific_records_sha256": {
+    "research/state.json": "734159e4b3126e2d79f5f0abb4f485f501718795024b466f937bf7d5bb4c0e85",
+    "research/events.jsonl": "c29ab7a8d12bc9b5422e7de28b8bbab7d33b1623cb22ec60a06b822a80483c97",
+    "research/experiments.tsv": "17a48c8bbabdeed8b35f723bb37af0b8fadd917c12acca4b8647fcd710a58417",
+    "research/hypothesis_events.jsonl": "8be58000230df48579185c638079f78237b3f085810aa0878e12e53ff7e28241",
+    "research/plan_registry.jsonl": "a7875df0a4847a6d1b1f2bb75411dbf471335730ce81af94ed995ccb7da2645d",
+    "research/plan_status_events.jsonl": "c01e724fc50936639b488971b125923e2a3187fe0f4a97aa2380ee54d262d6d5",
+    "research/eval_manifest.json": "28a11ff67a17905ac0ea0eca3a520bba0f2f08bcbb3d923a02edb587598cecdb",
+    "research/sources.jsonl": "b0bf75aa9e16462c8b36d60292d96d3061c836c14847ad86dbf1ac4f94e94bef"
+  },
+  "scope": {
+    "new_experiment_registrations": 0,
+    "new_experiment_results": 0,
+    "candidate_or_evaluator_source_edits": 0,
+    "new_training_runs_outside_existing_test_suite": 0,
+    "downloads_or_installs": 0,
+    "schedules_changed": false,
+    "git_push_performed": false,
+    "scientific_ledgers_changed": false
+  },
+  "existing_primary_sources_revisited": [
+    "SRC-0106",
+    "SRC-0169",
+    "SRC-0433",
+    "SRC-0434",
+    "SRC-0435"
+  ],
+  "report_path": "research/reviews/PROJECT-AUDIT-2026-10-02.md",
+  "report_sha256": "7494d0a56ce3cc0dfd6443e919fcdbd05f9a3bc007e67fe34d259e8995f6a46d"
+}

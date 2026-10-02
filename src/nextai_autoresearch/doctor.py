@@ -56,7 +56,7 @@ def run_doctor(root: Path | None = None) -> DoctorReport:
             progress = laboratory_progress(base)
             report.facts.append(f"laboratory={lab['status']} next={progress['next_action_id']} scoring={lab['scoring_authorized']}")
             if progress["user_decision_required"]:
-                report.warnings.append("PC-01 bounded stage exhausted; user decision required, no automatic extra service or training")
+                report.warnings.append(f"{progress['next_action_id']}: user decision required; no automatic retry or next stage")
 
     report.errors.extend(f"schema: {problem}" for problem in check_all_schemas(base))
     try:
@@ -365,12 +365,11 @@ def run_doctor(root: Path | None = None) -> DoctorReport:
     if lock.exists():
         try:
             lock_data = load_json(lock)
-            age = time.time() - float(lock_data.get("epoch", time.time()))
-            stale = int(config.raw["execution"]["stale_lock_seconds"])
-            if age <= stale:
-                report.errors.append(f"active run lock: {lock_data}")
+            from .ledger import _owner_is_dead
+            if _owner_is_dead(lock_data):
+                report.warnings.append("dead run-lock owner; next acquisition will archive the lock")
             else:
-                report.warnings.append(f"stale run lock ({age:.0f}s old)")
+                report.errors.append(f"active or unverified run lock: {lock_data}")
         except (OSError, json.JSONDecodeError, ValueError) as exc:
             report.errors.append(f"invalid run lock: {exc}")
     report.errors.extend(f"gate: {problem}" for problem in stop_gate_problems(base))

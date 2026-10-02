@@ -15,6 +15,8 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/AUDIT-REPAIR-20261002-V1.json",
+    "research/laboratory/AUDIT-REPAIR-20261002-V1.json",
     ".gitattributes",
     ".cursor/environment.json",
     ".cursor/install.sh",

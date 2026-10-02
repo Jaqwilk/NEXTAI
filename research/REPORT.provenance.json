@@ -1,6 +1,6 @@
 {
   "inputs": {
-    "config_sha256": "3e69b84a7a63428a83c41b5a2251f170b2a6f0f9eb51b3b35c1d731bbe81540f",
+    "config_sha256": "e3592fed207f27d73ba9ac6c067564f9dc804736efbaaa2c0e58ead4de073646",
     "documents": {
       "research/plans/EXP-20260830-0001.json": "7c8bb6a2804e50a24fc38c328ac4989a512e92d0820c1da216362749750d1c7c",
       "research/plans/EXP-20260830-0002.json": "777ded0d75ac03435d91d54cc4e6a6fbfe1edfa535a46d2883b0d810d66fc2c3",
@@ -216,16 +216,17 @@
       "research/results/EXP-20260906-0002.json": "6cc4f196c8dce7b47182f8da43c660b3a6b038fec45d2a6d63bc966949d65a49"
     },
     "renderer": {
+      "comparison_contract.py": "ae2fbdcc500b2f92e030c19e48ae8ac1611b2c423c533eb632541dd76fd07a42",
       "config.py": "bd661f0d6bf936ea20ab53bd7f335ccc9e6e7acc2b88280c9d720f3636376650",
-      "ledger.py": "1bff8f252efc8707989495ce9d2504fe3c4e8c4382c1c7fe386086928c7ffc4e",
-      "metrics.py": "e8c9da0e406e78d1cce72ab4e301de08f53a2cb69e3e6b003f1beff21d1e5e6c",
+      "ledger.py": "ed7bbf208f728785b2fd97b5175d210b198755ad7adad2adfc518ea3d72c8c8a",
+      "metrics.py": "16c3b3ab5220cf8b69391e205d95e54a9aad48ea5f5d463f04d0285374e8f564",
       "pareto.py": "be18de616fcd656836c23075a8b62a4bf32ffb173c0cdcac8cb6efbe06c16a21",
-      "report.py": "e6fd0f5720bcbac577cda4aa67118e4d1e3f5a406bcdcccc88ee027f8ccd11de",
+      "report.py": "92c9e7d9184ab993420a37e80cc59ce618e99821f70150f8bd82799bc0ab989d",
       "scientific_validity.py": "adbfff69ced1fe7ca98cad20bf52947380473ec1811df94cad81c0bcf0b4cb1e",
-      "utils.py": "9b01f846a8fcf5866cd7e34162449ae8b36ea8c3194950b9dcf1dc5f62d43b7a"
+      "utils.py": "741d160b58097d6cce141d40bc047696a54ec1760f2a13fef193fbaa826c852c"
     },
     "validity_sha256": "64bf36f1a5e32b685e2bab2ca658792fedbffa90ab936d12f8085cd182878aa9"
   },
-  "report_sha256": "c3f93b6a615a0e825c020d5e8dcec2a187eb4346bd31092f91fa20aaba22e26f",
+  "report_sha256": "da8ac440b6921060feeefded5c974e49f028abbac324f901d029ffd4f19adb2a",
   "schema_version": 1
 }

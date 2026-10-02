@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from nextai_autoresearch.laboratory import laboratory_progress, pc01_scope_problems
+from nextai_autoresearch.laboratory import laboratory_progress, _historical_laboratory_progress, pc01_scope_problems
 from nextai_autoresearch.schemas import validate_document
 
 
@@ -17,12 +17,19 @@ def test_authority_is_one_attempt_and_forbids_candidate_and_wt_scope() -> None:
     assert value["wt_files_8_9_access_authorized"] is False
 
 
-def test_live_queue_authorizes_only_muc_calibration() -> None:
-    progress = laboratory_progress(ROOT)
+def test_historical_queue_preserves_muc_v1_terminal_decision() -> None:
+    progress = _historical_laboratory_progress(ROOT)
     assert progress["next_action_id"] in {"MUC-01-CALIBRATION", "MUC-01-CALIBRATION-DECISION"}
     if progress["next_action_id"] == "MUC-01-CALIBRATION":
         assert progress["scoring_authorized"] is True
         assert pc01_scope_problems(ROOT) == []
+
+
+def test_current_queue_resolves_new_authority_without_resetting_v1() -> None:
+    progress = laboratory_progress(ROOT)
+    assert progress["next_action_id"] in {"AUDIT-REPAIR", "MUC-02-CALIBRATION", "AUDIT-REPAIR-DECISION"}
+    assert progress["muc01_calibration"]["terminal"]
+    assert progress["audit_repair"]["registrations_cap"] == 1
 
 
 def test_frozen_plan_schema_accepts_only_exact_matrix_and_roles() -> None:

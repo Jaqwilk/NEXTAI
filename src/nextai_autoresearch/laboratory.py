@@ -177,6 +177,13 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
                         series_freeze: bool = False) -> list[str]:
     """One registered development attempt; invalidation does not replenish it."""
     try:
+        from .audit_repair import status as repair_status, scope_problems as repair_scope
+        if repair_status(base) is not None:
+            if load_config(base).benchmark_version != "mutable_contact_ledger_v2":
+                return ["Audit repair may score only its new v2 calibration cohort"]
+            if candidate is not None or phase is not None or series_freeze:
+                return ["Audit repair forbids PC-01 training and final series"]
+            return repair_scope(base, experiment_id)
         from .muc01_calibration import authority as muc_authority, scope_problems as muc_scope
         if load_config(base).benchmark_version == "mutable_contact_ledger_v1" and muc_authority(base) is not None:
             if experiment_id is not None or (candidate is None and phase is None and not series_freeze):
@@ -235,6 +242,21 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
 
 
 def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
+    base = (root or project_root()).resolve()
+    progress = _historical_laboratory_progress(base)
+    from .audit_repair import status
+    repair = status(base)
+    if repair is None:
+        return progress
+    stopped = repair["terminal"] or repair["expired"]
+    return {**progress, "activation_id": repair["id"], "audit_repair": repair,
+            "scoring_authorized": repair["scoring_authorized"], "user_decision_required": stopped,
+            "next_action_id": "AUDIT-REPAIR-DECISION" if stopped else "MUC-02-CALIBRATION" if repair["ready"] else "AUDIT-REPAIR",
+            "next_action": "Review the preserved repair and single calibration outcome; no retry." if stopped else
+                "Complete the authorized audit fixes, clone validation and one preregistered v2 baseline calibration."}
+
+
+def _historical_laboratory_progress(root: Path | None = None) -> dict[str, Any]:
     """Resolve the bounded service queue from verified append-only completions.
 
     Progress cannot grant scoring authority or change the frozen restart limits.
@@ -573,6 +595,12 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
         path = (base / relative).resolve()
         if not path.is_relative_to(base) or not path.is_file():
             raise ValueError(f"Missing or invalid laboratory document: {relative}")
+    from .audit_repair import status as repair_status
+    repair = repair_status(base)
+    if repair is not None:
+        return {**contract, "status": "dev_authorized" if repair["scoring_authorized"] else "preparation_only",
+                "scoring_authorized": repair["scoring_authorized"], "activation_id": repair["id"],
+                "maintenance_plan": "research/plans/AUDIT-REPAIR-20261002-V1.json", "original_status": contract["status"]}
     authority = activation_authority(base)
     second = dev2_authority(base)
     from .pc01_closure import closure as pc01_closure, migration_completed
@@ -648,7 +676,10 @@ def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> l
     except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
         return [f"laboratory contract: {exc}"]
     from .muc01_calibration import authority as muc_authority
-    muc_active = config.benchmark_version == "mutable_contact_ledger_v1" and muc_authority(base) is not None
+    from .audit_repair import status as repair_status
+    repair = repair_status(base)
+    muc_active = ((config.benchmark_version == "mutable_contact_ledger_v1" and muc_authority(base) is not None and repair is None)
+                  or (config.benchmark_version == "mutable_contact_ledger_v2" and repair is not None))
     problems = []
     if contract["status"] == "dev_authorized":
         try:

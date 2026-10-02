@@ -28,6 +28,98 @@
     "git_before"
   ],
   "properties": {
+    "eligibility_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metric",
+        "minimum"
+      ],
+      "properties": {
+        "metric": {
+          "const": "accuracy"
+        },
+        "minimum": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "muc02_protocol": {
+      "const": {
+        "authority_path": "research/laboratory/AUDIT-REPAIR-20261002-V1.json",
+        "contract_path": "research/plans/AUDIT-REPAIR-20261002-V1.json",
+        "contract_sha256": "94b8b342eba07a782b636932bc0da8b4c9e7cb149da2376d0a4a502a436e583b",
+        "classical_baselines": [
+          "dense_pair_transformer_v2",
+          "bm25_pair_transformer_v2",
+          "frozen_bm25_pair_transformer_v2",
+          "symbolic_last_write_graph_v2"
+        ],
+        "fit_steps_cap": 192,
+        "fit_seconds_cap": 1200,
+        "worker_seconds_cap": 1800,
+        "max_rss_bytes": 8589934592,
+        "max_cuda_reserved_bytes": 4294967296,
+        "train_worlds_per_cell": 45,
+        "development_worlds_per_cell": 15,
+        "calibration_worlds_per_cell": 15,
+        "declared_reuses": [
+          1,
+          4,
+          16
+        ],
+        "control_thresholds": {
+          "symbolic_overall_min": 0.995,
+          "symbolic_parser_failure_max": 0.001,
+          "dense_overall_min": 0.85,
+          "dense_replacement_min": 0.8,
+          "learned_minus_frozen_min": 0.05
+        },
+        "recipe": {
+          "seed_source": "one runner_random_v1 seed shared across roles",
+          "encoder_layers": 6,
+          "width": 384,
+          "heads": 6,
+          "feedforward_width": 1536,
+          "dropout": 0.0,
+          "pair_bytes_cap": 96,
+          "pad_mask": true,
+          "optimizer": "AdamW",
+          "learning_rate": 0.0003,
+          "weight_decay": 0.01,
+          "batch_size": 32,
+          "updates": 192,
+          "training_pairs": 4096,
+          "sampling": "balanced cells and worlds, randomized subjects, exact key mismatch negatives",
+          "selection": "none; fixed final optimizer step; dev evaluated once for competence only",
+          "retrieval": "actual BM25 k1=1.2 b=0.75, top 4; identical learned pair model and disclosed iterative path loop",
+          "frozen_control": "same initialization and inference as BM25 pair reader; zero updates"
+        },
+        "cost_contract": {
+          "operation_counts": "exact public parser/index primitive counters and explicitly estimated dense FLOPs, separated in raw costs",
+          "workload_unit": "one mean world: input once and all 16 queries repeated R times; global fit evenly charged over 135 final worlds",
+          "reuses": [
+            1,
+            4,
+            16
+          ],
+          "latency": "synchronized end-to-end batch=1 raw samples, pooled p50/p95; separate measured batch throughput",
+          "state": "parameters plus current session and index; process RSS and CUDA reserved peak supervised",
+          "durability": "fsynced per-cell journal; failed outcomes retain completed cells"
+        },
+        "invalidation_rules": [
+          "Missing answers, world/cell coverage or costs invalidate the comparison",
+          "Any terminal outcome consumes the one registration; no automatic retry",
+          "No private generator, answers or strata may reach a candidate before prediction",
+          "No post-calibration recipe, threshold, selection or seed change"
+        ]
+      }
+    },
     "schema_version": {"const": 1},
     "experiment_id": {"type": "string", "pattern": "^EXP-[0-9]{8}-[0-9]{4}$"},
     "parent_experiment_id": {
@@ -1017,6 +1109,71 @@
     }
   },
   "allOf": [
+    {
+      "if": {
+        "properties": {
+          "benchmark": {
+            "const": "mutable_contact_ledger_v2"
+          }
+        },
+        "required": [
+          "benchmark"
+        ]
+      },
+      "then": {
+        "required": [
+          "evaluator_sha256",
+          "muc02_protocol",
+          "eligibility_contract",
+          "metric_directions"
+        ],
+        "properties": {
+          "budget": {
+            "const": "quick"
+          },
+          "parent_experiment_id": {
+            "const": null
+          },
+          "candidates": {
+            "const": [
+              "dense_pair_transformer_v2",
+              "bm25_pair_transformer_v2",
+              "frozen_bm25_pair_transformer_v2",
+              "symbolic_last_write_graph_v2"
+            ]
+          },
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {
+                "const": [
+                  32,
+                  128,
+                  512
+                ]
+              },
+              "reasoning_depths": {
+                "const": [
+                  1,
+                  2,
+                  4
+                ]
+              },
+              "queries_per_cell": {
+                "const": 16
+              },
+              "seed_policy": {
+                "const": {
+                  "method": "runner_random_v1",
+                  "count": 1,
+                  "minimum": 1000000,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     {
       "if": {"properties": {"benchmark": {"const": "mutable_contact_ledger_v1"}}, "required": ["benchmark"]},
       "then": {

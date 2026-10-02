@@ -6,10 +6,13 @@ import os
 import re
 import socket
 import time
-from contextlib import AbstractContextManager
+import uuid
+from contextlib import AbstractContextManager, contextmanager
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+
+import psutil
 
 from .utils import atomic_write_json, load_json, project_root, sha256_json, utc_now
 
@@ -200,12 +203,60 @@ def next_experiment_id(root: Path | None = None) -> str:
     return f"EXP-{date_part}-{number:04d}"
 
 
+@contextmanager
+def _lock_guard(path: Path):
+    """Serialize claim/reclaim/release so two stale-lock contenders cannot race."""
+    with path.with_name("run.lock.guard").open("a+b") as handle:
+        handle.seek(0, os.SEEK_END)
+        if handle.tell() == 0:
+            handle.write(b"0")
+            handle.flush()
+        handle.seek(0)
+        if os.name == "nt":
+            import msvcrt
+            try:
+                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            except OSError as exc:
+                raise RuntimeError("Research run lock is being claimed or released") from exc
+        else:
+            import fcntl
+            try:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except OSError as exc:
+                raise RuntimeError("Research run lock is being claimed or released") from exc
+        try:
+            yield
+        finally:
+            handle.seek(0)
+            if os.name == "nt":
+                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+
+
+def _owner_is_dead(payload: dict[str, Any]) -> bool:
+    if payload.get("host") != socket.gethostname():
+        return False  # A remote/unverifiable owner requires an explicit review.
+    pid = payload.get("pid")
+    if type(pid) is not int or pid <= 0:
+        return False
+    try:
+        owner = psutil.Process(pid)
+        recorded = payload.get("process_created_at")
+        return recorded is not None and abs(owner.create_time() - float(recorded)) > 0.001
+    except psutil.NoSuchProcess:
+        return True
+    except (psutil.AccessDenied, ValueError, TypeError):
+        return False
+
+
 class RunLock(AbstractContextManager["RunLock"]):
     def __init__(self, root: Path | None = None, stale_seconds: int = 7200) -> None:
         self.root = root or project_root()
         self.path = research_dir(self.root) / "run.lock"
         self.stale_seconds = stale_seconds
         self.acquired = False
+        self.token = uuid.uuid4().hex
 
     def __enter__(self) -> "RunLock":
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -214,26 +265,31 @@ class RunLock(AbstractContextManager["RunLock"]):
             "host": socket.gethostname(),
             "created_at": utc_now(),
             "epoch": time.time(),
+            "process_created_at": psutil.Process(os.getpid()).create_time(),
+            "token": self.token,
         }
-        try:
+        with _lock_guard(self.path):
+            if self.path.exists():
+                try:
+                    existing = load_json(self.path)
+                except (OSError, ValueError) as exc:
+                    raise RuntimeError("Research run lock owner is unreadable; review required") from exc
+                if not isinstance(existing, dict) or not _owner_is_dead(existing):
+                    raise RuntimeError(f"Research run lock is active or owner is unverified: {existing}")
+                stale_path = self.path.with_name(f"run.lock.stale-{time.time_ns()}-{self.token}")
+                os.replace(self.path, stale_path)
             descriptor = os.open(self.path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-        except FileExistsError as exc:
-            existing = load_json(self.path)
-            age = time.time() - float(existing.get("epoch", time.time()))
-            if age <= self.stale_seconds:
-                raise RuntimeError(f"Research run lock is active: {existing}") from exc
-            stale_path = self.path.with_name(f"run.lock.stale-{int(time.time())}")
-            os.replace(self.path, stale_path)
-            descriptor = os.open(self.path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
-        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
-            json.dump(payload, handle, sort_keys=True)
-            handle.write("\n")
-            handle.flush()
-            os.fsync(handle.fileno())
+            with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+                json.dump(payload, handle, sort_keys=True)
+                handle.write("\n")
+                handle.flush()
+                os.fsync(handle.fileno())
         self.acquired = True
         return self
 
     def __exit__(self, exc_type: object, exc: object, traceback: object) -> None:
-        if self.acquired and self.path.exists():
-            self.path.unlink()
+        if self.acquired:
+            with _lock_guard(self.path):
+                if self.path.exists() and load_json(self.path).get("token") == self.token:
+                    self.path.unlink()
         self.acquired = False

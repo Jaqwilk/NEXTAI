@@ -1,6 +1,17 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Aktualny etap — MUC-01-CALIBRATION-DECISION (2026-09-06)
+## Current authority — audit repair (2026-10-02)
+
+The latest user decision authorizes AUDIT-REPAIR-20261002-V1: repair all audit
+findings, validate an independent Git clone, and execute exactly one new bounded
+mutable_contact_ledger_v2 calibration. See docs/CURRENT_STATUS.md and the
+hash-bound research/plans/AUDIT-REPAIR-20261002-V1.json. This supersedes only
+prior decision waits, not consumed attempts or scientific invariants. WT files
+8-9 remain forbidden. Use `uv run nextai lab status` for the verified queue.
+
+All stage-specific sections below are historical records, not the active queue.
+
+## Historyczny etap — MUC-01-CALIBRATION-DECISION (2026-09-06)
 
 Jedyna prerejestrowana próba `EXP-20260906-0002` została wykonana i jest
 terminalna. Symboliczny last-write graph przeszedł wszystkie komórki z accuracy
@@ -54,7 +65,7 @@ nie EXP ani zgoda wykonawcza. Aktualna kolejka: REVIEW-01-DECISION. Bez nowej
 zgody nie implementować, nie trenować, nie pobierać, nie rejestrować/scorować,
 nie otwierać WT 8-9, nie replikować WT i nie zmieniać harmonogramu.
 
-## Aktualny etap — WT-01-DECISION po zastępczym WT-01-DEV-1 (2026-09-06)
+## Historyczny etap — WT-01-DECISION po zastępczym WT-01-DEV-1 (2026-09-06)
 
 Użytkownik jawnie zatwierdził poprawkę append-only lifecycle, ponowny freeze i
 jedną zastępczą rejestrację/run w

@@ -43,7 +43,13 @@ def _prospective_plan() -> dict:
     return plan
 
 
-def test_v4_reuses_v3_data_evaluator_controls_and_baseline_numerics() -> None:
+def test_v4_reuses_v3_data_evaluator_controls_and_baseline_numerics(monkeypatch) -> None:
+    # Test equivalence on synthetic episodes; never consume physical WT 8-9.
+    from nextai_autoresearch.benchmarks import heldout_wt_changepoints_prequential_v1 as data
+    history = tuple(map(tuple, np.arange(320, dtype=float).reshape(32, 10) / 320))
+    target = tuple(map(tuple, np.full((96, 10), 0.25)))
+    episode = WTEpisode(history, 0.0, target)
+    monkeypatch.setattr(data, "_dataset", lambda *_: ([episode] * 54, [[episode] * 9] * 2, 0, 0))
     assert v4.verify_static_contract is v3.verify_static_contract
     assert v4.development_smoke is v3.development_smoke
     assert v4.BASELINES == v3.BASELINES

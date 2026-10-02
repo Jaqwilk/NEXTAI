@@ -48,7 +48,7 @@ def verify_static_contract(root=None) -> dict[str, Any]:
         record = records.get(path.name)
         if record is None or sha256_file(path) != record["sha256"]:
             raise ValueError(f"WT frozen fit/development file mismatch: seed {seed}")
-    if any(historical._data_path(base, seed).name not in records for seed in VISIBLE_DIAGNOSTIC_SEEDS):
+    if any(f"load_in_seed_{seed}.csv" not in records for seed in VISIBLE_DIAGNOSTIC_SEEDS):
         raise ValueError("WT manifest lacks preserved historical diagnostic identities")
     return {
         "files_verified": 8,

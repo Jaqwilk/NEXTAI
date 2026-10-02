@@ -66,6 +66,17 @@ def aggregate_trials(trials: list[dict[str, Any]]) -> dict[str, Any]:
         }
 
     by_knowledge: dict[int, list[float]] = defaultdict(list)
+    raw_latency = [trial.get("latency_samples_us") for trial in complete]
+    pooled_latency = None
+    if any(value is not None for value in raw_latency):
+        if any(not isinstance(value, list) or len(value) != int(trial["query_count"])
+               for value, trial in zip(raw_latency, complete, strict=True)):
+            raise ValueError("Raw latency coverage must match every completed trial")
+        pooled_latency = sorted(float(v) for values in raw_latency for v in values)
+        if any(not math.isfinite(v) or v < 0 for v in pooled_latency):
+            raise ValueError("Raw latency samples must be finite and nonnegative")
+    latency = lambda name, q: (pooled_latency[int((len(pooled_latency) - 1) * q)]
+                               if pooled_latency else _mean([float(trial[name]) for trial in complete]))
     by_depth: dict[int, list[float]] = defaultdict(list)
     for trial in complete:
         by_knowledge[int(trial["knowledge_size"])].append(float(trial["mean_query_ops"]))
@@ -176,12 +187,8 @@ def aggregate_trials(trials: list[dict[str, Any]]) -> dict[str, Any]:
         "mean_query_ops": mean_cold,
         "mean_warm_query_ops": mean_warm,
         "warm_op_ratio": mean_warm / mean_cold if mean_cold else None,
-        "p50_latency_us": _mean(
-            [float(trial["p50_latency_us"]) for trial in complete]
-        ),
-        "p95_latency_us": _mean(
-            [float(trial["p95_latency_us"]) for trial in complete]
-        ),
+        "p50_latency_us": latency("p50_latency_us", .50),
+        "p95_latency_us": latency("p95_latency_us", .95),
         "fit_seconds": _max([float(trial["fit_seconds"]) for trial in complete]),
         "fit_ops": optional_max("fit_ops"),
         "meta_fit_ops": optional_max("meta_fit_ops"),

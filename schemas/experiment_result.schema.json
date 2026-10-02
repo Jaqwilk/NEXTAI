@@ -183,7 +183,7 @@
         "properties": {
           "candidate": {"type": "string"},
           "status": {
-            "enum": ["complete", "crash", "timeout", "memory_limit", "audit_failed"]
+            "enum": ["complete", "crash", "timeout", "memory_limit", "audit_failed", "stopped", "fit_timeout", "cuda_limit", "telemetry_failure"]
           },
           "audit": {"type": "object", "additionalProperties": true},
           "execution": {"type": ["object", "null"], "additionalProperties": true},

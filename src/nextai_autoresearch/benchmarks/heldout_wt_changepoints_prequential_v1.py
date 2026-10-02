@@ -34,7 +34,10 @@ BASELINES = (
 
 
 def _data_path(root: Path, seed: int) -> Path:
-    return root / f"research/data/wt_changepoints_v1/extracted/wt_changepoints_v1/load_in_seed_{seed}.csv"
+    from ..data_access import require_data_access
+    path = root / f"research/data/wt_changepoints_v1/extracted/wt_changepoints_v1/load_in_seed_{seed}.csv"
+    require_data_access(path)
+    return path
 
 
 def verify_static_contract(root: Path | None = None) -> dict[str, Any]:
@@ -44,13 +47,15 @@ def verify_static_contract(root: Path | None = None) -> dict[str, Any]:
     if manifest.get("dataset_id") != "causal_chambers_wt_changepoints_v1":
         raise ValueError("WT dataset identity mismatch")
     records = {str(item["file"]): item for item in manifest["files"]}
-    for seed in (*TRAIN_SEEDS, *DEVELOPMENT_SEEDS, *TEST_SEEDS):
+    for seed in (*TRAIN_SEEDS, *DEVELOPMENT_SEEDS):
         path = _data_path(base, seed)
         record = records.get(path.name)
         if record is None or sha256_file(path) != record["sha256"]:
             raise ValueError(f"WT frozen file mismatch: seed {seed}")
     return {
         "files": 10,
+        "verified_files": 8,
+        "metadata_only_seeds": list(TEST_SEEDS),
         "manifest_sha256": sha256_file(manifest_path),
         "archive_sha256": manifest["archive"]["sha256"],
         "train": list(TRAIN_SEEDS), "development": list(DEVELOPMENT_SEEDS),
