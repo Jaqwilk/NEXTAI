@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from nextai_autoresearch.laboratory import laboratory_progress
+from nextai_autoresearch.laboratory import _historical_laboratory_progress as laboratory_progress
 
 
 ROOT = Path(__file__).resolve().parents[1]

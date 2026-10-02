@@ -123,7 +123,9 @@ def test_historical_v1_failure_is_preserved_while_live_v2_handles_absence(tmp_pa
     assert read_device_sample(tmp_path / "missing.json") is None
 
 
-def test_migrated_laboratory_identity_advances_only_through_verified_wt_contract():
+def test_migrated_laboratory_identity_advances_only_through_verified_wt_contract(monkeypatch):
+    from nextai_autoresearch import audit_repair
+    monkeypatch.setattr(audit_repair, "status", lambda _: None)
     root = project_root()
     contract = laboratory.laboratory_contract(root)
     progress = laboratory.laboratory_progress(root)

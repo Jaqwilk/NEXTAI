@@ -82,7 +82,7 @@ def anchors(tmp_path, monkeypatch):
     for relative in paths:
         destination = tmp_path / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
-        if relative == "src/nextai_autoresearch/pc01_telemetry.py":
+        if relative in {"src/nextai_autoresearch/pc01_telemetry.py", "src/nextai_autoresearch/runner.py"}:
             historical = pc01_closure.closure(root)
             destination.write_bytes(pc01_closure.git_bytes(root, historical["git_commit"], relative))
         else:
@@ -90,7 +90,7 @@ def anchors(tmp_path, monkeypatch):
     config = tmp_path / "config/research.toml"
     config.write_text(config.read_text().replace(
         "wt01_causal_factorial_diagnostic_v1", pc01.METADATA_COHORT
-    ))
+    ).replace("mutable_contact_ledger_v2", pc01.METADATA_COHORT))
     monkeypatch.setattr(execution, "audit_bundle", lambda *args: {"sha256": policy["candidate_audit_sha256"]})
     return tmp_path
 

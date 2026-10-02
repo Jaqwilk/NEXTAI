@@ -1,11 +1,11 @@
 {
   "benchmark_version": "mutable_contact_ledger_v2",
-  "certificate_sha256": "b823f1e6e67bb201601cae6b02709a8fb6e6de2ee3cd7051ec48efef86e87fdd",
-  "created_at": "2026-10-02T21:40:32Z",
-  "evaluator_sha256": "0fac23d3d4746484da1ba5d61acf4bcf408f6ab7fbe743e526babf5976d4c677",
+  "certificate_sha256": "d4fd31a416d5f7b62e2245ddaa086264606d7b7dc93d1e42a52931b69cd71561",
+  "created_at": "2026-10-02T21:32:11Z",
+  "evaluator_sha256": "2721a3dea2ebf1e3c2a00c1b21f50b7a3ea29eb4a116cc0269bb18fe7e85461d",
   "files": {
     "baseline_registry": "805f5b2ea2e8bccbbb525cad234ce55eab2de5c26918811cbe6b39338c387a4f",
-    "manifest": "b378504a8ce1c61ea0f615ec6f1331ad0c841f929360d82ea106583a1cea6f81",
+    "manifest": "4ffb5bea750593464ea50a2637a656542b208dfd4edfab84916be81cbeef6828",
     "runner": "cc7417729d825a7ffced3d3478d2ae03c04d5011ba3ae2cd31d858ab69d4a007",
     "schema:experiment_plan": "c3255d35db348256167da7f185b20ea9fa843e55d52807ca99244c65c6757299",
     "schema:experiment_result": "92eb7a6b719aecf6630a5a64e2cbd5e53d6739d9c3853533042198bb16f2bfda",
