@@ -910,17 +910,27 @@
       "specification": {
         "cohort": "mutable_contact_ledger_v2",
         "kind": "dense_pair_transformer_v2",
-        "status": "prospective, must pass semantic fixtures before seed"
+        "status": "implemented; semantic conformance required before seed; quality gates separate"
       },
       "implementation_files": {
-        "src/nextai_autoresearch/candidates/dense_pair_transformer_v2.py": "0000000000000000000000000000000000000000000000000000000000000000",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "0000000000000000000000000000000000000000000000000000000000000000"
+        "src/nextai_autoresearch/candidates/dense_pair_transformer_v2.py": "54517df8525606b418e3c66813321576a164f3ffbf14663c21029821effed5ec",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
       },
       "conformance_tests": [
         {
           "path": "tests/test_muc02_baselines.py",
           "node_id": "tests/test_muc02_baselines.py::test_reader_semantics_masks_and_bm25",
-          "sha256": "29232c0889bae8530e5f00d2b2f1fa913d82ac7079f601a6f5c8afcbf3cae3a0"
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
+        },
+        {
+          "path": "tests/test_muc02_baselines.py",
+          "node_id": "tests/test_muc02_baselines.py::test_sampling_covers_all_cells_worlds_and_has_no_contradictory_negatives",
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
+        },
+        {
+          "path": "tests/test_muc02_baselines.py",
+          "node_id": "tests/test_muc02_baselines.py::test_learned_world_state_and_counters_are_scoped_to_one_session",
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
         }
       ]
     },
@@ -930,17 +940,27 @@
       "specification": {
         "cohort": "mutable_contact_ledger_v2",
         "kind": "bm25_pair_transformer_v2",
-        "status": "prospective, must pass semantic fixtures before seed"
+        "status": "implemented; semantic conformance required before seed; quality gates separate"
       },
       "implementation_files": {
-        "src/nextai_autoresearch/candidates/bm25_pair_transformer_v2.py": "0000000000000000000000000000000000000000000000000000000000000000",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "0000000000000000000000000000000000000000000000000000000000000000"
+        "src/nextai_autoresearch/candidates/bm25_pair_transformer_v2.py": "677fe3c4f97f7b34bd514a6570b680231567ea227d45858e4072f5a8312609da",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
       },
       "conformance_tests": [
         {
           "path": "tests/test_muc02_baselines.py",
           "node_id": "tests/test_muc02_baselines.py::test_reader_semantics_masks_and_bm25",
-          "sha256": "29232c0889bae8530e5f00d2b2f1fa913d82ac7079f601a6f5c8afcbf3cae3a0"
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
+        },
+        {
+          "path": "tests/test_muc02_baselines.py",
+          "node_id": "tests/test_muc02_baselines.py::test_sampling_covers_all_cells_worlds_and_has_no_contradictory_negatives",
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
+        },
+        {
+          "path": "tests/test_muc02_baselines.py",
+          "node_id": "tests/test_muc02_baselines.py::test_learned_world_state_and_counters_are_scoped_to_one_session",
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
         }
       ]
     },
@@ -950,17 +970,27 @@
       "specification": {
         "cohort": "mutable_contact_ledger_v2",
         "kind": "frozen_bm25_pair_transformer_v2",
-        "status": "prospective, must pass semantic fixtures before seed"
+        "status": "implemented; semantic conformance required before seed; quality gates separate"
       },
       "implementation_files": {
-        "src/nextai_autoresearch/candidates/frozen_bm25_pair_transformer_v2.py": "0000000000000000000000000000000000000000000000000000000000000000",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "0000000000000000000000000000000000000000000000000000000000000000"
+        "src/nextai_autoresearch/candidates/frozen_bm25_pair_transformer_v2.py": "62bbbfe775c3b9b0d923f2e2a9f816614f6057d20efb247cc9f24575bf9ddb0b",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
       },
       "conformance_tests": [
         {
           "path": "tests/test_muc02_baselines.py",
           "node_id": "tests/test_muc02_baselines.py::test_reader_semantics_masks_and_bm25",
-          "sha256": "29232c0889bae8530e5f00d2b2f1fa913d82ac7079f601a6f5c8afcbf3cae3a0"
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
+        },
+        {
+          "path": "tests/test_muc02_baselines.py",
+          "node_id": "tests/test_muc02_baselines.py::test_sampling_covers_all_cells_worlds_and_has_no_contradictory_negatives",
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
+        },
+        {
+          "path": "tests/test_muc02_baselines.py",
+          "node_id": "tests/test_muc02_baselines.py::test_learned_world_state_and_counters_are_scoped_to_one_session",
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
         }
       ]
     },
@@ -970,17 +1000,17 @@
       "specification": {
         "cohort": "mutable_contact_ledger_v2",
         "kind": "symbolic_last_write_graph_v2",
-        "status": "prospective, must pass semantic fixtures before seed"
+        "status": "implemented; semantic conformance required before seed; quality gates separate"
       },
       "implementation_files": {
-        "src/nextai_autoresearch/candidates/symbolic_last_write_graph_v2.py": "0000000000000000000000000000000000000000000000000000000000000000",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "0000000000000000000000000000000000000000000000000000000000000000"
+        "src/nextai_autoresearch/candidates/symbolic_last_write_graph_v2.py": "4485dc9a878090b40069a592ee547db749ee60bf24300c1f23af5c8507fae717",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
       },
       "conformance_tests": [
         {
           "path": "tests/test_muc02_baselines.py",
           "node_id": "tests/test_muc02_baselines.py::test_symbolic_semantics_and_costs",
-          "sha256": "29232c0889bae8530e5f00d2b2f1fa913d82ac7079f601a6f5c8afcbf3cae3a0"
+          "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
         }
       ]
     }
