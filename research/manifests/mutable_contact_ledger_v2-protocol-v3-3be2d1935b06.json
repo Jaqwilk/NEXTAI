@@ -1,7 +1,7 @@
 {
   "benchmark_version": "mutable_contact_ledger_v2",
-  "candidate_bundle_sha256": "19db1b68798163b1323275be448fccc818194505b3a73a2682f39ed038eab1ac",
-  "created_at": "2026-10-02T21:41:21Z",
+  "candidate_bundle_sha256": "918c3dedc4ac645aa4b7a7b8791f5e4bc502ee4f3dfaf7e3c9501818aa245889",
+  "created_at": "2026-10-02T21:40:31Z",
   "evaluator_sha256": "0fac23d3d4746484da1ba5d61acf4bcf408f6ab7fbe743e526babf5976d4c677",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
@@ -10,7 +10,7 @@
     ".gitignore": "400d80c03ef34316c02b8fcf08181cdb9b23ead69e1b652899edb550a1a4c03c",
     "AGENTS.md": "fcab9598c90137956a5c8ab628efa243fe541f294f7b1f9b69b7e46341db7485",
     "README.md": "3d280154f2bbb0322c6932fc2e2b67423d0120d86b971931d4db93c6f7580d9c",
-    "config/baseline_semantics.json": "ba53ab4c47ea5ee7e56966bc53a852597d110b811e7aa18da54bde28c313b74c",
+    "config/baseline_semantics.json": "805f5b2ea2e8bccbbb525cad234ce55eab2de5c26918811cbe6b39338c387a4f",
     "config/bootstrap_sizes.json": "c27d3c644692dad1c5b22397c9908ab6728793c33edb5314288078d35aeae672",
     "config/research.toml": "6381997329615966ffee7cce9a63cb7f3d6216e3c3498661d9f996daa1b6d024",
     "docs/AUTOMATION_PROMPT.md": "90db3417169947b6310931efd0459610a95d198a5b2a00eacd92620b4dd56ef0",
