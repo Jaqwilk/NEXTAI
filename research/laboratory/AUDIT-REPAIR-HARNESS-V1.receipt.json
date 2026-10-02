@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "AUDIT-REPAIR-HARNESS-V1",
+  "status": "complete",
+  "created_at": "2026-10-02T21:46:54Z",
+  "clone": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "source_commit": "2288fd719b217b48a36f88ff6cd685bd4ec65e66",
+  "tests": 1004,
+  "test_seconds": 151.426,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "test_artifact": "research/checks/AUDIT-REPAIR-harness-final.junit.xml",
+  "test_artifact_sha256": "81d490b0fe89f193749a34e651d44c2187b35afe14e05f7a298390bb72be280b",
+  "candidate_implementation_performed": false,
+  "training_performed": false,
+  "scoring_performed": false,
+  "wt_files_8_9_present_in_clone": false,
+  "historical_archive_hashes_verified": 925,
+  "runtime": "Shared existing Python environment; independent Git checkout and legal data copies"
+}

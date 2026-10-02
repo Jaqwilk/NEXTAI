@@ -6,7 +6,7 @@ objective = "Find computational principles that could improve capability per uni
 generation = 2
 protocol_version = 3
 benchmark_version = "mutable_contact_ledger_v2"
-benchmark_status = "maintenance"
+benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
 [laboratory]
