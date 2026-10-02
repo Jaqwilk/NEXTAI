@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "AUDIT-REPAIR-PRESEED-V1",
+  "status": "complete",
+  "created_at": "2026-10-02T22:01:48Z",
+  "clone": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "tests": 1008,
+  "test_seconds": 155.171,
+  "failed": 0,
+  "skipped": 0,
+  "experiment_id": "EXP-20261002-0001",
+  "test_artifact": "research/checks/AUDIT-REPAIR-final.junit.xml",
+  "test_artifact_sha256": "7c698b49d6bab45ba83b97e7ae275fae8edb492740c1584d22894438e54ce9cb",
+  "candidate_commit": "567258e",
+  "evaluator_unchanged_after_preregistration": true,
+  "scoring_performed": false,
+  "training_performed": false,
+  "wt_files_8_9_present_in_clone": false
+}
