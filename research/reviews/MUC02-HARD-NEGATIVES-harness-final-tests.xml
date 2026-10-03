@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="13" time="2.030" timestamp="2026-10-03T23:30:48.513959+02:00" hostname="3vilOS20"><testcase classname="tests.test_muc02_negatives_harness" name="test_fresh_seed_split_and_coverage" file="tests\test_muc02_negatives_harness.py" line="13" time="0.017" /><testcase classname="tests.test_muc02_negatives_harness" name="test_paired_intervals_and_frozen_effect_gates" file="tests\test_muc02_negatives_harness.py" line="32" time="0.002" /><testcase classname="tests.test_muc02_negatives_harness" name="test_stage_failure_deadline_and_total_fit_stop_remaining_work" file="tests\test_muc02_negatives_harness.py" line="49" time="0.000" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[1-32]" file="tests\test_muc02_negatives_harness.py" line="60" time="1.177" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[1-128]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.009" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[1-512]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.029" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[2-32]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.004" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[2-128]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.009" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[2-512]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.029" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[4-32]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.005"><failure message="RuntimeError: Could not satisfy frozen MUC-01 query strata">k = 32, d = 4
+
+    @pytest.mark.parametrize("k", [32, 128, 512])
+    @pytest.mark.parametrize("d", [1, 2, 4])
+    def test_symbolic_control_solves_fresh_raw_dev_and_costs(k, d):
+        from nextai_autoresearch.candidates.muc02_core import SymbolicSystem
+        from nextai_autoresearch.benchmarks.mutable_contact_ledger_hard_negatives_v1 import run_trial
+        system = SymbolicSystem(937, {})
+&gt;       trial = run_trial(system, k, d, 937, {}, learned=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_muc02_negatives_harness.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\benchmarks\mutable_contact_ledger_hard_negatives_v1.py:73: in run_trial
+    worlds = fresh_worlds(seed, "D", k, d)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\muc02_negatives_task.py:19: in fresh_worlds
+    return tuple(make_world(k, d, world_seed(seed, split, k, d, i), split)
+src\nextai_autoresearch\muc02_negatives_task.py:19: in &lt;genexpr&gt;
+    return tuple(make_world(k, d, world_seed(seed, split, k, d, i), split)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\muc02_task.py:11: in make_world
+    original = old_world(knowledge_size, depth, seed, split)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+knowledge_size = 32, depth = 4, seed = 540209631513252313353628796861221901604
+split = 'D'
+
+    def make_world(knowledge_size: int, depth: int, seed: int, split: str) -&gt; PublicWorld:
+        if knowledge_size not in (32, 128, 512) or depth not in (1, 2, 4):
+            raise ValueError("MUC-01 uses K={32,128,512} and D={1,2,4}")
+        if split not in {"T", "D", "F"}:
+            raise ValueError("split must be T, D or F")
+        rng = random.Random(seed)
+        entity_count = knowledge_size // len(RELATIONS)
+        entities = [_entity(split, i) for i in range(entity_count)]
+        mapping: dict[tuple[str, str], str] = {}
+        for subject in entities:
+            for relation in RELATIONS:
+                mapping[(subject, relation)] = rng.choice(entities)
+    
+        replaced = set(rng.sample(list(mapping), knowledge_size // 4))
+        rows: list[tuple[int, str]] = []
+        timestamp = 0
+        for subject, relation in mapping:
+            if (subject, relation) in replaced:
+                old = rng.choice([entity for entity in entities if entity != mapping[(subject, relation)]])
+                rows.append((timestamp, f"At step {timestamp:04d}, {subject}'s {relation} contact became {old}."))
+                timestamp += 1
+            rows.append((timestamp, f"At step {timestamp:04d}, {subject}'s {relation} contact became {mapping[(subject, relation)]}."))
+            timestamp += 1
+        rows.sort()
+    
+        tuples = HELDOUT_TUPLES[depth] if split == "F" and depth &gt; 1 else TRAIN_TUPLES[depth]
+        requested = [(True, False)] * 6 + [(False, False)] * 8 + [(False, True)] * 2
+        questions: list[PublicQuestion] = []
+        for question_index, (want_replaced, want_unknown) in enumerate(requested):
+            unseen = bool(split == "F" and depth &gt; 1 and question_index &lt; 8)
+            relation_pool = HELDOUT_TUPLES[depth] if unseen else tuples
+            chosen = None
+            for _ in range(4000):
+                start = rng.choice(entities)
+                relations = rng.choice(relation_pool)
+                answer, path = _answer(mapping, start, relations)
+                affected = any(key in replaced for key in path)
+                if want_unknown:
+                    # A public but absent relation creates an unambiguous UNKNOWN path.
+                    relations = tuple(relations[:-1]) + ("violet",)
+                    answer, path = _answer(mapping, start, relations)
+                    affected = any(key in replaced for key in path)
+                if (answer == "UNKNOWN") == want_unknown and (not want_replaced or affected):
+                    if want_replaced or want_unknown or not affected:
+                        chosen = (start, relations, answer, affected)
+                        break
+            if chosen is None:
+&gt;               raise RuntimeError("Could not satisfy frozen MUC-01 query strata")
+E               RuntimeError: Could not satisfy frozen MUC-01 query strata
+
+src\nextai_autoresearch\muc01_task.py:104: RuntimeError</failure></testcase><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[4-128]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.009" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[4-512]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.030" /><testcase classname="tests.test_muc02_negatives_harness" name="test_dense_diagnostic_detects_wrong_ranking_and_unknown_acceptance" file="tests\test_muc02_negatives_harness.py" line="74" time="0.006" /></testsuite></testsuites>

@@ -1,6 +1,36 @@
 # NEXTAI autonomous research rules
 
-## Current authority — audit repair (2026-10-02)
+## Current authority — MUC v2 hard negatives (2026-10-03)
+
+The user authorized MUC02-HARD-NEGATIVES-20261003-V1: preregister metrics and
+thresholds, minimally change only training negatives, then compare random and
+hard negatives in the independent Git clone on fresh train/dev for five paired
+runner seeds. The MUC v2 model, 4096 pairs and 192 steps stay fixed. Work starts
+2026-10-03T21:08:25Z and stops by 2026-10-04T01:08:25Z; total fit <=3600 s.
+The immutable contract is research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json,
+with user authority in the matching research/laboratory record. The new cohort
+is mutable_contact_ledger_hard_negatives_v1. No retry, WT8-9, final/calibration
+reuse, tuning, new architecture, promotion, external model/API or schedule change.
+Any worker failure or cap stops the unstarted scope and preserves all outcomes.
+Use `uv run nextai lab status` for the verified queue. All sections below are
+historical unless explicitly selected by this new authority.
+
+## Current authority — MUC v2 hard negatives (2026-10-03)
+
+The user authorized MUC02-HARD-NEGATIVES-20261003-V1: preregister metrics and
+thresholds, minimally change only training negatives, then compare random and
+hard negatives in the independent Git clone on fresh train/dev for five paired
+runner seeds. The MUC v2 model, 4096 pairs and 192 steps stay fixed. Work starts
+2026-10-03T21:08:25Z and stops by 2026-10-04T01:08:25Z; total fit <=3600 s.
+The immutable contract is research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json,
+with user authority in the matching research/laboratory record. The new cohort
+is mutable_contact_ledger_hard_negatives_v1. No retry, WT 8-9, final/calibration
+reuse, tuning, new architecture, promotion, external model/API or schedule change.
+Any worker failure or cap stops the unstarted scope and preserves all outcomes.
+Use `uv run nextai lab status` for the verified queue. All sections below are
+historical unless explicitly selected by this new authority.
+
+## Current authority â€” audit repair (2026-10-02)
 
 The latest user decision authorizes AUDIT-REPAIR-20261002-V1: repair all audit
 findings, validate an independent Git clone, and execute exactly one new bounded
@@ -26,9 +56,9 @@ completed EXP-20260906-0001 and synchronized GitHub `master`/`main`.
 
 ## Historical WT-01 terminal decision state (2026-09-06)
 
-The user's exact approval "Zatwierdzam poprawkę append-only lifecycle, ponowny
-freeze oraz jedną zastępczą rejestrację i run WT-01-DEV-1 w niezmienionym
-zakresie, wyłącznie na plikach 6–7, bez dostępu do 8–9." is recorded in
+The user's exact approval "Zatwierdzam poprawkÄ™ append-only lifecycle, ponowny
+freeze oraz jednÄ… zastÄ™pczÄ… rejestracjÄ™ i run WT-01-DEV-1 w niezmienionym
+zakresie, wyĹ‚Ä…cznie na plikach 6â€“7, bez dostÄ™pu do 8â€“9." is recorded in
 `research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`; the
 prospective plan is `research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. The
 append-only lifecycle correction, tests and re-freeze passed. Replacement
@@ -51,7 +81,7 @@ new prospective plan, new user authority and at least five independent recording
 The user's exact approval "zatwierdzam WT-01-DEV-1 w opisanym zakresie" was
 recorded in `research/laboratory/WT-01-DEV1-20260905-V1.json`, with the
 prospective integration plan in `research/plans/WT-01-DEV1-ACTIVATION-V1.json`.
-It authorized exactly one registered quick run of all eight frozen R×U×C cells
+It authorized exactly one registered quick run of all eight frozen RĂ—UĂ—C cells
 and the separate VAR(2)/ARX control at K=18/36/54 and H=16/32/96, with one
 runner-random channel permutation. Fit may use files 0-5 and evaluation may use
 only visible development files 6-7. Files 8-9, dataset downloads, retry, a

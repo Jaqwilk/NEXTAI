@@ -1,6 +1,6 @@
 {
   "inputs": {
-    "config_sha256": "e3592fed207f27d73ba9ac6c067564f9dc804736efbaaa2c0e58ead4de073646",
+    "config_sha256": "9a8bdbc328e138f796d7e6e057033e478c4bda6913a7e2668f1381498ea8c184",
     "documents": {
       "research/plans/EXP-20260830-0001.json": "7c8bb6a2804e50a24fc38c328ac4989a512e92d0820c1da216362749750d1c7c",
       "research/plans/EXP-20260830-0002.json": "777ded0d75ac03435d91d54cc4e6a6fbfe1edfa535a46d2883b0d810d66fc2c3",
@@ -221,7 +221,7 @@
       "comparison_contract.py": "ae2fbdcc500b2f92e030c19e48ae8ac1611b2c423c533eb632541dd76fd07a42",
       "config.py": "bd661f0d6bf936ea20ab53bd7f335ccc9e6e7acc2b88280c9d720f3636376650",
       "ledger.py": "ed7bbf208f728785b2fd97b5175d210b198755ad7adad2adfc518ea3d72c8c8a",
-      "metrics.py": "16c3b3ab5220cf8b69391e205d95e54a9aad48ea5f5d463f04d0285374e8f564",
+      "metrics.py": "fe7fe85381509cb3ec6d255f38d541b2c23cee58ae97300e129b3cfba5e1ff81",
       "pareto.py": "be18de616fcd656836c23075a8b62a4bf32ffb173c0cdcac8cb6efbe06c16a21",
       "report.py": "92c9e7d9184ab993420a37e80cc59ce618e99821f70150f8bd82799bc0ab989d",
       "scientific_validity.py": "adbfff69ced1fe7ca98cad20bf52947380473ec1811df94cad81c0bcf0b4cb1e",
@@ -229,6 +229,6 @@
     },
     "validity_sha256": "64bf36f1a5e32b685e2bab2ca658792fedbffa90ab936d12f8085cd182878aa9"
   },
-  "report_sha256": "2562be757a94578232f0a2053be8bd1ff6e148bedf75679add03c0050a765338",
+  "report_sha256": "903b6a0ffc3a5909770df96034e91f6eaf610f9a4d621d97362a4a0285802726",
   "schema_version": 1
 }

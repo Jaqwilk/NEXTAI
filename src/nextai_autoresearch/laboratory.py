@@ -177,6 +177,13 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
                         series_freeze: bool = False) -> list[str]:
     """One registered development attempt; invalidation does not replenish it."""
     try:
+        from .muc02_negatives_stage import status as negatives_status, scope_problems as negatives_scope, COHORT
+        if negatives_status(base) is not None:
+            if load_config(base).benchmark_version != COHORT:
+                return ["Hard-negative stage may score only its fresh development cohort"]
+            if candidate is not None or phase is not None or series_freeze:
+                return ["Hard-negative stage forbids PC-01 and final-series operations"]
+            return negatives_scope(base, experiment_id)
         from .audit_repair import status as repair_status, scope_problems as repair_scope
         if repair_status(base) is not None:
             if load_config(base).benchmark_version != "mutable_contact_ledger_v2":
@@ -244,6 +251,15 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
 def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
     base = (root or project_root()).resolve()
     progress = _historical_laboratory_progress(base)
+    from .muc02_negatives_stage import status as negatives_status
+    negatives = negatives_status(base)
+    if negatives is not None:
+        stopped = negatives["terminal"] or negatives["expired"]
+        return {**progress, "activation_id": negatives["id"], "muc02_negatives": negatives,
+                "scoring_authorized": negatives["scoring_authorized"], "user_decision_required": stopped,
+                "next_action_id": "MUC02-HARD-NEGATIVES-DECISION" if stopped else "MUC02-HARD-NEGATIVES-RUN" if negatives["ready"] else "MUC02-HARD-NEGATIVES-PREP",
+                "next_action": "Review all preserved paired development outcomes; no retry or automatic final stage." if stopped else
+                    "Preregister and complete exactly one fresh 5-pair negative-sampling comparison within the frozen budgets."}
     from .audit_repair import status
     repair = status(base)
     if repair is None:
@@ -595,6 +611,12 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
         path = (base / relative).resolve()
         if not path.is_relative_to(base) or not path.is_file():
             raise ValueError(f"Missing or invalid laboratory document: {relative}")
+    from .muc02_negatives_stage import status as negatives_status, PLAN as NEGATIVES_PLAN
+    negatives = negatives_status(base)
+    if negatives is not None:
+        return {**contract, "status": "dev_authorized" if negatives["scoring_authorized"] else "preparation_only",
+                "scoring_authorized": negatives["scoring_authorized"], "activation_id": negatives["id"],
+                "maintenance_plan": NEGATIVES_PLAN, "original_status": contract["status"]}
     from .audit_repair import status as repair_status
     repair = repair_status(base)
     if repair is not None:
@@ -675,6 +697,16 @@ def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> l
         laboratory_progress(base)
     except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
         return [f"laboratory contract: {exc}"]
+    from .muc02_negatives_stage import status as negatives_status, COHORT
+    negatives = negatives_status(base)
+    if negatives is not None:
+        if config.benchmark_version != COHORT:
+            return ["Hard-negative authority cannot activate a different cohort"]
+        if scoring and not negatives["scoring_authorized"]:
+            return ["Hard-negative stage is preparation-only, expired or terminal; no retry"]
+        if not negatives["ready"] and config.benchmark_status != "maintenance":
+            return ["Hard-negative preparation requires maintenance"]
+        return []
     from .muc01_calibration import authority as muc_authority
     from .audit_repair import status as repair_status
     repair = repair_status(base)

@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import os
+import math
 import platform
 import secrets
 import subprocess
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -41,6 +43,24 @@ from .utils import (
     sha256_json,
     utc_now,
 )
+
+
+def _stage_deadline_expired(plan):
+    deadline = plan.get("muc02_negatives_protocol", {}).get("deadline_at")
+    return bool(deadline and datetime.now(timezone.utc) >= datetime.fromisoformat(deadline.replace("Z", "+00:00")))
+
+
+def _stage_halt_reason(plan, outcome=None, fit_charged=0.):
+    limits = plan.get("muc02_negatives_protocol")
+    if not limits:
+        return None
+    if _stage_deadline_expired(plan):
+        return "stage_deadline"
+    if fit_charged >= limits["fit_seconds_total_cap"]:
+        return "total_fit_budget"
+    if outcome is not None and outcome.get("status") != "complete":
+        return "previous_worker_failure"
+    return None
 
 
 def _git_value(root: Path, *arguments: str) -> str | None:
@@ -318,14 +338,14 @@ def _run_candidate(
     termination_reason: str | None = None
     from .worker import read_trial_journal
     from .worker_resources import resource_problem
-    limits = plan.get("muc02_protocol", {})
+    limits = plan.get("muc02_negatives_protocol") or plan.get("muc02_protocol", {})
     device_gap_started = started
     with log_path.open("w", encoding="utf-8", newline="\n") as log:
         process = None
         monitored = None
         return_code = None
         try:
-            if any((root / name).exists() for name in ("STOP", "PAUSE")):
+            if any((root / name).exists() for name in ("STOP", "PAUSE")) or _stage_deadline_expired(plan):
                 termination_reason = "stopped"
             else:
                 process = subprocess.Popen(
@@ -341,7 +361,7 @@ def _run_candidate(
                 while process.poll() is None:
                     elapsed = time.monotonic() - started
                     peak_rss = max(peak_rss, _rss_tree(monitored))
-                    if any((root / name).exists() for name in ("STOP", "PAUSE")):
+                    if any((root / name).exists() for name in ("STOP", "PAUSE")) or _stage_deadline_expired(plan):
                         termination_reason = "stopped"
                     elif elapsed > min(budget.wall_seconds_per_candidate, limits.get("worker_seconds_cap", float("inf"))):
                         termination_reason = "timeout"
@@ -372,6 +392,17 @@ def _run_candidate(
         "environment_sanitized": True,
         "network_policy": "forbidden_by_audit_and_rules_not_os_sandboxed",
     }
+    if plan.get("muc02_negatives_protocol"):
+        try:
+            phase = load_json(output_path.with_suffix(".phase.json"))
+            charged = (time.monotonic() - phase["fit_started"] if phase["phase"] == "fit"
+                       else float(phase["fit_elapsed"]))
+            if not math.isfinite(charged) or charged < 0:
+                raise ValueError("Invalid final fit phase")
+            execution["supervised_fit_seconds"] = charged
+        except (OSError, ValueError, TypeError, KeyError):
+            execution["supervised_fit_seconds"] = limits["fit_seconds_cap"]
+            execution["fit_charge_conservative"] = True
     if termination_reason is not None:
         preserved = read_trial_journal(output_path)
         return {
@@ -618,15 +649,19 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                     "scientific_evidence": False,
                 },
             )
+            fit_charged, halt_reason = 0., None
             for candidate in plan["candidates"]:
-                outcome = _run_candidate(
-                    candidate,
-                    runtime_plan_path,
-                    runtime_plan,
-                    config,
-                    base,
-                    audits[candidate],
-                )
+                halt_reason = halt_reason or _stage_halt_reason(plan, fit_charged=fit_charged)
+                if halt_reason:
+                    outcome = {"candidate": candidate, "status": "stopped", "audit": {"ok": audits[candidate].ok},
+                               "execution": {"started": False, "wall_seconds": 0., "peak_rss_bytes": 0,
+                                             "supervised_fit_seconds": 0., "termination_reason": halt_reason, "return_code": None},
+                               "trials": [], "summary": {"status": "failed", "completed_trials": 0, "total_trials": 0},
+                               "error": "Not started: finite stage stops at first failure/deadline/budget; no retry"}
+                else:
+                    outcome = _run_candidate(candidate, runtime_plan_path, runtime_plan, config, base, audits[candidate])
+                    fit_charged += (outcome.get("execution") or {}).get("supervised_fit_seconds", 0.)
+                    halt_reason = _stage_halt_reason(plan, outcome, fit_charged)
                 candidate_results.append(outcome)
                 atomic_write_json(
                     runtime_plan_path.parent / f"{candidate}.supervisor.json", outcome

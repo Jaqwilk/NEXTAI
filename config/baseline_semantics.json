@@ -1013,6 +1013,216 @@
           "sha256": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e"
         }
       ]
+    },
+    "muc02_random_neg_s0": {
+      "baseline_id": "muc02_random_neg_s0",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s0.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_hard_neg_s0": {
+      "baseline_id": "muc02_hard_neg_s0",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s0.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_random_neg_s1": {
+      "baseline_id": "muc02_random_neg_s1",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s1.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_hard_neg_s1": {
+      "baseline_id": "muc02_hard_neg_s1",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s1.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_random_neg_s2": {
+      "baseline_id": "muc02_random_neg_s2",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s2.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_hard_neg_s2": {
+      "baseline_id": "muc02_hard_neg_s2",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s2.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_random_neg_s3": {
+      "baseline_id": "muc02_random_neg_s3",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s3.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_hard_neg_s3": {
+      "baseline_id": "muc02_hard_neg_s3",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s3.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_random_neg_s4": {
+      "baseline_id": "muc02_random_neg_s4",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s4.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
+    },
+    "muc02_hard_neg_s4": {
+      "baseline_id": "muc02_hard_neg_s4",
+      "version": 1,
+      "specification": {
+        "cohort": "mutable_contact_ledger_hard_negatives_v1",
+        "kind": "same MUC v2 model; negative distribution only",
+        "status": "preregistered placeholder; implementation and conformance pending"
+      },
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s4.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "bdd4a29dcd1acbce83c7b2a075ab9fa819954d037966106d2be52726e69fd2d1",
+        "src/nextai_autoresearch/candidates/muc02_core.py": "4e0d4977129b7950d6b7548a3c6518e433e2654d16acda024d9d6effd1efd433"
+      },
+      "conformance_tests": [
+        {
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "sha256": "7e0967d35d767d0f48caa950a5534e2a2e045dfe2e75a5b01e01797a2b33789a"
+        }
+      ]
     }
   }
 }

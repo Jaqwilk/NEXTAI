@@ -1,0 +1,19 @@
+{
+  "candidate_conformance_pending_after_preregistration": true,
+  "changed_sampler_implemented": false,
+  "clone": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+  "created_at": "2026-10-03T21:35:20Z",
+  "experimental_training_performed": false,
+  "id": "MUC02-HARD-NEGATIVES-HARNESS-V1",
+  "original_head": "a74dbce78018dc4882c8fe4b1bc99af278677ab2",
+  "prior_failed_fixture_preserved": true,
+  "schema_version": 1,
+  "scoring_performed": false,
+  "tests": {
+    "failed": 0,
+    "junit_path": "research/reviews/MUC02-HARD-NEGATIVES-harness-v2-tests.xml",
+    "junit_sha256": "93ef33552b79aa4c13b5c1d6494e50f94c0c011a68d2746d064063a62c8ffb81",
+    "passed": 13
+  }
+}

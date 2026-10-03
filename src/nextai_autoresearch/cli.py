@@ -105,8 +105,8 @@ def command_lab_status(args: argparse.Namespace) -> int:
     report = run_doctor()
     contract = laboratory_contract()
     progress = laboratory_progress()
-    if progress.get("audit_repair") and not getattr(args, "include_history", False):
-        repair = progress["audit_repair"]
+    if (progress.get("muc02_negatives") or progress.get("audit_repair")) and not getattr(args, "include_history", False):
+        repair = progress.get("muc02_negatives") or progress["audit_repair"]
         progress = {key: progress[key] for key in ("next_action_id", "next_action", "user_decision_required", "activation_id", "scoring_authorized")}
         progress["current_scope"] = repair
         progress["history"] = "Preserved; use --include-history for validated prior stages and exhausted budgets"
@@ -565,6 +565,9 @@ def command_plan_new(args: argparse.Namespace) -> int:
         }
     if config.benchmark_version == "mutable_contact_ledger_v2":
         from .muc02_plan import configure_plan
+        configure_plan(plan, args, root, configured_directions)
+    if config.benchmark_version == "mutable_contact_ledger_hard_negatives_v1":
+        from .muc02_negatives_stage import configure_plan
         configure_plan(plan, args, root, configured_directions)
     if config.benchmark_version.startswith("cross_family_"):
         transfer = config.raw["transfer"]

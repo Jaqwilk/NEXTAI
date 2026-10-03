@@ -53,9 +53,20 @@ def run_worker(plan_path: Path, candidate: str, output_path: Path) -> int:
             if journal.exists():
                 raise FileExistsError("Existing trial journal; worker retry is forbidden")
             options["trial_sink"] = lambda trial: append_jsonl(journal, trial)
-        if plan.get("muc02_protocol"):
+        if "fit_sink" in parameters:
+            fit_journal = output_path.with_suffix(".fits.jsonl")
+            if fit_journal.exists():
+                raise FileExistsError("Existing fit journal; worker retry is forbidden")
+            options["fit_sink"] = lambda report: append_jsonl(fit_journal, report)
+        if "data_sink" in parameters:
+            data_journal = output_path.with_suffix(".data.jsonl")
+            if data_journal.exists():
+                raise FileExistsError("Existing data journal; worker retry is forbidden")
+            options["data_sink"] = lambda report: append_jsonl(data_journal, report)
+        limits = plan.get("muc02_negatives_protocol") or plan.get("muc02_protocol")
+        if limits:
             from .worker_resources import WorkerResources
-            resources = WorkerResources(output_path, plan["muc02_protocol"], plan_path)
+            resources = WorkerResources(output_path, limits, plan_path)
             resources.start()
             options["phase_sink"] = resources.phase
         trials = benchmark.run_suite(candidate, plan, **options)

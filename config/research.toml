@@ -5,8 +5,8 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 2
 protocol_version = 3
-benchmark_version = "mutable_contact_ledger_v2"
-benchmark_status = "maintenance"
+benchmark_version = "mutable_contact_ledger_hard_negatives_v1"
+benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
 [laboratory]
@@ -754,6 +754,7 @@ allowed_import_roots = [
   "dataclasses",
   "functools",
   "heapq",
+  "hashlib",
   "itertools",
   "math",
   "nextai_autoresearch",
@@ -812,6 +813,8 @@ minimum_scaling_points = 3
 
 [metrics]
 maximize = [
+  "fact_top1_accuracy",
+  "dense_unknown_rejection",
   "accuracy",
   "continual_new_fact_accuracy",
   "continual_retention",

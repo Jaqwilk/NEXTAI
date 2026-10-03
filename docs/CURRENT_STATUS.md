@@ -1,40 +1,30 @@
-# Aktualny stan NEXTAI
+# NEXTAI — active paired MUC v2 negative-sampling development
 
-Pakiet `AUDIT-REPAIR-20261002-V1` zakończył jedyny autoryzowany eksperyment
-`EXP-20261002-0001` w oddzielnym klonie Git. Bieżąca decyzja to
-`AUDIT-REPAIR-DECISION`; scoring jest wyłączony, rejestracja 1/1 zużyta.
-Stan: 107 rezultatów, cykl 300, brak aktywnego i oczekującego EXP.
-Zgoda i prospektywny kontrakt znajdują się w
-`research/laboratory/AUDIT-REPAIR-20261002-V1.json` oraz
-`research/plans/AUDIT-REPAIR-20261002-V1.json`.
+## Current authority — MUC v2 hard negatives (2026-10-03)
 
-Zweryfikowaną kolejkę i zużycie uprawnień wyznacza `uv run nextai lab status`.
-Ten dokument jest opisem, nie dodatkową zgodą. Obowiązuje maintenance i brak
-retry. Wszystkie 36 komórek kalibracji zakończyły się z integralnością PASS.
-Accuracy: dense 23,6574%, uczony BM25 48,8426%, frozen BM25 15,1389%, symboliczny
-graf 100%. Dense nie osiągnął zamrożonych progów 85% overall i 80% replacement.
-Różnica uczony–frozen +33,7037 pp jest opisową obserwacją jednego seedu.
+The user authorized MUC02-HARD-NEGATIVES-20261003-V1: preregister metrics and
+thresholds, minimally change only training negatives, then compare random and
+hard negatives in the independent Git clone on fresh train/dev for five paired
+runner seeds. The MUC v2 model, 4096 pairs and 192 steps stay fixed. Work starts
+2026-10-03T21:08:25Z and stops by 2026-10-04T01:08:25Z; total fit <=3600 s.
+The immutable contract is research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json,
+with user authority in the matching research/laboratory record. The new cohort
+is mutable_contact_ledger_hard_negatives_v1. No retry, WT8-9, final/calibration
+reuse, tuning, new architecture, promotion, external model/API or schedule change.
+Any worker failure or cap stops the unstarted scope and preserves all outcomes.
+Use `uv run nextai lab status` for the verified queue. All sections below are
+historical unless explicitly selected by this new authority.
 
-Stare etapy PC-01, WT-01, REVIEW-01 i MUC v1 pozostają zakończone. Nie zwiększamy
-ich budżetów. Dane WT 8–9, harmonogram, zewnętrzne modele/API i mechanizm
-delta-memory są poza zakresem. Zachowujemy wszystkie wyniki, porażki i źródła.
+Metrics and decision thresholds are immutable in the contract before the new
+sampler implementation. Primary endpoints are dense latest-record top1 and
+UNKNOWN rejection (absent subject / absent relation) at the fixed0.5 threshold.
+Five paired independent seed/data units receive simultaneous97.5% paired t
+intervals (Bonferroni familywise95% for two endpoints). Minimum effects: +5pp
+selection and +10pp rejection, both positive lower bounds, >=4 positive pairs.
+Known acceptance/end-to-end quality and false abstention are guarded at2pp.
+The unchanged BM25 top4 end-to-end reader and classical last-write graph are
+also measured. This is visible development, not a hidden final or architecture
+promotion. Old calibration EXP-20261002-0001 remains complete and immutable.
 
-MUC v1 ma negatywną kontrolę uczoną i wadliwe koszty oraz etykiety pomiaru.
-Nowa kohorta ma odrębną tożsamość; jej wyników nie łączymy z v1. Uczone role v2
-to jawne czytniki par tekstowych z iteracyjną kompozycją, nie pełne autoregresyjne
-LLM. Kalibracja nie ustanawia nowej architektury ani przewagi ekonomicznej.
-
-Analiza: `research/analyses/EXP-20261002-0001.md`. Rozliczenie napraw:
-`research/reviews/AUDIT-REPAIR-20261002-V1.md`. Pełna walidacja przed seedem:
-1008/1008. Końcowa pełna regresja po dodatkowych poprawkach: 1013/1013,
-zero błędów i skipów. Receipt: `research/laboratory/AUDIT-REPAIR-COMPLETION-V1.receipt.json`.
-
-Dokładne źródła kalibracji z evaluatorem `ee6c5cb92dfdb95dcf79942352c0ca753ca0ffe79f458b225e8377ad5774d010`
-zachowano w `research/laboratory/archive/AUDIT-REPAIR-CALIBRATION-20261002-V1`.
-Po wyniku naprawiono brak fazy przy żywym heartbeat i wyścig krótkiego workera,
-zgodnie z prospektywnym `AUDIT-REPAIR-SUPERVISOR-ADDENDUM-V1.json`.
-Aktualny manifest `984ae108f07b2bf4f71dc7bc88faeff0b31c74dc5c39a1ad229461cd6cc777a2`
-opisuje wyłącznie maintenance, nie wykonany wynik. Nowy scoring wymaga nowej
-decyzji, prospektywnego kontraktu i świeżej kohorty. Najbliższa proponowana
-kontrola dotyczy trudnych negatywów i fałszywych dopasowań matchera na nowych
-train/dev; nie jest autoryzowanym eksperymentem.
+State at authorization:107 completed experiments, cycle300, zero pending.
+Implementation and the single scored comparison are not yet performed.

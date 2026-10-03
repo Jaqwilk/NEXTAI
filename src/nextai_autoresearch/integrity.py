@@ -15,6 +15,9 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1.json",
+    "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json",
+    "research/laboratory/MUC02-HARD-NEGATIVES-20261003-V1.json",
     "research/plans/AUDIT-REPAIR-20261002-V1.json",
     "research/laboratory/AUDIT-REPAIR-20261002-V1.json",
     ".gitattributes",
