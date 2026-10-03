@@ -76,7 +76,8 @@ def test_retained_config_and_preseed_baseline_discovery_match_contract() -> None
     historical = load_json(project_root() / "research/manifests/PC-01-ACTIVATION-BEFORE.json")
     assert historical["benchmark_version"] == bench.BENCHMARK_VERSION
     # The lifecycle migration changes only the live identity; retained SuiteSparse stays historical.
-    assert config["project"]["benchmark_version"] == "mutable_contact_ledger_v2"
+    from nextai_autoresearch.muc02_negatives_stage import COHORT
+    assert config["project"]["benchmark_version"] == COHORT
     assert config["project"]["protocol_version"] == 3
     # The pre-seed WT registration exposed the closure's whole-file ledger bug;
     # the corrected verifier now authenticates the historical prefix and append.

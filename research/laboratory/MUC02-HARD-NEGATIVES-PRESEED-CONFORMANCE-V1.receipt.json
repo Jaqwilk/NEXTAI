@@ -1,0 +1,73 @@
+{
+  "addendum_sha256": "8c349423b5e30faa48468ec76ea8794129cf3e8abdec190a2b221b18a1a7a393",
+  "all_checks_including_failures": [
+    {
+      "failures": 0,
+      "path": "research/reviews/MUC02-HARD-NEGATIVES-candidate-tests.xml",
+      "seconds": 3.222,
+      "sha256": "4f343b6a5e146f17b829f94e1051d820c677b2737529bebfc56a685b1e8bb373",
+      "tests": 19
+    },
+    {
+      "failures": 1,
+      "path": "research/reviews/MUC02-HARD-NEGATIVES-harness-final-tests.xml",
+      "seconds": 2.03,
+      "sha256": "944e2860ca155a1bb61af1b27e560146f282622b22515a0d544120c29e21530c",
+      "tests": 13
+    },
+    {
+      "failures": 0,
+      "path": "research/reviews/MUC02-HARD-NEGATIVES-harness-tests.xml",
+      "seconds": 3.541,
+      "sha256": "17d661edb61051889d30d3218bac3677b63fa282fc03d025260b37558f3499ca",
+      "tests": 4
+    },
+    {
+      "failures": 0,
+      "path": "research/reviews/MUC02-HARD-NEGATIVES-harness-v2-tests.xml",
+      "seconds": 1.931,
+      "sha256": "93ef33552b79aa4c13b5c1d6494e50f94c0c011a68d2746d064063a62c8ffb81",
+      "tests": 13
+    },
+    {
+      "failures": 0,
+      "path": "research/reviews/MUC02-HARD-NEGATIVES-preseed-corrected-full-tests.xml",
+      "seconds": 139.815,
+      "sha256": "0682b7822dacd102fad746f7da148eb9ecc0b1c8f37e44a04fee6d4827722032",
+      "tests": 1029
+    },
+    {
+      "failures": 16,
+      "path": "research/reviews/MUC02-HARD-NEGATIVES-preseed-full-tests.xml",
+      "seconds": 137.182,
+      "sha256": "3c3e5a67de08bb87d69f7733284481d8b2a88198ca3efa774c944c9e87f650df",
+      "tests": 1028
+    },
+    {
+      "failures": 0,
+      "path": "research/reviews/MUC02-HARD-NEGATIVES-preseed-repair-targeted-tests.xml",
+      "seconds": 28.466,
+      "sha256": "87502e76a63d978692c0f5c1ba6e49e9f81a7606ac408c3c868cb899a0e2742c",
+      "tests": 179
+    }
+  ],
+  "all_test_wall_seconds_conservative_fit_upper_bound": 316.187,
+  "contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+  "created_at": "2026-10-03T22:00:50Z",
+  "experimental_muc_training_performed": false,
+  "full_tests": {
+    "failed": 0,
+    "junit_path": "research/reviews/MUC02-HARD-NEGATIVES-preseed-corrected-full-tests.xml",
+    "junit_sha256": "0682b7822dacd102fad746f7da148eb9ecc0b1c8f37e44a04fee6d4827722032",
+    "passed": 1029,
+    "seconds": 139.815,
+    "skipped": 0
+  },
+  "model_and_initialization_conformance": true,
+  "original_registration_preserved_and_invalidated": "EXP-20261003-0001",
+  "preregistration_preceded_changed_sampler_implementation": true,
+  "schema_version": 1,
+  "scope": "one corrected registration; exactly one actual five-pair execution; no retry, unchanged deadline and total fit cap",
+  "scoring_seeds_realized": false,
+  "small_unit_training_fixtures_performed": true
+}

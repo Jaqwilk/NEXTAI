@@ -255,7 +255,9 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
     negatives = negatives_status(base)
     if negatives is not None:
         stopped = negatives["terminal"] or negatives["expired"]
+        from .audit_repair import status as repair_status
         return {**progress, "activation_id": negatives["id"], "muc02_negatives": negatives,
+                "audit_repair": repair_status(base),
                 "scoring_authorized": negatives["scoring_authorized"], "user_decision_required": stopped,
                 "next_action_id": "MUC02-HARD-NEGATIVES-DECISION" if stopped else "MUC02-HARD-NEGATIVES-RUN" if negatives["ready"] else "MUC02-HARD-NEGATIVES-PREP",
                 "next_action": "Review all preserved paired development outcomes; no retry or automatic final stage." if stopped else

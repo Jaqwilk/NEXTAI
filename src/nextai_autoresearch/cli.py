@@ -566,7 +566,7 @@ def command_plan_new(args: argparse.Namespace) -> int:
     if config.benchmark_version == "mutable_contact_ledger_v2":
         from .muc02_plan import configure_plan
         configure_plan(plan, args, root, configured_directions)
-    if config.benchmark_version == "mutable_contact_ledger_hard_negatives_v1":
+    if config.benchmark_version in {"mutable_contact_ledger_hard_negatives_v1", "mutable_contact_ledger_hard_negatives_v2"}:
         from .muc02_negatives_stage import configure_plan
         configure_plan(plan, args, root, configured_directions)
     if config.benchmark_version.startswith("cross_family_"):

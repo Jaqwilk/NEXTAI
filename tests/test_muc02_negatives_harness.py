@@ -90,3 +90,14 @@ def test_dense_diagnostic_detects_wrong_ranking_and_unknown_acceptance():
         selection_diagnostics(wrong, worlds[0], 938, 32, 1, 0)
     with pytest.raises(ValueError, match="coverage"):
         diagnostic_metrics(diagnostics[:-1])
+
+
+def test_structural_generation_is_bounded_and_preserves_rejected_proposals(monkeypatch):
+    from nextai_autoresearch import muc02_negatives_task as task
+    proposals = []
+    monkeypatch.setattr(task, "make_world", lambda *args: (_ for _ in ()).throw(RuntimeError("Cannot satisfy v2 query strata")))
+    with pytest.raises(RuntimeError, match="All 64"):
+        task.fresh_worlds(939, "D", 32, 4, proposals.append)
+    assert len(proposals) == 64 and all(not row["accepted"] for row in proposals)
+    assert len({row["world_seed"] for row in proposals}) == 64
+    assert [row["proposal"] for row in proposals] == list(range(64))

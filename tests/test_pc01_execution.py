@@ -14,6 +14,7 @@ from nextai_autoresearch import pc01, pc01_execution as execution, pc01_worker a
 from nextai_autoresearch.ledger import append_jsonl, register_plan
 from nextai_autoresearch.utils import atomic_write_json, load_json, project_root, sha256_json, sha256_file
 from test_pc01_harness import replica
+from test_lab_restart import set_fixture_cohort
 
 
 FIXTURE = Path(__file__).parent / "fixtures/pc01_process_fixture.py"
@@ -29,12 +30,7 @@ def lab(tmp_path, monkeypatch):
         shutil.copy2(path, tmp_path / "schemas" / path.name)
     shutil.copy2(project_root() / "config/research.toml", tmp_path / "config/research.toml")
     config_path = tmp_path / "config/research.toml"
-    config_path.write_text(config_path.read_text()
-                           .replace("mutable_contact_ledger_v1", pc01.COHORT)
-                           .replace("mutable_contact_ledger_v2", pc01.COHORT)
-                           .replace("wt01_causal_factorial_diagnostic_v1", pc01.COHORT)
-                           .replace(pc01.TELEMETRY_COHORT, pc01.COHORT)
-                           .replace(pc01.METADATA_COHORT, pc01.COHORT))
+    set_fixture_cohort(config_path, pc01.COHORT, "active")
     shutil.copy2(project_root() / pc01.CONTRACT_PATH, tmp_path / pc01.CONTRACT_PATH)
     atomic_write_json(tmp_path / "research/eval_manifest.json", {"evaluator_sha256": "a"*64})
     atomic_write_json(tmp_path / "research/state.json", {"active_experiment_id": None, "completed_experiments": 0,

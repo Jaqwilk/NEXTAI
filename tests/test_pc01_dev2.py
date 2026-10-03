@@ -9,6 +9,7 @@ from nextai_autoresearch.ledger import append_jsonl
 from nextai_autoresearch.schemas import validate_document, load_schema
 from nextai_autoresearch.utils import load_json, project_root, sha256_file
 from test_pc01_execution import lab, plan, install_process
+from test_lab_restart import set_fixture_cohort
 
 
 @pytest.fixture
@@ -20,11 +21,7 @@ def scope(tmp_path, monkeypatch):
     (tmp_path / "config").mkdir()
     shutil.copy2(root / "config/research.toml", tmp_path / "config/research.toml")
     config = tmp_path / "config/research.toml"
-    config.write_text(config.read_text()
-                      .replace("mutable_contact_ledger_v1", pc01.TELEMETRY_COHORT)
-                      .replace("mutable_contact_ledger_v2", pc01.TELEMETRY_COHORT)
-                      .replace("wt01_causal_factorial_diagnostic_v1", pc01.TELEMETRY_COHORT)
-                      .replace(pc01.METADATA_COHORT, pc01.TELEMETRY_COHORT))
+    set_fixture_cohort(config, pc01.TELEMETRY_COHORT, "active")
     monkeypatch.setattr(laboratory, "dev2_authority", lambda base: authority)
     monkeypatch.setattr(execution, "registered_plans", lambda base: plans)
     return tmp_path, plans, authority

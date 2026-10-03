@@ -29,175 +29,352 @@
   ],
   "properties": {
     "muc02_negatives_protocol": {
-      "const": {
-        "authority_path": "research/laboratory/MUC02-HARD-NEGATIVES-20261003-V1.json",
-        "contract_path": "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json",
-        "contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
-        "data_conformance_addendum_path": "research/plans/MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1.json",
-        "data_conformance_addendum_sha256": "b16374fae1b7454f2bec0972918bb422135801932750d4e1bf1e89352d9ed282",
-        "roles": {
-          "muc02_random_neg_s0": {
-            "arm": "random",
-            "seed_index": 0
-          },
-          "muc02_hard_neg_s0": {
-            "arm": "hard",
-            "seed_index": 0
-          },
-          "muc02_random_neg_s1": {
-            "arm": "random",
-            "seed_index": 1
-          },
-          "muc02_hard_neg_s1": {
-            "arm": "hard",
-            "seed_index": 1
-          },
-          "muc02_random_neg_s2": {
-            "arm": "random",
-            "seed_index": 2
-          },
-          "muc02_hard_neg_s2": {
-            "arm": "hard",
-            "seed_index": 2
-          },
-          "muc02_random_neg_s3": {
-            "arm": "random",
-            "seed_index": 3
-          },
-          "muc02_hard_neg_s3": {
-            "arm": "hard",
-            "seed_index": 3
-          },
-          "muc02_random_neg_s4": {
-            "arm": "random",
-            "seed_index": 4
-          },
-          "muc02_hard_neg_s4": {
-            "arm": "hard",
-            "seed_index": 4
+      "oneOf": [
+        {
+          "const": {
+            "authority_path": "research/laboratory/MUC02-HARD-NEGATIVES-20261003-V1.json",
+            "contract_path": "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json",
+            "contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+            "data_conformance_addendum_path": "research/plans/MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1.json",
+            "data_conformance_addendum_sha256": "b16374fae1b7454f2bec0972918bb422135801932750d4e1bf1e89352d9ed282",
+            "roles": {
+              "muc02_random_neg_s0": {
+                "arm": "random",
+                "seed_index": 0
+              },
+              "muc02_hard_neg_s0": {
+                "arm": "hard",
+                "seed_index": 0
+              },
+              "muc02_random_neg_s1": {
+                "arm": "random",
+                "seed_index": 1
+              },
+              "muc02_hard_neg_s1": {
+                "arm": "hard",
+                "seed_index": 1
+              },
+              "muc02_random_neg_s2": {
+                "arm": "random",
+                "seed_index": 2
+              },
+              "muc02_hard_neg_s2": {
+                "arm": "hard",
+                "seed_index": 2
+              },
+              "muc02_random_neg_s3": {
+                "arm": "random",
+                "seed_index": 3
+              },
+              "muc02_hard_neg_s3": {
+                "arm": "hard",
+                "seed_index": 3
+              },
+              "muc02_random_neg_s4": {
+                "arm": "random",
+                "seed_index": 4
+              },
+              "muc02_hard_neg_s4": {
+                "arm": "hard",
+                "seed_index": 4
+              }
+            },
+            "classical_baselines": [
+              "muc02_random_neg_s0",
+              "muc02_hard_neg_s0",
+              "muc02_random_neg_s1",
+              "muc02_hard_neg_s1",
+              "muc02_random_neg_s2",
+              "muc02_hard_neg_s2",
+              "muc02_random_neg_s3",
+              "muc02_hard_neg_s3",
+              "muc02_random_neg_s4",
+              "muc02_hard_neg_s4",
+              "symbolic_last_write_graph_v2"
+            ],
+            "recipe": {
+              "seed_source": "five runner_random_v1 paired seeds, same initialization and batches within pair",
+              "encoder_layers": 6,
+              "width": 384,
+              "heads": 6,
+              "feedforward_width": 1536,
+              "dropout": 0.0,
+              "pair_bytes_cap": 96,
+              "pad_mask": true,
+              "optimizer": "AdamW",
+              "learning_rate": 0.0003,
+              "weight_decay": 0.01,
+              "batch_size": 32,
+              "updates": 192,
+              "training_pairs": 4096,
+              "sampling": "4096 balanced pairs; identical anchors/positives/order; only negative key distribution differs",
+              "selection": "none; fixed final optimizer step; dev evaluated once for competence only",
+              "retrieval": "actual BM25 k1=1.2 b=0.75, top 4; identical learned pair model and disclosed iterative path loop",
+              "frozen_control": "same initialization and inference as BM25 pair reader; zero updates"
+            },
+            "fit_steps_cap": 192,
+            "fit_seconds_cap": 350,
+            "fit_seconds_total_cap": 3600,
+            "worker_seconds_cap": 1800,
+            "deadline_at": "2026-10-04T01:08:25Z",
+            "max_rss_bytes": 8589934592,
+            "max_cuda_reserved_bytes": 4294967296,
+            "data": {
+              "knowledge_sizes": [
+                32,
+                128,
+                512
+              ],
+              "reasoning_depths": [
+                1,
+                2,
+                4
+              ],
+              "train_worlds_per_cell": 45,
+              "development_worlds_per_cell": 15,
+              "questions_per_world": 16,
+              "seed_derivation": "integer SHA256 of MUC02-HARD-NEGATIVES-20261003-V1|seed|split|K|D|index; first 16 bytes plus 2**128; never old training/calibration_worlds functions",
+              "train_split": "T",
+              "development_split": "D",
+              "no_calibration_or_final_access": true,
+              "source": "same muc02_task.make_world grammar and strata; new train/dev worlds for each paired seed; known compositions only; no reuse of EXP-20261002-0001 worlds",
+              "diagnostic_queries_per_world": 4,
+              "diagnostics": "two distinct known keys chosen from serialized dev statements, one absent-subject key ED999 + known relation, one known-subject key + absent relation violet; raw dense scores over every serialized record, including obsolete records",
+              "top1_rule": "maximum probability; exact tie resolved by largest public timestamp; correct only if chosen latest record for queried key; top1 measured before fixed rejection threshold",
+              "unknown_rule": "reject iff maximum probability < 0.5; threshold never fitted or swept",
+              "end_to_end": "unchanged MUC v2 BM25 top4 + same neural matcher + public timestamp tie + threshold0.5 + explicit path loop; 16 questions/world, 2 absent-subject UNKNOWN questions"
+            },
+            "metrics": {
+              "primary": [
+                "fact_top1_accuracy",
+                "dense_unknown_rejection"
+              ],
+              "secondary": [
+                "accepted_fact_accuracy",
+                "known_false_abstention",
+                "pair_false_positive_rate",
+                "pair_false_negative_rate",
+                "hard_subject_fpr",
+                "hard_relation_fpr",
+                "unknown_subject_rejection",
+                "unknown_relation_rejection",
+                "e2e_accuracy",
+                "e2e_known_accuracy",
+                "e2e_unknown_rejection",
+                "replacement_accuracy",
+                "retention_accuracy",
+                "fit_seconds",
+                "fit_ops",
+                "preprocessing_ops",
+                "diagnostic_flops",
+                "p50_latency_us",
+                "p95_latency_us",
+                "worker_seconds",
+                "RSS",
+                "CUDA_reserved"
+              ],
+              "aggregation": "per-world diagnostic metrics then equal means of 9 KxD cells; end-to-end 16 questions per world; per-seed arm differences, never pool queries as independent replicates",
+              "uncertainty": "five independent paired seed/data units; Student-t df=4. Both primaries use two-sided 97.5% intervals (Bonferroni familywise 95% for two endpoints). Secondaries 95% paired t descriptive; no query-level binomial claims",
+              "threshold": 0.5
+            },
+            "decision_gates": {
+              "fact_top1_gain_min": 0.05,
+              "unknown_rejection_gain_min": 0.1,
+              "both_primary_simultaneous_ci_lower_gt": 0.0,
+              "positive_pairs_min": 4,
+              "known_accepted_and_e2e_accuracy_gain_min": -0.02,
+              "known_false_abstention_gain_max": 0.02,
+              "symbolic_accuracy_min": 0.995,
+              "symbolic_parser_failure_max": 0.001,
+              "decision": "KEEP hard sampling as dev recipe only if all primary and safety gates pass. Otherwise DISCARD this proposed recipe or INCONCLUSIVE on invalid/partial data. No architecture promotion; further fresh final experiment requires user authority."
+            },
+            "negative_sampling": {
+              "random": "uniform different known (subject,relation) key from the same world",
+              "hard": "2048 negatives: 1024 same-subject/different-relation and 1024 same-relation/different-subject; uniform within each type",
+              "pairing": "independent RNGs for anchor selection, negative selection and global pair permutation; same 2048 positives, document anchors, label order, initialization and minibatches in each pair",
+              "unknown_training": "none added; absent keys remain dev-only; changed factor is negative key distribution only"
+            },
+            "measurement": {
+              "full_boundary": "fresh-data generation timing, model initialization/fit/pair preprocessing, ingest/index/update, B1 end-to-end and dense diagnostics, warmup, output decoding, CPU/RAM/GPU/VRAM; exact parser/index counters separated from estimated FLOPs; raw world costs and latencies retained",
+              "amortization": "fit divided among135 dev worlds per learned seed; world ingest once + 16 E2E queries repeated R=1/4/16; dense diagnostic work reported separately; evaluation work never hidden as free preprocessing",
+              "energy": "not measured; no energy/currency/economic advantage claim"
+            }
           }
         },
-        "classical_baselines": [
-          "muc02_random_neg_s0",
-          "muc02_hard_neg_s0",
-          "muc02_random_neg_s1",
-          "muc02_hard_neg_s1",
-          "muc02_random_neg_s2",
-          "muc02_hard_neg_s2",
-          "muc02_random_neg_s3",
-          "muc02_hard_neg_s3",
-          "muc02_random_neg_s4",
-          "muc02_hard_neg_s4",
-          "symbolic_last_write_graph_v2"
-        ],
-        "recipe": {
-          "seed_source": "five runner_random_v1 paired seeds, same initialization and batches within pair",
-          "encoder_layers": 6,
-          "width": 384,
-          "heads": 6,
-          "feedforward_width": 1536,
-          "dropout": 0.0,
-          "pair_bytes_cap": 96,
-          "pad_mask": true,
-          "optimizer": "AdamW",
-          "learning_rate": 0.0003,
-          "weight_decay": 0.01,
-          "batch_size": 32,
-          "updates": 192,
-          "training_pairs": 4096,
-          "sampling": "4096 balanced pairs; identical anchors/positives/order; only negative key distribution differs",
-          "selection": "none; fixed final optimizer step; dev evaluated once for competence only",
-          "retrieval": "actual BM25 k1=1.2 b=0.75, top 4; identical learned pair model and disclosed iterative path loop",
-          "frozen_control": "same initialization and inference as BM25 pair reader; zero updates"
-        },
-        "fit_steps_cap": 192,
-        "fit_seconds_cap": 350,
-        "fit_seconds_total_cap": 3600,
-        "worker_seconds_cap": 1800,
-        "deadline_at": "2026-10-04T01:08:25Z",
-        "max_rss_bytes": 8589934592,
-        "max_cuda_reserved_bytes": 4294967296,
-        "data": {
-          "knowledge_sizes": [
-            32,
-            128,
-            512
-          ],
-          "reasoning_depths": [
-            1,
-            2,
-            4
-          ],
-          "train_worlds_per_cell": 45,
-          "development_worlds_per_cell": 15,
-          "questions_per_world": 16,
-          "seed_derivation": "integer SHA256 of MUC02-HARD-NEGATIVES-20261003-V1|seed|split|K|D|index; first 16 bytes plus 2**128; never old training/calibration_worlds functions",
-          "train_split": "T",
-          "development_split": "D",
-          "no_calibration_or_final_access": true,
-          "source": "same muc02_task.make_world grammar and strata; new train/dev worlds for each paired seed; known compositions only; no reuse of EXP-20261002-0001 worlds",
-          "diagnostic_queries_per_world": 4,
-          "diagnostics": "two distinct known keys chosen from serialized dev statements, one absent-subject key ED999 + known relation, one known-subject key + absent relation violet; raw dense scores over every serialized record, including obsolete records",
-          "top1_rule": "maximum probability; exact tie resolved by largest public timestamp; correct only if chosen latest record for queried key; top1 measured before fixed rejection threshold",
-          "unknown_rule": "reject iff maximum probability < 0.5; threshold never fitted or swept",
-          "end_to_end": "unchanged MUC v2 BM25 top4 + same neural matcher + public timestamp tie + threshold0.5 + explicit path loop; 16 questions/world, 2 absent-subject UNKNOWN questions"
-        },
-        "metrics": {
-          "primary": [
-            "fact_top1_accuracy",
-            "dense_unknown_rejection"
-          ],
-          "secondary": [
-            "accepted_fact_accuracy",
-            "known_false_abstention",
-            "pair_false_positive_rate",
-            "pair_false_negative_rate",
-            "hard_subject_fpr",
-            "hard_relation_fpr",
-            "unknown_subject_rejection",
-            "unknown_relation_rejection",
-            "e2e_accuracy",
-            "e2e_known_accuracy",
-            "e2e_unknown_rejection",
-            "replacement_accuracy",
-            "retention_accuracy",
-            "fit_seconds",
-            "fit_ops",
-            "preprocessing_ops",
-            "diagnostic_flops",
-            "p50_latency_us",
-            "p95_latency_us",
-            "worker_seconds",
-            "RSS",
-            "CUDA_reserved"
-          ],
-          "aggregation": "per-world diagnostic metrics then equal means of 9 KxD cells; end-to-end 16 questions per world; per-seed arm differences, never pool queries as independent replicates",
-          "uncertainty": "five independent paired seed/data units; Student-t df=4. Both primaries use two-sided 97.5% intervals (Bonferroni familywise 95% for two endpoints). Secondaries 95% paired t descriptive; no query-level binomial claims",
-          "threshold": 0.5
-        },
-        "decision_gates": {
-          "fact_top1_gain_min": 0.05,
-          "unknown_rejection_gain_min": 0.1,
-          "both_primary_simultaneous_ci_lower_gt": 0.0,
-          "positive_pairs_min": 4,
-          "known_accepted_and_e2e_accuracy_gain_min": -0.02,
-          "known_false_abstention_gain_max": 0.02,
-          "symbolic_accuracy_min": 0.995,
-          "symbolic_parser_failure_max": 0.001,
-          "decision": "KEEP hard sampling as dev recipe only if all primary and safety gates pass. Otherwise DISCARD this proposed recipe or INCONCLUSIVE on invalid/partial data. No architecture promotion; further fresh final experiment requires user authority."
-        },
-        "negative_sampling": {
-          "random": "uniform different known (subject,relation) key from the same world",
-          "hard": "2048 negatives: 1024 same-subject/different-relation and 1024 same-relation/different-subject; uniform within each type",
-          "pairing": "independent RNGs for anchor selection, negative selection and global pair permutation; same 2048 positives, document anchors, label order, initialization and minibatches in each pair",
-          "unknown_training": "none added; absent keys remain dev-only; changed factor is negative key distribution only"
-        },
-        "measurement": {
-          "full_boundary": "fresh-data generation timing, model initialization/fit/pair preprocessing, ingest/index/update, B1 end-to-end and dense diagnostics, warmup, output decoding, CPU/RAM/GPU/VRAM; exact parser/index counters separated from estimated FLOPs; raw world costs and latencies retained",
-          "amortization": "fit divided among135 dev worlds per learned seed; world ingest once + 16 E2E queries repeated R=1/4/16; dense diagnostic work reported separately; evaluation work never hidden as free preprocessing",
-          "energy": "not measured; no energy/currency/economic advantage claim"
+        {
+          "const": {
+            "authority_path": "research/laboratory/MUC02-HARD-NEGATIVES-20261003-V1.json",
+            "contract_path": "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json",
+            "contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+            "data_conformance_addendum_path": "research/plans/MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1.json",
+            "data_conformance_addendum_sha256": "b16374fae1b7454f2bec0972918bb422135801932750d4e1bf1e89352d9ed282",
+            "roles": {
+              "muc02_random_neg_s0": {
+                "arm": "random",
+                "seed_index": 0
+              },
+              "muc02_hard_neg_s0": {
+                "arm": "hard",
+                "seed_index": 0
+              },
+              "muc02_random_neg_s1": {
+                "arm": "random",
+                "seed_index": 1
+              },
+              "muc02_hard_neg_s1": {
+                "arm": "hard",
+                "seed_index": 1
+              },
+              "muc02_random_neg_s2": {
+                "arm": "random",
+                "seed_index": 2
+              },
+              "muc02_hard_neg_s2": {
+                "arm": "hard",
+                "seed_index": 2
+              },
+              "muc02_random_neg_s3": {
+                "arm": "random",
+                "seed_index": 3
+              },
+              "muc02_hard_neg_s3": {
+                "arm": "hard",
+                "seed_index": 3
+              },
+              "muc02_random_neg_s4": {
+                "arm": "random",
+                "seed_index": 4
+              },
+              "muc02_hard_neg_s4": {
+                "arm": "hard",
+                "seed_index": 4
+              }
+            },
+            "classical_baselines": [
+              "muc02_random_neg_s0",
+              "muc02_hard_neg_s0",
+              "muc02_random_neg_s1",
+              "muc02_hard_neg_s1",
+              "muc02_random_neg_s2",
+              "muc02_hard_neg_s2",
+              "muc02_random_neg_s3",
+              "muc02_hard_neg_s3",
+              "muc02_random_neg_s4",
+              "muc02_hard_neg_s4",
+              "symbolic_last_write_graph_v2"
+            ],
+            "recipe": {
+              "seed_source": "five runner_random_v1 paired seeds, same initialization and batches within pair",
+              "encoder_layers": 6,
+              "width": 384,
+              "heads": 6,
+              "feedforward_width": 1536,
+              "dropout": 0.0,
+              "pair_bytes_cap": 96,
+              "pad_mask": true,
+              "optimizer": "AdamW",
+              "learning_rate": 0.0003,
+              "weight_decay": 0.01,
+              "batch_size": 32,
+              "updates": 192,
+              "training_pairs": 4096,
+              "sampling": "4096 balanced pairs; identical anchors/positives/order; only negative key distribution differs",
+              "selection": "none; fixed final optimizer step; dev evaluated once for competence only",
+              "retrieval": "actual BM25 k1=1.2 b=0.75, top 4; identical learned pair model and disclosed iterative path loop",
+              "frozen_control": "same initialization and inference as BM25 pair reader; zero updates"
+            },
+            "fit_steps_cap": 192,
+            "fit_seconds_cap": 350,
+            "fit_seconds_total_cap": 3600,
+            "worker_seconds_cap": 1800,
+            "deadline_at": "2026-10-04T01:08:25Z",
+            "max_rss_bytes": 8589934592,
+            "max_cuda_reserved_bytes": 4294967296,
+            "data": {
+              "knowledge_sizes": [
+                32,
+                128,
+                512
+              ],
+              "reasoning_depths": [
+                1,
+                2,
+                4
+              ],
+              "train_worlds_per_cell": 45,
+              "development_worlds_per_cell": 15,
+              "questions_per_world": 16,
+              "seed_derivation": "integer SHA256 of MUC02-HARD-NEGATIVES-20261003-V1|seed|split|K|D|index; first 16 bytes plus 2**128; never old training/calibration_worlds functions",
+              "train_split": "T",
+              "development_split": "D",
+              "no_calibration_or_final_access": true,
+              "source": "same muc02_task.make_world grammar and strata; new train/dev worlds for each paired seed; known compositions only; no reuse of EXP-20261002-0001 worlds",
+              "diagnostic_queries_per_world": 4,
+              "diagnostics": "two distinct known keys chosen from serialized dev statements, one absent-subject key ED999 + known relation, one known-subject key + absent relation violet; raw dense scores over every serialized record, including obsolete records",
+              "top1_rule": "maximum probability; exact tie resolved by largest public timestamp; correct only if chosen latest record for queried key; top1 measured before fixed rejection threshold",
+              "unknown_rule": "reject iff maximum probability < 0.5; threshold never fitted or swept",
+              "end_to_end": "unchanged MUC v2 BM25 top4 + same neural matcher + public timestamp tie + threshold0.5 + explicit path loop; 16 questions/world, 2 absent-subject UNKNOWN questions"
+            },
+            "metrics": {
+              "primary": [
+                "fact_top1_accuracy",
+                "dense_unknown_rejection"
+              ],
+              "secondary": [
+                "accepted_fact_accuracy",
+                "known_false_abstention",
+                "pair_false_positive_rate",
+                "pair_false_negative_rate",
+                "hard_subject_fpr",
+                "hard_relation_fpr",
+                "unknown_subject_rejection",
+                "unknown_relation_rejection",
+                "e2e_accuracy",
+                "e2e_known_accuracy",
+                "e2e_unknown_rejection",
+                "replacement_accuracy",
+                "retention_accuracy",
+                "fit_seconds",
+                "fit_ops",
+                "preprocessing_ops",
+                "diagnostic_flops",
+                "p50_latency_us",
+                "p95_latency_us",
+                "worker_seconds",
+                "RSS",
+                "CUDA_reserved"
+              ],
+              "aggregation": "per-world diagnostic metrics then equal means of 9 KxD cells; end-to-end 16 questions per world; per-seed arm differences, never pool queries as independent replicates",
+              "uncertainty": "five independent paired seed/data units; Student-t df=4. Both primaries use two-sided 97.5% intervals (Bonferroni familywise 95% for two endpoints). Secondaries 95% paired t descriptive; no query-level binomial claims",
+              "threshold": 0.5
+            },
+            "decision_gates": {
+              "fact_top1_gain_min": 0.05,
+              "unknown_rejection_gain_min": 0.1,
+              "both_primary_simultaneous_ci_lower_gt": 0.0,
+              "positive_pairs_min": 4,
+              "known_accepted_and_e2e_accuracy_gain_min": -0.02,
+              "known_false_abstention_gain_max": 0.02,
+              "symbolic_accuracy_min": 0.995,
+              "symbolic_parser_failure_max": 0.001,
+              "decision": "KEEP hard sampling as dev recipe only if all primary and safety gates pass. Otherwise DISCARD this proposed recipe or INCONCLUSIVE on invalid/partial data. No architecture promotion; further fresh final experiment requires user authority."
+            },
+            "negative_sampling": {
+              "random": "uniform different known (subject,relation) key from the same world",
+              "hard": "2048 negatives: 1024 same-subject/different-relation and 1024 same-relation/different-subject; uniform within each type",
+              "pairing": "independent RNGs for anchor selection, negative selection and global pair permutation; same 2048 positives, document anchors, label order, initialization and minibatches in each pair",
+              "unknown_training": "none added; absent keys remain dev-only; changed factor is negative key distribution only"
+            },
+            "measurement": {
+              "full_boundary": "fresh-data generation timing, model initialization/fit/pair preprocessing, ingest/index/update, B1 end-to-end and dense diagnostics, warmup, output decoding, CPU/RAM/GPU/VRAM; exact parser/index counters separated from estimated FLOPs; raw world costs and latencies retained",
+              "amortization": "fit divided among135 dev worlds per learned seed; world ingest once + 16 E2E queries repeated R=1/4/16; dense diagnostic work reported separately; evaluation work never hidden as free preprocessing",
+              "energy": "not measured; no energy/currency/economic advantage claim"
+            },
+            "preseed_conformance_addendum_path": "research/plans/MUC02-HARD-NEGATIVES-PRESEED-CONFORMANCE-V1.json",
+            "preseed_conformance_addendum_sha256": "8c349423b5e30faa48468ec76ea8794129cf3e8abdec190a2b221b18a1a7a393"
+          }
         }
-      }
+      ]
     },
     "eligibility_contract": {
       "type": "object",
@@ -3670,6 +3847,246 @@
                   "maximum": 2147483647
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {
+            "const": "mutable_contact_ledger_hard_negatives_v2"
+          }
+        },
+        "required": [
+          "benchmark"
+        ]
+      },
+      "then": {
+        "required": [
+          "muc02_negatives_protocol",
+          "evaluator_sha256"
+        ],
+        "properties": {
+          "candidates": {
+            "const": [
+              "muc02_random_neg_s0",
+              "muc02_hard_neg_s0",
+              "muc02_random_neg_s1",
+              "muc02_hard_neg_s1",
+              "muc02_random_neg_s2",
+              "muc02_hard_neg_s2",
+              "muc02_random_neg_s3",
+              "muc02_hard_neg_s3",
+              "muc02_random_neg_s4",
+              "muc02_hard_neg_s4",
+              "symbolic_last_write_graph_v2"
+            ]
+          },
+          "budget": {
+            "const": "quick"
+          },
+          "matrix": {
+            "properties": {
+              "knowledge_sizes": {
+                "const": [
+                  32,
+                  128,
+                  512
+                ]
+              },
+              "reasoning_depths": {
+                "const": [
+                  1,
+                  2,
+                  4
+                ]
+              },
+              "queries_per_cell": {
+                "const": 16
+              },
+              "seed_policy": {
+                "const": {
+                  "method": "runner_random_v1",
+                  "count": 5,
+                  "minimum": 1000000,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          },
+          "muc02_negatives_protocol": {
+            "const": {
+              "authority_path": "research/laboratory/MUC02-HARD-NEGATIVES-20261003-V1.json",
+              "contract_path": "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json",
+              "contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+              "data_conformance_addendum_path": "research/plans/MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1.json",
+              "data_conformance_addendum_sha256": "b16374fae1b7454f2bec0972918bb422135801932750d4e1bf1e89352d9ed282",
+              "roles": {
+                "muc02_random_neg_s0": {
+                  "arm": "random",
+                  "seed_index": 0
+                },
+                "muc02_hard_neg_s0": {
+                  "arm": "hard",
+                  "seed_index": 0
+                },
+                "muc02_random_neg_s1": {
+                  "arm": "random",
+                  "seed_index": 1
+                },
+                "muc02_hard_neg_s1": {
+                  "arm": "hard",
+                  "seed_index": 1
+                },
+                "muc02_random_neg_s2": {
+                  "arm": "random",
+                  "seed_index": 2
+                },
+                "muc02_hard_neg_s2": {
+                  "arm": "hard",
+                  "seed_index": 2
+                },
+                "muc02_random_neg_s3": {
+                  "arm": "random",
+                  "seed_index": 3
+                },
+                "muc02_hard_neg_s3": {
+                  "arm": "hard",
+                  "seed_index": 3
+                },
+                "muc02_random_neg_s4": {
+                  "arm": "random",
+                  "seed_index": 4
+                },
+                "muc02_hard_neg_s4": {
+                  "arm": "hard",
+                  "seed_index": 4
+                }
+              },
+              "classical_baselines": [
+                "muc02_random_neg_s0",
+                "muc02_hard_neg_s0",
+                "muc02_random_neg_s1",
+                "muc02_hard_neg_s1",
+                "muc02_random_neg_s2",
+                "muc02_hard_neg_s2",
+                "muc02_random_neg_s3",
+                "muc02_hard_neg_s3",
+                "muc02_random_neg_s4",
+                "muc02_hard_neg_s4",
+                "symbolic_last_write_graph_v2"
+              ],
+              "recipe": {
+                "seed_source": "five runner_random_v1 paired seeds, same initialization and batches within pair",
+                "encoder_layers": 6,
+                "width": 384,
+                "heads": 6,
+                "feedforward_width": 1536,
+                "dropout": 0.0,
+                "pair_bytes_cap": 96,
+                "pad_mask": true,
+                "optimizer": "AdamW",
+                "learning_rate": 0.0003,
+                "weight_decay": 0.01,
+                "batch_size": 32,
+                "updates": 192,
+                "training_pairs": 4096,
+                "sampling": "4096 balanced pairs; identical anchors/positives/order; only negative key distribution differs",
+                "selection": "none; fixed final optimizer step; dev evaluated once for competence only",
+                "retrieval": "actual BM25 k1=1.2 b=0.75, top 4; identical learned pair model and disclosed iterative path loop",
+                "frozen_control": "same initialization and inference as BM25 pair reader; zero updates"
+              },
+              "fit_steps_cap": 192,
+              "fit_seconds_cap": 350,
+              "fit_seconds_total_cap": 3600,
+              "worker_seconds_cap": 1800,
+              "deadline_at": "2026-10-04T01:08:25Z",
+              "max_rss_bytes": 8589934592,
+              "max_cuda_reserved_bytes": 4294967296,
+              "data": {
+                "knowledge_sizes": [
+                  32,
+                  128,
+                  512
+                ],
+                "reasoning_depths": [
+                  1,
+                  2,
+                  4
+                ],
+                "train_worlds_per_cell": 45,
+                "development_worlds_per_cell": 15,
+                "questions_per_world": 16,
+                "seed_derivation": "integer SHA256 of MUC02-HARD-NEGATIVES-20261003-V1|seed|split|K|D|index; first 16 bytes plus 2**128; never old training/calibration_worlds functions",
+                "train_split": "T",
+                "development_split": "D",
+                "no_calibration_or_final_access": true,
+                "source": "same muc02_task.make_world grammar and strata; new train/dev worlds for each paired seed; known compositions only; no reuse of EXP-20261002-0001 worlds",
+                "diagnostic_queries_per_world": 4,
+                "diagnostics": "two distinct known keys chosen from serialized dev statements, one absent-subject key ED999 + known relation, one known-subject key + absent relation violet; raw dense scores over every serialized record, including obsolete records",
+                "top1_rule": "maximum probability; exact tie resolved by largest public timestamp; correct only if chosen latest record for queried key; top1 measured before fixed rejection threshold",
+                "unknown_rule": "reject iff maximum probability < 0.5; threshold never fitted or swept",
+                "end_to_end": "unchanged MUC v2 BM25 top4 + same neural matcher + public timestamp tie + threshold0.5 + explicit path loop; 16 questions/world, 2 absent-subject UNKNOWN questions"
+              },
+              "metrics": {
+                "primary": [
+                  "fact_top1_accuracy",
+                  "dense_unknown_rejection"
+                ],
+                "secondary": [
+                  "accepted_fact_accuracy",
+                  "known_false_abstention",
+                  "pair_false_positive_rate",
+                  "pair_false_negative_rate",
+                  "hard_subject_fpr",
+                  "hard_relation_fpr",
+                  "unknown_subject_rejection",
+                  "unknown_relation_rejection",
+                  "e2e_accuracy",
+                  "e2e_known_accuracy",
+                  "e2e_unknown_rejection",
+                  "replacement_accuracy",
+                  "retention_accuracy",
+                  "fit_seconds",
+                  "fit_ops",
+                  "preprocessing_ops",
+                  "diagnostic_flops",
+                  "p50_latency_us",
+                  "p95_latency_us",
+                  "worker_seconds",
+                  "RSS",
+                  "CUDA_reserved"
+                ],
+                "aggregation": "per-world diagnostic metrics then equal means of 9 KxD cells; end-to-end 16 questions per world; per-seed arm differences, never pool queries as independent replicates",
+                "uncertainty": "five independent paired seed/data units; Student-t df=4. Both primaries use two-sided 97.5% intervals (Bonferroni familywise 95% for two endpoints). Secondaries 95% paired t descriptive; no query-level binomial claims",
+                "threshold": 0.5
+              },
+              "decision_gates": {
+                "fact_top1_gain_min": 0.05,
+                "unknown_rejection_gain_min": 0.1,
+                "both_primary_simultaneous_ci_lower_gt": 0.0,
+                "positive_pairs_min": 4,
+                "known_accepted_and_e2e_accuracy_gain_min": -0.02,
+                "known_false_abstention_gain_max": 0.02,
+                "symbolic_accuracy_min": 0.995,
+                "symbolic_parser_failure_max": 0.001,
+                "decision": "KEEP hard sampling as dev recipe only if all primary and safety gates pass. Otherwise DISCARD this proposed recipe or INCONCLUSIVE on invalid/partial data. No architecture promotion; further fresh final experiment requires user authority."
+              },
+              "negative_sampling": {
+                "random": "uniform different known (subject,relation) key from the same world",
+                "hard": "2048 negatives: 1024 same-subject/different-relation and 1024 same-relation/different-subject; uniform within each type",
+                "pairing": "independent RNGs for anchor selection, negative selection and global pair permutation; same 2048 positives, document anchors, label order, initialization and minibatches in each pair",
+                "unknown_training": "none added; absent keys remain dev-only; changed factor is negative key distribution only"
+              },
+              "measurement": {
+                "full_boundary": "fresh-data generation timing, model initialization/fit/pair preprocessing, ingest/index/update, B1 end-to-end and dense diagnostics, warmup, output decoding, CPU/RAM/GPU/VRAM; exact parser/index counters separated from estimated FLOPs; raw world costs and latencies retained",
+                "amortization": "fit divided among135 dev worlds per learned seed; world ingest once + 16 E2E queries repeated R=1/4/16; dense diagnostic work reported separately; evaluation work never hidden as free preprocessing",
+                "energy": "not measured; no energy/currency/economic advantage claim"
+              },
+              "preseed_conformance_addendum_path": "research/plans/MUC02-HARD-NEGATIVES-PRESEED-CONFORMANCE-V1.json",
+              "preseed_conformance_addendum_sha256": "8c349423b5e30faa48468ec76ea8794129cf3e8abdec190a2b221b18a1a7a393"
             }
           }
         }

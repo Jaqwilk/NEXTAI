@@ -9,9 +9,13 @@ runner seeds. The MUC v2 model, 4096 pairs and 192 steps stay fixed. Work starts
 2026-10-03T21:08:25Z and stops by 2026-10-04T01:08:25Z; total fit <=3600 s.
 The immutable contract is research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json,
 with user authority in the matching research/laboratory record. The new cohort
-is mutable_contact_ledger_hard_negatives_v1. No retry, WT8-9, final/calibration
+is mutable_contact_ledger_hard_negatives_v2. No retry, WT8-9, final/calibration
 reuse, tuning, new architecture, promotion, external model/API or schedule change.
 Any worker failure or cap stops the unstarted scope and preserves all outcomes.
+The append-only pre-seed conformance addendum preserves invalidated
+EXP-20261003-0001 and bounds one corrected preregistration before the one actual
+execution; it fixes serializer fields and historical fixtures without metric,
+threshold, model, data, seed, deadline or budget changes.
 Use `uv run nextai lab status` for the verified queue. All sections below are
 historical unless explicitly selected by this new authority.
 

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import math
+import hashlib
 import random
 import re
 import time
@@ -20,7 +21,9 @@ def encoded_pair(query_key: str, document_key: str, length: int = 96):
     return [257, *(byte + 1 for byte in raw), *([0] * (length - len(raw) - 1))]
 
 
-def training_pairs(worlds, limit, seed):
+def training_pairs(worlds, limit, seed, negative_sampling=None):
+    if negative_sampling not in {None, "random", "hard"}:
+        raise ValueError("Unknown negative-sampling intervention")
     groups, preprocessing = defaultdict(list), 0
     for index, world in enumerate(worlds):
         rows = []
@@ -35,6 +38,11 @@ def training_pairs(worlds, limit, seed):
             raise ValueError("Training world needs distinct keys for negative pairs")
         groups[(world["knowledge_size"], world["reasoning_depth"])].append((index, rows, keys))
     rng = random.Random(seed ^ 0x4D554332)
+    # Separate negative draws from anchors/permutation only in the new cohort.
+    # None preserves the historical v2 sampler's random stream.
+    negative_rng = rng if negative_sampling is None else random.Random(seed ^ 0x4E4547)
+    mismatch_types = Counter()
+    sampling_search_ops = 0
     cells = sorted(groups)
     rng.shuffle(cells)
     for cell in cells:
@@ -47,7 +55,18 @@ def training_pairs(worlds, limit, seed):
         index, rows, keys = groups[cell][(i // len(cells)) % len(groups[cell])]
         parsed, text = rng.choice(rows)
         key = (parsed[1], parsed[2])
-        negative = rng.choice([other for other in keys if other != key])
+        choices = [other for other in keys if other != key]
+        sampling_search_ops += 2 * len(keys)
+        if negative_sampling == "hard":
+            sampling_search_ops += 3 * len(choices)
+            if i % 2 == 0:
+                choices = [other for other in choices if other[0] == key[0] and other[1] != key[1]]
+            else:
+                choices = [other for other in choices if other[1] == key[1] and other[0] != key[0]]
+        if not choices:
+            raise ValueError("Training world lacks a preregistered negative type")
+        negative = negative_rng.choice(choices)
+        mismatch_types["same_subject" if negative[0] == key[0] else "same_relation" if negative[1] == key[1] else "both_different"] += 1
         doc = " ".join(key)
         pairs.extend([(" ".join(key), doc, 1.0), (" ".join(negative), doc, 0.0)])
         visited.add(index)
@@ -55,8 +74,18 @@ def training_pairs(worlds, limit, seed):
         per_cell[str(cell)] += 2
         preprocessing += 2 * 96 + 2 * len(doc) + len(" ".join(negative)) + len(" ".join(key))
     rng.shuffle(pairs)
-    return pairs, {"worlds_covered":len(visited), "worlds_available":len(worlds), "cells_covered":len(per_cell),
-                   "pairs_per_cell":dict(per_cell), "subjects_covered":len(subjects), "preprocessing_ops":preprocessing}
+    coverage = {"worlds_covered":len(visited), "worlds_available":len(worlds), "cells_covered":len(per_cell),
+                "pairs_per_cell":dict(per_cell), "subjects_covered":len(subjects), "preprocessing_ops":preprocessing}
+    if negative_sampling is not None:
+        payloads = {"pairs_sha256": repr(pairs).encode(),
+                    "positive_sequence_sha256": repr([(q, d) for q, d, y in pairs if y]).encode(),
+                    "document_and_label_sequence_sha256": repr([(d, y) for _, d, y in pairs]).encode()}
+        coverage.update({name: hashlib.sha256(payload).hexdigest() for name, payload in payloads.items()})
+        hashed_bytes = sum(len(payload) for payload in payloads.values())
+        coverage.update(negative_sampling=negative_sampling, mismatch_types=dict(mismatch_types), sampling_trace_hashed_bytes=hashed_bytes)
+        coverage["sampling_search_ops"] = sampling_search_ops
+        coverage["preprocessing_ops"] += hashed_bytes + 5 * len(pairs) + sampling_search_ops
+    return pairs, coverage
 
 
 class Reader(nn.Module):
@@ -197,7 +226,7 @@ class LearnedSystem(SymbolicSystem):
     def fit(self, train, development):
         tick = time.monotonic()
         recipe = self.protocol["recipe"]
-        pairs, coverage = training_pairs(train, recipe["training_pairs"], self.seed)
+        pairs, coverage = training_pairs(train, recipe["training_pairs"], self.seed, getattr(self, "negative_sampling", None))
         self.fit_info["preprocessing_ops"] += coverage["preprocessing_ops"]
         encoded = torch.tensor([encoded_pair(q,d,self.model.length) for q,d,_ in pairs],dtype=torch.long,device=self.device)
         labels = torch.tensor([y for _,_,y in pairs],dtype=torch.float32,device=self.device)

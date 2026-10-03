@@ -27,9 +27,10 @@ def test_historical_queue_preserves_muc_v1_terminal_decision() -> None:
 
 def test_current_queue_resolves_new_authority_without_resetting_v1() -> None:
     progress = laboratory_progress(ROOT)
-    assert progress["next_action_id"] in {"AUDIT-REPAIR", "MUC-02-CALIBRATION", "AUDIT-REPAIR-DECISION"}
+    assert progress["next_action_id"] in {"MUC02-HARD-NEGATIVES-PREP", "MUC02-HARD-NEGATIVES-RUN", "MUC02-HARD-NEGATIVES-DECISION"}
     assert progress["muc01_calibration"]["terminal"]
     assert progress["audit_repair"]["registrations_cap"] == 1
+    assert progress["audit_repair"]["terminal"] and progress["muc02_negatives"]["executed_attempts_cap"] == 1
 
 
 def test_frozen_plan_schema_accepts_only_exact_matrix_and_roles() -> None:

@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -14,6 +15,17 @@ from nextai_autoresearch.gates import GateViolation, ensure_can_create_plan, ens
 from nextai_autoresearch.laboratory import CONTRACT_PATH, laboratory_problems
 from nextai_autoresearch.provenance import resolve_audited_source
 from nextai_autoresearch.utils import load_json, project_root, sha256_bytes, sha256_file
+
+
+def set_fixture_cohort(path, cohort, status=None):
+    """Bind a historical fixture explicitly instead of replacing today's cohort."""
+    text = path.read_text(encoding="utf-8")
+    text, count = re.subn(r'(?m)^benchmark_version = "[^"]+"$', f'benchmark_version = "{cohort}"', text, count=1)
+    assert count == 1
+    if status is not None:
+        text, count = re.subn(r'(?m)^benchmark_status = "[^"]+"$', f'benchmark_status = "{status}"', text, count=1)
+        assert count == 1
+    path.write_text(text, encoding="utf-8", newline="\n")
 
 
 @pytest.fixture

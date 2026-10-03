@@ -4,7 +4,7 @@ import pytest
 from nextai_autoresearch import gates, laboratory, pc01_execution as execution
 from nextai_autoresearch.ledger import append_jsonl
 from nextai_autoresearch.utils import atomic_write_json, load_json, project_root, sha256_file
-from test_lab_restart import _lab_fixture
+from test_lab_restart import _lab_fixture, set_fixture_cohort
 from test_pc01_execution import plan
 
 
@@ -19,19 +19,7 @@ def authorized(tmp_path):
         "event": "pc01_activation_authorized", "authorization_path": laboratory.ACTIVATION_PATH,
         "authorization_sha256": laboratory.ACTIVATION_SHA256})
     config = tmp_path / "config/research.toml"
-    text = config.read_text().replace('benchmark_status = "maintenance"', 'benchmark_status = "active"')
-    text = text.replace('benchmark_version = "mutable_contact_ledger_v1"',
-                        'benchmark_version = "pc01_byte_lm_learning_measurement_v1"')
-    text = text.replace('benchmark_version = "mutable_contact_ledger_v2"',
-                        'benchmark_version = "pc01_byte_lm_learning_measurement_v1"')
-    text = text.replace('benchmark_version = "wt01_causal_factorial_diagnostic_v1"',
-                        'benchmark_version = "pc01_byte_lm_learning_measurement_v1"')
-    text = text.replace('benchmark_version = "pc01_byte_lm_learning_measurement_v3"',
-                        'benchmark_version = "pc01_byte_lm_learning_measurement_v1"')
-    text = text.replace('benchmark_version = "pc01_byte_lm_learning_measurement_v2"',
-                        'benchmark_version = "pc01_byte_lm_learning_measurement_v1"')
-    config.write_text(text.replace('benchmark_version = "heldout_suitesparse_cross_matrix_prolongation_v1"',
-                                   'benchmark_version = "pc01_byte_lm_learning_measurement_v1"'))
+    set_fixture_cohort(config, "pc01_byte_lm_learning_measurement_v1", "active")
     atomic_write_json(tmp_path / "research/eval_manifest.json", {"evaluator_sha256": "a"*64})
     return tmp_path
 
