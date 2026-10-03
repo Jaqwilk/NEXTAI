@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-03T22:42:44.823132+00:00",
+  "experiment_id": "EXP-20261004-0001",
+  "integration": "non-force fast-forward from independent clone",
+  "prior_original_commit": "a74dbce78018dc4882c8fe4b1bc99af278677ab2",
+  "integrated_clone_commit": "417fa6f097cfb98b18dad049df8fb50f00b4ae57",
+  "original_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "clone_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "executing_package_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\src\\nextai_autoresearch\\__init__.py",
+  "original_doctor_passed": true,
+  "original_integrity": {
+    "ok": true,
+    "benchmark_version": "mutable_contact_ledger_hard_negatives_v2",
+    "protocol_version": 3,
+    "evaluator_sha256": "6cfe6d153b78791cf9d30da1077fa97af56925029e7abccedc3d4bed105fb321",
+    "candidate_bundle_sha256": "3b8f5989e075fe02892322cf96a5acb0f7be2331713e5db2f5eb6071426b3d1b",
+    "problems": [],
+    "checked_files": 963
+  },
+  "report_provenance_problems": [],
+  "source_archive_files_verified": 968,
+  "runtime_archive_files_verified": 89,
+  "all_references_match_clone": true,
+  "references_raw_sha256": {
+    "research/results/EXP-20261004-0001.json": "66000914c334c624435bf7681a50ba6b76f9e93f60c45516c1cf847576921449",
+    "research/analyses/EXP-20261004-0001.md": "ba7be788adb2eecfdb19eca54c4a911fec71b1849bfc639f13802359263d3637",
+    "research/reviews/EXP-20261004-0001-paired-analysis.json": "8f438999a1359cc167d4bad91f13699a145825ffd41a2f2fe5798b5ee6d41b82",
+    "research/reviews/MUC02-HARD-NEGATIVES-postrun-full-tests.xml": "d6717c2df751d12f06ee293c786ca8ac0621761ca91772af897671d583713f66",
+    "research/laboratory/MUC02-HARD-NEGATIVES-COMPLETION-V1.receipt.json": "306e844731d40ca75c651f91510ebbf88589f1d4b4ca5c510962950d3e5cd575"
+  },
+  "current_scope": {
+    "id": "MUC02-HARD-NEGATIVES-20261003-V1",
+    "ready": true,
+    "terminal": true,
+    "expired": false,
+    "deadline_at": "2026-10-04T01:08:25Z",
+    "experiment_id": "EXP-20261004-0001",
+    "registrations_used": 2,
+    "registrations_cap": 2,
+    "original_registration_preserved": "EXP-20261003-0001",
+    "current_registrations_used": 1,
+    "executed_attempts_cap": 1,
+    "paired_seeds": 5,
+    "fit_seconds_total_cap": 3600,
+    "scoring_authorized": false
+  },
+  "completed_before_deadline": true,
+  "elapsed_stage_wall_seconds_at_integration": 5659.823132,
+  "new_fit_or_scored_run": false,
+  "unrelated_changes_discarded": false
+}
