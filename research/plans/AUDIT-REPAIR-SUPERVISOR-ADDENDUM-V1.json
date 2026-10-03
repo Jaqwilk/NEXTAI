@@ -1,0 +1,29 @@
+{
+  "apply_only_after_terminal_experiment": "EXP-20261002-0001",
+  "authority": "Existing user instruction to repair all audit findings; F12 and partial-trial durability within the unchanged 480-minute bound",
+  "benchmark_or_candidate_change": false,
+  "created_at": "2026-10-02T22:17:12Z",
+  "future_scoring": "Requires a new user decision and a fresh comparison cohort; this addendum authorizes no scoring",
+  "id": "AUDIT-REPAIR-SUPERVISOR-ADDENDUM-V1",
+  "kind": "prospective_no_scoring_maintenance_addendum",
+  "new_scientific_experiments": 0,
+  "parent_plan": "research/plans/AUDIT-REPAIR-20261002-V1.json",
+  "parent_plan_sha256": "94b8b342eba07a782b636932bc0da8b4c9e7cb149da2376d0a4a502a436e583b",
+  "preserve": [
+    "Frozen evaluator ee6c5cb92dfdb95dcf79942352c0ca753ca0ffe79f458b225e8377ad5774d010 and all result/runtime bytes",
+    "No retry, replacement registration or new seed",
+    "All previous budgets and the original maintenance deadline"
+  ],
+  "schema_version": 1,
+  "scope": [
+    "Require a valid phase observation together with a fresh device sample before resetting the continuous telemetry gap clock",
+    "Handle a subprocess that exits before psutil can attach, and clean up any unmonitored live child"
+  ],
+  "validation": [
+    "Missing phase with live device heartbeat must terminate after the existing 30-second grace",
+    "Missing or stale device heartbeat with valid phase must terminate after grace",
+    "Valid phase and fresh heartbeat recover the gap without inflating fit time",
+    "A short worker with valid output remains complete after an attachment race",
+    "Full authorized regression in the independent clone"
+  ]
+}

@@ -81,12 +81,13 @@ def resource_problem(output: Path, limits: dict, worker_started: float, gap_star
     now = time.monotonic()
     try:
         sample = read_device_sample(output.with_suffix(".device.json"))
+        fresh_device = False
         if sample is not None:
             if sample["reserved"] > limits["max_cuda_reserved_bytes"]:
                 return "cuda_limit", gap_started
             # Detect a silent telemetry thread, not merely a missing first sample.
             if time.time() - output.with_suffix(".device.json").stat().st_mtime < 2:
-                gap_started = now
+                fresh_device = True
         phase = load_json(output.with_suffix(".phase.json"))
         if (not isinstance(phase, dict) or set(phase) != {"phase", "fit_started", "fit_elapsed"}
                 or phase["phase"] not in {"initializing", "fit", "evaluation", "complete"}
@@ -100,6 +101,10 @@ def resource_problem(output: Path, limits: dict, worker_started: float, gap_star
             elapsed = now - tick if phase["phase"] == "fit" else phase["fit_elapsed"]
             if elapsed > limits["fit_seconds_cap"]:
                 return "fit_timeout", gap_started
+        # Both observations are required. A live device heartbeat alone cannot
+        # conceal a missing phase file and bypass the independent fit clock.
+        if fresh_device:
+            gap_started = now
     except (FileNotFoundError, PermissionError):
         pass  # Transient reads retain the parent's original continuous gap clock.
     except (ValueError, TypeError, KeyError):

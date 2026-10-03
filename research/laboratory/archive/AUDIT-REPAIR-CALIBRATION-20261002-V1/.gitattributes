@@ -1,0 +1,13 @@
+# Reproducible protected bytes, independent of platform/core.autocrlf.
+* text=auto eol=lf
+
+# Historical v2 manifests committed hashes of CRLF working-tree bytes.
+# Preserve those exact bytes; do not silently create a new data cohort.
+research/checks/dronepropa_anonymous_split_v1.jsonl text eol=crlf
+research/data/suitesparse_real_pde_v1/audit.json text eol=crlf
+research/data/suitesparse_real_pde_v1/recycling_audit.json text eol=crlf
+
+# Frozen source/evidence archives preserve exact historical bytes, including CRLF.
+research/laboratory/archive/** -text
+research/laboratory/*.xml -text
+research/tmp/** -text

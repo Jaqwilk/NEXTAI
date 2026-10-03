@@ -1,0 +1,175 @@
+{
+  "alternative_explanations": [
+    "The public grammar is solved by a simpler symbolic map; learning may not add value."
+  ],
+  "architecture_family": "muc_measurement_calibration",
+  "benchmark": "mutable_contact_ledger_v2",
+  "budget": "quick",
+  "candidates": [
+    "dense_pair_transformer_v2",
+    "bm25_pair_transformer_v2",
+    "frozen_bm25_pair_transformer_v2",
+    "symbolic_last_write_graph_v2"
+  ],
+  "confounds": [
+    "One seed and a visible local synthetic task; this is a new cohort and cannot isolate individual v1 repair effects."
+  ],
+  "created_at": "2026-10-02T21:47:08Z",
+  "eligibility_contract": {
+    "metric": "accuracy",
+    "minimum": 0.85
+  },
+  "evaluator_sha256": "ee6c5cb92dfdb95dcf79942352c0ca753ca0ffe79f458b225e8377ad5774d010",
+  "experiment_id": "EXP-20261002-0001",
+  "falsification_criteria": [
+    "Any missing cell, malformed answer, failed control, resource overrun or integrity failure closes this calibration as inconclusive."
+  ],
+  "git_before": {
+    "branch": "codex/audit-repair-20261002",
+    "commit": "2288fd719b217b48a36f88ff6cd685bd4ec65e66",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      2,
+      4
+    ],
+    "seed_policy": {
+      "count": 1,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "continual_new_fact_accuracy": "maximize",
+    "continual_retention": "maximize",
+    "exact_span_accuracy": "maximize",
+    "fit_ops": "minimize",
+    "mean_bytes_touched": "minimize",
+    "mean_query_ops": "minimize",
+    "mean_search_ops": "minimize",
+    "near_equivalent_accuracy": "maximize",
+    "p95_latency_us": "minimize",
+    "peak_state_bytes": "minimize",
+    "preprocessing_ops": "minimize",
+    "stable_rollout_rate": "maximize",
+    "state_bytes": "minimize",
+    "update_ops": "minimize",
+    "workload_ops_r1": "minimize",
+    "workload_ops_r16": "minimize",
+    "workload_ops_r4": "minimize"
+  },
+  "muc02_protocol": {
+    "authority_path": "research/laboratory/AUDIT-REPAIR-20261002-V1.json",
+    "calibration_worlds_per_cell": 15,
+    "classical_baselines": [
+      "dense_pair_transformer_v2",
+      "bm25_pair_transformer_v2",
+      "frozen_bm25_pair_transformer_v2",
+      "symbolic_last_write_graph_v2"
+    ],
+    "contract_path": "research/plans/AUDIT-REPAIR-20261002-V1.json",
+    "contract_sha256": "94b8b342eba07a782b636932bc0da8b4c9e7cb149da2376d0a4a502a436e583b",
+    "control_thresholds": {
+      "dense_overall_min": 0.85,
+      "dense_replacement_min": 0.8,
+      "learned_minus_frozen_min": 0.05,
+      "symbolic_overall_min": 0.995,
+      "symbolic_parser_failure_max": 0.001
+    },
+    "cost_contract": {
+      "durability": "fsynced per-cell journal; failed outcomes retain completed cells",
+      "latency": "synchronized end-to-end batch=1 raw samples, pooled p50/p95; separate measured batch throughput",
+      "operation_counts": "exact public parser/index primitive counters and explicitly estimated dense FLOPs, separated in raw costs",
+      "reuses": [
+        1,
+        4,
+        16
+      ],
+      "state": "parameters plus current session and index; process RSS and CUDA reserved peak supervised",
+      "workload_unit": "one mean world: input once and all 16 queries repeated R times; global fit evenly charged over 135 final worlds"
+    },
+    "declared_reuses": [
+      1,
+      4,
+      16
+    ],
+    "development_worlds_per_cell": 15,
+    "fit_seconds_cap": 1200,
+    "fit_steps_cap": 192,
+    "invalidation_rules": [
+      "Missing answers, world/cell coverage or costs invalidate the comparison",
+      "Any terminal outcome consumes the one registration; no automatic retry",
+      "No private generator, answers or strata may reach a candidate before prediction",
+      "No post-calibration recipe, threshold, selection or seed change"
+    ],
+    "max_cuda_reserved_bytes": 4294967296,
+    "max_rss_bytes": 8589934592,
+    "recipe": {
+      "batch_size": 32,
+      "dropout": 0.0,
+      "encoder_layers": 6,
+      "feedforward_width": 1536,
+      "frozen_control": "same initialization and inference as BM25 pair reader; zero updates",
+      "heads": 6,
+      "learning_rate": 0.0003,
+      "optimizer": "AdamW",
+      "pad_mask": true,
+      "pair_bytes_cap": 96,
+      "retrieval": "actual BM25 k1=1.2 b=0.75, top 4; identical learned pair model and disclosed iterative path loop",
+      "sampling": "balanced cells and worlds, randomized subjects, exact key mismatch negatives",
+      "seed_source": "one runner_random_v1 seed shared across roles",
+      "selection": "none; fixed final optimizer step; dev evaluated once for competence only",
+      "training_pairs": 4096,
+      "updates": 192,
+      "weight_decay": 0.01,
+      "width": 384
+    },
+    "train_worlds_per_cell": 45,
+    "worker_seconds_cap": 1800
+  },
+  "outcome_policy": {
+    "negative": "Close this exact baseline recipe and report the failed gates without falsifying the broader family.",
+    "null": "Retain all outcomes and stop; no retry or tuning.",
+    "positive": "Keep calibrated controls for a separately authorized mechanism question, without architecture claims."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Symbolic control is exact; learned controls must meet 0.85 overall and 0.80 replacement accuracy, and learned BM25 must exceed its frozen control by 0.05.",
+  "primary_metrics": [
+    "accuracy",
+    "continual_new_fact_accuracy",
+    "continual_retention",
+    "exact_span_accuracy",
+    "near_equivalent_accuracy",
+    "stable_rollout_rate",
+    "preprocessing_ops",
+    "fit_ops",
+    "mean_query_ops",
+    "mean_search_ops",
+    "update_ops",
+    "p95_latency_us",
+    "state_bytes",
+    "peak_state_bytes",
+    "mean_bytes_touched",
+    "workload_ops_r1",
+    "workload_ops_r4",
+    "workload_ops_r16"
+  ],
+  "promotion_criteria": [
+    "No architecture promotion or economic claim from this calibration."
+  ],
+  "research_question": "Can the fixed pair transformer and true BM25 pair reader meet frozen quality gates with valid full accounting on fresh worlds?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "MUC v2 repaired baseline calibration"
+}

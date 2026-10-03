@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-10-02T21:56:24Z
+Generated: 2026-10-02T22:27:45Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1233,6 +1233,17 @@ Pareto axes: maximize `accuracy, continual_new_fact_accuracy, continual_retentio
 | EXP-20260906-0002 | dense_transformer_v1 | implementable | complete | 0.1898 | - | 1 | 9.398e+07 | 2715 | 4.584e+07 | 1.504e+09 | 0.5855 (3) | 4.58358e+07 |  |
 | EXP-20260906-0002 | bm25_iterative_reader_v1 | implementable | complete | 0.7551 | - | 1 | 3.539e+06 | 102.7 | 4.584e+07 | 5.721e+07 | -2.052e-31 (3) | 4.58358e+07 |  |
 | EXP-20260906-0002 | symbolic_last_write_graph_v1 | implementable | complete | 1 | - | 1 | 2560 | 5.91e+05 | 2.15e+04 | 6.496e+04 | 0.5671 (3) | 49152 | yes |
+
+## mutable_contact_ledger_v2 / quick
+
+Pareto axes: maximize `accuracy, continual_new_fact_accuracy, continual_retention, exact_span_accuracy, near_equivalent_accuracy, stable_rollout_rate`; minimize `preprocessing_ops, fit_ops, mean_query_ops, mean_search_ops, update_ops, p95_latency_us, state_bytes, peak_state_bytes, mean_bytes_touched, workload_ops_r1, workload_ops_r4, workload_ops_r16`.
+
+| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20261002-0001 | dense_pair_transformer_v2 | implementable | complete | 0.2366 | - | 1 | 1.388e+12 | 101.5 | 2.817e+10 | 3.785e+14 | 0.9998 (3) | 4.31923e+07 |  |
+| EXP-20261002-0001 | bm25_pair_transformer_v2 | implementable | complete | 0.4884 | - | 1 | 1.966e+10 | 101.5 | 3.99e+08 | 5.712e+12 | -0.009572 (3) | 4.32924e+07 |  |
+| EXP-20261002-0001 | frozen_bm25_pair_transformer_v2 | implementable | complete | 0.1514 | - | 1 | 1.067e+10 | 101.5 | 2.165e+08 | 2.98e+12 | 0.006008 (3) | 4.32924e+07 |  |
+| EXP-20261002-0001 | symbolic_last_write_graph_v2 | implementable | complete | 1 | - | 1 | 162.4 | 101.5 | 39.8 | 1.022e+05 | 0.0001049 (3) | 29440 | yes |
 
 ## noisy_nonexhaustive_causal_transfer_v3 / quick
 

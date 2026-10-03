@@ -1,0 +1,82 @@
+{
+  "additional_repairs": [
+    "partial_trial_durability",
+    "single_current_session",
+    "no_repeated_ingestion_charge",
+    "PC01_two_sided_interval_description",
+    "missing_phase_with_live_device_heartbeat",
+    "worker_exit_before_monitor_attachment"
+  ],
+  "authority_path": "research/laboratory/AUDIT-REPAIR-20261002-V1.json",
+  "authority_sha256": "9d74c8dfd31e0c13ea3f033b55f855d2963be8ea910ffcb42ede19fb083e5c33",
+  "budget": {
+    "bookkeeping_after_deadline": true,
+    "budget_extended": false,
+    "deadline_at": "2026-10-02T23:21:35+00:00",
+    "elapsed_wall_minutes_at_bookkeeping": 1743.0024124000001,
+    "final_bookkeeping_at": "2026-10-03T20:24:35Z",
+    "final_tests_completed_at": "2026-10-02T22:31:55.604381+00:00",
+    "final_tests_completed_before_deadline": true,
+    "last_verified_doctor_before_deadline": "2026-10-02T22:34:11Z",
+    "maintenance_minutes_cap": 480,
+    "scored_runs_after_deadline": 0,
+    "source_repairs_completed_at": "2026-10-02T22:22:25Z"
+  },
+  "closed_findings": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F07",
+    "F08",
+    "F09",
+    "F10",
+    "F11",
+    "F12",
+    "F13"
+  ],
+  "created_at": "2026-10-03T20:24:35Z",
+  "evidence_path": "research/reviews/AUDIT-REPAIR-20261002-V1.evidence.json",
+  "evidence_sha256": "934aa7669385ad43869a81dbe0e0bc2943d67199a279ee456db54e7d917b6c49",
+  "experiment": {
+    "accuracy": {
+      "bm25_pair_transformer_v2": 0.4884259259259259,
+      "dense_pair_transformer_v2": 0.2365740740740741,
+      "frozen_bm25_pair_transformer_v2": 0.1513888888888889,
+      "symbolic_last_write_graph_v2": 1.0
+    },
+    "evaluator_sha256": "ee6c5cb92dfdb95dcf79942352c0ca753ca0ffe79f458b225e8377ad5774d010",
+    "id": "EXP-20261002-0001",
+    "integrity_after": true,
+    "integrity_before": true,
+    "plan_path": "research/plans/EXP-20261002-0001.json",
+    "plan_sha256": "56cbab4e331a7f7305524fa6526d45dd26c5a3fd0c7d94ad2d717d7723c2adc7",
+    "quality_gate": "dense competence failed; no architecture promotion",
+    "queries": 8640,
+    "result_path": "research/results/EXP-20261002-0001.json",
+    "result_sha256": "08ff2cc11c5d7631988cf828a4d030315efca7e6e62c14f7cc2b0ff12907d9a3",
+    "seeds": [
+      244206589
+    ],
+    "status": "complete",
+    "total_fit_seconds": 358.4947437999999,
+    "trials": 36
+  },
+  "final_tests": {
+    "errors": 0,
+    "failed": 0,
+    "junit_seconds": 139.133,
+    "passed": 1013,
+    "path": "research/checks/AUDIT-REPAIR-postrun-final.junit.xml",
+    "sha256": "0092e5ec8b82936bb404e3fdf9cc3a07250d9342a21ad041d53b2238f338af38",
+    "skipped": 0,
+    "tests": 1013
+  },
+  "id": "AUDIT-REPAIR-COMPLETION-V1",
+  "next_action": "AUDIT-REPAIR-DECISION",
+  "schema_version": 1,
+  "scoring_authorized": false,
+  "status": "validated_complete_with_late_bookkeeping"
+}

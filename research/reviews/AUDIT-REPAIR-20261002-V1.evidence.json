@@ -1,0 +1,235 @@
+{
+  "additional_repairs": [
+    "partial_trial_durability",
+    "single_current_session",
+    "no_repeated_ingestion_charge",
+    "PC01_two_sided_interval_description",
+    "missing_phase_with_live_device_heartbeat",
+    "worker_exit_before_monitor_attachment"
+  ],
+  "analysis_path": "research/analyses/EXP-20261002-0001.md",
+  "analysis_sha256": "f5cb6f20caaa26bd9b487799f6d489782802ceabba833baf192b88604a572ac0",
+  "archive_checks": {
+    "research/archive/AUDIT-REPAIR-20261002-V1": {
+      "files_verified": 925,
+      "manifest_sha256": "6021910b105c4e26aee38e52efe86bc0143ae3d2c44e4704c613e859c538dfd2"
+    },
+    "research/laboratory/archive/AUDIT-REPAIR-CALIBRATION-20261002-V1": {
+      "files_verified": 944,
+      "manifest_sha256": "301a82ddffe81a435e3defea1a36f95998d0c14dc4188cf872b48fc791421cd9"
+    }
+  },
+  "audit_repair_id": "AUDIT-REPAIR-20261002-V1",
+  "budget": {
+    "bookkeeping_after_deadline": true,
+    "budget_extended": false,
+    "deadline_at": "2026-10-02T23:21:35+00:00",
+    "elapsed_wall_minutes_at_bookkeeping": 1743.0024124000001,
+    "final_bookkeeping_at": "2026-10-03T20:24:35Z",
+    "final_tests_completed_at": "2026-10-02T22:31:55.604381+00:00",
+    "final_tests_completed_before_deadline": true,
+    "last_verified_doctor_before_deadline": "2026-10-02T22:34:11Z",
+    "maintenance_minutes_cap": 480,
+    "scored_runs_after_deadline": 0,
+    "source_repairs_completed_at": "2026-10-02T22:22:25Z"
+  },
+  "closed_findings": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F07",
+    "F08",
+    "F09",
+    "F10",
+    "F11",
+    "F12",
+    "F13"
+  ],
+  "closed_report": "research/reviews/AUDIT-REPAIR-20261002-V1.md",
+  "closed_report_sha256": "c5ee482f6b972e746a4f0507db81c2fa3401c56e31f3f38b67f82d432c2db094",
+  "created_at": "2026-10-03T20:24:35Z",
+  "current_scope": {
+    "deadline_at": "2026-10-02T23:21:35+00:00",
+    "experiment_id": "EXP-20261002-0001",
+    "expired": true,
+    "id": "AUDIT-REPAIR-20261002-V1",
+    "ready": true,
+    "registrations_cap": 1,
+    "registrations_used": 1,
+    "scoring_authorized": false,
+    "terminal": true
+  },
+  "doctor_at_last_validation": "PASS; 2026-10-02T22:34:11Z; 941 protected files; 107 results; cycle 300; zero pending plans",
+  "earlier_audit_access_incident_preserved": true,
+  "experiment": {
+    "accuracy": {
+      "bm25_pair_transformer_v2": 0.4884259259259259,
+      "dense_pair_transformer_v2": 0.2365740740740741,
+      "frozen_bm25_pair_transformer_v2": 0.1513888888888889,
+      "symbolic_last_write_graph_v2": 1.0
+    },
+    "evaluator_sha256": "ee6c5cb92dfdb95dcf79942352c0ca753ca0ffe79f458b225e8377ad5774d010",
+    "id": "EXP-20261002-0001",
+    "integrity_after": true,
+    "integrity_before": true,
+    "plan_path": "research/plans/EXP-20261002-0001.json",
+    "plan_sha256": "56cbab4e331a7f7305524fa6526d45dd26c5a3fd0c7d94ad2d717d7723c2adc7",
+    "quality_gate": "dense competence failed; no architecture promotion",
+    "queries": 8640,
+    "result_path": "research/results/EXP-20261002-0001.json",
+    "result_sha256": "08ff2cc11c5d7631988cf828a4d030315efca7e6e62c14f7cc2b0ff12907d9a3",
+    "seeds": [
+      244206589
+    ],
+    "status": "complete",
+    "total_fit_seconds": 358.4947437999999,
+    "trials": 36
+  },
+  "failed_suites_preserved": [
+    "research/checks/AUDIT-REPAIR-harness-first.junit.xml",
+    "research/checks/AUDIT-REPAIR-postrun-first.junit.xml"
+  ],
+  "final_test_suite": {
+    "errors": 0,
+    "failed": 0,
+    "junit_seconds": 139.133,
+    "passed": 1013,
+    "path": "research/checks/AUDIT-REPAIR-postrun-final.junit.xml",
+    "sha256": "0092e5ec8b82936bb404e3fdf9cc3a07250d9342a21ad041d53b2238f338af38",
+    "skipped": 0,
+    "tests": 1013
+  },
+  "historical_record_check": {
+    "baseline_commit": "7b0ddaa0c3a31ddf19230ed3cacebbb8cc87b0bf",
+    "git_blobs_equal_without_checkout_conversion": 4937,
+    "historical_immutable_files_checked": 4952,
+    "raw_matches_original_checkout": true,
+    "tracked_crlf_checkout_conversions": [
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-DEV-CYCLE-287/research/checks/dronepropa_anonymous_split_v1.jsonl: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-DEV-CYCLE-287/research/checks/dronepropa_anonymous_split_v1.jsonl"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-DEV-CYCLE-287/research/data/suitesparse_real_pde_v1/audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-DEV-CYCLE-287/research/data/suitesparse_real_pde_v1/audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-DEV-CYCLE-287/research/data/suitesparse_real_pde_v1/recycling_audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-DEV-CYCLE-287/research/data/suitesparse_real_pde_v1/recycling_audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-DEV-CYCLE-289/research/checks/dronepropa_anonymous_split_v1.jsonl: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-DEV-CYCLE-289/research/checks/dronepropa_anonymous_split_v1.jsonl"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-DEV-CYCLE-289/research/data/suitesparse_real_pde_v1/audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-DEV-CYCLE-289/research/data/suitesparse_real_pde_v1/audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-DEV-CYCLE-289/research/data/suitesparse_real_pde_v1/recycling_audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-DEV-CYCLE-289/research/data/suitesparse_real_pde_v1/recycling_audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-METADATA-CYCLE-290/research/checks/dronepropa_anonymous_split_v1.jsonl: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-METADATA-CYCLE-290/research/checks/dronepropa_anonymous_split_v1.jsonl"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-METADATA-CYCLE-290/research/data/suitesparse_real_pde_v1/audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-METADATA-CYCLE-290/research/data/suitesparse_real_pde_v1/audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-METADATA-CYCLE-290/research/data/suitesparse_real_pde_v1/recycling_audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-METADATA-CYCLE-290/research/data/suitesparse_real_pde_v1/recycling_audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-PREP-CYCLE-291/research/checks/dronepropa_anonymous_split_v1.jsonl: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-PREP-CYCLE-291/research/checks/dronepropa_anonymous_split_v1.jsonl"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-PREP-CYCLE-291/research/data/suitesparse_real_pde_v1/audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-PREP-CYCLE-291/research/data/suitesparse_real_pde_v1/audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-PREP-CYCLE-291/research/data/suitesparse_real_pde_v1/recycling_audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-PREP-CYCLE-291/research/data/suitesparse_real_pde_v1/recycling_audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-TELEMETRY-CYCLE-288/research/checks/dronepropa_anonymous_split_v1.jsonl: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-TELEMETRY-CYCLE-288/research/checks/dronepropa_anonymous_split_v1.jsonl"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-TELEMETRY-CYCLE-288/research/data/suitesparse_real_pde_v1/audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-TELEMETRY-CYCLE-288/research/data/suitesparse_real_pde_v1/audit.json"
+      },
+      {
+        "git_attribute": "research/laboratory/archive/PC-01-TELEMETRY-CYCLE-288/research/data/suitesparse_real_pde_v1/recycling_audit.json: eol: crlf",
+        "path": "research/laboratory/archive/PC-01-TELEMETRY-CYCLE-288/research/data/suitesparse_real_pde_v1/recycling_audit.json"
+      }
+    ],
+    "unexplained_mismatches": []
+  },
+  "independent_clone": {
+    "clean_os_installation": false,
+    "code_and_data_separate": true,
+    "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+    "runtime_shared_existing_venv": true,
+    "same_windows_hardware": true
+  },
+  "ledger_prefix_checks": {
+    "research/events.jsonl": {
+      "original_raw_prefix_preserved": true,
+      "rows": 439,
+      "sha256": "c29ab7a8d12bc9b5422e7de28b8bbab7d33b1623cb22ec60a06b822a80483c97"
+    },
+    "research/experiments.tsv": {
+      "original_raw_prefix_preserved": true,
+      "rows": 878,
+      "sha256": "17a48c8bbabdeed8b35f723bb37af0b8fadd917c12acca4b8647fcd710a58417"
+    },
+    "research/hypothesis_events.jsonl": {
+      "original_raw_prefix_preserved": true,
+      "rows": 276,
+      "sha256": "8be58000230df48579185c638079f78237b3f085810aa0878e12e53ff7e28241"
+    },
+    "research/plan_registry.jsonl": {
+      "original_raw_prefix_preserved": true,
+      "rows": 140,
+      "sha256": "a7875df0a4847a6d1b1f2bb75411dbf471335730ce81af94ed995ccb7da2645d"
+    },
+    "research/plan_status_events.jsonl": {
+      "original_raw_prefix_preserved": true,
+      "rows": 33,
+      "sha256": "c01e724fc50936639b488971b125923e2a3187fe0f4a97aa2380ee54d262d6d5"
+    }
+  },
+  "limitations": [
+    "one training seed",
+    "visible local synthetic calibration",
+    "same Windows and existing dependency runtime",
+    "operation and logical-memory estimates are not energy or hardware traffic measurements",
+    "no universal proof of absence of unknown defects",
+    "future scoring requires new authority, contract and comparison cohort"
+  ],
+  "maintenance_integrity": {
+    "benchmark_version": "mutable_contact_ledger_v2",
+    "candidate_bundle_sha256": "f6b14b5975e2a9a3cdc60bc4061923a9a8629da69cfe4fce88f4c2cd02779482",
+    "checked_files": 941,
+    "evaluator_sha256": "984ae108f07b2bf4f71dc7bc88faeff0b31c74dc5c39a1ad229461cd6cc777a2",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "preseed_test_receipt": "research/laboratory/AUDIT-REPAIR-PRESEED-V1.receipt.json",
+  "runtime_files_preserved": {
+    "bytes": 7733469,
+    "count": 25,
+    "manifest": "research/laboratory/archive/EXP-20261002-0001-runtime/manifest.json",
+    "manifest_sha256": "16afed69a2e420ed0dae747627ad820cdf01c45d78d9a5d538ce165c69c9bedd"
+  },
+  "schema_version": 1,
+  "wt_8_9_opened_in_this_repair": false,
+  "wt_8_9_present_in_clone": false
+}

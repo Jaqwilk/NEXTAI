@@ -332,7 +332,12 @@ def _run_candidate(
                     command, cwd=temporary, env=_sanitized_environment(root),
                     stdout=log, stderr=subprocess.STDOUT, creationflags=creation_flags,
                 )
-                monitored = psutil.Process(process.pid)
+                try:
+                    monitored = psutil.Process(process.pid)
+                except psutil.NoSuchProcess:
+                    # A short worker may finish before attachment; its output
+                    # and exit code still determine the outcome.
+                    process.wait(timeout=5)
                 while process.poll() is None:
                     elapsed = time.monotonic() - started
                     peak_rss = max(peak_rss, _rss_tree(monitored))
@@ -350,8 +355,11 @@ def _run_candidate(
                     time.sleep(float(config.raw["execution"]["poll_interval_seconds"]))
                 return_code = process.wait(timeout=5)
         finally:
-            if process is not None and process.poll() is None and monitored is not None:
-                _terminate_tree(monitored)
+            if process is not None and process.poll() is None:
+                if monitored is not None:
+                    _terminate_tree(monitored)
+                else:
+                    process.terminate()
                 process.wait(timeout=5)
     elapsed = time.monotonic() - started
 

@@ -1,0 +1,10 @@
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.022401
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.021321
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.021776
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.020589
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.020915
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.021007
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.020472
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.020866
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.019838
+PC-01 telemetry recovered: retries=1, elapsed_seconds=0.020537

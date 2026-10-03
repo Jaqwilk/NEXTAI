@@ -1,0 +1,159 @@
+{
+  "created_at": "2026-10-02T22:31:11Z",
+  "experiment_id": "EXP-20261002-0001",
+  "files": [
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/bm25_pair_transformer_v2.device.json",
+      "bytes": 54,
+      "original_path": "research/tmp/EXP-20261002-0001/bm25_pair_transformer_v2.device.json",
+      "sha256": "c2d311f3ab927ccd26c626b83eedbe2726b02d639855b214204d0e938be041f3"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/bm25_pair_transformer_v2.json",
+      "bytes": 840359,
+      "original_path": "research/tmp/EXP-20261002-0001/bm25_pair_transformer_v2.json",
+      "sha256": "1d1d38fe5abdce4e97f9ef86149b96d3ed3f4f1747db174aa9eb971360c0dc39"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/bm25_pair_transformer_v2.phase.json",
+      "bytes": 93,
+      "original_path": "research/tmp/EXP-20261002-0001/bm25_pair_transformer_v2.phase.json",
+      "sha256": "7d73436f47e884fd9dafdd6e2e9a573821de077a0aa57e02348fb0314ea17144"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/bm25_pair_transformer_v2.supervisor.json",
+      "bytes": 841470,
+      "original_path": "research/tmp/EXP-20261002-0001/bm25_pair_transformer_v2.supervisor.json",
+      "sha256": "38d3b6ba152e30d328d0f768a9de04e146963e98fd8b5723eaeeb27a6bec5024"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/bm25_pair_transformer_v2.trials.jsonl",
+      "bytes": 338292,
+      "original_path": "research/tmp/EXP-20261002-0001/bm25_pair_transformer_v2.trials.jsonl",
+      "sha256": "a05612bcb534587bb844a181526e5e2db09e10cf4d6a71b9c1369b7bc09bd8df"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/dense_pair_transformer_v2.device.json",
+      "bytes": 54,
+      "original_path": "research/tmp/EXP-20261002-0001/dense_pair_transformer_v2.device.json",
+      "sha256": "c2d311f3ab927ccd26c626b83eedbe2726b02d639855b214204d0e938be041f3"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/dense_pair_transformer_v2.json",
+      "bytes": 844148,
+      "original_path": "research/tmp/EXP-20261002-0001/dense_pair_transformer_v2.json",
+      "sha256": "b1f9c61254d3bbae0fec446e72d0c0ce716a27c79fa25b98b568413bdef7ca2d"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/dense_pair_transformer_v2.phase.json",
+      "bytes": 93,
+      "original_path": "research/tmp/EXP-20261002-0001/dense_pair_transformer_v2.phase.json",
+      "sha256": "01677d2292c00aba4f830710825a65f1d2c6e7b474f1cc3a4f54b22f3fdf5c17"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/dense_pair_transformer_v2.supervisor.json",
+      "bytes": 845261,
+      "original_path": "research/tmp/EXP-20261002-0001/dense_pair_transformer_v2.supervisor.json",
+      "sha256": "f8ad58fac1101421fffecffdd0fbee4f29a1afdeebfff6973a610a9123bf487a"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/dense_pair_transformer_v2.trials.jsonl",
+      "bytes": 342087,
+      "original_path": "research/tmp/EXP-20261002-0001/dense_pair_transformer_v2.trials.jsonl",
+      "sha256": "b54ffe621b73374e3db90d31aa3a404ee8ba19a65e098cd044e8882e23610e0b"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/frozen_bm25_pair_transformer_v2.device.json",
+      "bytes": 54,
+      "original_path": "research/tmp/EXP-20261002-0001/frozen_bm25_pair_transformer_v2.device.json",
+      "sha256": "886c3931d2a33a1adbc17524e67d4e82ffb708ad53f26f4cb85cd3dbf89c55f1"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/frozen_bm25_pair_transformer_v2.json",
+      "bytes": 783744,
+      "original_path": "research/tmp/EXP-20261002-0001/frozen_bm25_pair_transformer_v2.json",
+      "sha256": "a1a56b6fb63dc48d139754d609812a490800c5db910b9c2fd0a96c1e97379dfe"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/frozen_bm25_pair_transformer_v2.phase.json",
+      "bytes": 93,
+      "original_path": "research/tmp/EXP-20261002-0001/frozen_bm25_pair_transformer_v2.phase.json",
+      "sha256": "f72c35e92dac57366b28ad4b0781c421132ff34619328cf356e72435ec463e1a"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/frozen_bm25_pair_transformer_v2.supervisor.json",
+      "bytes": 784874,
+      "original_path": "research/tmp/EXP-20261002-0001/frozen_bm25_pair_transformer_v2.supervisor.json",
+      "sha256": "19a86ddb26ca511d3828c7639949ada75e61b4d6bede3d197d6cf4d4bbcdd40d"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/frozen_bm25_pair_transformer_v2.trials.jsonl",
+      "bytes": 304247,
+      "original_path": "research/tmp/EXP-20261002-0001/frozen_bm25_pair_transformer_v2.trials.jsonl",
+      "sha256": "a728cfaf147f108c23f7807a0665f6f254eac00c906021d6e6e4f5fbbfed1a55"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/runtime-plan.json",
+      "bytes": 6249,
+      "original_path": "research/tmp/EXP-20261002-0001/runtime-plan.json",
+      "sha256": "8393466ad747673a8c4d71c25b9679ae21cb963766c12a02f3dd9b63e36aef6c"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/symbolic_last_write_graph_v2.device.json",
+      "bytes": 38,
+      "original_path": "research/tmp/EXP-20261002-0001/symbolic_last_write_graph_v2.device.json",
+      "sha256": "039ae164ab7fb380da265c2dcedf554b859ac47b5069f4f4daf6ac5bd71daa1d"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/symbolic_last_write_graph_v2.json",
+      "bytes": 759018,
+      "original_path": "research/tmp/EXP-20261002-0001/symbolic_last_write_graph_v2.json",
+      "sha256": "7abf5fad0986622dfd954195e95d43218a435950cf9b1c46832d5db177dc5d18"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/symbolic_last_write_graph_v2.phase.json",
+      "bytes": 95,
+      "original_path": "research/tmp/EXP-20261002-0001/symbolic_last_write_graph_v2.phase.json",
+      "sha256": "8dde5bce92202510d7a33edfd97c65f2130211686742c701e26b47c360fb6504"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/symbolic_last_write_graph_v2.supervisor.json",
+      "bytes": 760140,
+      "original_path": "research/tmp/EXP-20261002-0001/symbolic_last_write_graph_v2.supervisor.json",
+      "sha256": "93f442bd014a661553400a0adcbd5c880665905f91fe3744022ddcb5d0741615"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/symbolic_last_write_graph_v2.trials.jsonl",
+      "bytes": 282366,
+      "original_path": "research/tmp/EXP-20261002-0001/symbolic_last_write_graph_v2.trials.jsonl",
+      "sha256": "13da1066e9baeecd82c78393dd2194874bef7d1f2b190f623ceaf278b70cea27"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/EXP-20261002-0001-bm25_pair_transformer_v2.log.txt",
+      "bytes": 0,
+      "original_path": "research/logs/EXP-20261002-0001-bm25_pair_transformer_v2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/EXP-20261002-0001-dense_pair_transformer_v2.log.txt",
+      "bytes": 640,
+      "original_path": "research/logs/EXP-20261002-0001-dense_pair_transformer_v2.log",
+      "sha256": "f051826f27a18b61af85f69f92e35c739b706fa68d769153ff4cd8a420c5c85e"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/EXP-20261002-0001-frozen_bm25_pair_transformer_v2.log.txt",
+      "bytes": 0,
+      "original_path": "research/logs/EXP-20261002-0001-frozen_bm25_pair_transformer_v2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "research/laboratory/archive/EXP-20261002-0001-runtime/EXP-20261002-0001-symbolic_last_write_graph_v2.log.txt",
+      "bytes": 0,
+      "original_path": "research/logs/EXP-20261002-0001-symbolic_last_write_graph_v2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "immutable_result_sha256": "08ff2cc11c5d7631988cf828a4d030315efca7e6e62c14f7cc2b0ff12907d9a3",
+  "purpose": "Preserve completed and partial journals, worker outputs, phase/device supervision, runtime plan and raw logs",
+  "schema_version": 1
+}

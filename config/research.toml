@@ -6,7 +6,7 @@ objective = "Find computational principles that could improve capability per uni
 generation = 2
 protocol_version = 3
 benchmark_version = "mutable_contact_ledger_v2"
-benchmark_status = "active"
+benchmark_status = "maintenance"
 timezone = "Europe/Warsaw"
 
 [laboratory]
@@ -15,6 +15,9 @@ contract_path = "research/laboratory/restart.json"
 # PC-01 terminal evidence is preserved through PC-01-HISTORICAL-CLOSURE-V1.
 # WT-01 factorial diagnostic v1 returned to maintenance after the one authorized
 # replacement run EXP-20260906-0001. No retry or further scoring is authorized.
+# MUC v2 finished EXP-20261002-0001. Its exact evaluated bytes are archived.
+# Subsequent supervisor repairs are no-scoring maintenance; any future scoring
+# requires a fresh benchmark/comparison cohort and new user authority.
 
 [muc01_calibration]
 contract_id = "MUC-01-PROPOSED-CONTRACT-V1"

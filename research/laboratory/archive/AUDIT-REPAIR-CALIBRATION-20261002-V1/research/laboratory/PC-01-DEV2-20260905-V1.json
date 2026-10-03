@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-DEV2-20260905-V1",
+  "user_approval": "zatweirdam: one fresh dev attempt, fit <=1200 s and worker <=1800 s, no final access",
+  "approved_at": "2026-09-05T13:53:53Z",
+  "cohort": "pc01_byte_lm_learning_measurement_v2",
+  "candidate": "pc01_byte_gpt_v1",
+  "candidate_sha256": "426bfa8b9da43fb7cd991e104e48dfd366cf037dd9e840330d671b2174706aaa",
+  "phase": "dev",
+  "global_attempt": 2,
+  "additional_attempts": 1,
+  "development_seed": 1103,
+  "initialization": "fresh; checkpoint resume forbidden",
+  "fit_seconds_cap": 1200,
+  "worker_seconds_cap": 1800,
+  "total_fit_seconds_cap": 7200,
+  "previous_fit_seconds_charged": 1200,
+  "final_access_authorized": false,
+  "automatic_retry_authorized": false,
+  "architecture_promotion_authorized": false,
+  "design_path": "research/plans/PC-01-CONTRACT-V1.json",
+  "design_sha256": "f9e3d889485ff5e63c9f74caae3118f2f44c3872b91400931e72c8e1ce67a280",
+  "recipe_sha256": "fa4a920b9c9b1848f3818e6bd7a3f6052a04619a3d8c75e4804a53883a872966",
+  "new_cohort_contract": {
+    "inherits": "All PC-01-CONTRACT-V1 data, splits, architecture, initialization, optimizer, 5000 updates, checkpoint selection, thresholds, controls, precision and budgets are unchanged.",
+    "change": "Bounded Windows device-telemetry writer retries and nonblocking reader conflict handling, validated in PC-01-TELEMETRY-REPAIR-V1; version-aware lifecycle and exactly one additional dev authorization.",
+    "claim": "Can the unchanged positive control complete its full train/dev learning and measurement recipe with repaired instrumentation?",
+    "comparison": "Fresh train-only unigram/bigram and source-identical frozen control in this run. Do not pool v1 and v2 or use the interrupted v1 curve as replication.",
+    "decision": "Complete only after 5000 updates and all measurement controls pass. Report dev quality descriptively; no final positive-control certification, economics, transfer or architectural claim. Crash, timeout or invalid controls are inconclusive and end this authorization.",
+    "end": "Preserve every artifact and stop for review after this one result or invalidation; no automatic third dev or final series."
+  },
+  "historical_anchors": {
+    "research/plans/EXP-20260905-0001.json": "3286682aeb04cacc71922ca786d8578debe6ccd291d4dc12bd63345f827c4391",
+    "research/results/EXP-20260905-0001.json": "db815b440bf0bcc7b289547931178b5f1a7fa4c143367a93035348cd45a8a3dc",
+    "research/laboratory/PC-01-DEV-CYCLE-287-V1.receipt.json": "71fe86d890af6b8b30107e0f24bd558aa11e69ff078bb5190d2929e46e83c77e",
+    "research/laboratory/PC-01-TELEMETRY-REPAIR-V1.receipt.json": "856a0b16c09ff7068ce0d80bdc84c39262468f4ede93c32efa5104ed2fa1b264",
+    "research/manifests/PC-01-DEV2-BEFORE.json": "957eab65ea8729734564ebc54dfd74f15394f7e93a35ad443c1aa028b0d30acb"
+  },
+  "plan_anchor_hash_convention": "sha256_json for EXP plan; file SHA-256 for all other anchors",
+  "archive": "research/laboratory/archive/PC-01-TELEMETRY-CYCLE-288",
+  "historical_accounting_reset": false
+}

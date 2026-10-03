@@ -214,6 +214,63 @@ def test_evaluation_time_does_not_inflate_fit_budget(tmp_path):
     assert resource.fit_elapsed == 1
 
 
+@pytest.mark.parametrize("fault", ["missing_phase", "missing_device", "stale_device"])
+def test_parent_requires_both_phase_and_live_device_telemetry(tmp_path, fault):
+    from nextai_autoresearch.worker_resources import resource_problem
+    output = tmp_path / "probe.json"
+    device = output.with_suffix(".device.json")
+    if fault != "missing_device":
+        atomic_write_json(device, {"allocated": 0, "reserved": 0})
+        if fault == "stale_device":
+            old = time.time() - 10
+            os.utime(device, (old, old))
+    if fault != "missing_phase":
+        atomic_write_json(output.with_suffix(".phase.json"),
+                          {"phase": "initializing", "fit_started": None, "fit_elapsed": 0})
+    now = time.monotonic()
+    assert resource_problem(output, {"fit_seconds_cap": 10, "max_cuda_reserved_bytes": 100},
+                            now - 60, now - 31)[0] == "telemetry_failure"
+
+
+def test_parent_recovers_gap_only_after_valid_phase_and_fresh_device(tmp_path):
+    from nextai_autoresearch.worker_resources import resource_problem
+    output = tmp_path / "probe.json"
+    atomic_write_json(output.with_suffix(".device.json"), {"allocated": 0, "reserved": 0})
+    atomic_write_json(output.with_suffix(".phase.json"),
+                      {"phase": "initializing", "fit_started": None, "fit_elapsed": 0})
+    now = time.monotonic()
+    reason, gap = resource_problem(output, {"fit_seconds_cap": 10, "max_cuda_reserved_bytes": 100},
+                                   now - 60, now - 31)
+    assert reason is None and gap >= now
+
+
+def test_short_worker_exit_before_monitor_attachment_keeps_valid_output(tmp_path, monkeypatch):
+    import subprocess
+    from nextai_autoresearch import runner
+    from nextai_autoresearch.audit import AuditResult
+    from nextai_autoresearch.ledger import ensure_layout
+    ensure_layout(tmp_path)
+    output = tmp_path / "research/tmp/EXP-attach/probe.json"
+    payload = {"candidate": "probe", "status": "complete", "trials": [], "summary": {}}
+    script = f"import pathlib; pathlib.Path({str(output)!r}).write_text({json.dumps(payload)!r})"
+    real_popen = subprocess.Popen
+    def launch(command, **options):
+        process = real_popen([sys.executable, "-c", script], **options)
+        process.wait(timeout=5)
+        return process
+    monkeypatch.setattr(runner.subprocess, "Popen", launch)
+    def unavailable(pid):
+        raise psutil.NoSuchProcess(pid)
+    monkeypatch.setattr(runner.psutil, "Process", unavailable)
+    path = tmp_path / "probe.py"
+    path.write_text("class Candidate: pass\n")
+    result = runner._run_candidate("probe", tmp_path / "plan.json",
+                                  {"experiment_id": "EXP-attach", "budget": "quick"},
+                                  load_config(project_root()), tmp_path,
+                                  AuditResult(True, "probe", path, "a" * 64, ()))
+    assert result["status"] == "complete" and result["execution"]["return_code"] == 0
+
+
 def test_parent_interrupt_cleans_up_running_child(tmp_path, monkeypatch):
     import subprocess
     from nextai_autoresearch import runner
