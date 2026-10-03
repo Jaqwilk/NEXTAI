@@ -1454,6 +1454,108 @@
         "branch": {"type": ["string", "null"]},
         "dirty": {"type": "boolean"}
       }
+    },
+    "research_program_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_path",
+        "program_contract_path",
+        "program_contract_sha256",
+        "study_path",
+        "study_sha256",
+        "registration_ticket",
+        "roles",
+        "recipe",
+        "data",
+        "classical_baselines",
+        "fit_seconds_cap",
+        "fit_seconds_total_cap",
+        "worker_seconds_cap",
+        "max_rss_bytes",
+        "max_cuda_reserved_bytes",
+        "deadline_at",
+        "diagnostics",
+        "diagnosis_gates",
+        "reference_gates"
+      ],
+      "properties": {
+        "authority_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "program_contract_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "study_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deadline_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "program_contract_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "study_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "registration_ticket": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "fit_seconds_cap": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fit_seconds_total_cap": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "worker_seconds_cap": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_rss_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_cuda_reserved_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "roles": {
+          "type": "object"
+        },
+        "recipe": {
+          "type": "object"
+        },
+        "data": {
+          "type": "object"
+        },
+        "diagnostics": {
+          "type": "object"
+        },
+        "diagnosis_gates": {
+          "type": "object"
+        },
+        "reference_gates": {
+          "type": "object"
+        },
+        "classical_baselines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
     }
   },
   "allOf": [
@@ -4090,6 +4192,23 @@
             }
           }
         }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {
+            "pattern": "^muc03_"
+          }
+        },
+        "required": [
+          "benchmark"
+        ]
+      },
+      "then": {
+        "required": [
+          "research_program_protocol"
+        ]
       }
     }
   ]

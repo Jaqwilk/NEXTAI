@@ -23,6 +23,7 @@ def _certificate_path(base: Path) -> Path:
 
 def required_baseline_names(plan: dict[str, Any]) -> list[str]:
     for protocol_name, key in (
+        ("research_program_protocol", "classical_baselines"),
         ("muc02_negatives_protocol", "classical_baselines"),
         ("muc02_protocol", "classical_baselines"),
         ("muc01_calibration_protocol", "classical_baselines"),

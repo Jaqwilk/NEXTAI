@@ -8,14 +8,15 @@ import tracemalloc
 
 from ..muc02_negatives_stage import ROLES
 from ..muc02_negatives_task import diagnostic_queries, fresh_worlds
+from ..muc_contract import parse_statement
 from ..utils import sha256_json
 from .mutable_contact_ledger_v2 import checked_answers, percentile
 
 BENCHMARK_VERSION = "mutable_contact_ledger_hard_negatives_v1"
 
 
-def selection_diagnostics(system, world, seed, k, d, index):
-    queries, rows = diagnostic_queries(world, seed, k, d, index)
+def selection_diagnostics(system, world, seed, k, d, index, *, queries_override=None):
+    queries, rows = diagnostic_queries(world, seed, k, d, index) if queries_override is None else (queries_override, tuple(parse_statement(s) for s in world.statements))
     keys = [f"{row[1]} {row[2]}" for row in rows]
     observations, flops, preparation = [], 0, 0
     for subject, relation in queries:
@@ -36,7 +37,7 @@ def selection_diagnostics(system, world, seed, k, d, index):
         negative = [i for i in range(len(rows)) if i not in matches]
         same_subject = [i for i in negative if rows[i][1] == subject]
         same_relation = [i for i in negative if rows[i][2] == relation]
-        observations.append({"query": query, "known": bool(matches), "unknown_type": None if matches else "subject" if subject == "ED999" else "relation",
+        observations.append({"query": query, "known": bool(matches), "unknown_type": None if matches else "subject" if subject.endswith("999") else "relation",
                              "selected_key": keys[best], "selected_timestamp": rows[best][0], "gold_timestamp": rows[latest][0] if latest is not None else None,
                              "top1_correct": best == latest, "accepted_correct": best == latest and not reject,
                              "rejected": reject, "max_probability": maximum,
@@ -51,11 +52,11 @@ def selection_diagnostics(system, world, seed, k, d, index):
             "latency_us": sum(o["latency_us"] for o in observations)}
 
 
-def diagnostic_metrics(diagnostics):
+def diagnostic_metrics(diagnostics, *, worlds_expected=15):
     observations = [o for group in diagnostics for o in group["observations"]]
     known = [o for o in observations if o["known"]]
     unknown = [o for o in observations if not o["known"]]
-    if len(known) != 30 or len(unknown) != 30:
+    if worlds_expected < 1 or len(diagnostics) != worlds_expected or len(known) != 2 * worlds_expected or len(unknown) != 2 * worlds_expected:
         raise ValueError("Fixed diagnostic strata coverage mismatch")
     rate = lambda rows, name: statistics.fmean(float(o[name]) for o in rows)
     ratio = lambda rows, num, den: sum(o[num] for o in rows) / sum(o[den] for o in rows)
@@ -69,9 +70,9 @@ def diagnostic_metrics(diagnostics):
             "hard_relation_fpr": ratio(known, "relation_fp", "relation_negatives")}
 
 
-def run_trial(system, k, d, seed, fit_report, learned=True, data_sink=None):
+def run_trial(system, k, d, seed, fit_report, learned=True, data_sink=None, *, worlds_provider=None, diagnostic_provider=None):
     tick = time.perf_counter()
-    worlds = fresh_worlds(seed, "D", k, d, data_sink)
+    worlds = fresh_worlds(seed, "D", k, d, data_sink) if worlds_provider is None else worlds_provider()
     dev_generation_seconds = time.perf_counter() - tick
     correct, flags, latencies, ingest, updates, costs, diagnostics, answers, invalid = [], [], [], [], [], [], [], [], []
     for index, world in enumerate(worlds):
@@ -111,7 +112,8 @@ def run_trial(system, k, d, seed, fit_report, learned=True, data_sink=None):
             raise ValueError("Invalid world cost")
         costs.append(cost)
         if learned:
-            diagnostics.append(selection_diagnostics(system, world, seed, k, d, index))
+            provider = diagnostic_provider or selection_diagnostics
+            diagnostics.append(provider(system, world, seed, k, d, index))
     if len(correct) != 240 or len(worlds) != 15:
         raise ValueError("Frozen dev coverage mismatch")
     subset = lambda fn: statistics.fmean(float(ok) for ok, flag in zip(correct, flags, strict=True) if fn(flag))

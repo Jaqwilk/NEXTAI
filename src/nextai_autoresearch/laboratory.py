@@ -177,6 +177,11 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
                         series_freeze: bool = False) -> list[str]:
     """One registered development attempt; invalidation does not replenish it."""
     try:
+        from .research_program import status as program_status, scope_problems as program_scope
+        if program_status(base) is not None:
+            if candidate is not None or phase is not None or series_freeze:
+                return ["Research program does not reopen historical PC-01 operations"]
+            return program_scope(base, experiment_id)
         from .muc02_negatives_stage import status as negatives_status, scope_problems as negatives_scope, COHORT
         if negatives_status(base) is not None:
             if load_config(base).benchmark_version != COHORT:
@@ -251,6 +256,15 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
 def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
     base = (root or project_root()).resolve()
     progress = _historical_laboratory_progress(base)
+    from .research_program import status as program_status
+    program = program_status(base)
+    if program is not None:
+        return {**progress, "activation_id": program["id"], "research_program": program,
+                "scoring_authorized": program["scoring_authorized"], "user_decision_required": False,
+                "next_action_id": "MUC03-PROGRAM-COMPLETE" if program["program_terminal"] else
+                    "MUC03-STUDY-REVIEW" if program["study_terminal"] or program["study_expired"] else
+                    "MUC03-STUDY-RUN" if program["ready"] else "MUC03-STUDY-PREP",
+                "next_action": "Preserve all outcomes, review evidence and autonomously select the next preregistered study within finite program caps."}
     from .muc02_negatives_stage import status as negatives_status
     negatives = negatives_status(base)
     if negatives is not None:
@@ -613,6 +627,12 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
         path = (base / relative).resolve()
         if not path.is_relative_to(base) or not path.is_file():
             raise ValueError(f"Missing or invalid laboratory document: {relative}")
+    from .research_program import status as program_status, CONTRACT as PROGRAM_CONTRACT
+    program = program_status(base)
+    if program is not None:
+        return {**contract, "status": "dev_authorized" if program["scoring_authorized"] else "preparation_only",
+                "scoring_authorized": program["scoring_authorized"], "activation_id": program["id"],
+                "maintenance_plan": PROGRAM_CONTRACT, "original_status": contract["status"]}
     from .muc02_negatives_stage import status as negatives_status, PLAN as NEGATIVES_PLAN
     negatives = negatives_status(base)
     if negatives is not None:
@@ -699,6 +719,16 @@ def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> l
         laboratory_progress(base)
     except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
         return [f"laboratory contract: {exc}"]
+    from .research_program import status as program_status
+    program = program_status(base)
+    if program is not None:
+        if config.benchmark_version != program["cohort"]:
+            return ["Research program requires its frozen current study cohort"]
+        if scoring and not program["scoring_authorized"]:
+            return ["Research study not ready, expired, or consumed; choose next study under program authority"]
+        if not program["ready"] and config.benchmark_status != "maintenance":
+            return ["Research preparation requires maintenance"]
+        return []
     from .muc02_negatives_stage import status as negatives_status, COHORT
     negatives = negatives_status(base)
     if negatives is not None:

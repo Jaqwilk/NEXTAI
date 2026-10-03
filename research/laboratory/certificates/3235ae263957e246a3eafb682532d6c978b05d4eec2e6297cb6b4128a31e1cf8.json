@@ -1,11 +1,11 @@
 {
   "benchmark_version": "muc03_undertraining_v1",
-  "certificate_sha256": "e4c3f0358db0bcf6c48bf8038cf823401f3a7b07a8b677af7bc184c298681659",
-  "created_at": "2026-10-03T23:45:01Z",
-  "evaluator_sha256": "86c71798cb9d5fde50939e613ff67d4265dfe45456dae46e41d074e5c801957d",
+  "certificate_sha256": "7f307ff0965683617009bf1e9b1fabdf1f7fd562203f3eaa2e360e20879d30b3",
+  "created_at": "2026-10-03T23:40:53Z",
+  "evaluator_sha256": "f2299a5ab8d69ccb425395009fd34d0bd3f4aa1e69e1370f6fdf4beacd40d6d6",
   "files": {
     "baseline_registry": "c17114436cd4093c4ef9922560898b1f9fe5f114ed98c7a54e2edcd91abb2ac8",
-    "manifest": "1c1dab5fd771ddcc7aa72d7f1149999bcf51110385a77a8673c192c2e0efe6d4",
+    "manifest": "ebf99fd2d8c67e6110e2ada2602b1ca20a1aec879161da61df1e0fbe7bb6e551",
     "runner": "43a2d4fe6ea881288376323a1c52b6043086f020d1cc5a51d90109907c615838",
     "schema:experiment_plan": "2e524b45c3bcdff9b5f38a7206a535135e36537095a26359e0a18334b4fada03",
     "schema:experiment_result": "ea41b0a4c0ee6fd8d0deaa54b315ae21849532aa12bf2eb638d2c6f010508471",

@@ -202,6 +202,8 @@ def test_v3_plan_schema_locks_all_three_source_identical_roles() -> None:
 
 
 def test_v3_plan_generator_freezes_discriminating_matrix(monkeypatch) -> None:
+    # Schema-only historical fixture must never enter the live paid registration path.
+    monkeypatch.setattr("nextai_autoresearch.research_program.AUTHORITY", "research/laboratory/ABSENT-HISTORICAL-FIXTURE.json")
     captured = {}
     active = load_config()
     raw = copy.deepcopy(active.raw)

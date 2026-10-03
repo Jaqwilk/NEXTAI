@@ -66,6 +66,8 @@ def test_all_mandatory_controls_complete_tiny_real_evaluator_cell() -> None:
 
 
 def test_v4_plan_generator_freezes_three_exposure_counts_and_all_controls(monkeypatch) -> None:
+    # Schema-only historical fixture must never enter the live paid registration path.
+    monkeypatch.setattr("nextai_autoresearch.research_program.AUTHORITY", "research/laboratory/ABSENT-HISTORICAL-FIXTURE.json")
     captured = {}
     configured = load_config()
     raw = deepcopy(configured.raw)

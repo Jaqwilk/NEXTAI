@@ -27,6 +27,8 @@ from nextai_autoresearch.utils import project_root
     )),
 ])
 def test_plan_new_emits_three_family_pareto_contract(monkeypatch, benchmark, roles) -> None:
+    # Schema-only historical fixture must never enter the live paid registration path.
+    monkeypatch.setattr("nextai_autoresearch.research_program.AUTHORITY", "research/laboratory/ABSENT-HISTORICAL-FIXTURE.json")
     captured = {}
     configured = load_config(project_root())
     raw = deepcopy(configured.raw)

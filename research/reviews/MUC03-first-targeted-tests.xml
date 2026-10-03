@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="23" time="2.857" timestamp="2026-10-04T01:22:54.108038+02:00" hostname="3vilOS20"><testcase classname="tests.test_muc03_program" name="test_failed_registration_consumes_one_nonrefundable_ticket" file="tests\test_muc03_program.py" line="48" time="0.054" /><testcase classname="tests.test_muc03_program" name="test_auxiliary_fit_is_reserved_and_charged_including_failure" file="tests\test_muc03_program.py" line="62" time="0.087" /><testcase classname="tests.test_muc03_program" name="test_changed_authority_or_study_fails_closed" file="tests\test_muc03_program.py" line="76" time="0.022" /><testcase classname="tests.test_muc03_program" name="test_execution_fit_charge_falls_back_conservatively" file="tests\test_muc03_program.py" line="86" time="0.000" /><testcase classname="tests.test_muc03_program" name="test_fresh_namespace_intervention_preserves_graph_and_gold" file="tests\test_muc03_program.py" line="93" time="0.010" /><testcase classname="tests.test_muc03_program" name="test_namespace_diagnostic_is_correct_before_gold_and_preserves_threshold" file="tests\test_muc03_program.py" line="118" time="0.001"><failure message="ValueError: Fixed diagnostic strata coverage mismatch">def test_namespace_diagnostic_is_correct_before_gold_and_preserves_threshold():
+        from nextai_autoresearch.benchmarks.muc03_undertraining_v1 import domain_diagnostic
+        from nextai_autoresearch.benchmarks.mutable_contact_ledger_hard_negatives_v1 import diagnostic_metrics
+        class ExactScores:
+            def synchronize(self):
+                pass
+            def scores(self, query, keys):
+                return [.9 if query == key else .1 for key in keys]
+            class Model:
+                length = 96
+                def estimated_forward_flops(self, examples):
+                    return examples
+            model = Model()
+        world = fresh_worlds("MUC03-UNIT-FIXTURE", 813, "D", 32, 1, 1)[0]
+        for variant in (world, iid_namespace(world)):
+            group = domain_diagnostic("MUC03-UNIT-FIXTURE", ExactScores(), variant, 813, 32, 1, 0)
+&gt;           m = diagnostic_metrics([group])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_muc03_program.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+diagnostics = [{'observations': [{'query': 'ED000 copper', 'known': True, 'unknown_type': None, 'selected_key': 'ED000 copper', ...}...'relation', 'selected_key': 'ED003 umber', ...}], 'estimated_flops': 160, 'preparation_ops': 20032, 'latency_us': 5.6}]
+
+    def diagnostic_metrics(diagnostics):
+        observations = [o for group in diagnostics for o in group["observations"]]
+        known = [o for o in observations if o["known"]]
+        unknown = [o for o in observations if not o["known"]]
+        if len(known) != 30 or len(unknown) != 30:
+&gt;           raise ValueError("Fixed diagnostic strata coverage mismatch")
+E           ValueError: Fixed diagnostic strata coverage mismatch
+
+src\nextai_autoresearch\benchmarks\mutable_contact_ledger_hard_negatives_v1.py:60: ValueError</failure></testcase><testcase classname="tests.test_muc03_program" name="test_reference_model_sampler_and_pairing_remain_unchanged" file="tests\test_muc03_program.py" line="140" time="0.266" /><testcase classname="tests.test_muc02_negatives_harness" name="test_fresh_seed_split_and_coverage" file="tests\test_muc02_negatives_harness.py" line="13" time="0.016" /><testcase classname="tests.test_muc02_negatives_harness" name="test_paired_intervals_and_frozen_effect_gates" file="tests\test_muc02_negatives_harness.py" line="32" time="0.002" /><testcase classname="tests.test_muc02_negatives_harness" name="test_stage_failure_deadline_and_total_fit_stop_remaining_work" file="tests\test_muc02_negatives_harness.py" line="49" time="0.000" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[1-32]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.004" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[1-128]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.008" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[1-512]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.029" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[2-32]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.004" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[2-128]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.009" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[2-512]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.029" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[4-32]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.009" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[4-128]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.009" /><testcase classname="tests.test_muc02_negatives_harness" name="test_symbolic_control_solves_fresh_raw_dev_and_costs[4-512]" file="tests\test_muc02_negatives_harness.py" line="60" time="0.029" /><testcase classname="tests.test_muc02_negatives_harness" name="test_dense_diagnostic_detects_wrong_ranking_and_unknown_acceptance" file="tests\test_muc02_negatives_harness.py" line="74" time="0.006" /><testcase classname="tests.test_muc02_negatives_harness" name="test_structural_generation_is_bounded_and_preserves_rejected_proposals" file="tests\test_muc02_negatives_harness.py" line="94" time="0.001" /><testcase classname="tests.test_muc02_negatives_candidates" name="test_negative_sampling_pairing_and_integrity" file="tests\test_muc02_negatives_candidates.py" line="13" time="0.298" /><testcase classname="tests.test_muc02_negatives_candidates" name="test_model_and_initialization_are_unchanged_and_paired" file="tests\test_muc02_negatives_candidates.py" line="37" time="0.136" /></testsuite></testsuites>

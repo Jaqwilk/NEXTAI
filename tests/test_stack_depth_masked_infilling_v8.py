@@ -49,6 +49,8 @@ def test_stack_cases_hide_one_permuted_closer() -> None:
     ("heldout_parallel_masked_infilling_v13", "balanced_real_python_recoverable_push_chain"),
 ])
 def test_plan_new_freezes_stack_depth_contract(monkeypatch, benchmark, task_unit) -> None:
+    # Schema-only historical fixture must never enter the live paid registration path.
+    monkeypatch.setattr("nextai_autoresearch.research_program.AUTHORITY", "research/laboratory/ABSENT-HISTORICAL-FIXTURE.json")
     captured = {}
     configured = load_config(project_root())
     raw = deepcopy(configured.raw)

@@ -124,9 +124,10 @@ def test_historical_v1_failure_is_preserved_while_live_v2_handles_absence(tmp_pa
 
 
 def test_migrated_laboratory_identity_advances_only_through_verified_wt_contract(monkeypatch):
-    from nextai_autoresearch import audit_repair, muc02_negatives_stage
+    from nextai_autoresearch import audit_repair, muc02_negatives_stage, research_program
     monkeypatch.setattr(audit_repair, "status", lambda _: None)
     monkeypatch.setattr(muc02_negatives_stage, "status", lambda _: None)
+    monkeypatch.setattr(research_program, "status", lambda _: None)
     root = project_root()
     contract = laboratory.laboratory_contract(root)
     progress = laboratory.laboratory_progress(root)

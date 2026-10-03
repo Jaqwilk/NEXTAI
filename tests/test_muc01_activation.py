@@ -26,11 +26,15 @@ def test_historical_queue_preserves_muc_v1_terminal_decision() -> None:
 
 
 def test_current_queue_resolves_new_authority_without_resetting_v1() -> None:
+    from nextai_autoresearch.audit_repair import status as repair_status
+    from nextai_autoresearch.muc02_negatives_stage import status as negatives_status
     progress = laboratory_progress(ROOT)
-    assert progress["next_action_id"] in {"MUC02-HARD-NEGATIVES-PREP", "MUC02-HARD-NEGATIVES-RUN", "MUC02-HARD-NEGATIVES-DECISION"}
+    assert progress["next_action_id"] in {"MUC03-STUDY-PREP", "MUC03-STUDY-RUN", "MUC03-STUDY-REVIEW", "MUC03-PROGRAM-COMPLETE"}
+    assert progress["research_program"]["registration_attempts_cap"] == 20
     assert progress["muc01_calibration"]["terminal"]
-    assert progress["audit_repair"]["registrations_cap"] == 1
-    assert progress["audit_repair"]["terminal"] and progress["muc02_negatives"]["executed_attempts_cap"] == 1
+    assert repair_status(ROOT)["registrations_cap"] == 1
+    assert repair_status(ROOT)["terminal"] and negatives_status(ROOT)["executed_attempts_cap"] == 1
+    assert negatives_status(ROOT)["terminal"]
 
 
 def test_frozen_plan_schema_accepts_only_exact_matrix_and_roles() -> None:

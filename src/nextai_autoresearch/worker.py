@@ -63,7 +63,7 @@ def run_worker(plan_path: Path, candidate: str, output_path: Path) -> int:
             if data_journal.exists():
                 raise FileExistsError("Existing data journal; worker retry is forbidden")
             options["data_sink"] = lambda report: append_jsonl(data_journal, report)
-        limits = plan.get("muc02_negatives_protocol") or plan.get("muc02_protocol")
+        limits = plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol") or plan.get("muc02_protocol")
         if limits:
             from .worker_resources import WorkerResources
             resources = WorkerResources(output_path, limits, plan_path)

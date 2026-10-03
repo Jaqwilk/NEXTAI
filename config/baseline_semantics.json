@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "cohorts": ["latent_entity_binding_retrieval_v2", "latent_entity_binding_retrieval_v3", "heldout_repository_sequence_compression_v2", "heldout_repository_sequence_compression_v3", "heldout_repository_sequence_compression_v4", "heldout_wt_changepoints_prequential_v1", "heldout_wt_changepoints_prequential_v2", "heldout_wt_changepoints_prequential_v3", "heldout_wt_changepoints_prequential_v4", "heldout_wt_changepoints_prequential_v5", "heldout_parallel_masked_infilling_v2", "heldout_parallel_masked_infilling_v3", "heldout_parallel_masked_infilling_v4", "heldout_parallel_masked_infilling_v7", "heldout_parallel_masked_infilling_v8", "heldout_parallel_masked_infilling_v9", "heldout_parallel_masked_infilling_v10", "heldout_parallel_masked_infilling_v11", "heldout_parallel_masked_infilling_v12", "heldout_parallel_masked_infilling_v13", "heldout_mechanism_recombination_v6", "cross_family_shared_representation_v3", "cross_family_relation_fragment_transfer_v4", "heldout_dronepropa_factor_recombination_v2", "heldout_dronepropa_factor_recombination_v3", "heldout_dronepropa_factor_recombination_v4", "heldout_dronepropa_factor_recombination_v5", "heldout_dronepropa_factor_recombination_v6", "heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5", "heldout_three_family_continuous_transfer_v6", "heldout_three_family_continuous_transfer_v7", "heldout_three_family_continuous_transfer_v8", "heldout_raw_sensor_active_identification_v2", "continuous_local_cellular_v6"],
+  "cohorts": ["latent_entity_binding_retrieval_v2", "latent_entity_binding_retrieval_v3", "heldout_repository_sequence_compression_v2", "heldout_repository_sequence_compression_v3", "heldout_repository_sequence_compression_v4", "heldout_wt_changepoints_prequential_v1", "heldout_wt_changepoints_prequential_v2", "heldout_wt_changepoints_prequential_v3", "heldout_wt_changepoints_prequential_v4", "heldout_wt_changepoints_prequential_v5", "heldout_parallel_masked_infilling_v2", "heldout_parallel_masked_infilling_v3", "heldout_parallel_masked_infilling_v4", "heldout_parallel_masked_infilling_v7", "heldout_parallel_masked_infilling_v8", "heldout_parallel_masked_infilling_v9", "heldout_parallel_masked_infilling_v10", "heldout_parallel_masked_infilling_v11", "heldout_parallel_masked_infilling_v12", "heldout_parallel_masked_infilling_v13", "heldout_mechanism_recombination_v6", "cross_family_shared_representation_v3", "cross_family_relation_fragment_transfer_v4", "heldout_dronepropa_factor_recombination_v2", "heldout_dronepropa_factor_recombination_v3", "heldout_dronepropa_factor_recombination_v4", "heldout_dronepropa_factor_recombination_v5", "heldout_dronepropa_factor_recombination_v6", "heldout_three_family_continuous_transfer_v1", "heldout_three_family_continuous_transfer_v2", "heldout_three_family_continuous_transfer_v3", "heldout_three_family_continuous_transfer_v4", "heldout_three_family_continuous_transfer_v5", "heldout_three_family_continuous_transfer_v6", "heldout_three_family_continuous_transfer_v7", "heldout_three_family_continuous_transfer_v8", "heldout_raw_sensor_active_identification_v2", "continuous_local_cellular_v6", "muc03_undertraining_v1"],
   "baselines": {
     "raw_balanced_kd_tree_v1": {
       "baseline_id": "raw_observation_exact_balanced_kd_tree_v1", "version": 1,
@@ -498,43 +498,43 @@
       "baseline_id": "operator_interpreter_v1", "version": 1,
       "specification": {"input":"full anonymous operator term", "prediction":"recursive left-then-right table application", "cache":"none", "update":"no learned state"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_interpreter.py":"5787282e956fce41bf4a1202608345e3e3ecfa40bc2785adc61ab0b5850aac78", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"a30422b24805af846ae987e31fade8395ca5cd05a465fd83de0005ab37c0601b"}]
     },
     "operator_exact_key_cache": {
       "baseline_id": "operator_exact_key_cache_v1", "version": 1,
       "specification": {"key":"complete raw recursive term including node IDs", "miss":"compile exact composite table", "hit":"one table lookup"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_exact_key_cache.py":"bbbc4cb5db6db26d0bf6a5fed9b6c0ac602d56cb06af1682b2279dec2bf03b9a", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"a30422b24805af846ae987e31fade8395ca5cd05a465fd83de0005ab37c0601b"}]
     },
     "operator_structural_result_cache": {
       "baseline_id": "operator_structural_result_cache_v1", "version": 1,
       "specification": {"key":"ordered non-identity leaf tables after syntax flattening", "invariance":"node IDs and reassociation only", "fusion":"not invariant"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_structural_result_cache.py":"4450cf25dcbf42d51475eeeabef0879e9169efc99be3c30bb369345468817b2e", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"a30422b24805af846ae987e31fade8395ca5cd05a465fd83de0005ab37c0601b"}]
     },
     "operator_canonical_table_cache": {
       "baseline_id": "operator_canonical_table_cache_v1", "version": 1,
       "specification": {"key":"exact composed 144-state table", "normalization":"full table composition charged on every query", "invariance":"IDs reassociation identity insertion and adjacent fusion"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_canonical_table_cache.py":"93c6cd757781689b053be75a84d7a3d4c5cc7f467baa8a2af089c5ee73c129d4", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_exact_structural_and_canonical_caches_have_distinct_semantics","sha256":"a30422b24805af846ae987e31fade8395ca5cd05a465fd83de0005ab37c0601b"}]
     },
     "operator_anti_unification_cache": {
       "baseline_id": "operator_anti_unification_cache_v1", "version": 1,
       "specification": {"pattern":"first-order least-general generalization of flattened positive pairs", "negative_filter":"matching broken-pair patterns block reuse", "safety":"exact canonical verification before reuse"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_anti_unification_cache.py":"4e2358c043d9c017600c4c7c25a933c020cb73e7b4ede7042c49ce774b86661f", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_anti_unification_uses_labeled_pairs_and_never_merges_broken_pair","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_anti_unification_uses_labeled_pairs_and_never_merges_broken_pair","sha256":"a30422b24805af846ae987e31fade8395ca5cd05a465fd83de0005ab37c0601b"}]
     },
     "operator_nearest_canonical": {
       "baseline_id": "operator_nearest_canonical_v1", "version": 1,
       "specification": {"representation":"exact composite tables from all training pair sides", "distance":"full Hamming distance", "safety":"exact current table is used as fallback"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_nearest_canonical.py":"07e46025756ad6de8d279810db52165bd661e4125a4d1f1376fe38c701ba4c21", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"a30422b24805af846ae987e31fade8395ca5cd05a465fd83de0005ab37c0601b"}]
     },
     "operator_random": {
       "baseline_id": "operator_random_v1", "version": 1,
       "specification": {"prediction":"deterministic seed/state/node-ID random state", "fit":"none", "role":"negative leakage control"},
       "implementation_files": {"src/nextai_autoresearch/candidates/operator_random.py":"ad53bd609e53c926596827c753ca428c8244332e2dc36527f77542f1468b33e1", "src/nextai_autoresearch/operator_experience_core.py":"f167f1710bb3c8b5572ece069b2ba96756fe2acf07e018ce87e02a31d1d8d91a", "src/nextai_autoresearch/operator_experience_contract.py":"61862df02b53c2b927da28f48f12380202343fd0c1d738ae4da87f74fa43b571"},
-      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8"}]
+      "conformance_tests": [{"path":"tests/test_operator_experience_v4.py","node_id":"tests/test_operator_experience_v4.py::test_all_mandatory_controls_complete_tiny_real_evaluator_cell","sha256":"a30422b24805af846ae987e31fade8395ca5cd05a465fd83de0005ab37c0601b"}]
     },
     "learned_macro_operator_dag": {
       "baseline_id": "hypothesis_candidate_threshold_two_macro_dag_v1", "version": 1,
@@ -857,25 +857,25 @@
       "baseline_id": "pyamg_target_standard_smoothed_aggregation_v1", "version": 1,
       "specification": {"matrix":"held-out target CSR","solver":"pyamg.smoothed_aggregation_solver symmetry=symmetric","outer":"CG rtol=1e-7 atol=0 maxiter=2000"},
       "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/target_standard_sa_v1.py":"c89eaa6bb99820f9045e81a8ca6a2ca5fefd818cf701392d4f9245c1f10e27f8"},
-      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"4f95d2e3f955760b5c129e047a4fbf9e0e8f627f715b670c0338bfa979c4dc3b"}]
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"1cfb08d0640769fbc3b7d34c8ce13d3a58b51e702528ec55aa4ea8c670e2b0fd"}]
     },
     "target_adaptive_sa_v1": {
       "baseline_id": "pyamg_target_adaptive_smoothed_aggregation_v1", "version": 1,
       "specification": {"matrix":"held-out target CSR","solver":"adaptive_sa symmetric pdef one candidate five iterations max_levels=10 max_coarse=50","outer":"CG rtol=1e-7 atol=0 maxiter=2000"},
       "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/target_adaptive_sa_v1.py":"a2a1fd6b12f481e6f90a11a758702b4d004fea67f991bb91a0603846536fa42b"},
-      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"4f95d2e3f955760b5c129e047a4fbf9e0e8f627f715b670c0338bfa979c4dc3b"}]
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"1cfb08d0640769fbc3b7d34c8ce13d3a58b51e702528ec55aa4ea8c670e2b0fd"}]
     },
     "source_frozen_hierarchy_v1": {
       "baseline_id": "pyamg_source_frozen_hierarchy_reuse_v1", "version": 1,
       "specification": {"source":"paired source CSR","update":"change only fine solve matrix to target; retain hierarchy","outer":"CG rtol=1e-7 atol=0 maxiter=2000"},
       "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/source_frozen_hierarchy_v1.py":"d230e1365aa00f4bdb1ad19d9885b481525bb6d3c5dfa2e672f25512752f3a53"},
-      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"4f95d2e3f955760b5c129e047a4fbf9e0e8f627f715b670c0338bfa979c4dc3b"}]
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"1cfb08d0640769fbc3b7d34c8ce13d3a58b51e702528ec55aa4ea8c670e2b0fd"}]
     },
     "fixed_pr_numeric_refresh_v1": {
       "baseline_id": "pyamg_fixed_prolongation_restriction_numeric_refresh_v1", "version": 1,
       "specification": {"source":"paired source CSR","update":"retain P/R; recompute target Galerkin coarse operators and smoothers","outer":"CG rtol=1e-7 atol=0 maxiter=2000"},
       "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/fixed_pr_numeric_refresh_v1.py":"a2cf0eb23532afa4aa96e1e3d61e4f3a56d32eb79b6dd7a56314895752a02ac6"},
-      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"4f95d2e3f955760b5c129e047a4fbf9e0e8f627f715b670c0338bfa979c4dc3b"}]
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"1cfb08d0640769fbc3b7d34c8ce13d3a58b51e702528ec55aa4ea8c670e2b0fd"}]
     },
     "dense_transformer_v1": {
       "baseline_id": "muc01_dense_transformer_calibration_v1",
@@ -902,7 +902,7 @@
       "baseline_id": "scipy_unpreconditioned_conjugate_gradient_v1", "version": 1,
       "specification": {"preconditioner":"none","outer":"scipy CG rtol=1e-7 atol=0 maxiter=2000","rhs":"A times runner-seed deterministic normal vector"},
       "implementation_files": {"src/nextai_autoresearch/benchmarks/heldout_suitesparse_cross_matrix_prolongation_v1.py":"2be036463c5bf832810720331dfd819842667cc02d12dcc328cd1693c8bbd3fe","src/nextai_autoresearch/candidates/unpreconditioned_cg_v1.py":"73b65197709a54328d3676bcab308d51e3d819fbbed8460e57a71da18374836c"},
-      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"4f95d2e3f955760b5c129e047a4fbf9e0e8f627f715b670c0338bfa979c4dc3b"}]
+      "conformance_tests": [{"path":"tests/test_suitesparse_cross_matrix_prolongation_v1.py","node_id":"tests/test_suitesparse_cross_matrix_prolongation_v1.py::test_five_controls_execute_their_declared_hierarchy_semantics","sha256":"1cfb08d0640769fbc3b7d34c8ce13d3a58b51e702528ec55aa4ea8c670e2b0fd"}]
     },
     "dense_pair_transformer_v2": {
       "baseline_id": "dense_pair_transformer_v2",
@@ -1016,713 +1016,523 @@
     },
     "muc02_random_neg_s0": {
       "baseline_id": "muc02_random_neg_s0",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s0.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_random_neg_s0.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_hard_neg_s0": {
       "baseline_id": "muc02_hard_neg_s0",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s0.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_hard_neg_s0.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_random_neg_s1": {
       "baseline_id": "muc02_random_neg_s1",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s1.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_random_neg_s1.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_hard_neg_s1": {
       "baseline_id": "muc02_hard_neg_s1",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s1.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_hard_neg_s1.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_random_neg_s2": {
       "baseline_id": "muc02_random_neg_s2",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s2.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_random_neg_s2.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_hard_neg_s2": {
       "baseline_id": "muc02_hard_neg_s2",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s2.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_hard_neg_s2.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_random_neg_s3": {
       "baseline_id": "muc02_random_neg_s3",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s3.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_random_neg_s3.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_hard_neg_s3": {
       "baseline_id": "muc02_hard_neg_s3",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s3.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_hard_neg_s3.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_random_neg_s4": {
       "baseline_id": "muc02_random_neg_s4",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
+        "src/nextai_autoresearch/candidates/muc02_random_neg_s4.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_random_neg_s4.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
-      "conformance_tests": [
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        }
-      ]
+      "version": 1
     },
     "muc02_hard_neg_s4": {
       "baseline_id": "muc02_hard_neg_s4",
-      "version": 1,
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc02_hard_neg_s4.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243"
+      },
       "specification": {
         "cohort": "mutable_contact_ledger_hard_negatives_v2",
         "kind": "same MUC v2 model; negative distribution only",
         "status": "implemented after EXP-20261003-0001 preregistration; paired sampler and unchanged model conformance passed"
       },
-      "implementation_files": {
-        "src/nextai_autoresearch/candidates/muc02_hard_neg_s4.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
-        "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
-        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63"
-      },
+      "version": 1
+    },
+    "muc03_hard_192_s0": {
+      "baseline_id": "muc03_hard_192_s0",
       "conformance_tests": [
         {
-          "path": "tests/test_muc02_negatives_candidates.py",
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
           "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
-          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
-        },
-        {
-          "path": "tests/test_muc02_negatives_candidates.py",
-          "node_id": "tests/test_muc02_negatives_candidates.py::test_model_and_initialization_are_unchanged_and_paired",
           "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
         }
-      ]
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_192_s0.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 192 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_192_s1": {
+      "baseline_id": "muc03_hard_192_s1",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_192_s1.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 192 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_192_s2": {
+      "baseline_id": "muc03_hard_192_s2",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_192_s2.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 192 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_192_s3": {
+      "baseline_id": "muc03_hard_192_s3",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_192_s3.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 192 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_192_s4": {
+      "baseline_id": "muc03_hard_192_s4",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_192_s4.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 192 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_768_s0": {
+      "baseline_id": "muc03_hard_768_s0",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_768_s0.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 768 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_768_s1": {
+      "baseline_id": "muc03_hard_768_s1",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_768_s1.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 768 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_768_s2": {
+      "baseline_id": "muc03_hard_768_s2",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_768_s2.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 768 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_768_s3": {
+      "baseline_id": "muc03_hard_768_s3",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_768_s3.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 768 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_768_s4": {
+      "baseline_id": "muc03_hard_768_s4",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_768_s4.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_undertraining_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly 768 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
     }
   }
 }

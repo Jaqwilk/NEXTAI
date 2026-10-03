@@ -1,0 +1,109 @@
+{
+  "created_at": "2026-10-03T23:44:16Z",
+  "historical_content_changed": [],
+  "ledger_prefixes": {
+    "events.jsonl": {
+      "bytes_appended": 3719,
+      "historical_bytes": 631488,
+      "historical_sha256": "0f1750e99a2e321f1f4c148e66e618721adf9a0397420c8ff192c0d5774ad012",
+      "unchanged_prefix": true
+    },
+    "experiments.tsv": {
+      "bytes_appended": 0,
+      "historical_bytes": 240269,
+      "historical_sha256": "f5ca855fe2221fb834099ab45a233c7164623e1e24eec2a3638550969890c88a",
+      "unchanged_prefix": true
+    },
+    "hypothesis_events.jsonl": {
+      "bytes_appended": 0,
+      "historical_bytes": 1322668,
+      "historical_sha256": "8be58000230df48579185c638079f78237b3f085810aa0878e12e53ff7e28241",
+      "unchanged_prefix": true
+    },
+    "plan_registry.jsonl": {
+      "bytes_appended": 0,
+      "historical_bytes": 29111,
+      "historical_sha256": "3336f73b941b11b79fc998bb8daec1f2846d0eac0e707f7e9c9e13ba0074bdd8",
+      "unchanged_prefix": true
+    },
+    "plan_status_events.jsonl": {
+      "bytes_appended": 0,
+      "historical_bytes": 15333,
+      "historical_sha256": "18fd2733a8373d2bdfc382b66a25baef704fbeb86244bf110fc5f3048a7a4927",
+      "unchanged_prefix": true
+    },
+    "sources.jsonl": {
+      "bytes_appended": 0,
+      "historical_bytes": 366608,
+      "historical_sha256": "6231fc8f3fa8377fc34e41ff787b13789439cc9763c540df45ee3721877bdbe4",
+      "unchanged_prefix": true
+    }
+  },
+  "original_head": "fb3d2343ffe5dce0d44153dbd0c997cea7d66b0a",
+  "original_unmodified": true,
+  "preexisting_worktree_line_ending_differences": [
+    {
+      "clone_and_initial_git_sha256": "b294aaada20115299116394ffeba215f7021966dca96b9b1c6b66c834e8a5a56",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "61f895a188ed9b2e36ba8c3d166a6336f347341d7e8e7601b6d9bee8a834ded6",
+      "path": "research/BELIEFS.json"
+    },
+    {
+      "clone_and_initial_git_sha256": "3a24021377fa2e1c0a8a8dc3d34f45f3feb232fee18e287ed13f27c7fe5aac53",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "7afe5429543b5194a65b90303f9929535a5228ed1a3b1820fecb1b9f1a048328",
+      "path": "research/checks/AUDIT-REPAIR-harness-first.junit.xml"
+    },
+    {
+      "clone_and_initial_git_sha256": "a1135b77c6ba7f934067ed9e2a01c2aee652f75c24c20b7bea27111a74b2672d",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "4f81e6089924e8ce21bed4709df80f695ddc490b70f89ad90def482618ad10c7",
+      "path": "research/checks/dronepropa_protocol_gate_cycle75.json"
+    },
+    {
+      "clone_and_initial_git_sha256": "5cbaa81e004cd9f734ea2173543861ecec2bc3bdb6b636545a80f18265937685",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "7776e29dd35b8954b1592a977d0ed9b424f8687ecee3970ca98a5130eac40b3d",
+      "path": "research/checks/dronepropa_routing_sensitivity_cycle76.json"
+    },
+    {
+      "clone_and_initial_git_sha256": "52624d5839509a1fed89e6f1099d3098d886558115b0e0a1fdb3738493d2236d",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "c135a5fb0076388c926b389049d31cac1b049fad63944f1f7ff3746633c765a6",
+      "path": "research/checks/heldout_wt_changepoints_prequential_v1_development_smoke.json"
+    },
+    {
+      "clone_and_initial_git_sha256": "7aef5f0c4e5f364335fada3d7760f0557b3eb04289bdb0eb4aef5a94533c4fc8",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "f030c309c18b8651d309b1253a3739579e90cb567916d55c255cea9ab72fe63d",
+      "path": "research/checks/ncmapss_ds02_semantic_gate_v2_result.json"
+    },
+    {
+      "clone_and_initial_git_sha256": "14ce2e8bb5961863d425d15a74d9c8400a99c37b616d2205adcb38f4bde26010",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "d037450b6eab6ea693a3297afabda13b36254c2259dc5e68e91ed6932b6aafa1",
+      "path": "research/checks/ncmapss_ds08a_semantic_gate_v1_result.json"
+    },
+    {
+      "clone_and_initial_git_sha256": "7f13ea7b356ff4b11030e78f03eb6a21310842977bd8e45ca4ff7af9e6702b6c",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "7d7993af728a4c82010f2480fd337db28f20941f408e81f13563e9f1d687588c",
+      "path": "research/checks/real_system_calibration_cycle_228.json"
+    },
+    {
+      "clone_and_initial_git_sha256": "f3c09263894512daf7c181f77a8421aed105c8ca426b0fbc3ee0f5ccff44679c",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "7c23b36795d79e06c67f54caeb94bc3f81928417f940179fed38164502b90718",
+      "path": "research/data/suitesparse_real_pde_v1/audit_attempt_001.json"
+    },
+    {
+      "clone_and_initial_git_sha256": "17538876482de411b9648bb031f6fc4185631ceed4c5295a0b24e8404bfb567f",
+      "only_preexisting_crlf_lf_difference": true,
+      "original_worktree_sha256": "23dfe931685877720e4d666ee5017ef0b3c64a7d4ecf10f8c3570933fa33210a",
+      "path": "research/reviews/EXTERNAL-AUDIT-2026-09-03.md"
+    }
+  ],
+  "raw_identical_historical_files_checked": 8805,
+  "schema_version": 1,
+  "wt_files_8_9_accessed": false
+}

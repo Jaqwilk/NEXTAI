@@ -40,6 +40,8 @@ def test_v6_freezes_three_unseen_depths_and_real_control_cells() -> None:
 
 
 def test_v6_plan_freezes_depth_axis_roles_and_source_contract(monkeypatch) -> None:
+    # Schema-only historical fixture must never enter the live paid registration path.
+    monkeypatch.setattr("nextai_autoresearch.research_program.AUTHORITY", "research/laboratory/ABSENT-HISTORICAL-FIXTURE.json")
     captured = {}
     configured = load_config()
     raw = deepcopy(configured.raw)

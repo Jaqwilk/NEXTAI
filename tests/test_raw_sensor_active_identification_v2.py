@@ -42,6 +42,8 @@ def test_v2_rejects_mixed_historical_role_contract() -> None:
 
 
 def test_plan_new_emits_schema_valid_v2_role_contract(monkeypatch) -> None:
+    # Schema-only historical fixture must never enter the live paid registration path.
+    monkeypatch.setattr("nextai_autoresearch.research_program.AUTHORITY", "research/laboratory/ABSENT-HISTORICAL-FIXTURE.json")
     captured = {}
     configured = load_config(project_root())
     raw = deepcopy(configured.raw)

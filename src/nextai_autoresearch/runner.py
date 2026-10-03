@@ -46,12 +46,12 @@ from .utils import (
 
 
 def _stage_deadline_expired(plan):
-    deadline = plan.get("muc02_negatives_protocol", {}).get("deadline_at")
+    deadline = (plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol", {})).get("deadline_at")
     return bool(deadline and datetime.now(timezone.utc) >= datetime.fromisoformat(deadline.replace("Z", "+00:00")))
 
 
 def _stage_halt_reason(plan, outcome=None, fit_charged=0.):
-    limits = plan.get("muc02_negatives_protocol")
+    limits = plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol")
     if not limits:
         return None
     if _stage_deadline_expired(plan):
@@ -338,7 +338,7 @@ def _run_candidate(
     termination_reason: str | None = None
     from .worker import read_trial_journal
     from .worker_resources import resource_problem
-    limits = plan.get("muc02_negatives_protocol") or plan.get("muc02_protocol", {})
+    limits = plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol") or plan.get("muc02_protocol", {})
     device_gap_started = started
     with log_path.open("w", encoding="utf-8", newline="\n") as log:
         process = None
@@ -392,7 +392,7 @@ def _run_candidate(
         "environment_sanitized": True,
         "network_policy": "forbidden_by_audit_and_rules_not_os_sandboxed",
     }
-    if plan.get("muc02_negatives_protocol"):
+    if plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol"):
         try:
             phase = load_json(output_path.with_suffix(".phase.json"))
             charged = (time.monotonic() - phase["fit_started"] if phase["phase"] == "fit"

@@ -1,6 +1,34 @@
-# NEXTAI — MUC v2 hard negatives completed
+# NEXTAI — MUC03 reference diagnostic preparation
 
-## Current state — MUC v2 hard negatives completed (2026-10-04)
+## Current authority — finite autonomous research program MUC03 (2026-10-04)
+
+The user authorizes MUC03-AUTONOMOUS-20261004-V1: at most 20 new registration
+attempts, including failures/invalidations, and 72000 s total fit, including
+failed fits and conservative auxiliary test charges. The immutable contract
+is research/plans/MUC03-AUTONOMOUS-PROGRAM-V1.json. Old results, attempts and
+budgets stay consumed. WT 8-9, external models/APIs and schedule changes remain
+forbidden. Choose studies autonomously; no further approval is needed within
+this finite program. Register through `uv run nextai program register`; execute
+only through `uv run nextai run --plan ...`. A paid attempt cannot be retried.
+
+First study V1 was frozen before implementation. Its sole registration ticket
+was consumed by a historical schema fixture before any plan, seed or research fit.
+The prospective replacement is research/plans/MUC03-DIAG-UNDERTRAINING-V2.json;
+metrics, recipe, budgets and the original deadline remain fixed. It compares hard-negative 192/768 steps, same MUC v2 model and
+4096 pairs, for 5 paired fresh seed/data units. Namespace probes on the same
+fresh graph separate fit, rejection and generalization. Keep maintenance until
+clone conformance, integrity/preflight and readiness receipt pass. No final data
+in this study. A competent stable reference precedes mechanism investment;
+full-cost advantage additionally needs strong classical controls, ablations,
+scaling, adverse generalization and frozen fresh final replications.
+
+One new scored experiment per cycle. End each cycle with analysis and durable
+budget accounting, then select the next bounded question under this standing
+program authority. At caps or a decisive resolution, finish with a reproducible
+prototype or an explicitly negative/inconclusive report. Do not call diagnostics
+an architecture result. All sections below describe preserved historical scope.
+
+## Historical state — MUC v2 hard negatives completed (2026-10-04)
 
 The one actual five-pair comparison completed as EXP-20261004-0001 in the
 independent Git clone. The immutable plan is research/plans/EXP-20261004-0001.json;
@@ -13,7 +41,7 @@ All 11 workers completed; trusted supervised fit total83.968 s /3600 s cap.
 
 The stage is terminal: MUC02-HARD-NEGATIVES-DECISION, scoring=false, benchmark
 maintenance. No retry, replacement seed, further registration/training, final
-access, WT8-9, new architecture or promotion is authorized. A proposed 192 vs768
+access, WT 8-9, new architecture or promotion is authorized. A proposed 192 vs768
 hard-negative fit comparison is discussion only and requires fresh authority.
 Both registrations are preserved: EXP-20261003-0001 was invalidated pre-seed;
 EXP-20261004-0001 was the sole actual execution under the unchanged deadline.
@@ -31,7 +59,7 @@ runner seeds. The MUC v2 model, 4096 pairs and 192 steps stay fixed. Work starts
 2026-10-03T21:08:25Z and stops by 2026-10-04T01:08:25Z; total fit <=3600 s.
 The immutable contract is research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json,
 with user authority in the matching research/laboratory record. The new cohort
-is mutable_contact_ledger_hard_negatives_v2. No retry, WT8-9, final/calibration
+is mutable_contact_ledger_hard_negatives_v2. No retry, WT 8-9, final/calibration
 reuse, tuning, new architecture, promotion, external model/API or schedule change.
 Any worker failure or cap stops the unstarted scope and preserves all outcomes.
 Use `uv run nextai lab status` for the verified queue. All sections below are

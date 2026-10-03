@@ -105,8 +105,8 @@ def command_lab_status(args: argparse.Namespace) -> int:
     report = run_doctor()
     contract = laboratory_contract()
     progress = laboratory_progress()
-    if (progress.get("muc02_negatives") or progress.get("audit_repair")) and not getattr(args, "include_history", False):
-        repair = progress.get("muc02_negatives") or progress["audit_repair"]
+    if (progress.get("research_program") or progress.get("muc02_negatives") or progress.get("audit_repair")) and not getattr(args, "include_history", False):
+        repair = progress.get("research_program") or progress.get("muc02_negatives") or progress["audit_repair"]
         progress = {key: progress[key] for key in ("next_action_id", "next_action", "user_decision_required", "activation_id", "scoring_authorized")}
         progress["current_scope"] = repair
         progress["history"] = "Preserved; use --include-history for validated prior stages and exhausted budgets"
@@ -320,6 +320,11 @@ def _active_sensor_protocol(config: ResearchConfig) -> dict[str, Any]:
 
 
 def command_plan_new(args: argparse.Namespace) -> int:
+    from .research_program import AUTHORITY as PROGRAM_AUTHORITY, create_plan as create_program_plan
+    if (project_root() / PROGRAM_AUTHORITY).exists():
+        print(create_program_plan(project_root(), {"candidates": args.candidates, "budget": args.budget,
+                                                  "pc01_phase": getattr(args, "pc01_phase", None)}))
+        return 0
     if getattr(args, "pc01_phase", None):
         from .pc01_execution import create_plan
         if len(args.candidates) != 1:
@@ -1042,6 +1047,12 @@ def command_hypothesis_update(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_program_register(args: argparse.Namespace) -> int:
+    from .research_program import create_plan
+    print(create_plan(project_root()))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="nextai")
     subcommands = parser.add_subparsers(dest="command", required=True)
@@ -1051,6 +1062,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     doctor = subcommands.add_parser("doctor")
     doctor.set_defaults(func=command_doctor)
+
+    program = subcommands.add_parser("program", help="Bounded user-authorized research program")
+    program_sub = program.add_subparsers(dest="program_command", required=True)
+    register = program_sub.add_parser("register", help="Reserve one paid attempt and register the frozen current study")
+    register.set_defaults(func=command_program_register)
 
     lab = subcommands.add_parser("lab", help="Read the laboratory preparation state")
     lab_sub = lab.add_subparsers(dest="lab_command", required=True)

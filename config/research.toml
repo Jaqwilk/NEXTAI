@@ -5,8 +5,8 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 2
 protocol_version = 3
-benchmark_version = "mutable_contact_ledger_hard_negatives_v2"
-benchmark_status = "maintenance"
+benchmark_version = "muc03_undertraining_v1"
+benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
 [laboratory]
@@ -892,3 +892,6 @@ minimize = [
   "knowledge_compute_slope",
   "depth_compute_slope",
 ]
+
+[research_program]
+study_path = "research/plans/MUC03-DIAG-UNDERTRAINING-V2.json"
