@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-03T22:34:13.582229+00:00",
+  "experiment_id": "EXP-20261004-0001",
+  "original_head": "a74dbce78018dc4882c8fe4b1bc99af278677ab2",
+  "immutable_historical_files_checked": 6056,
+  "historical_files_changed": [],
+  "ledger_prefixes": {
+    "events.jsonl": {
+      "historical_bytes": 626479,
+      "historical_sha256": "66afb6d2d2e7c0dc8097cc2bb6e080d23cec5b6db88458e8b6d2c4ced51d29ec",
+      "bytes_appended": 4194,
+      "unchanged_prefix": true
+    },
+    "experiments.tsv": {
+      "historical_bytes": 237108,
+      "historical_sha256": "efaf9e0964507722951597753cd5b3ae6eb17491fada903c11bc4dd4f670c81d",
+      "bytes_appended": 3161,
+      "unchanged_prefix": true
+    },
+    "plan_registry.jsonl": {
+      "historical_bytes": 28701,
+      "historical_sha256": "6dfa0ac6f3d2a7ca35f179ca71f3652fe18652e77e9993358b822b8dfa801228",
+      "bytes_appended": 410,
+      "unchanged_prefix": true
+    },
+    "plan_status_events.jsonl": {
+      "historical_bytes": 14892,
+      "historical_sha256": "c01e724fc50936639b488971b125923e2a3187fe0f4a97aa2380ee54d262d6d5",
+      "bytes_appended": 441,
+      "unchanged_prefix": true
+    },
+    "hypothesis_events.jsonl": {
+      "historical_bytes": 1322668,
+      "historical_sha256": "8be58000230df48579185c638079f78237b3f085810aa0878e12e53ff7e28241",
+      "bytes_appended": 0,
+      "unchanged_prefix": true
+    },
+    "sources.jsonl": {
+      "historical_bytes": 366608,
+      "historical_sha256": "6231fc8f3fa8377fc34e41ff787b13789439cc9763c540df45ee3721877bdbe4",
+      "bytes_appended": 0,
+      "unchanged_prefix": true
+    }
+  },
+  "archives_all_hashes_verified": true,
+  "data_proposal_records": 6077,
+  "data_rejected_records": 2,
+  "data_distinct_rejected_world_proposals": 1,
+  "data_max_proposal": 1,
+  "unique_scoring_start_events": 1,
+  "forbidden_WT_arrays_present_in_clone": [],
+  "no_download_or_installation_performed": true
+}

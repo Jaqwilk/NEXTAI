@@ -1,6 +1,28 @@
 # Scientific protocol v3 — scoped evidence, verified measurement
 
-## Current authority — MUC v2 hard negatives (2026-10-03)
+## Current state — MUC v2 hard negatives completed (2026-10-04)
+
+The one actual five-pair comparison completed as EXP-20261004-0001 in the
+independent Git clone. The immutable plan is research/plans/EXP-20261004-0001.json;
+analysis: research/analyses/EXP-20261004-0001.md. Random to hard: dense top1
+10.96% -> 23.11%, dense UNKNOWN 10.00% -> 23.41%; paired simultaneous intervals
+include zero, positive pairs are only 3/5 and 2/5, and known false abstention
+rises from 0 to 22.89%. DISCARD this exact hard-negative recipe at 4096 pairs /
+192 steps; the general mechanism remains inconclusive. Symbolic control: 100%.
+All 11 workers completed; trusted supervised fit total83.968 s /3600 s cap.
+
+The stage is terminal: MUC02-HARD-NEGATIVES-DECISION, scoring=false, benchmark
+maintenance. No retry, replacement seed, further registration/training, final
+access, WT8-9, new architecture or promotion is authorized. A proposed 192 vs768
+hard-negative fit comparison is discussion only and requires fresh authority.
+Both registrations are preserved: EXP-20261003-0001 was invalidated pre-seed;
+EXP-20261004-0001 was the sole actual execution under the unchanged deadline.
+Evaluated protected source and all runtime journals/logs were archived before
+terminal maintenance. History, budgets and scientific invariants stay intact.
+Use `uv run nextai lab status` for the verified queue. All later stage-specific
+sections are historical records and do not reopen execution authority.
+
+## Historical authority — MUC v2 hard negatives (2026-10-03)
 
 The user authorized MUC02-HARD-NEGATIVES-20261003-V1: preregister metrics and
 thresholds, minimally change only training negatives, then compare random and

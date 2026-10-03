@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-03T22:27:14.217412+00:00",
+  "experiment_id": "EXP-20261004-0001",
+  "source_archive_path": "research/laboratory/archive/MUC02-HARD-NEGATIVES-EXP-20261004-0001",
+  "source_archive_manifest_sha256": "b270cbaeb0385aaf99d8a7b24a4bfa8b01b56eb51b20d2e18a358e2ce636663c",
+  "source_files": 968,
+  "protected_files": 963,
+  "runtime_archive_path": "research/laboratory/archive/EXP-20261004-0001-runtime",
+  "runtime_archive_manifest_sha256": "b1172d1e2c1cc8df12c78d4ded0cca2d4f824fce2f194b88e5f59c35ce3e656b",
+  "runtime_files": 89,
+  "result_sha256": "66000914c334c624435bf7681a50ba6b76f9e93f60c45516c1cf847576921449",
+  "evaluator_sha256": "69f9e698cec6fd97e17a46e1da628e8ffc1bef3f05462d391439eda75edcc449",
+  "candidate_bundle_sha256": "3b8f5989e075fe02892322cf96a5acb0f7be2331713e5db2f5eb6071426b3d1b",
+  "archived_before_terminal_status_changes": true,
+  "verified_all_hashes": true,
+  "bytes_copied": 48328978,
+  "free_bytes_before": 65369055232,
+  "free_bytes_after": 65318690816
+}

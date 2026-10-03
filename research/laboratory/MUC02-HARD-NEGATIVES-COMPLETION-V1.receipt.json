@@ -1,0 +1,458 @@
+{
+  "schema_version": 1,
+  "id": "MUC02-HARD-NEGATIVES-COMPLETION-V1",
+  "created_at": "2026-10-03T22:38:13.222945+00:00",
+  "status": "validated_complete",
+  "experiment_id": "EXP-20261004-0001",
+  "experiment_plan_sha256": "6cab99485ac9662eb1e209b2eda80b72ca76e171ad2b15266da8000728897993",
+  "decision": {
+    "gates": {
+      "fact_selection_effect": true,
+      "unknown_effect": true,
+      "simultaneous_intervals": false,
+      "sign_consistency": false,
+      "accepted_known_guard": true,
+      "e2e_known_guard": true,
+      "false_abstention_guard": false,
+      "symbolic_control": true
+    },
+    "decision": "discard_proposed_recipe",
+    "architecture_promotion": false
+  },
+  "observations": {
+    "arm_means": {
+      "random": {
+        "fact_top1_accuracy": 0.10962962962962963,
+        "dense_unknown_rejection": 0.1,
+        "accepted_fact_accuracy": 0.10962962962962963,
+        "known_false_abstention": 0.0,
+        "pair_false_positive_rate": 0.1151457886796456,
+        "pair_false_negative_rate": 0.0029629629629629632,
+        "hard_subject_fpr": 0.0030397687344439358,
+        "hard_relation_fpr": 0.996417455384163,
+        "unknown_subject_rejection": 0.0,
+        "unknown_relation_rejection": 0.2,
+        "accuracy": 0.33092592592592596,
+        "e2e_known_accuracy": 0.377989417989418,
+        "e2e_unknown_rejection": 0.0014814814814814816,
+        "continual_new_fact_accuracy": 0.3960493827160494,
+        "continual_retention": 0.36444444444444446
+      },
+      "hard": {
+        "fact_top1_accuracy": 0.2311111111111111,
+        "dense_unknown_rejection": 0.23407407407407405,
+        "accepted_fact_accuracy": 0.19629629629629627,
+        "known_false_abstention": 0.22888888888888886,
+        "pair_false_positive_rate": 0.09544750690116818,
+        "pair_false_negative_rate": 0.2607407407407407,
+        "hard_subject_fpr": 0.07255795856928066,
+        "hard_relation_fpr": 0.5020440485869151,
+        "unknown_subject_rejection": 0.18962962962962962,
+        "unknown_relation_rejection": 0.2785185185185185,
+        "accuracy": 0.40361111111111114,
+        "e2e_known_accuracy": 0.4231746031746032,
+        "e2e_unknown_rejection": 0.26666666666666666,
+        "continual_new_fact_accuracy": 0.4355555555555556,
+        "continual_retention": 0.41388888888888886
+      }
+    },
+    "paired_contrasts": {
+      "fact_top1_accuracy": {
+        "mean": 0.12148148148148148,
+        "lower": -0.15507135925078713,
+        "upper": 0.39803432221375007,
+        "confidence": 0.975,
+        "df": 4,
+        "positive_pairs": 3,
+        "differences": [
+          -0.02222222222222224,
+          0.4037037037037037,
+          0.15925925925925927,
+          0.0962962962962963,
+          -0.02962962962962963
+        ]
+      },
+      "dense_unknown_rejection": {
+        "mean": 0.13407407407407407,
+        "lower": -0.6191798719278119,
+        "upper": 0.8873280200759599,
+        "confidence": 0.975,
+        "df": 4,
+        "positive_pairs": 2,
+        "differences": [
+          0.0,
+          0.0,
+          0.07407407407407407,
+          -0.34814814814814815,
+          0.9444444444444444
+        ]
+      },
+      "accepted_fact_accuracy": {
+        "mean": 0.08666666666666666,
+        "lower": -0.16769482209448322,
+        "upper": 0.34102815542781656,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 3,
+        "differences": [
+          -0.02222222222222224,
+          0.4037037037037037,
+          0.15185185185185185,
+          0.03333333333333334,
+          -0.13333333333333333
+        ]
+      },
+      "known_false_abstention": {
+        "mean": 0.22888888888888886,
+        "lower": -0.27276979124845196,
+        "upper": 0.7305475690262297,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 4,
+        "differences": [
+          0.0,
+          0.003703703703703704,
+          0.05555555555555555,
+          0.14074074074074072,
+          0.9444444444444444
+        ]
+      },
+      "pair_false_positive_rate": {
+        "mean": -0.01969828177847742,
+        "lower": -0.09685988549514364,
+        "upper": 0.0574633219381888,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 2,
+        "differences": [
+          0.052682672866510544,
+          -0.03765620042008286,
+          0.020481383287348345,
+          -0.023429970621159604,
+          -0.11056929400500352
+        ]
+      },
+      "pair_false_negative_rate": {
+        "mean": 0.2577777777777778,
+        "lower": -0.2458499973502074,
+        "upper": 0.761405552905763,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 5,
+        "differences": [
+          0.007407407407407408,
+          0.007407407407407408,
+          0.07037037037037036,
+          0.24074074074074073,
+          0.9629629629629629
+        ]
+      },
+      "hard_subject_fpr": {
+        "mean": 0.06951818983483672,
+        "lower": 0.004378954581927705,
+        "upper": 0.13465742508774575,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 4,
+        "differences": [
+          0.057657966603873755,
+          0.11768468109922241,
+          0.1258969881950949,
+          0.04635131327599253,
+          0.0
+        ]
+      },
+      "hard_relation_fpr": {
+        "mean": -0.49437340679724784,
+        "lower": -0.9385102335901598,
+        "upper": -0.050236580004335785,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 1,
+        "differences": [
+          0.014031732281423293,
+          -0.6161543710157027,
+          -0.40968565442723015,
+          -0.484839063083226,
+          -0.9752196777415038
+        ]
+      },
+      "unknown_subject_rejection": {
+        "mean": 0.18962962962962962,
+        "lower": -0.29677872518210824,
+        "upper": 0.6760379844413675,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 2,
+        "differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.05925925925925926,
+          0.8888888888888888
+        ]
+      },
+      "unknown_relation_rejection": {
+        "mean": 0.07851851851851852,
+        "lower": -0.6973938969858715,
+        "upper": 0.8544309340229086,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 2,
+        "differences": [
+          0.0,
+          0.0,
+          0.14814814814814814,
+          -0.7555555555555555,
+          1.0
+        ]
+      },
+      "accuracy": {
+        "mean": 0.07268518518518516,
+        "lower": -0.2045221862159972,
+        "upper": 0.34989255658636753,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 4,
+        "differences": [
+          0.017592592592592604,
+          0.4013888888888889,
+          0.13981481481481473,
+          0.015740740740740722,
+          -0.2111111111111111
+        ]
+      },
+      "e2e_known_accuracy": {
+        "mean": 0.04518518518518522,
+        "lower": -0.3291490544561821,
+        "upper": 0.4195194248265525,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 3,
+        "differences": [
+          0.020634920634920617,
+          0.45555555555555566,
+          0.15132275132275136,
+          -0.02433862433862427,
+          -0.3772486772486773
+        ]
+      },
+      "e2e_unknown_rejection": {
+        "mean": 0.2651851851851852,
+        "lower": -0.23388680212633933,
+        "upper": 0.7642571724967098,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 4,
+        "differences": [
+          -0.003703703703703704,
+          0.022222222222222223,
+          0.05925925925925926,
+          0.2962962962962963,
+          0.9518518518518518
+        ]
+      },
+      "continual_new_fact_accuracy": {
+        "mean": 0.03950617283950619,
+        "lower": -0.33998792276447104,
+        "upper": 0.4190002684434834,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 3,
+        "differences": [
+          0.023456790123456805,
+          0.45185185185185184,
+          0.13580246913580252,
+          -0.016049382716049332,
+          -0.39753086419753086
+        ]
+      },
+      "continual_retention": {
+        "mean": 0.04944444444444442,
+        "lower": -0.32136952292070003,
+        "upper": 0.42025841180958884,
+        "confidence": 0.95,
+        "df": 4,
+        "positive_pairs": 3,
+        "differences": [
+          0.018518518518518545,
+          0.4583333333333333,
+          0.16296296296296287,
+          -0.030555555555555558,
+          -0.36203703703703705
+        ]
+      }
+    },
+    "symbolic": {
+      "complete": true,
+      "accuracy": 1.0,
+      "worker_seconds": 3.8064934999993056,
+      "peak_rss_bytes": 522166272
+    },
+    "all_pairing_checks_passed": true
+  },
+  "budget": {
+    "started_at": "2026-10-03T21:08:25Z",
+    "deadline_at": "2026-10-04T01:08:25Z",
+    "work_seconds_cap": 14400,
+    "elapsed_wall_seconds_at_scientific_closure": 5388.222945,
+    "completed_before_deadline": true,
+    "experimental_supervised_fit_seconds": 83.96846159999859,
+    "experimental_measured_fit_seconds": 83.56477619999896,
+    "unit_fixture_fit_seconds_conservative_upper_bound": 451.78700000000003,
+    "all_fit_seconds_conservative_upper_bound": 535.7554615999986,
+    "fit_seconds_cap": 3600,
+    "runner_required_baseline_tests": "3 unique nodes; initialization/sampling/symbolic semantics only, no optimizer fit",
+    "budget_extended": false,
+    "experiment_retry_count": 0,
+    "executed_experiment_attempts": 1,
+    "registrations_including_preseed_invalidated": 2,
+    "paired_seeds": [
+      1214332095,
+      1425095524,
+      1716739173,
+      1622537886,
+      1586974392
+    ]
+  },
+  "preseed_full_tests": {
+    "failed": 0,
+    "junit_path": "research/reviews/MUC02-HARD-NEGATIVES-preseed-corrected-full-tests.xml",
+    "junit_sha256": "0682b7822dacd102fad746f7da148eb9ecc0b1c8f37e44a04fee6d4827722032",
+    "passed": 1029,
+    "seconds": 139.815,
+    "skipped": 0
+  },
+  "final_full_tests": {
+    "tests": 1029,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 135.6,
+    "path": "research/reviews/MUC02-HARD-NEGATIVES-postrun-full-tests.xml",
+    "sha256": "d6717c2df751d12f06ee293c786ca8ac0621761ca91772af897671d583713f66",
+    "passed": 1029
+  },
+  "final_integrity": {
+    "ok": true,
+    "benchmark_version": "mutable_contact_ledger_hard_negatives_v2",
+    "protocol_version": 3,
+    "evaluator_sha256": "6cfe6d153b78791cf9d30da1077fa97af56925029e7abccedc3d4bed105fb321",
+    "candidate_bundle_sha256": "3b8f5989e075fe02892322cf96a5acb0f7be2331713e5db2f5eb6071426b3d1b",
+    "problems": [],
+    "checked_files": 963
+  },
+  "current_scope": {
+    "id": "MUC02-HARD-NEGATIVES-20261003-V1",
+    "ready": true,
+    "terminal": true,
+    "expired": false,
+    "deadline_at": "2026-10-04T01:08:25Z",
+    "experiment_id": "EXP-20261004-0001",
+    "registrations_used": 2,
+    "registrations_cap": 2,
+    "original_registration_preserved": "EXP-20261003-0001",
+    "current_registrations_used": 1,
+    "executed_attempts_cap": 1,
+    "paired_seeds": 5,
+    "fit_seconds_total_cap": 3600,
+    "scoring_authorized": false
+  },
+  "state": {
+    "active_experiment_id": null,
+    "completed_experiments": 108,
+    "cycle_number": 301,
+    "generation": 2,
+    "last_experiment_id": "EXP-20261004-0001",
+    "last_failure_at": "2026-09-05T13:10:07Z",
+    "last_literature_review_completed_experiments": 105,
+    "last_reflection_completed_experiments": 98,
+    "last_reflection_cycle": 237,
+    "phase": "infrastructure",
+    "protocol_version": 3,
+    "schema_version": 1,
+    "updated_at": "2026-10-03T22:13:27Z"
+  },
+  "references_raw_sha256": {
+    "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+    "research/plans/MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1.json": "b16374fae1b7454f2bec0972918bb422135801932750d4e1bf1e89352d9ed282",
+    "research/plans/MUC02-HARD-NEGATIVES-PRESEED-CONFORMANCE-V1.json": "8c349423b5e30faa48468ec76ea8794129cf3e8abdec190a2b221b18a1a7a393",
+    "research/plans/EXP-20261003-0001.json": "9227f1e42c41df15f0e1c433cb16497dcf8f37cdfffbdae1170d1b02d6b4d934",
+    "research/plans/EXP-20261004-0001.json": "7b544fefdf6e6ede989039a9f223adf8fe8c6335be260183c412a6f3c7e215f1",
+    "research/results/EXP-20261004-0001.json": "66000914c334c624435bf7681a50ba6b76f9e93f60c45516c1cf847576921449",
+    "research/analyses/EXP-20261004-0001.md": "ba7be788adb2eecfdb19eca54c4a911fec71b1849bfc639f13802359263d3637",
+    "research/reviews/EXP-20261004-0001-paired-analysis.json": "8f438999a1359cc167d4bad91f13699a145825ffd41a2f2fe5798b5ee6d41b82",
+    "research/reviews/EXP-20261004-0001-history-and-data-audit.json": "4f221428137bd1dfd7063b69de9c2a6ad5fc16c9e50ed7424257377510d8bc75",
+    "research/laboratory/MUC02-HARD-NEGATIVES-EXECUTION-ARCHIVE-V1.json": "2cbd5d35764fc6cf46299e319ca2cccfcb752c4612e2a56d1a57f5ef3234ec0a",
+    "scripts/analyze_muc02_hard_negatives.py": "34c0d17c4d54e8558b06fb65c992c7193fd5d8c03064c6defbba57c6bd525f9b",
+    "research/REPORT.md": "d11258dd1fcf37fdfb4ccb384f2c6fe5e0c7cda39e1562304627715e96c6e8f8",
+    "research/REPORT.provenance.json": "f4fde8cc53db137d5fe0ba0a31cfcc750e3e89ac13c6033948c64e78458d6799",
+    "research/eval_manifest.json": "feb25607157695b716dc90596172922405ef75ebafb9594038a0124dc7bddce3",
+    "research/laboratory/preflight_certificate.json": "85a9802d4421cfee450ce5689e8d38af20ef38de6796c6ce746123d34f616cce"
+  },
+  "history_audit": {
+    "schema_version": 1,
+    "created_at": "2026-10-03T22:34:13.582229+00:00",
+    "experiment_id": "EXP-20261004-0001",
+    "original_head": "a74dbce78018dc4882c8fe4b1bc99af278677ab2",
+    "immutable_historical_files_checked": 6056,
+    "historical_files_changed": [],
+    "ledger_prefixes": {
+      "events.jsonl": {
+        "historical_bytes": 626479,
+        "historical_sha256": "66afb6d2d2e7c0dc8097cc2bb6e080d23cec5b6db88458e8b6d2c4ced51d29ec",
+        "bytes_appended": 4194,
+        "unchanged_prefix": true
+      },
+      "experiments.tsv": {
+        "historical_bytes": 237108,
+        "historical_sha256": "efaf9e0964507722951597753cd5b3ae6eb17491fada903c11bc4dd4f670c81d",
+        "bytes_appended": 3161,
+        "unchanged_prefix": true
+      },
+      "plan_registry.jsonl": {
+        "historical_bytes": 28701,
+        "historical_sha256": "6dfa0ac6f3d2a7ca35f179ca71f3652fe18652e77e9993358b822b8dfa801228",
+        "bytes_appended": 410,
+        "unchanged_prefix": true
+      },
+      "plan_status_events.jsonl": {
+        "historical_bytes": 14892,
+        "historical_sha256": "c01e724fc50936639b488971b125923e2a3187fe0f4a97aa2380ee54d262d6d5",
+        "bytes_appended": 441,
+        "unchanged_prefix": true
+      },
+      "hypothesis_events.jsonl": {
+        "historical_bytes": 1322668,
+        "historical_sha256": "8be58000230df48579185c638079f78237b3f085810aa0878e12e53ff7e28241",
+        "bytes_appended": 0,
+        "unchanged_prefix": true
+      },
+      "sources.jsonl": {
+        "historical_bytes": 366608,
+        "historical_sha256": "6231fc8f3fa8377fc34e41ff787b13789439cc9763c540df45ee3721877bdbe4",
+        "bytes_appended": 0,
+        "unchanged_prefix": true
+      }
+    },
+    "archives_all_hashes_verified": true,
+    "data_proposal_records": 6077,
+    "data_rejected_records": 2,
+    "data_distinct_rejected_world_proposals": 1,
+    "data_max_proposal": 1,
+    "unique_scoring_start_events": 1,
+    "forbidden_WT_arrays_present_in_clone": [],
+    "no_download_or_installation_performed": true
+  },
+  "evidence_and_runtime_preserved": true,
+  "wt_files_8_9_accessed": false,
+  "calibration_or_final_worlds_used": false,
+  "new_architecture": false,
+  "architecture_promotion": false,
+  "external_model_or_api_used": false,
+  "schedule_changed": false,
+  "scoring_authorized": false,
+  "next_action": "MUC02-HARD-NEGATIVES-DECISION",
+  "next_discriminating_experiment": "Proposed only: unchanged hard sampler/model/4096 pairs, 192 vs768 fit steps on fresh train/dev for5 paired seeds; freeze competence and known-answer guards; needs new authority",
+  "incomplete_scope": []
+}
