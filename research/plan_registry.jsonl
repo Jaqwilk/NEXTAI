@@ -141,3 +141,4 @@
 {"experiment_id":"EXP-20261002-0001","path":"research/plans/EXP-20261002-0001.json","plan_sha256":"56cbab4e331a7f7305524fa6526d45dd26c5a3fd0c7d94ad2d717d7723c2adc7","registered_at":"2026-10-02T21:47:08Z"}
 {"experiment_id":"EXP-20261003-0001","path":"research/plans/EXP-20261003-0001.json","plan_sha256":"2cfdb8d005727909bc2d0fbd7a470ab885f38590d965744ba776cd7a195d2f37","registered_at":"2026-10-03T21:37:26Z"}
 {"experiment_id":"EXP-20261004-0001","path":"research/plans/EXP-20261004-0001.json","plan_sha256":"6cab99485ac9662eb1e209b2eda80b72ca76e171ad2b15266da8000728897993","registered_at":"2026-10-03T22:03:38Z"}
+{"experiment_id":"EXP-20261004-0002","path":"research/plans/EXP-20261004-0002.json","plan_sha256":"9cefbd6f57c77642344d0da109824dc057240fd501ad909fb9bce386dd5d6829","registered_at":"2026-10-03T23:46:12Z"}
