@@ -1,3 +1,18 @@
+# Prospective cycle309 — compact feature learning (2026-10-04)
+
+PVM01-COMPACT-FEATURE-SCREEN-V1 is preregistered before implementation.
+Trainable Fourier512 features through fixed delta memory versus frozen/shuffled
+source-identical controls; unchanged correct transport and T-sets, no trained gate.
+Five fresh paired units,75 workers/675 trials, K32/128/512, updates0/1/4.
+Dense with CPU/CUDA cache and strongest ridge/PCA/tree/Nystrom/exact retrieval
+remain controls. Four simultaneous98.75% primary intervals, outer economic
+gates unchanged. Start19:32:56Z, deadline23:32:56Z,180s fit/204s worker,
+full worker cap15600s and auxiliary1800s including startup checks.
+Maintain v3 maintenance/scoring=false until clone conformance and v4 freeze,
+preflight/readiness. Exactly one audited EXP, no retry,WT8-9/API/schedule change.
+Closed evidence unchanged; global continuation and later adverse/final remain.
+Previous sections are preserved history.
+
 # Current cycle308 — EXP-20261004-0006 completed (2026-10-04)
 
 One delta-memory screen:75/75 workers,675/675 trials, five fresh paired units.
