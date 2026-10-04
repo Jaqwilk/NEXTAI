@@ -1,0 +1,79 @@
+{
+  "all_references_match_clone": true,
+  "clone_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "completion_receipt_sha256": "edd9f597ef0c9c38ab51176efe3d75cbfe6f3c6816803a6920e7e9b9f0935e19",
+  "created_at": "2026-10-04T00:43:57Z",
+  "executing_package_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\src\\nextai_autoresearch\\__init__.py",
+  "experiment_id": "EXP-20261004-0002",
+  "id": "MUC03-DIAG-UNDERTRAINING-V2-INTEGRATION",
+  "integrated_clone_commit": "d73df20",
+  "method": "non-destructive Git fast-forward from verified independent clone; original was clean; full regression before and after run; doctor+integrity+raw archives+independent reanalysis verified",
+  "new_research_fit_or_scored_run": false,
+  "original_integrity": {
+    "benchmark_version": "muc03_undertraining_v1",
+    "candidate_bundle_sha256": "101b185bee94d7b6247df65ef0d49eba7459b7969d6acabf48b05c92081700b6",
+    "checked_files": 982,
+    "evaluator_sha256": "0073694efc39915d91b4e31f3d2f6f861ef265e603ac00c25b4cd6778d7c4c30",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "original_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "prior_original_commit": "fb3d2343ffe5dce0d44153dbd0c997cea7d66b0a",
+  "program_completed": false,
+  "program_scope": {
+    "auxiliary_fit_seconds_conservative": 615.0,
+    "cohort": "muc03_undertraining_v1",
+    "experiment_id": "EXP-20261004-0002",
+    "experimental_fit_seconds": 149.4627120000041,
+    "fit_seconds_cap": 72000,
+    "fit_seconds_charged": 764.4627120000041,
+    "fit_seconds_remaining": 71235.53728799999,
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": true,
+    "registration_attempts_cap": 20,
+    "registration_attempts_used": 2,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "mechanism_and_ablations": 0,
+      "reference": 2,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 0,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "mechanism_and_ablations": 3,
+      "reference": 6,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 5,
+      "scale_and_generalization": 4
+    },
+    "study_expired": false,
+    "study_path": "research/plans/MUC03-DIAG-UNDERTRAINING-V2.json",
+    "study_terminal": true,
+    "unreserved_fit_seconds_remaining": 71235.53728799999
+  },
+  "references_raw_sha256": {
+    "research/analyses/EXP-20261004-0002.md": "61db3a6dc1185f475f8d8244e4c71a9bf520eaa82564d6ec73c8da4d34693887",
+    "research/laboratory/EXP-20261004-0002-runtime-archive.json": "224a5b13b20bcb57550aa3e8a4308af709ec9b1787a2f31fa58c69677e5845b9",
+    "research/laboratory/EXP-20261004-0002-runtime-data-audit-addendum-V1.json": "ffdc9792deabda68ce07d126700c020ba5895c440982451d90a56396bb685f22",
+    "research/laboratory/EXP-20261004-0002-source-archive.json": "df0be39c893c38cf23696d459d5058d33493eb87f1606529ec53ca1d3c72c683",
+    "research/plans/EXP-20261004-0002.json": "57b306d2702036f6be17f9e9d8f05fd4e4b706e9a897cd4e384c7a5ac0e9fbb1",
+    "research/plans/MUC03-POSTRUN-ACCOUNTING-REPAIR-V1.json": "3803c6ba99400d059ccdbe2af40f760da10dca2ab5c0b912f34427bc8ee85f35",
+    "research/results/EXP-20261004-0002.json": "aa3cd68590fce3d463499f371bfab5c438cf40bcc749f27405ceddf70f0c6e8d",
+    "research/reviews/EXP-20261004-0002-full-workload-costs.json": "0fbeeb5c3d63439ef33d3c12dbc8d1c29b0524291ff5d361690cd4dcc5ae6dad",
+    "research/reviews/EXP-20261004-0002-paired-analysis.json": "b68e0c31b4815aa0685258073aaaf6a156761f74e89e62a190c9f1b3b293d404",
+    "research/reviews/EXP-20261004-0002-workload-cost-addendum-V1.json": "2914af0f9cffe38feaa95d57cf9be13c3be22a15935b4c356b6582fe05df6438"
+  },
+  "schema_version": 1,
+  "source_runtime_archive_files_verified": {
+    "runtime": 89,
+    "source": 987
+  },
+  "unrelated_changes_discarded": false
+}
