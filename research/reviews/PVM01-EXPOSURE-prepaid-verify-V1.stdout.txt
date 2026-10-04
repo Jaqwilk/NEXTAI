@@ -1,0 +1,82 @@
+[OK] benchmark=paired_view_mutable_memory_v5 status=active protocol=v3
+[OK] laboratory=dev_authorized next=NEXTAI-STUDY-RUN scoring=True
+[OK] cycle=309 completed=114
+[OK] hypotheses=59
+[OK] sources=445
+[OK] scientifically_invalid_results=4
+[OK] pending_plans=0
+[OK] integrity=ok files=1166
+[OK] preflight_certificate=543f2fcab1408297630bffa12d3f99f14211e60c76c39ae2a61299eb17c212fa
+[OK] audited_candidates=701
+[OK] hardware=cpu:24 ram_gb:31.7
+Doctor: PASS
+
+
+{
+  "restart_id": "LAB-RESTART-20260904-V1",
+  "preparation_ready": false,
+  "scoring_ready": true,
+  "status": "dev_authorized",
+  "next_action_id": "NEXTAI-STUDY-RUN",
+  "next_action": "Preserve all outcomes, review evidence and autonomously select the next preregistered study within finite program caps.",
+  "user_decision_required": false,
+  "activation_id": "NEXTAI-CONTINUATION-20261004-V1",
+  "scoring_authorized": true,
+  "current_scope": {
+    "id": "NEXTAI-CONTINUATION-20261004-V1",
+    "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+    "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+    "study_path": "research/plans/PVM01-CAPACITY-EXPOSURE-V1.json",
+    "cohort": "paired_view_mutable_memory_v5",
+    "ready": true,
+    "study_terminal": false,
+    "study_expired": false,
+    "program_terminal": false,
+    "program_closed": false,
+    "registration_budget_exhausted": false,
+    "paid_run_pending": false,
+    "registration_attempts_used": 7,
+    "registration_attempts_cap": 20,
+    "stage_registration_attempts": {
+      "diagnosis_and_task": 0,
+      "reference_and_alternatives": 2,
+      "mechanism_and_ablations": 2,
+      "scale_and_generalization": 0,
+      "replication_and_fresh_final": 0,
+      "repair_reserve": 0
+    },
+    "stage_registration_caps": {
+      "diagnosis_and_task": 0,
+      "reference_and_alternatives": 5,
+      "mechanism_and_ablations": 4,
+      "scale_and_generalization": 3,
+      "replication_and_fresh_final": 3,
+      "repair_reserve": 2
+    },
+    "experimental_fit_seconds": 2489.0540554000036,
+    "auxiliary_fit_seconds_conservative": 8212.0,
+    "fit_seconds_charged": 10701.054055400004,
+    "fit_seconds_remaining": 61298.2824293,
+    "pending_fit_reservation_seconds": 0.0,
+    "unreserved_fit_seconds_remaining": 61298.2824293,
+    "fit_seconds_cap": 71999.3364847,
+    "experiment_id": null,
+    "scoring_authorized": true,
+    "prior_program_closed": true,
+    "prior_program_id": "MUC03-AUTONOMOUS-20261004-V1",
+    "prior_registration_attempts_used": 3,
+    "prior_compute_seconds_charged": 2655.336484700005,
+    "continuation_registration_attempts_used": 4,
+    "continuation_registration_attempts_cap": 17,
+    "continuation_compute_seconds_charged": 8045.717570699999,
+    "continuation_compute_seconds_cap": 69344
+  },
+  "history": "Preserved; use --include-history for validated prior stages and exhausted budgets",
+  "plan": "research/LAB_PLAN.md",
+  "errors": [],
+  "warnings": [],
+  "schedule_checked_or_started": false
+}
+
+
+Offline operational, scope, schema and semantic gates: PASS
