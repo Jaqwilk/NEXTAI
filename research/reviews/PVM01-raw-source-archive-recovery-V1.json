@@ -1,0 +1,10 @@
+{
+  "completed_at": "2026-10-04T16:20:35Z",
+  "receipt_sha256": "194840941b5ef0e71904dda2794bce975fde47c0a60141a5a4b0ea0f4b90317f",
+  "return_code": 0,
+  "runtime_files_verified": 46,
+  "scientific_data_or_fit": false,
+  "seconds_charged": 2,
+  "source_files_verified": 1053,
+  "wall_seconds": 1.005749799995101
+}

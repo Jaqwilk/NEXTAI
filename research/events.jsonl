@@ -584,3 +584,5 @@
 {"charge_id":"PVM01-postrun-stored-analysis-and-preservation-check-V1","created_at":"2026-10-04T16:18:52Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":60}
 {"charge_id":"PVM01-postrun-stored-analysis-and-preservation-check-V1","created_at":"2026-10-04T16:19:57Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":2}
 {"created_at":"2026-10-04T16:19:58Z","event":"pvm01_archive_raw_bytes_addendum_frozen","plan_path":"research/plans/PVM01-ARCHIVE-RAW-BYTES-ADDENDUM-V1.json","plan_sha256":"19a1596f6908ca9c873bc2870f6f1253196aa18dac86c17e48db268b4d826a91","program_id":"NEXTAI-CONTINUATION-20261004-V1","scientific_evidence":false}
+{"charge_id":"PVM01-raw-source-archive-recovery-V1","created_at":"2026-10-04T16:20:33Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":120}
+{"charge_id":"PVM01-raw-source-archive-recovery-V1","created_at":"2026-10-04T16:20:34Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":2}
