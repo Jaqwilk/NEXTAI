@@ -1,0 +1,13 @@
+{
+  "charged_seconds": 5,
+  "created_at": "2026-10-04T18:32:13Z",
+  "elapsed_seconds": 4.262583200004883,
+  "fixture_only": true,
+  "fixture_sha256": "be5a1bbd4bfe99dd379869d5bda66a2fed8295e0ae92f61445d977b100c3bc13",
+  "id": "PVM01-DELTA-durability-fixture-conformance-V5",
+  "previous_failed_receipt": "research/reviews/PVM01-DELTA-durability-fixture-conformance-V4.json",
+  "research_scoring": false,
+  "returncode": 0,
+  "stderr": "",
+  "stdout": ".................                                                        [100%]\n"
+}

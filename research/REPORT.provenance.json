@@ -1,6 +1,6 @@
 {
   "inputs": {
-    "config_sha256": "88298887a088885fed0019cd667f570f9804975d5da6d32ecf1d5d82ba5015fc",
+    "config_sha256": "c277764f6370bb6e1a70a1412a80be604bf797495aac90e9c9fa3829c965b19b",
     "documents": {
       "research/plans/EXP-20260830-0001.json": "7c8bb6a2804e50a24fc38c328ac4989a512e92d0820c1da216362749750d1c7c",
       "research/plans/EXP-20260830-0002.json": "777ded0d75ac03435d91d54cc4e6a6fbfe1edfa535a46d2883b0d810d66fc2c3",
@@ -235,10 +235,10 @@
       "pareto.py": "be18de616fcd656836c23075a8b62a4bf32ffb173c0cdcac8cb6efbe06c16a21",
       "report.py": "91bf4b22aacc4def6cb2ad70ac37564ea9a8ac218825aec6a56e7a202f400390",
       "scientific_validity.py": "adbfff69ced1fe7ca98cad20bf52947380473ec1811df94cad81c0bcf0b4cb1e",
-      "utils.py": "741d160b58097d6cce141d40bc047696a54ec1760f2a13fef193fbaa826c852c"
+      "utils.py": "2cc21cff34ab3c262b3a9c7f2552d1c6a42961b462db0e1e92aa11a2a1a5fb21"
     },
     "validity_sha256": "64bf36f1a5e32b685e2bab2ca658792fedbffa90ab936d12f8085cd182878aa9"
   },
-  "report_sha256": "99a6f8f21f4b1021c76b78c0a0dcc90f114c9ef2102686c1d55670c926243f6d",
+  "report_sha256": "830df786bf39306ac8390064547ce2ea447f8cf4ab91c685636ffd39c80d78ca",
   "schema_version": 1
 }

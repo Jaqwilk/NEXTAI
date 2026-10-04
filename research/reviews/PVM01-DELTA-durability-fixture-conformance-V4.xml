@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="17" time="3.587" timestamp="2026-10-04T20:31:03.392562+02:00" hostname="3vilOS20"><testcase classname="tests.test_runner_postseed_durability" name="test_postseed_validation_failure_preserves_seed_and_invalidates_plan" file="tests\test_runner_postseed_durability.py" line="26" time="0.023"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: 'forced final'&#10;  Actual message: 'Plan benchmark does not match the active benchmark cohort'">tmp_path = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-409/test_postseed_validation_failu0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000022104A9E520&gt;
+
+    def test_postseed_validation_failure_preserves_seed_and_invalidates_plan(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    ) -&gt; None:
+        ensure_layout(tmp_path)
+        experiment_id = "EXP-20260830-9996"
+        plan = {
+            "experiment_id": experiment_id,
+            "hypothesis_id": "HYP-9999",
+                "benchmark": "runner_postseed_durability_fixture_v1",
+            "evaluator_sha256": "a" * 64,
+            "budget": "quick",
+            "candidates": ["probe_complete", "probe_timeout", "probe_crash", "probe_budget", "probe_missing"],
+            "matrix": {"seed_policy": {"method": "runner_random_v1"}},
+        }
+        plan_path = tmp_path / "research" / "plans" / f"{experiment_id}.json"
+        atomic_write_json(plan_path, plan)
+        atomic_write_json(tmp_path / "research" / "eval_manifest.json", {
+            "evaluator_sha256": "a" * 64,
+        })
+        atomic_write_json(tmp_path / "research" / "state.json", {
+            "active_experiment_id": None, "cycle_number": 1,
+            "completed_experiments": 0,
+        })
+    
+        config = load_config(project_root())
+        monkeypatch.setattr(runner, "load_config", lambda root: config)
+        monkeypatch.setattr(runner, "ensure_can_run_plan", lambda *args: None)
+        monkeypatch.setattr(runner, "registered_plan_hash", lambda *args: sha256_json(plan))
+        monkeypatch.setattr(runner, "verify_required_baselines", lambda *args, **kwargs: None)
+        monkeypatch.setattr(runner, "verify_preflight_certificate", lambda *args: {})
+        monkeypatch.setattr(runner, "RunLock", _Lock)
+        monkeypatch.setattr(runner, "verify_manifest", lambda root: {
+            "ok": True, "benchmark_version": plan["benchmark"],
+            "protocol_version": 2, "evaluator_sha256": "a" * 64,
+            "candidate_bundle_sha256": "b" * 64, "problems": [],
+            "checked_files": 1,
+        })
+        monkeypatch.setattr(runner, "audit_candidate", lambda *args: AuditResult(
+            True, "probe", Path("probe.py"), "c" * 64, (), ()
+        ))
+        monkeypatch.setattr(runner, "_realize_evaluation_matrix", lambda plan: (
+            {"knowledge_sizes": [8], "reasoning_depths": [1],
+             "queries_per_cell": 1, "seeds": [1_234_567]},
+            {"method": "runner_random_v1", "count": 1},
+        ))
+    
+        def fake_candidate(candidate: str, *args: object) -&gt; dict:
+            failures = {
+                "probe_timeout": ("timeout", "timeout"),
+                "probe_crash": ("crash", "worker_crash"),
+                "probe_budget": ("memory_limit", "memory_limit"),
+            }
+            if candidate in failures:
+                status, reason = failures[candidate]
+                return {
+                    "candidate": candidate, "status": status, "audit": {},
+                    "execution": {"termination_reason": reason}, "trials": [],
+                    "summary": {"status": "failed", "completed_trials": 0, "total_trials": 0},
+                }
+            output = tmp_path / "research" / "tmp" / experiment_id / f"{candidate}.json"
+            atomic_write_json(output, {"candidate": candidate, "status": "complete"})
+            return {
+                "candidate": candidate, "status": "complete", "audit": {},
+                "execution": {}, "trials": [], "summary": {
+                    "status": "complete", "completed_trials": 1, "total_trials": 1,
+                    **({} if candidate == "probe_missing" else {
+                        "accuracy": 0.5, "minimum_combination_accuracy": 0.5,
+                    }),
+                },
+            }
+    
+        monkeypatch.setattr(runner, "_run_candidate", fake_candidate)
+        monkeypatch.setattr(runner, "_frontier", lambda *args: ([], {
+            "maximize": [], "minimize": [],
+        }))
+        monkeypatch.setattr(runner, "environment_fingerprint", lambda root: {})
+    
+        def fail_result_schema(name: str, document: dict, root: Path) -&gt; None:
+            if name == "experiment_result":
+                raise ValueError("forced final result validation failure")
+    
+        monkeypatch.setattr(runner, "validate_document", fail_result_schema)
+    
+&gt;       with pytest.raises(ValueError, match="forced final"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'forced final'
+E         Actual message: 'Plan benchmark does not match the active benchmark cohort'
+
+tests\test_runner_postseed_durability.py:110: AssertionError</failure></testcase><testcase classname="tests.test_pvm01_delta_memory" name="test_delta_overwrites_orthogonal_association_additive_retains_stale_content" file="tests\test_pvm01_delta_memory.py" line="21" time="0.133" /><testcase classname="tests.test_pvm01_delta_memory" name="test_shared_fitted_transport_and_random_features_are_exactly_identical" file="tests\test_pvm01_delta_memory.py" line="43" time="0.815" /><testcase classname="tests.test_pvm01_delta_memory" name="test_dense_cache_matches_conventional_decoder_with_nonzero_projections_and_updates[32]" file="tests\test_pvm01_delta_memory.py" line="61" time="0.014" /><testcase classname="tests.test_pvm01_delta_memory" name="test_dense_cache_matches_conventional_decoder_with_nonzero_projections_and_updates[128]" file="tests\test_pvm01_delta_memory.py" line="61" time="0.016" /><testcase classname="tests.test_pvm01_delta_memory" name="test_pca_tree_exact_scan_and_mutation_invalidation_charge_own_copies" file="tests\test_pvm01_delta_memory.py" line="90" time="0.009" /><testcase classname="tests.test_pvm01_delta_memory" name="test_compact_value_accuracy_never_implies_record_selection" file="tests\test_pvm01_delta_memory.py" line="114" time="0.000" /><testcase classname="tests.test_pvm01_delta_memory" name="test_private_path_binding_rejects_wrong_identity_and_hash" file="tests\test_pvm01_delta_memory.py" line="123" time="0.008" /><testcase classname="tests.test_pvm01_delta_memory" name="test_real_v3_worker_reads_serialized_path_and_stops_before_data_or_model" file="tests\test_pvm01_delta_memory.py" line="137" time="0.014" /><testcase classname="tests.test_pvm01_delta_memory" name="test_v3_schema_rejects_changed_matrix_or_missing_full_compute_contract" file="tests\test_pvm01_delta_memory.py" line="185" time="0.009" /><testcase classname="tests.test_pvm01_delta_memory" name="test_new_units_reject_consumed_realizations_without_replacement[none]" file="tests\test_pvm01_delta_memory.py" line="205" time="0.020" /><testcase classname="tests.test_pvm01_delta_memory" name="test_new_units_reject_consumed_realizations_without_replacement[seed]" file="tests\test_pvm01_delta_memory.py" line="205" time="0.019" /><testcase classname="tests.test_pvm01_delta_memory" name="test_new_units_reject_consumed_realizations_without_replacement[nonce]" file="tests\test_pvm01_delta_memory.py" line="205" time="0.020" /><testcase classname="tests.test_pvm01_delta_memory" name="test_new_units_reject_consumed_realizations_without_replacement[duplicate]" file="tests\test_pvm01_delta_memory.py" line="205" time="0.019" /><testcase classname="tests.test_pvm01_delta_memory" name="test_all_new_roles_audited_and_scope_budget_matches_frozen_cap" file="tests\test_pvm01_delta_memory.py" line="233" time="0.586" /><testcase classname="tests.test_pvm01_delta_memory" name="test_compact_json_preserves_all_values_and_default_serialization" file="tests\test_pvm01_delta_memory.py" line="243" time="0.010" /><testcase classname="tests.test_pvm01_delta_memory" name="test_preregistered_primary_gate_detects_retention_failure_and_serialization" file="tests\test_pvm01_delta_memory.py" line="252" time="0.319" /></testsuite></testsuites>

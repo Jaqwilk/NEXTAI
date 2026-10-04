@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-10-04T18:30:38Z",
+  "event": "research_program_preseed_fixture_repair_preregistered",
+  "failed_check": "research/reviews/PVM01-DELTA-final-source-full-regression-V2.json",
+  "failed_check_sha256": "9fd6810ca61e224a15fb24a6b872fa19ebaf4e3dca52e51ae4ce6492d5f4ba05",
+  "fixture_previous_sha256": "abf68a4e14883a1efe4915e019bdabd032de896b04464c0d045b73cc637be51c",
+  "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+  "repair": "Bind the generic forced-schema-failure durability fixture to its own stable fixture-only benchmark identity, rather than the active scientific cohort. Its single mocked seed, five fake worker outcomes, forced final schema failure and append-only assertions remain unchanged. The real v3 five-unit collision guard is unchanged.",
+  "research_scoring": false,
+  "scientific_recipe_metrics_thresholds_data_or_seed_change": false,
+  "source_archive": "research\\laboratory\\archive\\PVM01-DELTA-preseed-fixture\\tests\\test_runner_postseed_durability.py",
+  "study_path": "research/plans/PVM01-DELTA-MEMORY-SCREEN-V1.json",
+  "study_sha256": "47edc730028ebc05b8ff1d585a947a333b67ac0d6f2e0e3d3a4168ad72beddb8"
+}

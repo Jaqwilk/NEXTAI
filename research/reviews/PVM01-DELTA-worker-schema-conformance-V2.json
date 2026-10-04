@@ -1,0 +1,11 @@
+{
+  "charged_seconds": 6,
+  "created_at": "2026-10-04T18:19:19Z",
+  "elapsed_seconds": 5.851717500001541,
+  "fixture_only": true,
+  "id": "PVM01-DELTA-worker-schema-conformance-V2",
+  "research_seeds_or_data_accessed": false,
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "......................................                                   [100%]\n"
+}

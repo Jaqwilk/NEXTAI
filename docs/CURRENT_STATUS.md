@@ -1,3 +1,24 @@
+# Prospective cycle308 — PVM01 delta-memory screen (2026-10-04)
+
+PVM01-DELTA-MEMORY-SCREEN-V1 was frozen in Git6555a6ac before implementation.
+One75-worker/675-trial study, five fresh paired units, unchanged PVM task,
+K32/128/512 and update rounds0/1/4. Shared learned transport plus classical
+RFF2048 memory contrasts fixed-beta1 delta versus additive writes; identical
+untrained/shuffled delta controls. No learned controller or novelty claim.
+Dense reference and optimized CPU/CUDA KV caches, exactNN CPU, float32 ridge,
+PCA/whitening exact scan/cKDTree, old ridge/Nystrom/raw remain strong controls.
+Four simultaneous98.75% primary intervals and competence gates frozen.
+Original economic gates unchanged; no final or economic promotion in this screen.
+Start2026-10-04T18:02:25Z; deadline2026-10-04T22:02:25Z. Full workers<=11100s,
+fit<=120s/role, worker<=144s, auxiliary checks<=1800s including failed startup.
+Keep maintenance/scoring=false until independent-clone conformance, source
+freeze/preflight/readiness pass. Exactly one new registration/run, no retry.
+Durable counter stays307 during preparation and runner advances on completion.
+No WT8-9, external models/API or schedule change. Closed evidence preserved.
+Continuation stays active; broader mechanism alternatives, adverse, economics,
+replication and frozen fresh final remain required for the whole objective.
+Previous sections below are preserved historical states.
+
 # Current cycle307 — EXP-20261004-0005 completed after cycle306 preparation (2026-10-04)
 
 Preparation was cycle306; the audited runner advanced durable state to307

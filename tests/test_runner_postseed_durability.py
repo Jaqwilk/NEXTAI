@@ -32,7 +32,7 @@ def test_postseed_validation_failure_preserves_seed_and_invalidates_plan(
     plan = {
         "experiment_id": experiment_id,
         "hypothesis_id": "HYP-9999",
-            "benchmark": load_config(project_root()).benchmark_version,
+        "benchmark": "runner_postseed_durability_fixture_v1",
         "evaluator_sha256": "a" * 64,
         "budget": "quick",
         "candidates": ["probe_complete", "probe_timeout", "probe_crash", "probe_budget", "probe_missing"],
@@ -49,6 +49,8 @@ def test_postseed_validation_failure_preserves_seed_and_invalidates_plan(
     })
 
     config = load_config(project_root())
+    # The mocked single-seed durability fixture is independent of research cohorts.
+    config.raw["project"]["benchmark_version"] = plan["benchmark"]
     monkeypatch.setattr(runner, "load_config", lambda root: config)
     monkeypatch.setattr(runner, "ensure_can_run_plan", lambda *args: None)
     monkeypatch.setattr(runner, "registered_plan_hash", lambda *args: sha256_json(plan))

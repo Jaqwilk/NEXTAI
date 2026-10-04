@@ -53,7 +53,7 @@ def load_json(path: Path) -> Any:
         return json.load(handle)
 
 
-def atomic_write_json(path: Path, value: Any) -> None:
+def atomic_write_json(path: Path, value: Any, *, compact: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary_name = tempfile.mkstemp(
         prefix=f".{path.name}.", suffix=".tmp", dir=path.parent
@@ -61,7 +61,8 @@ def atomic_write_json(path: Path, value: Any) -> None:
     temporary = Path(temporary_name)
     try:
         with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as handle:
-            json.dump(value, handle, ensure_ascii=False, indent=2, sort_keys=True)
+            json.dump(value, handle, ensure_ascii=False, indent=None if compact else 2,
+                      separators=(",", ":") if compact else None, sort_keys=True)
             handle.write("\n")
             handle.flush()
             os.fsync(handle.fileno())

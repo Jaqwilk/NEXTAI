@@ -15,6 +15,8 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/PVM01-DELTA-MEMORY-SCREEN-V1.json",
+    "scripts/analyze_pvm01_delta_memory.py",
     "research/plans/PVM01-ANALYSIS-SERIALIZATION-REPAIR-V1.json",
     "scripts/analyze_pvm01_reference_v2.py",
     "research/plans/PVM01-REFERENCE-V2.json",
