@@ -1,0 +1,16 @@
+{
+  "all80_semantic_records_valid": true,
+  "append_only_prefixes_valid": true,
+  "closed_scientific_files_unchanged": 16744,
+  "created_at": "2026-10-04T21:17:48Z",
+  "failures_errors_skips": 0,
+  "full_regression_tests": 1114,
+  "hypothesis_events_unchanged": true,
+  "integrity_ok": true,
+  "no_new_research_units_or_fit": true,
+  "original_files_unchanged": 19499,
+  "original_head": "2618ce2309a1a11155380fef37a4c85c261855b6",
+  "preregistration_git_commit": "8fb10251a0c03356856469e1c37742c3956f15dc",
+  "preregistration_raw_sha256": "ec0e9252805e9884692ffb7beee54c5410e225893e67364e6295a6952cac5bc5",
+  "protected_files": 1166
+}

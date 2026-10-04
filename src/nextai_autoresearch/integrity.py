@@ -15,6 +15,8 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/PVM01-CAPACITY-EXPOSURE-V1.json",
+    "scripts/analyze_pvm01_capacity_exposure.py",
     "research/plans/PVM01-COMPACT-FEATURE-SCREEN-V1.json",
     "scripts/analyze_pvm01_compact_features.py",
     "research/plans/PVM01-DELTA-MEMORY-SCREEN-V1.json",

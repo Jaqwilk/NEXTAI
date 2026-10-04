@@ -152,7 +152,8 @@ def test_real_v4_worker_rejects_private_binding_before_arrays_or_model(tmp_path,
 def test_latest_consumed_units_reject_collisions_and_tampering(tmp_path, collision):
     paths = {"EXP-20261004-0004":"research/laboratory/archive/EXP-20261004-0004-runtime/research/tmp/EXP-20261004-0004",
              "EXP-20261004-0005":"research/laboratory/archive/EXP-20261004-0005-runtime",
-             "EXP-20261004-0006":"research/laboratory/archive/EXP-20261004-0006-runtime/research/tmp/EXP-20261004-0006"}
+             "EXP-20261004-0006":"research/laboratory/archive/EXP-20261004-0006-runtime/research/tmp/EXP-20261004-0006",
+             "EXP-20261004-0007":"research/laboratory/archive/EXP-20261004-0007-runtime/research/tmp/EXP-20261004-0007"}
     for index, (identity, relative) in enumerate(paths.items()):
         directory = tmp_path / relative
         private = directory / "pvm01-private-data.json"
@@ -161,11 +162,11 @@ def test_latest_consumed_units_reject_collisions_and_tampering(tmp_path, collisi
             "matrix":{"seeds":[101+index]}, "pvm01_private_data_sha256":sha256_file(private)})
     seeds, nonces = list(range(1001,1006)), [f"{i:064x}" for i in range(2001,2006)]
     if collision == "seed":
-        seeds[0] = 103
+        seeds[0] = 104
     elif collision == "nonce":
-        nonces[0] = f"{3:064x}"
+        nonces[0] = f"{4:064x}"
     elif collision == "tamper":
-        atomic_write_json(tmp_path / paths["EXP-20261004-0006"] / "pvm01-private-data.json", {"experiment_id":"wrong"})
+        atomic_write_json(tmp_path / paths["EXP-20261004-0007"] / "pvm01-private-data.json", {"experiment_id":"wrong"})
     if collision == "none":
         verify_pvm01_fresh_realization(tmp_path, seeds, nonces)
     else:

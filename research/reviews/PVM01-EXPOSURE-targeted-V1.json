@@ -1,0 +1,20 @@
+{
+  "cap": 180.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_pvm01_capacity_exposure.py",
+    "tests/test_pvm01_compact_features.py",
+    "tests/test_pvm01_delta_memory.py",
+    "--junitxml=research/reviews/PVM01-EXPOSURE-targeted-V1.xml"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 27,
+  "wall_seconds": 21.141110899989144
+}

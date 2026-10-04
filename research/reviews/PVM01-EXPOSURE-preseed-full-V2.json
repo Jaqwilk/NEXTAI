@@ -1,0 +1,17 @@
+{
+  "cap": 420.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=research/reviews/PVM01-EXPOSURE-preseed-full-V2.xml"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 277,
+  "wall_seconds": 271.1501600000047
+}
