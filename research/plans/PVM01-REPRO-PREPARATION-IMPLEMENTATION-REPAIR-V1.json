@@ -1,0 +1,33 @@
+{
+  "authority": "NEXTAI-CONTINUATION-20261004-V1",
+  "cause_not_assumed": "Could be outstanding descendants or lag in job accounting. Query assigned PIDs and test each process handle for signal state and job membership; do not infer the cause from successful output alone.",
+  "child_count_disclosure": "V1 failed5 + V2 at most36 = at most41 auxiliary fitted children across both probes. Original V1 remains failed/incomplete, never relabeled. V2 is separately identified and prospective.",
+  "created_at": "2026-10-04T22:47:12Z",
+  "decision_rule": "KEEP technical repair only if corrected V2 exact deterministic identity and all original quality-free technical gates, process regression and integrity pass. Otherwise preserve INCONCLUSIVE and unexecuted scope.",
+  "document_type": "prospective_preparation_implementation_repair_addendum",
+  "failed_probe_children": 5,
+  "failed_probe_seconds_charged": 66,
+  "finite_corrected_probe": "At most ONE new 36-child matrix V2 with the exact same public array law, three seeds, two repeats, three roles, two profiles,64+64 steps and acceptance thresholds. This is an auxiliary implementation conformance correction under the frozen two-repair allowance, not a paid research retry.",
+  "id": "PVM01-REPRO-PREPARATION-IMPLEMENTATION-REPAIR-V1",
+  "implementation_corrections": [
+    "Determine lingering descendants from actual live handles in the owned job, ignoring signaled handles and exited root accounting. Preserve strict failure for an actually live descendant.",
+    "Set and verify the already prescribed CUBLAS/Python/thread environment in the trusted auxiliary controller before child construction, and log it in child reports.",
+    "Archive V1 helper sources and raw output unchanged. Record helper source hashes per child. Add finite rapid-exit redirector regression."
+  ],
+  "maximum_source_repair_rounds_unchanged": 2,
+  "no_gate_relaxation": true,
+  "no_new_seed_data_architecture_loss_optimizer_metric_threshold_or_research_registration": true,
+  "observation": "5 auxiliary default children fitted, the fifth root returned0 with output; active-process count caused lingering failure. No deterministic-profile child started. In addition the orchestration inherited environment without explicitly enforcing the preregistered CUBLAS/thread values.",
+  "parent_plan": "research/plans/PVM01-REPRO-PREPARATION-V1.json",
+  "parent_raw_sha256": "54bb174dc4cc6f01b5e4229f0da377c096d526a26f5925258d950f1748ac59ea",
+  "preserved_failed_probe": "research/reviews/PVM01-REPRO-fixture-analysis-V1.json",
+  "preserved_failed_probe_raw_sha256": "3aea31c27bf408ac99e08e3c31de325395548dad300040b5bac3eed5c4c71307",
+  "schema_version": 1,
+  "source_repair_round": 1,
+  "unchanged_caps": {
+    "auxiliary_compute_seconds_cap": 2400,
+    "child_wall_seconds_cap": 24,
+    "deadline_at": "2026-10-05T00:23:55Z",
+    "new_matrix_seconds_cap": 1000
+  }
+}

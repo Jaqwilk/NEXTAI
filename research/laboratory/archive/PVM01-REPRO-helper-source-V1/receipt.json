@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-10-04T22:47:12Z",
+  "failed_probe_raw_sha256": "3aea31c27bf408ac99e08e3c31de325395548dad300040b5bac3eed5c4c71307",
+  "files": {
+    "scripts/check_pvm01_repro.py": "395e267622722382bc9345fa2a8b5db5e4f47d16a86c7f363595aa6074f4747b",
+    "scripts/pvm01_repro_fixture.py": "4eeb6a3d242cc979e769d44d87b00567556eaa07b5dc7b127bef8c947c161cb7",
+    "scripts/run_pvm01_preparation.py": "2b4e5571bec6294b8271ec7cccd8087d53910c55cf10a92785f591f992c4e7d2",
+    "src/nextai_autoresearch/process_supervision.py": "1a6173bbebd7dc465ef0d4c0badaac9bd2ae09271d820a692fcb4e8438b3a71b",
+    "tests/test_process_supervision.py": "56a8912862038048517237c4c23581919d2d76a5d92412672d1c5d17f4de9a40"
+  },
+  "source_commit": "f1a143d"
+}

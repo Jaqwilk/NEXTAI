@@ -1,0 +1,6 @@
+1/36 existing_default-1103-0-dense: exited, code=0, wall=11.640
+2/36 existing_default-1103-0-dense_cached_cpu: exited, code=0, wall=11.410
+3/36 existing_default-1103-0-dense_cached_cuda: exited, code=0, wall=11.281
+4/36 existing_default-1103-1-dense: exited, code=0, wall=11.435
+5/36 existing_default-1103-1-dense_cached_cpu: lingering_descendants, code=124, wall=11.257
+{"decision": "INCONCLUSIVE technical policy", "technical_acceptance_passed": false, "all_36_children_complete": false, "elapsed_seconds": 57.052256700000726}
