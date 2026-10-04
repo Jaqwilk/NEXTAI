@@ -1,5 +1,17 @@
 # NEXTAI — MUC03 undertraining diagnosis completed
 
+## Current cycle303 — final reference calibration (2026-10-04)
+
+Prospective MUC03-REFERENCE-CALIBRATION-V1 is frozen in Git d6f0d0a before
+implementation. Compare768 versus8192 steps, unchanged4096 hard pairs/model,
+five new paired train/dev units, fixed0.5 threshold and identical stability
+gates. This is the third and last tested reference step recipe. At most one
+registration/run,3500 s fit,350 s per role,4h bound ending2026-10-04T04:55:06Z.
+Keep maintenance until clone tests, integrity/preflight and readiness pass.
+No retry, final access, WT8-9, new architecture or implicit economic claim.
+If no arm passes all gates, close reference INCONCLUSIVE and report untested
+mechanism/ablations/scaling/fresh-final scope; do not add a fourth recipe.
+
 ## Latest completed cycle302 — EXP-20261004-0002 (2026-10-04)
 
 Paired hard-negative192/768 diagnostic completed once in the independent clone:

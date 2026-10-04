@@ -1,0 +1,11 @@
+{
+  "change": "Only benchmark active flag changed after maintenance readiness; no code/data/metric/recipe change. Full regression1041/1041 already passed.",
+  "created_at": "2026-10-04T01:09:58Z",
+  "preseed_receipt": "research/laboratory/MUC03-REFERENCE-CALIBRATION-V1-PRESEED.receipt.json",
+  "references": {
+    "config/research.toml": "a0d4b720172b078dfb7ea7a213f9ac779ca6e059cd6d19058ecb416cd86cdc9a",
+    "research/eval_manifest.json": "62a38f80ef8e4464a770dbf6547075c0486db5717c6cb171c264ba2f1b586034",
+    "research/laboratory/MUC03-REFERENCE-CALIBRATION-V1-PRESEED.receipt.json": "0b55fd7375ed585228444bd923e0d85b8b2bfb40f57d9d6e0b44e41476e7831a",
+    "research/laboratory/preflight_certificate.json": "1c98beb44d33cfe762cb823324a92d86fe10b44d7437976d8fecf8b7eaea5d85"
+  }
+}

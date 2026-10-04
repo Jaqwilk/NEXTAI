@@ -15,6 +15,7 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json",
     "research/plans/MUC03-DIAG-UNDERTRAINING-V2.json",
     "research/laboratory/MUC03-AUTONOMOUS-20261004-V1.json",
     "research/plans/MUC03-AUTONOMOUS-PROGRAM-V1.json",

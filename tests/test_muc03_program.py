@@ -21,7 +21,10 @@ def fixture_program(tmp_path):
         shutil.copyfile(root / rel, dst)
     import re
     config = tmp_path / "config/research.toml"
-    config.write_text(re.sub(r'study_path = "[^"]+"', f'study_path = "{program.FIRST_STUDY}"', config.read_text(encoding="utf-8")), encoding="utf-8")
+    fixture_study = load_json(tmp_path / program.FIRST_STUDY)
+    config_text = re.sub(r'study_path = "[^"]+"', f'study_path = "{program.FIRST_STUDY}"', config.read_text(encoding="utf-8"))
+    config_text = re.sub(r'benchmark_version = "[^"]+"', f'benchmark_version = "{fixture_study["cohort"]}"', config_text)
+    config.write_text(config_text, encoding="utf-8")
     prior = tmp_path / "research/results/prior.json"
     prior.parent.mkdir(parents=True, exist_ok=True)
     prior.write_text('{}\n', encoding="utf-8")

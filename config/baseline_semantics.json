@@ -1280,7 +1280,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1306,7 +1306,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1332,7 +1332,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1358,7 +1358,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1384,7 +1384,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1410,7 +1410,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1436,7 +1436,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1462,7 +1462,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1488,7 +1488,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1514,7 +1514,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1530,6 +1530,161 @@
       "specification": {
         "cohort": "muc03_undertraining_v1",
         "kind": "unchanged hard-negative MUC v2 reader; exactly 768 steps",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_8192_s0": {
+      "baseline_id": "muc03_hard_8192_s0",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc03_reference_calibration.py::test_last_recipe_preserves_frozen_metrics_and_stability_gates",
+          "path": "tests/test_muc03_reference_calibration.py",
+          "sha256": "b97c576d2c52853cea2c980de73c698373b0e8b9c3db21a1c71022949ed5fcf4"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_8192_s0.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_reference_calibration_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly8192 steps, prospective third and last step recipe",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_8192_s1": {
+      "baseline_id": "muc03_hard_8192_s1",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc03_reference_calibration.py::test_last_recipe_preserves_frozen_metrics_and_stability_gates",
+          "path": "tests/test_muc03_reference_calibration.py",
+          "sha256": "b97c576d2c52853cea2c980de73c698373b0e8b9c3db21a1c71022949ed5fcf4"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_8192_s1.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_reference_calibration_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly8192 steps, prospective third and last step recipe",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_8192_s2": {
+      "baseline_id": "muc03_hard_8192_s2",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc03_reference_calibration.py::test_last_recipe_preserves_frozen_metrics_and_stability_gates",
+          "path": "tests/test_muc03_reference_calibration.py",
+          "sha256": "b97c576d2c52853cea2c980de73c698373b0e8b9c3db21a1c71022949ed5fcf4"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_8192_s2.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_reference_calibration_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly8192 steps, prospective third and last step recipe",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_8192_s3": {
+      "baseline_id": "muc03_hard_8192_s3",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc03_reference_calibration.py::test_last_recipe_preserves_frozen_metrics_and_stability_gates",
+          "path": "tests/test_muc03_reference_calibration.py",
+          "sha256": "b97c576d2c52853cea2c980de73c698373b0e8b9c3db21a1c71022949ed5fcf4"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_8192_s3.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_reference_calibration_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly8192 steps, prospective third and last step recipe",
+        "status": "prospectively frozen step intervention; semantic conformance required before seed"
+      },
+      "version": 1
+    },
+    "muc03_hard_8192_s4": {
+      "baseline_id": "muc03_hard_8192_s4",
+      "conformance_tests": [
+        {
+          "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+          "path": "tests/test_muc03_program.py",
+          "sha256": "fd809838ab150a4e54feaaec9ea4b2897c4ffc8809ffa390a8a97864463a6339"
+        },
+        {
+          "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+          "path": "tests/test_muc02_negatives_candidates.py",
+          "sha256": "06d9d91739e0b966aaba433cbdd8a8ac7c29ce93986ab6b8c19546af9836bdd1"
+        },
+        {
+          "node_id": "tests/test_muc03_reference_calibration.py::test_last_recipe_preserves_frozen_metrics_and_stability_gates",
+          "path": "tests/test_muc03_reference_calibration.py",
+          "sha256": "b97c576d2c52853cea2c980de73c698373b0e8b9c3db21a1c71022949ed5fcf4"
+        }
+      ],
+      "implementation_files": {
+        "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+        "src/nextai_autoresearch/candidates/muc03_hard_8192_s4.py": "479457e84f2fb62ac371864cdf74350620c0fd8adcb9958d5b6d5d48237c0c32",
+        "src/nextai_autoresearch/candidates/muc03_reference.py": "f7e811a854431139d75e3515c0593730994fdfff4e4eed4f8050ee875e8891e7"
+      },
+      "specification": {
+        "cohort": "muc03_reference_calibration_v1",
+        "kind": "unchanged hard-negative MUC v2 reader; exactly8192 steps, prospective third and last step recipe",
         "status": "prospectively frozen step intervention; semantic conformance required before seed"
       },
       "version": 1

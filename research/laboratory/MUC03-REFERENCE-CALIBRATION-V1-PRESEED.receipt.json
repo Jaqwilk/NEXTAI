@@ -1,0 +1,83 @@
+{
+  "activation_rule": "Readiness verified in maintenance. Before registration change ONLY active flag, refreeze/certify, record activation addendum; evaluator/model/data/metrics remain exactly tested.",
+  "budget_before_registration": {
+    "auxiliary_fit_seconds_conservative": 931.0,
+    "cohort": "muc03_reference_calibration_v1",
+    "experiment_id": null,
+    "experimental_fit_seconds": 149.4627120000041,
+    "fit_seconds_cap": 72000,
+    "fit_seconds_charged": 1080.462712000004,
+    "fit_seconds_remaining": 70919.53728799999,
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": false,
+    "registration_attempts_cap": 20,
+    "registration_attempts_used": 2,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "mechanism_and_ablations": 0,
+      "reference": 2,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 0,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "mechanism_and_ablations": 3,
+      "reference": 6,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 5,
+      "scale_and_generalization": 4
+    },
+    "study_expired": false,
+    "study_path": "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json",
+    "study_terminal": false,
+    "unreserved_fit_seconds_remaining": 70919.53728799999
+  },
+  "created_at": "2026-10-04T01:09:56Z",
+  "cycle": 303,
+  "historical_files_unchanged": 9929,
+  "id": "MUC03-REFERENCE-CALIBRATION-V1-PRESEED",
+  "integrity": {
+    "benchmark_version": "muc03_reference_calibration_v1",
+    "candidate_bundle_sha256": "1e36c241116cf20f1f061eeb76e2ee51cbcbd9bfe48dbcc4094537fd5055bb75",
+    "checked_files": 990,
+    "evaluator_sha256": "cb5b4c33feafb0d3afdfe9f8b4c9409878df922df8d103a75b9a654cea2d7002",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "ledger_prefixes": {
+    "research/events.jsonl": true,
+    "research/experiments.tsv": true,
+    "research/hypothesis_events.jsonl": true,
+    "research/plan_registry.jsonl": true
+  },
+  "references": {
+    "research/eval_manifest.json": "19d194c1fde624364f026e785f0c44d53c11f154888c7076376513d8d4917dde",
+    "research/laboratory/preflight_certificate.json": "0103de4916b69fea9b8c3b3e8ea36f5bd94d7c5253c73e55adbb1d8c5dba8b7d",
+    "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json": "1e23bbc061fd4d7b658709c2b9607da5cf752a53193a4a6d4b9e19e7fdbd4bdf",
+    "research/reviews/MUC03-reference-last-corrected-preseed-full.json": "3b4783b3c856bfceb0485196b3609d99c6c83ff714e9adacad5b4abb068d4587",
+    "research/reviews/MUC03-reference-last-corrected-preseed-full.xml": "a20874d94837206b7dd7144e238c183345eb03aa7973cdb5175bc1bcfce9b1be",
+    "research/reviews/MUC03-reference-last-preseed-full.json": "bc3bd90c3225f5ef599c93db5748a23b9e01a85ed152b1d81dcd1b12cdabaa4c",
+    "research/reviews/MUC03-reference-last-preseed-full.xml": "6e355d710dcc4b9b102225f12c380cb607f8ca95e6a3767d2d8355dd67ef80ed",
+    "scripts/analyze_muc03_reference_calibration.py": "28c14dca57046f00551dd6dac412650e00088477373b9a3ec98fb408cc8d187f"
+  },
+  "semantic_conformance_nodes": [
+    "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
+    "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
+    "tests/test_muc03_reference_calibration.py::test_last_recipe_preserves_frozen_metrics_and_stability_gates",
+    "tests/test_muc02_baselines.py::test_symbolic_semantics_and_costs"
+  ],
+  "source_freeze_commit": "d6f0d0a42328b1f346913f4533566419153c200d",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1041
+  },
+  "training_or_scoring_performed": false
+}
