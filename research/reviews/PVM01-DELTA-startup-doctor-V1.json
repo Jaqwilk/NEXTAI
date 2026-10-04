@@ -1,0 +1,31 @@
+{
+  "charged_seconds": 1,
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Scripts\\python.exe",
+        "-m",
+        "nextai_autoresearch",
+        "doctor"
+      ],
+      "returncode": 1,
+      "stderr": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Scripts\\python.exe: No module named nextai_autoresearch.__main__; 'nextai_autoresearch' is a package and cannot be directly executed\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Scripts\\python.exe",
+        "-m",
+        "nextai_autoresearch",
+        "lab",
+        "status"
+      ],
+      "returncode": 1,
+      "stderr": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Scripts\\python.exe: No module named nextai_autoresearch.__main__; 'nextai_autoresearch' is a package and cannot be directly executed\n",
+      "stdout": ""
+    }
+  ],
+  "created_at": "2026-10-04T18:06:03Z",
+  "elapsed_seconds": 0.053981400007614866,
+  "id": "PVM01-DELTA-startup-doctor-V1"
+}
