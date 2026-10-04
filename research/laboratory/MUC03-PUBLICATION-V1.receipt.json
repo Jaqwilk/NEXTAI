@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "MUC03-PUBLICATION-V1",
+  "created_at": "2026-10-04T02:52:40Z",
+  "origin": "https://github.com/Jaqwilk/NEXTAI.git",
+  "published_verified_code_and_integration_commit": "99e34222d8a57ef90e17533e82f9dc384c024895",
+  "remote_refs_observed_after_successful_nonforce_atomic_push": {
+    "refs/heads/main": "99e34222d8a57ef90e17533e82f9dc384c024895",
+    "refs/heads/master": "99e34222d8a57ef90e17533e82f9dc384c024895"
+  },
+  "push_exit_code": 0,
+  "source_and_runtime_archives_hash_verified": true,
+  "large_checkpoints_and_datasets_not_published": true,
+  "research_result_path": "research/results/EXP-20261004-0003.json",
+  "research_result_sha256": "1e4731e5d0ad121a4c5fb34c9472a487eef25f288dea3d86b4b7bb8b747ca495",
+  "resolution_report_path": "research/analyses/MUC03-AUTONOMOUS-PROGRAM-RESOLUTION-V1.md",
+  "resolution_report_sha256": "835fea2b1ac9bdf184a7b1900d60f6b36867c451a784918068a24e48125b58e7",
+  "integration_receipt_path": "research/laboratory/MUC03-REFERENCE-CALIBRATION-INTEGRATION-V1.receipt.json",
+  "integration_receipt_sha256": "c36ef5b705af3342a26a9eefda26a24e425c720da703f20235050126261fe0af",
+  "program_status": {
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "study_path": "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json",
+    "cohort": "muc03_reference_calibration_v1",
+    "ready": true,
+    "study_terminal": true,
+    "study_expired": false,
+    "program_terminal": true,
+    "program_closed": true,
+    "registration_budget_exhausted": false,
+    "paid_run_pending": false,
+    "registration_attempts_used": 3,
+    "registration_attempts_cap": 20,
+    "stage_registration_attempts": {
+      "reference": 3,
+      "mechanism_and_ablations": 0,
+      "scale_and_generalization": 0,
+      "replication_and_fresh_final": 0,
+      "repair_reserve": 0
+    },
+    "stage_registration_caps": {
+      "reference": 6,
+      "mechanism_and_ablations": 3,
+      "scale_and_generalization": 4,
+      "replication_and_fresh_final": 5,
+      "repair_reserve": 2
+    },
+    "experimental_fit_seconds": 1216.3364847000048,
+    "auxiliary_fit_seconds_conservative": 1439.0,
+    "fit_seconds_charged": 2655.336484700005,
+    "fit_seconds_remaining": 69344.6635153,
+    "pending_fit_reservation_seconds": 0.0,
+    "unreserved_fit_seconds_remaining": 69344.6635153,
+    "fit_seconds_cap": 72000,
+    "experiment_id": "EXP-20261004-0003",
+    "scoring_authorized": false
+  },
+  "stage_wall_seconds_at_verified_publication": 7054.172759,
+  "stage_wall_seconds_cap": 14400,
+  "no_new_fit_scoring_or_registration": true,
+  "note": "This receipt records publication of the complete verified code/integration parent. Its own small evidence commit will also be pushed normally and the final Git refs rechecked; no scientific result/source changes."
+}
