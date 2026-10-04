@@ -27,3 +27,7 @@ research/reviews/PVM01-*.xml -text
 # Native tool diagnostics preserve exact captured CRLF bytes and failure traces.
 research/reviews/PVM01-*.stdout.txt -text
 research/reviews/PVM01-*.stderr.txt -text
+
+# Compact preregistration retains the exact native bytes bound by its freeze.
+research/plans/PVM01-COMPACT-FEATURE-SCREEN-V1.json -text
+research/reviews/PVM01-COMPACT-startup-*.json -text
