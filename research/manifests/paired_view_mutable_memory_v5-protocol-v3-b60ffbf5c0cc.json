@@ -1,8 +1,8 @@
 {
   "benchmark_version": "paired_view_mutable_memory_v5",
   "candidate_bundle_sha256": "64898e2d7ada8b21b2570fbccba22689f382a5f9978d39bc480b6e8ec142d464",
-  "created_at": "2026-10-04T21:20:01Z",
-  "evaluator_sha256": "8a28cfda4794eeade74fed4b40b8277027e143e031cfd0f425f77e9d42292ff0",
+  "created_at": "2026-10-04T21:11:19Z",
+  "evaluator_sha256": "6df793074fce90e905d22c32d8a0bac8b196104c0f50d9040858a437fe18ab52",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -12,7 +12,7 @@
     "README.md": "3d280154f2bbb0322c6932fc2e2b67423d0120d86b971931d4db93c6f7580d9c",
     "config/baseline_semantics.json": "0ec30e92f4d5855c36c8ed3e66fa0ab7d23ed70503c482f8782582eb4f08f447",
     "config/bootstrap_sizes.json": "c27d3c644692dad1c5b22397c9908ab6728793c33edb5314288078d35aeae672",
-    "config/research.toml": "ff431a0bb8001d4caf072a1e631cafceeddb980ccee1716cb6cd4a3229b0c695",
+    "config/research.toml": "59679d98a749715a1ae24ed23806c81f22c038eee38c35f5086c5eae41c0b5df",
     "docs/AUTOMATION_PROMPT.md": "90db3417169947b6310931efd0459610a95d198a5b2a00eacd92620b4dd56ef0",
     "docs/CODEX_SETUP.md": "e7e7714d028515ae18ae233b0f52678c6fb17fd7535b6355b7fd1f607af91e76",
     "docs/METRICS.md": "423206401e9a2e4661e0637d5dc31af380b503b70a86117cd6501832c13e71a6",
