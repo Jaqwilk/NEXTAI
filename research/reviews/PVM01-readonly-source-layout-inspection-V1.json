@@ -1,0 +1,9 @@
+{
+  "completed_at": "2026-10-04T16:25:17Z",
+  "inspection": "Compare unchanged protected source bytes with Git objects to assess checkout identity; no data/model/fit.",
+  "observation": "Only three historical CRLF audit files have normalized Git blobs; their existing explicit eol=crlf rules preserve working-tree raw bytes. New PVM01 source/tests/documents use LF.",
+  "research_fit": false,
+  "reservation_was_after_readonly_inspection": true,
+  "seconds_charged": 1,
+  "wall_seconds": 0.4835461
+}

@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-10-04T15:55:24Z
+Generated: 2026-10-04T16:26:03Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1372,6 +1372,53 @@ Pareto axes unavailable: immutable result lacks pareto_metrics: EXP-20260830-002
 | EXP-20260830-0025 | exact_constraint_result_cache | implementable | complete | 1 | - | 1 | 3173 | 172.7 | - | 5.87e+04 | 1.623 (2; screening) | 1856 |  |
 | EXP-20260830-0025 | exact_constraint_dependency_trace | implementable | complete | 1 | - | 1 | 3183 | 172.7 | - | 5.866e+04 | 1.611 (2; screening) | 9720 |  |
 | EXP-20260830-0025 | mapping_oracle_dependency_trace | privileged support control | complete | 1 | - | 1 | 342.7 | 172.7 | - | 4702 | 0.4092 (2; screening) | 9720 |  |
+
+## paired_view_mutable_memory_v1 / quick
+
+Pareto axes: maximize `accuracy, fact_top1_accuracy, dense_unknown_rejection`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20261004-0004 | pvm01_dense_s0 | implementable | crash | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_dense_s1 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_dense_s2 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_dense_s3 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_dense_s4 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_pointer_s0 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_pointer_s1 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_pointer_s2 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_pointer_s3 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_pointer_s4 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_untrained_s0 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_untrained_s1 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_untrained_s2 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_untrained_s3 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_untrained_s4 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_shuffled_s0 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_shuffled_s1 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_shuffled_s2 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_shuffled_s3 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_shuffled_s4 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_exact_nn_s0 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_exact_nn_s1 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_exact_nn_s2 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_exact_nn_s3 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_exact_nn_s4 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_ridge_s0 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_ridge_s1 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_ridge_s2 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_ridge_s3 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_ridge_s4 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_kernel_s0 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_kernel_s1 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_kernel_s2 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_kernel_s3 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_kernel_s4 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_raw_s0 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_raw_s1 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_raw_s2 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_raw_s3 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
+| EXP-20261004-0004 | pvm01_raw_s4 | implementable | stopped | - | - | 5 | - | - | - | - | - (3) | - |  |
 
 ## pointer_machine_composition_v1 / quick
 

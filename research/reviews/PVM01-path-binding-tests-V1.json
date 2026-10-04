@@ -1,0 +1,10 @@
+{
+  "completed_at": "2026-10-04T16:18:10Z",
+  "return_code": 0,
+  "scientific_data_or_fit": false,
+  "scoring": false,
+  "seconds_charged": 2,
+  "stderr": "",
+  "stdout": "..........                                                               [100%]\n",
+  "wall_seconds": 1.6838390000048093
+}

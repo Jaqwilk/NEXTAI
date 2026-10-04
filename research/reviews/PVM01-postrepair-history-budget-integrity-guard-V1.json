@@ -1,0 +1,11 @@
+{
+  "completed_at": "2026-10-04T16:34:25Z",
+  "correction": "Add the current certificate to the inspector list; old certificate bytes are preserved in pre-implementation baseline and evaluated-source archives. No protected implementation or completed outcome changes.",
+  "failed_check": "Inspector allowed-path list omitted the mutable current research/laboratory/preflight_certificate.json",
+  "full_regression_before_guard": "1075 tests, zero failures/errors/skips",
+  "registration": false,
+  "return_code": 1,
+  "rounding": "Conservative upper bound on 4.4013101-second shell wall",
+  "scientific_data_or_fit": false,
+  "seconds_charged": 5
+}

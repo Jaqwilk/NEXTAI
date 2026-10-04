@@ -1,0 +1,301 @@
+{
+  "all_40_workers_and_360_trials_complete": false,
+  "arms": {},
+  "competence_gates": {
+    "dense": {
+      "each_K_accuracy": false,
+      "each_seed_accuracy": false,
+      "each_seed_unknown": false,
+      "five_units": false,
+      "known_false_abstention": false,
+      "mean_accuracy": false,
+      "mean_unknown": false
+    },
+    "pointer": {
+      "each_K_accuracy": false,
+      "each_seed_accuracy": false,
+      "each_seed_unknown": false,
+      "five_units": false,
+      "known_false_abstention": false,
+      "mean_accuracy": false,
+      "mean_unknown": false
+    }
+  },
+  "costs": {},
+  "decision": "INCONCLUSIVE reference; diagnose and examine alternatives",
+  "economic_advantage_claim": false,
+  "experiment_id": "EXP-20261004-0004",
+  "failures": [
+    {
+      "candidate": "pvm01_dense_s0",
+      "completed_trials": 0,
+      "error": "'str' object has no attribute 'open'",
+      "status": "crash"
+    },
+    {
+      "candidate": "pvm01_dense_s1",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_dense_s2",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_dense_s3",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_dense_s4",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_pointer_s0",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_pointer_s1",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_pointer_s2",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_pointer_s3",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_pointer_s4",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_untrained_s0",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_untrained_s1",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_untrained_s2",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_untrained_s3",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_untrained_s4",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_shuffled_s0",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_shuffled_s1",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_shuffled_s2",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_shuffled_s3",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_shuffled_s4",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_exact_nn_s0",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_exact_nn_s1",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_exact_nn_s2",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_exact_nn_s3",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_exact_nn_s4",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_ridge_s0",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_ridge_s1",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_ridge_s2",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_ridge_s3",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_ridge_s4",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_kernel_s0",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_kernel_s1",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_kernel_s2",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_kernel_s3",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_kernel_s4",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_raw_s0",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_raw_s1",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_raw_s2",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_raw_s3",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    },
+    {
+      "candidate": "pvm01_raw_s4",
+      "completed_trials": 0,
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "status": "stopped"
+    }
+  ],
+  "fresh_final_executed": false,
+  "identical_legal_data_across_arms": false,
+  "learning_contrasts_97_5": {
+    "shuffled": {
+      "high": null,
+      "low": null,
+      "mean": null,
+      "n": 0
+    },
+    "untrained": {
+      "high": null,
+      "low": null,
+      "mean": null,
+      "n": 0
+    }
+  },
+  "learning_gate": false,
+  "limitations": [
+    "Five combined seed/data units, synthetic visible local development; not independent blinded final.",
+    "Updated history label is not recursive reasoning depth; no language capability or transfer claim.",
+    "Neural CUDA and classical CPU on same computer are disclosed deployments, not same-device algorithmic complexity.",
+    "Logical storage and operations are estimates; full synchronized workload times and parent peak RSS measured; energy not measured.",
+    "No memory mechanism, source-identical memory ablation, adverse test or final in this reference-only study."
+  ],
+  "model_executed_by_analysis": false,
+  "plan_sha256": "38dee71b14eac4f135e6aa232fe715f19030680043db9e54a669b6dc6091ae32",
+  "pointer_exact_nn_encoder_identity": false,
+  "result_sha256": "264183fa8c6d970f432f071b0719e9d76ddce2a8915b7606e26aa53b704a7bf0",
+  "study_sha256": "089d6cd23dd24f08448656f459c22adffb1fd748b74cba2222511f5512d2186c",
+  "summaries": {},
+  "whole_program_complete": false
+}

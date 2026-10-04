@@ -636,7 +636,7 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
             }
             evaluation_matrix, scoring_seed_policy = _realize_evaluation_matrix(plan)
             runtime_plan = {**plan, "matrix": evaluation_matrix}
-            if plan["benchmark"] == "paired_view_mutable_memory_v1":
+            if plan["benchmark"] in ("paired_view_mutable_memory_v1", "paired_view_mutable_memory_v2"):
                 private_path = runtime_plan_path.parent / "pvm01-private-data.json"
                 if private_path.exists():
                     raise FileExistsError("Private data realization already exists; no retry")

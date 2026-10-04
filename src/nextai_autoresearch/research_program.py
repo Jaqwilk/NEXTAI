@@ -295,7 +295,7 @@ def create_plan(base, requested=None):
                     "study_sha256": sha256_file(base / value["study_path"]), "registration_ticket": ticket,
                     **_study_scope(study)}
         metrics = ["accuracy", "fact_top1_accuracy", "dense_unknown_rejection", "mean_query_ops", "p95_latency_us", "state_bytes", "fit_ops", "preprocessing_ops"]
-        paired_view = study["cohort"] == "paired_view_mutable_memory_v1"
+        paired_view = study["cohort"] in ("paired_view_mutable_memory_v1", "paired_view_mutable_memory_v2")
         plan = {"schema_version": 1, "experiment_id": experiment_id, "parent_experiment_id": None, "created_at": utc_now(),
                 "status": "planned", "hypothesis_id": "HYP-0012", "title": study["id"], "research_question": study["question"],
                 "architecture_family": "paired_view_learning_reference" if paired_view else "muc_v2_reference_diagnostic", "candidates": study["candidates"], "benchmark": study["cohort"],

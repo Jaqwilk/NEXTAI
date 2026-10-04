@@ -1,0 +1,23 @@
+{
+  "candidate_bundle_sha256": "329a0886011a648c10c55057e00462470eb29b7f5525df87dec235c29c5cfd0f",
+  "certificate_sha256": "295a8d60950bc92f8b41100a07cb9c86ac9e37c3f001aafdff1c1298a9bb50cb",
+  "completed_at": "2026-10-04T16:26:20Z",
+  "evaluator_sha256": "875aaed2855d45ba4b31de7bdbb2103488fbd830268098832649e603a4e55397",
+  "integrity": {
+    "benchmark_version": "paired_view_mutable_memory_v1",
+    "candidate_bundle_sha256": "329a0886011a648c10c55057e00462470eb29b7f5525df87dec235c29c5cfd0f",
+    "checked_files": 1051,
+    "evaluator_sha256": "875aaed2855d45ba4b31de7bdbb2103488fbd830268098832649e603a4e55397",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "protected_files": 1051,
+  "required_baselines": 40,
+  "return_code": 0,
+  "scoring": false,
+  "seconds_charged": 19,
+  "stderr": "",
+  "stdout": "[OK] benchmark=paired_view_mutable_memory_v1 status=maintenance protocol=v3\n[OK] laboratory=preparation_only next=NEXTAI-STUDY-REVIEW scoring=False\n[OK] cycle=305 completed=111\n[OK] hypotheses=59\n[OK] sources=442\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=1051\n[OK] audited_candidates=602\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n",
+  "wall_seconds": 18.16785530000925
+}

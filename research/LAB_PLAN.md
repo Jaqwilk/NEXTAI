@@ -1,3 +1,35 @@
+# Current cycle305 — PVM01 reference failure and no-scoring repair (2026-10-04)
+
+EXP-20261004-0004 is preserved as failed before data generation or fit: first
+worker path-binding AttributeError, 39 stopped workers, 0/360 trials, actual
+research fit0 s. Charged worker wall1.4859776 s and all auxiliary checks remain
+consumed. Plan/result/analysis: research/plans/EXP-20261004-0004.json,
+research/results/EXP-20261004-0004.json and research/analyses/EXP-20261004-0004.md.
+No same-plan retry or replacement seed. Evaluated v1 source/core remain intact.
+
+Prospective no-scoring repair: PVM01-PATH-BINDING-REPAIR-V1 with dispatch and
+raw-archive addenda. New paired_view_mutable_memory_v2 wrapper checks the
+runner-private path and delegates to unchanged v1. Targeted worker/binding
+regression10/10 PASS without research arrays/models/fit. Full closure checks
+and exact accounting are recorded in the cycle305 completion receipt.
+The corrected raw-byte archive keeps .gitattributes as .gitattributes.raw;
+original archive, failed verification and immutable outcomes remain preserved.
+
+The continuation program remains active: one new ticket consumed out of17,
+plus the three previously consumed tickets. Current study is terminal; current
+benchmark=v1 maintenance, scoring=false, no pending run. No new registration
+or scored run is authorized by the repair itself. Economic gates are unchanged.
+
+Next bounded cycle: preregister PVM01-REFERENCE-V2 under a new comparison
+identity with the same recipe/controls/grids/gates and five fresh paired units;
+validate clone, freeze/preflight/readiness, then at most one new audited EXP.
+Standing continuation authority covers selection within remaining finite caps.
+Mechanism, ablations, adverse variant, matched-quality three-scale economics
+and frozen fresh final remain unexecuted. Whole program goal is not achieved.
+No WT8-9, external model/API, final access, retry or schedule changes.
+
+Earlier headers below are preserved historical states, not the current queue.
+
 # Current cycle305 — PVM01-REFERENCE-V1 (2026-10-04)
 
 Prospective study frozen in Git df0a4fd before generator/model implementation. Five independent fresh seed/data units, K32/128/512 and update rounds0/1/4 (legacy labels1/2/3, not reasoning depth), eight controls: dense Transformer, dense pointer, source-identical untrained/shuffled, identical-encoder exact NN, raw cosine, ridge and nonlinear Nyström transport. Same legal pairs and arrays; runner-private view maps are separate from model seeds.

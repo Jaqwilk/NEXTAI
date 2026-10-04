@@ -1,0 +1,12 @@
+{
+  "cause": "Existing original/clone CRLF/LF difference; the clone draft still matches its recorded raw startup hash and no BELIEFS changes were made.",
+  "completed_at": "2026-10-04T16:36:16Z",
+  "correction": "Verify draft raw identity against its clone startup hash and canonical JSON equality with original; preserve original bytes without overwriting them.",
+  "failed_check": "Direct raw equality of BELIEFS.json between original and clone",
+  "historical_clone_baseline_checks_and_all_four_prefix_checks_passed": true,
+  "registration": false,
+  "return_code": 1,
+  "rounding": "Conservative upper bound on 4.9835727-second shell wall",
+  "scientific_data_or_fit": false,
+  "seconds_charged": 5
+}

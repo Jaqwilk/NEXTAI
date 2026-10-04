@@ -1,0 +1,126 @@
+{
+  "allowed_mutable_paths_changed": [
+    ".gitattributes",
+    "AGENTS.md",
+    "config/baseline_semantics.json",
+    "config/research.toml",
+    "docs/CURRENT_STATUS.md",
+    "docs/SCIENTIFIC_PROTOCOL.md",
+    "program.md",
+    "research/LAB_PLAN.md",
+    "research/REPORT.md",
+    "research/REPORT.provenance.json",
+    "research/eval_manifest.json",
+    "research/events.jsonl",
+    "research/experiments.tsv",
+    "research/laboratory/preflight_certificate.json",
+    "research/plan_registry.jsonl",
+    "research/sources.jsonl",
+    "research/state.json",
+    "schemas/experiment_plan.schema.json",
+    "src/nextai_autoresearch/audit.py",
+    "src/nextai_autoresearch/integrity.py",
+    "src/nextai_autoresearch/research_program.py",
+    "src/nextai_autoresearch/runner.py"
+  ],
+  "beliefs_clone_raw_startup_hash_preserved": true,
+  "beliefs_original_semantically_identical_existing_eol_difference_preserved": true,
+  "budget": {
+    "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+    "auxiliary_fit_seconds_conservative": 3149.0,
+    "cohort": "paired_view_mutable_memory_v1",
+    "continuation_compute_seconds_cap": 69344,
+    "continuation_compute_seconds_charged": 1711.485977599994,
+    "continuation_registration_attempts_cap": 17,
+    "continuation_registration_attempts_used": 1,
+    "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+    "experiment_id": "EXP-20261004-0004",
+    "experimental_fit_seconds": 1217.8224622999987,
+    "fit_seconds_cap": 71999.3364847,
+    "fit_seconds_charged": 4366.822462299999,
+    "fit_seconds_remaining": 67632.5140224,
+    "id": "NEXTAI-CONTINUATION-20261004-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "prior_compute_seconds_charged": 2655.336484700005,
+    "prior_program_closed": true,
+    "prior_program_id": "MUC03-AUTONOMOUS-20261004-V1",
+    "prior_registration_attempts_used": 3,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": true,
+    "registration_attempts_cap": 20,
+    "registration_attempts_used": 4,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 0,
+      "reference_and_alternatives": 1,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 0,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 4,
+      "reference_and_alternatives": 5,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 3,
+      "scale_and_generalization": 3
+    },
+    "study_expired": false,
+    "study_path": "research/plans/PVM01-REFERENCE-V1.json",
+    "study_terminal": true,
+    "unreserved_fit_seconds_remaining": 67632.5140224
+  },
+  "completed_at": "2026-10-04T16:36:52Z",
+  "current_stage_auxiliary_seconds": 986,
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 1075,
+    "skipped": 0,
+    "tests": 1075,
+    "xml_sha256": "154a390e184042a7c64f930f173fcaa01a1a236bd6e504e9edecfe41e6d1f375"
+  },
+  "historical_files_unchanged": 12070,
+  "historical_prefixes": {
+    "research/events.jsonl": {
+      "append_only": true,
+      "old_bytes": 662575,
+      "old_sha256": "fc88d1b5137f9bb804922828dc7b2bea0a5f36786f2b32c4b39d8e5a9065b346"
+    },
+    "research/experiments.tsv": {
+      "append_only": true,
+      "old_bytes": 246583,
+      "old_sha256": "61c7c5b1077bd76653e2eb002532c73d56f89e3b079b52d8d9a6615068157b6c"
+    },
+    "research/plan_registry.jsonl": {
+      "append_only": true,
+      "old_bytes": 29521,
+      "old_sha256": "5e8745fe6d6edb5881a2cd6eea8c49e562c401f029ae5ec22a2acb1dd998d6cf"
+    },
+    "research/sources.jsonl": {
+      "append_only": true,
+      "old_bytes": 368553,
+      "old_sha256": "8791652e9ee999d59ec4474ecf5953d0f9f17c1d662919e883fd5a47584c5dd5"
+    }
+  },
+  "integrity": {
+    "benchmark_version": "paired_view_mutable_memory_v1",
+    "candidate_bundle_sha256": "329a0886011a648c10c55057e00462470eb29b7f5525df87dec235c29c5cfd0f",
+    "checked_files": 1051,
+    "evaluator_sha256": "875aaed2855d45ba4b31de7bdbb2103488fbd830268098832649e603a4e55397",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "raw_source_git_blobs_verified": 1053,
+  "repair_auxiliary_seconds": 219,
+  "return_code": 0,
+  "seconds_charged": 6,
+  "stored_analysis_reproduced": true,
+  "wall_seconds": 5.167102699997486,
+  "whole_program_complete": false
+}
