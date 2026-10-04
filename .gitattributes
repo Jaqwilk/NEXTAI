@@ -31,3 +31,7 @@ research/reviews/PVM01-*.stderr.txt -text
 # Compact preregistration retains the exact native bytes bound by its freeze.
 research/plans/PVM01-COMPACT-FEATURE-SCREEN-V1.json -text
 research/reviews/PVM01-COMPACT-startup-*.json -text
+
+# Capacity-exposure preregistration and startup snapshot retain hash-bound bytes.
+research/plans/PVM01-CAPACITY-EXPOSURE-V1.json -text
+research/reviews/PVM01-EXPOSURE-startup*.json -text

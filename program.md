@@ -1,3 +1,16 @@
+# Prospective cycle310 — capacity exposure (2026-10-04)
+
+PVM01-CAPACITY-EXPOSURE-V1 is frozen before scientific implementation.
+Same512 Fourier features and512 optimizer steps; compare K32/128 with K32/512
+training exposure and frozen/shuffled/additive controls. Larger fit work is charged.
+Five fresh paired units,80 workers/720 trials,unchanged task law and strong classics.
+Four simultaneous98.75% primary intervals; competence/economic gates unchanged.
+Start20:50:36Z,deadline2026-10-05T00:50:36Z,180s fit/204s worker,
+full worker cap16640s,auxiliary1800s including106s startup.
+Keep v4 maintenance/scoring=false until clone conformance,v5 freeze,preflight/readiness.
+Exactly one audited EXP,no retry,WT8-9/API/schedule changes. Closed science stays fixed.
+Previous sections are preserved history; continuation program remains active.
+
 # Current cycle309 — EXP-20261004-0007 completed (2026-10-04)
 
 One preregistered compact-feature screen:75/75 workers,675/675 trials,

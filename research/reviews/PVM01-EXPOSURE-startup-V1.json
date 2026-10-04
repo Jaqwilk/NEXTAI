@@ -1,0 +1,29 @@
+{
+  "cap": 240,
+  "checks": [
+    {
+      "command": [
+        "doctor"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "lab",
+        "status"
+      ],
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-04T20:56:02Z",
+  "error": null,
+  "new_scoring_or_fit": false,
+  "prior_small_readonly_print_error_preserved": {
+    "error": "JSONDecodeError from naive blank-line JSONL reader; resolved using unchanged ledger.read_jsonl; no mutation or model execution",
+    "included_in_six_second_conservative_startup_margin": true,
+    "tool_chunk": "9fdee5",
+    "wall_seconds": 0.2499101
+  },
+  "seconds_charged": 106,
+  "wall_seconds": 99.26587289999588
+}
