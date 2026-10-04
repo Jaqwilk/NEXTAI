@@ -1,0 +1,21 @@
+{
+  "charged_seconds": 27,
+  "created_at": "2026-10-04T17:51:27Z",
+  "elapsed_seconds": 26.173647500007064,
+  "id": "PVM01-V2-analysis-repair-freeze-and-doctor-V1",
+  "integrity": {
+    "benchmark_version": "paired_view_mutable_memory_v2",
+    "candidate_bundle_sha256": "6569bafe40ffc32bec00e334a6acf537da9ccaa154206ae63813a04587a9ac6f",
+    "checked_files": 1055,
+    "evaluator_sha256": "9843c45c617e81aea9dae3f0cdcbff36340dc262239afeeaffc0fbda6ba70e1a",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "preflight_sha256": "29dc84592ba7f4126a4e05ee6a77a6523ac9cb3dda706e7a243aec288cf92887",
+  "returncode": 0,
+  "status": "PASS",
+  "stderr": "",
+  "stdout": "[OK] benchmark=paired_view_mutable_memory_v2 status=maintenance protocol=v3\n[OK] laboratory=preparation_only next=NEXTAI-STUDY-REVIEW scoring=False\n[OK] cycle=307 completed=112\n[OK] hypotheses=59\n[OK] sources=442\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=1055\n[OK] audited_candidates=602\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n",
+  "stored_result_only_repair": true
+}

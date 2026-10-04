@@ -1,0 +1,14 @@
+{
+  "charged_seconds": 2,
+  "created_at": "2026-10-04T17:49:10Z",
+  "elapsed_seconds": 1.1946692999918014,
+  "expected_failure_reproduced": true,
+  "id": "PVM01-V2-analysis-repair-legacy-reproducer-V1",
+  "raw_existing_analysis_unchanged": true,
+  "research_fit_or_new_data": false,
+  "returncode": 1,
+  "status": "PASS",
+  "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\scripts\\analyze_pvm01_reference.py\", line 102, in <module>\n    assert json.loads(destination.read_text(encoding=\"utf8\")) == result\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "stdout": "",
+  "stored_result_only": true
+}

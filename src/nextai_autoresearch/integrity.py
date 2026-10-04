@@ -15,6 +15,8 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/PVM01-ANALYSIS-SERIALIZATION-REPAIR-V1.json",
+    "scripts/analyze_pvm01_reference_v2.py",
     "research/plans/PVM01-REFERENCE-V2.json",
     "research/plans/PVM01-PATH-BINDING-REPAIR-V1.json",
     "research/plans/PVM01-PATH-BINDING-REPAIR-DISPATCH-ADDENDUM-V1.json",

@@ -30,6 +30,11 @@ classical controls and five new paired units; freeze exact recipe before code.
 Ablations, three-scale matched-quality economics, adverse cases and frozen
 fresh final remain required. No WT8-9, external model/API or schedule changes.
 
+Postrun no-scoring serializer repair was preregistered separately: v2 analysis
+delegates frozen calculations, normalizes unit keys and preserves existing files.
+Targeted5/5 and real CLI repeated on0004/0005 passed without new fit or EXP.
+Full repair closure checks are recorded in the completion receipt.
+
 Earlier headers below are preserved historical states.
 
 # Current cycle306 — preregistered PVM01-REFERENCE-V2 (2026-10-04)
