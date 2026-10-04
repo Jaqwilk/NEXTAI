@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "MUC03-TERMINAL-QUEUE-DISCLOSURE-V1",
+  "created_at": "2026-10-04T02:19:35Z",
+  "deadline_at": "2026-10-04T04:55:06Z",
+  "scope": "No-scoring queue-message conformance: when program_terminal is true, next_action_id already says complete but next_action still says select a new study. Change only that terminal message; preserve flags, caps, experiment registration guards and active queue behavior. Add one fixture proving both active and closed descriptions, then final full regression in clone.",
+  "source_before": {
+    "src/nextai_autoresearch/laboratory.py": "e2316bae9be6b1e9c03d9d5a8b243d6e827c23cf4c5ba40177a0dd3271baec7d"
+  },
+  "completed_result_sha256": "1e4731e5d0ad121a4c5fb34c9472a487eef25f288dea3d86b4b7bb8b747ca495",
+  "research_fit_or_scoring_authorized": false,
+  "registration_attempts_used_remain": 3,
+  "tested_model_or_metrics_change": false,
+  "full_test_reservation_seconds_cap": 600,
+  "stop": "No new scientific registration/run or fourth reference recipe; retain every failed check."
+}
