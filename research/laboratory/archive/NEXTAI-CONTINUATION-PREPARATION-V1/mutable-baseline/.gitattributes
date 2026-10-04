@@ -18,6 +18,3 @@ research/laboratory/MUC02-HARD-NEGATIVES-20261003-V1.json -text
 research/plans/MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1.json -text
 research/reviews/MUC02-HARD-NEGATIVES-*.xml -text
 research/reviews/MUC03-*.xml -text
-
-# Hash-bound continuation test journals preserve native failure tracebacks.
-research/reviews/NEXTAI-continuation-*.xml -text

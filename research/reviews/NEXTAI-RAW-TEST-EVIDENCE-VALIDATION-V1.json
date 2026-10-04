@@ -1,0 +1,22 @@
+{
+  "charge_seconds": 19,
+  "checks": [
+    {
+      "path": "research/reviews/NEXTAI-continuation-targeted-tests.xml",
+      "raw_sha256": "ed9c545e1335c004b25a216bb1890fdd904a9474f832dbfd93eda16c0220feff",
+      "staged_raw_equal": true
+    },
+    {
+      "path": "research/reviews/NEXTAI-continuation-full-regression.xml",
+      "raw_sha256": "8ac9377310ac3589b2f6e440e79b8f52e3f7b12b9c88a6bef092d7ad6394131b",
+      "staged_raw_equal": true
+    }
+  ],
+  "created_at": "2026-10-04T14:13:19Z",
+  "doctor_pass": true,
+  "failure_hashes_match": true,
+  "only_source_change_after_regression": "additional integrity-list entry for prospective raw-byte preservation record; .gitattributes publication rule",
+  "previous1054_case_python_regression_unchanged": true,
+  "protected_files": 999,
+  "scientific_numerics_changed": false
+}
