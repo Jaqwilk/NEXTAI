@@ -183,6 +183,11 @@ def write_report(root: Path | None = None) -> Path:
         minimum_points = int(config.raw["decision"].get("minimum_scaling_points", 3))
         if contract_problem:
             eligible = []
+        unmeasured = [
+            (row, [metric for metric in [*maximize, *minimize] if row.get(metric) is None])
+            for row in eligible
+            if any(row.get(metric) is None for metric in [*maximize, *minimize])
+        ]
         eligible = [row for row in eligible if all(row.get(metric) is not None for metric in [*maximize, *minimize])]
         frontier = {
             (row["experiment_id"], row["candidate"])
@@ -201,6 +206,18 @@ def write_report(root: Path | None = None) -> Path:
             str(gate) for row in cohort for gate in row.get("promotion_gates", ())
         ))
         lines.extend([f"## {benchmark} / {budget}", "", axes_line, ""])
+        if unmeasured:
+            lines.extend([
+                "Pareto coverage is incomplete. The omitted controls remain unranked; "
+                "this frontier cannot certify an advantage over them.",
+                "",
+            ])
+            for row, missing in unmeasured:
+                lines.extend([
+                    f"Unranked because declared axes are unmeasured: `{row['experiment_id']}` / "
+                    f"`{row['candidate']}` — `{', '.join(missing)}`.",
+                    "",
+                ])
         if promotion_gates:
             lines.extend([
                 f"Promotion-only gates (not Pareto axes): `{', '.join(promotion_gates)}`.",

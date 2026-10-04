@@ -1,0 +1,8 @@
+{
+  "command": "uv run --no-sync pytest -q --junitxml=research/reviews/MUC03-terminal-queue-final-full.xml",
+  "created_at": "2026-10-04T02:24:15Z",
+  "exit_code": 0,
+  "wall_seconds": 157.82963599999857,
+  "conservative_fit_seconds_charged": 168,
+  "deadline_timeout_seconds": 550
+}

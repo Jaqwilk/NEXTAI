@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:09:25Z",
+  "cycle": 303,
+  "completed_range": [
+    99,
+    110
+  ],
+  "completed_experiments_reviewed": 12,
+  "references": {
+    "EXP-20260902-0001": {
+      "result_sha256": "ceed4fc024acab66d1d88c5d341bcf751b3e1bf031df03d5aca83a327e4e1653",
+      "analysis_sha256": "38c52aa5513e7e4e845ffd20f936c9ac9b6d6df2cd81c8a7086aa4daae5f1457",
+      "status": "complete"
+    },
+    "EXP-20260905-0001": {
+      "result_sha256": "db815b440bf0bcc7b289547931178b5f1a7fa4c143367a93035348cd45a8a3dc",
+      "analysis_sha256": "38c9ce55d3e7783a2512b25cb9c6b9c7c0bb9a8fcc4b69732fef5958aa7b9c0f",
+      "status": "inconclusive"
+    },
+    "EXP-20260905-0002": {
+      "result_sha256": "53744bbbf3d8980c95fce59e86083f387b4659ba78012e5391f0bde9bc80616c",
+      "analysis_sha256": "2846a6d57f3a091e1a2abdc08d24d460c46ddf47a48b356c269df527587cb2ee",
+      "status": "complete"
+    },
+    "EXP-20260905-0003": {
+      "result_sha256": "88033a52fdd8f7326bb35fbe6a698706b945ed630d79e8f9b5d22e9bb451553d",
+      "analysis_sha256": "537de9b7eb3cd5f50e7ce86df8106316b213bd8e5a1d413ff5924309d530629c",
+      "status": "complete"
+    },
+    "EXP-20260905-0004": {
+      "result_sha256": "716aa0076ddbf66835026733a88252e9c8b7c09bf01625488e0ae30ce8eb0958",
+      "analysis_sha256": "904ddf11fbfa9e01327e384df19c44961d48b0421bb45ba08b332c53bb2db01b",
+      "status": "complete"
+    },
+    "EXP-20260905-0005": {
+      "result_sha256": "ba04cd29957f53c60b964634e0fd5328810d5e6fb925748e23fe5d0c539bea38",
+      "analysis_sha256": "b9c45e7bb11d1cbe9031ebaacf348bb3169a74b8b33615277f2c8df66dc92529",
+      "status": "complete"
+    },
+    "EXP-20260906-0001": {
+      "result_sha256": "aff245cf2118df00316c5573c6ad74b2dca400cf612980be005410b06ee63a2b",
+      "analysis_sha256": "470907caf94e52d5ed014dca5bf5810bbee173ecd60e7103dea83df83b74fe70",
+      "status": "complete"
+    },
+    "EXP-20260906-0002": {
+      "result_sha256": "94b97a5cbfabbaba7fbd511b3e6065c33e4e43a4ac3bae9899441c94800c20b6",
+      "analysis_sha256": "99e99e75923588f738ff49c372940a5870777ecdfea91a4f96da581605326803",
+      "status": "complete"
+    },
+    "EXP-20261002-0001": {
+      "result_sha256": "08ff2cc11c5d7631988cf828a4d030315efca7e6e62c14f7cc2b0ff12907d9a3",
+      "analysis_sha256": "f5cb6f20caaa26bd9b487799f6d489782802ceabba833baf192b88604a572ac0",
+      "status": "complete"
+    },
+    "EXP-20261004-0001": {
+      "result_sha256": "66000914c334c624435bf7681a50ba6b76f9e93f60c45516c1cf847576921449",
+      "analysis_sha256": "ba7be788adb2eecfdb19eca54c4a911fec71b1849bfc639f13802359263d3637",
+      "status": "complete"
+    },
+    "EXP-20261004-0002": {
+      "result_sha256": "aa3cd68590fce3d463499f371bfab5c438cf40bcc749f27405ceddf70f0c6e8d",
+      "analysis_sha256": "61db3a6dc1185f475f8d8244e4c71a9bf520eaa82564d6ec73c8da4d34693887",
+      "status": "complete"
+    },
+    "EXP-20261004-0003": {
+      "result_sha256": "1e4731e5d0ad121a4c5fb34c9472a487eef25f288dea3d86b4b7bb8b747ca495",
+      "analysis_sha256": "aea743d92994c3c99d84337410d950e590d7d28873655e89079dc53d6add8955",
+      "status": "complete"
+    }
+  },
+  "aggregate_series": {
+    "path": "research/analyses/PC-01-FINAL-SERIES-V1.md",
+    "sha256": "cc3050cccbd700a207d5434dd7022559e94d9391a2c5caedd275c258e2c1fc74"
+  },
+  "review_path": "research/reviews/MUC03-REFERENCE-PORTFOLIO-CYCLE-303-V1.md",
+  "review_sha256": "782738bc5a45bd595a9d47db93e5fdb2c6add2058872a367d9f428f06b93a9a6",
+  "pareto_audit_path": "research/reviews/EXP-20261004-0003-pareto-coverage-audit.json",
+  "pareto_audit_sha256": "8ac3778350ffbb15fa0114b10f901676d07f9a0c26628be2d49b3c4065cc4465",
+  "new_fit_or_scoring": false
+}

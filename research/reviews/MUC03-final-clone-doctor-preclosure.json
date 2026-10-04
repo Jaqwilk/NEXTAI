@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:31:29Z",
+  "command": "uv run --no-sync nextai doctor",
+  "exit_code": 0,
+  "stdout": "[OK] benchmark=muc03_reference_calibration_v1 status=maintenance protocol=v3\n[OK] laboratory=preparation_only next=MUC03-STUDY-REVIEW scoring=False\n[OK] cycle=303 completed=110\n[OK] hypotheses=59\n[OK] sources=437\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=991\n[OK] audited_candidates=561\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n",
+  "stderr": "",
+  "source": "independent validation clone after all source changes and final1043 tests, before program close"
+}

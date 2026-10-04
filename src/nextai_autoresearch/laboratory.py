@@ -264,7 +264,12 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
                 "next_action_id": "MUC03-PROGRAM-COMPLETE" if program["program_terminal"] else
                     "MUC03-STUDY-REVIEW" if program["study_terminal"] or program["study_expired"] else
                     "MUC03-STUDY-RUN" if program["ready"] else "MUC03-STUDY-PREP",
-                "next_action": "Preserve all outcomes, review evidence and autonomously select the next preregistered study within finite program caps."}
+                "next_action": (
+                    "Program terminal. Preserve all outcomes and report the exact unexecuted scope; "
+                    "no further study or scoring under this authority."
+                    if program["program_terminal"] else
+                    "Preserve all outcomes, review evidence and autonomously select the next preregistered study within finite program caps."
+                )}
     from .muc02_negatives_stage import status as negatives_status
     negatives = negatives_status(base)
     if negatives is not None:

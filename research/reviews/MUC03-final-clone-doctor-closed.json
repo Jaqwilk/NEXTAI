@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:37:49Z",
+  "command": "uv run --no-sync nextai doctor",
+  "exit_code": 0,
+  "stdout": "[OK] benchmark=muc03_reference_calibration_v1 status=maintenance protocol=v3\n[OK] laboratory=preparation_only next=MUC03-PROGRAM-COMPLETE scoring=False\n[OK] cycle=303 completed=110\n[OK] hypotheses=59\n[OK] sources=437\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=991\n[OK] audited_candidates=561\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n",
+  "stderr": "",
+  "program_status": {
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "study_path": "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json",
+    "cohort": "muc03_reference_calibration_v1",
+    "ready": true,
+    "study_terminal": true,
+    "study_expired": false,
+    "program_terminal": true,
+    "program_closed": true,
+    "registration_budget_exhausted": false,
+    "paid_run_pending": false,
+    "registration_attempts_used": 3,
+    "registration_attempts_cap": 20,
+    "stage_registration_attempts": {
+      "reference": 3,
+      "mechanism_and_ablations": 0,
+      "scale_and_generalization": 0,
+      "replication_and_fresh_final": 0,
+      "repair_reserve": 0
+    },
+    "stage_registration_caps": {
+      "reference": 6,
+      "mechanism_and_ablations": 3,
+      "scale_and_generalization": 4,
+      "replication_and_fresh_final": 5,
+      "repair_reserve": 2
+    },
+    "experimental_fit_seconds": 1216.3364847000048,
+    "auxiliary_fit_seconds_conservative": 1439.0,
+    "fit_seconds_charged": 2655.336484700005,
+    "fit_seconds_remaining": 69344.6635153,
+    "pending_fit_reservation_seconds": 0.0,
+    "unreserved_fit_seconds_remaining": 69344.6635153,
+    "fit_seconds_cap": 72000,
+    "experiment_id": "EXP-20261004-0003",
+    "scoring_authorized": false
+  },
+  "laboratory_queue": "MUC03-PROGRAM-COMPLETE",
+  "terminal_next_action": "Program terminal. Preserve all outcomes and report the exact unexecuted scope; no further study or scoring under this authority.",
+  "registration_scope_denied": [
+    "Research study is not ready, expired or terminal; preregister a new bounded study within program caps"
+  ]
+}

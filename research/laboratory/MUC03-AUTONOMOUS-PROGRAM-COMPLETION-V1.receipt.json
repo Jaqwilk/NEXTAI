@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "id": "MUC03-AUTONOMOUS-PROGRAM-COMPLETION-V1",
+  "created_at": "2026-10-04T02:35:22Z",
+  "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+  "status": "complete",
+  "decision": "INCONCLUSIVE",
+  "permitted_end_state": "documented inconclusive comparison with exact failed reference/integrity/power gate",
+  "failed_gate": "No stable MUC transformer after the three preregistered step recipes;8192 fails mean top1>=0.95,each-seed top1>=0.90,dense UNKNOWN mean>=0.90.",
+  "global_budget_exhausted": false,
+  "reference_recipe_cap_exhausted": true,
+  "fulfilled_work": [
+    "preregistered finite diagnosis",
+    "two fresh five-pair step diagnostics",
+    "fit/rejection/namespace separation",
+    "strong legal classical control",
+    "measured cost boundaries and uncertainty",
+    "independent clone regression",
+    "raw source/runtime/history archives",
+    "required12-outcome portfolio reflection",
+    "exact incomplete conditional scope and INCONCLUSIVE report"
+  ],
+  "unexecuted_conditional_scope": [
+    "mechanism_selection_and_implementation",
+    "source_identical_ablations",
+    "matched_quality_cost_scaling",
+    "adverse_generalization",
+    "fresh_frozen_final_replications"
+  ],
+  "unexecuted_work_claimed_complete": false,
+  "architecture_family_falsified": false,
+  "economic_advantage_established": false,
+  "program_budget": {
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "study_path": "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json",
+    "cohort": "muc03_reference_calibration_v1",
+    "ready": true,
+    "study_terminal": true,
+    "study_expired": false,
+    "program_terminal": false,
+    "program_closed": false,
+    "registration_budget_exhausted": false,
+    "paid_run_pending": false,
+    "registration_attempts_used": 3,
+    "registration_attempts_cap": 20,
+    "stage_registration_attempts": {
+      "reference": 3,
+      "mechanism_and_ablations": 0,
+      "scale_and_generalization": 0,
+      "replication_and_fresh_final": 0,
+      "repair_reserve": 0
+    },
+    "stage_registration_caps": {
+      "reference": 6,
+      "mechanism_and_ablations": 3,
+      "scale_and_generalization": 4,
+      "replication_and_fresh_final": 5,
+      "repair_reserve": 2
+    },
+    "experimental_fit_seconds": 1216.3364847000048,
+    "auxiliary_fit_seconds_conservative": 1439.0,
+    "fit_seconds_charged": 2655.336484700005,
+    "fit_seconds_remaining": 69344.6635153,
+    "pending_fit_reservation_seconds": 0.0,
+    "unreserved_fit_seconds_remaining": 69344.6635153,
+    "fit_seconds_cap": 72000,
+    "experiment_id": "EXP-20261004-0003",
+    "scoring_authorized": false
+  },
+  "all_program_aux_fit_charges": [
+    {
+      "charge_id": "MUC03-first-targeted-tests",
+      "created_at": "2026-10-03T23:24:12Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 4.0
+    },
+    {
+      "charge_id": "MUC03-corrected-targeted-tests",
+      "created_at": "2026-10-03T23:28:24Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 5.0
+    },
+    {
+      "charge_id": "MUC03-preseed-full-tests",
+      "created_at": "2026-10-03T23:35:32Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 149
+    },
+    {
+      "charge_id": "MUC03-isolated-full-tests",
+      "created_at": "2026-10-03T23:40:52Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 150
+    },
+    {
+      "charge_id": "MUC03-final-preseed-full-tests",
+      "created_at": "2026-10-03T23:43:48Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 150
+    },
+    {
+      "charge_id": "MUC03-final-postrun-full-tests",
+      "created_at": "2026-10-04T00:30:53Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 157
+    },
+    {
+      "charge_id": "MUC03-reference-last-preseed-full-tests",
+      "created_at": "2026-10-04T01:04:24Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 158
+    },
+    {
+      "charge_id": "MUC03-reference-last-corrected-preseed-full-tests",
+      "created_at": "2026-10-04T01:08:33Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 158
+    },
+    {
+      "charge_id": "MUC03-reference-last-postrun-full-tests",
+      "created_at": "2026-10-04T01:58:38Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 169
+    },
+    {
+      "charge_id": "MUC03-reference-last-corrected-postrun-full-tests",
+      "created_at": "2026-10-04T02:13:49Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 171
+    },
+    {
+      "charge_id": "MUC03-terminal-queue-full-tests",
+      "created_at": "2026-10-04T02:24:16Z",
+      "event": "research_program_aux_fit_charged",
+      "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "seconds": 168
+    }
+  ],
+  "resolution_report_path": "research/analyses/MUC03-AUTONOMOUS-PROGRAM-RESOLUTION-V1.md",
+  "resolution_report_sha256": "835fea2b1ac9bdf184a7b1900d60f6b36867c451a784918068a24e48125b58e7",
+  "study_completion_path": "research/laboratory/MUC03-REFERENCE-CALIBRATION-V1-COMPLETION.receipt.json",
+  "study_completion_sha256": "fe80f3eebc1b358516197eaa9e4ef297137d606063624988019d5086a3957af0",
+  "closure_verification_path": "research/reviews/MUC03-FINAL-CLOSURE-VERIFICATION-V1.json",
+  "closure_verification_sha256": "bf838ea19dc34b023507cf5d7e64ba38a80eebc1d61921adbb644dd11409cdce",
+  "tests": {
+    "tests": 1043,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "no_pending_or_reserved_work": true,
+  "expected_terminal_queue": "MUC03-PROGRAM-COMPLETE",
+  "expected_scoring_authorized": false,
+  "publication": "Verified local fast-forward integration and publication are recorded by a separate receipt before delivering the final answer."
+}

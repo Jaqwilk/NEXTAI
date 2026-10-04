@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-10-04T01:11:33Z
+Generated: 2026-10-04T02:21:36Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1224,9 +1224,35 @@ Pareto axes: maximize `accuracy, warm_accuracy, continual_new_fact_accuracy, con
 | EXP-20260901-0056 | local_dense_transition_gru_v1 | implementable | complete | 0 | - | 1 | 5.615e+04 | 24 | 1.109e+05 | 1.502e+09 | 0 (3) | 25588 |  |
 | EXP-20260901-0056 | privileged_exact_entity_key_v1 | privileged support control | complete | 1 | - | 1 | 28.33 | 24 | 261.3 | 2.066e+05 | 5.58e-32 (3) | 76824 |  |
 
+## muc03_reference_calibration_v1 / quick
+
+Pareto axes: maximize `accuracy, fact_top1_accuracy, dense_unknown_rejection`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+Pareto coverage is incomplete. The omitted controls remain unranked; this frontier cannot certify an advantage over them.
+
+Unranked because declared axes are unmeasured: `EXP-20261004-0003` / `symbolic_last_write_graph_v2` — `fact_top1_accuracy, dense_unknown_rejection`.
+
+| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20261004-0003 | muc03_hard_768_s0 | implementable | complete | 0.937 | - | 1 | 1.808e+10 | 101.5 | 3.669e+08 | 5.864e+12 | -0.01199 (3) | 4.32924e+07 | yes |
+| EXP-20261004-0003 | muc03_hard_8192_s0 | implementable | complete | 0.937 | - | 1 | 1.88e+10 | 101.5 | 3.815e+08 | 1.727e+13 | -0.005 (3) | 4.32924e+07 | yes |
+| EXP-20261004-0003 | muc03_hard_768_s1 | implementable | complete | 0.7708 | - | 1 | 1.956e+10 | 101.5 | 3.97e+08 | 6.243e+12 | -0.01201 (3) | 4.32924e+07 |  |
+| EXP-20261004-0003 | muc03_hard_8192_s1 | implementable | complete | 0.9324 | - | 1 | 1.829e+10 | 101.5 | 3.711e+08 | 1.714e+13 | -0.004654 (3) | 4.32924e+07 |  |
+| EXP-20261004-0003 | muc03_hard_768_s2 | implementable | complete | 0.8648 | - | 1 | 1.921e+10 | 101.5 | 3.897e+08 | 6.151e+12 | -0.007081 (3) | 4.32924e+07 |  |
+| EXP-20261004-0003 | muc03_hard_8192_s2 | implementable | complete | 0.9778 | - | 1 | 1.837e+10 | 101.5 | 3.728e+08 | 1.716e+13 | -0.0009259 (3) | 4.32924e+07 | yes |
+| EXP-20261004-0003 | muc03_hard_768_s3 | implementable | complete | 0.9602 | - | 1 | 1.839e+10 | 101.5 | 3.732e+08 | 5.942e+12 | -0.001158 (3) | 4.32924e+07 | yes |
+| EXP-20261004-0003 | muc03_hard_8192_s3 | implementable | complete | 0.9806 | - | 1 | 1.835e+10 | 101.5 | 3.725e+08 | 1.716e+13 | -0.001158 (3) | 4.32924e+07 | yes |
+| EXP-20261004-0003 | muc03_hard_768_s4 | implementable | complete | 0.9551 | - | 1 | 1.848e+10 | 101.5 | 3.751e+08 | 5.966e+12 | -0.005313 (3) | 4.32924e+07 | yes |
+| EXP-20261004-0003 | muc03_hard_8192_s4 | implementable | complete | 0.9759 | - | 1 | 1.836e+10 | 101.5 | 3.726e+08 | 1.716e+13 | -0.003018 (3) | 4.32924e+07 | yes |
+| EXP-20261004-0003 | symbolic_last_write_graph_v2 | implementable | complete | 1 | - | 5 | 162.3 | 101.5 | 39.79 | 7.066e+04 | 0.000121 (3) | 29440 |  |
+
 ## muc03_undertraining_v1 / quick
 
 Pareto axes: maximize `accuracy, fact_top1_accuracy, dense_unknown_rejection`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+Pareto coverage is incomplete. The omitted controls remain unranked; this frontier cannot certify an advantage over them.
+
+Unranked because declared axes are unmeasured: `EXP-20261004-0002` / `symbolic_last_write_graph_v2` — `fact_top1_accuracy, dense_unknown_rejection`.
 
 | Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
@@ -1245,6 +1271,10 @@ Pareto axes: maximize `accuracy, fact_top1_accuracy, dense_unknown_rejection`; m
 ## mutable_contact_ledger_hard_negatives_v2 / quick
 
 Pareto axes: maximize `fact_top1_accuracy, dense_unknown_rejection, accuracy, continual_retention`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+Pareto coverage is incomplete. The omitted controls remain unranked; this frontier cannot certify an advantage over them.
+
+Unranked because declared axes are unmeasured: `EXP-20261004-0001` / `symbolic_last_write_graph_v2` — `fact_top1_accuracy, dense_unknown_rejection`.
 
 | Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|

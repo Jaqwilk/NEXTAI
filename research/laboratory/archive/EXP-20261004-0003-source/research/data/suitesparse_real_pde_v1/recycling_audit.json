@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "sequence_contract_id": "suitesparse_cross_matrix_recycling_v1",
+  "manifest_sha256": "c2f2527aae6063e29c4a1d085223f7348c7a24b83ee13617b3aeb19a8f635ef4",
+  "pyamg_version": "5.3.0",
+  "cg_contract": {
+    "rtol": 1e-07,
+    "atol": 0.0,
+    "maxiter": 2000
+  },
+  "sequence_count": 3,
+  "all_patterns_identical_within_sequence": true,
+  "all_target_rebuilds_complete": true,
+  "all_classical_cross_matrix_recycling_complete": false,
+  "records": [
+    {
+      "sequence_slot": "thermal",
+      "kind": "thermal problem",
+      "source": "ted_B",
+      "target": "ted_B_unscaled",
+      "shape": [
+        10605,
+        10605
+      ],
+      "same_stored_sparsity_pattern": true,
+      "value_relative_change": 0.0021099370833684143,
+      "source_archive_sha256": "677f2d73f5f07c492a8612b90651d9a9a308d80f09795bb9e4efeef725d89f66",
+      "target_archive_sha256": "6b92361995e5dd7f956b46e38a5d7221456618384c899b121357dcf3ceb43654",
+      "source_matrix_sha256": "7be5d7b9b32c54b5ed79249f1870d5b9c9d4b83bc7cfb2e52096304b9abff723",
+      "target_matrix_sha256": "e61df6d8a77f2d60263450d6eeaadd83856583ba32b05cf09ce033c5b64ef255",
+      "target_rebuild_complete": true,
+      "classical_cross_matrix_recycling_complete": true,
+      "controls": {
+        "standard_sa": {
+          "target_rebuild": {
+            "setup_seconds_diagnostic": 0.024349699961021543,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 1,
+              "relative_residual": 2.103824159959168e-09,
+              "solve_seconds_diagnostic": 0.0029423999949358404
+            }
+          },
+          "frozen_hierarchy_reuse": {
+            "source_setup_seconds_diagnostic": 0.0411104999948293,
+            "target_update_seconds_diagnostic": 6.699992809444666e-06,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 1,
+              "relative_residual": 1.2901515624876608e-08,
+              "solve_seconds_diagnostic": 0.0019583000103011727
+            }
+          },
+          "fixed_prolongation_numeric_refresh": {
+            "source_setup_seconds_diagnostic": 0.02299440000206232,
+            "target_update_seconds_diagnostic": 0.0007431000121869147,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 1,
+              "relative_residual": 1.3573403974305044e-08,
+              "solve_seconds_diagnostic": 0.0018398999818600714
+            }
+          }
+        },
+        "adaptive_sa": {
+          "target_rebuild": {
+            "setup_seconds_diagnostic": 0.04407639999408275,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 1,
+              "relative_residual": 2.9803251651771333e-09,
+              "solve_seconds_diagnostic": 0.002319099963642657
+            }
+          },
+          "frozen_hierarchy_reuse": {
+            "source_setup_seconds_diagnostic": 0.0629590000025928,
+            "target_update_seconds_diagnostic": 5.89998671784997e-06,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 1,
+              "relative_residual": 1.2899557002965513e-08,
+              "solve_seconds_diagnostic": 0.0025584999821148813
+            }
+          },
+          "fixed_prolongation_numeric_refresh": {
+            "source_setup_seconds_diagnostic": 0.061884499969892204,
+            "target_update_seconds_diagnostic": 0.0006990000256337225,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 1,
+              "relative_residual": 1.288104607117303e-08,
+              "solve_seconds_diagnostic": 0.0020710000535473228
+            }
+          }
+        }
+      }
+    },
+    {
+      "sequence_slot": "cfd",
+      "kind": "computational fluid dynamics problem",
+      "source": "shallow_water1",
+      "target": "shallow_water2",
+      "shape": [
+        81920,
+        81920
+      ],
+      "same_stored_sparsity_pattern": true,
+      "value_relative_change": 1.5450016606323445,
+      "source_archive_sha256": "0252800d98a0b7bb332f5b42d35b4ff30c5d8d9e4619e2f6ceeba91b987c7379",
+      "target_archive_sha256": "900b4f8aee705dfafb1e8264dce505969a94353eacb6239c099a605e31b47414",
+      "source_matrix_sha256": "15f48618eed51f24ba77d0f6bb021719efea3383db55f45801e7437c3321548b",
+      "target_matrix_sha256": "059b5bfc151870597397aca7c4427182680e06bdf1159b034955864ea76205b9",
+      "target_rebuild_complete": true,
+      "classical_cross_matrix_recycling_complete": true,
+      "controls": {
+        "standard_sa": {
+          "target_rebuild": {
+            "setup_seconds_diagnostic": 0.16404790000524372,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 5,
+              "relative_residual": 2.1575566335776845e-08,
+              "solve_seconds_diagnostic": 0.04961490002460778
+            }
+          },
+          "frozen_hierarchy_reuse": {
+            "source_setup_seconds_diagnostic": 0.1753309000050649,
+            "target_update_seconds_diagnostic": 7.999944500625134e-06,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 10,
+              "relative_residual": 7.376191700712693e-08,
+              "solve_seconds_diagnostic": 0.09372980002081022
+            }
+          },
+          "fixed_prolongation_numeric_refresh": {
+            "source_setup_seconds_diagnostic": 0.1555309999966994,
+            "target_update_seconds_diagnostic": 0.009586600004695356,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 10,
+              "relative_residual": 7.139339220782732e-08,
+              "solve_seconds_diagnostic": 0.054394799983128905
+            }
+          }
+        },
+        "adaptive_sa": {
+          "target_rebuild": {
+            "setup_seconds_diagnostic": 0.3372100999695249,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 6,
+              "relative_residual": 2.6471376459994083e-08,
+              "solve_seconds_diagnostic": 0.056057300011161715
+            }
+          },
+          "frozen_hierarchy_reuse": {
+            "source_setup_seconds_diagnostic": 0.3401768000330776,
+            "target_update_seconds_diagnostic": 8.400005754083395e-06,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 13,
+              "relative_residual": 5.906229822224407e-08,
+              "solve_seconds_diagnostic": 0.10910289996536449
+            }
+          },
+          "fixed_prolongation_numeric_refresh": {
+            "source_setup_seconds_diagnostic": 0.34788119996665046,
+            "target_update_seconds_diagnostic": 0.009180199995171279,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 12,
+              "relative_residual": 6.001790382600323e-08,
+              "solve_seconds_diagnostic": 0.040666399989277124
+            }
+          }
+        }
+      }
+    },
+    {
+      "sequence_slot": "generic_2d3d",
+      "kind": "2D/3D problem",
+      "source": "fv2",
+      "target": "fv3",
+      "shape": [
+        9801,
+        9801
+      ],
+      "same_stored_sparsity_pattern": true,
+      "value_relative_change": 0.13853444994836422,
+      "source_archive_sha256": "1d79a3487dd7389c21cea7d750815ad97a313101dfbcbe5e399f4b5ec6d775f7",
+      "target_archive_sha256": "d7702ab973d15f2f99b559857fafd60c174dcc9d8d809e2a35637fe81ab321d1",
+      "source_matrix_sha256": "2c8688c8978e2be12e687dd244f1923e261ff075458facac0108d6f00c75ba35",
+      "target_matrix_sha256": "36d9a6e82d600caed36dae73d0bdfbab27bd376e578639a88f2691e180138236",
+      "target_rebuild_complete": true,
+      "classical_cross_matrix_recycling_complete": false,
+      "controls": {
+        "standard_sa": {
+          "target_rebuild": {
+            "setup_seconds_diagnostic": 0.009801400010474026,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 6,
+              "relative_residual": 7.767580751153864e-09,
+              "solve_seconds_diagnostic": 0.005275300005450845
+            }
+          },
+          "frozen_hierarchy_reuse": {
+            "source_setup_seconds_diagnostic": 0.009105100005399436,
+            "target_update_seconds_diagnostic": 9.200011845678091e-06,
+            "solve": {
+              "converged": false,
+              "finite": true,
+              "iterations": 2000,
+              "relative_residual": 0.051230541399123156,
+              "solve_seconds_diagnostic": 1.2508352999575436
+            }
+          },
+          "fixed_prolongation_numeric_refresh": {
+            "source_setup_seconds_diagnostic": 0.009884600003715605,
+            "target_update_seconds_diagnostic": 0.0011635000118985772,
+            "solve": {
+              "converged": false,
+              "finite": true,
+              "iterations": 2000,
+              "relative_residual": 0.002990822255721942,
+              "solve_seconds_diagnostic": 0.8645017999806441
+            }
+          }
+        },
+        "adaptive_sa": {
+          "target_rebuild": {
+            "setup_seconds_diagnostic": 0.019227200013119727,
+            "solve": {
+              "converged": true,
+              "finite": true,
+              "iterations": 6,
+              "relative_residual": 4.8731833402134845e-09,
+              "solve_seconds_diagnostic": 0.004802600014954805
+            }
+          },
+          "frozen_hierarchy_reuse": {
+            "source_setup_seconds_diagnostic": 0.016854000044986606,
+            "target_update_seconds_diagnostic": 3.900029696524143e-06,
+            "solve": {
+              "converged": false,
+              "finite": true,
+              "iterations": 2000,
+              "relative_residual": 0.05902885456411243,
+              "solve_seconds_diagnostic": 1.195103999983985
+            }
+          },
+          "fixed_prolongation_numeric_refresh": {
+            "source_setup_seconds_diagnostic": 0.016890899976715446,
+            "target_update_seconds_diagnostic": 0.0010118999634869397,
+            "solve": {
+              "converged": false,
+              "finite": true,
+              "iterations": 2000,
+              "relative_residual": 0.012417047347974264,
+              "solve_seconds_diagnostic": 0.8316170000471175
+            }
+          }
+        }
+      }
+    }
+  ]
+}

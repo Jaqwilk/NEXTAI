@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:09:25Z",
+  "experiment_id": "EXP-20261004-0003",
+  "result_sha256": "1e4731e5d0ad121a4c5fb34c9472a487eef25f288dea3d86b4b7bb8b747ca495",
+  "immutable_diagnostic_axes": {
+    "maximize": [
+      "accuracy",
+      "fact_top1_accuracy",
+      "dense_unknown_rejection"
+    ],
+    "minimize": [
+      "mean_query_ops",
+      "p95_latency_us",
+      "state_bytes",
+      "fit_ops",
+      "preprocessing_ops"
+    ]
+  },
+  "immutable_front": [
+    "muc03_hard_768_s0",
+    "muc03_hard_8192_s0",
+    "muc03_hard_8192_s2",
+    "muc03_hard_768_s3",
+    "muc03_hard_8192_s3",
+    "muc03_hard_768_s4",
+    "muc03_hard_8192_s4"
+  ],
+  "unranked_missing_axes": {
+    "symbolic_last_write_graph_v2": [
+      "fact_top1_accuracy",
+      "dense_unknown_rejection"
+    ]
+  },
+  "posthoc_common_axes": {
+    "maximize": [
+      "accuracy"
+    ],
+    "minimize": [
+      "mean_query_ops",
+      "p95_latency_us",
+      "state_bytes",
+      "fit_ops",
+      "preprocessing_ops"
+    ]
+  },
+  "posthoc_common_axis_front": [
+    "symbolic_last_write_graph_v2"
+  ],
+  "scope": "Descriptive summary means on shared E2E endpoints. Dense selection/abstention probes apply only to learned readers. No frozen axis, result, eligibility, threshold or decision changed; this is not a full-system economic certificate. Whole workers include unequal diagnostic workloads; new_session allocation was not separately timed.",
+  "scoring_or_fit_performed": false,
+  "economic_gate_certified": false
+}

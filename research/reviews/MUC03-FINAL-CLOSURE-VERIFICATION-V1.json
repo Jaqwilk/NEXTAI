@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:29:26Z",
+  "experiment_id": "EXP-20261004-0003",
+  "decision": "INCONCLUSIVE",
+  "tests": {
+    "tests": 1043,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "budget_before_closure": {
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "study_path": "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json",
+    "cohort": "muc03_reference_calibration_v1",
+    "ready": true,
+    "study_terminal": true,
+    "study_expired": false,
+    "program_terminal": false,
+    "program_closed": false,
+    "registration_budget_exhausted": false,
+    "paid_run_pending": false,
+    "registration_attempts_used": 3,
+    "registration_attempts_cap": 20,
+    "stage_registration_attempts": {
+      "reference": 3,
+      "mechanism_and_ablations": 0,
+      "scale_and_generalization": 0,
+      "replication_and_fresh_final": 0,
+      "repair_reserve": 0
+    },
+    "stage_registration_caps": {
+      "reference": 6,
+      "mechanism_and_ablations": 3,
+      "scale_and_generalization": 4,
+      "replication_and_fresh_final": 5,
+      "repair_reserve": 2
+    },
+    "experimental_fit_seconds": 1216.3364847000048,
+    "auxiliary_fit_seconds_conservative": 1439.0,
+    "fit_seconds_charged": 2655.336484700005,
+    "fit_seconds_remaining": 69344.6635153,
+    "pending_fit_reservation_seconds": 0.0,
+    "unreserved_fit_seconds_remaining": 69344.6635153,
+    "fit_seconds_cap": 72000,
+    "experiment_id": "EXP-20261004-0003",
+    "scoring_authorized": false
+  },
+  "historical_files_identical": 9929,
+  "history_record_path": "research/laboratory/MUC03-REFERENCE-HISTORY-PRESERVATION-V1.json",
+  "history_record_sha256": "cfd2e6cd31166ef43cbd8d59633598393d38b2d89cac9dbbfbf6018480098a72",
+  "ledger_prefixes": {
+    "research/events.jsonl": {
+      "bytes": 639395,
+      "sha256": "35be6c1abd87f836c17a3473cc5b4a77a2f04f1e7f62a984957a1221846e6a00",
+      "historical_prefix_preserved": true,
+      "appended_bytes": 8031,
+      "appended_bytes_at_closure_audit": 8861
+    },
+    "research/experiments.tsv": {
+      "bytes": 243420,
+      "sha256": "322d0a7f81bb3341accf3bcdc5821636a7799a2b24e3a1ac1cd3f467045183e6",
+      "historical_prefix_preserved": true,
+      "appended_bytes": 3163,
+      "appended_bytes_at_closure_audit": 3163
+    },
+    "research/hypothesis_events.jsonl": {
+      "bytes": 1322668,
+      "sha256": "8be58000230df48579185c638079f78237b3f085810aa0878e12e53ff7e28241",
+      "historical_prefix_preserved": true,
+      "appended_bytes": 0,
+      "appended_bytes_at_closure_audit": 0
+    },
+    "research/plan_registry.jsonl": {
+      "bytes": 29316,
+      "sha256": "49367af8177c179f45bc3bfc00dc7b8ad52166f3bf7ebd912e12d5bfce2f0c37",
+      "historical_prefix_preserved": true,
+      "appended_bytes": 205,
+      "appended_bytes_at_closure_audit": 205
+    }
+  },
+  "archives": {
+    "source": {
+      "index_path": "research/laboratory/EXP-20261004-0003-source-archive.json",
+      "index_sha256": "6afe127a7ac83f03b334e5c4a7735e1bc5003d4ef07e8f7f1d9737157639427c",
+      "file_count": 996,
+      "raw_bytes": 4121565,
+      "all_raw_hashes_verified": true
+    },
+    "runtime": {
+      "index_path": "research/laboratory/EXP-20261004-0003-runtime-archive.json",
+      "index_sha256": "7b50365ea52c369ae6a5ee7fbb4fbaff008381edcb2bdc93a768b44ea941f5bd",
+      "file_count": 89,
+      "raw_bytes": 94110726,
+      "all_raw_hashes_verified": true
+    }
+  },
+  "independent_analysis_recompute_equal": true,
+  "current_integrity": {
+    "ok": true,
+    "benchmark_version": "muc03_reference_calibration_v1",
+    "protocol_version": 3,
+    "evaluator_sha256": "c95e0b310683847b40304362f4bf0877a3d31cca08754532de1f655457628b12",
+    "candidate_bundle_sha256": "1e36c241116cf20f1f061eeb76e2ee51cbcbd9bfe48dbcc4094537fd5055bb75",
+    "problems": [],
+    "checked_files": 991
+  },
+  "current_preflight_certificate_sha256": "a9927efec115d03607f5430a59b7e23dad98a43d6d26b9552222d31e6a72cd6c",
+  "readiness_pinned_reference_locations": {
+    "research/eval_manifest.json": {
+      "sha256": "19d194c1fde624364f026e785f0c44d53c11f154888c7076376513d8d4917dde",
+      "resolved_path": "research/manifests/muc03_reference_calibration_v1-protocol-v3-7ea4a6d987b5.json"
+    },
+    "research/laboratory/preflight_certificate.json": {
+      "sha256": "0103de4916b69fea9b8c3b3e8ea36f5bd94d7c5253c73e55adbb1d8c5dba8b7d",
+      "resolved_path": "research/laboratory/certificates/f65d74d3f9ed96c768cb45f599685f5a6b66e2d0858759119eae2a650f9c2019.json"
+    },
+    "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json": {
+      "sha256": "1e23bbc061fd4d7b658709c2b9607da5cf752a53193a4a6d4b9e19e7fdbd4bdf",
+      "resolved_path": "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json"
+    },
+    "research/reviews/MUC03-reference-last-corrected-preseed-full.json": {
+      "sha256": "3b4783b3c856bfceb0485196b3609d99c6c83ff714e9adacad5b4abb068d4587",
+      "resolved_path": "research/reviews/MUC03-reference-last-corrected-preseed-full.json"
+    },
+    "research/reviews/MUC03-reference-last-corrected-preseed-full.xml": {
+      "sha256": "a20874d94837206b7dd7144e238c183345eb03aa7973cdb5175bc1bcfce9b1be",
+      "resolved_path": "research/reviews/MUC03-reference-last-corrected-preseed-full.xml"
+    },
+    "research/reviews/MUC03-reference-last-preseed-full.json": {
+      "sha256": "bc3bd90c3225f5ef599c93db5748a23b9e01a85ed152b1d81dcd1b12cdabaa4c",
+      "resolved_path": "research/reviews/MUC03-reference-last-preseed-full.json"
+    },
+    "research/reviews/MUC03-reference-last-preseed-full.xml": {
+      "sha256": "6e355d710dcc4b9b102225f12c380cb607f8ca95e6a3767d2d8355dd67ef80ed",
+      "resolved_path": "research/reviews/MUC03-reference-last-preseed-full.xml"
+    },
+    "scripts/analyze_muc03_reference_calibration.py": {
+      "sha256": "28c14dca57046f00551dd6dac412650e00088477373b9a3ec98fb408cc8d187f",
+      "resolved_path": "scripts/analyze_muc03_reference_calibration.py"
+    }
+  },
+  "model_core_unchanged": true,
+  "state": {
+    "active_experiment_id": null,
+    "completed_experiments": 110,
+    "cycle_number": 303,
+    "generation": 2,
+    "last_experiment_id": "EXP-20261004-0003",
+    "last_failure_at": "2026-09-05T13:10:07Z",
+    "last_literature_review_completed_experiments": 105,
+    "last_reflection_completed_experiments": 110,
+    "last_reflection_cycle": 303,
+    "phase": "infrastructure",
+    "protocol_version": 3,
+    "schema_version": 1,
+    "updated_at": "2026-10-04T02:09:25Z"
+  },
+  "stage_experimental_fit_seconds": 1066.8737727000007,
+  "stage_auxiliary_fit_conservative_seconds": 824.0,
+  "stage_total_fit_including_tests_seconds": 1890.8737727000007,
+  "stage_deadline_verified_from_frozen_study": "2026-10-04T04:55:06Z",
+  "reference_gates": {
+    "768": {
+      "training_each_seed": false,
+      "dev_top1_mean": false,
+      "dev_top1_each_seed": false,
+      "e2e_mean": false,
+      "e2e_each_seed": false,
+      "false_abstention_mean": true,
+      "false_abstention_each_seed": true,
+      "unknown_mean": false,
+      "symbolic_accuracy": true,
+      "symbolic_parser_failure": true
+    },
+    "8192": {
+      "training_each_seed": true,
+      "dev_top1_mean": false,
+      "dev_top1_each_seed": false,
+      "e2e_mean": true,
+      "e2e_each_seed": true,
+      "false_abstention_mean": true,
+      "false_abstention_each_seed": true,
+      "unknown_mean": false,
+      "symbolic_accuracy": true,
+      "symbolic_parser_failure": true
+    }
+  },
+  "new_research_registration_or_run": false,
+  "research_results_and_plans_not_modified": true,
+  "first_inspector_error_preserved_path": "research/reviews/MUC03-final-verification-deadline-field-error.json"
+}

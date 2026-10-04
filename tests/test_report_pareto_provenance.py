@@ -138,3 +138,30 @@ def test_loss_report_excludes_invalid_incomplete_and_privileged_rows(
     ]
     assert len(marked) == 1
     assert "complete_loss_candidate" in marked[0]
+
+
+def test_report_discloses_unmeasured_classical_control_without_changing_axes(
+    tmp_path, monkeypatch
+) -> None:
+    contract = {"maximize": ["accuracy", "dense_unknown_rejection"], "minimize": ["mean_query_ops"]}
+    learned = {**_row("EXP-diagnostic", contract), "candidate": "learned_reader", "dense_unknown_rejection": 0.8}
+    classical = {**learned, "candidate": "legal_last_write_map", "accuracy": 1.0,
+                 "mean_query_ops": 1.0, "dense_unknown_rejection": None}
+    rows = [learned, classical,
+            {**classical, "candidate": "failed_reader", "candidate_status": "timeout"},
+            {**classical, "candidate": "privileged_control", "is_privileged": True}]
+    (tmp_path / "research").mkdir()
+    monkeypatch.setattr(report, "collect_rows", lambda unused: rows)
+    monkeypatch.setattr(report, "invalid_experiment_ids", lambda unused: set())
+    monkeypatch.setattr(report, "load_config", lambda unused: SimpleNamespace(raw={"decision": {
+        "minimum_screen_accuracy": 0.95, "minimum_scaling_points": 3,
+    }}))
+    rendered = report.write_report(tmp_path).read_text(encoding="utf-8")
+    coverage = [line for line in rendered.splitlines() if line.startswith("Unranked because")]
+    assert len(coverage) == 1
+    assert "legal_last_write_map" in coverage[0] and "dense_unknown_rejection" in coverage[0]
+    assert "this frontier cannot certify an advantage over them" in rendered
+    axes_line = next(line for line in rendered.splitlines() if line.startswith("Pareto axes:"))
+    assert "dense_unknown_rejection" in axes_line
+    marked = [line for line in rendered.splitlines() if line.startswith("| EXP-") and line.endswith("| yes |")]
+    assert len(marked) == 1 and "learned_reader" in marked[0]

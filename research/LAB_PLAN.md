@@ -1,6 +1,37 @@
 # Plan uruchomienia laboratorium NEXTAI
 
-## Current cycle303 — final reference calibration (2026-10-04)
+## Latest cycle 303 — MUC03 resolution INCONCLUSIVE (2026-10-04)
+
+EXP-20261004-0003 completed once in the independent validation clone: all 11
+workers / 135 trials, five fresh paired seed/data units, 768 vs 8192 steps,
+unchanged model, 4096 hard pairs and threshold 0.5. Train 98.54 -> 99.87%; dense
+top1 84.52 -> 91.93%, both primary paired 97.5% intervals exclude zero. Dense
+UNKNOWN is only 53.48%; one top1 seed is 80%. No arm passes all frozen stability
+gates. Classical last-write graph has 100% E2E and much lower local cost/state.
+
+The third and last reference recipe fails. The authorized program resolves to
+INCONCLUSIVE at the failed reference entry gate, without a fourth recipe or
+architecture promotion. Mechanism selection, source-identical ablations,
+matched-quality scaling, adverse generalization and fresh final remain
+UNEXECUTED. This does not falsify the untested delta-memory family. The global
+20-attempt / 72000-second cap was not exhausted. Three tickets include one
+failed registration; research fit totals 1216.336485 s. Every test wall is also
+conservatively charged, with all failures retained in completion receipts.
+
+Resolution: research/analyses/MUC03-AUTONOMOUS-PROGRAM-RESOLUTION-V1.md.
+Last experiment: research/plans/EXP-20261004-0003.json and
+research/analyses/EXP-20261004-0003.md. Required 12-result reflection:
+research/reviews/MUC03-REFERENCE-PORTFOLIO-CYCLE-303-V1.md. All evaluated source
+and runtime bytes are archived before post-run changes. The diagnostic Pareto
+front omits classical dense probes; the report now discloses omitted axes,
+without changing old results or claiming economic non-dominance.
+
+Final queue after the hash-bound closure: MUC03-PROGRAM-COMPLETE, maintenance,
+scoring=false, no pending run or reservation. No retry, WT 8-9, final access,
+external model/API, new architecture or schedule change. All sections below
+are preserved historical records and cannot authorize another study.
+
+## Historical cycle 303 preparation — final reference calibration (2026-10-04)
 
 Prospective MUC03-REFERENCE-CALIBRATION-V1 is frozen in Git d6f0d0a before
 implementation. Compare768 versus8192 steps, unchanged4096 hard pairs/model,
@@ -33,7 +64,7 @@ This is the third and last tested reference step recipe; if stability still
 fails, close this reference milestone inconclusive with exact untested scope.
 No further user approval is needed inside the standing finite program.
 
-## Current authority — finite autonomous research program MUC03 (2026-10-04)
+## Historical authority record — finite autonomous research program MUC03 (2026-10-04)
 
 The user authorizes MUC03-AUTONOMOUS-20261004-V1: at most 20 new registration
 attempts, including failures/invalidations, and 72000 s total fit, including

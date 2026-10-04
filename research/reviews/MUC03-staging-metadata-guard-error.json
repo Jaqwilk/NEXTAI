@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:41:36Z",
+  "event": "research_program_integration_guard_error_preserved",
+  "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+  "error": "AssertionError on archived research/data/dronepropa_v1/acquisition.json",
+  "reason": "Guard incorrectly treated every path segment /data/ as a large dataset. This is an already-tracked small scientific acquisition manifest in the hash-verified source archive. All assertions failed before staging/commit; no source/result or original worktree changed.",
+  "correction": "Keep verified acquisition metadata; exclude model checkpoint suffixes and enforce file-size bound.",
+  "fit_or_registration": false
+}

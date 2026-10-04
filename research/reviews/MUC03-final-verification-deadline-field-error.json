@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:28:09Z",
+  "event": "research_program_postrun_inspector_error_preserved",
+  "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+  "cycle": 303,
+  "error": "KeyError: study_deadline_at",
+  "source": "closing inspector line76 accessed protocol instead of referenced frozen study",
+  "earlier_assertions_passed": "9929 historical files,4 prefixes,996+89 archive files,exact paired analysis,current991 integrity,1043 tests,unchanged model,readiness references",
+  "completion_receipt_written": false,
+  "program_closed": false,
+  "research_registration_or_fit": false,
+  "correction": "Read study_deadline_at from the hash-bound study JSON, not runtime protocol."
+}

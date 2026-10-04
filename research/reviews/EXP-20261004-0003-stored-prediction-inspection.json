@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-10-04T01:46:56Z",
+  "interpretation_limit": "Probability ties are part of the frozen evaluator. No logits were preserved, so numerical saturation versus genuine equal-logit ordering is not identified. This does not alter UNKNOWN at threshold0.5 or authorize rescue/retraining.",
+  "metrics_gates_or_decision_changed": false,
+  "observation": {
+    "768": {
+      "known_probes": 1350,
+      "no_logits_saved_or_rerun": true,
+      "same_key_wrong_timestamp": 0,
+      "wrong_key_both_probability_exactly_one": 0,
+      "wrong_key_probability_tie": 0,
+      "wrong_top1": 209
+    },
+    "8192": {
+      "known_probes": 1350,
+      "no_logits_saved_or_rerun": true,
+      "same_key_wrong_timestamp": 0,
+      "wrong_key_both_probability_exactly_one": 20,
+      "wrong_key_probability_tie": 23,
+      "wrong_top1": 109
+    }
+  },
+  "posthoc": true,
+  "result_sha256": "1e4731e5d0ad121a4c5fb34c9472a487eef25f288dea3d86b4b7bb8b747ca495"
+}

@@ -1,0 +1,8 @@
+{
+  "command": "uv run --no-sync pytest -q --junitxml=research/reviews/MUC03-reference-last-corrected-postrun-full.xml",
+  "created_at": "2026-10-04T02:13:48Z",
+  "exit_code": 0,
+  "wall_seconds": 160.54051419999814,
+  "conservative_fit_seconds_charged": 171,
+  "deadline_timeout_seconds": 550
+}
