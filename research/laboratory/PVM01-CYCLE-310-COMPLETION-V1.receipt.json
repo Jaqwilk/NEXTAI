@@ -1,0 +1,306 @@
+{
+  "accounting_repair_contract_path": "research/plans/PVM01-EXPOSURE-POSTRUN-ACCOUNTING-V1.json",
+  "accounting_repair_contract_sha256": "5d4ba97b526dcf9aeaacf5d1087e3f32533fcffdb745e31e55ac4456830b0ba6",
+  "analysis_path": "research/analyses/EXP-20261004-0008.md",
+  "analysis_sha256": "45458d437156b92db3f9e75fc865b2764578b1daf1dca3ae024284a4b70089ac",
+  "budget": {
+    "all_auxiliary_reservations_closed": true,
+    "auxiliary_charges": [
+      {
+        "charge_id": "PVM01-EXPOSURE-startup-V1",
+        "created_at": "2026-10-04T20:55:59Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 106
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-targeted-V1",
+        "created_at": "2026-10-04T21:04:58Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 27
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-preseed-full-V1",
+        "created_at": "2026-10-04T21:10:09Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 276
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-targeted-V2",
+        "created_at": "2026-10-04T21:11:53Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 34
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-preseed-full-V2",
+        "created_at": "2026-10-04T21:16:54Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 277
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-history-guard-V1",
+        "created_at": "2026-10-04T21:17:51Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 34
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-readiness-V1",
+        "created_at": "2026-10-04T21:19:12Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 19
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-readiness-V2",
+        "created_at": "2026-10-04T21:20:18Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 34
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-prepaid-verify-V1",
+        "created_at": "2026-10-04T21:23:13Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 135
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-controller-overhead-V1",
+        "created_at": "2026-10-04T21:43:08Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 111
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-postscience-V1",
+        "created_at": "2026-10-04T21:44:36Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 30
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-postscience-details-V2",
+        "created_at": "2026-10-04T21:49:40Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 25
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-complete-report-V1",
+        "created_at": "2026-10-04T21:52:12Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 24
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-maintenance-V1",
+        "created_at": "2026-10-04T21:53:03Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 46
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-postrun-targeted-V1",
+        "created_at": "2026-10-04T21:54:07Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 47
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-postrun-gates-V1",
+        "created_at": "2026-10-04T21:56:47Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 120.0
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-postrun-gates-V1-wall-overflow",
+        "created_at": "2026-10-04T21:59:06Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 13.0
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-postrun-check-V2",
+        "created_at": "2026-10-04T21:59:16Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 37
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-helper-archive-V1",
+        "created_at": "2026-10-04T22:00:08Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 24
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-final-source-index-V1",
+        "created_at": "2026-10-04T22:06:22Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 62
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-original-validate-V1",
+        "created_at": "2026-10-04T22:11:01Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 150.0
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-original-validate-V1-wall-overflow",
+        "created_at": "2026-10-04T22:15:20Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 44
+      },
+      {
+        "charge_id": "PVM01-EXPOSURE-final-accounting-allowance-V1",
+        "created_at": "2026-10-04T22:15:27Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 120
+      }
+    ],
+    "budget_or_deadline_reset": false,
+    "charged_full_worker_seconds": 1055.745196000149,
+    "closed_before_deadline": true,
+    "elapsed_seconds_at_closure": 5097.987851,
+    "internal_algorithm_fit_seconds": 755.6218145000021,
+    "original_deadline_at": "2026-10-05T00:50:36Z",
+    "original_started_at": "2026-10-04T20:50:36Z",
+    "programme": {
+      "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+      "auxiliary_fit_seconds_conservative": 8960.0,
+      "cohort": "paired_view_mutable_memory_v5",
+      "continuation_compute_seconds_cap": 69344,
+      "continuation_compute_seconds_charged": 9849.462766700148,
+      "continuation_registration_attempts_cap": 17,
+      "continuation_registration_attempts_used": 5,
+      "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+      "experiment_id": "EXP-20261004-0008",
+      "experimental_fit_seconds": 3544.7992514001526,
+      "fit_seconds_cap": 71999.3364847,
+      "fit_seconds_charged": 12504.799251400153,
+      "fit_seconds_remaining": 59494.53723329985,
+      "id": "NEXTAI-CONTINUATION-20261004-V1",
+      "paid_run_pending": false,
+      "pending_fit_reservation_seconds": 0.0,
+      "prior_compute_seconds_charged": 2655.336484700005,
+      "prior_program_closed": true,
+      "prior_program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "prior_registration_attempts_used": 3,
+      "program_closed": false,
+      "program_terminal": false,
+      "ready": true,
+      "registration_attempts_cap": 20,
+      "registration_attempts_used": 8,
+      "registration_budget_exhausted": false,
+      "scoring_authorized": false,
+      "stage_registration_attempts": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 3,
+        "reference_and_alternatives": 2,
+        "repair_reserve": 0,
+        "replication_and_fresh_final": 0,
+        "scale_and_generalization": 0
+      },
+      "stage_registration_caps": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 4,
+        "reference_and_alternatives": 5,
+        "repair_reserve": 2,
+        "replication_and_fresh_final": 3,
+        "scale_and_generalization": 3
+      },
+      "study_expired": false,
+      "study_path": "research/plans/PVM01-CAPACITY-EXPOSURE-V1.json",
+      "study_terminal": true,
+      "unreserved_fit_seconds_remaining": 59494.53723329985
+    },
+    "stage_auxiliary_seconds_cap": 1800,
+    "stage_auxiliary_seconds_charged": 1795.0,
+    "stage_total_compute_seconds": 2850.745196000149,
+    "supervised_fit_phase_seconds": 832.0685591999936,
+    "worker_compute_cap_seconds": 16640
+  },
+  "checks": {
+    "V2_auxiliary_wrapper_total_deadline_calculated_but_process_tree_lifetime_not_enforced": true,
+    "WT8_9_access": false,
+    "all_feature_data_source_pairing_and_fit_identity_valid": true,
+    "archived_raw_source_runtime_files": 1819,
+    "completed_experiments_counter": 115,
+    "doctor_and_lab_pass_clone_and_original": true,
+    "evaluated_source_commit": "f6bc94fc87c9ee824628d2da42aa2244039d0a4d",
+    "exact_dense_cache_decoder_identity_valid": false,
+    "external_model_API": false,
+    "failed_readiness_ledger_report_clean_assertion_preserved_and_charged": true,
+    "fresh_paired_units": 5,
+    "frozen_gates_analyzer_plan_result_and_decision_unchanged": true,
+    "frozen_whole_comparison_validity_passed": false,
+    "full_suite_not_repeated_after_unchanged_candidate_source": true,
+    "index_guard_receipt_sha256": "a0f9ec557e15df3b3c02fda825d39154d5513421a12b258c12bdfafecb4ab548",
+    "indexed_raw_archive_native_result_files": 1898,
+    "initial_report_completion_conflation_corrected_append_only": true,
+    "integrity_before_after_files": 1166,
+    "original_old_raw_bytes_prefixes_and_BELIEFS_preserved": true,
+    "original_outer_timeout_preserved_inner_doctor_lab_returncodes_zero": true,
+    "original_whole_wall_plus_margin_charged_seconds": 194,
+    "paid_model_retry": false,
+    "post_original_no_additional_tests": true,
+    "postrun_critical_integrity_lifecycle_memory_regression": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 81
+    },
+    "postrun_gate_V1_actual_wall_plus_margin_charged_seconds": 133,
+    "postrun_gate_V1_inner_doctor_lab_semantics_completed_and_V2_checkpoint_verified": true,
+    "postrun_gate_V1_outer_timeout_preserved": true,
+    "preregistration_before_implementation_commit": "8fb10251a0c03356856469e1c37742c3956f15dc",
+    "preseed_boundary_failure_preserved_and_source_corrected_before_paid_seed": true,
+    "preseed_full_V1_failed": 1,
+    "preseed_full_V1_passed": 1113,
+    "preseed_full_regression": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 1114
+    },
+    "same_discrete_cache_predictions_count": 28800,
+    "schedule_changed": false,
+    "validated_maintenance_source_commit": "5e69c42f80f1e990dce25fb3048117547098f3d1",
+    "workers_and_trials_physically_complete": true
+  },
+  "complete_analysis_addendum_path": "research/analyses/EXP-20261004-0008-ADDENDUM-V1.md",
+  "complete_analysis_addendum_sha256": "f5959217f84deacf356549be0d5a04e8991f17d2b21f82daf00fb63e38a34dc5",
+  "created_at": "2026-10-04T22:15:33Z",
+  "cycle": 310,
+  "decision": "INCONCLUSIVE comparison",
+  "experiment_id": "EXP-20261004-0008",
+  "final_validation_addendum_path": "research/analyses/EXP-20261004-0008-ADDENDUM-V3.md",
+  "final_validation_addendum_sha256": "7366dd2159633d1e9dc828ec016a180b0df986b35d86bb72adf55b7d0b93bd8c",
+  "goal_turn_classification": "progress",
+  "id": "PVM01-CYCLE-310-COMPLETION-V1",
+  "next_discriminating_question": "Preregister bounded preparation-only Windows process-tree deadline enforcement and decoder determinism/telemetry conformance in independent fixed-fixture children,no research data/scoring/registration/paid retry. Require exact encoder/decoder/loss identity across dense/cache before a distinct prospective alternative learned-transport/indexed-memory comparison on a justified adverse paired-view task,with unchanged strongest classical controls and full costs. Do not rescue or reinterpret EXP-0008. No second EXP in this completed cycle.",
+  "plan_path": "research/plans/EXP-20261004-0008.json",
+  "plan_sha256": "1d80c6241138d2dfe37dce2d05a5407c7b0150d1d5c0e7fab0d6cb7654f553a6",
+  "result_sha256": "5b6bcdebcef8c4e5a21266831100561434d38e057caa9e2c3eab9d075fbb3ac8",
+  "study_path": "research/plans/PVM01-CAPACITY-EXPOSURE-V1.json",
+  "study_sha256": "ec0e9252805e9884692ffb7beee54c5410e225893e67364e6295a6952cac5bc5",
+  "unexecuted_scope": [
+    "independent mechanism replication",
+    "adversarial paired-view variant",
+    "frozen fresh final",
+    "economic non-domination against strongest classical controls"
+  ],
+  "validation_addendum_path": "research/analyses/EXP-20261004-0008-ADDENDUM-V2.md",
+  "validation_addendum_sha256": "5c56d48220710c64f3ff782e30857f1a630c609c093b3c5ca5a96dd2662ed86b",
+  "whole_program_complete": false
+}

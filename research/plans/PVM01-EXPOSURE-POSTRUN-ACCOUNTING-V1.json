@@ -1,0 +1,22 @@
+{
+  "additional_seconds_charged": 44,
+  "authority": "NEXTAI-CONTINUATION-20261004-V1",
+  "combined_seconds_charged": 194,
+  "created_at": "2026-10-04T22:14:40.048668Z",
+  "document_type": "no_scoring_accounting_repair_contract",
+  "existing_reserved_final_bookkeeping_allowance_seconds": 120,
+  "expected_final_stage_auxiliary_seconds": 1795,
+  "experiment_id": "EXP-20261004-0008",
+  "failed_outer_check_path": "research/reviews/PVM01-EXPOSURE-original-validate-V1.json",
+  "failed_outer_check_raw_sha256": "3806f894a6eaf3176c3bfa9b7ea1a1cb0cf99c3085abd4ae5bfb5c8f9eaba9e0",
+  "id": "PVM01-EXPOSURE-POSTRUN-ACCOUNTING-V1",
+  "new_scored_registration_fit_seed_data_or_model": false,
+  "next_preparation_question": "Prospectively bound whole Windows child process trees and require exact dense/cache decoder/loss identity on fixed technical fixtures before a distinct new research study.",
+  "no_retry_or_budget_reset": true,
+  "prior_seconds_charged": 150,
+  "purpose": "Append actual auxiliary deadline overflow, original clean source validation and final closure, preserving every completed result/gate and prior charge. No further tests in cycle310.",
+  "schema_version": 1,
+  "source_manifest_recipe_metrics_thresholds_result_plan_and_primary_analysis_unchanged": true,
+  "unchanged_stage_auxiliary_cap_seconds": 1800,
+  "wall_seconds": 188.89173600000504
+}

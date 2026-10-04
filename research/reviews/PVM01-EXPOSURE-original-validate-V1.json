@@ -1,0 +1,14 @@
+{
+  "cap": 150.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_exposure_original_validate.py"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 124,
+  "seconds_charged": 150.0,
+  "wall_seconds": 188.89173600000504
+}

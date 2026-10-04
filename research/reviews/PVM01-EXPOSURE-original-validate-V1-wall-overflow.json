@@ -1,0 +1,12 @@
+{
+  "additional_seconds_charged": 44,
+  "charge_basis": "ceil(actual whole command wall)+5s, append-only overflow correction; no charge reduced",
+  "combined_charge_seconds": 194,
+  "created_at": "2026-10-04T22:15:24Z",
+  "failed_receipt_raw_sha256": "3806f894a6eaf3176c3bfa9b7ea1a1cb0cf99c3085abd4ae5bfb5c8f9eaba9e0",
+  "new_research_fit_seed_or_retry": false,
+  "prior_seconds_charged": 150,
+  "repair_contract_raw_sha256": "5d4ba97b526dcf9aeaacf5d1087e3f32533fcffdb745e31e55ac4456830b0ba6",
+  "reserved_after_execution_for_observed_deadline_overflow_accounting": true,
+  "wall_seconds": 188.89173600000504
+}
