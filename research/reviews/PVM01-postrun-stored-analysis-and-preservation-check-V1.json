@@ -1,0 +1,13 @@
+{
+  "cause": "The archived .gitattributes is active inside the source archive and overrides parent -text for nested paths. Working-tree archive bytes still match the original preservation map.",
+  "completed_at": "2026-10-04T16:19:58Z",
+  "failed_check": "Git blob raw identity for source archive",
+  "first_mismatch": "research/checks/dronepropa_anonymous_split_v1.jsonl",
+  "repair": "Append a new complete byte archive with .gitattributes saved under a non-active .raw filename; preserve first commit and receipts.",
+  "research_fit": false,
+  "return_code": 1,
+  "rounding": "Conservative upper bound on 1.4759441-second shell wall; no hidden training.",
+  "scientific_evidence": false,
+  "seconds_charged": 2,
+  "stored_result_analysis_generated": true
+}
