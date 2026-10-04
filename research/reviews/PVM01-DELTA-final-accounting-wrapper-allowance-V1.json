@@ -1,0 +1,8 @@
+{
+  "charge_basis": "Entire allowance retired conservatively for final ledger/report/hash checks plus outer wrapper initialization and bookkeeping beyond timed child-test spans. It may overcount; not presented as measured research fit. No past charge reduced.",
+  "charged_seconds": 120,
+  "created_at": "2026-10-04T19:25:18Z",
+  "id": "PVM01-DELTA-final-accounting-wrapper-allowance-V1",
+  "research_fit_or_new_scoring": false,
+  "seconds_cap": 120
+}

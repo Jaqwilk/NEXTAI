@@ -1,0 +1,300 @@
+{
+  "analysis_path": "research/analyses/EXP-20261004-0006.md",
+  "analysis_sha256": "6dc69deeb29a10cb1887baf8d03cd7697cfde07c4e20c2152610ce67a7985c92",
+  "budget": {
+    "all_auxiliary_reservations_closed": true,
+    "auxiliary_charges": [
+      {
+        "charge_id": "PVM01-DELTA-startup-doctor-V1",
+        "created_at": "2026-10-04T18:06:02Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 1
+      },
+      {
+        "charge_id": "PVM01-DELTA-startup-doctor-cli-V2",
+        "created_at": "2026-10-04T18:07:17Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 44
+      },
+      {
+        "charge_id": "PVM01-DELTA-history-snapshot-V1",
+        "created_at": "2026-10-04T18:11:16Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 6
+      },
+      {
+        "charge_id": "PVM01-DELTA-mechanism-conformance-V1",
+        "created_at": "2026-10-04T18:17:37Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 5
+      },
+      {
+        "charge_id": "PVM01-DELTA-worker-schema-conformance-V2",
+        "created_at": "2026-10-04T18:19:18Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 6
+      },
+      {
+        "charge_id": "PVM01-DELTA-full-regression-maintenance-V1",
+        "created_at": "2026-10-04T18:23:36Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 202
+      },
+      {
+        "charge_id": "PVM01-DELTA-freshness-preseed-conformance-V3",
+        "created_at": "2026-10-04T18:25:50Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 5
+      },
+      {
+        "charge_id": "PVM01-DELTA-final-source-full-regression-V2",
+        "created_at": "2026-10-04T18:30:01Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 199
+      },
+      {
+        "charge_id": "PVM01-DELTA-durability-fixture-conformance-V4",
+        "created_at": "2026-10-04T18:31:08Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 5
+      },
+      {
+        "charge_id": "PVM01-DELTA-durability-fixture-conformance-V5",
+        "created_at": "2026-10-04T18:32:12Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 5
+      },
+      {
+        "charge_id": "PVM01-DELTA-final-clone-full-regression-V3",
+        "created_at": "2026-10-04T18:36:11Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 211
+      },
+      {
+        "charge_id": "PVM01-DELTA-activation-preflight-doctor-V1",
+        "created_at": "2026-10-04T18:38:38Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 63
+      },
+      {
+        "charge_id": "PVM01-DELTA-one-paid-controller-V1",
+        "created_at": "2026-10-04T18:49:17Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 49
+      },
+      {
+        "charge_id": "PVM01-DELTA-stored-analysis-V1",
+        "created_at": "2026-10-04T18:50:26Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 3
+      },
+      {
+        "charge_id": "PVM01-DELTA-scientific-archive-history-guard-V1",
+        "created_at": "2026-10-04T18:53:30Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 180
+      },
+      {
+        "charge_id": "PVM01-DELTA-scientific-archive-style-recovery-V2",
+        "created_at": "2026-10-04T18:53:38Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 3
+      },
+      {
+        "charge_id": "PVM01-DELTA-scientific-archive-style-recovery-V3",
+        "created_at": "2026-10-04T18:54:21Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 3
+      },
+      {
+        "charge_id": "PVM01-DELTA-diagnostic-label-conformance-and-plot-V1",
+        "created_at": "2026-10-04T18:55:29Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 1
+      },
+      {
+        "charge_id": "PVM01-DELTA-diagnostic-label-conformance-and-plot-V2",
+        "created_at": "2026-10-04T18:56:50Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 2
+      },
+      {
+        "charge_id": "PVM01-DELTA-bundled-runtime-plot-V1",
+        "created_at": "2026-10-04T18:57:37Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 1
+      },
+      {
+        "charge_id": "PVM01-DELTA-postrun-maintenance-regression-V1",
+        "created_at": "2026-10-04T19:07:28Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 230
+      },
+      {
+        "charge_id": "PVM01-DELTA-final-history-prefix-guard-V1",
+        "created_at": "2026-10-04T19:09:13Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 6
+      },
+      {
+        "charge_id": "PVM01-DELTA-final-history-prefix-guard-V2",
+        "created_at": "2026-10-04T19:10:49Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 18
+      },
+      {
+        "charge_id": "PVM01-DELTA-maintenance-doctor-lab-V1",
+        "created_at": "2026-10-04T19:13:39Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 104
+      },
+      {
+        "charge_id": "PVM01-DELTA-original-fastforward-doctor-V1",
+        "created_at": "2026-10-04T19:20:56Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 105
+      },
+      {
+        "charge_id": "PVM01-DELTA-final-accounting-wrapper-allowance-V1",
+        "created_at": "2026-10-04T19:25:16Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 120
+      }
+    ],
+    "budget_or_deadline_reset": false,
+    "charged_full_worker_seconds": 449.76211150000745,
+    "closed_before_deadline": true,
+    "elapsed_seconds_at_closure": 4990.922824,
+    "internal_algorithm_fit_seconds": 160.0469089999824,
+    "original_deadline_at": "2026-10-04T22:02:25Z",
+    "original_started_at": "2026-10-04T18:02:25Z",
+    "program": {
+      "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+      "auxiliary_fit_seconds_conservative": 5707.0,
+      "cohort": "paired_view_mutable_memory_v3",
+      "continuation_compute_seconds_cap": 69344,
+      "continuation_compute_seconds_charged": 4946.1945368000015,
+      "continuation_registration_attempts_cap": 17,
+      "continuation_registration_attempts_used": 3,
+      "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+      "experiment_id": "EXP-20261004-0006",
+      "experimental_fit_seconds": 1894.5310215000063,
+      "fit_seconds_cap": 71999.3364847,
+      "fit_seconds_charged": 7601.531021500006,
+      "fit_seconds_remaining": 64397.8054632,
+      "id": "NEXTAI-CONTINUATION-20261004-V1",
+      "paid_run_pending": false,
+      "pending_fit_reservation_seconds": 0.0,
+      "prior_compute_seconds_charged": 2655.336484700005,
+      "prior_program_closed": true,
+      "prior_program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "prior_registration_attempts_used": 3,
+      "program_closed": false,
+      "program_terminal": false,
+      "ready": true,
+      "registration_attempts_cap": 20,
+      "registration_attempts_used": 6,
+      "registration_budget_exhausted": false,
+      "scoring_authorized": false,
+      "stage_registration_attempts": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 1,
+        "reference_and_alternatives": 2,
+        "repair_reserve": 0,
+        "replication_and_fresh_final": 0,
+        "scale_and_generalization": 0
+      },
+      "stage_registration_caps": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 4,
+        "reference_and_alternatives": 5,
+        "repair_reserve": 2,
+        "replication_and_fresh_final": 3,
+        "scale_and_generalization": 3
+      },
+      "study_expired": false,
+      "study_path": "research/plans/PVM01-DELTA-MEMORY-SCREEN-V1.json",
+      "study_terminal": true,
+      "unreserved_fit_seconds_remaining": 64397.8054632
+    },
+    "research_supervised_fit_phase_seconds": 223.5436152999755,
+    "stage_auxiliary_seconds_cap": 1800,
+    "stage_auxiliary_seconds_charged": 1577,
+    "stage_total_compute_seconds": 2026.7621115000074,
+    "worker_compute_cap_seconds": 11100
+  },
+  "checks": {
+    "BELIEFS_original_raw_unchanged": true,
+    "WT8_9_access": false,
+    "archive_and_native_diagnostics_indexed_raw_sha_files": 1732,
+    "archived_raw_source_runtime_files": 1728,
+    "current_integrity": {
+      "benchmark_version": "paired_view_mutable_memory_v3",
+      "candidate_bundle_sha256": "b66a0cb3da1fb807cb88cf24e28a071ff7a222e1c6d8fc6faf84992dd4eb2d3b",
+      "checked_files": 1111,
+      "evaluator_sha256": "19091b2cf072fb6671cbb42d293e00e9614f5247a6687dc6dd1ac790803b0726",
+      "ok": true,
+      "problems": [],
+      "protocol_version": 3
+    },
+    "data_pairs_source_identity_valid": true,
+    "doctor_and_lab_status_pass_in_clone_and_original": true,
+    "errors_failures_skips_final": 0,
+    "evaluated_source_commit": "399d7eceaa4e56f7ba96072107625f7700f27289",
+    "external_model_api": false,
+    "failed_checks_preserved": true,
+    "fresh_paired_units": 5,
+    "integrity_before_after_files": 1111,
+    "no_paid_or_model_retry": true,
+    "original_completed_counter": 113,
+    "original_old_scientific_bytes_and_prefixes_preserved": true,
+    "postrun_tests": 1096,
+    "preregistration_before_implementation_commit": "6555a6ac87e74a9ab34ebce00d3af416e9a35fd8",
+    "preseed_tests": 1096,
+    "schedule_changed": false,
+    "trials_complete": 675,
+    "validated_maintenance_source_commit": "489498bd66015247da7b415980b2f48a8f52ba03",
+    "workers_complete": 75
+  },
+  "created_at": "2026-10-04T19:25:35Z",
+  "cycle": 308,
+  "decision": "KEEP narrow delta mechanism for further validation",
+  "experiment_id": "EXP-20261004-0006",
+  "id": "PVM01-CYCLE-308-COMPLETION-V1",
+  "next_discriminating_question": "Preregister learned compact feature memory vs source-identical frozen and shuffled controls at fixed smaller capacity, strong classical/retrieval and optimized dense, fresh5 paired units. If not justified, bounded alternatives review; no implementation/data before freeze. No second EXP in this cycle.",
+  "plan_path": "research/plans/EXP-20261004-0006.json",
+  "result_sha256": "d291d33e648ee135611f865fc5496c3150909a956934275f01507bd540a00651",
+  "unexecuted_scope": [
+    "learned compact feature/controller alternative",
+    "adversarial task variant",
+    "independent mechanism replication",
+    "frozen fresh final and strong classical non-domination"
+  ],
+  "whole_program_complete": false
+}

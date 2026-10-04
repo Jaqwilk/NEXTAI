@@ -1,0 +1,47 @@
+{
+  "charged_seconds": 105,
+  "checks": [
+    {
+      "operation": "fetch independent validated clone",
+      "returncode": 0
+    },
+    {
+      "operation": "non-destructive original fast-forward",
+      "returncode": 0,
+      "target": "489498bd66015247da7b415980b2f48a8f52ba03"
+    },
+    {
+      "args": [
+        "doctor"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "[OK] benchmark=paired_view_mutable_memory_v3 status=maintenance protocol=v3\n[OK] laboratory=preparation_only next=NEXTAI-STUDY-REVIEW scoring=False\n[OK] cycle=308 completed=113\n[OK] hypotheses=59\n[OK] sources=444\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=1111\n[OK] audited_candidates=654\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n"
+    },
+    {
+      "args": [
+        "lab",
+        "status"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"restart_id\": \"LAB-RESTART-20260904-V1\",\n  \"preparation_ready\": true,\n  \"scoring_ready\": false,\n  \"status\": \"preparation_only\",\n  \"next_action_id\": \"NEXTAI-STUDY-REVIEW\",\n  \"next_action\": \"Preserve all outcomes, review evidence and autonomously select the next preregistered study within finite program caps.\",\n  \"user_decision_required\": false,\n  \"activation_id\": \"NEXTAI-CONTINUATION-20261004-V1\",\n  \"scoring_authorized\": false,\n  \"current_scope\": {\n    \"id\": \"NEXTAI-CONTINUATION-20261004-V1\",\n    \"authority_path\": \"research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json\",\n    \"contract_path\": \"research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json\",\n    \"study_path\": \"research/plans/PVM01-DELTA-MEMORY-SCREEN-V1.json\",\n    \"cohort\": \"paired_view_mutable_memory_v3\",\n    \"ready\": true,\n    \"study_terminal\": true,\n    \"study_expired\": false,\n    \"program_terminal\": false,\n    \"program_closed\": false,\n    \"registration_budget_exhausted\": false,\n    \"paid_run_pending\": false,\n    \"registration_attempts_used\": 6,\n    \"registration_attempts_cap\": 20,\n    \"stage_registration_attempts\": {\n      \"diagnosis_and_task\": 0,\n      \"reference_and_alternatives\": 2,\n      \"mechanism_and_ablations\": 1,\n      \"scale_and_generalization\": 0,\n      \"replication_and_fresh_final\": 0,\n      \"repair_reserve\": 0\n    },\n    \"stage_registration_caps\": {\n      \"diagnosis_and_task\": 0,\n      \"reference_and_alternatives\": 5,\n      \"mechanism_and_ablations\": 4,\n      \"scale_and_generalization\": 3,\n      \"replication_and_fresh_final\": 3,\n      \"repair_reserve\": 2\n    },\n    \"experimental_fit_seconds\": 1894.5310215000063,\n    \"auxiliary_fit_seconds_conservative\": 5602.0,\n    \"fit_seconds_charged\": 7496.531021500006,\n    \"fit_seconds_remaining\": 64502.8054632,\n    \"pending_fit_reservation_seconds\": 0.0,\n    \"unreserved_fit_seconds_remaining\": 64502.8054632,\n    \"fit_seconds_cap\": 71999.3364847,\n    \"experiment_id\": \"EXP-20261004-0006\",\n    \"scoring_authorized\": false,\n    \"prior_program_closed\": true,\n    \"prior_program_id\": \"MUC03-AUTONOMOUS-20261004-V1\",\n    \"prior_registration_attempts_used\": 3,\n    \"prior_compute_seconds_charged\": 2655.336484700005,\n    \"continuation_registration_attempts_used\": 3,\n    \"continuation_registration_attempts_cap\": 17,\n    \"continuation_compute_seconds_charged\": 4841.1945368000015,\n    \"continuation_compute_seconds_cap\": 69344\n  },\n  \"history\": \"Preserved; use --include-history for validated prior stages and exhausted budgets\",\n  \"plan\": \"research/LAB_PLAN.md\",\n  \"errors\": [],\n  \"warnings\": [],\n  \"schedule_checked_or_started\": false\n}\n"
+    },
+    {
+      "BELIEFS_raw_bytes_preserved": true,
+      "all_unchanged_files_raw_exact": true,
+      "append_only_prefixes_raw_exact": true,
+      "old_tracked_files": 15759,
+      "operation": "original previous raw history preserved after checkout"
+    }
+  ],
+  "created_at": "2026-10-04T19:20:59Z",
+  "elapsed_seconds": 104.99832340001012,
+  "error": null,
+  "force_reset_or_history_rewrite": false,
+  "id": "PVM01-DELTA-original-fastforward-doctor-V1",
+  "original_source_commit": "489498bd66015247da7b415980b2f48a8f52ba03",
+  "original_source_env": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\src",
+  "tested_in_original": true,
+  "worker_or_scoring_executed": false
+}
