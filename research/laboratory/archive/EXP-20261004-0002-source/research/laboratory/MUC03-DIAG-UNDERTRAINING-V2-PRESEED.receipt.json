@@ -1,0 +1,122 @@
+{
+  "all_tests_including_failures": {
+    "research/reviews/MUC03-corrected-targeted-tests.xml": {
+      "errors": "0",
+      "failures": "0",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "319d996555071af5b42ed0f7883666e0538f22fb0a939441ace110ba5bab5b54",
+      "skipped": "0",
+      "tests": "23",
+      "time": "2.844",
+      "timestamp": "2026-10-04T01:24:12.802735+02:00"
+    },
+    "research/reviews/MUC03-final-preseed-full-tests.xml": {
+      "errors": "0",
+      "failures": "0",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "8ef499e116ff32ea33fb90880ac198cb32492d5de8df4d185cac6bd78383f763",
+      "skipped": "0",
+      "tests": "1039",
+      "time": "139.419",
+      "timestamp": "2026-10-04T01:40:55.117506+02:00"
+    },
+    "research/reviews/MUC03-first-targeted-tests.xml": {
+      "errors": "0",
+      "failures": "1",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "0217c2b297c6e599690e78a7a36b51cce6b606f7b36f7012a31f0075e1e78519",
+      "skipped": "0",
+      "tests": "23",
+      "time": "2.857",
+      "timestamp": "2026-10-04T01:22:54.108038+02:00"
+    },
+    "research/reviews/MUC03-isolated-full-tests.xml": {
+      "errors": "0",
+      "failures": "1",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "3060119db7ea3044d1d33cb4987671909177ba18e87df125a6cfc940923d3b32",
+      "skipped": "0",
+      "tests": "1039",
+      "time": "139.941",
+      "timestamp": "2026-10-04T01:37:35.693192+02:00"
+    },
+    "research/reviews/MUC03-preseed-full-tests.xml": {
+      "errors": "0",
+      "failures": "15",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "fd7775f00d676338c63e52a0df76ed05e3fb2487f936eb356aff372fccb01176",
+      "skipped": "0",
+      "tests": "1037",
+      "time": "138.892",
+      "timestamp": "2026-10-04T01:32:12.205368+02:00"
+    }
+  },
+  "analysis_script_sha256": "4b5e87200f962e766d1eb1e343b45604cf27797f96321923d3ccad93d1792ff8",
+  "created_at": "2026-10-03T23:45:00Z",
+  "experimental_research_fit_performed": false,
+  "failed_registration_ticket1_preserved": true,
+  "failed_ticket_reason": "historical schema unit fixture reached paid CLI path; rejected wrong roles before plan or seed; fixture now isolated",
+  "full_tests_pass": true,
+  "history_audit_sha256": "bc3dbffe8ac1d0e6fe107ee5f49febcf2144e285b07f8f578038f0f20b0ffde9",
+  "id": "MUC03-DIAG-UNDERTRAINING-V2-PRESEED",
+  "integrity": {
+    "benchmark_version": "muc03_undertraining_v1",
+    "candidate_bundle_sha256": "b66a3f487d9d00a89c30574e84759e0c20370d07fa719158ff92ddcb95db0690",
+    "checked_files": 982,
+    "evaluator_sha256": "f2299a5ab8d69ccb425395009fd34d0bd3f4aa1e69e1370f6fdf4beacd40d6d6",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "model_core_sha256": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+  "original_repository_unmodified": true,
+  "preflight_certificate_sha256": "7f307ff0965683617009bf1e9b1fabdf1f7fd562203f3eaa2e360e20879d30b3",
+  "preregistration_preceded_tested_step_implementation": true,
+  "program_budget": {
+    "auxiliary_fit_seconds_conservative": 458.0,
+    "cohort": "muc03_undertraining_v1",
+    "experiment_id": null,
+    "experimental_fit_seconds": 0.0,
+    "fit_seconds_cap": 72000,
+    "fit_seconds_charged": 458.0,
+    "fit_seconds_remaining": 71542.0,
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "pending_fit_reservation_seconds": 0.0,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": false,
+    "registration_attempts_cap": 20,
+    "registration_attempts_used": 1,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "mechanism_and_ablations": 0,
+      "reference": 1,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 0,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "mechanism_and_ablations": 3,
+      "reference": 6,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 5,
+      "scale_and_generalization": 4
+    },
+    "study_expired": false,
+    "study_path": "research/plans/MUC03-DIAG-UNDERTRAINING-V2.json",
+    "study_terminal": false,
+    "unreserved_fit_seconds_remaining": 71542.0
+  },
+  "schema_version": 1,
+  "scope": "fresh train/dev only; same model, optimizer and hard sampler; paired192/768 steps; no final data",
+  "scoring_seeds_realized": false,
+  "small_historical_unit_fit_fixtures_accounted_conservatively": true,
+  "study_path": "research/plans/MUC03-DIAG-UNDERTRAINING-V2.json",
+  "study_sha256": "9b1bc9b431b63596efb2f8101691337b3a6668bdb92991be30c42148066401bb",
+  "wt_files8_9_accessed": false
+}

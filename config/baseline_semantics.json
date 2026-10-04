@@ -1280,7 +1280,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1306,7 +1306,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1332,7 +1332,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1358,7 +1358,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1384,7 +1384,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1410,7 +1410,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1436,7 +1436,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1462,7 +1462,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1488,7 +1488,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",
@@ -1514,7 +1514,7 @@
         {
           "node_id": "tests/test_muc03_program.py::test_reference_model_sampler_and_pairing_remain_unchanged",
           "path": "tests/test_muc03_program.py",
-          "sha256": "8dda021ea0a4455db3732b7f573c74f6e606cef243e1f284a07506d2ae818d90"
+          "sha256": "0827c478331b196146b573839149f69315582986b72b040a8510d2017c7418d5"
         },
         {
           "node_id": "tests/test_muc02_negatives_candidates.py::test_negative_sampling_pairing_and_integrity",

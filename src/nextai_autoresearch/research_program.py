@@ -74,7 +74,13 @@ def status(base):
     registered = [e for e in events if e.get("event") == "research_program_registered"]
     if len({e["ticket"] for e in registered}) != len(registered):
         raise ValueError("Research ticket registered repeatedly")
+    preserved = [e for e in events if e.get("event") == "research_program_outcome_preserved"]
+    if (len({e["experiment_id"] for e in preserved}) != len(preserved)
+            or {e["experiment_id"] for e in preserved} - {e["experiment_id"] for e in registered}):
+        raise ValueError("Repeated or unregistered preserved research outcome")
+    result_hashes = {e["experiment_id"]: e["result_sha256"] for e in preserved}
     fit, fit_reserved = 0., 0.
+    pending_registered = False
     current_plans = []
     for event in registered:
         if event["ticket"] not in {e["ticket"] for e in tickets}:
@@ -96,6 +102,8 @@ def status(base):
         if protocol["study_path"] == study_path:
             current_plans.append(plan)
         result = base / "research/results" / f"{plan['experiment_id']}.json"
+        if plan["experiment_id"] in result_hashes and (not result.is_file() or sha256_file(result) != result_hashes[plan["experiment_id"]]):
+            raise ValueError("Preserved completed research result changed; budget cannot be reset")
         if result.exists():
             fit += _execution_fit(load_json(result)["candidates"])
         else:
@@ -103,6 +111,7 @@ def status(base):
             observed = _execution_fit(load_json(p) for p in supervisors)
             fit += observed
             if plan["experiment_id"] not in latest_plan_statuses(base):
+                pending_registered = True
                 fit_reserved += max(0., protocol["fit_seconds_total_cap"] - observed)
     reserves = [e for e in events if e.get("event") == "research_program_aux_fit_reserved"]
     charges = [e for e in events if e.get("event") == "research_program_aux_fit_charged"]
@@ -133,11 +142,12 @@ def status(base):
                 or ready["receipt_sha256"] != sha256_file(base / ready["receipt_path"])):
             raise ValueError("Research readiness receipt changed")
     expired = datetime.now(timezone.utc) >= datetime.fromisoformat(study["study_deadline_at"].replace("Z", "+00:00"))
-    exhausted = len(tickets) >= 20 or fit + auxiliary >= 72000
+    exhausted = (len(tickets) >= 20 and not pending_registered) or fit + auxiliary >= 72000
     closed = any(e.get("event") == "research_program_completed" for e in events)
     return {"id": program_id, "study_path": study_path, "cohort": study["cohort"], "ready": bool(ready_events),
             "study_terminal": terminal, "study_expired": expired, "program_terminal": closed or exhausted,
             "program_closed": closed,
+            "registration_budget_exhausted": len(tickets) >= 20, "paid_run_pending": pending_registered,
             "registration_attempts_used": len(tickets), "registration_attempts_cap": 20,
             "stage_registration_attempts": stage_used, "stage_registration_caps": stage_caps,
             "experimental_fit_seconds": fit, "auxiliary_fit_seconds_conservative": auxiliary,
@@ -197,7 +207,7 @@ def create_plan(base, requested=None):
     from .utils import atomic_write_json
     from .runner import _git_value
     value = status(base)
-    if not value or value["program_terminal"]:
+    if not value or value["program_terminal"] or value["registration_budget_exhausted"]:
         raise ValueError("Research program absent or exhausted")
     study = _document(base, value["study_path"])
     if value["stage_registration_attempts"][study["stage"]] >= value["stage_registration_caps"][study["stage"]]:

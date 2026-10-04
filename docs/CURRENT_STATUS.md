@@ -1,4 +1,25 @@
-# NEXTAI — MUC03 reference diagnostic preparation
+# NEXTAI — MUC03 undertraining diagnosis completed
+
+## Latest completed cycle302 — EXP-20261004-0002 (2026-10-04)
+
+Paired hard-negative192/768 diagnostic completed once in the independent clone:
+all11 workers /135 trials valid; identical initial/data/pairs and first192 loss.
+Train77.32->95.75%; dense top1 22.74->70.15%, primary97.5% paired intervals
+exclude zero,5/5 positive. Full-answer accuracy40.41->78.32%; dense UNKNOWN
+only23.63%. Namespace gap2.96 pp stays below the frozen10 pp gate. KEEP the
+undertraining diagnosis; DISCARD768 as stable reference; no architecture or
+cost/transfer claim. Symbolic control100%. Analysis: research/analyses/EXP-20261004-0002.md.
+
+Program remains authorized and active; current study terminal, maintenance,
+scoring=false, no same-plan retry. Attempts2/20 include one failed historical
+CLI fixture before seed/fit. Research fit149.463 s; auxiliary tests charged
+conservatively in the append-only ledger. Post-run budget/hash guard repair
+uses research/plans/MUC03-POSTRUN-ACCOUNTING-REPAIR-V1.json with no scored run.
+Next cycle: freeze one final reference calibration768 vs8192 steps, same model,
+4096 hard pairs, five paired fresh train/dev units and fixed0.5 threshold.
+This is the third and last tested reference step recipe; if stability still
+fails, close this reference milestone inconclusive with exact untested scope.
+No further user approval is needed inside the standing finite program.
 
 ## Current authority — finite autonomous research program MUC03 (2026-10-04)
 

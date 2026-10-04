@@ -1,0 +1,29 @@
+{
+  "costs": {
+    "192": {
+      "main_workload_seconds": 40.148891,
+      "query_p50_us": 3124.3,
+      "query_p95_us": 6595.5,
+      "query_samples": 10800,
+      "warmup_seconds": 1.2059723999999998
+    },
+    "768": {
+      "main_workload_seconds": 41.6613576,
+      "query_p50_us": 3143.4,
+      "query_p95_us": 6641.8,
+      "query_samples": 10800,
+      "warmup_seconds": 1.20706
+    },
+    "symbolic": {
+      "main_workload_seconds": 0.20466,
+      "query_p50_us": 1.8,
+      "query_p95_us": 2.9,
+      "query_samples": 10800,
+      "warmup_seconds": 0.0013193
+    }
+  },
+  "created_at": "2026-10-04T00:22:41Z",
+  "result_sha256": "aa3cd68590fce3d463499f371bfab5c438cf40bcc749f27405ceddf70f0c6e8d",
+  "schema_version": 1,
+  "workload_boundary": "ingest/index+warmup+queries+updates; generator,fit,extra dense diagnostics and controller separately disclosed; hardware timing is not asymptotic complexity"
+}

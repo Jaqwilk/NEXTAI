@@ -96,6 +96,30 @@ def test_factory_validates_schema_and_reserves_pending_worst_case_fit(tmp_path, 
     assert program.status(base)["unreserved_fit_seconds_remaining"] == 67900
     with pytest.raises(ValueError, match="consumed"):
         program.create_plan(base)
+    contract = load_json(base / program.CONTRACT)
+    remaining = [(stage["id"], stage["registration_cap"] - (stage["id"] == "reference")) for stage in contract["stages"]]
+    stages = [name for name, cap in remaining for _ in range(cap)]
+    for ticket, stage in enumerate(stages, 2):
+        relative = f"research/plans/consumed-fixture-{ticket}.json"
+        study = load_json(base / program.FIRST_STUDY)
+        study["stage"] = stage
+        (base / relative).write_text(json.dumps(study), encoding="utf-8")
+        append_jsonl(base / "research/events.jsonl", {"event": "research_program_registration_started", "program_id": value["id"],
+                     "study_path": relative, "ticket": ticket})
+    value = program.status(base)
+    assert value["registration_budget_exhausted"] and value["paid_run_pending"] and not value["program_terminal"]
+    assert program.scope_problems(base, plan["experiment_id"]) == []
+    with pytest.raises(ValueError, match="exhausted"):
+        program.create_plan(base)
+    result = base / "research/results" / f"{plan['experiment_id']}.json"
+    result.write_text(json.dumps({"candidates": [{"execution": {"supervised_fit_seconds": 17.}}]}), encoding="utf-8")
+    append_jsonl(base / "research/events.jsonl", {"event": "research_program_outcome_preserved", "program_id": value["id"],
+                 "experiment_id": plan["experiment_id"], "result_sha256": sha256_file(result)})
+    assert program.status(base)["experimental_fit_seconds"] == 17
+    assert not program.status(base)["paid_run_pending"] and program.status(base)["program_terminal"]
+    result.write_text(json.dumps({"candidates": [{"execution": {"supervised_fit_seconds": 1.}}]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="completed research result changed"):
+        program.status(base)
 
 
 def test_auxiliary_fit_is_reserved_and_charged_including_failure(tmp_path):

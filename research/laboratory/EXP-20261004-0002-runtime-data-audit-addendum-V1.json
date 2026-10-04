@@ -1,0 +1,24 @@
+{
+  "completed_result_sha256": "aa3cd68590fce3d463499f371bfab5c438cf40bcc749f27405ceddf70f0c6e8d",
+  "correction_to": "research/laboratory/EXP-20261004-0002-runtime-archive.json",
+  "correction_to_sha256": "224a5b13b20bcb57550aa3e8a4308af709ec9b1787a2f31fa58c69677e5845b9",
+  "created_at": "2026-10-04T00:14:25Z",
+  "data_accepted_records": 6075,
+  "data_proposal_records": 6080,
+  "data_rejected_records": 5,
+  "distinct_rejected_world_proposals": 2,
+  "distinct_seed_split_cell_world_addresses": 2700,
+  "every_proposal_seed_verified": true,
+  "id": "EXP-20261004-0002-runtime-data-audit-addendum-V1",
+  "max_proposal": 1,
+  "only_train_dev": true,
+  "prior_failed_inspectors_preserved": 2,
+  "reason": "First inspector wrote metadata inside the data-file loop:540 records described the first file, then AssertionError when archive already existed. Complete89-file raw archive is correct and unchanged. Second inspector incorrectly assumed6075 total proposals, overlooking5 preregistered structural rejections. This addendum audits all11 journals and reports6075 accepted worlds /6080 proposal records.",
+  "research_fit_or_scoring_performed": false,
+  "schema_version": 1,
+  "source_and_runtime_raw_archives_all_hashes_verified": true,
+  "split_record_counts": {
+    "D": 2028,
+    "T": 4052
+  }
+}

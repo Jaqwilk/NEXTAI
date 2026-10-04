@@ -1,0 +1,308 @@
+{
+  "all_tests_including_failures": {
+    "research/reviews/MUC03-corrected-targeted-tests.xml": {
+      "errors": "0",
+      "failures": "0",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "319d996555071af5b42ed0f7883666e0538f22fb0a939441ace110ba5bab5b54",
+      "skipped": "0",
+      "tests": "23",
+      "time": "2.844",
+      "timestamp": "2026-10-04T01:24:12.802735+02:00"
+    },
+    "research/reviews/MUC03-final-postrun-full-tests.xml": {
+      "errors": "0",
+      "failures": "0",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "af910799b5df7760973f0601ed470d54c5f503ad328252f2c7e1d5614f0b8404",
+      "skipped": "0",
+      "tests": "1039",
+      "time": "146.484",
+      "timestamp": "2026-10-04T02:22:45.575886+02:00"
+    },
+    "research/reviews/MUC03-final-preseed-full-tests.xml": {
+      "errors": "0",
+      "failures": "0",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "8ef499e116ff32ea33fb90880ac198cb32492d5de8df4d185cac6bd78383f763",
+      "skipped": "0",
+      "tests": "1039",
+      "time": "139.419",
+      "timestamp": "2026-10-04T01:40:55.117506+02:00"
+    },
+    "research/reviews/MUC03-first-targeted-tests.xml": {
+      "errors": "0",
+      "failures": "1",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "0217c2b297c6e599690e78a7a36b51cce6b606f7b36f7012a31f0075e1e78519",
+      "skipped": "0",
+      "tests": "23",
+      "time": "2.857",
+      "timestamp": "2026-10-04T01:22:54.108038+02:00"
+    },
+    "research/reviews/MUC03-isolated-full-tests.xml": {
+      "errors": "0",
+      "failures": "1",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "3060119db7ea3044d1d33cb4987671909177ba18e87df125a6cfc940923d3b32",
+      "skipped": "0",
+      "tests": "1039",
+      "time": "139.941",
+      "timestamp": "2026-10-04T01:37:35.693192+02:00"
+    },
+    "research/reviews/MUC03-preseed-full-tests.xml": {
+      "errors": "0",
+      "failures": "15",
+      "hostname": "3vilOS20",
+      "name": "pytest",
+      "raw_sha256": "fd7775f00d676338c63e52a0df76ed05e3fb2487f936eb356aff372fccb01176",
+      "skipped": "0",
+      "tests": "1037",
+      "time": "138.892",
+      "timestamp": "2026-10-04T01:32:12.205368+02:00"
+    }
+  },
+  "architecture_promotion": false,
+  "created_at": "2026-10-04T00:41:02Z",
+  "decision": "KEEP undertraining diagnosis; DISCARD768 as stable reference; program ACTIVE; economic mechanism comparison still inconclusive",
+  "experiment_id": "EXP-20261004-0002",
+  "external_model_api": false,
+  "failed_registration_ticket1_retained": true,
+  "final_or_calibration_generated": false,
+  "historical_raw_identical_files": 8805,
+  "id": "MUC03-DIAG-UNDERTRAINING-V2-COMPLETION",
+  "immutable_plan_sha256": "9cefbd6f57c77642344d0da109824dc057240fd501ad909fb9bce386dd5d6829",
+  "integrity": {
+    "benchmark_version": "muc03_undertraining_v1",
+    "candidate_bundle_sha256": "101b185bee94d7b6247df65ef0d49eba7459b7969d6acabf48b05c92081700b6",
+    "checked_files": 982,
+    "evaluator_sha256": "0073694efc39915d91b4e31f3d2f6f861ef265e603ac00c25b4cd6778d7c4c30",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "ledger_prefixes": {
+    "events.jsonl": {
+      "bytes_appended": 7132,
+      "historical_bytes": 631488,
+      "historical_sha256": "0f1750e99a2e321f1f4c148e66e618721adf9a0397420c8ff192c0d5774ad012",
+      "unchanged_prefix": true
+    },
+    "experiments.tsv": {
+      "bytes_appended": 3151,
+      "historical_bytes": 240269,
+      "historical_sha256": "f5ca855fe2221fb834099ab45a233c7164623e1e24eec2a3638550969890c88a",
+      "unchanged_prefix": true
+    },
+    "hypothesis_events.jsonl": {
+      "bytes_appended": 0,
+      "historical_bytes": 1322668,
+      "historical_sha256": "8be58000230df48579185c638079f78237b3f085810aa0878e12e53ff7e28241",
+      "unchanged_prefix": true
+    },
+    "plan_registry.jsonl": {
+      "bytes_appended": 205,
+      "historical_bytes": 29111,
+      "historical_sha256": "3336f73b941b11b79fc998bb8daec1f2846d0eac0e707f7e9c9e13ba0074bdd8",
+      "unchanged_prefix": true
+    },
+    "plan_status_events.jsonl": {
+      "bytes_appended": 0,
+      "historical_bytes": 15333,
+      "historical_sha256": "18fd2733a8373d2bdfc382b66a25baef704fbeb86244bf110fc5f3048a7a4927",
+      "unchanged_prefix": true
+    },
+    "sources.jsonl": {
+      "bytes_appended": 0,
+      "historical_bytes": 366608,
+      "historical_sha256": "6231fc8f3fa8377fc34e41ff787b13789439cc9763c540df45ee3721877bdbe4",
+      "unchanged_prefix": true
+    }
+  },
+  "model_core_unchanged": true,
+  "new_architecture": false,
+  "next_discriminating_experiment": "Next bounded cycle: prospectively freeze one final reference recipe768vs8192,4096 same hard pairs/model/optimizer/.5,5paired fresh train/dev; final third tested step count; reference gates unchanged; no retry; if it fails close reference milestone inconclusive.",
+  "observations": {
+    "192": {
+      "accepted_fact_accuracy": 0.18814814814814812,
+      "accepted_top1_gap": 0.03925925925925926,
+      "accuracy": 0.40407407407407414,
+      "dense_unknown_rejection": 0.13925925925925925,
+      "dev_iid_accepted_fact_accuracy": 0.18962962962962965,
+      "dev_iid_dense_unknown_rejection": 0.14148148148148149,
+      "dev_iid_fact_top1_accuracy": 0.2303703703703704,
+      "dev_iid_known_false_abstention": 0.09407407407407407,
+      "dev_iid_unknown_relation_rejection": 0.19703703703703704,
+      "dev_iid_unknown_subject_rejection": 0.08592592592592593,
+      "e2e_known_accuracy": 0.43343915343915346,
+      "e2e_unknown_rejection": 0.19851851851851848,
+      "fact_top1_accuracy": 0.22740740740740742,
+      "hard_relation_fpr": 0.648564600321443,
+      "hard_subject_fpr": 0.08505577223702082,
+      "known_false_abstention": 0.08888888888888888,
+      "namespace_top1_gap": 0.0029629629629629563,
+      "train_seen_accepted_fact_accuracy": 0.1925925925925926,
+      "train_seen_dense_unknown_rejection": 0.14444444444444443,
+      "train_seen_fact_top1_accuracy": 0.23333333333333334,
+      "train_seen_known_false_abstention": 0.0962962962962963,
+      "train_seen_unknown_relation_rejection": 0.22962962962962968,
+      "train_seen_unknown_subject_rejection": 0.059259259259259255,
+      "training_pair_accuracy": 0.7732421875,
+      "unknown_relation_rejection": 0.1925925925925926,
+      "unknown_subject_rejection": 0.08592592592592593
+    },
+    "768": {
+      "accepted_fact_accuracy": 0.6962962962962963,
+      "accepted_top1_gap": 0.005185185185185182,
+      "accuracy": 0.7832407407407407,
+      "dense_unknown_rejection": 0.2362962962962963,
+      "dev_iid_accepted_fact_accuracy": 0.7229629629629629,
+      "dev_iid_dense_unknown_rejection": 0.22296296296296295,
+      "dev_iid_fact_top1_accuracy": 0.731111111111111,
+      "dev_iid_known_false_abstention": 0.011111111111111112,
+      "dev_iid_unknown_relation_rejection": 0.3540740740740741,
+      "dev_iid_unknown_subject_rejection": 0.09185185185185185,
+      "e2e_known_accuracy": 0.8486772486772487,
+      "e2e_unknown_rejection": 0.3251851851851852,
+      "fact_top1_accuracy": 0.7014814814814815,
+      "hard_relation_fpr": 0.13095108648157755,
+      "hard_subject_fpr": 0.013731587696927134,
+      "known_false_abstention": 0.00814814814814815,
+      "namespace_top1_gap": 0.029629629629629638,
+      "train_seen_accepted_fact_accuracy": 0.7148148148148148,
+      "train_seen_dense_unknown_rejection": 0.22592592592592592,
+      "train_seen_fact_top1_accuracy": 0.7185185185185186,
+      "train_seen_known_false_abstention": 0.01111111111111111,
+      "train_seen_unknown_relation_rejection": 0.37037037037037035,
+      "train_seen_unknown_subject_rejection": 0.08148148148148147,
+      "training_pair_accuracy": 0.95751953125,
+      "unknown_relation_rejection": 0.3807407407407407,
+      "unknown_subject_rejection": 0.09185185185185185
+    }
+  },
+  "paired_primary_uncertainty": {
+    "fact_top1_accuracy": {
+      "confidence": 0.975,
+      "df": 4,
+      "differences": [
+        0.34814814814814815,
+        0.3111111111111111,
+        0.4444444444444444,
+        0.5296296296296297,
+        0.7370370370370369
+      ],
+      "lower": 0.2084138861335369,
+      "mean": 0.47407407407407404,
+      "positive_pairs": 5,
+      "upper": 0.7397342620146112
+    },
+    "training_pair_accuracy": {
+      "confidence": 0.975,
+      "df": 4,
+      "differences": [
+        0.209716796875,
+        0.08740234375,
+        0.1416015625,
+        0.205810546875,
+        0.27685546875
+      ],
+      "lower": 0.07131692676692136,
+      "mean": 0.18427734375,
+      "positive_pairs": 5,
+      "upper": 0.2972377607330786
+    }
+  },
+  "postrun_accounting_repair": "Completed-result raw hashes bind budget values; pending paid twentieth run remains executable, twenty-first registration denied; full regression passed.",
+  "postrun_inspector_and_cost_corrections_retained": true,
+  "preexisting_line_ending_differences_unchanged": 10,
+  "program_budget": {
+    "auxiliary_fit_seconds_conservative": 615.0,
+    "cohort": "muc03_undertraining_v1",
+    "experiment_id": "EXP-20261004-0002",
+    "experimental_fit_seconds": 149.4627120000041,
+    "fit_seconds_cap": 72000,
+    "fit_seconds_charged": 764.4627120000041,
+    "fit_seconds_remaining": 71235.53728799999,
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": true,
+    "registration_attempts_cap": 20,
+    "registration_attempts_used": 2,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "mechanism_and_ablations": 0,
+      "reference": 2,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 0,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "mechanism_and_ablations": 3,
+      "reference": 6,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 5,
+      "scale_and_generalization": 4
+    },
+    "study_expired": false,
+    "study_path": "research/plans/MUC03-DIAG-UNDERTRAINING-V2.json",
+    "study_terminal": true,
+    "unreserved_fit_seconds_remaining": 71235.53728799999
+  },
+  "reference_gates": {
+    "dev_top1_each_seed": false,
+    "dev_top1_mean": false,
+    "e2e_each_seed": false,
+    "e2e_mean": false,
+    "false_abstention_each_seed": true,
+    "false_abstention_mean": true,
+    "symbolic_accuracy": true,
+    "symbolic_parser_failure": true,
+    "training_each_seed": false,
+    "unknown_mean": false
+  },
+  "references_raw_sha256": {
+    "research/analyses/EXP-20261004-0002.md": "61db3a6dc1185f475f8d8244e4c71a9bf520eaa82564d6ec73c8da4d34693887",
+    "research/laboratory/EXP-20261004-0002-runtime-archive.json": "224a5b13b20bcb57550aa3e8a4308af709ec9b1787a2f31fa58c69677e5845b9",
+    "research/laboratory/EXP-20261004-0002-runtime-data-audit-addendum-V1.json": "ffdc9792deabda68ce07d126700c020ba5895c440982451d90a56396bb685f22",
+    "research/laboratory/EXP-20261004-0002-source-archive.json": "df0be39c893c38cf23696d459d5058d33493eb87f1606529ec53ca1d3c72c683",
+    "research/plans/EXP-20261004-0002.json": "57b306d2702036f6be17f9e9d8f05fd4e4b706e9a897cd4e384c7a5ac0e9fbb1",
+    "research/plans/MUC03-POSTRUN-ACCOUNTING-REPAIR-V1.json": "3803c6ba99400d059ccdbe2af40f760da10dca2ab5c0b912f34427bc8ee85f35",
+    "research/results/EXP-20261004-0002.json": "aa3cd68590fce3d463499f371bfab5c438cf40bcc749f27405ceddf70f0c6e8d",
+    "research/reviews/EXP-20261004-0002-full-workload-costs.json": "0fbeeb5c3d63439ef33d3c12dbc8d1c29b0524291ff5d361690cd4dcc5ae6dad",
+    "research/reviews/EXP-20261004-0002-paired-analysis.json": "b68e0c31b4815aa0685258073aaaf6a156761f74e89e62a190c9f1b3b293d404",
+    "research/reviews/EXP-20261004-0002-workload-cost-addendum-V1.json": "2914af0f9cffe38feaa95d57cf9be13c3be22a15935b4c356b6582fe05df6438"
+  },
+  "remaining_program_scope": "Stable reference not obtained; mechanism/ablations, matched-quality scaling/generalization and frozen fresh final replications not yet executed; authorization remains active.",
+  "schedule_changed": false,
+  "schema_version": 1,
+  "source_runtime_archives_all_hashes_verified": {
+    "runtime": 89,
+    "source": 987
+  },
+  "state": {
+    "active_experiment_id": null,
+    "completed_experiments": 109,
+    "cycle_number": 302,
+    "generation": 2,
+    "last_experiment_id": "EXP-20261004-0002",
+    "last_failure_at": "2026-09-05T13:10:07Z",
+    "last_literature_review_completed_experiments": 105,
+    "last_reflection_completed_experiments": 98,
+    "last_reflection_cycle": 237,
+    "phase": "infrastructure",
+    "protocol_version": 3,
+    "schema_version": 1,
+    "updated_at": "2026-10-04T00:03:05Z"
+  },
+  "status": "complete_valid_diagnostic_reference_not_accepted",
+  "wt_files8_9_accessed": false
+}

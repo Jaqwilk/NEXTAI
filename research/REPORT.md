@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-10-03T23:46:29Z
+Generated: 2026-10-04T00:41:03Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1223,6 +1223,24 @@ Pareto axes: maximize `accuracy, warm_accuracy, continual_new_fact_accuracy, con
 | EXP-20260901-0056 | raw_nearest_neighbour_scan_v1 | implementable | complete | 1 | - | 1 | 3.694e+05 | 24 | 1.97e+06 | 9.659e+07 | 0.9995 (3) | 1.25479e+06 | yes |
 | EXP-20260901-0056 | local_dense_transition_gru_v1 | implementable | complete | 0 | - | 1 | 5.615e+04 | 24 | 1.109e+05 | 1.502e+09 | 0 (3) | 25588 |  |
 | EXP-20260901-0056 | privileged_exact_entity_key_v1 | privileged support control | complete | 1 | - | 1 | 28.33 | 24 | 261.3 | 2.066e+05 | 5.58e-32 (3) | 76824 |  |
+
+## muc03_undertraining_v1 / quick
+
+Pareto axes: maximize `accuracy, fact_top1_accuracy, dense_unknown_rejection`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20261004-0002 | muc03_hard_192_s0 | implementable | complete | 0.3366 | - | 1 | 1.984e+10 | 101.5 | 4.026e+08 | 5.442e+12 | 6.408e-08 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_768_s0 | implementable | complete | 0.6037 | - | 1 | 1.886e+10 | 101.5 | 3.828e+08 | 6.063e+12 | -0.0152 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_192_s1 | implementable | complete | 0.5806 | - | 1 | 1.974e+10 | 101.5 | 4.007e+08 | 5.418e+12 | 6.404e-08 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_768_s1 | implementable | complete | 0.781 | - | 1 | 1.945e+10 | 101.5 | 3.947e+08 | 6.213e+12 | 0.0141 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_192_s2 | implementable | complete | 0.5111 | - | 1 | 1.599e+10 | 101.5 | 3.245e+08 | 4.458e+12 | 0.02451 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_768_s2 | implementable | complete | 0.8444 | - | 1 | 1.941e+10 | 101.5 | 3.939e+08 | 6.203e+12 | -0.004157 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_192_s3 | implementable | complete | 0.2921 | - | 1 | 1.984e+10 | 101.5 | 4.026e+08 | 5.442e+12 | 6.43e-08 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_768_s3 | implementable | complete | 0.7139 | - | 1 | 1.857e+10 | 101.5 | 3.768e+08 | 5.988e+12 | -0.01229 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_192_s4 | implementable | complete | 0.3 | - | 1 | 1.56e+10 | 101.5 | 3.165e+08 | 4.357e+12 | 0.001688 (3) | 4.32924e+07 |  |
+| EXP-20261004-0002 | muc03_hard_768_s4 | implementable | complete | 0.9731 | - | 1 | 1.84e+10 | 101.5 | 3.734e+08 | 5.945e+12 | -0.0002312 (3) | 4.32924e+07 | yes |
+| EXP-20261004-0002 | symbolic_last_write_graph_v2 | implementable | complete | 1 | - | 5 | 162.3 | 101.5 | 39.79 | 7.067e+04 | 8.394e-05 (3) | 29440 |  |
 
 ## mutable_contact_ledger_hard_negatives_v2 / quick
 

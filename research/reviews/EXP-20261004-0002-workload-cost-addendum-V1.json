@@ -1,0 +1,26 @@
+{
+  "corrects": "research/reviews/EXP-20261004-0002-full-workload-costs.json",
+  "costs": {
+    "192": {
+      "measured_ingest_including_updates_plus_warmup_and_queries_seconds": 39.867506,
+      "update_subset_seconds_disclosed_not_added_again": 0.281385,
+      "updates_are_subset_of_ingest_verified": true
+    },
+    "768": {
+      "measured_ingest_including_updates_plus_warmup_and_queries_seconds": 41.383918200000004,
+      "update_subset_seconds_disclosed_not_added_again": 0.2774394,
+      "updates_are_subset_of_ingest_verified": true
+    },
+    "symbolic": {
+      "measured_ingest_including_updates_plus_warmup_and_queries_seconds": 0.1710894,
+      "update_subset_seconds_disclosed_not_added_again": 0.0335706,
+      "updates_are_subset_of_ingest_verified": true
+    }
+  },
+  "created_at": "2026-10-04T00:34:58Z",
+  "original_cost_record_sha256": "0fbeeb5c3d63439ef33d3c12dbc8d1c29b0524291ff5d361690cd4dcc5ae6dad",
+  "reason": "Update latencies are a recorded subset of ingest latencies. The first derived report added them twice. Corrected measured operation sums count each once; no raw result changed.",
+  "result_sha256": "aa3cd68590fce3d463499f371bfab5c438cf40bcc749f27405ceddf70f0c6e8d",
+  "schema_version": 1,
+  "unmeasured_in_operation_sum": "per-world new_session allocation; model initialization is included in fit phase; generator/diagnostics/controller and all worker wall time disclosed separately; no full-cost economic claim"
+}
