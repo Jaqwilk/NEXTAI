@@ -1,0 +1,12 @@
+{
+  "charged_seconds": 3,
+  "closed_scientific_files_raw_exact": true,
+  "committed_archival_objects_raw_exact": 1342,
+  "created_at": "2026-10-04T17:59:45Z",
+  "elapsed_seconds": 2.8142729999963194,
+  "id": "PVM01-V2-final-original-and-git-artifact-guard-V1",
+  "original_beliefs_preserved": true,
+  "original_protected_files_exact": 1055,
+  "research_fit_or_new_data": false,
+  "status": "PASS"
+}
