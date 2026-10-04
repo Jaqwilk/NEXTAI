@@ -1,11 +1,11 @@
 {
   "benchmark_version": "muc03_reference_calibration_v1",
-  "certificate_sha256": "965203c361499ed5b7376aa32088e02b1d648a99c202b4417bee2204a555a1cd",
-  "created_at": "2026-10-04T13:55:10Z",
-  "evaluator_sha256": "39ac5f40c2148d357b05bb1eb50bc5a5d94d033e8e2dca2e20145897993485f1",
+  "certificate_sha256": "8ef73fb55429b45bbe8a9546dd7a9d845d4fe723b5fb9da5342759ff71fca913",
+  "created_at": "2026-10-04T13:47:15Z",
+  "evaluator_sha256": "4f91823efbc56053f6d23d9e9c019419ae45c2ecd3512477311bf191a2f905ca",
   "files": {
     "baseline_registry": "45be32bb3ff28295586de80380f107e6189a34564fe6ee0b98253872ef305404",
-    "manifest": "3f3547c6fedc4f7887131f77a75f1d4c0fe377d6a3ceab706b8f125ac0de6220",
+    "manifest": "377a5d62b429babe661dce68d592ae44e0e8b03ce3ac5d45349444035330048f",
     "runner": "43a2d4fe6ea881288376323a1c52b6043086f020d1cc5a51d90109907c615838",
     "schema:experiment_plan": "2e524b45c3bcdff9b5f38a7206a535135e36537095a26359e0a18334b4fada03",
     "schema:experiment_result": "ea41b0a4c0ee6fd8d0deaa54b315ae21849532aa12bf2eb638d2c6f010508471",

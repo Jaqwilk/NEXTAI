@@ -1,8 +1,8 @@
 {
   "benchmark_version": "muc03_reference_calibration_v1",
   "candidate_bundle_sha256": "1e36c241116cf20f1f061eeb76e2ee51cbcbd9bfe48dbcc4094537fd5055bb75",
-  "created_at": "2026-10-04T13:55:10Z",
-  "evaluator_sha256": "39ac5f40c2148d357b05bb1eb50bc5a5d94d033e8e2dca2e20145897993485f1",
+  "created_at": "2026-10-04T13:47:15Z",
+  "evaluator_sha256": "4f91823efbc56053f6d23d9e9c019419ae45c2ecd3512477311bf191a2f905ca",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -917,7 +917,7 @@
     "tests/test_macro_operator_dag.py": "fd67306e143d964c56ee0ad21423908b0389de291ffacf335df3177a035214f8",
     "tests/test_mechanism_recombination_semantics.py": "c41ab9687f39cfaff08c2225d43a238eb3441bba5b8bd7169ef0b502465161fc",
     "tests/test_metrics_and_pareto.py": "c881ec7c606b4eaf024ae6bf3fc12bf4348fc45a0d152070f153822aa45ba854",
-    "tests/test_muc01_activation.py": "5c5a129d75609a9c6e530dbb60d200cb60bc269aea8fbce87678e2bec1aa209f",
+    "tests/test_muc01_activation.py": "17196905f3d010f36e53a1027c7875031b7a411bb538c3027590edf69ffe8294",
     "tests/test_muc01_baselines.py": "9f33d32261b990d187b890e7a9935177e8030f003a37488e3d16c6ea8f58d7bb",
     "tests/test_muc01_evaluator.py": "7602b3463d8adb9b91d55ee6bade7f74aba66b153ecc4e94168398f463a6669f",
     "tests/test_muc02_baselines.py": "228310794c4e19f5baff30df8b457872888ffd948526aba40f0d0d5e869a8a2e",

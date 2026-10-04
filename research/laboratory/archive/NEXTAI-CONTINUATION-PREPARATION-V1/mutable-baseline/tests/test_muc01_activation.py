@@ -29,14 +29,8 @@ def test_current_queue_resolves_new_authority_without_resetting_v1() -> None:
     from nextai_autoresearch.audit_repair import status as repair_status
     from nextai_autoresearch.muc02_negatives_stage import status as negatives_status
     progress = laboratory_progress(ROOT)
-    program = progress["research_program"]
-    prefix = "NEXTAI" if program.get("prior_program_closed") else "MUC03"
-    assert progress["next_action_id"] in {f"{prefix}-{phase}" for phase in
-                                        ("STUDY-PREP", "STUDY-RUN", "STUDY-REVIEW", "PROGRAM-COMPLETE")}
-    assert program["registration_attempts_cap"] == 20
-    if prefix == "NEXTAI":
-        assert program["prior_registration_attempts_used"] == 3
-        assert program["continuation_registration_attempts_cap"] == 17
+    assert progress["next_action_id"] in {"MUC03-STUDY-PREP", "MUC03-STUDY-RUN", "MUC03-STUDY-REVIEW", "MUC03-PROGRAM-COMPLETE"}
+    assert progress["research_program"]["registration_attempts_cap"] == 20
     assert progress["muc01_calibration"]["terminal"]
     assert repair_status(ROOT)["registrations_cap"] == 1
     assert repair_status(ROOT)["terminal"] and negatives_status(ROOT)["executed_attempts_cap"] == 1

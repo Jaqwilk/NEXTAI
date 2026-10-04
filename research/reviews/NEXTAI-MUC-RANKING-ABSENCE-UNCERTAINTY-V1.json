@@ -1,0 +1,62 @@
+{
+  "UNKNOWN_gain_descriptive_95": {
+    "confidence": 0.95,
+    "df": 4,
+    "differences": [
+      -0.12962962962962954,
+      0.5925925925925926,
+      0.1037037037037037,
+      0.0,
+      0.44074074074074077
+    ],
+    "lower": -0.17615728074758372,
+    "mean": 0.2014814814814815,
+    "positive_pairs": 3,
+    "upper": 0.5791202437105467
+  },
+  "new_thresholds_or_old_decision_changed": false,
+  "pairs": [
+    {
+      "UNKNOWN_gain": -0.12962962962962954,
+      "seed": 72072428,
+      "top1_gain": 0.051851851851851816
+    },
+    {
+      "UNKNOWN_gain": 0.5925925925925926,
+      "seed": 1150792285,
+      "top1_gain": 0.12962962962962965
+    },
+    {
+      "UNKNOWN_gain": 0.1037037037037037,
+      "seed": 1781598374,
+      "top1_gain": 0.0185185185185186
+    },
+    {
+      "UNKNOWN_gain": 0.0,
+      "seed": 535129614,
+      "top1_gain": 0.1074074074074074
+    },
+    {
+      "UNKNOWN_gain": 0.44074074074074077,
+      "seed": 1310994711,
+      "top1_gain": 0.062962962962963
+    }
+  ],
+  "posthoc": true,
+  "top1_gain_original_simultaneous_97_5": {
+    "confidence": 0.975,
+    "df": 4,
+    "differences": [
+      0.051851851851851816,
+      0.12962962962962965,
+      0.0185185185185186,
+      0.1074074074074074,
+      0.062962962962963
+    ],
+    "lower": 0.004598827193515842,
+    "mean": 0.0740740740740741,
+    "positive_pairs": 5,
+    "upper": 0.14354932095463235
+  },
+  "unit": "five paired seed/data units, not nested queries"
+}

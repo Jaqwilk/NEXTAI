@@ -15,11 +15,6 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
-    "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
-    "research/plans/NEXTAI-CONTINUATION-PREPARATION-V1.json",
-    "research/plans/PVM01-TASK-CONTRACT-V1.json",
-    "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
-    "scripts/analyze_muc_ranking_absence.py",
     "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json",
     "research/plans/MUC03-DIAG-UNDERTRAINING-V2.json",
     "research/laboratory/MUC03-AUTONOMOUS-20261004-V1.json",

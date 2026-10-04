@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="21" time="3.589" timestamp="2026-10-04T15:23:53.201212+02:00" hostname="3vilOS20"><testcase classname="tests.test_research_continuation" name="test_continuation_keeps_closed_tickets_and_compute" file="tests\test_research_continuation.py" line="45" time="0.217" /><testcase classname="tests.test_research_continuation" name="test_changed_old_evidence_fails_closed[research/laboratory/MUC03-AUTONOMOUS-20261004-V1.json]" file="tests\test_research_continuation.py" line="61" time="0.097" /><testcase classname="tests.test_research_continuation" name="test_changed_old_evidence_fails_closed[research/plans/MUC03-AUTONOMOUS-PROGRAM-V1.json]" file="tests\test_research_continuation.py" line="61" time="0.095" /><testcase classname="tests.test_research_continuation" name="test_changed_old_evidence_fails_closed[research/plans/MUC03-DIAG-UNDERTRAINING-V1.json]" file="tests\test_research_continuation.py" line="61" time="0.095" /><testcase classname="tests.test_research_continuation" name="test_changed_old_evidence_fails_closed[research/results/prior.json]" file="tests\test_research_continuation.py" line="61" time="0.096" /><testcase classname="tests.test_research_continuation" name="test_old_event_append_and_count_reset_are_rejected" file="tests\test_research_continuation.py" line="70" time="0.116" /><testcase classname="tests.test_research_continuation" name="test_auxiliary_reservation_is_counted_before_charge_and_failures_cost_time" file="tests\test_research_continuation.py" line="86" time="0.192" /><testcase classname="tests.test_research_continuation" name="test_one_failed_recipe_does_not_close_the_new_program" file="tests\test_research_continuation.py" line="100" time="0.158" /><testcase classname="tests.test_research_continuation" name="test_last_paid_continuation_ticket_can_run_without_a_free_extra_ticket" file="tests\test_research_continuation.py" line="123" time="0.310"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-381\\test_last_paid_continuation_ti0\\schemas\\experiment_plan.schema.json'">tmp_path = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-381/test_last_paid_continuation_ti0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000014B625B15B0&gt;
+
+    def test_last_paid_continuation_ticket_can_run_without_a_free_extra_ticket(tmp_path, monkeypatch):
+        from nextai_autoresearch import baseline_semantics, gates, integrity
+        base = continuation_fixture(tmp_path)
+        contract = load_json(base / program.CONTINUATION_CONTRACT)
+        stages = [stage["id"] for stage in contract["stages"] for _ in range(stage["registration_cap"])]
+        current_path = "research/plans/final-paid-reference.json"
+        for ticket, stage in enumerate(stages, 1):
+            path = current_path if ticket == 17 else f"research/plans/new-failed-ticket-{ticket}.json"
+            study = load_json(base / program.FIRST_STUDY)
+            study.update(stage=stage, program_contract_sha256=sha256_file(base / program.CONTINUATION_CONTRACT))
+            atomic_write_json(base / path, study)
+            if ticket &lt; 17:
+                append_jsonl(base / "research/events.jsonl", {"event": "research_program_registration_started", "program_id": contract["id"],
+                    "ticket": ticket, "study_path": path})
+                append_jsonl(base / "research/events.jsonl", {"event": "research_program_registration_failed", "program_id": contract["id"],
+                    "ticket": ticket, "study_path": path, "error": "preserved failure"})
+        config = base / "config/research.toml"
+        config.write_text(config.read_text(encoding="utf-8").replace(contract["first_study_path"], current_path), encoding="utf-8")
+        append_jsonl(base / "research/events.jsonl", {"event": "research_program_study_frozen", "program_id": contract["id"],
+            "study_path": current_path, "study_sha256": sha256_file(base / current_path)})
+        receipt = base / "research/laboratory/ready.json"
+        append_jsonl(base / "research/events.jsonl", {"event": "research_program_study_ready", "program_id": contract["id"],
+            "study_path": current_path, "study_sha256": sha256_file(base / current_path),
+            "receipt_path": receipt.relative_to(base).as_posix(), "receipt_sha256": sha256_file(receipt)})
+        manifest = base / "research/eval_manifest.json"
+        atomic_write_json(manifest, {"evaluator_sha256": "0" * 64})
+        monkeypatch.setattr(gates, "ensure_can_create_plan", lambda _: None)
+        monkeypatch.setattr(integrity, "manifest_path", lambda _: manifest)
+        monkeypatch.setattr(baseline_semantics, "verify_preflight_certificate", lambda _: {})
+        monkeypatch.setattr(baseline_semantics, "verify_required_baselines", lambda *a, **k: {})
+&gt;       program.create_plan(base)
+
+tests\test_research_continuation.py:154: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:293: in create_plan
+    validate_document("experiment_plan", plan, base)
+src\nextai_autoresearch\schemas.py:57: in validate_document
+    schema = load_schema(name, root)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\schemas.py:37: in load_schema
+    with path.open("r", encoding="utf-8") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-381/test_last_paid_continuation_ti0/schemas/experiment_plan.schema.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-381\\test_last_paid_continuation_ti0\\schemas\\experiment_plan.schema.json'
+
+..\..\..\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\pathlib\_local.py:537: FileNotFoundError</failure></testcase><testcase classname="tests.test_muc_stored_diagnosis" name="test_stored_diagnosis_separates_ranking_abstention_and_unknown" file="tests\test_muc_stored_diagnosis.py" line="5" time="0.002" /><testcase classname="tests.test_muc03_program" name="test_failed_registration_consumes_one_nonrefundable_ticket" file="tests\test_muc03_program.py" line="52" time="0.053" /><testcase classname="tests.test_muc03_program" name="test_live_legacy_cli_routes_through_paid_program_without_side_effects" file="tests\test_muc03_program.py" line="66" time="0.020" /><testcase classname="tests.test_muc03_program" name="test_factory_validates_schema_and_reserves_pending_worst_case_fit" file="tests\test_muc03_program.py" line="79" time="0.302" /><testcase classname="tests.test_muc03_program" name="test_auxiliary_fit_is_reserved_and_charged_including_failure" file="tests\test_muc03_program.py" line="127" time="0.100" /><testcase classname="tests.test_muc03_program" name="test_last_registration_can_finish_execution_and_closing_checks" file="tests\test_muc03_program.py" line="146" time="0.150" /><testcase classname="tests.test_muc03_program" name="test_changed_authority_or_study_fails_closed" file="tests\test_muc03_program.py" line="167" time="0.023" /><testcase classname="tests.test_muc03_program" name="test_execution_fit_charge_falls_back_conservatively" file="tests\test_muc03_program.py" line="177" time="0.000" /><testcase classname="tests.test_muc03_program" name="test_fresh_namespace_intervention_preserves_graph_and_gold" file="tests\test_muc03_program.py" line="184" time="1.033" /><testcase classname="tests.test_muc03_program" name="test_namespace_diagnostic_is_correct_before_gold_and_preserves_threshold" file="tests\test_muc03_program.py" line="208" time="0.001" /><testcase classname="tests.test_muc03_program" name="test_reference_model_sampler_and_pairing_remain_unchanged" file="tests\test_muc03_program.py" line="232" time="0.273" /><testcase classname="tests.test_muc03_terminal_queue" name="test_terminal_program_queue_cannot_suggest_another_study" file="tests\test_muc03_terminal_queue.py" line="3" time="0.002" /></testsuite></testsuites>

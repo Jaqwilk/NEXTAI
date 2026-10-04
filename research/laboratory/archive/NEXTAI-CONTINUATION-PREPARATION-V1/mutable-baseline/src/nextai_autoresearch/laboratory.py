@@ -259,12 +259,11 @@ def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
     from .research_program import status as program_status
     program = program_status(base)
     if program is not None:
-        queue_prefix = "NEXTAI" if program.get("prior_program_closed") else "MUC03"
         return {**progress, "activation_id": program["id"], "research_program": program,
                 "scoring_authorized": program["scoring_authorized"], "user_decision_required": False,
-                "next_action_id": f"{queue_prefix}-PROGRAM-COMPLETE" if program["program_terminal"] else
-                    f"{queue_prefix}-STUDY-REVIEW" if program["study_terminal"] or program["study_expired"] else
-                    f"{queue_prefix}-STUDY-RUN" if program["ready"] else f"{queue_prefix}-STUDY-PREP",
+                "next_action_id": "MUC03-PROGRAM-COMPLETE" if program["program_terminal"] else
+                    "MUC03-STUDY-REVIEW" if program["study_terminal"] or program["study_expired"] else
+                    "MUC03-STUDY-RUN" if program["ready"] else "MUC03-STUDY-PREP",
                 "next_action": (
                     "Program terminal. Preserve all outcomes and report the exact unexecuted scope; "
                     "no further study or scoring under this authority."
@@ -638,7 +637,7 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
     if program is not None:
         return {**contract, "status": "dev_authorized" if program["scoring_authorized"] else "preparation_only",
                 "scoring_authorized": program["scoring_authorized"], "activation_id": program["id"],
-                "maintenance_plan": program.get("contract_path", PROGRAM_CONTRACT), "original_status": contract["status"]}
+                "maintenance_plan": PROGRAM_CONTRACT, "original_status": contract["status"]}
     from .muc02_negatives_stage import status as negatives_status, PLAN as NEGATIVES_PLAN
     negatives = negatives_status(base)
     if negatives is not None:

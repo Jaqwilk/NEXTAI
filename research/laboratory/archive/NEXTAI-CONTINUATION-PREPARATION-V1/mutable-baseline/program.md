@@ -1,17 +1,3 @@
-# Current bounded cycle304 — NEXTAI continuation preparation (2026-10-04)
-
-Nowy program NEXTAI-CONTINUATION-20261004-V1 jest zatwierdzony: maksymalnie 17 dodatkowych rejestracji i 69344 s obliczeń, z zachowaniem 3 zużytych rejestracji i 2655.336485 s. Kontrakt: research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json. Zamknięty MUC03 i jego wyniki pozostają niezmienione. Nowa autoryzacja pozwala na zmianę receptur, uzasadniony nowy benchmark, minimalne prototypy, ablacje i replikacje; porażka jednej receptury nie zamyka programu. Nie ma potrzeby ponownego pytania o działania objęte tym zakresem.
-
-Cykl 304 jest przygotowaniem bez scoringu, EXP lub fitu badawczego. MUC pozostaje testem technicznym: publiczny dokładny klucz umożliwia kontrolę symboliczną 100%. Zapisane sondy8192 pokazują przy K32/128/512 top1=100/95.33/80.44%, a odrzucenie nieznanego podmiotu=88.44/12.44/1.78%. Osobno diagnozujemy ranking i decyzję o braku odpowiedzi; zamknięte progi nie są zmieniane.
-
-Analiza: research/analyses/NEXTAI-CONTINUATION-MUC-DIAGNOSIS-V1.md. Prospektywny kontrakt nowego zadania: research/plans/PVM01-TASK-CONTRACT-V1.json. Dwa surowe obserwacyjne widoki świeżych ciągłych tożsamości, jawne aktualizacje, kontrole zamrożona/permutowana i mocny transport/retrieval klasyczny mają sprawdzić wpływ uczenia. Nie implementowano generatora ani modeli i nie widziano nowych danych. Zmienne rundy aktualizacji nie oznaczają głębokości rozumowania.
-
-Następny ograniczony cykl: prerejestracja PVM01-REFERENCE-V1 przed implementacją, pięć świeżych sparowanych jednostek train/dev, konwencjonalny dense Transformer i attention pointer oraz mocne kontrole. Zamrozić konkretną recepturę, metryki, capy i siatki klasyczne; walidować w niezależnym klonie, potem freeze/preflight/readiness i dokładnie jeden audytowany EXP. Zachować alternatywy przy nieudanej recepturze. Mechanizm, ablacje, trzy skale, trudny wariant i świeży finał pozostają dalszym zakresem programu.
-
-Bramki ekonomiczne pozostają bez osłabienia. Cały fit i czas testów, także nieudanych, obciążają limit; nieukryty pełny koszt obejmuje alokację, parser, kopie, ingest, indeks, aktualizacje, cache, zapytanie i dekodowanie. Bez retry, WT8–9, zewnętrznych modeli/API i zmian harmonogramu. Current benchmark=maintenance, scoring=false. Użyj uv run nextai lab status do weryfikacji kolejki i rozliczenia.
-
-Poniżej zachowano wcześniejsze sekcje jako historię; nie zastępują tej autoryzacji. Stałe niezmienniki naukowe i techniczne nadal obowiązują.
-
 # NEXTAI laboratory cycle — protocol v3
 
 ## Latest cycle 303 — MUC03 resolution INCONCLUSIVE (2026-10-04)

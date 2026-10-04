@@ -1,0 +1,12 @@
+{
+  "command": "uv run --no-sync pytest --junitxml=research/reviews/NEXTAI-continuation-corrected-full-regression.xml",
+  "created_at": "2026-10-04T14:04:06Z",
+  "exit_code": 0,
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1054
+  },
+  "wall_seconds_conservatively_charged": 318
+}

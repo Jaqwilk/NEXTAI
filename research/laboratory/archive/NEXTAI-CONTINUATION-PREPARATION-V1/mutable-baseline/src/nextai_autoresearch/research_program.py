@@ -9,8 +9,6 @@ from .utils import load_json, sha256_file, sha256_json, utc_now
 AUTHORITY = "research/laboratory/MUC03-AUTONOMOUS-20261004-V1.json"
 CONTRACT = "research/plans/MUC03-AUTONOMOUS-PROGRAM-V1.json"
 FIRST_STUDY = "research/plans/MUC03-DIAG-UNDERTRAINING-V1.json"
-CONTINUATION_AUTHORITY = "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json"
-CONTINUATION_CONTRACT = "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json"
 
 
 def _document(base, relative):
@@ -18,13 +16,6 @@ def _document(base, relative):
     if not path.is_relative_to(base.resolve()) or not path.is_file():
         raise ValueError("Research program document missing or outside repository")
     return load_json(path)
-
-
-def _bound_hash(base, relative):
-    path = (base / relative).resolve()
-    if not path.is_relative_to(base.resolve()) or not path.is_file():
-        raise ValueError("Carry-forward evidence missing or outside repository")
-    return sha256_file(path)
 
 
 def _execution_fit(outcomes):
@@ -48,37 +39,30 @@ def _study_scope(study):
             **{key: resources[key] for key in ("worker_seconds_cap", "max_rss_bytes", "max_cuda_reserved_bytes")}}
 
 
-def _status_for(base, *, authority_path=None, contract_path=None, study_path=None,
-                expected_caps=(20, 72000), authorization_event="research_program_authorized"):
-    authority_path, contract_path = authority_path or AUTHORITY, contract_path or CONTRACT
+def status(base):
     events = read_jsonl(base / "research/events.jsonl")
-    starts = [e for e in events if e.get("event") == authorization_event]
-    if not (base / authority_path).exists() and not starts:
+    starts = [e for e in events if e.get("event") == "research_program_authorized"]
+    if not (base / AUTHORITY).exists() and not starts:
         return None
-    auth, contract = _document(base, authority_path), _document(base, contract_path)
-    registration_cap, compute_cap = expected_caps
-    if (len(starts) != 1 or starts[0].get("authority_sha256") != sha256_file(base / authority_path)
-            or starts[0].get("contract_sha256") != sha256_file(base / contract_path)
-            or auth["program_contract_sha256"] != sha256_file(base / contract_path)
-            or auth["id"] != contract["id"] or starts[0].get("program_id") != contract["id"]
-            or auth["program_contract_path"] != contract_path
-            or auth["registration_attempts_cap"] != registration_cap or auth["fit_seconds_total_cap"] != compute_cap
-            or contract["registration_attempts_cap"] != registration_cap or contract["fit_seconds_total_cap"] != compute_cap
+    auth, contract = _document(base, AUTHORITY), _document(base, CONTRACT)
+    if (len(starts) != 1 or starts[0].get("authority_sha256") != sha256_file(base / AUTHORITY)
+            or starts[0].get("contract_sha256") != sha256_file(base / CONTRACT)
+            or auth["program_contract_sha256"] != sha256_file(base / CONTRACT)
+            or contract["registration_attempts_cap"] != 20 or contract["fit_seconds_total_cap"] != 72000
             or contract["wt_files_8_9_access_authorized"] is not False
             or contract["external_model_api_authorized"] is not False
-            or (authorization_event == "research_program_authorized"
-                and sha256_file(base / contract["previous_result"]) != contract["previous_result_sha256"])):
+            or sha256_file(base / contract["previous_result"]) != contract["previous_result_sha256"]):
         raise ValueError("Research authority or immutable prior evidence changed")
     program_id = contract["id"]
     events = [e for e in events if e.get("program_id") == program_id]
-    study_path = study_path or load_config(base).raw.get("research_program", {}).get("study_path", FIRST_STUDY)
+    study_path = load_config(base).raw.get("research_program", {}).get("study_path", FIRST_STUDY)
     study = _document(base, study_path)
     freezes = [e for e in events if e.get("event") == "research_program_study_frozen" and e.get("study_path") == study_path]
     if (len(freezes) != 1 or freezes[0]["study_sha256"] != sha256_file(base / study_path)
-            or study["program_contract_sha256"] != sha256_file(base / contract_path)):
+            or study["program_contract_sha256"] != sha256_file(base / CONTRACT)):
         raise ValueError("Current study must have one immutable prospective freeze")
     tickets = [e for e in events if e.get("event") == "research_program_registration_started"]
-    if [e.get("ticket") for e in tickets] != list(range(1, len(tickets) + 1)) or len(tickets) > registration_cap:
+    if [e.get("ticket") for e in tickets] != list(range(1, len(tickets) + 1)) or len(tickets) > 20:
         raise ValueError("Research registration accounting changed or exceeded")
     stage_caps = {s["id"]: s["registration_cap"] for s in contract["stages"]}
     stage_used = {name: 0 for name in stage_caps}
@@ -106,13 +90,13 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
             raise ValueError("Research registered plan changed")
         protocol = plan["research_program_protocol"]
         bound_study = _document(base, protocol["study_path"])
-        if (protocol["program_contract_sha256"] != sha256_file(base / contract_path)
+        if (protocol["program_contract_sha256"] != sha256_file(base / CONTRACT)
                 or protocol["study_sha256"] != sha256_file(base / protocol["study_path"])
                 or plan["candidates"] != bound_study["candidates"] or plan["matrix"] != bound_study["matrix"]
                 or any(protocol.get(key) != expected for key, expected in _study_scope(bound_study).items())
                 or protocol["registration_ticket"] != event["ticket"]
                 or event["study_path"] != protocol["study_path"]
-                or protocol["authority_path"] != authority_path or protocol["program_contract_path"] != contract_path
+                or protocol["authority_path"] != AUTHORITY or protocol["program_contract_path"] != CONTRACT
                 or plan["benchmark"] != bound_study["cohort"]):
             raise ValueError("Registered research scope differs from frozen study")
         if protocol["study_path"] == study_path:
@@ -147,13 +131,8 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
     if len(current_tickets) > study["registration_attempts_for_this_study_cap"] or len(current_plans) > 1:
         raise ValueError("Study registration cap exceeded")
     experiment_id = current_plans[0]["experiment_id"] if current_plans else None
-    preparation_ends = [e for e in events if e.get("event") == "research_program_preparation_completed"
-                        and e.get("study_path") == study_path]
-    if (len(preparation_ends) > 1 or any(e["study_sha256"] != sha256_file(base / study_path)
-            or e["receipt_sha256"] != _bound_hash(base, e["receipt_path"]) for e in preparation_ends)):
-        raise ValueError("Preparation completion receipt changed or repeated")
     terminal = bool(failed or (experiment_id and ((base / "research/results" / f"{experiment_id}.json").exists()
-                                                or experiment_id in latest_plan_statuses(base))) or preparation_ends)
+                                                or experiment_id in latest_plan_statuses(base))))
     ready_events = [e for e in events if e.get("event") == "research_program_study_ready" and e.get("study_path") == study_path]
     if len(ready_events) > 1:
         raise ValueError("Research readiness repeated")
@@ -163,56 +142,20 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
                 or ready["receipt_sha256"] != sha256_file(base / ready["receipt_path"])):
             raise ValueError("Research readiness receipt changed")
     expired = datetime.now(timezone.utc) >= datetime.fromisoformat(study["study_deadline_at"].replace("Z", "+00:00"))
-    exhausted = (len(tickets) >= registration_cap and not pending_registered) or fit + auxiliary >= compute_cap
+    exhausted = (len(tickets) >= 20 and not pending_registered) or fit + auxiliary >= 72000
     closed = any(e.get("event") == "research_program_completed" for e in events)
-    return {"id": program_id, "authority_path": authority_path, "contract_path": contract_path,
-            "study_path": study_path, "cohort": study["cohort"], "ready": bool(ready_events),
+    return {"id": program_id, "study_path": study_path, "cohort": study["cohort"], "ready": bool(ready_events),
             "study_terminal": terminal, "study_expired": expired, "program_terminal": closed or exhausted,
             "program_closed": closed,
-            "registration_budget_exhausted": len(tickets) >= registration_cap, "paid_run_pending": pending_registered,
-            "registration_attempts_used": len(tickets), "registration_attempts_cap": registration_cap,
+            "registration_budget_exhausted": len(tickets) >= 20, "paid_run_pending": pending_registered,
+            "registration_attempts_used": len(tickets), "registration_attempts_cap": 20,
             "stage_registration_attempts": stage_used, "stage_registration_caps": stage_caps,
             "experimental_fit_seconds": fit, "auxiliary_fit_seconds_conservative": auxiliary,
-            "fit_seconds_charged": fit + auxiliary, "fit_seconds_remaining": max(0., compute_cap - fit - auxiliary),
+            "fit_seconds_charged": fit + auxiliary, "fit_seconds_remaining": max(0., 72000 - fit - auxiliary),
             "pending_fit_reservation_seconds": fit_reserved,
-            "unreserved_fit_seconds_remaining": max(0., compute_cap - fit - auxiliary - fit_reserved),
-            "fit_seconds_cap": compute_cap, "experiment_id": experiment_id,
-            "scoring_authorized": bool(ready_events) and study.get("study_kind") != "preparation_only"
-                and not (terminal or expired or closed or fit + auxiliary >= compute_cap)}
-
-
-def status(base):
-    """A new authority carries immutable closed accounting; it never reopens it."""
-    events = read_jsonl(base / "research/events.jsonl")
-    starts = [e for e in events if e.get("event") == "research_program_continuation_authorized"]
-    if not starts:  # A copied prospective document alone cannot activate a program.
-        return _status_for(base)
-    contract = _document(base, CONTINUATION_CONTRACT)
-    carry = contract["carry_forward"]
-    if (carry["authority_path"] != AUTHORITY or carry["contract_path"] != CONTRACT
-            or contract["prior_budgets_reset"] is not False
-            or any(_bound_hash(base, path) != digest for path, digest in carry["document_sha256"].items())
-            or sha256_json([e for e in events if e.get("program_id") == carry["program_id"]]) != carry["program_events_sha256"]):
-        raise ValueError("Immutable carry-forward evidence changed; old accounting cannot reset")
-    prior = _status_for(base, study_path=carry["terminal_study_path"])
-    if (not prior or prior["id"] != carry["program_id"] or not prior["program_closed"] or prior["paid_run_pending"]
-            or prior["pending_fit_reservation_seconds"] != 0
-            or any(prior[key] != carry[key] for key in ("registration_attempts_used", "experimental_fit_seconds",
-                   "auxiliary_fit_seconds_conservative", "fit_seconds_charged"))):
-        raise ValueError("Carry-forward counts differ from closed program; budget cannot reset")
-    current = _status_for(base, authority_path=CONTINUATION_AUTHORITY, contract_path=CONTINUATION_CONTRACT,
-                          expected_caps=(17, 69344), authorization_event="research_program_continuation_authorized")
-    return {**current, "prior_program_closed": True, "prior_program_id": prior["id"],
-            "prior_registration_attempts_used": prior["registration_attempts_used"],
-            "prior_compute_seconds_charged": prior["fit_seconds_charged"],
-            "continuation_registration_attempts_used": current["registration_attempts_used"],
-            "continuation_registration_attempts_cap": current["registration_attempts_cap"],
-            "continuation_compute_seconds_charged": current["fit_seconds_charged"],
-            "continuation_compute_seconds_cap": current["fit_seconds_cap"],
-            **{key: prior[key] + current[key] for key in ("registration_attempts_used",
-                "experimental_fit_seconds", "auxiliary_fit_seconds_conservative", "fit_seconds_charged")},
-            "registration_attempts_cap": prior["registration_attempts_used"] + current["registration_attempts_cap"],
-            "fit_seconds_cap": prior["fit_seconds_charged"] + current["fit_seconds_cap"]}
+            "unreserved_fit_seconds_remaining": max(0., 72000 - fit - auxiliary - fit_reserved),
+            "fit_seconds_cap": 72000, "experiment_id": experiment_id,
+            "scoring_authorized": bool(ready_events) and not (terminal or expired or closed or fit + auxiliary >= 72000)}
 
 
 def scope_problems(base, experiment_id=None):
@@ -267,14 +210,12 @@ def create_plan(base, requested=None):
     if not value or value["program_terminal"] or value["registration_budget_exhausted"]:
         raise ValueError("Research program absent or exhausted")
     study = _document(base, value["study_path"])
-    if study.get("study_kind") == "preparation_only":
-        raise ValueError("Preparation-only study cannot register or score an experiment")
     if value["stage_registration_attempts"][study["stage"]] >= value["stage_registration_caps"][study["stage"]]:
         raise ValueError("Research milestone registration budget exhausted")
     events = read_jsonl(base / "research/events.jsonl")
     if any(e.get("event") == "research_program_registration_started" and e.get("study_path") == value["study_path"] for e in events):
         raise ValueError("Study ticket already consumed; do not retry")
-    ticket = value.get("continuation_registration_attempts_used", value["registration_attempts_used"]) + 1
+    ticket = value["registration_attempts_used"] + 1
     append_jsonl(base / "research/events.jsonl", {"event": "research_program_registration_started", "created_at": utc_now(),
                  "program_id": value["id"], "study_path": value["study_path"], "ticket": ticket})
     try:
@@ -285,8 +226,8 @@ def create_plan(base, requested=None):
         if study["resources"]["fit_seconds_study_cap"] > value["unreserved_fit_seconds_remaining"]:
             raise ValueError("Study worst-case fit exceeds remaining global fit budget")
         experiment_id = next_experiment_id(base)
-        protocol = {"authority_path": value["authority_path"], "program_contract_path": value["contract_path"],
-                    "program_contract_sha256": sha256_file(base / value["contract_path"]), "study_path": value["study_path"],
+        protocol = {"authority_path": AUTHORITY, "program_contract_path": CONTRACT,
+                    "program_contract_sha256": sha256_file(base / CONTRACT), "study_path": value["study_path"],
                     "study_sha256": sha256_file(base / value["study_path"]), "registration_ticket": ticket,
                     **_study_scope(study)}
         metrics = ["accuracy", "fact_top1_accuracy", "dense_unknown_rejection", "mean_query_ops", "p95_latency_us", "state_bytes", "fit_ops", "preprocessing_ops"]
