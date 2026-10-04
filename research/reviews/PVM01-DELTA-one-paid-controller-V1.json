@@ -1,0 +1,27 @@
+{
+  "charged_controller_seconds": 49,
+  "charged_worker_seconds": 449.76211150000745,
+  "checks": [
+    {
+      "operation": "program register",
+      "returncode": 0
+    },
+    {
+      "operation": "run",
+      "returncode": 0
+    }
+  ],
+  "completed_at": "2026-10-04T18:49:16Z",
+  "elapsed_seconds": 498.2781735000026,
+  "id": "PVM01-DELTA-one-paid-controller-V1",
+  "new_experiment_id": "EXP-20261004-0006",
+  "raw_logs": {
+    "research/tmp/PVM01-DELTA-controller-V1/registration.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/tmp/PVM01-DELTA-controller-V1/registration.stdout.txt": "14c765830194ac93073727934789413733119bff9f800c0206063ae360f8df40",
+    "research/tmp/PVM01-DELTA-controller-V1/runner.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/tmp/PVM01-DELTA-controller-V1/runner.stdout.txt": "f7959a9bea47d982f9abd91ddcfd26a733eb0fc8a884c01722556dad0719b5dd"
+  },
+  "registration_or_run_repeated": false,
+  "result_status": "complete",
+  "started_at": "2026-10-04T18:40:57Z"
+}

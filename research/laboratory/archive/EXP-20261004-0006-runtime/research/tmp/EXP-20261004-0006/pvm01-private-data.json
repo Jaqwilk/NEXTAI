@@ -1,0 +1,11 @@
+{
+  "entropy_policy": "independent256bit_each_unit_separate_from_model_seed_v1",
+  "experiment_id": "EXP-20261004-0006",
+  "unit_nonces": [
+    "0cc857e6fc9fb934f78ba5ddc74793efb188f4e21335bccff21cd0ad140d6d52",
+    "2c4257bc95b0ade689e5b8e1538e5b107c2f5d482f6772b6fb7141df7fa804e6",
+    "b0a42f4d44ab10bd64a79e57c8178653cf4cc55b5b4696f9c0b21a71319f10c5",
+    "90a5fcd4a42d658e71a22f67b43f41bcb071cb28ee082f703339e7ea507cd4be",
+    "99bf3cfd842d627cdc041b79af7e674674b630e5b77d40e438f9ea28e14c5527"
+  ]
+}

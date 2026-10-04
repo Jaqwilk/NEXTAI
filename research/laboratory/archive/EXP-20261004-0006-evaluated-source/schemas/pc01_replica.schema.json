@@ -1,0 +1,503 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PC-01 future final replica envelope; schema validity is not runner authenticity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "phase",
+    "status",
+    "experiment_id",
+    "seed",
+    "contract_sha256",
+    "data_sha256",
+    "evaluator_sha256",
+    "candidate_sha256",
+    "recipe_sha256",
+    "series_sha256",
+    "initial_weights_sha256",
+    "frozen_weights_sha256",
+    "trained_weights_sha256",
+    "updates",
+    "target_count",
+    "trained_bpb",
+    "frozen_bpb",
+    "unigram_bpb",
+    "bigram_bpb",
+    "fp32_dev_bpb",
+    "bf16_dev_bpb",
+    "dev_curve",
+    "controls",
+    "resources",
+    "timing",
+    "architecture_promoted",
+    "evidence_scope"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "pc01_local_calibration_replica"
+    },
+    "phase": {
+      "const": "final"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "crash",
+        "timeout",
+        "invalid"
+      ]
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^EXP-[0-9]{8}-[0-9]{4}$"
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 10000,
+      "maximum": 2147483647
+    },
+    "contract_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "data_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "evaluator_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "candidate_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "recipe_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "series_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "initial_weights_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "frozen_weights_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "trained_weights_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "updates": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5000
+    },
+    "target_count": {
+      "const": 111539
+    },
+    "trained_bpb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "frozen_bpb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "unigram_bpb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "bigram_bpb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "fp32_dev_bpb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "bf16_dev_bpb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "dev_curve": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 21,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "update",
+          "bits_per_byte",
+          "checkpoint_sha256"
+        ],
+        "properties": {
+          "update": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5000
+          },
+          "bits_per_byte": {
+            "type": "number",
+            "minimum": 0
+          },
+          "checkpoint_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "float64_known_probability_loss",
+        "deliberately_wrong_target_fixture",
+        "learning_off_parameter_hash",
+        "causal_suffix_perturbation",
+        "split_overlap_and_target_alignment",
+        "holdout_access_denial_during_fit",
+        "batch_partition_invariance",
+        "checkpoint_selection_uses_dev_only",
+        "timing_synchronization_and_real_output",
+        "budget_and_seed_series_enforcement"
+      ],
+      "properties": {
+        "float64_known_probability_loss": {
+          "type": "boolean"
+        },
+        "deliberately_wrong_target_fixture": {
+          "type": "boolean"
+        },
+        "learning_off_parameter_hash": {
+          "type": "boolean"
+        },
+        "causal_suffix_perturbation": {
+          "type": "boolean"
+        },
+        "split_overlap_and_target_alignment": {
+          "type": "boolean"
+        },
+        "holdout_access_denial_during_fit": {
+          "type": "boolean"
+        },
+        "batch_partition_invariance": {
+          "type": "boolean"
+        },
+        "checkpoint_selection_uses_dev_only": {
+          "type": "boolean"
+        },
+        "timing_synchronization_and_real_output": {
+          "type": "boolean"
+        },
+        "budget_and_seed_series_enforcement": {
+          "type": "boolean"
+        }
+      }
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fit_seconds",
+        "worker_seconds",
+        "rss_bytes",
+        "cuda_allocated_bytes",
+        "cuda_reserved_bytes",
+        "persisted_bytes",
+        "disk_free_bytes"
+      ],
+      "properties": {
+        "fit_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "worker_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rss_bytes": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cuda_allocated_bytes": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cuda_reserved_bytes": {
+          "type": "number",
+          "minimum": 0
+        },
+        "persisted_bytes": {
+          "type": "number",
+          "minimum": 0
+        },
+        "disk_free_bytes": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "B1-next",
+        "B1-teacher",
+        "B8-teacher",
+        "B32-teacher"
+      ],
+      "properties": {
+        "B1-next": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "samples_ns",
+            "warmup_ns",
+            "input_bytes_per_repeat",
+            "output_bytes_per_repeat",
+            "input_sha256",
+            "p50_ns",
+            "p95_ns",
+            "output_bytes_per_second"
+          ],
+          "properties": {
+            "samples_ns": {
+              "type": "array",
+              "minItems": 100,
+              "maxItems": 100,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "warmup_ns": {
+              "type": "array",
+              "minItems": 20,
+              "maxItems": 20,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "input_bytes_per_repeat": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "output_bytes_per_repeat": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "input_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "p50_ns": {
+              "type": "number",
+              "minimum": 0
+            },
+            "p95_ns": {
+              "type": "number",
+              "minimum": 0
+            },
+            "output_bytes_per_second": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "B1-teacher": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "samples_ns",
+            "warmup_ns",
+            "input_bytes_per_repeat",
+            "output_bytes_per_repeat",
+            "input_sha256",
+            "p50_ns",
+            "p95_ns",
+            "output_bytes_per_second"
+          ],
+          "properties": {
+            "samples_ns": {
+              "type": "array",
+              "minItems": 100,
+              "maxItems": 100,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "warmup_ns": {
+              "type": "array",
+              "minItems": 20,
+              "maxItems": 20,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "input_bytes_per_repeat": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "output_bytes_per_repeat": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "input_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "p50_ns": {
+              "type": "number",
+              "minimum": 0
+            },
+            "p95_ns": {
+              "type": "number",
+              "minimum": 0
+            },
+            "output_bytes_per_second": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "B8-teacher": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "samples_ns",
+            "warmup_ns",
+            "input_bytes_per_repeat",
+            "output_bytes_per_repeat",
+            "input_sha256",
+            "p50_ns",
+            "p95_ns",
+            "output_bytes_per_second"
+          ],
+          "properties": {
+            "samples_ns": {
+              "type": "array",
+              "minItems": 100,
+              "maxItems": 100,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "warmup_ns": {
+              "type": "array",
+              "minItems": 20,
+              "maxItems": 20,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "input_bytes_per_repeat": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "output_bytes_per_repeat": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "input_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "p50_ns": {
+              "type": "number",
+              "minimum": 0
+            },
+            "p95_ns": {
+              "type": "number",
+              "minimum": 0
+            },
+            "output_bytes_per_second": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "B32-teacher": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "samples_ns",
+            "warmup_ns",
+            "input_bytes_per_repeat",
+            "output_bytes_per_repeat",
+            "input_sha256",
+            "p50_ns",
+            "p95_ns",
+            "output_bytes_per_second"
+          ],
+          "properties": {
+            "samples_ns": {
+              "type": "array",
+              "minItems": 100,
+              "maxItems": 100,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "warmup_ns": {
+              "type": "array",
+              "minItems": 20,
+              "maxItems": 20,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "input_bytes_per_repeat": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "output_bytes_per_repeat": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "input_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "p50_ns": {
+              "type": "number",
+              "minimum": 0
+            },
+            "p95_ns": {
+              "type": "number",
+              "minimum": 0
+            },
+            "output_bytes_per_second": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "architecture_promoted": {
+      "const": false
+    },
+    "evidence_scope": {
+      "const": "local_single_corpus_diagnostic"
+    }
+  }
+}

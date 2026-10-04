@@ -23,3 +23,7 @@ research/reviews/MUC03-*.xml -text
 research/reviews/NEXTAI-continuation-*.xml -text
 
 research/reviews/PVM01-*.xml -text
+
+# Native tool diagnostics preserve exact captured CRLF bytes and failure traces.
+research/reviews/PVM01-*.stdout.txt -text
+research/reviews/PVM01-*.stderr.txt -text

@@ -1,0 +1,8 @@
+{
+  "archived_bytes_modified": false,
+  "created_at": "2026-10-04T18:53:34Z",
+  "failed_receipt_sha256": "ca7b2597cfa9026721d52be0e2d398dc47ddf99db4b8c77ae9185223cc15eaf9",
+  "id": "PVM01-DELTA-ARCHIVE-STYLE-CHECK-ADDENDUM-V1",
+  "rules": "Raw scientific archives and tool diagnostic text use raw SHA verification, not whitespace lint; live changes continue whitespace lint. Native diagnostic text protected with -text. Previous failed check and full180s charge preserved.",
+  "scientific_recipe_metrics_thresholds_or_result_changed": false
+}

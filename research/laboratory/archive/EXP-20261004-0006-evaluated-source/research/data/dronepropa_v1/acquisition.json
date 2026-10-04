@@ -1,0 +1,59 @@
+{
+  "archive": {
+    "bytes": 4438911840,
+    "entry_count": 131,
+    "expansion_ratio": 1.022,
+    "relative_path": "research/data/dronepropa_v1/archive/ftdyxrr3c5-1.zip",
+    "sha256": "a7255dc4393a2314ba2a684beb3684106dbb6de23ba141eaa0529bd21ba3d825",
+    "unsafe_entry_count": 0,
+    "url": "https://data.mendeley.com/public-api/zip/ftdyxrr3c5/download/1"
+  },
+  "audit": {
+    "audit_script_sha256": "4744113d745f3f9da4e921647534bed379adb39a117c3eddf890e7b89fa974dc",
+    "cross_file_repeated_qdrone_window_groups": 0,
+    "duplicate_file_sha256_groups": 0,
+    "files_manifest_sha256": "76a27c66b38b634cbee362a8a2af250b02b2a1dea44eb9328d1d731472b24f53",
+    "files_with_incomplete_zlib_streams": 1,
+    "incomplete_zlib_streams": 1,
+    "qdrone_windows_1024_stride_512": 19445,
+    "schema_signatures": 1,
+    "unique_file_sha256": 130
+  },
+  "created_at": "2026-08-30T19:11:25Z",
+  "dataset": {
+    "doi": "10.17632/ftdyxrr3c5.1",
+    "license": "CC-BY-4.0",
+    "name": "DronePropA",
+    "version": 1
+  },
+  "extracted": {
+    "bytes": 4537694153,
+    "filename_factorial_extra": 0,
+    "filename_factorial_missing": 0,
+    "generated_file_list_sha256": "880b3d1b25a3a515befd3190696748e5bded975fdeb6e7e4f5db566ab0d88756",
+    "mat_files": 130,
+    "mean_samples_per_flight": 77370.738,
+    "maximum_samples_per_flight": 99660,
+    "minimum_samples_per_flight": 49689,
+    "published_file_list_extra": 0,
+    "published_file_list_missing": 0,
+    "sample_aligned_files": 130,
+    "schema": {
+      "QDrone_data_rows": 56,
+      "commander_data_rows": 37,
+      "stabilizer_data_rows": 21
+    },
+    "total_samples": 10058196
+  },
+  "quality": {
+    "files_with_nonfinite_values": 22,
+    "negative_infinity_values": 0,
+    "nonfinite_qdrone_rows_1based": [48, 50, 52, 54],
+    "nonfinite_values": 255381,
+    "nonfinite_values_outside_qdrone_esc_rows": 0,
+    "not_a_number_values": 255373,
+    "positive_infinity_values": 8,
+    "required_evaluator_action": "Exclude QDrone_data rows 48, 50, 52 and 54 before split construction; retain and report the raw files unchanged."
+  },
+  "schema_version": 1
+}

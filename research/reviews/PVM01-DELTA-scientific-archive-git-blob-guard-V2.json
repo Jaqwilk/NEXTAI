@@ -1,0 +1,11 @@
+{
+  "archive_git_commit": "399d7eceaa4e56f7ba96072107625f7700f27289",
+  "archive_receipt_sha256": "ae9924158485caf7681906d098958b81452aabc1a188fe07e5546de9d34cd233",
+  "charged_seconds": 3,
+  "checks": [],
+  "created_at": "2026-10-04T18:53:39Z",
+  "elapsed_seconds": 2.581167500000447,
+  "id": "PVM01-DELTA-scientific-archive-style-recovery-V2",
+  "previous_failed_guard_preserved": true,
+  "status": "FAIL"
+}

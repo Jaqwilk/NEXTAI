@@ -1,0 +1,11 @@
+{
+  "charged_seconds": 3,
+  "created_at": "2026-10-04T18:50:28Z",
+  "elapsed_seconds": 2.9516072000114946,
+  "id": "PVM01-DELTA-stored-analysis-V1",
+  "no_model_execution_or_fit": true,
+  "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "raw_stdout_sha256": "ac1956980ed0168286b34956364411480e6206cad37710fdd1e1b1a9144e4f4a",
+  "result_sha256": "d291d33e648ee135611f865fc5496c3150909a956934275f01507bd540a00651",
+  "returncode": 0
+}

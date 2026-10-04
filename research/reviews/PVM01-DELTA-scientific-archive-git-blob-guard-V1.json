@@ -1,0 +1,10 @@
+{
+  "all_raw_bytes_already_copied_and_index_hash_verified": true,
+  "charge_basis": "full previously reserved cap because final elapsed receipt was interrupted",
+  "charged_seconds": 180,
+  "created_at": "2026-10-04T18:53:32Z",
+  "id": "PVM01-DELTA-scientific-archive-history-guard-V1",
+  "paid_registration_or_run_retried": false,
+  "reason": "git diff --cached --check treats preserved CRLF and historical trailing whitespace as code style errors; no byte may be rewritten",
+  "status": "FAIL archive whitespace lint only after raw blob hashes passed"
+}

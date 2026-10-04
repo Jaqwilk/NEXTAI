@@ -1,0 +1,34 @@
+{
+  "experiment_id": "EXP-20261004-0006",
+  "failures": [],
+  "primary_gates": {
+    "five_paired_units": true,
+    "updated_mean": true,
+    "updated_lower": true,
+    "all_updated_positive": true,
+    "retention_noninferiority": true,
+    "untrained": true,
+    "shuffled": true
+  },
+  "competence_gates": {
+    "delta": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "known_false_abstention": true
+    },
+    "dense": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "known_false_abstention": true
+    }
+  },
+  "decision": "KEEP narrow delta mechanism for further validation"
+}
