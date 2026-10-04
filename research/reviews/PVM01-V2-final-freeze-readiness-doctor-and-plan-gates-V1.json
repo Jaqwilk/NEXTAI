@@ -1,0 +1,24 @@
+{
+  "charged_seconds": 27,
+  "created_at": "2026-10-04T17:15:08Z",
+  "elapsed_seconds": 26.512524299992947,
+  "final_integrity": {
+    "benchmark_version": "paired_view_mutable_memory_v2",
+    "candidate_bundle_sha256": "6569bafe40ffc32bec00e334a6acf537da9ccaa154206ae63813a04587a9ac6f",
+    "checked_files": 1052,
+    "evaluator_sha256": "0ec4936eaee4cad639756c97d99f795eaab83ef1f29018300eced4bfbb04889b",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "id": "PVM01-V2-final-freeze-readiness-doctor-and-plan-gates-V1",
+  "preflight_sha256": "e5e75221b4897e319520ab64491a241f8ed488ba4452cbfc1ae725eb2c8bc6d4",
+  "readiness_sha256": "2f02c6e657f2835b7f3d3ca9cffde9bd2b7b87c044c084a8769bfce7bf128403",
+  "registration_gate_passed_without_ticket": true,
+  "research_fit_or_fresh_data": false,
+  "returncode": 0,
+  "status": "PASS",
+  "stderr": "",
+  "stdout": "[OK] benchmark=paired_view_mutable_memory_v2 status=active protocol=v3\n[OK] laboratory=dev_authorized next=NEXTAI-STUDY-RUN scoring=True\n[OK] cycle=306 completed=111\n[OK] hypotheses=59\n[OK] sources=442\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=1052\n[OK] preflight_certificate=e5e75221b4897e319520ab64491a241f8ed488ba4452cbfc1ae725eb2c8bc6d4\n[OK] audited_candidates=602\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n",
+  "study_sha256": "ef47381328f192fb8a6a6cd7b9a414a781be479da5f9aa51a9aad74947768690"
+}

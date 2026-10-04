@@ -1,3 +1,27 @@
+# Current cycle306 — preregistered PVM01-REFERENCE-V2 (2026-10-04)
+
+The new bounded study was committed in 224a3ceb before v2 cohort activation.
+Study: research/plans/PVM01-REFERENCE-V2.json; same immutable scientific recipe,
+models, generator, metrics, thresholds and eight controls as v1. Five new paired
+seed/data units are required. Consumed failed EXP-20261004-0004, its seeds,
+private entropy, source, result and budget are preserved; it is never rerun.
+
+Only the separately preregistered and tested v2 runtime path wrapper is used.
+No research arrays or model fit were accessed before the new preregistration.
+Cycle started 2026-10-04T16:56:06Z; deadline 2026-10-04T20:56:06Z.
+One new registration, full worker wall<=14400s, fit<=240s/role,
+worker<=356s, auxiliary checks<=1800s. No retry or replacement seed.
+Clone conformance1075/1075 and immutable readiness passed before activation.
+Benchmark=v2 active; source freeze/preflight and final doctor/gates must pass
+before exactly one new audited registration/run this cycle.
+
+The standing continuation program remains active. Competence/learning screening
+does not establish a memory mechanism or full-cost advantage. Mechanism,
+source-identical ablations, adverse variant, matched-quality economics at three
+scales and a frozen fresh final remain later scope. Economic gates are unchanged.
+No WT8-9, external model/API, final access or schedule changes.
+Previous sections below are preserved historical records.
+
 # Current cycle305 — PVM01 reference failure and no-scoring repair (2026-10-04)
 
 EXP-20261004-0004 is preserved as failed before data generation or fit: first

@@ -1,0 +1,22 @@
+{
+  "certificate_sha256": "a4732180c669fd4bd99cc6101dc6aff91ef1c6d9ab00db0c1c107648eb3b3b63",
+  "charged_seconds": 20,
+  "created_at": "2026-10-04T17:10:55Z",
+  "elapsed_seconds": 19.903908799999044,
+  "id": "PVM01-V2-maintenance-freeze-preflight-report-V1",
+  "integrity": {
+    "benchmark_version": "paired_view_mutable_memory_v2",
+    "candidate_bundle_sha256": "6569bafe40ffc32bec00e334a6acf537da9ccaa154206ae63813a04587a9ac6f",
+    "checked_files": 1052,
+    "evaluator_sha256": "d174edc0c236ad8b58f8e77ba7729d7e4823340c4c36d7947ab19ffb05164e35",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "prior_failed_regression_preserved": true,
+  "research_fit_or_new_data": false,
+  "returncode": 0,
+  "status": "PASS",
+  "stderr": "",
+  "stdout": "[OK] benchmark=paired_view_mutable_memory_v2 status=maintenance protocol=v3\n[OK] laboratory=preparation_only next=NEXTAI-STUDY-PREP scoring=False\n[OK] cycle=306 completed=111\n[OK] hypotheses=59\n[OK] sources=442\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=1052\n[OK] audited_candidates=602\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n"
+}

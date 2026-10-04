@@ -1,0 +1,29 @@
+{
+  "append_only_prefixes_verified": 4,
+  "authorized_mutable_paths": [
+    "AGENTS.md",
+    "config/baseline_semantics.json",
+    "config/research.toml",
+    "docs/CURRENT_STATUS.md",
+    "docs/SCIENTIFIC_PROTOCOL.md",
+    "program.md",
+    "research/LAB_PLAN.md",
+    "research/REPORT.md",
+    "research/REPORT.provenance.json",
+    "research/eval_manifest.json",
+    "research/events.jsonl",
+    "research/laboratory/preflight_certificate.json",
+    "research/state.json",
+    "src/nextai_autoresearch/integrity.py"
+  ],
+  "charged_seconds": 6,
+  "closed_results_plans_core_and_models_unchanged": true,
+  "created_at": "2026-10-04T17:21:24Z",
+  "elapsed_seconds": 5.761312699993141,
+  "historical_files_unchanged": 14347,
+  "id": "PVM01-V2-preseed-history-and-git-blob-guard-V1",
+  "original_beliefs_preserved": true,
+  "research_fit_or_new_data": false,
+  "staged_files_raw_exact": 26,
+  "status": "PASS"
+}

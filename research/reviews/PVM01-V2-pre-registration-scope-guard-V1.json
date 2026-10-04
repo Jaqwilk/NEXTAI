@@ -1,0 +1,13 @@
+{
+  "charged_seconds": 1,
+  "conformance_nodes": 14,
+  "created_at": "2026-10-04T17:07:40Z",
+  "elapsed_seconds": 0.7101643999922089,
+  "id": "PVM01-V2-pre-registration-scope-guard-V1",
+  "paid_registrations_created": 0,
+  "research_fit_or_new_data": false,
+  "scientific_keys_identical": 13,
+  "semantic_candidates": 40,
+  "status": "PASS",
+  "unchanged_source": true
+}
