@@ -1,0 +1,504 @@
+{
+  "alternative_explanations": [
+    "Observation alignment, rejection and ranking failures are measured separately."
+  ],
+  "architecture_family": "paired_view_learning_reference",
+  "benchmark": "paired_view_mutable_memory_v2",
+  "budget": "quick",
+  "candidates": [
+    "pvm01_dense_s0",
+    "pvm01_dense_s1",
+    "pvm01_dense_s2",
+    "pvm01_dense_s3",
+    "pvm01_dense_s4",
+    "pvm01_pointer_s0",
+    "pvm01_pointer_s1",
+    "pvm01_pointer_s2",
+    "pvm01_pointer_s3",
+    "pvm01_pointer_s4",
+    "pvm01_untrained_s0",
+    "pvm01_untrained_s1",
+    "pvm01_untrained_s2",
+    "pvm01_untrained_s3",
+    "pvm01_untrained_s4",
+    "pvm01_shuffled_s0",
+    "pvm01_shuffled_s1",
+    "pvm01_shuffled_s2",
+    "pvm01_shuffled_s3",
+    "pvm01_shuffled_s4",
+    "pvm01_exact_nn_s0",
+    "pvm01_exact_nn_s1",
+    "pvm01_exact_nn_s2",
+    "pvm01_exact_nn_s3",
+    "pvm01_exact_nn_s4",
+    "pvm01_ridge_s0",
+    "pvm01_ridge_s1",
+    "pvm01_ridge_s2",
+    "pvm01_ridge_s3",
+    "pvm01_ridge_s4",
+    "pvm01_kernel_s0",
+    "pvm01_kernel_s1",
+    "pvm01_kernel_s2",
+    "pvm01_kernel_s3",
+    "pvm01_kernel_s4",
+    "pvm01_raw_s0",
+    "pvm01_raw_s1",
+    "pvm01_raw_s2",
+    "pvm01_raw_s3",
+    "pvm01_raw_s4"
+  ],
+  "confounds": [
+    "Visible synthetic development; five combined seed/data units; no externally blinded final; update labels are not reasoning depth."
+  ],
+  "created_at": "2026-10-04T17:22:12Z",
+  "eligibility_contract": {
+    "metric": "accuracy",
+    "minimum": 0.9
+  },
+  "evaluator_sha256": "0ec4936eaee4cad639756c97d99f795eaab83ef1f29018300eced4bfbb04889b",
+  "experiment_id": "EXP-20261004-0005",
+  "falsification_criteria": [
+    "Stable-reference gates fail, or all outcomes are invalid/partial; retain every outcome."
+  ],
+  "git_before": {
+    "branch": "codex/muc03-autonomous-20261004",
+    "commit": "aa018049ee1f7cd3db18152b9d0ed397c0c67336",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "queries_per_cell": 64,
+    "reasoning_depths": [
+      1,
+      2,
+      3
+    ],
+    "seed_policy": {
+      "count": 5,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "dense_unknown_rejection": "maximize",
+    "fact_top1_accuracy": "maximize",
+    "fit_ops": "minimize",
+    "mean_query_ops": "minimize",
+    "p95_latency_us": "minimize",
+    "preprocessing_ops": "minimize",
+    "state_bytes": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "KEEP new screening cohort only if legal boundary, learning gates and all dense-reference competence gates pass. If any gate fails, retain and diagnose; examine at least two distinct justified alternatives prospectively within program, not automatic broad family falsification. Strong classical success is permitted and must not be weakened. No architecture/economics claim; source-identical memory mechanism, adverse variant and frozen fresh final remain later scope. A crash/deadline/cap stops all unstarted roles and preserves everything, no retry.",
+    "null": "KEEP new screening cohort only if legal boundary, learning gates and all dense-reference competence gates pass. If any gate fails, retain and diagnose; examine at least two distinct justified alternatives prospectively within program, not automatic broad family falsification. Strong classical success is permitted and must not be weakened. No architecture/economics claim; source-identical memory mechanism, adverse variant and frozen fresh final remain later scope. A crash/deadline/cap stops all unstarted roles and preserves everything, no retry.",
+    "positive": "KEEP new screening cohort only if legal boundary, learning gates and all dense-reference competence gates pass. If any gate fails, retain and diagnose; examine at least two distinct justified alternatives prospectively within program, not automatic broad family falsification. Strong classical success is permitted and must not be weakened. No architecture/economics claim; source-identical memory mechanism, adverse variant and frozen fresh final remain later scope. A crash/deadline/cap stops all unstarted roles and preserves everything, no retry."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Legal trained alignment may improve ranking/absence over untrained and shuffled controls; classical transport may suffice; no predetermined success.",
+  "primary_metrics": [
+    "accuracy",
+    "fact_top1_accuracy",
+    "dense_unknown_rejection",
+    "mean_query_ops",
+    "p95_latency_us",
+    "state_bytes",
+    "fit_ops",
+    "preprocessing_ops"
+  ],
+  "promotion_criteria": [
+    "None: diagnostic only; economic prototype needs fresh replicated final and classical non-domination."
+  ],
+  "research_program_protocol": {
+    "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+    "classical_baselines": [
+      "pvm01_dense_s0",
+      "pvm01_dense_s1",
+      "pvm01_dense_s2",
+      "pvm01_dense_s3",
+      "pvm01_dense_s4",
+      "pvm01_pointer_s0",
+      "pvm01_pointer_s1",
+      "pvm01_pointer_s2",
+      "pvm01_pointer_s3",
+      "pvm01_pointer_s4",
+      "pvm01_untrained_s0",
+      "pvm01_untrained_s1",
+      "pvm01_untrained_s2",
+      "pvm01_untrained_s3",
+      "pvm01_untrained_s4",
+      "pvm01_shuffled_s0",
+      "pvm01_shuffled_s1",
+      "pvm01_shuffled_s2",
+      "pvm01_shuffled_s3",
+      "pvm01_shuffled_s4",
+      "pvm01_exact_nn_s0",
+      "pvm01_exact_nn_s1",
+      "pvm01_exact_nn_s2",
+      "pvm01_exact_nn_s3",
+      "pvm01_exact_nn_s4",
+      "pvm01_ridge_s0",
+      "pvm01_ridge_s1",
+      "pvm01_ridge_s2",
+      "pvm01_ridge_s3",
+      "pvm01_ridge_s4",
+      "pvm01_kernel_s0",
+      "pvm01_kernel_s1",
+      "pvm01_kernel_s2",
+      "pvm01_kernel_s3",
+      "pvm01_kernel_s4",
+      "pvm01_raw_s0",
+      "pvm01_raw_s1",
+      "pvm01_raw_s2",
+      "pvm01_raw_s3",
+      "pvm01_raw_s4"
+    ],
+    "compute_charge_basis": "full_worker_wall_v1",
+    "data": {
+      "axis_encoding": {
+        "1": 0,
+        "2": 1,
+        "3": 4
+      },
+      "axis_semantics": "legacy matrix.reasoning_depth stores an UPDATE-ROUND LABEL, never reasoning; actual update_rounds recorded in every trial",
+      "dev_episodes_per_cell": 5,
+      "generation_policy": "no structural/model-based resampling; all draws retained",
+      "legal_candidate_inputs": "only float32 paired train arrays, legal train episodes/labels; inference timestamp/handle/write observation/value and query observation; no teacher matrices, nonce, identity, flags or target handle",
+      "private_entropy": "five independent256-bit runner nonces, realized after preregistration, separate from model seed; private artifact inaccessible to candidate imports/inputs; same arrays across roles",
+      "split_names": [
+        "T-fit",
+        "T-validation",
+        "T-calibration",
+        "T-sets",
+        "D"
+      ],
+      "tag": "PVM01-REFERENCE-V1",
+      "train_calibration_episodes_per_K": 3,
+      "train_episode_batch": 4,
+      "train_episode_queries": 8,
+      "train_episode_support_sizes": [
+        32,
+        128
+      ],
+      "train_pairs": 4096,
+      "train_validation_pairs": 512
+    },
+    "deadline_at": "2026-10-04T20:56:06Z",
+    "diagnosis_gates": {
+      "both_simultaneous_97_5_ci_lower_min": 0.1,
+      "conventional_or_classical_learning_allowed": true,
+      "interpretation": "learning of an observation map must matter on fresh identities; this gate cannot prove neural learning is intrinsically required or transfer beyond this task",
+      "trained_vs_shuffled_mean_full_answer_gain_min": 0.2,
+      "trained_vs_untrained_mean_full_answer_gain_min": 0.2
+    },
+    "diagnostics": {
+      "per_cell": [
+        "full_answer_accuracy",
+        "known_fact_top1_accuracy",
+        "known_false_abstention",
+        "absent_identity_rejection",
+        "updated_known_accuracy",
+        "retained_known_accuracy",
+        "stale_value_errors",
+        "wrong_fact_errors"
+      ],
+      "private_boundary": "static source/import audit plus stripped inputs; local evaluator not an OS security sandbox or externally blinded final",
+      "raw_predictions": "per query top1 record/value, max cosine, chosen answer and truth/stratum revealed only after answer",
+      "reproducibility": [
+        "legal train/dev array hashes",
+        "private artifact hash",
+        "initial/final encoder hashes",
+        "all optimizer losses",
+        "classical grid scores and chosen threshold",
+        "raw component timings",
+        "allocation/ingest/index/update/query logical state and device/RSS costs"
+      ]
+    },
+    "fit_seconds_cap": 240,
+    "fit_seconds_total_cap": 14400,
+    "max_cuda_reserved_bytes": 4294967296,
+    "max_rss_bytes": 8589934592,
+    "program_contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+    "program_contract_sha256": "a55f190fd42631e2651a8d4ab3e61f2200d16d1e8afb2d71aa4edcbea6ba269a",
+    "recipe": {
+      "alignment_batch": 256,
+      "alignment_loss": "mean squared error paired query->write observation",
+      "alignment_steps": 2048,
+      "architecture": "shared query view transport: Linear64->64 residual plus Linear64->128,GELU,Linear128->64; writes remain raw64; L2-normalized matching. No external weights. Dense control adds conventional two-layer nn.TransformerDecoder with width64,heads4,FF256,GELU,pre-norm,dropout0,self+cross dense softmax attention and dense cosine pointer. Output residual projections initially zero to preserve trained transport; fit contrastive set loss. Pointer/exact_nn omit decoder.",
+      "dense_set_batch": 4,
+      "dense_set_loss": "cross entropy over K normalized scores and one NULL score; fixed scale20, NULL cosine0.85; plus0.1*MSE decoded query versus normalized target write for known queries",
+      "dense_set_queries": 8,
+      "dense_set_steps": 1024,
+      "encoder_during_dense_set_fit": "frozen after supervised alignment; decoder trained, no value shortcuts or labels in query",
+      "exact_nn": "source-identical complete query transport fit; weights must match pointer exactly, full scan cosine instead of dense softmax; own repeated fit fully charged",
+      "kernel": "RBF Nyström transport,512 first training-query landmarks, all4096 pairs, float64 primal ridge; bandwidths[0.25,0.5,1.0], ridge[0.0001,0.01]; minimal reserved512 train-only MSE, deterministic grid order; all search/landmarks/fit charged",
+      "learning_rate": 0.001,
+      "optimizer": "AdamW",
+      "precision": "float32",
+      "raw": "zero-fit raw-space cosine, same update/absence interface",
+      "ridge": "query-to-write ridge with intercept; all4096 legal pairs, choose minimal MSE on reserved512 training-only pairs, fixed ascending grid ties first",
+      "ridge_grid": [
+        1e-06,
+        0.001,
+        0.1
+      ],
+      "selection": "last fixed optimizer step; no checkpoint, dev/hyperparameter adaptation or seed selection; all outcomes retained",
+      "shuffled": "same transport code/initialization/batches/steps, a single fixed runner-seed permutation of positive write correspondences; train set controls not relabeled",
+      "threads": 1,
+      "threshold_grid": [
+        0.5,
+        0.525,
+        0.55,
+        0.575,
+        0.6,
+        0.625,
+        0.65,
+        0.675,
+        0.7,
+        0.725,
+        0.75,
+        0.775,
+        0.8,
+        0.825,
+        0.85,
+        0.875,
+        0.9,
+        0.925,
+        0.95,
+        0.975,
+        1.0,
+        1.01
+      ],
+      "threshold_selection": "training-only calibration across K32/128/512,3 episodes each,64 queries each. Prefer candidates satisfying known false abstention<=.02 and UNKNOWN>=.95; then maximal full-answer accuracy, larger UNKNOWN, lower threshold. If infeasible maximal full-answer accuracy with same ties. Never dev selection. Same finite calibration for ALL controls.",
+      "untrained": "source-identical query transport initialization and pointer, zero updates",
+      "weight_decay": 0.0001
+    },
+    "reference_gates": {
+      "absent_identity_rejection_mean_min": 0.95,
+      "each_K_mean_accuracy_min": 0.9,
+      "each_seed_absent_identity_rejection_min": 0.9,
+      "each_seed_full_answer_accuracy_min": 0.9,
+      "independent_units": 5,
+      "known_false_abstention_mean_max": 0.02,
+      "mean_full_answer_accuracy_min": 0.95
+    },
+    "registration_ticket": 2,
+    "roles": {
+      "pvm01_dense_s0": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_dense_s1": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_dense_s2": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_dense_s3": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_dense_s4": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_exact_nn_s0": {
+        "arm": "exact_nn",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_exact_nn_s1": {
+        "arm": "exact_nn",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_exact_nn_s2": {
+        "arm": "exact_nn",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_exact_nn_s3": {
+        "arm": "exact_nn",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_exact_nn_s4": {
+        "arm": "exact_nn",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_kernel_s0": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_kernel_s1": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_kernel_s2": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_kernel_s3": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_kernel_s4": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_pointer_s0": {
+        "arm": "pointer",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_pointer_s1": {
+        "arm": "pointer",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_pointer_s2": {
+        "arm": "pointer",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_pointer_s3": {
+        "arm": "pointer",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_pointer_s4": {
+        "arm": "pointer",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_raw_s0": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_raw_s1": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_raw_s2": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_raw_s3": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_raw_s4": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_ridge_s0": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_ridge_s1": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_ridge_s2": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_ridge_s3": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_ridge_s4": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_shuffled_s0": {
+        "arm": "shuffled",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_shuffled_s1": {
+        "arm": "shuffled",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_shuffled_s2": {
+        "arm": "shuffled",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_shuffled_s3": {
+        "arm": "shuffled",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_shuffled_s4": {
+        "arm": "shuffled",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_untrained_s0": {
+        "arm": "untrained",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_untrained_s1": {
+        "arm": "untrained",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_untrained_s2": {
+        "arm": "untrained",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_untrained_s3": {
+        "arm": "untrained",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_untrained_s4": {
+        "arm": "untrained",
+        "fit_steps": 0,
+        "seed_index": 4
+      }
+    },
+    "study_path": "research/plans/PVM01-REFERENCE-V2.json",
+    "study_sha256": "ef47381328f192fb8a6a6cd7b9a414a781be479da5f9aa51a9aad74947768690",
+    "task_contract_path": "research/plans/PVM01-TASK-CONTRACT-V1.json",
+    "task_contract_sha256": "7b8c775a3ebfd6a1645d171caab7237c3a7bc11c44cb7b7fdc26e7eec6c2c326",
+    "worker_seconds_cap": 356
+  },
+  "research_question": "Does legal learned view alignment on fresh identities yield competent dense Transformer/pointer controls and a discriminating task relative to untrained/shuffled and strong classical transport, with separate absence and ranking?",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "PVM01-REFERENCE-V2"
+}

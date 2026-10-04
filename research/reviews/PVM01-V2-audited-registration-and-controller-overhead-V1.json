@@ -1,0 +1,21 @@
+{
+  "charged_seconds": 32,
+  "charged_worker_seconds": 226.94644770000014,
+  "created_at": "2026-10-04T17:22:13Z",
+  "experiment_id": "EXP-20261004-0005",
+  "id": "PVM01-V2-audited-registration-and-controller-overhead-V1",
+  "nonworker_overhead_seconds": 31.142594100005226,
+  "registration_returncode": 0,
+  "registration_stderr": "",
+  "registration_stdout": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\plans\\EXP-20261004-0005.json\n",
+  "result_sha256": "626bc4657db2cec8642f4c1f9f62d1ea3a6fb6a30191d64111818774e29c4190",
+  "result_status": "complete",
+  "run_returncode": 0,
+  "run_stderr": "",
+  "run_stdout": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261004-0005.json\n",
+  "total_controller_elapsed_seconds": 258.08904180000536,
+  "trials": 360,
+  "workers": {
+    "complete": 40
+  }
+}

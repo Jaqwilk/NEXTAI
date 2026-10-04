@@ -1,3 +1,37 @@
+# Current cycle307 — EXP-20261004-0005 completed after cycle306 preparation (2026-10-04)
+
+Preparation was cycle306; the audited runner advanced durable state to307
+after this single EXP. Both numbers are preserved; the completion receipt
+retains the prospectively selected preparation-cycle306 identity.
+
+PVM01-REFERENCE-V2 completed once in the independent clone:40 workers,
+360 trials, five fresh paired seed/data units. Dense full answer99.9861%,
+pointer/ridge99.9722%, trained fact top1=100%. Pointer minus untrained/shuffled
+gains74.9861/75.0417pp; paired simultaneous97.5% intervals exclude zero,
+5/5 positive. All frozen learning and dense/pointer competence gates passed.
+KEEP the local screening cohort. No mechanism/economic/transfer promotion:
+ridge matches pointer quality with much lower measured CPU workload cost.
+
+Immutable plan/result: research/plans/EXP-20261004-0005.json and
+research/results/EXP-20261004-0005.json; analysis:
+research/analyses/EXP-20261004-0005.md. Actual supervised fit phase84.8973997s,
+full charged worker226.9464477s/14400s. All auxiliary checks and the earlier
+failed fixture regression are preserved and charged. Source1060/runtime282
+files archived as raw bytes before maintenance. Earlier0004 failure stays intact.
+
+Current study terminal, benchmark=v2 maintenance, scoring=false; no retry or
+replacement seed. Standing continuation remains active:2/17 new tickets used,
+plus prior3 consumed tickets. Budget/cycle closure is in
+research/laboratory/PVM01-CYCLE-306-COMPLETION-V1.receipt.json.
+Economic gates stay unchanged. Whole program goal remains unmet.
+Next bounded question: preregister PVM01-DELTA-MEMORY-SCREEN-V1 with a single
+source-identical delta-versus-additive memory contrast, strong optimized
+classical controls and five new paired units; freeze exact recipe before code.
+Ablations, three-scale matched-quality economics, adverse cases and frozen
+fresh final remain required. No WT8-9, external model/API or schedule changes.
+
+Earlier headers below are preserved historical states.
+
 # Current cycle306 — preregistered PVM01-REFERENCE-V2 (2026-10-04)
 
 The new bounded study was committed in 224a3ceb before v2 cohort activation.

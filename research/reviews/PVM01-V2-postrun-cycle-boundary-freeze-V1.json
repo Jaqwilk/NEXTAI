@@ -1,0 +1,28 @@
+{
+  "charged_seconds": 7,
+  "created_at": "2026-10-04T17:39:01Z",
+  "cycle_note": {
+    "completion_receipt_path": "research/laboratory/PVM01-CYCLE-306-COMPLETION-V1.receipt.json",
+    "created_at": "2026-10-04T17:38:54Z",
+    "event": "research_cycle_boundary_note",
+    "experiment_id": "EXP-20261004-0005",
+    "postrun_audited_state_cycle": 307,
+    "preregistration_preparation_cycle": 306,
+    "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+    "reason": "Preparation advanced the state to306; the audited runner then advanced it to307 after its one experiment. Preserve both values; no decrement, new EXP, retry, schedule or budget change.",
+    "scientific_evidence": false
+  },
+  "elapsed_seconds": 6.783109100011643,
+  "id": "PVM01-V2-postrun-cycle-boundary-freeze-V1",
+  "integrity": {
+    "benchmark_version": "paired_view_mutable_memory_v2",
+    "candidate_bundle_sha256": "6569bafe40ffc32bec00e334a6acf537da9ccaa154206ae63813a04587a9ac6f",
+    "checked_files": 1052,
+    "evaluator_sha256": "f1e706e5267782c8921e01a98c4787287d304fe4a00862ed951201b5509565e0",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "research_fit_or_new_data": false,
+  "status": "PASS"
+}

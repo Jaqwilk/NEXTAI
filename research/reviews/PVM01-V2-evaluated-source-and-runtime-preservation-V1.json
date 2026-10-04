@@ -1,0 +1,14 @@
+{
+  "charged_seconds": 3,
+  "copy_footprint_bytes": 218917977,
+  "created_at": "2026-10-04T17:29:25Z",
+  "elapsed_seconds": 2.599487900006352,
+  "free_after_bytes": 62795993088,
+  "free_before_bytes": 63017582592,
+  "id": "PVM01-V2-evaluated-source-and-runtime-preservation-V1",
+  "raw_attributes_handling": ".gitattributes archived as .gitattributes.raw; original-to-archive mapping explicit",
+  "research_fit": false,
+  "runtime_files": 282,
+  "source_files": 1060,
+  "status": "PASS"
+}

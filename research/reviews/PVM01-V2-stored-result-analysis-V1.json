@@ -1,0 +1,11 @@
+{
+  "charged_seconds": 2,
+  "created_at": "2026-10-04T17:27:11Z",
+  "elapsed_seconds": 1.2245078999985708,
+  "id": "PVM01-V2-stored-result-analysis-V1",
+  "model_executed": false,
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "{\n  \"experiment_id\": \"EXP-20261004-0005\",\n  \"failures\": [],\n  \"learning_gate\": true,\n  \"competence_gates\": {\n    \"dense\": {\n      \"five_units\": true,\n      \"mean_accuracy\": true,\n      \"each_seed_accuracy\": true,\n      \"each_K_accuracy\": true,\n      \"known_false_abstention\": true,\n      \"mean_unknown\": true,\n      \"each_seed_unknown\": true\n    },\n    \"pointer\": {\n      \"five_units\": true,\n      \"mean_accuracy\": true,\n      \"each_seed_accuracy\": true,\n      \"each_K_accuracy\": true,\n      \"known_false_abstention\": true,\n      \"mean_unknown\": true,\n      \"each_seed_unknown\": true\n    }\n  },\n  \"decision\": \"KEEP scoped screening cohort\"\n}\n",
+  "stored_result_only": true
+}

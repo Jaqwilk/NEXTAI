@@ -1,0 +1,25 @@
+{
+  "audit_time": "post-realization read-only; no resampling",
+  "charged_seconds": 1,
+  "comparison_to_consumed": "EXP-20261004-0004",
+  "created_at": "2026-10-04T17:22:43Z",
+  "elapsed_seconds": 0.001137999992351979,
+  "experiment_id": "EXP-20261004-0005",
+  "five_model_seeds_unique": true,
+  "five_unit_nonces_unique": true,
+  "id": "PVM01-V2-fresh-realization-provenance-guard-V1",
+  "model_or_data_scored_by_audit": false,
+  "model_seeds_disjoint": true,
+  "new_unit_nonce_sha256": [
+    "29391f48649776cc059f6249e3db2feec1b495cf8077bd880c03a2fc6129443a",
+    "c95617a92e3250ba73eef1b266e514b1c12ac9349f38dcb83901b1248d55adee",
+    "22920fd1269a729e136769e96cff9d26dbe045fcd598ae27a426fc70f6573303",
+    "6d45fcd1c0ce2845c4b009f83270345f22477461de165b8423f51117390a949e",
+    "797d77152f6d615d69ef9aa2c27fe0adc75c58dc0de2149fd04f9fe055538891"
+  ],
+  "private_data_sha256": "ffbc837dd26f7836f401bf21d5cbfac0da699771402fb1143466c1009d62ea76",
+  "runtime_plan_sha256": "15c913ee47d9c9a58e08395c1d66cea72e53e7417e4337cd99f9928621d474bf",
+  "scientific_evidence": false,
+  "status": "PASS",
+  "unit_nonces_disjoint": true
+}

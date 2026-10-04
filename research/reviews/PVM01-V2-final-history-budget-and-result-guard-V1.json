@@ -1,0 +1,9 @@
+{
+  "charged_seconds": 11,
+  "created_at": "2026-10-04T17:44:19Z",
+  "elapsed_seconds": 10.011945400008699,
+  "error": "AssertionError()",
+  "id": "PVM01-V2-final-history-budget-and-result-guard-V1",
+  "research_fit_or_new_data": false,
+  "status": "FAIL"
+}

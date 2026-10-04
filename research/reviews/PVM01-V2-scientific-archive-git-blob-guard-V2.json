@@ -1,0 +1,15 @@
+{
+  "active_nested_git_attributes": false,
+  "archive_files_raw_git_exact": 1342,
+  "charged_seconds": 6,
+  "correction": "Short directory arguments avoid Windows command-line length; blob requests use stdin.",
+  "created_at": "2026-10-04T17:41:27Z",
+  "elapsed_seconds": 5.5633933000062825,
+  "evaluated_result_sha256": "626bc4657db2cec8642f4c1f9f62d1ea3a6fb6a30191d64111818774e29c4190",
+  "evaluated_source_commit": "aa018049ee1f7cd3db18152b9d0ed397c0c67336",
+  "id": "PVM01-V2-scientific-archive-git-blob-guard-V2",
+  "indexed_objects_raw_git_exact": 1349,
+  "previous_guard_preserved": "PVM01-V2-scientific-archive-git-blob-guard-V1",
+  "research_fit_or_new_data": false,
+  "status": "PASS"
+}
