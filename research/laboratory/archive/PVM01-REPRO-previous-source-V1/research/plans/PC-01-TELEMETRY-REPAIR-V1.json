@@ -1,0 +1,26 @@
+{
+  "id": "PC-01-TELEMETRY-REPAIR-V1",
+  "kind": "preregistered_no_training_maintenance",
+  "cycle": 288,
+  "user_authorization": "zatweirdzam",
+  "scope": "Repair local device telemetry persistence and test concurrent synthetic reads/writes. No training, scored EXP, final access or publishing.",
+  "question": "Can a bounded retry of Windows atomic replacement survive transient reader contention while persistent errors, STOP and supervisor deadlines remain fatal?",
+  "self_imposed_service_minutes_cap": 45,
+  "budget_origin": "Agent execution bound for this one authorized deliverable, not a reset of historical service allowances.",
+  "retry_policy": {"deadline_seconds": 1, "sleep_seconds": 0.01, "retry_only_winerror": [5,32,33], "persistent_failure": "raise, preserve old complete telemetry, no success envelope", "stop_pause": "check before every attempt", "time_accounting": "All waiting remains inside existing worker/fit clocks"},
+  "tests": [
+    "Reproduce legacy atomic_write_json denial with an actual Windows handle lacking delete sharing; preserve exception code.",
+    "Actual transient reader handle release permits replacement before 1-second retry deadline.",
+    "Persistent handle denial fails at deadline, never reports success, preserves valid previous JSON.",
+    "Non-Windows/nonsharing I/O errors fail immediately; deterministic fake-clock tests include STOP and PAUSE during retry.",
+    "Three independent synthetic stress runs, 2000 writes each, concurrent reader validates JSON and monotonic coherent counters; at most 30 seconds per run.",
+    "Real subprocess supervision retains STOP, fit/worker timeout and CUDA-limit detection; persistent telemetry failure remains a failed worker.",
+    "Full regression and immutable history/prefix validation after repair; no corpus or model fit in new repair tests."
+  ],
+  "source_scope": "New PC-01-only telemetry helper and worker call site, tests, maintenance status/docs/certification. Do not alter shared atomic_write_json, model, data, training recipe, thresholds or historical artifacts.",
+  "auxiliary_history_check": "New versioned validator distinguishes append-only ledger prefixes from completed files; original validators and failure annotation retained.",
+  "outcomes": {"pass": "Keep repair in maintenance, report verification and request decision before another dev attempt.", "fail": "Preserve diagnostics, stop with exact blocker; no hidden retry of the model."},
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "final_access_authorized": false
+}

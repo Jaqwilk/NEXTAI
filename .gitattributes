@@ -35,3 +35,6 @@ research/reviews/PVM01-COMPACT-startup-*.json -text
 # Capacity-exposure preregistration and startup snapshot retain hash-bound bytes.
 research/plans/PVM01-CAPACITY-EXPOSURE-V1.json -text
 research/reviews/PVM01-EXPOSURE-startup*.json -text
+
+# Preparation startup records preserve their native raw snapshot bytes.
+research/reviews/PVM01-REPRO-startup*.json -text

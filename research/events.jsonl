@@ -840,3 +840,9 @@
 {"charge_id":"PVM01-REPRO-prereg-orchestration-failure-V1","created_at":"2026-10-04T22:36:31Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":5}
 {"charge_id":"PVM01-REPRO-prereg-orchestration-failure-V1","created_at":"2026-10-04T22:36:34Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":5}
 {"auxiliary_seconds_cap":2400,"created_at":"2026-10-04T22:36:37Z","cycle":311,"deadline_at":"2026-10-05T00:23:55Z","event":"preparation_preregistered","id":"PVM01-REPRO-PREPARATION-V1","new_EXP_registration":false,"plan_path":"research/plans/PVM01-REPRO-PREPARATION-V1.json","plan_raw_sha256":"54bb174dc4cc6f01b5e4229f0da377c096d526a26f5925258d950f1748ac59ea","scoring":false}
+{"charge_id":"PVM01-REPRO-targeted-V1","created_at":"2026-10-04T22:39:29Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":180}
+{"charge_id":"PVM01-REPRO-targeted-V1","created_at":"2026-10-04T22:39:49Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":26}
+{"charge_id":"PVM01-REPRO-source-freeze-V1","created_at":"2026-10-04T22:42:50Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":160}
+{"charge_id":"PVM01-REPRO-source-freeze-V1","created_at":"2026-10-04T22:42:55Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":11}
+{"charge_id":"PVM01-REPRO-source-staging-orchestration-failure-V1","created_at":"2026-10-04T22:43:41Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":5}
+{"charge_id":"PVM01-REPRO-source-staging-orchestration-failure-V1","created_at":"2026-10-04T22:43:44Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":5}

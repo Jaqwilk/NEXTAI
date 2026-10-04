@@ -1,3 +1,17 @@
+# Prospective cycle311 — technical process and CUDA conformance (2026-10-04)
+
+PVM01-REPRO-PREPARATION-V1 is frozen before implementation at commit4cc5f20.
+Preparation only: no new research data, EXP registration or scored run.
+Test whole Windows process trees and exact dense/cache FIT identity on public
+fixed arrays:3 model seeds,2 independent repeats,3 roles,2 execution policies.
+Unchanged architecture/loss/optimizer,64+64 auxiliary steps; dispatch telemetry.
+Closed EXP-20261004-0008 remains INCONCLUSIVE, all prior gates/results preserved.
+Start22:23:55Z,deadline2026-10-05T00:23:55Z; auxiliary cap2400s includes failures.
+Current benchmark maintenance/scoring=false; continuation program active.
+No paid retry,WT8–9,external model/API or schedule change.
+Previous sections remain historical. Technical success does not grant promotion
+or full-recipe validity; a distinct adverse alternative needs a prospective study.
+
 # Current cycle310 — EXP-20261004-0008 completed (2026-10-04)
 
 PVM01-CAPACITY-EXPOSURE-V1 decision: INCONCLUSIVE comparison.

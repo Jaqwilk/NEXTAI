@@ -1,0 +1,13 @@
+{
+  "correct_paths": [
+    "research/manifests",
+    "research/laboratory/preflight_certificate.json"
+  ],
+  "created_at": "2026-10-04T22:43:48Z",
+  "failed_action": "git add named nonexistent research/eval_manifest_archive and research/baseline_preflight.json",
+  "id": "PVM01-REPRO-source-staging-orchestration-failure-V1",
+  "paid_registration_fit_retry": false,
+  "protected_source_or_test_outcome_modified": false,
+  "seconds_charged": 5,
+  "source_freeze_completed_before_staging_failure": true
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextai.local/schemas/source.schema.json",
+  "title": "Prior-art source record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id",
+    "title",
+    "authors",
+    "year",
+    "url",
+    "source_type",
+    "primary_source",
+    "claims_supported",
+    "relevance",
+    "checked_at"
+  ],
+  "properties": {
+    "source_id": {"type": "string", "pattern": "^SRC-[0-9]{4}$"},
+    "title": {"type": "string", "minLength": 3},
+    "authors": {"type": "array", "items": {"type": "string"}},
+    "year": {"type": "integer", "minimum": 1900, "maximum": 2100},
+    "url": {"type": "string", "format": "uri"},
+    "source_type": {"enum": ["paper", "repository", "official_documentation", "dataset"]},
+    "primary_source": {"type": "boolean"},
+    "claims_supported": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "relevance": {"type": "string", "minLength": 10},
+    "checked_at": {"type": "string", "format": "date-time"}
+  }
+}
+
