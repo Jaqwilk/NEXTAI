@@ -1,0 +1,12 @@
+{
+  "charged_seconds": 17,
+  "created_at": "2026-10-04T17:05:30Z",
+  "elapsed_seconds": 16.137063200003468,
+  "historical_files_hashed": 14361,
+  "id": "PVM01-V2-startup-doctor-and-history-snapshot-V1",
+  "research_fit": false,
+  "returncode": 0,
+  "snapshot_path": "research/reviews/PVM01-V2-startup-history-V1.json",
+  "stderr": "",
+  "stdout": "[OK] benchmark=paired_view_mutable_memory_v1 status=maintenance protocol=v3\n[OK] laboratory=preparation_only next=NEXTAI-STUDY-REVIEW scoring=False\n[OK] cycle=305 completed=111\n[OK] hypotheses=59\n[OK] sources=442\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=1051\n[OK] audited_candidates=602\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n"
+}
