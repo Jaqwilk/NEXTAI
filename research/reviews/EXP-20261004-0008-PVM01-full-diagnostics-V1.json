@@ -1,0 +1,13 @@
+{
+  "decision": "INCONCLUSIVE comparison",
+  "experiment_id": "EXP-20261004-0008",
+  "failures": [],
+  "full_charged_worker_seconds": 1055.745196000149,
+  "incomplete": true,
+  "models_or_generator_executed": false,
+  "plan_sha256": "1d80c6241138d2dfe37dce2d05a5407c7b0150d1d5c0e7fab0d6cb7654f553a6",
+  "result_sha256": "5b6bcdebcef8c4e5a21266831100561434d38e057caa9e2c3eab9d075fbb3ac8",
+  "study_sha256": "ec0e9252805e9884692ffb7beee54c5410e225893e67364e6295a6952cac5bc5",
+  "total_internal_algorithm_fit_seconds": 755.6218145000021,
+  "total_supervised_fit_phase_seconds": 832.0685591999936
+}

@@ -1,0 +1,125 @@
+{
+  "created_at": "2026-10-04T22:00:05Z",
+  "estimated_copy_bytes": 127439,
+  "files": {
+    "research/tmp/pvm01_exposure_addendum.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_addendum.py",
+      "bytes": 19270,
+      "raw_sha256": "778e9fc3450afca77e276a86c40a690453c09aa4152a528f88e6511da987f40b"
+    },
+    "research/tmp/pvm01_exposure_archive.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_archive.py",
+      "bytes": 3483,
+      "raw_sha256": "b68b67b142301a4665d52761c78ab88b4284293cbee8e1ccff79841b212f1218"
+    },
+    "research/tmp/pvm01_exposure_check.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_check.py",
+      "bytes": 2184,
+      "raw_sha256": "0f823666ec81595f5e0dbed90041a1553cf36ebf612b247b66dbd4a5fd41834c"
+    },
+    "research/tmp/pvm01_exposure_check_v2.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_check_v2.py",
+      "bytes": 2225,
+      "raw_sha256": "8423bab72c55df45d9bfbac9bbd4bde0be666d15832f9e356bd9efdbfd35401e"
+    },
+    "research/tmp/pvm01_exposure_checkpoint_v2.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_checkpoint_v2.py",
+      "bytes": 5015,
+      "raw_sha256": "c369b930405952b82a8da10a0f1f32e310830b94e66fc72c637b4bfea09b6b6c"
+    },
+    "research/tmp/pvm01_exposure_diagnostics.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_diagnostics.py",
+      "bytes": 10101,
+      "raw_sha256": "4ab2fa3f488e2802ec29f82145b95bff4f7745ef24eab38ecbd9f82c60498332"
+    },
+    "research/tmp/pvm01_exposure_diagnostics_v2.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_diagnostics_v2.py",
+      "bytes": 9411,
+      "raw_sha256": "4b85cbcd4c42fc09f46e997f75ffac430ff7dbd941821862e5df9df5e7976e25"
+    },
+    "research/tmp/pvm01_exposure_final_history.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_final_history.py",
+      "bytes": 6827,
+      "raw_sha256": "53dc2e73aaf2f9358cc05c69f5337f0fd7a62c671a90bf0535cb35bb4dada612"
+    },
+    "research/tmp/pvm01_exposure_finalize.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_finalize.py",
+      "bytes": 9544,
+      "raw_sha256": "1ffb538b8cdf715698227db08416b0a7a29a860c57c3ced3a5cd636e22d1139c"
+    },
+    "research/tmp/pvm01_exposure_gates.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_gates.py",
+      "bytes": 2259,
+      "raw_sha256": "6819e6dba655f46e440cf0947c7e65518d6ffbc221f1ea894a23b2c616ba5a13"
+    },
+    "research/tmp/pvm01_exposure_guard.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_guard.py",
+      "bytes": 3776,
+      "raw_sha256": "1872f3cce648d55a2f14e8c2e6383ca090a6e1f9753d704511e526df60146e3f"
+    },
+    "research/tmp/pvm01_exposure_helpers_archive.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_helpers_archive.py",
+      "bytes": 1439,
+      "raw_sha256": "391cd87179d6121ed0eb90c93f641f2c5f1d791ef7a0120bc90f67520f5590f8"
+    },
+    "research/tmp/pvm01_exposure_maintenance.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_maintenance.py",
+      "bytes": 5585,
+      "raw_sha256": "d9ba4ac97bfbbe88e17959fde62267f5057a3aabee99a6f8cec62b4dc26f7ea2"
+    },
+    "research/tmp/pvm01_exposure_metadata.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_metadata.py",
+      "bytes": 3587,
+      "raw_sha256": "f14b7525626e21f309bb7bba67b8c0dd46eda0ac328760ea00904e58fbf07ad1"
+    },
+    "research/tmp/pvm01_exposure_original_validate.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_original_validate.py",
+      "bytes": 2801,
+      "raw_sha256": "77b833fbcdb57d3c2fbae3c97f7623b3a7ff4c59e5dfa1681597319f5fdc83ee"
+    },
+    "research/tmp/pvm01_exposure_postrun_gates.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_postrun_gates.py",
+      "bytes": 2587,
+      "raw_sha256": "dd4dcb8b56071d4090c666e3930d440d83a5fbcb445736b8e678215aa67cb209"
+    },
+    "research/tmp/pvm01_exposure_postscience.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_postscience.py",
+      "bytes": 701,
+      "raw_sha256": "087a9cfc803803e1efdc9ee73ada747f5c9e8312d9b5c8bba239eaec183cbe13"
+    },
+    "research/tmp/pvm01_exposure_prepare.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_prepare.py",
+      "bytes": 11981,
+      "raw_sha256": "2b496921dab737124482b7a8f5340e3812e9d1897ab56f5312b67f04025fabee"
+    },
+    "research/tmp/pvm01_exposure_progress.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_progress.py",
+      "bytes": 1079,
+      "raw_sha256": "353106aacbfd687b7d7f44792bfa3b3c1b93c7ff9e47c9fd20b7a2ea241a08f9"
+    },
+    "research/tmp/pvm01_exposure_ready.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_ready.py",
+      "bytes": 3580,
+      "raw_sha256": "0f0005d77b7d83fa9128a74dd76af9b151724f9162ce10ade355163983a6360f"
+    },
+    "research/tmp/pvm01_exposure_reserve_closure.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_reserve_closure.py",
+      "bytes": 948,
+      "raw_sha256": "96b0d3d179e33ff3a11c3e429a625d2a1b4b9b61d8fd5cf3e4ac69071049d0c9"
+    },
+    "research/tmp/pvm01_exposure_run.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_run.py",
+      "bytes": 2882,
+      "raw_sha256": "a695029d06bce39edb87a85507880b6f65d40ceda37d63ee8f2f788f18d4c14a"
+    },
+    "research/tmp/pvm01_exposure_write_analysis.py": {
+      "archive_path": "research/laboratory/archive/PVM01-EXPOSURE-helper-source/pvm01_exposure_write_analysis.py",
+      "bytes": 16174,
+      "raw_sha256": "5d5f7c12eb42053877f7bf7453aba6c53ebc1dc3ea6701e9917f5f00643f875f"
+    }
+  },
+  "free_after_bytes": 54487678976,
+  "free_before_bytes": 54487851008,
+  "no_scientific_evidence_deleted": true,
+  "purpose": "Reproduce pre/postseed maintenance, checks, accounting and stored diagnostics; paid science/runtime/results unchanged"
+}

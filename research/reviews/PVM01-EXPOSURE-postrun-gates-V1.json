@@ -1,0 +1,14 @@
+{
+  "cap": 120.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_exposure_postrun_gates.py"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 124,
+  "seconds_charged": 120.0,
+  "wall_seconds": 127.31176579999737
+}

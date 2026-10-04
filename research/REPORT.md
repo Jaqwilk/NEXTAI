@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-10-04T21:21:10Z
+Generated: 2026-10-04T22:05:35Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1630,6 +1630,93 @@ Pareto axes: maximize `accuracy, dense_unknown_rejection`; minimize `mean_query_
 | EXP-20261004-0007 | pvm01_raw_s2 | implementable | complete | 0.25 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
 | EXP-20261004-0007 | pvm01_raw_s3 | implementable | complete | 0.2497 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
 | EXP-20261004-0007 | pvm01_raw_s4 | implementable | complete | 0.25 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+
+## paired_view_mutable_memory_v5 / quick
+
+Pareto axes: maximize `accuracy, dense_unknown_rejection`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20261004-0008 | pvm01_exposure_small_s0 | implementable | complete | 0.9076 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_small_s1 | implementable | complete | 0.8976 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_small_s2 | implementable | complete | 0.9094 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_small_s3 | implementable | complete | 0.9062 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_small_s4 | implementable | complete | 0.8993 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_large_s0 | implementable | complete | 0.9014 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_large_s1 | implementable | complete | 0.9014 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_large_s2 | implementable | complete | 0.9062 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_large_s3 | implementable | complete | 0.9017 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_large_s4 | implementable | complete | 0.8979 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_frozen_s0 | implementable | complete | 0.9059 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_frozen_s1 | implementable | complete | 0.9056 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_frozen_s2 | implementable | complete | 0.9118 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_frozen_s3 | implementable | complete | 0.9035 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_frozen_s4 | implementable | complete | 0.9021 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_shuffled_s0 | implementable | complete | 0.899 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_shuffled_s1 | implementable | complete | 0.901 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_shuffled_s2 | implementable | complete | 0.9056 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_shuffled_s3 | implementable | complete | 0.901 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_shuffled_s4 | implementable | complete | 0.8976 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_additive_s0 | implementable | complete | 0.7719 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_additive_s1 | implementable | complete | 0.7799 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_additive_s2 | implementable | complete | 0.7823 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_additive_s3 | implementable | complete | 0.7778 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_exposure_additive_s4 | implementable | complete | 0.7677 | - | 1 | 1.234e+05 | - | - | - | 2.052e-31 (3) | 189440 |  |
+| EXP-20261004-0008 | pvm01_delta_s0 | implementable | complete | 0.9993 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261004-0008 | pvm01_delta_s1 | implementable | complete | 0.9972 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261004-0008 | pvm01_delta_s2 | implementable | complete | 0.9979 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261004-0008 | pvm01_delta_s3 | implementable | complete | 0.9969 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261004-0008 | pvm01_delta_s4 | implementable | complete | 0.999 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261004-0008 | pvm01_dense_s0 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261004-0008 | pvm01_dense_s1 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261004-0008 | pvm01_dense_s2 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261004-0008 | pvm01_dense_s3 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261004-0008 | pvm01_dense_s4 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cpu_s0 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cpu_s1 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cpu_s2 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cpu_s3 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cpu_s4 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cuda_s0 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cuda_s1 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cuda_s2 | implementable | complete | 1 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cuda_s3 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_dense_cached_cuda_s4 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261004-0008 | pvm01_exact_nn_cpu_s0 | implementable | complete | 1 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261004-0008 | pvm01_exact_nn_cpu_s1 | implementable | complete | 1 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261004-0008 | pvm01_exact_nn_cpu_s2 | implementable | complete | 0.9997 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261004-0008 | pvm01_exact_nn_cpu_s3 | implementable | complete | 0.999 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261004-0008 | pvm01_exact_nn_cpu_s4 | implementable | complete | 1 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261004-0008 | pvm01_ridge_s0 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 |  |
+| EXP-20261004-0008 | pvm01_ridge_s1 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 |  |
+| EXP-20261004-0008 | pvm01_ridge_s2 | implementable | complete | 0.9997 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 |  |
+| EXP-20261004-0008 | pvm01_ridge_s3 | implementable | complete | 0.999 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 |  |
+| EXP-20261004-0008 | pvm01_ridge_s4 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 |  |
+| EXP-20261004-0008 | pvm01_ridge32_s0 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 | yes |
+| EXP-20261004-0008 | pvm01_ridge32_s1 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 |  |
+| EXP-20261004-0008 | pvm01_ridge32_s2 | implementable | complete | 0.9997 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 |  |
+| EXP-20261004-0008 | pvm01_ridge32_s3 | implementable | complete | 0.999 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 |  |
+| EXP-20261004-0008 | pvm01_ridge32_s4 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 |  |
+| EXP-20261004-0008 | pvm01_ridge_pca_scan_s0 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 |  |
+| EXP-20261004-0008 | pvm01_ridge_pca_scan_s1 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 | yes |
+| EXP-20261004-0008 | pvm01_ridge_pca_scan_s2 | implementable | complete | 0.9997 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 |  |
+| EXP-20261004-0008 | pvm01_ridge_pca_scan_s3 | implementable | complete | 0.999 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 | yes |
+| EXP-20261004-0008 | pvm01_ridge_pca_scan_s4 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 |  |
+| EXP-20261004-0008 | pvm01_ridge_pca_tree_s0 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261004-0008 | pvm01_ridge_pca_tree_s1 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261004-0008 | pvm01_ridge_pca_tree_s2 | implementable | complete | 0.9997 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261004-0008 | pvm01_ridge_pca_tree_s3 | implementable | complete | 0.999 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261004-0008 | pvm01_ridge_pca_tree_s4 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261004-0008 | pvm01_kernel_s0 | implementable | complete | 1 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 |  |
+| EXP-20261004-0008 | pvm01_kernel_s1 | implementable | complete | 1 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 |  |
+| EXP-20261004-0008 | pvm01_kernel_s2 | implementable | complete | 0.9997 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 |  |
+| EXP-20261004-0008 | pvm01_kernel_s3 | implementable | complete | 0.999 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 |  |
+| EXP-20261004-0008 | pvm01_kernel_s4 | implementable | complete | 1 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 | yes |
+| EXP-20261004-0008 | pvm01_raw_s0 | implementable | complete | 0.25 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261004-0008 | pvm01_raw_s1 | implementable | complete | 0.249 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261004-0008 | pvm01_raw_s2 | implementable | complete | 0.2493 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261004-0008 | pvm01_raw_s3 | implementable | complete | 0.2497 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261004-0008 | pvm01_raw_s4 | implementable | complete | 0.2497 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
 
 ## pointer_machine_composition_v1 / quick
 

@@ -1,0 +1,14 @@
+{
+  "cap": 180.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_exposure_postscience.py"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 30,
+  "wall_seconds": 24.78623689999222
+}

@@ -1,3 +1,33 @@
+# Current cycle310 — EXP-20261004-0008 completed (2026-10-04)
+
+PVM01-CAPACITY-EXPOSURE-V1 decision: INCONCLUSIVE comparison.
+One audited attempt,five fresh paired units,16 arms,K32/128/512,updates0/1/4.
+512 features and512 steps; K32/128 versus K32/512 fit support exposure.
+All strong dense/cache/ridge/PCA/tree/kernel/exact retrieval controls retained.
+Exact dense/cache decoder hashes fail on all5 units despite identical decisions.
+Feature pairing passed; whole comparison invalid,official INCONCLUSIVE unchanged.
+80/80 workers,720/720 trials. Full large-small -0.2292pp,
+simultaneous98.75% CI[-0.9731,+0.5148]pp.
+Large full90.1736%,UNKNOWN89.6389%;
+small full90.4028%. Gates unchanged.
+Trusted supervised fit phase832.068559s;
+charged full workers1055.745196s /16640s. Larger fitting work paid.
+Auxiliary cap1800s includes startup,failed boundary/readiness checks and all tests.
+Deadline2026-10-05T00:50:36Z; no budget/history reset.
+Complete corrected report:research/analyses/EXP-20261004-0008-ADDENDUM-V1.md.
+Initial report preserved; exact final accounting:
+research/laboratory/PVM01-CYCLE-310-COMPLETION-V1.receipt.json.
+Current v5 study terminal,maintenance/scoring=false; global continuation active.
+5/17 new tickets used,12 remain; old3/2655.336485s carried unchanged.
+No retry,WT8–9,external model/API,novelty/economic/transfer promotion or schedule change.
+No exposure improvement observed; failed identity gate cannot become DISCARD.
+Next: preregister preparation-only deterministic decoder/telemetry conformance
+in independent fixed-fixture children,no research data/EXP/paid retry.
+Then a distinct prospective alternative/adverse task versus strongest classics.
+Freeze before implementation/data; no automatic step rescue or gate relaxation.
+Three-scale/full-cost comparison,independent replication and frozen fresh final remain.
+No second EXP in this completed cycle. Previous sections are preserved history.
+
 # Prospective cycle310 — capacity exposure (2026-10-04)
 
 PVM01-CAPACITY-EXPOSURE-V1 is frozen before scientific implementation.

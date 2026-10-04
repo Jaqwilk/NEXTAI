@@ -1,0 +1,39 @@
+{
+  "auxiliary_seconds_charged": 111,
+  "charged_worker_seconds": 1055.745196000149,
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "program",
+        "register"
+      ],
+      "returncode": 0,
+      "wall_seconds": 27.958875600001193
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "run",
+        "--plan",
+        "research/plans/EXP-20261004-0008.json"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1119.031812599991
+    }
+  ],
+  "controller_overhead_seconds": 105.63525529985782,
+  "created_at": "2026-10-04T21:43:11Z",
+  "direct_model_execution": false,
+  "experiment_id": "EXP-20261004-0008",
+  "result_present": true,
+  "result_sha256": "5b6bcdebcef8c4e5a21266831100561434d38e057caa9e2c3eab9d075fbb3ac8",
+  "same_plan_retries": 0,
+  "total_wall_seconds": 1161.3804513000068
+}

@@ -1,0 +1,23 @@
+{
+  "cap": 180.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "tests/test_pvm01_capacity_exposure.py",
+    "tests/test_pvm01_compact_features.py",
+    "tests/test_pvm01_delta_memory.py",
+    "tests/test_pvm01_path_binding.py",
+    "tests/test_pvm01_analysis_serialization.py",
+    "tests/test_integrity_and_schemas.py",
+    "tests/test_lab_restart.py",
+    "tests/test_report_pareto_provenance.py",
+    "--junitxml=research/reviews/PVM01-EXPOSURE-postrun-targeted-V1.xml"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 47,
+  "wall_seconds": 41.08809819999442
+}

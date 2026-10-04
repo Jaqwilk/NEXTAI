@@ -1,0 +1,54 @@
+{
+  "experiment_id": "EXP-20261004-0008",
+  "failures": [],
+  "primary_gates": {
+    "five_paired_units": true,
+    "small": false,
+    "frozen": false,
+    "shuffled": false,
+    "retention_noninferiority": false
+  },
+  "competence_gates": {
+    "exposure_large": {
+      "five_units": true,
+      "mean_accuracy": false,
+      "each_unit_accuracy": false,
+      "each_K_accuracy": false,
+      "mean_unknown": false,
+      "each_unit_unknown": false,
+      "known_false_abstention": false
+    },
+    "dense": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "known_false_abstention": true
+    },
+    "dense_cached_cpu": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "known_false_abstention": true
+    },
+    "dense_cached_cuda": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "known_false_abstention": true
+    }
+  },
+  "decision": "INCONCLUSIVE comparison"
+}
+Raw source 1172 runtime 647 bytes 370036950 preserved
+Incomplete comparison preserved; no retry or further fit.
+{"analysis": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\analyses\\EXP-20261004-0008.md", "raw_sha256": "45458d437156b92db3f9e75fc865b2764578b1daf1dca3ae024284a4b70089ac", "decision": "INCONCLUSIVE comparison"}
+One result analyzed, raw source/runtime archived, complete immutable report written before lifecycle checks.

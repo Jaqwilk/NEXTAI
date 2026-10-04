@@ -1,0 +1,15 @@
+{
+  "candidate_bundle_unchanged": true,
+  "completed_analysis_before_postrun_checks": true,
+  "completed_result_unchanged": true,
+  "created_at": "2026-10-04T21:52:59Z",
+  "current_evaluator_sha256": "bb02287e238449f3fcc49ee2f04b73c17b81c7d463c6f0ed61994c2c9fd5f073",
+  "evaluated_source_preserved_before_transition": true,
+  "experiment_id": "EXP-20261004-0008",
+  "maintenance": true,
+  "no_new_research_data_fit_seed_or_registration": true,
+  "protected_files": 1166,
+  "scoring_authorized": false,
+  "source_and_runtime_receipt_sha256": "e2a98e43da5d9f4e712d0af0ad6e1ddce49f3a55144cd33b59da76bc0c87d7b1",
+  "whole_program_complete": false
+}
