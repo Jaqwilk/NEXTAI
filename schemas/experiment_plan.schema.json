@@ -4214,6 +4214,6 @@
         ]
       }
     },
-    {"if":{"properties":{"benchmark":{"enum":["paired_view_mutable_memory_v1","paired_view_mutable_memory_v2","paired_view_mutable_memory_v3"]}},"required":["benchmark"]},"then":{"required":["research_program_protocol"],"properties":{"matrix":{"properties":{"knowledge_sizes":{"const":[32,128,512]},"reasoning_depths":{"const":[1,2,3]},"queries_per_cell":{"const":64},"seed_policy":{"properties":{"count":{"const":5}}}}},"research_program_protocol":{"required":["compute_charge_basis","task_contract_path","task_contract_sha256"]}}}}
+    {"if":{"properties":{"benchmark":{"enum":["paired_view_mutable_memory_v1","paired_view_mutable_memory_v2","paired_view_mutable_memory_v3","paired_view_mutable_memory_v4"]}},"required":["benchmark"]},"then":{"required":["research_program_protocol"],"properties":{"matrix":{"properties":{"knowledge_sizes":{"const":[32,128,512]},"reasoning_depths":{"const":[1,2,3]},"queries_per_cell":{"const":64},"seed_policy":{"properties":{"count":{"const":5}}}}},"research_program_protocol":{"required":["compute_charge_basis","task_contract_path","task_contract_sha256"]}}}}
   ]
 }

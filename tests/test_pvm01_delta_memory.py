@@ -209,6 +209,7 @@ def test_new_units_reject_consumed_realizations_without_replacement(tmp_path, co
     paths = {
         "EXP-20261004-0004": "research/laboratory/archive/EXP-20261004-0004-runtime/research/tmp/EXP-20261004-0004",
         "EXP-20261004-0005": "research/laboratory/archive/EXP-20261004-0005-runtime",
+        "EXP-20261004-0006": "research/laboratory/archive/EXP-20261004-0006-runtime/research/tmp/EXP-20261004-0006",
     }
     for index, (identity, relative) in enumerate(paths.items()):
         directory = tmp_path / relative

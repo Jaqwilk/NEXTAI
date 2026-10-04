@@ -1,0 +1,15 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "tests/test_pvm01_compact_features.py",
+    "tests/test_pvm01_delta_memory.py",
+    "--junitxml=research/reviews/PVM01-COMPACT-targeted-V1.xml"
+  ],
+  "no_research_data": true,
+  "returncode": 0,
+  "seconds_charged": 9
+}

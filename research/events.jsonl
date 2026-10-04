@@ -729,3 +729,11 @@
 {"charge_id":"PVM01-COMPACT-startup-V1","created_at":"2026-10-04T19:37:09Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":180}
 {"charge_id":"PVM01-COMPACT-startup-V1","created_at":"2026-10-04T19:38:55Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":94}
 {"before_implementation":true,"created_at":"2026-10-04T19:40:48Z","event":"research_program_study_frozen","next_cycle":309,"program_id":"NEXTAI-CONTINUATION-20261004-V1","scoring":false,"study_path":"research/plans/PVM01-COMPACT-FEATURE-SCREEN-V1.json","study_sha256":"fff220213f1b1cea96ef53754f96d40bbcb6f2997f8a7371ecbed6a58e731aad"}
+{"charge_id":"PVM01-COMPACT-targeted-V1","created_at":"2026-10-04T19:47:40Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":240}
+{"charge_id":"PVM01-COMPACT-targeted-V1","created_at":"2026-10-04T19:48:41Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":9}
+{"charge_id":"PVM01-COMPACT-preseed-full-V1","created_at":"2026-10-04T19:49:52Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":420.0}
+{"charge_id":"PVM01-COMPACT-preseed-full-V1","created_at":"2026-10-04T19:53:44Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":237}
+{"charge_id":"PVM01-COMPACT-history-guard-V1","created_at":"2026-10-04T19:56:00Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":120.0}
+{"charge_id":"PVM01-COMPACT-history-guard-V1","created_at":"2026-10-04T19:56:20Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":23}
+{"charge_id":"PVM01-COMPACT-history-guard-V2","created_at":"2026-10-04T19:56:56Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":120.0}
+{"charge_id":"PVM01-COMPACT-history-guard-V2","created_at":"2026-10-04T19:57:15Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":23}

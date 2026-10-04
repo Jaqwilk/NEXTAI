@@ -268,6 +268,7 @@ def verify_pvm01_fresh_realization(base, seeds, nonces):
     previous = {
         "EXP-20261004-0004": "research/laboratory/archive/EXP-20261004-0004-runtime/research/tmp/EXP-20261004-0004",
         "EXP-20261004-0005": "research/laboratory/archive/EXP-20261004-0005-runtime",
+        "EXP-20261004-0006": "research/laboratory/archive/EXP-20261004-0006-runtime/research/tmp/EXP-20261004-0006",
     }
     for identity, relative in previous.items():
         directory = base / relative
@@ -317,7 +318,7 @@ def create_plan(base, requested=None):
                     "study_sha256": sha256_file(base / value["study_path"]), "registration_ticket": ticket,
                     **_study_scope(study)}
         metrics = ["accuracy", "fact_top1_accuracy", "dense_unknown_rejection", "mean_query_ops", "p95_latency_us", "state_bytes", "fit_ops", "preprocessing_ops"]
-        paired_view = study["cohort"] in ("paired_view_mutable_memory_v1", "paired_view_mutable_memory_v2", "paired_view_mutable_memory_v3")
+        paired_view = study["cohort"] in ("paired_view_mutable_memory_v1", "paired_view_mutable_memory_v2", "paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4")
         plan = {"schema_version": 1, "experiment_id": experiment_id, "parent_experiment_id": None, "created_at": utc_now(),
                 "status": "planned", "hypothesis_id": "HYP-0012", "title": study["id"], "research_question": study["question"],
                 "architecture_family": "paired_view_learning_reference" if paired_view else "muc_v2_reference_diagnostic", "candidates": study["candidates"], "benchmark": study["cohort"],
@@ -332,7 +333,7 @@ def create_plan(base, requested=None):
                 "eligibility_contract": {"metric": "accuracy", "minimum": .90}, "research_program_protocol": protocol,
                 "git_before": {"commit": _git_value(base, "rev-parse", "HEAD"), "branch": _git_value(base, "branch", "--show-current"),
                                "dirty": bool(_git_value(base, "status", "--porcelain"))}}
-        if study.get("study_kind") == "paired_view_delta_memory":
+        if study.get("study_kind") in {"paired_view_delta_memory", "paired_view_compact_feature_memory"}:
             common = [m for m in metrics if m != "fact_top1_accuracy"]
             plan.update(architecture_family="learned_transport_classical_delta_memory",
                 primary_metrics=common,
@@ -340,6 +341,10 @@ def create_plan(base, requested=None):
                 predicted_outcome="Local delta may improve replacement while retaining facts; compact capacity and absence may fail, and strong classical retrieval may dominate.",
                 falsification_criteria=["Any of the four preregistered simultaneous primary or competence gates fails; preserve valid narrow effects and exact tested scope."],
                 alternative_explanations=["Classical RFF/LMS update, retrieval, finite capacity, representation learning and deployment overhead are distinct explanations."])
+            if study["study_kind"] == "paired_view_compact_feature_memory":
+                plan.update(architecture_family="learned_compact_features_classical_delta_memory",
+                    predicted_outcome="Feature learning may improve matched512 capacity over frozen/shuffled maps; compact capacity and absence may fail, and classical retrieval may dominate.",
+                    falsification_criteria=["Any frozen compact feature primary or competence gate fails; preserve narrow effects, all outcomes and exact recipe."])
         validate_document("experiment_plan", plan, base)
         verify_required_baselines(plan, base, run_tests=False)
         verify_preflight_certificate(base)

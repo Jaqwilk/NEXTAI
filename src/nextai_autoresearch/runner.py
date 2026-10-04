@@ -636,12 +636,12 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
             }
             evaluation_matrix, scoring_seed_policy = _realize_evaluation_matrix(plan)
             runtime_plan = {**plan, "matrix": evaluation_matrix}
-            if plan["benchmark"] in ("paired_view_mutable_memory_v1", "paired_view_mutable_memory_v2", "paired_view_mutable_memory_v3"):
+            if plan["benchmark"] in ("paired_view_mutable_memory_v1", "paired_view_mutable_memory_v2", "paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4"):
                 private_path = runtime_plan_path.parent / "pvm01-private-data.json"
                 if private_path.exists():
                     raise FileExistsError("Private data realization already exists; no retry")
                 unit_nonces = [secrets.token_hex(32) for _ in evaluation_matrix["seeds"]]
-                if plan["benchmark"] == "paired_view_mutable_memory_v3":
+                if plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4"}:
                     from .research_program import verify_pvm01_fresh_realization
                     verify_pvm01_fresh_realization(base, evaluation_matrix["seeds"], unit_nonces)
                 atomic_write_json(private_path, {"experiment_id": plan["experiment_id"],
@@ -742,7 +742,7 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                 "interpretation_status": "pending_codex_analysis",
             }
             validate_document("experiment_result", result, base)
-            atomic_write_json(result_path, result, compact=plan["benchmark"] == "paired_view_mutable_memory_v3")
+            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4"})
             for candidate in candidate_results:
                 summary = candidate.get("summary", {})
                 append_experiment_row(

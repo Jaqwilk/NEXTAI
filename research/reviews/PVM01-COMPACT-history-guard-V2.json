@@ -1,0 +1,14 @@
+{
+  "cap": 120.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_compact_guard_v2.py"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 23,
+  "wall_seconds": 17.80894229999103
+}

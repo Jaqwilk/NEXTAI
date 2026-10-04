@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_compact_guard.py", line 51, in <module>
+    "protected_files":len(integrity["files"]), "integrity_ok":True,
+                          ~~~~~~~~~^^^^^^^^^
+KeyError: 'files'
