@@ -31,7 +31,7 @@ def _execution_fit(outcomes):
     total = 0.
     for item in outcomes:
         execution = item.get("execution") or {}
-        value = execution.get("supervised_fit_seconds")
+        value = execution.get("research_compute_seconds", execution.get("supervised_fit_seconds"))
         if value is None:
             value = execution.get("wall_seconds", 0.)
         if not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
@@ -42,7 +42,10 @@ def _execution_fit(outcomes):
 
 def _study_scope(study):
     resources = study["resources"]
-    return {**{key: study[key] for key in ("roles", "recipe", "data", "diagnostics", "diagnosis_gates", "reference_gates")},
+    extra = ({"compute_charge_basis": resources["compute_charge_basis"],
+              "task_contract_path": study["task_contract_path"], "task_contract_sha256": study["task_contract_sha256"]}
+             if "compute_charge_basis" in resources else {})
+    return {**extra, **{key: study[key] for key in ("roles", "recipe", "data", "diagnostics", "diagnosis_gates", "reference_gates")},
             "classical_baselines": study["candidates"], "deadline_at": study["study_deadline_at"],
             "fit_seconds_cap": resources["fit_seconds_per_role_cap"], "fit_seconds_total_cap": resources["fit_seconds_study_cap"],
             **{key: resources[key] for key in ("worker_seconds_cap", "max_rss_bytes", "max_cuda_reserved_bytes")}}
@@ -77,6 +80,8 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
     if (len(freezes) != 1 or freezes[0]["study_sha256"] != sha256_file(base / study_path)
             or study["program_contract_sha256"] != sha256_file(base / contract_path)):
         raise ValueError("Current study must have one immutable prospective freeze")
+    if study.get("task_contract_path") and _bound_hash(base, study["task_contract_path"]) != study["task_contract_sha256"]:
+        raise ValueError("Frozen task contract changed")
     tickets = [e for e in events if e.get("event") == "research_program_registration_started"]
     if [e.get("ticket") for e in tickets] != list(range(1, len(tickets) + 1)) or len(tickets) > registration_cap:
         raise ValueError("Research registration accounting changed or exceeded")
@@ -290,16 +295,17 @@ def create_plan(base, requested=None):
                     "study_sha256": sha256_file(base / value["study_path"]), "registration_ticket": ticket,
                     **_study_scope(study)}
         metrics = ["accuracy", "fact_top1_accuracy", "dense_unknown_rejection", "mean_query_ops", "p95_latency_us", "state_bytes", "fit_ops", "preprocessing_ops"]
+        paired_view = study["cohort"] == "paired_view_mutable_memory_v1"
         plan = {"schema_version": 1, "experiment_id": experiment_id, "parent_experiment_id": None, "created_at": utc_now(),
                 "status": "planned", "hypothesis_id": "HYP-0012", "title": study["id"], "research_question": study["question"],
-                "architecture_family": "muc_v2_reference_diagnostic", "candidates": study["candidates"], "benchmark": study["cohort"],
+                "architecture_family": "paired_view_learning_reference" if paired_view else "muc_v2_reference_diagnostic", "candidates": study["candidates"], "benchmark": study["cohort"],
                 "evaluator_sha256": load_json(manifest_path(base))["evaluator_sha256"], "budget": "quick", "matrix": study["matrix"],
                 "primary_metrics": metrics, "metric_directions": {m: "maximize" if m in metrics[:3] else "minimize" for m in metrics},
-                "predicted_outcome": "More hard-negative steps may improve fit; paired namespace probes discriminate generalization; no predetermined success.",
+                "predicted_outcome": ("Legal trained alignment may improve ranking/absence over untrained and shuffled controls; classical transport may suffice; no predetermined success." if paired_view else "More hard-negative steps may improve fit; paired namespace probes discriminate generalization; no predetermined success."),
                 "falsification_criteria": ["Stable-reference gates fail, or all outcomes are invalid/partial; retain every outcome."],
                 "promotion_criteria": ["None: diagnostic only; economic prototype needs fresh replicated final and classical non-domination."],
-                "alternative_explanations": ["Undertraining, rejection, namespace shift and ranking failures are measured separately."],
-                "confounds": ["Visible synthetic development; five combined seed/data units; steps change training cost intentionally."],
+                "alternative_explanations": ["Observation alignment, rejection and ranking failures are measured separately." if paired_view else "Undertraining, rejection, namespace shift and ranking failures are measured separately."],
+                "confounds": ["Visible synthetic development; five combined seed/data units; no externally blinded final; update labels are not reasoning depth." if paired_view else "Visible synthetic development; five combined seed/data units; steps change training cost intentionally."],
                 "outcome_policy": {"positive": study["decision_policy"], "null": study["decision_policy"], "negative": study["decision_policy"]},
                 "eligibility_contract": {"metric": "accuracy", "minimum": .90}, "research_program_protocol": protocol,
                 "git_before": {"commit": _git_value(base, "rev-parse", "HEAD"), "branch": _git_value(base, "branch", "--show-current"),

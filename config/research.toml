@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 2
 protocol_version = 3
-benchmark_version = "muc03_reference_calibration_v1"
+benchmark_version = "paired_view_mutable_memory_v1"
 benchmark_status = "maintenance"
 timezone = "Europe/Warsaw"
 
@@ -894,4 +894,4 @@ minimize = [
 ]
 
 [research_program]
-study_path = "research/plans/NEXTAI-CONTINUATION-PREPARATION-V1.json"
+study_path = "research/plans/PVM01-REFERENCE-V1.json"

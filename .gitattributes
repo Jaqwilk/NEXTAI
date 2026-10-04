@@ -21,3 +21,5 @@ research/reviews/MUC03-*.xml -text
 
 # Hash-bound continuation test journals preserve native failure tracebacks.
 research/reviews/NEXTAI-continuation-*.xml -text
+
+research/reviews/PVM01-*.xml -text

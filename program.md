@@ -1,3 +1,11 @@
+# Current cycle305 — PVM01-REFERENCE-V1 (2026-10-04)
+
+Prospective study frozen in Git df0a4fd before generator/model implementation. Five independent fresh seed/data units, K32/128/512 and update rounds0/1/4 (legacy labels1/2/3, not reasoning depth), eight controls: dense Transformer, dense pointer, source-identical untrained/shuffled, identical-encoder exact NN, raw cosine, ridge and nonlinear Nyström transport. Same legal pairs and arrays; runner-private view maps are separate from model seeds.
+
+Reference/learning/absence gates and finite training-only grids are immutable in research/plans/PVM01-REFERENCE-V1.json. One registration; no retry/final/WT8–9. Deadline2026-10-04T18:42:57.664034Z; each fit<=240s, worker<=356s, all worker wall charged to14400s study compute cap, tests<=1800s. Keep maintenance/scoring=false until clone tests, integrity/preflight and readiness pass. Whole continuation remains active; closed MUC studies unchanged.
+
+Previous sections are preserved history.
+
 # Current bounded cycle304 — NEXTAI continuation preparation (2026-10-04)
 
 Nowy program NEXTAI-CONTINUATION-20261004-V1 jest zatwierdzony: maksymalnie 17 dodatkowych rejestracji i 69344 s obliczeń, z zachowaniem 3 zużytych rejestracji i 2655.336485 s. Kontrakt: research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json. Zamknięty MUC03 i jego wyniki pozostają niezmienione. Nowa autoryzacja pozwala na zmianę receptur, uzasadniony nowy benchmark, minimalne prototypy, ablacje i replikacje; porażka jednej receptury nie zamyka programu. Nie ma potrzeby ponownego pytania o działania objęte tym zakresem.

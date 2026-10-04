@@ -1,0 +1,16 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "tests/test_pvm01_reference.py",
+    "--junitxml=research/reviews/PVM01-targeted-tests-V1.xml"
+  ],
+  "return_code": 1,
+  "stderr": "",
+  "stdout": ".....F..                                                                 [100%]\n================================== FAILURES ===================================\n________ test_every_role_is_audited_and_private_task_import_is_blocked ________\n\ntmp_path = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-388/test_every_role_is_audited_and0')\n\n    def test_every_role_is_audited_and_private_task_import_is_blocked(tmp_path):\n        config = load_config(ROOT)\n        for name in STUDY[\"candidates\"]:\n            result = audit_candidate(name, config, ROOT)\n>           assert result.ok, (name, result.problems)\nE           AssertionError: ('pvm01_dense_s0', ('candidate module must export exactly one class named Candidate',))\nE           assert False\nE            +  where False = AuditResult(ok=False, candidate='pvm01_dense_s0', path=WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION...xtai_autoresearch/candidates/pvm01_dense_s0.py'), '4c4884daaac4d83fcac4651354afeb4453bc7effaf7b984f175e049462cff135'))).ok\n\ntests\\test_pvm01_reference.py:105: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_pvm01_reference.py::test_every_role_is_audited_and_private_task_import_is_blocked\n",
+  "wall_seconds_charged": 3,
+  "xml_sha256": "3ba205c2be0d6ced4920364e1f2bf13986c264ff038b98d9ec293624ca976a77"
+}

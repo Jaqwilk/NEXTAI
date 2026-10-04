@@ -15,6 +15,8 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/PVM01-REFERENCE-V1.json",
+    "scripts/analyze_pvm01_reference.py",
     "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
     "research/plans/NEXTAI-CONTINUATION-PREPARATION-V1.json",
     "research/plans/PVM01-TASK-CONTRACT-V1.json",

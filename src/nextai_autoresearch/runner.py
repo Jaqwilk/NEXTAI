@@ -392,6 +392,9 @@ def _run_candidate(
         "environment_sanitized": True,
         "network_policy": "forbidden_by_audit_and_rules_not_os_sandboxed",
     }
+    if limits.get("compute_charge_basis") == "full_worker_wall_v1":
+        execution["research_compute_seconds"] = elapsed
+        execution["research_compute_charge_basis"] = "full_worker_wall_v1"
     if plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol"):
         try:
             phase = load_json(output_path.with_suffix(".phase.json"))
@@ -633,6 +636,14 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
             }
             evaluation_matrix, scoring_seed_policy = _realize_evaluation_matrix(plan)
             runtime_plan = {**plan, "matrix": evaluation_matrix}
+            if plan["benchmark"] == "paired_view_mutable_memory_v1":
+                private_path = runtime_plan_path.parent / "pvm01-private-data.json"
+                if private_path.exists():
+                    raise FileExistsError("Private data realization already exists; no retry")
+                atomic_write_json(private_path, {"experiment_id": plan["experiment_id"],
+                    "unit_nonces": [secrets.token_hex(32) for _ in evaluation_matrix["seeds"]],
+                    "entropy_policy": "independent256bit_each_unit_separate_from_model_seed_v1"})
+                runtime_plan.update(pvm01_private_data_path=str(private_path), pvm01_private_data_sha256=sha256_file(private_path))
             atomic_write_json(runtime_plan_path, runtime_plan)
             _append_postseed_event(
                 base,
@@ -660,7 +671,8 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                                "error": "Not started: finite stage stops at first failure/deadline/budget; no retry"}
                 else:
                     outcome = _run_candidate(candidate, runtime_plan_path, runtime_plan, config, base, audits[candidate])
-                    fit_charged += (outcome.get("execution") or {}).get("supervised_fit_seconds", 0.)
+                    execution = outcome.get("execution") or {}
+                    fit_charged += execution.get("research_compute_seconds", execution.get("supervised_fit_seconds", 0.))
                     halt_reason = _stage_halt_reason(plan, outcome, fit_charged)
                 candidate_results.append(outcome)
                 atomic_write_json(
