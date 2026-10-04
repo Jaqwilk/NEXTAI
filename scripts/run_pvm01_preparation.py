@@ -36,7 +36,10 @@ def main():
     output = root / "research/reviews" / args.id
     try:
         remaining = min(args.timeout, args.cap - (time.monotonic() - started) - 15)
-        result = run_bounded(command, cwd=root, env=os.environ.copy(),
+        environment = os.environ.copy()
+        environment.update(CUBLAS_WORKSPACE_CONFIG=":4096:8", PYTHONHASHSEED="0",
+                           OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1")
+        result = run_bounded(command, cwd=root, env=environment,
                              stdout_path=output.with_suffix(".stdout.txt"),
                              stderr_path=output.with_suffix(".stderr.txt"), timeout_seconds=remaining)
     except BaseException:

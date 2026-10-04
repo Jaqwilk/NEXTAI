@@ -57,6 +57,9 @@ def _kernel32():
         "OpenThread": ([wintypes.DWORD, wintypes.BOOL, wintypes.DWORD], wintypes.HANDLE),
         "GetProcessIdOfThread": ([wintypes.HANDLE], wintypes.DWORD),
         "ResumeThread": ([wintypes.HANDLE], wintypes.DWORD),
+        "OpenProcess": ([wintypes.DWORD, wintypes.BOOL, wintypes.DWORD], wintypes.HANDLE),
+        "IsProcessInJob": ([wintypes.HANDLE, wintypes.HANDLE, ctypes.POINTER(wintypes.BOOL)], wintypes.BOOL),
+        "WaitForSingleObject": ([wintypes.HANDLE, wintypes.DWORD], wintypes.DWORD),
         "CloseHandle": ([wintypes.HANDLE], wintypes.BOOL),
     }
     for name, (args, result) in signatures.items():
@@ -94,6 +97,44 @@ class _Job:
     def terminate(self):
         _check(self.api.TerminateJobObject(self.handle, 124))
 
+    def live_descendants(self, root_pid):
+        # Accounting notifications can lag process termination. Test owned
+        # member handles for signal state, rather than calling a stale count live.
+        capacity = max(8, self.accounting().active_processes + 2)
+        for _ in range(3):
+            if capacity > 4096:
+                raise RuntimeError("Auxiliary job process list exceeds the bounded query")
+            class ProcessIDs(ctypes.Structure):
+                _fields_ = [("assigned", wintypes.DWORD), ("count", wintypes.DWORD),
+                            ("pids", ctypes.c_size_t * capacity)]
+            ids = ProcessIDs()
+            ok = self.api.QueryInformationJobObject(self.handle, 3, ctypes.byref(ids), ctypes.sizeof(ids), None)
+            if not ok and ctypes.get_last_error() != 234:  # ERROR_MORE_DATA
+                _check(ok)
+            if not ok or ids.assigned > ids.count:
+                capacity = max(capacity * 2, ids.assigned)
+                continue
+            alive = []
+            for pid in ids.pids[:ids.count]:
+                if pid == root_pid:
+                    continue
+                handle = self.api.OpenProcess(0x00100000 | 0x00001000, False, pid)
+                if not handle and ctypes.get_last_error() == 87:  # Exited identifier is no longer present.
+                    continue
+                _check(handle)
+                try:
+                    member = wintypes.BOOL()
+                    _check(self.api.IsProcessInJob(handle, self.handle, ctypes.byref(member)))
+                    state = self.api.WaitForSingleObject(handle, 0)
+                    if state not in (0, 258):
+                        _check(False)
+                    if member.value and state == 258:
+                        alive.append(int(pid))
+                finally:
+                    _check(self.api.CloseHandle(handle))
+            return tuple(alive)
+        raise RuntimeError("Auxiliary job process list changed beyond the bounded query")
+
     def close(self):
         if self.handle is not None:
             handle, self.handle = self.handle, None
@@ -122,6 +163,8 @@ class ProcessResult:
     pid: int
     processes_created: int
     peak_tree_rss_bytes_sampled: int
+    exit_job_active_process_count: int
+    exit_live_descendant_pids: tuple[int, ...]
 
 
 def run_bounded(command, *, cwd, env, stdout_path, stderr_path, timeout_seconds):
@@ -162,8 +205,9 @@ def run_bounded(command, *, cwd, env, stdout_path, stderr_path, timeout_seconds)
                     pass
                 time.sleep(min(.02, max(0., deadline - time.monotonic())))
             accounting = job.accounting()
+            live_descendants = job.live_descendants(process.pid)
             reason = ("timeout" if time.monotonic() >= deadline else
-                      "lingering_descendants" if accounting.active_processes else "exited")
+                      "lingering_descendants" if live_descendants else "exited")
             cleanup_deadline = time.monotonic() + 3.
             if reason != "exited":
                 job.terminate()
@@ -173,7 +217,8 @@ def run_bounded(command, *, cwd, env, stdout_path, stderr_path, timeout_seconds)
                 raise RuntimeError("Job did not drain within bounded cleanup")
             root_code = process.wait(timeout=max(.01, cleanup_deadline - time.monotonic()))
             return ProcessResult(root_code if reason == "exited" else 124, root_code, reason,
-                                 time.monotonic() - started, process.pid, accounting.total_processes, peak_rss)
+                                 time.monotonic() - started, process.pid, accounting.total_processes, peak_rss,
+                                 accounting.active_processes, live_descendants)
     finally:
         # Closing the sole non-inherited handle also kills orphaned descendants.
         try:

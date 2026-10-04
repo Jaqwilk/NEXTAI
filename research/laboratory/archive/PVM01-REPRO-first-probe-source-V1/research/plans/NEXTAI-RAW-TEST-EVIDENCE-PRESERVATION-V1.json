@@ -1,0 +1,34 @@
+{
+  "created_at": "2026-10-04T14:11:04Z",
+  "id": "NEXTAI-RAW-TEST-EVIDENCE-PRESERVATION-V1",
+  "kind": "no-scoring publication-byte repair",
+  "observation": [
+    {
+      "current_git_blob_sha256": "60a63b19f52017dcb55107491950891fa39c3aeb67296ab9190780f30ced90d0",
+      "path": "research/reviews/NEXTAI-continuation-targeted-tests.xml",
+      "raw_sha256": "ed9c545e1335c004b25a216bb1890fdd904a9474f832dbfd93eda16c0220feff"
+    },
+    {
+      "current_git_blob_sha256": "07ada0edecab4e5f1e2cf962de182f756c4df0d115ad946d7349addd4a0f1354",
+      "path": "research/reviews/NEXTAI-continuation-full-regression.xml",
+      "raw_sha256": "8ac9377310ac3589b2f6e440e79b8f52e3f7b12b9c88a6bef092d7ad6394131b"
+    }
+  ],
+  "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+  "registration_or_research_fit": false,
+  "repair": "Add -text for research/reviews/NEXTAI-continuation-*.xml, as for previous hash-bound MUC journals; stage unchanged raw evidence and verify Git roundtrip. Preserve the intermediate normalized commit without amend/reset.",
+  "schema_version": 1,
+  "source_commit": "9700551bb8d6de113814127caa187b77fc446ebf",
+  "test_cap_seconds": 120,
+  "unchanged": [
+    "numerical evaluator",
+    "candidate/model source",
+    "metrics/thresholds",
+    "actual failed XML bytes and original hash-bound events"
+  ],
+  "validation": [
+    "raw current file bytes equal staged and committed Git blob bytes",
+    "every failure event file hash matches published bytes",
+    "current protected integrity/preflight and clone doctor pass; prior1054-case Python regression remains source-identical except integrity document list"
+  ]
+}

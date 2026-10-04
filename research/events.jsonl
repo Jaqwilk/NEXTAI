@@ -849,3 +849,7 @@
 {"charge_id":"PVM01-REPRO-fixture-matrix-V1","created_at":"2026-10-04T22:43:52Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":1000}
 {"charge_id":"PVM01-REPRO-fixture-matrix-V1","created_at":"2026-10-04T22:44:52Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":66}
 {"created_at":"2026-10-04T22:47:12Z","cycle":311,"event":"preparation_implementation_repair_preregistered","id":"PVM01-REPRO-PREPARATION-IMPLEMENTATION-REPAIR-V1","new_EXP_registration":false,"plan_path":"research/plans/PVM01-REPRO-PREPARATION-IMPLEMENTATION-REPAIR-V1.json","plan_raw_sha256":"f6f16cb47ba84c7594e5fe15aada0fa3d2e364d8987c9b04f0eb1921eea180c6","scoring":false,"source_repair_round":1}
+{"charge_id":"PVM01-REPRO-targeted-V2","created_at":"2026-10-04T22:48:33Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":180}
+{"charge_id":"PVM01-REPRO-targeted-V2","created_at":"2026-10-04T22:48:54Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":26}
+{"charge_id":"PVM01-REPRO-source-freeze-V2","created_at":"2026-10-04T22:50:06Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":120}
+{"charge_id":"PVM01-REPRO-source-freeze-V2","created_at":"2026-10-04T22:50:11Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":11}

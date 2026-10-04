@@ -1,0 +1,36 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_process_supervision.py",
+    "tests/test_pvm01_repro_policy.py",
+    "tests/test_pvm01_delta_memory.py",
+    "--junitxml=research/reviews/PVM01-REPRO-targeted-V2.xml"
+  ],
+  "created_at": "2026-10-04T22:48:57Z",
+  "error": null,
+  "id": "PVM01-REPRO-targeted-V2",
+  "raw_outputs": {
+    "PVM01-REPRO-targeted-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-REPRO-targeted-V2.stdout.txt": "33d6066802036ed230afaa252be1a03c2838f5613ad8eeb6c5363be3db0ae4cc"
+  },
+  "result": {
+    "elapsed_seconds": 17.395272099995054,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1005821952,
+    "pid": 29708,
+    "processes_created": 106,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "scoring_or_research_data": false,
+  "seconds_charged": 26,
+  "wall_seconds": 20.59956639999291
+}

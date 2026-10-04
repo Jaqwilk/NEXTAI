@@ -61,8 +61,10 @@ def analyze(runs, frozen):
 
 def main():
     assert hashlib.sha256(PLAN.read_bytes()).hexdigest() == PLAN_SHA
+    repair = ROOT / "research/plans/PVM01-REPRO-PREPARATION-IMPLEMENTATION-REPAIR-V1.json"
+    assert sha256_file(repair) == "f6f16cb47ba84c7594e5fe15aada0fa3d2e364d8987c9b04f0eb1921eea180c6"
     frozen = json.loads(PLAN.read_text())["cuda_fixture"]
-    directory = ROOT / "research/reviews/PVM01-REPRO-fixture-V1"
+    directory = ROOT / "research/reviews/PVM01-REPRO-fixture-V2"
     directory.mkdir(exist_ok=False)
     started = time.monotonic()
     runs = []
@@ -86,9 +88,10 @@ def main():
             break
     analysis = analyze(runs, frozen)
     analysis.update(created_at=utc_now(), plan_raw_sha256=PLAN_SHA, elapsed_seconds=time.monotonic() - started,
+                    repair_plan_raw_sha256=sha256_file(repair), preserved_failed_probe="PVM01-REPRO-fixture-analysis-V1.json",
                     runs=runs, source_hashes={p.relative_to(ROOT).as_posix(): sha256_file(p) for p in
                     (PLAN, ROOT / "scripts/pvm01_repro_fixture.py", Path(__file__), ROOT / "src/nextai_autoresearch/candidates/pvm01_repro_core.py")})
-    atomic_write_json(ROOT / "research/reviews/PVM01-REPRO-fixture-analysis-V1.json", analysis)
+    atomic_write_json(ROOT / "research/reviews/PVM01-REPRO-fixture-analysis-V2.json", analysis)
     print(json.dumps({key: analysis[key] for key in ("decision", "technical_acceptance_passed", "all_36_children_complete", "elapsed_seconds")}), flush=True)
     return 0 if analysis["technical_acceptance_passed"] else 1
 

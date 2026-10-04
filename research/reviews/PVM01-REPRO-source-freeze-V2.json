@@ -1,0 +1,38 @@
+{
+  "archived_previous_files": 1171,
+  "candidate_bundle_sha256": "5b44c0b2494de595e1ee7348a6c5a2552c52c5e0f177fc4fcbcd3b15075b3b78",
+  "created_at": "2026-10-04T22:50:14Z",
+  "evaluator_sha256": "540b9ccdd5260e08cdbcd25a9a831ed8e9242ed0bde967772216b28c23a15798",
+  "id": "PVM01-REPRO-source-freeze-V2",
+  "new_source": {
+    "scripts/check_pvm01_repro.py": "d3270b94cc4b4d22948b373f5d1de84836f24eb9e48626d0ff1c0e7c4e964578",
+    "scripts/pvm01_repro_fixture.py": "9acc6d52d93df0f9c834569a141dffc121ceacb956b0786f7ed206f5583df227",
+    "scripts/run_pvm01_preparation.py": "129eed0aa7ceb557e3ae7b03ed451cb0f177e7caa9906ee39abc772a3b384e5a",
+    "src/nextai_autoresearch/candidates/pvm01_repro_core.py": "cbc030e8f22e3a1341bcbf23848b59b064ba5a7fdfc7378b2fddf8fd743ced50",
+    "src/nextai_autoresearch/process_supervision.py": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b"
+  },
+  "preflight": {
+    "benchmark_version": "paired_view_mutable_memory_v5",
+    "certificate_sha256": "a2a35c08e5c171d144a3ae9a131254ee807e7025b7025a91b377ec87a22bd5a0",
+    "created_at": "2026-10-04T22:50:07Z",
+    "evaluator_sha256": "540b9ccdd5260e08cdbcd25a9a831ed8e9242ed0bde967772216b28c23a15798",
+    "files": {
+      "baseline_registry": "0ec30e92f4d5855c36c8ed3e66fa0ab7d23ed70503c482f8782582eb4f08f447",
+      "manifest": "4be3416613623638f963f3a2ab222162f8d4ec50f9af2369a14a81612cbe3f5e",
+      "runner": "0859a603c0022e4ba3c3cad0f020dd868c758c5931237f48e74a7942c3d15496",
+      "schema:experiment_plan": "50068a1bdd854efff0bbff5baa540ac53084cb18cddbd4d0194c52eb5e051e10",
+      "schema:experiment_result": "ea41b0a4c0ee6fd8d0deaa54b315ae21849532aa12bf2eb638d2c6f010508471",
+      "schema:hypothesis": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
+      "schema:laboratory_restart": "2c48b9e31acdd1d32c3f33bc1e70b90222622e330ce2b26e786ef00758a8cd02",
+      "schema:pc01_plan": "c99d35a113f7f572de59660c1846c0f3339e329450eb71734afcccdb2b96304c",
+      "schema:pc01_replica": "ab8dc09cd3268a6107a54cde0b9e5e4e590334291fe4f8a290269782f9a67365",
+      "schema:pc01_result": "ff51e5d130d0dcd7a59ff4fc72fca677c65b25d04842898b6277e4155801b288",
+      "schema:research_state": "f155fb268b3ef422b9e1547a450222c2bdf040ef7d2d28a9025eec8281bb41bd",
+      "schema:source": "dbacf05397d719e2e8594af5c0061fc03b191df50f0985ea42b01d09464ae057"
+    },
+    "schema_version": 1
+  },
+  "protected_files": 1171,
+  "seconds_charged": 11,
+  "wall_seconds": 5.021827400007169
+}

@@ -67,3 +67,12 @@ def test_windows_structures_match_documented_native_layout():
     assert ctypes.sizeof(supervision._IOCounters) == 48
     assert ctypes.sizeof(supervision._ExtendedLimits) == 144
     assert ctypes.sizeof(supervision._Accounting) == 48
+
+
+def test_rapid_redirector_exit_is_not_a_live_descendant(tmp_path):
+    for index in range(24):
+        directory = tmp_path / str(index)
+        directory.mkdir()
+        result = run(directory, [sys.executable, "-c", "pass"])
+        assert result.returncode == 0, result
+        assert result.exit_live_descendant_pids == ()

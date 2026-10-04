@@ -1,3 +1,14 @@
+# Prospective cycle311 — bounded implementation correction (2026-10-04)
+
+The first public fixed-fixture probe stopped at5/36; it remains INCONCLUSIVE.
+Its full66s auxiliary cost and raw outputs are preserved. No deterministic child
+started. The prospective implementation repair at commit5f3fa61 preserves the
+2400s/2h caps and all metrics, model, seeds, data law and exact identity gates.
+It tests live member handles and explicitly propagates the already frozen environment.
+At most one corrected36-child auxiliary matrixV2;41 total including the failed5.
+This is technical conformance only, with no scored/paid research retry.
+EXP-20261004-0008 and every closed scientific result remain unchanged.
+
 # Prospective cycle311 — technical process and CUDA conformance (2026-10-04)
 
 PVM01-REPRO-PREPARATION-V1 is frozen before implementation at commit4cc5f20.

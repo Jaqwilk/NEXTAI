@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import time
 
@@ -51,6 +52,9 @@ def main():
     assert args.seed in frozen["model_seeds"] and args.repeat in (0, 1)
     assert args.arm in frozen["arms"] and args.profile in frozen["profiles"]
     assert not args.output.exists()
+    required_environment = {"CUBLAS_WORKSPACE_CONFIG": ":4096:8", "PYTHONHASHSEED": "0",
+                            "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}
+    assert all(os.environ.get(key) == value for key, value in required_environment.items())
     started = time.perf_counter()
     import torch
     from torch.profiler import profile, ProfilerActivity
@@ -98,6 +102,8 @@ def main():
               "fit_report": fit_report, "dispatch_operators": operators,
               "settings_before": settings_before, "deterministic_setting_after": torch.are_deterministic_algorithms_enabled(),
               "torch_version": torch.__version__, "cuda_runtime": torch.version.cuda,
+              "required_environment": required_environment,
+              "helper_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               "device": torch.cuda.get_device_name(0), "precision": "float32", "threads": torch.get_num_threads(),
               "cuda_peak_allocated_bytes": torch.cuda.max_memory_allocated(),
               "cuda_peak_reserved_bytes": torch.cuda.max_memory_reserved(),
