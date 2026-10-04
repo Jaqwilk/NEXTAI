@@ -1,0 +1,24 @@
+{
+  "can_create_plan": true,
+  "commands": [
+    {
+      "command": [
+        "doctor"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "lab",
+        "status"
+      ],
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-04T20:01:49Z",
+  "full_compute_cap": 15600,
+  "new_tickets_before_run": 3,
+  "no_research_seed_data_fit_or_registration": true,
+  "readiness_integrity_preflight": true,
+  "schema_and_all75_semantic_conformance": true
+}

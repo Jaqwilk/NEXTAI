@@ -6,7 +6,7 @@ objective = "Find computational principles that could improve capability per uni
 generation = 2
 protocol_version = 3
 benchmark_version = "paired_view_mutable_memory_v4"
-benchmark_status = "maintenance"
+benchmark_status = "active"
 timezone = "Europe/Warsaw"
 
 [laboratory]
