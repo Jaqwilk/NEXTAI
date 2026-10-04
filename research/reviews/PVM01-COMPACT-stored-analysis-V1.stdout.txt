@@ -1,0 +1,50 @@
+{
+  "experiment_id": "EXP-20261004-0007",
+  "failures": [],
+  "primary_gates": {
+    "five_paired_units": true,
+    "frozen": false,
+    "shuffled": false,
+    "K512_updated": false,
+    "retention_noninferiority": false
+  },
+  "competence_gates": {
+    "compact_learned": {
+      "five_units": true,
+      "mean_accuracy": false,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": false,
+      "mean_unknown": false,
+      "each_unit_unknown": false,
+      "known_false_abstention": false
+    },
+    "dense": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "known_false_abstention": true
+    },
+    "dense_cached_cpu": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "known_false_abstention": true
+    },
+    "dense_cached_cuda": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "known_false_abstention": true
+    }
+  },
+  "decision": "DISCARD exact RFF512/512-step learned feature recipe"
+}

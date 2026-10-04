@@ -1,0 +1,17 @@
+{
+  "cap": 90.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "tests/test_protocol_v2.py::test_checked_in_research_lifecycle_is_consistent",
+    "tests/test_report_pareto_provenance.py",
+    "--junitxml=research/reviews/PVM01-COMPACT-postanalysis-lifecycle-V2.xml"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 30,
+  "wall_seconds": 24.95600230000855
+}

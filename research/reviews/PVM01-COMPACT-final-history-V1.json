@@ -1,0 +1,14 @@
+{
+  "cap": 120.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_compact_final_history.py"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 39,
+  "wall_seconds": 33.402769699998316
+}

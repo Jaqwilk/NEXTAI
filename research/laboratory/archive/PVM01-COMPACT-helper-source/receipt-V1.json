@@ -1,0 +1,100 @@
+{
+  "created_at": "2026-10-04T20:41:48Z",
+  "estimated_copy_bytes": 93411,
+  "files": {
+    "research/tmp/pvm01_compact_archive.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_archive.py",
+      "bytes": 3484,
+      "raw_sha256": "8b0d459e1ceea2291a81682cd24b5a56033c2f9b08a114b4006eda2495b999e0"
+    },
+    "research/tmp/pvm01_compact_check.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_check.py",
+      "bytes": 1685,
+      "raw_sha256": "1b48f821a7b9e359b87de5c0dedc717ddec84e0873185e880f9dec63b0c36b1c"
+    },
+    "research/tmp/pvm01_compact_diagnostics.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_diagnostics.py",
+      "bytes": 8553,
+      "raw_sha256": "f3b73d874d9519fc174fe63775e3c5732ca25a59b12d1dc54513d7a3e7a80df9"
+    },
+    "research/tmp/pvm01_compact_final_history.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_final_history.py",
+      "bytes": 6028,
+      "raw_sha256": "4467757b7282126ef6695456d744298d8c2ba85b423b80d4da65284441aa4c8c"
+    },
+    "research/tmp/pvm01_compact_finalize.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_finalize.py",
+      "bytes": 8086,
+      "raw_sha256": "abe37b6fcc148bfd66eb65948987d9c278d3a465a4af4462aff7922c5a2f310d"
+    },
+    "research/tmp/pvm01_compact_gates.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_gates.py",
+      "bytes": 2263,
+      "raw_sha256": "f4b8a94bce6853217a5488afdc8fed842e4a0168fbce120b8ed34b88f542ef75"
+    },
+    "research/tmp/pvm01_compact_guard.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_guard.py",
+      "bytes": 3462,
+      "raw_sha256": "24442c515dd305e771ba69f6b5793a141ee27d47ac6609d70ca5f320cf1ed4d5"
+    },
+    "research/tmp/pvm01_compact_guard_v2.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_guard_v2.py",
+      "bytes": 3465,
+      "raw_sha256": "30600e4867c8e5605db08619646091e2bc44d8dcdf3b6196e266c8573172c444"
+    },
+    "research/tmp/pvm01_compact_helpers_archive.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_helpers_archive.py",
+      "bytes": 1437,
+      "raw_sha256": "05f7399da04710734541e53725f8301d960a31698d5dc07a63e91a5cdde314eb"
+    },
+    "research/tmp/pvm01_compact_maintenance.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_maintenance.py",
+      "bytes": 4456,
+      "raw_sha256": "e8a6645a7dbf9cfa82e3ca42e8c97635b5650505607cefcce413aded48f2f5f6"
+    },
+    "research/tmp/pvm01_compact_metadata.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_metadata.py",
+      "bytes": 3617,
+      "raw_sha256": "2f89f48c949c252cd8c32a6c50ca8768144e8dded756e13d04b37a2acb42e19b"
+    },
+    "research/tmp/pvm01_compact_original_validate.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_original_validate.py",
+      "bytes": 2758,
+      "raw_sha256": "999cf57f3c2ba2af824a03efb1fffec8095c18735d3e79be288efcd1de4f4f9d"
+    },
+    "research/tmp/pvm01_compact_pca_correction.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_pca_correction.py",
+      "bytes": 3152,
+      "raw_sha256": "7c3ba53e403f24af9f81bbe28f122b69cf9aeae5d5ec6cc4c37bbcda5a7c898a"
+    },
+    "research/tmp/pvm01_compact_postrun_gates.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_postrun_gates.py",
+      "bytes": 2540,
+      "raw_sha256": "104f09ada88387271d1e5f685516e473bdd7419faa38e959d13cfd68a7a8a32e"
+    },
+    "research/tmp/pvm01_compact_prepare.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_prepare.py",
+      "bytes": 13223,
+      "raw_sha256": "b6fc397d1dc7e360472355722883b68051496c03166123c07003dd2e0cafff33"
+    },
+    "research/tmp/pvm01_compact_ready.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_ready.py",
+      "bytes": 3048,
+      "raw_sha256": "cf9a15a859d2b6fd211e9cb870ed34b6943494fbf6a26b1f26ead002b0e2aac4"
+    },
+    "research/tmp/pvm01_compact_run.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_run.py",
+      "bytes": 2849,
+      "raw_sha256": "893a5e9ea5555a0cf1683c11e80bcf11151e89cd942c564bb6e6f9637718f495"
+    },
+    "research/tmp/pvm01_compact_write_analysis.py": {
+      "archive_path": "research/laboratory/archive/PVM01-COMPACT-helper-source/pvm01_compact_write_analysis.py",
+      "bytes": 19305,
+      "raw_sha256": "0cc5b6035d3a96818cab7d8b1f09c226f4373a05e9c4db02b72318fa3f9c4b29"
+    }
+  },
+  "free_after_bytes": 59418963968,
+  "free_before_bytes": 59419090944,
+  "no_scientific_evidence_deleted": true,
+  "purpose": "Reproduce pre/postseed maintenance, checks, accounting and stored diagnostics; paid science/runtime/results unchanged"
+}

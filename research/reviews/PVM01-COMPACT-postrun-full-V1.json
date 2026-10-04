@@ -1,0 +1,15 @@
+{
+  "cap": 420.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "--junitxml=research/reviews/PVM01-COMPACT-postrun-full-V1.xml"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 1,
+  "seconds_charged": 276,
+  "wall_seconds": 270.45400040000095
+}

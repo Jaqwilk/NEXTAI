@@ -1,0 +1,27 @@
+{
+  "additional_budget": 0,
+  "created_at": "2026-10-04T16:16:35Z",
+  "deadline_at": "2026-10-04T18:42:57.664034Z",
+  "future_run_requires": "A separate prospective v2 study with a new cohort, fresh unit entropy, new manifest/certificate/readiness and its own paid audited registration in a later cycle.",
+  "id": "PVM01-PATH-BINDING-REPAIR-DISPATCH-ADDENDUM-V1",
+  "implementation": [
+    "Extend existing runner-private entropy dispatch and paired-view plan metadata/schema to the explicit v1/v2 version list, preserving v1 behavior.",
+    "Add v2 wrapper converting only the contained runner-private path to Path before calling unchanged v1 run_suite.",
+    "Use temporary fixed test entropy and mocked pre-fit sentinel in worker regression; no scientific data/model/optimizer/query.",
+    "Return the terminal v1 cohort to maintenance and record failure analysis, due literature review and fresh report."
+  ],
+  "kind": "no_scoring_maintenance",
+  "parent_plan": "research/plans/PVM01-PATH-BINDING-REPAIR-V1.json",
+  "parent_sha256": "bf95d40c896f30221f72503c6e6e5a6189905ff19d952258ef86c8e963c82f35",
+  "purpose": "Complete the repaired benchmark route through existing JSON serialization and audited worker plumbing; do not activate a new cohort or create a study ticket.",
+  "registration_cap": 0,
+  "research_fit_cap_seconds": 0,
+  "schema_version": 1,
+  "unchanged": [
+    "failed v1 benchmark and core bytes",
+    "all scientific recipes and metric/gate/grid values",
+    "completed plans/results/receipts",
+    "existing attempts and all accounting",
+    "no retry, final, WT8-9, external models/APIs or schedule changes"
+  ]
+}

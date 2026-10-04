@@ -1,3 +1,30 @@
+# Current cycle309 — EXP-20261004-0007 completed (2026-10-04)
+
+One preregistered compact-feature screen:75/75 workers,675/675 trials,
+five fresh paired units. Learned RFF512/512 steps full90.7778% versus
+source-identical frozen90.8056%; contrast−0.0278pp simultaneous98.75% CI
+[−0.4832,+0.4276]. Retained versus RFF2048−17.0556pp CI[−20.7854,−13.3257].
+All four primary criteria fail; compact competence fails, dense/cache pass.
+DISCARD this exact recipe; no architecture-family falsification or economic,
+novelty, transfer or promotion claim. K512 full73.125%, UNKNOWN77.25%;
+compact full service0.45285s versus dense cacheCPU1.44793s and ridge0.08421s;
+PCA scan0.10426s and68.25KiB versus compact185KiB with lower quality.
+All legal observations, fit identity, seeds and outcomes are preserved.
+Fit phase383.3104s; charged full workers594.5230s /15600s. All tests, failures
+and bookkeeping are append-only charged; auxiliary cap1800s, deadline23:32:56Z.
+Analysis:research/analyses/EXP-20261004-0007.md; final accounting:
+research/laboratory/PVM01-CYCLE-309-COMPLETION-V1.receipt.json.
+Current v4 study terminal, maintenance/scoring=false; continuation stays active.
+4/17 new tickets used; old3 tickets/2655.336485s carried unchanged. No retry,
+WT8–9, external models/API or schedule change. Use uv run nextai lab status.
+Next bounded cycle: preregister matched memory-training exposure including
+K512 versus unchanged K32/128 at fixed512 features/512 steps, frozen/shuffled
+controls, optimized dense and strongest classical/retrieval controls, five
+fresh paired units. Freeze before implementation/data; no rescue on current D.
+If not justified, choose a finite evidence-based alternative. Adverse, scaling,
+replication, frozen fresh final and full economic gates remain required.
+No second EXP in this completed cycle. Previous sections are preserved history.
+
 # Prospective cycle309 — compact feature learning (2026-10-04)
 
 PVM01-COMPACT-FEATURE-SCREEN-V1 is preregistered before implementation.

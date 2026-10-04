@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-10-04T20:23:18Z",
+  "diagnostic_charge_recorded_after_readonly_error": true,
+  "error": "name 'u' is not defined",
+  "error_type": "NameError",
+  "location": "inline stored-result summary, line12, by_K comprehension",
+  "new_research_fit_or_data": false,
+  "primary_frozen_analyzer_completed_and_unchanged": true,
+  "readonly_output_only": true,
+  "returncode": 1,
+  "seconds_charged": 1,
+  "tool_chunk_id": "75b4ae",
+  "wall_seconds": 0.2130747
+}

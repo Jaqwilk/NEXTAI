@@ -1,0 +1,14 @@
+{
+  "cap": 120.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_compact_maintenance.py"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 37,
+  "wall_seconds": 31.218339099999866
+}

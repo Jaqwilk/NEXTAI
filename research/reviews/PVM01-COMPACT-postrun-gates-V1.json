@@ -1,0 +1,14 @@
+{
+  "cap": 180.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_compact_postrun_gates.py"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 1,
+  "seconds_charged": 56,
+  "wall_seconds": 50.034790400008205
+}

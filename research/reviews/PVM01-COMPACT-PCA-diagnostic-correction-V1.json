@@ -1,0 +1,14 @@
+{
+  "cap": 60.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_compact_pca_correction.py"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 20,
+  "wall_seconds": 14.482288100000005
+}

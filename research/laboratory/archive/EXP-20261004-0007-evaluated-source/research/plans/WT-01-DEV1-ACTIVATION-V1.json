@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "WT-01-DEV1-ACTIVATION-V1",
+  "kind": "prospective_single_attempt_wt01_development_activation_plan",
+  "authority": "research/laboratory/WT-01-DEV1-20260905-V1.json",
+  "created_at": "2026-09-05T20:36:44Z",
+  "deadline_at": "2026-09-05T22:36:44Z",
+  "objective": "Determine whether recurrence has a descriptively meaningful causal effect inside the frozen source-identical affine WT mechanism on the two visible development files, while preserving a strict boundary against historical diagnostic files and against replication, transfer, economic or novelty claims.",
+  "implementation_before_data": [
+    "Add a benchmark-specific immutable plan contract for exactly eight factorial cells plus the named VAR(2)/ARX equivalence control, K 18/36/54, H 16/32/96 and one runner-random seed.",
+    "Require the plan data role visible_development_only, fit files 0-5, evaluation files 6-7 and forbidden files 8-9 at schema, creation, run-gate and evaluator boundaries.",
+    "Make the evaluator select only VISIBLE_DEVELOPMENT_SEEDS for this plan and reject any diagnostic, final, hidden, fresh or unrecognized role.",
+    "Add tests that fail if files 8-9 can be requested, if any frozen role or matrix cell is absent, if more than one seed or registration is attempted, or if the authority hash and parent receipt do not match.",
+    "Update only current queue/rules and prospective lifecycle integration; do not alter completed scientific artifacts or candidate semantics.",
+    "Run targeted and complete regression, doctor and integrity; freeze the validated implementation before creating the scored EXP plan."
+  ],
+  "preregistered_execution": {
+    "benchmark_version": "wt01_causal_factorial_diagnostic_v1",
+    "data_role": "visible_development_only",
+    "fit_files": [0, 1, 2, 3, 4, 5],
+    "evaluation_files": [6, 7],
+    "forbidden_files": [8, 9],
+    "candidates": [
+      "wt01_r0_u0_c0_v1", "wt01_r0_u0_c1_v1", "wt01_r0_u1_c0_v1", "wt01_r0_u1_c1_v1",
+      "wt01_r1_u0_c0_v1", "wt01_r1_u0_c1_v1", "wt01_r1_u1_c0_v1", "wt01_r1_u1_c1_v1",
+      "wt01_var2_rls_bound_v1"
+    ],
+    "knowledge_sizes": [18, 36, 54],
+    "horizons": [16, 32, 96],
+    "queries_per_cell": 18,
+    "seed_policy": {"method": "runner_random_v1", "count": 1, "minimum": 1000000, "maximum": 2147483647},
+    "candidate_wall_seconds": 180,
+    "sum_candidate_wall_seconds_cap": 1620,
+    "state_budget_bytes": 16777216
+  },
+  "primary_contrast": {
+    "formula": "NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1)",
+    "cells": ["wt01_r0_u1_c1_v1", "wt01_r1_u1_c1_v1"],
+    "smallest_effect_of_interest": 0.03343253453162794,
+    "descriptive_support_requires": [
+      "aggregate contrast is at least 0.03343253453162794",
+      "contrast is positive separately on development file 6 and development file 7",
+      "all eight factorial cells and the VAR(2)/ARX control complete every K/H cell without divergence",
+      "R1-U1-C1 and the algebraic VAR(2)/ARX control agree within absolute and relative tolerance 1e-12",
+      "integrity, state and full end-to-end cost accounting remain complete"
+    ]
+  },
+  "outcomes": {
+    "positive": "Keep only a descriptive causal-mechanism signal for decision review; do not call it replication, transfer, economic advantage, novelty or promotion and do not automatically open files 8-9.",
+    "null_or_negative": "Mark this exact frozen recurrence contribution unsupported on visible development and stop; do not tune or retry.",
+    "crash_or_integrity_failure": "Preserve the attempt and failure provenance, charge the one attempt once scoring starts, and stop without automatic retry."
+  },
+  "budget": {
+    "development_attempts": 1,
+    "experiment_registrations": 1,
+    "scoring_runs": 1,
+    "runner_random_seeds": 1,
+    "physical_evaluation_files": 2,
+    "candidate_wall_seconds": 180,
+    "sum_candidate_wall_seconds_cap": 1620,
+    "downloads": 0,
+    "dependency_installs": 0
+  },
+  "stop_condition": "Stop immediately after the single run has a terminal result and immutable analysis/receipt, or on any preregistration, scope, integrity, runtime or budget blocker."
+}

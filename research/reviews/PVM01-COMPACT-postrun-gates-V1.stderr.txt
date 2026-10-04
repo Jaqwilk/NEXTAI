@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_compact_postrun_gates.py", line 19, in <module>
+    assert run.returncode == 0
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError

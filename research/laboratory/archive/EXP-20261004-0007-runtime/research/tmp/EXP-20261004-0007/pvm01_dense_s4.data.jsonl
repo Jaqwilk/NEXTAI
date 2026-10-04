@@ -1,0 +1,10 @@
+{"no_structural_resampling":true,"private_data_sha256":"d027683bc0f975e331692ba1f5db2b57064601829eabd7cc8c37f6c8ea1fb54c","seed_index":4,"split":"T","train_pairs_sha256":"df88aa09b1113821ad7e6be3edcf0c8bee04ab41cae1e32cfb41eae999d72507"}
+{"K":32,"episode_count":5,"episodes_sha256":"aea7153ac356c8c6738816dd416334be64acdaf8428e4fc87885aa9c02295506","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":0}
+{"K":32,"episode_count":5,"episodes_sha256":"c6319ea0875d7b068352025ee5ad246ab100ae38b7f5e5a6f3ed717d470529b0","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":1}
+{"K":32,"episode_count":5,"episodes_sha256":"7790c9e79acb4972ccce8889d3f1b50e02a8e1688135aa9c41842b282e6e6667","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":4}
+{"K":128,"episode_count":5,"episodes_sha256":"1b684f81de4db11bdeb2c849964680727ea00f454f6704bcb4a6b375edc54886","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":0}
+{"K":128,"episode_count":5,"episodes_sha256":"12808cbb3dcba6cc6d05358e756365e4d0cc49510bda9a07e0813fa86d31ca5b","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":1}
+{"K":128,"episode_count":5,"episodes_sha256":"5b87b4682413f3254a10edbd6c4964fb524286de0978468b4c94452d74ec275b","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":4}
+{"K":512,"episode_count":5,"episodes_sha256":"c0832140fef3302dd784f681707cc8c416bb9fb70d8b0f05336c5c891f6fe269","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":0}
+{"K":512,"episode_count":5,"episodes_sha256":"d609ede7d3f174f8196dc052ab5ba5331d3c921ad61c3fc896f0f67bbf8b82bb","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":1}
+{"K":512,"episode_count":5,"episodes_sha256":"4fcf3c4658ef51b96ee54255f4ebe66e85910ae7da0c0952c178f2e0494f686c","seed_index":4,"split":"D","structural_resampling":0,"update_rounds":4}

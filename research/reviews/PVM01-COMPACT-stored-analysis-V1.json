@@ -1,0 +1,15 @@
+{
+  "cap": 120.0,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/analyze_pvm01_compact_features.py",
+    "EXP-20261004-0007"
+  ],
+  "model_run_is_scored": false,
+  "returncode": 0,
+  "seconds_charged": 21,
+  "wall_seconds": 15.428303900000174
+}

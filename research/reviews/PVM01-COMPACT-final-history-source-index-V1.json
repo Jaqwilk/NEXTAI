@@ -1,0 +1,26 @@
+{
+  "all_indexed_raw_sha256_valid": true,
+  "archive_receipt_sha256": "2b3ae8bd892d583d8b469755136a56f76a1b8d6be3366d4fcf96ca2caf8321ab",
+  "candidate_bundle_unchanged": true,
+  "created_at": "2026-10-04T20:43:13Z",
+  "failed_helpers_and_diagnostics_preserved": true,
+  "historical_authority_sections_preserved": true,
+  "indexed_raw_archive_native_result_preregistration_files": 1809,
+  "live_staged_whitespace_valid": true,
+  "no_deleted_files": true,
+  "old_scientific_bytes_and_append_only_prefixes_preserved": true,
+  "original_head": "ad52062de886d91cfdf4efdeb41be630d3094ed4",
+  "original_raw_files_unchanged": 17615,
+  "preexisting_line_ending_differences": [
+    "research/BELIEFS.json",
+    "research/checks/AUDIT-REPAIR-harness-first.junit.xml",
+    "research/checks/dronepropa_protocol_gate_cycle75.json",
+    "research/checks/dronepropa_routing_sensitivity_cycle76.json",
+    "research/checks/heldout_wt_changepoints_prequential_v1_development_smoke.json",
+    "research/checks/ncmapss_ds02_semantic_gate_v2_result.json",
+    "research/checks/ncmapss_ds08a_semantic_gate_v1_result.json",
+    "research/checks/real_system_calibration_cycle_228.json",
+    "research/data/suitesparse_real_pde_v1/audit_attempt_001.json",
+    "research/reviews/EXTERNAL-AUDIT-2026-09-03.md"
+  ]
+}
