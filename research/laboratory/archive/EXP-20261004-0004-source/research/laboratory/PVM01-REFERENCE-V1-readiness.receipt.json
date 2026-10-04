@@ -1,0 +1,33 @@
+{
+  "all_historical_failures_preserved": true,
+  "auxiliary_cap_seconds": 1800,
+  "compute_charge_basis": "full_worker_wall_v1",
+  "created_at": "2026-10-04T15:55:22Z",
+  "deadline_at": "2026-10-04T18:42:57.664034Z",
+  "errors": 0,
+  "failures": 0,
+  "id": "PVM01-REFERENCE-V1-readiness",
+  "model_scoring_or_fresh_data_seen": false,
+  "one_registered_run_authorized": true,
+  "query_batching_conformance": "independent queries, same single-query decoder at train and inference",
+  "schema_version": 1,
+  "skipped": 0,
+  "study_compute_cap_seconds": 14400,
+  "study_path": "research/plans/PVM01-REFERENCE-V1.json",
+  "study_sha256": "089d6cd23dd24f08448656f459c22adffb1fd748b74cba2222511f5512d2186c",
+  "tests": 1065,
+  "validated_artifacts_sha256": {
+    "research/plans/PVM01-QUERY-BATCH-CONFORMANCE-V1.json": "cd187ae33435f35ec916b4b92038cf7d82e620c08d17c3a20478563657c82697",
+    "research/plans/PVM01-REFERENCE-V1.json": "089d6cd23dd24f08448656f459c22adffb1fd748b74cba2222511f5512d2186c",
+    "research/plans/PVM01-TASK-CONTRACT-V1.json": "7b8c775a3ebfd6a1645d171caab7237c3a7bc11c44cb7b7fdc26e7eec6c2c326",
+    "research/reviews/PVM01-final-preseed-full-regression-V1.json": "5fc3d5fdc99bcba572997ff43edb977b1bfc2363a68f6c6975993b3565722f4c",
+    "research/reviews/PVM01-final-preseed-full-regression-V1.xml": "8beeccda9d8ff8a98e9710b79be0130304b958ad2d8ee182110455deafae4ad4",
+    "research/reviews/PVM01-single-query-conformance-tests-V1.xml": "8763fc73c9abeaf91eefe17168357c761d36fd8275b2b95b3f184ef0f5d4cd40",
+    "scripts/analyze_pvm01_reference.py": "81d00a1e48eb9852bf21ed1caf12054764b8e4b9cc8e1906d092ee8ee736d42f",
+    "src/nextai_autoresearch/benchmarks/paired_view_mutable_memory_v1.py": "98568a00c81fc70a79227d3a1a98b3c6a52bae772b38cef57a8837957dfe7a59",
+    "src/nextai_autoresearch/candidates/pvm01_core.py": "773bf869e9dd2a5dea9bdcbf7dfbc32cdb79745634603dc57b7571f0dbf9fa15",
+    "src/nextai_autoresearch/pvm01_task.py": "4f4c791458ba280908825f7fa323a501a9403a1296a7e510b86aa2b2969d08cd",
+    "tests/test_pvm01_reference.py": "0dac84b825d7ffd346bae277f783f630536761c565cb102b33ef8cbf05950619"
+  },
+  "whole_program_complete": false
+}

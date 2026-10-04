@@ -1,0 +1,22 @@
+{
+  "audit": {
+    "ok": true
+  },
+  "candidate": "pvm01_kernel_s2",
+  "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+  "execution": {
+    "peak_rss_bytes": 0,
+    "return_code": null,
+    "started": false,
+    "supervised_fit_seconds": 0.0,
+    "termination_reason": "previous_worker_failure",
+    "wall_seconds": 0.0
+  },
+  "status": "stopped",
+  "summary": {
+    "completed_trials": 0,
+    "status": "failed",
+    "total_trials": 0
+  },
+  "trials": []
+}

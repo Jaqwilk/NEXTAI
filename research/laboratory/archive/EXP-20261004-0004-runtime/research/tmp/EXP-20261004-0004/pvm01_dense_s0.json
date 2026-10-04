@@ -1,0 +1,14 @@
+{
+  "candidate": "pvm01_dense_s0",
+  "created_at": "2026-10-04T15:58:18Z",
+  "error": "'str' object has no attribute 'open'",
+  "error_type": "AttributeError",
+  "status": "crash",
+  "summary": {
+    "completed_trials": 0,
+    "status": "failed",
+    "total_trials": 0
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\worker.py\", line 72, in run_worker\n    trials = benchmark.run_suite(candidate, plan, **options)\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\benchmarks\\paired_view_mutable_memory_v1.py\", line 82, in run_suite\n    private = load_json(private_path)\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\utils.py\", line 52, in load_json\n    with path.open(\"r\", encoding=\"utf-8\") as handle:\n         ^^^^^^^^^\nAttributeError: 'str' object has no attribute 'open'\n",
+  "trials": []
+}

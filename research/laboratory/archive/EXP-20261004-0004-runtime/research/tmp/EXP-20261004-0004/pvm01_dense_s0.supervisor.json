@@ -1,0 +1,41 @@
+{
+  "audit": {
+    "dependencies": [
+      {
+        "path": "src/nextai_autoresearch/candidates/pvm01_core.py",
+        "sha256": "773bf869e9dd2a5dea9bdcbf7dfbc32cdb79745634603dc57b7571f0dbf9fa15"
+      },
+      {
+        "path": "src/nextai_autoresearch/candidates/pvm01_dense_s0.py",
+        "sha256": "ec6bfc65b22fdc9a11f09840cb1213187ed298eb7d4155f76756f13cfa241bd8"
+      }
+    ],
+    "ok": true,
+    "path": "src/nextai_autoresearch/candidates/pvm01_dense_s0.py",
+    "problems": [],
+    "sha256": "ec6bfc65b22fdc9a11f09840cb1213187ed298eb7d4155f76756f13cfa241bd8"
+  },
+  "candidate": "pvm01_dense_s0",
+  "error": "'str' object has no attribute 'open'",
+  "error_type": "AttributeError",
+  "execution": {
+    "environment_sanitized": true,
+    "log_path": "research/logs/EXP-20261004-0004-pvm01_dense_s0.log",
+    "network_policy": "forbidden_by_audit_and_rules_not_os_sandboxed",
+    "peak_rss_bytes": 491233280,
+    "research_compute_charge_basis": "full_worker_wall_v1",
+    "research_compute_seconds": 1.4859775999939302,
+    "return_code": 1,
+    "supervised_fit_seconds": 0.0,
+    "termination_reason": null,
+    "wall_seconds": 1.4859775999939302
+  },
+  "status": "crash",
+  "summary": {
+    "completed_trials": 0,
+    "status": "failed",
+    "total_trials": 0
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\worker.py\", line 72, in run_worker\n    trials = benchmark.run_suite(candidate, plan, **options)\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\benchmarks\\paired_view_mutable_memory_v1.py\", line 82, in run_suite\n    private = load_json(private_path)\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\utils.py\", line 52, in load_json\n    with path.open(\"r\", encoding=\"utf-8\") as handle:\n         ^^^^^^^^^\nAttributeError: 'str' object has no attribute 'open'\n",
+  "trials": []
+}

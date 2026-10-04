@@ -1,0 +1,988 @@
+{
+  "benchmark": "paired_view_mutable_memory_v1",
+  "budget": "quick",
+  "candidates": [
+    {
+      "audit": {
+        "dependencies": [
+          {
+            "path": "src/nextai_autoresearch/candidates/pvm01_core.py",
+            "sha256": "773bf869e9dd2a5dea9bdcbf7dfbc32cdb79745634603dc57b7571f0dbf9fa15"
+          },
+          {
+            "path": "src/nextai_autoresearch/candidates/pvm01_dense_s0.py",
+            "sha256": "ec6bfc65b22fdc9a11f09840cb1213187ed298eb7d4155f76756f13cfa241bd8"
+          }
+        ],
+        "ok": true,
+        "path": "src/nextai_autoresearch/candidates/pvm01_dense_s0.py",
+        "problems": [],
+        "sha256": "ec6bfc65b22fdc9a11f09840cb1213187ed298eb7d4155f76756f13cfa241bd8"
+      },
+      "candidate": "pvm01_dense_s0",
+      "error": "'str' object has no attribute 'open'",
+      "error_type": "AttributeError",
+      "execution": {
+        "environment_sanitized": true,
+        "log_path": "research/logs/EXP-20261004-0004-pvm01_dense_s0.log",
+        "network_policy": "forbidden_by_audit_and_rules_not_os_sandboxed",
+        "peak_rss_bytes": 491233280,
+        "research_compute_charge_basis": "full_worker_wall_v1",
+        "research_compute_seconds": 1.4859775999939302,
+        "return_code": 1,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": null,
+        "wall_seconds": 1.4859775999939302
+      },
+      "status": "crash",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\worker.py\", line 72, in run_worker\n    trials = benchmark.run_suite(candidate, plan, **options)\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\benchmarks\\paired_view_mutable_memory_v1.py\", line 82, in run_suite\n    private = load_json(private_path)\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\utils.py\", line 52, in load_json\n    with path.open(\"r\", encoding=\"utf-8\") as handle:\n         ^^^^^^^^^\nAttributeError: 'str' object has no attribute 'open'\n",
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_dense_s1",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_dense_s2",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_dense_s3",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_dense_s4",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_pointer_s0",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_pointer_s1",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_pointer_s2",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_pointer_s3",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_pointer_s4",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_untrained_s0",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_untrained_s1",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_untrained_s2",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_untrained_s3",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_untrained_s4",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_shuffled_s0",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_shuffled_s1",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_shuffled_s2",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_shuffled_s3",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_shuffled_s4",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_exact_nn_s0",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_exact_nn_s1",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_exact_nn_s2",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_exact_nn_s3",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_exact_nn_s4",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_ridge_s0",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_ridge_s1",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_ridge_s2",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_ridge_s3",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_ridge_s4",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_kernel_s0",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_kernel_s1",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_kernel_s2",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_kernel_s3",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_kernel_s4",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_raw_s0",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_raw_s1",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_raw_s2",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_raw_s3",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    },
+    {
+      "audit": {
+        "ok": true
+      },
+      "candidate": "pvm01_raw_s4",
+      "error": "Not started: finite stage stops at first failure/deadline/budget; no retry",
+      "execution": {
+        "peak_rss_bytes": 0,
+        "return_code": null,
+        "started": false,
+        "supervised_fit_seconds": 0.0,
+        "termination_reason": "previous_worker_failure",
+        "wall_seconds": 0.0
+      },
+      "status": "stopped",
+      "summary": {
+        "completed_trials": 0,
+        "status": "failed",
+        "total_trials": 0
+      },
+      "trials": []
+    }
+  ],
+  "completed_at": "2026-10-04T15:58:19Z",
+  "environment": {
+    "git_branch": "codex/muc03-autonomous-20261004",
+    "git_commit": "cbeda4aac26ad7ec2c1fb62f811bee57a542477c",
+    "git_dirty": true,
+    "logical_cpus": 24,
+    "numpy": "2.5.2",
+    "physical_cpus": 16,
+    "platform": "Windows-10-10.0.19044-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python": "3.13.13",
+    "ram_bytes": 34088464384
+  },
+  "evaluation_matrix": {
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "queries_per_cell": 64,
+    "reasoning_depths": [
+      1,
+      2,
+      3
+    ],
+    "seeds": [
+      1011647423,
+      1624114844,
+      345150282,
+      2028326376,
+      59362905
+    ]
+  },
+  "evaluator_sha256": "6542963a6547d38c3465c5f19c1de9541a904ae00c34cb15a8c1eec120c237f6",
+  "experiment_id": "EXP-20261004-0004",
+  "hypothesis_id": "HYP-0012",
+  "integrity_after": {
+    "benchmark_version": "paired_view_mutable_memory_v1",
+    "candidate_bundle_sha256": "329a0886011a648c10c55057e00462470eb29b7f5525df87dec235c29c5cfd0f",
+    "checked_files": 1046,
+    "evaluator_sha256": "6542963a6547d38c3465c5f19c1de9541a904ae00c34cb15a8c1eec120c237f6",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "integrity_before": {
+    "benchmark_version": "paired_view_mutable_memory_v1",
+    "candidate_bundle_sha256": "329a0886011a648c10c55057e00462470eb29b7f5525df87dec235c29c5cfd0f",
+    "checked_files": 1046,
+    "evaluator_sha256": "6542963a6547d38c3465c5f19c1de9541a904ae00c34cb15a8c1eec120c237f6",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "interpretation_status": "pending_codex_analysis",
+  "oracle_controls": [],
+  "pareto_front": [],
+  "pareto_front_implementable": [],
+  "pareto_metrics": {
+    "maximize": [
+      "accuracy",
+      "fact_top1_accuracy",
+      "dense_unknown_rejection"
+    ],
+    "minimize": [
+      "mean_query_ops",
+      "p95_latency_us",
+      "state_bytes",
+      "fit_ops",
+      "preprocessing_ops"
+    ]
+  },
+  "plan_path": "research/plans/EXP-20261004-0004.json",
+  "plan_sha256": "38dee71b14eac4f135e6aa232fe715f19030680043db9e54a669b6dc6091ae32",
+  "schema_version": 1,
+  "scoring_seed_policy": {
+    "count": 5,
+    "maximum": 2147483647,
+    "method": "runner_random_v1",
+    "minimum": 1000000
+  },
+  "started_at": "2026-10-04T15:58:09Z",
+  "status": "failed"
+}

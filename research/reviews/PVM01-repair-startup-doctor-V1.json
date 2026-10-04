@@ -1,0 +1,9 @@
+{
+  "completed_at": "2026-10-04T16:15:50Z",
+  "return_code": 1,
+  "scoring": false,
+  "seconds_charged": 15,
+  "stderr": "",
+  "stdout": "[OK] benchmark=paired_view_mutable_memory_v1 status=active protocol=v3\n[OK] laboratory=preparation_only next=NEXTAI-STUDY-REVIEW scoring=False\n[OK] cycle=305 completed=111\n[OK] hypotheses=59\n[OK] sources=442\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=1046\n[OK] preflight_certificate=041436ef33d8fb8b6e644c40f7b145e9f444481c1a74c46a65549e01ca6daca5\n[OK] audited_candidates=602\n[OK] hardware=cpu:24 ram_gb:31.7\n[ERROR] lifecycle: result lacks required analysis: EXP-20261004-0004\n[ERROR] lifecycle: literature review is due: 6 completed experiments since the last review (cadence 6)\n[ERROR] lifecycle: research/REPORT.md is stale relative to its content inputs\nDoctor: FAIL\n",
+  "wall_seconds": 14.12308689999918
+}
