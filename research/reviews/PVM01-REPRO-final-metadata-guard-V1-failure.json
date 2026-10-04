@@ -1,0 +1,9 @@
+{
+  "accounting": "Included in conservative bookkeeping allowance220s; no further fit or tests.",
+  "created_at": "2026-10-04T23:36:20Z",
+  "error": "Expected four protected document headers; actual protected set is AGENTS.md, program.md, research/LAB_PLAN.md. docs/CURRENT_STATUS.md is tracked but not in the manifest. Guard stopped before staging.",
+  "exit_code": 1,
+  "resolution": "Use the actual manifest membership; verify every other protected file unchanged and separately retain full status text.",
+  "scientific_source_or_gate_changed": false,
+  "wall_seconds": 0.4507354
+}

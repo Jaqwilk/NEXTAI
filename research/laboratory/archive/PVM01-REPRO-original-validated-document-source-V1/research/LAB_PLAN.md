@@ -1,20 +1,3 @@
-# Current cycle311 — technical preparation closed (2026-10-04)
-
-KEEP technical repair:36/36 corrected children,18/18 exact deterministic FITs,
-29 targeted and1127 full tests passed. Clone and original doctor/lab/history
-passed at837c7eb;21463 old raw files and all prefixes preserved.
-No new research EXP/data/paid retry; EXP-20261004-0008 stays INCONCLUSIVE.
-Total auxiliary1596/2400s including failures and conservative bookkeeping;
-12 registrations and57898.537233s remain in continuation.
-Current benchmark maintenance/scoring=false; programme active, no pending run.
-Final report:research/analyses/PVM01-REPRO-PREPARATION-ADDENDUM-V1.md.
-Receipt:research/laboratory/PVM01-CYCLE-311-COMPLETION-V1.receipt.json.
-Next: bounded prospective transport/PCA versus strong classical/dense controls,
-with a predeclared noise0.02/0.04 interaction,5 fresh units and full costs.
-Freeze exact recipe/grids/task before implementation/data; no retry of0008.
-Three-scale economics,independent replication/frozen fresh final still required.
-Earlier sections remain preserved history; no second research run this cycle.
-
 # Current cycle311 — technical conformance completed in clone (2026-10-04)
 
 PVM01-REPRO-PREPARATION-V1:36/36 corrected public fixed-fixture children;

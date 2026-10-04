@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-10-04T23:30:19Z",
+  "files": {
+    "AGENTS.md": "e65c575f23575b50498bc0bc9fbd0a87577853333080aefb5d47ef077e906cdb",
+    "docs/CURRENT_STATUS.md": "8cbbff11f25e84cfe4cadf7c556308fe248f6bdd3fdbe402ba93fe173cbc21d7",
+    "program.md": "6755cff74721456446026a5ac70d049cc34e855ff7d54773e3ff13df4fbd8798",
+    "research/LAB_PLAN.md": "df6f42d007e6a001ea6052793675e3fa5e9da6d8f80036944db6d3a395e68b33"
+  },
+  "later_change": "Only final status/budget documentation, no executable/evaluated/candidate source changes.",
+  "original_and_clone_validated_commit": "837c7eb"
+}

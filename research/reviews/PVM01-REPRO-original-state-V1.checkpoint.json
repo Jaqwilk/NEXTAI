@@ -1,0 +1,141 @@
+{
+  "all_append_only_prefixes_preserved": true,
+  "commands": [
+    {
+      "command": [
+        "doctor"
+      ],
+      "process": {
+        "elapsed_seconds": 46.04392359999474,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 1381634048,
+        "pid": 29520,
+        "processes_created": 155,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      },
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "a4309411d9c9944954df85427d8a30831a09a52b1b88038398d2bcae97d4516e"
+    },
+    {
+      "command": [
+        "lab",
+        "status"
+      ],
+      "process": {
+        "elapsed_seconds": 55.800882800002,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 1380032512,
+        "pid": 27324,
+        "processes_created": 159,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      },
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "092a415ed0beb3574bfa444583bb7e12054aa711674751e43801bb78ba370cc0"
+    }
+  ],
+  "created_at": "2026-10-04T23:23:26Z",
+  "free_disk_bytes": 37773099008,
+  "manifest": {
+    "benchmark_version": "paired_view_mutable_memory_v5",
+    "candidate_bundle_sha256": "5b44c0b2494de595e1ee7348a6c5a2552c52c5e0f177fc4fcbcd3b15075b3b78",
+    "checked_files": 1171,
+    "evaluator_sha256": "e3abe710139b1f08391de7dfb21d0f1cbdb16abab2c467a694f2186498775953",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "old_raw_files_preserved": 21463,
+  "preflight": {
+    "benchmark_version": "paired_view_mutable_memory_v5",
+    "certificate_sha256": "8332b960b97d42247fe3d5497de02e6effdc0b32563a9daf8c3bedd0e22543ec",
+    "created_at": "2026-10-04T23:14:24Z",
+    "evaluator_sha256": "e3abe710139b1f08391de7dfb21d0f1cbdb16abab2c467a694f2186498775953",
+    "files": {
+      "baseline_registry": "0ec30e92f4d5855c36c8ed3e66fa0ab7d23ed70503c482f8782582eb4f08f447",
+      "manifest": "1a3262d065261e064e8fd0de7828c7177ebabdbf59ac115d1b97bbba2e798641",
+      "runner": "0859a603c0022e4ba3c3cad0f020dd868c758c5931237f48e74a7942c3d15496",
+      "schema:experiment_plan": "50068a1bdd854efff0bbff5baa540ac53084cb18cddbd4d0194c52eb5e051e10",
+      "schema:experiment_result": "ea41b0a4c0ee6fd8d0deaa54b315ae21849532aa12bf2eb638d2c6f010508471",
+      "schema:hypothesis": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
+      "schema:laboratory_restart": "2c48b9e31acdd1d32c3f33bc1e70b90222622e330ce2b26e786ef00758a8cd02",
+      "schema:pc01_plan": "c99d35a113f7f572de59660c1846c0f3339e329450eb71734afcccdb2b96304c",
+      "schema:pc01_replica": "ab8dc09cd3268a6107a54cde0b9e5e4e590334291fe4f8a290269782f9a67365",
+      "schema:pc01_result": "ff51e5d130d0dcd7a59ff4fc72fca677c65b25d04842898b6277e4155801b288",
+      "schema:research_state": "f155fb268b3ef422b9e1547a450222c2bdf040ef7d2d28a9025eec8281bb41bd",
+      "schema:source": "dbacf05397d719e2e8594af5c0061fc03b191df50f0985ea42b01d09464ae057"
+    },
+    "schema_version": 1
+  },
+  "previous_doc_content_preserved": true,
+  "programme": {
+    "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+    "auxiliary_fit_seconds_conservative": 10594.0,
+    "cohort": "paired_view_mutable_memory_v5",
+    "continuation_compute_seconds_cap": 69344,
+    "continuation_compute_seconds_charged": 11483.462766700148,
+    "continuation_registration_attempts_cap": 17,
+    "continuation_registration_attempts_used": 5,
+    "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+    "experiment_id": "EXP-20261004-0008",
+    "experimental_fit_seconds": 3544.7992514001526,
+    "fit_seconds_cap": 71999.3364847,
+    "fit_seconds_charged": 14138.799251400153,
+    "fit_seconds_remaining": 57860.53723329985,
+    "id": "NEXTAI-CONTINUATION-20261004-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "prior_compute_seconds_charged": 2655.336484700005,
+    "prior_program_closed": true,
+    "prior_program_id": "MUC03-AUTONOMOUS-20261004-V1",
+    "prior_registration_attempts_used": 3,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": true,
+    "registration_attempts_cap": 20,
+    "registration_attempts_used": 8,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 3,
+      "reference_and_alternatives": 2,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 0,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 4,
+      "reference_and_alternatives": 5,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 3,
+      "scale_and_generalization": 3
+    },
+    "study_expired": false,
+    "study_path": "research/plans/PVM01-CAPACITY-EXPOSURE-V1.json",
+    "study_terminal": true,
+    "unreserved_fit_seconds_remaining": 57860.53723329985
+  },
+  "source_commit": "837c7eb898fab0c17dc281182624c99413903ab2",
+  "state": {
+    "active_experiment_id": null,
+    "completed_experiments": 115,
+    "cycle_number": 311,
+    "generation": 2,
+    "last_experiment_id": "EXP-20261004-0008",
+    "last_failure_at": "2026-09-05T13:10:07Z",
+    "last_literature_review_completed_experiments": 111,
+    "last_reflection_completed_experiments": 110,
+    "last_reflection_cycle": 303,
+    "phase": "infrastructure",
+    "protocol_version": 3,
+    "schema_version": 1,
+    "updated_at": "2026-10-04T23:14:23Z"
+  }
+}
