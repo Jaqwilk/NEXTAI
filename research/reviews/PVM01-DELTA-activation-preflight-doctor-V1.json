@@ -1,0 +1,66 @@
+{
+  "charged_seconds": 63,
+  "checks": [
+    {
+      "args": [
+        "doctor"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "[OK] benchmark=paired_view_mutable_memory_v3 status=active protocol=v3\n[OK] laboratory=dev_authorized next=NEXTAI-STUDY-RUN scoring=True\n[OK] cycle=307 completed=112\n[OK] hypotheses=59\n[OK] sources=444\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=1111\n[OK] preflight_certificate=139c2d8f9bca56431ac26fcf8021c2729bfb4f630be9b4f3033f11a489bcdfa5\n[OK] audited_candidates=654\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n"
+    },
+    {
+      "args": [
+        "lab",
+        "status"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"restart_id\": \"LAB-RESTART-20260904-V1\",\n  \"preparation_ready\": false,\n  \"scoring_ready\": true,\n  \"status\": \"dev_authorized\",\n  \"next_action_id\": \"NEXTAI-STUDY-RUN\",\n  \"next_action\": \"Preserve all outcomes, review evidence and autonomously select the next preregistered study within finite program caps.\",\n  \"user_decision_required\": false,\n  \"activation_id\": \"NEXTAI-CONTINUATION-20261004-V1\",\n  \"scoring_authorized\": true,\n  \"current_scope\": {\n    \"id\": \"NEXTAI-CONTINUATION-20261004-V1\",\n    \"authority_path\": \"research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json\",\n    \"contract_path\": \"research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json\",\n    \"study_path\": \"research/plans/PVM01-DELTA-MEMORY-SCREEN-V1.json\",\n    \"cohort\": \"paired_view_mutable_memory_v3\",\n    \"ready\": true,\n    \"study_terminal\": false,\n    \"study_expired\": false,\n    \"program_terminal\": false,\n    \"program_closed\": false,\n    \"registration_budget_exhausted\": false,\n    \"paid_run_pending\": false,\n    \"registration_attempts_used\": 5,\n    \"registration_attempts_cap\": 20,\n    \"stage_registration_attempts\": {\n      \"diagnosis_and_task\": 0,\n      \"reference_and_alternatives\": 2,\n      \"mechanism_and_ablations\": 0,\n      \"scale_and_generalization\": 0,\n      \"replication_and_fresh_final\": 0,\n      \"repair_reserve\": 0\n    },\n    \"stage_registration_caps\": {\n      \"diagnosis_and_task\": 0,\n      \"reference_and_alternatives\": 5,\n      \"mechanism_and_ablations\": 4,\n      \"scale_and_generalization\": 3,\n      \"replication_and_fresh_final\": 3,\n      \"repair_reserve\": 2\n    },\n    \"experimental_fit_seconds\": 1444.7689099999989,\n    \"auxiliary_fit_seconds_conservative\": 4999.0,\n    \"fit_seconds_charged\": 6443.768909999999,\n    \"fit_seconds_remaining\": 65555.5675747,\n    \"pending_fit_reservation_seconds\": 0.0,\n    \"unreserved_fit_seconds_remaining\": 65555.5675747,\n    \"fit_seconds_cap\": 71999.3364847,\n    \"experiment_id\": null,\n    \"scoring_authorized\": true,\n    \"prior_program_closed\": true,\n    \"prior_program_id\": \"MUC03-AUTONOMOUS-20261004-V1\",\n    \"prior_registration_attempts_used\": 3,\n    \"prior_compute_seconds_charged\": 2655.336484700005,\n    \"continuation_registration_attempts_used\": 2,\n    \"continuation_registration_attempts_cap\": 17,\n    \"continuation_compute_seconds_charged\": 3788.432425299994,\n    \"continuation_compute_seconds_cap\": 69344\n  },\n  \"history\": \"Preserved; use --include-history for validated prior stages and exhausted budgets\",\n  \"plan\": \"research/LAB_PLAN.md\",\n  \"errors\": [],\n  \"warnings\": [],\n  \"schedule_checked_or_started\": false\n}\n"
+    }
+  ],
+  "created_at": "2026-10-04T18:38:39Z",
+  "elapsed_seconds": 62.64960129999963,
+  "evaluator_sha256": "56fdd14f3c1de7aea00fec860d799348f91807fa32cdfed829950ca9d0e3328c",
+  "id": "PVM01-DELTA-activation-preflight-doctor-V1",
+  "integrity": {
+    "benchmark_version": "paired_view_mutable_memory_v3",
+    "candidate_bundle_sha256": "b66a0cb3da1fb807cb88cf24e28a071ff7a222e1c6d8fc6faf84992dd4eb2d3b",
+    "checked_files": 1111,
+    "evaluator_sha256": "56fdd14f3c1de7aea00fec860d799348f91807fa32cdfed829950ca9d0e3328c",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "offline_gates_passed": true,
+  "offline_plan_schema_passed": true,
+  "readiness_receipt_sha256": "468a6e364095169b4f3b9b0eab12213257dc39493c2631e1e0a3ecca7fc64f0f",
+  "semantic_nodes": [
+    "tests/test_pvm01_reference.py::test_private_maps_and_fresh_views_have_legal_boundaries",
+    "tests/test_pvm01_reference.py::test_replacement_is_timestamped_and_only_current_values_reach_output",
+    "tests/test_pvm01_reference.py::test_ranking_and_value_collision_do_not_mask_absence_or_wrong_fact",
+    "tests/test_pvm01_reference.py::test_classical_transport_is_fitted_only_on_supplied_pairs",
+    "tests/test_pvm01_reference.py::test_neural_source_identity_and_real_dense_transformer",
+    "tests/test_pvm01_reference.py::test_every_role_is_audited_and_private_task_import_is_blocked",
+    "tests/test_pvm01_reference.py::test_kernel_transport_uses_nystrom_whitening_and_reserved_selection",
+    "tests/test_pvm01_reference.py::test_new_compute_basis_preserves_old_fit_accounting",
+    "tests/test_pvm01_reference.py::test_new_plan_schema_accepts_exact_scope_without_real_registration",
+    "tests/test_pvm01_reference.py::test_dense_batched_queries_equal_independent_single_queries",
+    "tests/test_pvm01_reference.py::test_dense_training_updates_decoder_without_changing_frozen_encoder",
+    "tests/test_pvm01_path_binding.py::test_bound_json_path_reaches_same_pre_fit_boundary",
+    "tests/test_pvm01_path_binding.py::test_real_worker_consumes_serialized_runtime_and_stops_before_fit",
+    "tests/test_pvm01_path_binding.py::test_v2_schema_preserves_frozen_matrix_and_compute_requirements",
+    "tests/test_pvm01_delta_memory.py::test_delta_overwrites_orthogonal_association_additive_retains_stale_content",
+    "tests/test_pvm01_delta_memory.py::test_shared_fitted_transport_and_random_features_are_exactly_identical",
+    "tests/test_pvm01_delta_memory.py::test_dense_cache_matches_conventional_decoder_with_nonzero_projections_and_updates",
+    "tests/test_pvm01_delta_memory.py::test_pca_tree_exact_scan_and_mutation_invalidation_charge_own_copies",
+    "tests/test_pvm01_delta_memory.py::test_compact_value_accuracy_never_implies_record_selection",
+    "tests/test_pvm01_delta_memory.py::test_private_path_binding_rejects_wrong_identity_and_hash",
+    "tests/test_pvm01_delta_memory.py::test_real_v3_worker_reads_serialized_path_and_stops_before_data_or_model",
+    "tests/test_pvm01_delta_memory.py::test_v3_schema_rejects_changed_matrix_or_missing_full_compute_contract",
+    "tests/test_pvm01_delta_memory.py::test_all_new_roles_audited_and_scope_budget_matches_frozen_cap",
+    "tests/test_pvm01_delta_memory.py::test_compact_json_preserves_all_values_and_default_serialization",
+    "tests/test_pvm01_delta_memory.py::test_preregistered_primary_gate_detects_retention_failure_and_serialization",
+    "tests/test_pvm01_delta_memory.py::test_new_units_reject_consumed_realizations_without_replacement"
+  ]
+}
