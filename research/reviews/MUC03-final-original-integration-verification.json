@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:45:06Z",
+  "integrated_git_commit": "28dc11a737ebbcd143d25c961da5f66c2f93fc91",
+  "original_historical_files_unchanged": 9929,
+  "ten_preexisting_line_endings_preserved": true,
+  "all41_hash_bound_completion_references_identical": true,
+  "source_runtime_archives": {
+    "source": {
+      "file_count": 996,
+      "all_raw_hashes_verified": true,
+      "index_sha256": "6afe127a7ac83f03b334e5c4a7735e1bc5003d4ef07e8f7f1d9737157639427c"
+    },
+    "runtime": {
+      "file_count": 89,
+      "all_raw_hashes_verified": true,
+      "index_sha256": "7b50365ea52c369ae6a5ee7fbb4fbaff008381edcb2bdc93a768b44ea941f5bd"
+    }
+  },
+  "independent_analysis_recompute_equal": true,
+  "integrity": {
+    "ok": true,
+    "benchmark_version": "muc03_reference_calibration_v1",
+    "protocol_version": 3,
+    "evaluator_sha256": "c95e0b310683847b40304362f4bf0877a3d31cca08754532de1f655457628b12",
+    "candidate_bundle_sha256": "1e36c241116cf20f1f061eeb76e2ee51cbcbd9bfe48dbcc4094537fd5055bb75",
+    "problems": [],
+    "checked_files": 991
+  },
+  "preflight_certificate_sha256": "a9927efec115d03607f5430a59b7e23dad98a43d6d26b9552222d31e6a72cd6c",
+  "program_status": {
+    "id": "MUC03-AUTONOMOUS-20261004-V1",
+    "study_path": "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json",
+    "cohort": "muc03_reference_calibration_v1",
+    "ready": true,
+    "study_terminal": true,
+    "study_expired": false,
+    "program_terminal": true,
+    "program_closed": true,
+    "registration_budget_exhausted": false,
+    "paid_run_pending": false,
+    "registration_attempts_used": 3,
+    "registration_attempts_cap": 20,
+    "stage_registration_attempts": {
+      "reference": 3,
+      "mechanism_and_ablations": 0,
+      "scale_and_generalization": 0,
+      "replication_and_fresh_final": 0,
+      "repair_reserve": 0
+    },
+    "stage_registration_caps": {
+      "reference": 6,
+      "mechanism_and_ablations": 3,
+      "scale_and_generalization": 4,
+      "replication_and_fresh_final": 5,
+      "repair_reserve": 2
+    },
+    "experimental_fit_seconds": 1216.3364847000048,
+    "auxiliary_fit_seconds_conservative": 1439.0,
+    "fit_seconds_charged": 2655.336484700005,
+    "fit_seconds_remaining": 69344.6635153,
+    "pending_fit_reservation_seconds": 0.0,
+    "unreserved_fit_seconds_remaining": 69344.6635153,
+    "fit_seconds_cap": 72000,
+    "experiment_id": "EXP-20261004-0003",
+    "scoring_authorized": false
+  },
+  "queue": "MUC03-PROGRAM-COMPLETE",
+  "next_action": "Program terminal. Preserve all outcomes and report the exact unexecuted scope; no further study or scoring under this authority.",
+  "state": {
+    "active_experiment_id": null,
+    "completed_experiments": 110,
+    "cycle_number": 303,
+    "generation": 2,
+    "last_experiment_id": "EXP-20261004-0003",
+    "last_failure_at": "2026-09-05T13:10:07Z",
+    "last_literature_review_completed_experiments": 105,
+    "last_reflection_completed_experiments": 110,
+    "last_reflection_cycle": 303,
+    "phase": "infrastructure",
+    "protocol_version": 3,
+    "schema_version": 1,
+    "updated_at": "2026-10-04T02:09:25Z"
+  },
+  "original_module_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\src\\nextai_autoresearch\\__init__.py",
+  "free_volume_bytes": 64462061568,
+  "history_manifest_sha256": "c1178487cbbf419cc6be57b89f18aea06c6c7ee4e40719a28d3535f4fb66d918",
+  "doctor_record_sha256": "19e6ce686abbd7a07c95c8b0e81f137068074ae012f26f79ede52b7c408634c0",
+  "research_scoring_or_fit_performed": false
+}

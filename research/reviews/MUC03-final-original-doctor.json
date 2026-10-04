@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T02:45:06Z",
+  "command": "uv run --no-sync nextai doctor",
+  "exit_code": 0,
+  "stdout": "[OK] benchmark=muc03_reference_calibration_v1 status=maintenance protocol=v3\n[OK] laboratory=preparation_only next=MUC03-PROGRAM-COMPLETE scoring=False\n[OK] cycle=303 completed=110\n[OK] hypotheses=59\n[OK] sources=437\n[OK] scientifically_invalid_results=4\n[OK] pending_plans=0\n[OK] integrity=ok files=991\n[OK] audited_candidates=561\n[OK] hardware=cpu:24 ram_gb:31.7\nDoctor: PASS\n",
+  "stderr": "",
+  "integrated_git_commit": "28dc11a737ebbcd143d25c961da5f66c2f93fc91",
+  "original_module": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\src\\nextai_autoresearch\\__init__.py",
+  "sys_executable": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\.venv\\Scripts\\python.exe"
+}
