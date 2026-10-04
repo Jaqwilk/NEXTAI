@@ -98,7 +98,7 @@ class Candidate:
                     keys = F.normalize(support[indices], dim=-1)
                     with torch.no_grad():
                         embedded = F.normalize(self.model(question[indices]), dim=-1)
-                    decoded = F.normalize(self.decoder(embedded, keys), dim=-1)
+                    decoded = self.refine(embedded, keys)
                     scores = decoded @ keys.transpose(-1, -2)
                     scores = torch.cat([scores, torch.full((*scores.shape[:-1], 1), .85, device=self.device)], dim=-1) * 20
                     actual = labels[indices]
@@ -180,6 +180,12 @@ class Candidate:
         self.threshold = chosen["threshold"]
         self.report.update(calibration_grid=choices, calibration_choice=chosen, calibration_feasible=bool(eligible))
 
+    def refine(self, embedded, keys):
+        # Query batching supplies no peer context unavailable to a single query.
+        count = embedded.shape[1]
+        mask = ~torch.eye(count, dtype=torch.bool, device=embedded.device) if count > 1 else None
+        return F.normalize(self.decoder(embedded, keys, tgt_mask=mask), dim=-1)
+
     def new_session(self, size):
         return Session(self, size)
 
@@ -219,7 +225,7 @@ class Session:
             with torch.inference_mode():
                 embedded = F.normalize(system.model(torch.as_tensor(observation, device=system.device)), dim=-1)
                 if system.decoder is not None:
-                    embedded = F.normalize(system.decoder(embedded[None, None], self.keys[None])[0, 0], dim=-1)
+                    embedded = system.refine(embedded[None, None], self.keys[None])[0, 0]
                 scores = self.keys @ embedded
                 if system.arm in {"pointer", "untrained", "shuffled", "dense"}:
                     # A dense softmax pointer over records and a NULL entry, no shortlist.

@@ -148,3 +148,44 @@ def test_new_plan_schema_accepts_exact_scope_without_real_registration():
     del changed["research_program_protocol"]["compute_charge_basis"]
     with pytest.raises(ValidationError):
         validate_document("experiment_plan", changed, ROOT)
+
+
+def test_dense_batched_queries_equal_independent_single_queries():
+    model = Candidate(619, "dense", STUDY["recipe"])
+    for block in model.decoder.layers:
+        for projection in (block.self_attn.out_proj, block.multihead_attn.out_proj, block.linear2):
+            torch.nn.init.normal_(projection.weight, std=.02)
+    model.decoder.eval()
+    embedded = torch.nn.functional.normalize(torch.randn(1, 8, 64, device=model.device), dim=-1)
+    keys = torch.nn.functional.normalize(torch.randn(1, 32, 64, device=model.device), dim=-1)
+    with torch.inference_mode():
+        batched = model.refine(embedded, keys)
+        single = torch.cat([model.refine(embedded[:, i:i + 1], keys) for i in range(8)], dim=1)
+        changed = embedded.clone()
+        changed[:, 1:] *= -1
+        other = model.refine(changed, keys)
+    assert torch.allclose(batched, single, atol=1e-5, rtol=1e-5)
+    assert torch.allclose(batched[:, 0], other[:, 0], atol=1e-5, rtol=1e-5)
+
+
+def test_dense_training_updates_decoder_without_changing_frozen_encoder():
+    recipe = copy.deepcopy(STUDY["recipe"])
+    recipe.update(alignment_steps=2, dense_set_steps=2)
+    rng = np.random.default_rng(319)
+    queries = rng.normal(size=(64, 64)).astype(np.float32)
+    writes = queries[:, ::-1].copy()
+    sets = {}
+    for size in (32, 128):
+        support = rng.normal(size=(4, size, 64)).astype(np.float32)
+        questions = rng.normal(size=(4, 8, 64)).astype(np.float32)
+        labels = np.tile([0, 1, 2, 3, 4, 5, size, size], (4, 1))
+        sets[size] = (support, questions, labels)
+    dense = Candidate(321, "dense", recipe)
+    pointer = Candidate(321, "pointer", recipe)
+    before = dense.decoder.layers[0].multihead_attn.out_proj.weight.detach().clone()
+    dense.fit(writes, queries, writes[:8], queries[:8], sets)
+    pointer.fit(writes, queries, writes[:8], queries[:8])
+    assert len(dense.report["dense_set_losses"]) == 2
+    assert all(np.isfinite(dense.report["dense_set_losses"]))
+    assert not torch.equal(before, dense.decoder.layers[0].multihead_attn.out_proj.weight)
+    assert dense.report["final_encoder_sha256"] == pointer.report["final_encoder_sha256"]

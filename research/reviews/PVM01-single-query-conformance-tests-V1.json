@@ -1,0 +1,16 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "tests/test_pvm01_reference.py",
+    "--junitxml=research/reviews/PVM01-single-query-conformance-tests-V1.xml"
+  ],
+  "return_code": 0,
+  "stderr": "",
+  "stdout": "..........                                                               [100%]\n",
+  "wall_seconds_charged": 4,
+  "xml_sha256": "8763fc73c9abeaf91eefe17168357c761d36fd8275b2b95b3f184ef0f5d4cd40"
+}
