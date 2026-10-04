@@ -1,0 +1,10 @@
+warning: in the working copy of 'research/BELIEFS.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/checks/AUDIT-REPAIR-harness-first.junit.xml', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/checks/dronepropa_protocol_gate_cycle75.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/checks/dronepropa_routing_sensitivity_cycle76.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/checks/heldout_wt_changepoints_prequential_v1_development_smoke.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/checks/ncmapss_ds02_semantic_gate_v2_result.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/checks/ncmapss_ds08a_semantic_gate_v1_result.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/checks/real_system_calibration_cycle_228.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/data/suitesparse_real_pde_v1/audit_attempt_001.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'research/reviews/EXTERNAL-AUDIT-2026-09-03.md', CRLF will be replaced by LF the next time Git touches it

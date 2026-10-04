@@ -1,0 +1,21 @@
+{
+  "all_original_raw_working_bytes_preserved": true,
+  "created_at": "2026-10-04T23:18:41Z",
+  "failed_scope_check_before_any_staging": "Expected unchanged old files appeared modified until clean-filter stat refresh; guard stopped before staging source.",
+  "files": [
+    "research/BELIEFS.json",
+    "research/checks/AUDIT-REPAIR-harness-first.junit.xml",
+    "research/checks/dronepropa_protocol_gate_cycle75.json",
+    "research/checks/dronepropa_routing_sensitivity_cycle76.json",
+    "research/checks/heldout_wt_changepoints_prequential_v1_development_smoke.json",
+    "research/checks/ncmapss_ds02_semantic_gate_v2_result.json",
+    "research/checks/ncmapss_ds08a_semantic_gate_v1_result.json",
+    "research/checks/real_system_calibration_cycle_228.json",
+    "research/data/suitesparse_real_pde_v1/audit_attempt_001.json",
+    "research/reviews/EXTERNAL-AUDIT-2026-09-03.md"
+  ],
+  "no_old10_changes_staged": true,
+  "old10_index_blobs_unchanged": true,
+  "purpose": "Refresh Git stat metadata after verified original-byte restoration; no historical content modification.",
+  "status_clean_for_all10": true
+}

@@ -1,0 +1,31 @@
+{
+  "cap": 1000,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/check_pvm01_repro.py"
+  ],
+  "created_at": "2026-10-04T22:58:21Z",
+  "error": null,
+  "id": "PVM01-REPRO-fixture-matrix-V2",
+  "raw_outputs": {
+    "PVM01-REPRO-fixture-matrix-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-REPRO-fixture-matrix-V2.stdout.txt": "b0d66570f10ef19b5b460720543af530ee88d974c2b242a2f7a997a7fd3bc2ae"
+  },
+  "result": {
+    "elapsed_seconds": 476.37844070000574,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 2607853568,
+    "pid": 11048,
+    "processes_created": 112,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "scoring_or_research_data": false,
+  "seconds_charged": 485,
+  "wall_seconds": 479.61112049999065
+}

@@ -1,0 +1,80 @@
+{
+  "before_mutation": true,
+  "created_at": "2026-10-04T23:07:11Z",
+  "differences": [
+    {
+      "clone_raw_sha256": "b294aaada20115299116394ffeba215f7021966dca96b9b1c6b66c834e8a5a56",
+      "contains_NUL": false,
+      "file": "research/BELIEFS.json",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "61f895a188ed9b2e36ba8c3d166a6336f347341d7e8e7601b6d9bee8a834ded6"
+    },
+    {
+      "clone_raw_sha256": "3a24021377fa2e1c0a8a8dc3d34f45f3feb232fee18e287ed13f27c7fe5aac53",
+      "contains_NUL": false,
+      "file": "research/checks/AUDIT-REPAIR-harness-first.junit.xml",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "7afe5429543b5194a65b90303f9929535a5228ed1a3b1820fecb1b9f1a048328"
+    },
+    {
+      "clone_raw_sha256": "a1135b77c6ba7f934067ed9e2a01c2aee652f75c24c20b7bea27111a74b2672d",
+      "contains_NUL": false,
+      "file": "research/checks/dronepropa_protocol_gate_cycle75.json",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "4f81e6089924e8ce21bed4709df80f695ddc490b70f89ad90def482618ad10c7"
+    },
+    {
+      "clone_raw_sha256": "5cbaa81e004cd9f734ea2173543861ecec2bc3bdb6b636545a80f18265937685",
+      "contains_NUL": false,
+      "file": "research/checks/dronepropa_routing_sensitivity_cycle76.json",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "7776e29dd35b8954b1592a977d0ed9b424f8687ecee3970ca98a5130eac40b3d"
+    },
+    {
+      "clone_raw_sha256": "52624d5839509a1fed89e6f1099d3098d886558115b0e0a1fdb3738493d2236d",
+      "contains_NUL": false,
+      "file": "research/checks/heldout_wt_changepoints_prequential_v1_development_smoke.json",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "c135a5fb0076388c926b389049d31cac1b049fad63944f1f7ff3746633c765a6"
+    },
+    {
+      "clone_raw_sha256": "7aef5f0c4e5f364335fada3d7760f0557b3eb04289bdb0eb4aef5a94533c4fc8",
+      "contains_NUL": false,
+      "file": "research/checks/ncmapss_ds02_semantic_gate_v2_result.json",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "f030c309c18b8651d309b1253a3739579e90cb567916d55c255cea9ab72fe63d"
+    },
+    {
+      "clone_raw_sha256": "14ce2e8bb5961863d425d15a74d9c8400a99c37b616d2205adcb38f4bde26010",
+      "contains_NUL": false,
+      "file": "research/checks/ncmapss_ds08a_semantic_gate_v1_result.json",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "d037450b6eab6ea693a3297afabda13b36254c2259dc5e68e91ed6932b6aafa1"
+    },
+    {
+      "clone_raw_sha256": "7f13ea7b356ff4b11030e78f03eb6a21310842977bd8e45ca4ff7af9e6702b6c",
+      "contains_NUL": false,
+      "file": "research/checks/real_system_calibration_cycle_228.json",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "7d7993af728a4c82010f2480fd337db28f20941f408e81f13563e9f1d687588c"
+    },
+    {
+      "clone_raw_sha256": "f3c09263894512daf7c181f77a8421aed105c8ca426b0fbc3ee0f5ccff44679c",
+      "contains_NUL": false,
+      "file": "research/data/suitesparse_real_pde_v1/audit_attempt_001.json",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "7c23b36795d79e06c67f54caeb94bc3f81928417f940179fed38164502b90718"
+    },
+    {
+      "clone_raw_sha256": "17538876482de411b9648bb031f6fc4185631ceed4c5295a0b24e8404bfb567f",
+      "contains_NUL": false,
+      "file": "research/reviews/EXTERNAL-AUDIT-2026-09-03.md",
+      "only_CRLF_LF_difference": true,
+      "original_raw_sha256": "23dfe931685877720e4d666ee5017ef0b3c64a7d4ecf10f8c3570933fa33210a"
+    }
+  ],
+  "original_raw_unchanged": true,
+  "raw_identical_files": 21453,
+  "seconds_charged": 14,
+  "wall_seconds": 8.554164500004845
+}

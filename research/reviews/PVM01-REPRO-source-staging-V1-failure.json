@@ -1,0 +1,10 @@
+{
+  "accounting": "Included in precharged final-bookkeeping allowance120s",
+  "cause": "Git stat metadata marked the restored CRLF working copy modified although normalized index content was unchanged",
+  "created_at": "2026-10-04T23:19:31Z",
+  "error": "AssertionError: research/BELIEFS.json at allowed-path scope check, before staging",
+  "exit_code": 1,
+  "fit_test_or_science_change": false,
+  "resolution": "Verified Git clean-filter refresh; all10 original working raw bytes retained and old index blobs unchanged",
+  "wall_seconds": 0.4397491
+}

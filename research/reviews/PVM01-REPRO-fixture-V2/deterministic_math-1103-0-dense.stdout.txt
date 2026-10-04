@@ -1,0 +1,1 @@
+{"output": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\reviews\\PVM01-REPRO-fixture-V2\\deterministic_math-1103-0-dense.json", "profile": "deterministic_math", "arm": "dense", "seed": 1103, "fit_wall": 2.2105541999917477, "dispatch": {"aten::scaled_dot_product_attention": 256, "aten::_scaled_dot_product_attention_math": 256}}

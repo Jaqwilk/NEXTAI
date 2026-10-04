@@ -1,0 +1,7 @@
+{
+  "created_at": "2026-10-04T23:08:53Z",
+  "later_change": "clip the same child deadline to remaining global2h time; no model/fixture/metric change",
+  "sha256": "129eed0aa7ceb557e3ae7b03ed451cb0f177e7caa9906ee39abc772a3b384e5a",
+  "source_commit": "30046ba",
+  "used_for": "complete36-child V2 and1127-test full regression"
+}

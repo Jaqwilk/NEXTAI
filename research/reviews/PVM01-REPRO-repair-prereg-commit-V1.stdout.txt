@@ -1,0 +1,29 @@
+[codex/muc03-autonomous-20261004 5f3fa61] Preserve failed fixed probe and preregister one bounded implementation correction
+ 29 files changed, 4906 insertions(+)
+ create mode 100644 research/laboratory/archive/PVM01-REPRO-helper-source-V1/receipt.json
+ create mode 100644 research/laboratory/archive/PVM01-REPRO-helper-source-V1/scripts/check_pvm01_repro.py
+ create mode 100644 research/laboratory/archive/PVM01-REPRO-helper-source-V1/scripts/pvm01_repro_fixture.py
+ create mode 100644 research/laboratory/archive/PVM01-REPRO-helper-source-V1/scripts/run_pvm01_preparation.py
+ create mode 100644 research/laboratory/archive/PVM01-REPRO-helper-source-V1/src/nextai_autoresearch/process_supervision.py
+ create mode 100644 research/laboratory/archive/PVM01-REPRO-helper-source-V1/tests/test_process_supervision.py
+ create mode 100644 research/plans/PVM01-REPRO-PREPARATION-IMPLEMENTATION-REPAIR-V1.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/checkpoint.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense.stderr.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense.stdout.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense_cached_cpu.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense_cached_cpu.stderr.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense_cached_cpu.stdout.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense_cached_cuda.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense_cached_cuda.stderr.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense_cached_cuda.stdout.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-1-dense.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-1-dense.stderr.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-1-dense.stdout.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-1-dense_cached_cpu.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-1-dense_cached_cpu.stderr.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-1-dense_cached_cpu.stdout.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-analysis-V1.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-matrix-V1.json
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-matrix-V1.stderr.txt
+ create mode 100644 research/reviews/PVM01-REPRO-fixture-matrix-V1.stdout.txt

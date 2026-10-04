@@ -1,3 +1,22 @@
+# Current cycle311 — technical conformance completed in clone (2026-10-04)
+
+PVM01-REPRO-PREPARATION-V1:36/36 corrected public fixed-fixture children;
+18/18 deterministic FIT runs have exact encoder/decoder/all-loss identity.
+Default decoder drift reproduced in3/3 seeds. Inference decisions identical,
+max score drift1.78814e-7 within existing1e-5; exact weight gates unchanged.
+29 targeted and1127 full tests pass. Supervisor owns whole Windows job trees,
+including uv/grandchildren/early exits; no inherited output pipe wait.
+Failed5-child V1 and all other failures preserved/charged;41 total auxiliary fits.
+Only10 checkout newline representations restored to original raw bytes;
+Git content unchanged; BELIEFS and original scientific history preserved.
+No new research EXP/data/paid retry. EXP-20261004-0008 remains INCONCLUSIVE.
+2h/2400s bounds unchanged; original source and final budget receipt follow.
+Report:research/analyses/PVM01-REPRO-PREPARATION-V1.md.
+Current benchmark maintenance/scoring=false; finite continuation remains active.
+Next: prospective adverse alternative with strong classics/full costs, followed
+by independent replication/frozen fresh final. Technical success is not promotion.
+Previous sections are preserved history.
+
 # Prospective cycle311 — bounded implementation correction (2026-10-04)
 
 The first public fixed-fixture probe stopped at5/36; it remains INCONCLUSIVE.

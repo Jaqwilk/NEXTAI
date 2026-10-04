@@ -853,3 +853,21 @@
 {"charge_id":"PVM01-REPRO-targeted-V2","created_at":"2026-10-04T22:48:54Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":26}
 {"charge_id":"PVM01-REPRO-source-freeze-V2","created_at":"2026-10-04T22:50:06Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":120}
 {"charge_id":"PVM01-REPRO-source-freeze-V2","created_at":"2026-10-04T22:50:11Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":11}
+{"charge_id":"PVM01-REPRO-fixture-matrix-V2","created_at":"2026-10-04T22:50:18Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":1000}
+{"charge_id":"PVM01-REPRO-fixture-matrix-V2","created_at":"2026-10-04T22:58:18Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":485}
+{"charge_id":"PVM01-REPRO-full-regression-V1","created_at":"2026-10-04T22:59:57Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":450}
+{"charge_id":"PVM01-REPRO-full-regression-V1","created_at":"2026-10-04T23:05:07Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":316}
+{"charge_id":"PVM01-REPRO-clone-gates-V1","created_at":"2026-10-04T23:05:36Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":260}
+{"charge_id":"PVM01-REPRO-clone-gates-V1","created_at":"2026-10-04T23:05:40Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":9}
+{"charge_id":"PVM01-REPRO-history-newline-diagnosis-V1","created_at":"2026-10-04T23:07:00Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":60}
+{"charge_id":"PVM01-REPRO-history-newline-diagnosis-V1","created_at":"2026-10-04T23:07:08Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":14}
+{"charge_id":"PVM01-REPRO-raw-original-restoration-V1","created_at":"2026-10-04T23:08:53Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":40}
+{"charge_id":"PVM01-REPRO-raw-original-restoration-V1","created_at":"2026-10-04T23:08:56Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":9}
+{"charge_id":"PVM01-REPRO-clone-gates-V2","created_at":"2026-10-04T23:09:11Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":260}
+{"charge_id":"PVM01-REPRO-clone-gates-V2","created_at":"2026-10-04T23:11:07Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":121}
+{"charge_id":"PVM01-REPRO-complete-source-report-V1","created_at":"2026-10-04T23:14:23Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":160}
+{"analysis_raw_sha256":"469bb8566d9fd15a9d559cb1a21b51fee719ff54546cc9da5fc9159c14aa7aa8","completed_experiments_unchanged":115,"created_at":"2026-10-04T23:14:24Z","cycle":311,"decision":"KEEP technical repair in clone; original source verification pending","deterministic_children_exact":18,"event":"technical_preparation_conformance_completed","full_tests_passed":1127,"id":"PVM01-REPRO-PREPARATION-V1","matrix_V1_children":5,"matrix_V2_children":36,"new_EXP_registration":false,"scoring":false}
+{"charge_id":"PVM01-REPRO-complete-source-report-V1","created_at":"2026-10-04T23:14:28Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":10}
+{"charge_id":"PVM01-REPRO-original-gates-V1","created_at":"2026-10-04T23:14:34Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":260}
+{"charge_id":"PVM01-REPRO-final-bookkeeping-allowance-V1","created_at":"2026-10-04T23:14:37Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":120}
+{"charge_id":"PVM01-REPRO-final-bookkeeping-allowance-V1","created_at":"2026-10-04T23:14:40Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":120}

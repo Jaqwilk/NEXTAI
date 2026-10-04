@@ -1,6 +1,7 @@
 """Reserved, file-backed technical checks under PVM01-REPRO-PREPARATION-V1."""
 import argparse
 from dataclasses import asdict
+from datetime import datetime, timezone
 import json
 import math
 import os
@@ -35,7 +36,9 @@ def main():
     result, error = None, None
     output = root / "research/reviews" / args.id
     try:
-        remaining = min(args.timeout, args.cap - (time.monotonic() - started) - 15)
+        global_remaining = (datetime.fromisoformat(plan["deadline_at"].replace("Z", "+00:00"))
+                            - datetime.now(timezone.utc)).total_seconds()
+        remaining = min(args.timeout, args.cap - (time.monotonic() - started) - 15, global_remaining - 15)
         environment = os.environ.copy()
         environment.update(CUBLAS_WORKSPACE_CONFIG=":4096:8", PYTHONHASHSEED="0",
                            OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1")

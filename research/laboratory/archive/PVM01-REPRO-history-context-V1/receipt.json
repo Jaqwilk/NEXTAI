@@ -1,0 +1,7 @@
+{
+  "created_at": "2026-10-04T23:04:57Z",
+  "file": "docs/CURRENT_STATUS.md",
+  "original_head_unchanged": "002d8be96e6f5e95c97bf308b560a06cd28051aa",
+  "purpose": "Preserve exact previous status text not included in protected-file manifest; check new headers retain its bytes.",
+  "sha256": "7cc1a189988c64d1740c2eff647ced9b6e18be6f8d5d5d4e8b4e8d14e7b7f587"
+}

@@ -1,0 +1,35 @@
+{
+  "cap": 260,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/check_pvm01_preparation_state.py",
+    "--root",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002",
+    "--label",
+    "clone"
+  ],
+  "created_at": "2026-10-04T23:05:43Z",
+  "error": null,
+  "id": "PVM01-REPRO-clone-gates-V1",
+  "raw_outputs": {
+    "PVM01-REPRO-clone-gates-V1.stderr.txt": "690b54365367b400c1c7b9e8e3163a2c7a3cca667d6dec51ce2c6bef4babb346",
+    "PVM01-REPRO-clone-gates-V1.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "result": {
+    "elapsed_seconds": 0.2516097999905469,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 67141632,
+    "pid": 29340,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "scoring_or_research_data": false,
+  "seconds_charged": 9,
+  "wall_seconds": 3.398655900004087
+}

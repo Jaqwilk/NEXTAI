@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-10-04T23:14:23Z",
+  "fixed_fit_children_including_failed_probe": 41,
+  "internal_reported_fit_seconds_sum": 94.1805078999605,
+  "max_cuda_allocated_bytes": 72627200,
+  "max_cuda_reserved_bytes": 73400320,
+  "max_sampled_child_tree_rss_bytes": 2550079488,
+  "maximum_fit_loss_difference_deterministic": 0.0,
+  "means": {
+    "deterministic_math": {
+      "child_seconds_mean": 14.487159244442106,
+      "profiled_fit_seconds_mean": 3.546980083333134
+    },
+    "existing_default": {
+      "child_seconds_mean": 11.946322527780366,
+      "profiled_fit_seconds_mean": 2.6715182222218976
+    }
+  },
+  "scientific_claim": false
+}

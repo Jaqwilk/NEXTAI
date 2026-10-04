@@ -1,0 +1,104 @@
+{
+  "authority": "NEXTAI-CONTINUATION-20261004-V1",
+  "auxiliary_compute_seconds_cap": 2400,
+  "base_source_commit": "002d8be96e6f5e95c97bf308b560a06cd28051aa",
+  "budget_policy": "Reserve batches before execution. Bound whole process tree. Charge complete wall plus margin, including failures and fits. Sum cycle charges <=2400, elapsed<=7200 from start. No cap extension. Reserve room for integrity/report/original verification/bookkeeping.",
+  "created_at": "2026-10-04T22:36:37Z",
+  "cuda_fixture": {
+    "acceptance": [
+      "deterministic_math exact fixture/initial encoder/initial decoder/final encoder/final decoder/alignment loss/dense loss identity across six role/repeat children per seed, separately for all three seeds.",
+      "All losses finite; both parameter groups changed; exactly64 alignment and64 dense steps; all children completed.",
+      "Math SDPA dispatch observed, no efficient/flash SDPA FIT dispatch under deterministic_math.",
+      "Inference scores within1e-5 and identical discrete answers across roles/repeats for all20 fixed update queries."
+    ],
+    "arms": [
+      "dense",
+      "dense_cached_cpu",
+      "dense_cached_cuda"
+    ],
+    "child_wall_seconds_cap": 24,
+    "children_batch_seconds_cap": 1000,
+    "data_rule": "NumPy default_rng(730119), standard normal, float32 unit-normalized 64-dimensional rows. Query view numpy.roll(write,1,axis=-1). Generate train128 then validation32. Then for K in ordered [32,128], eight episodes of K independent unit keys; six distinct uniform known indices followed by two independent unit unknown query identities per episode; roll query view; unknown label K. All profiles, roles, repeats, model seeds receive the same fixed arrays. No private task generator/split imported.",
+    "default_profile": "Descriptive only. If default is exact too, historical EXP-0008 cause remains unidentified. Never relax deterministic acceptance after viewing outcome.",
+    "environment": "Existing runner settings already in EXP-0008: CUBLAS_WORKSPACE_CONFIG=:4096:8, Python hash seed0, OMP/OPENBLAS/MKL threads1.",
+    "fixture_seed": 730119,
+    "implementation": "New minimal adapter reuses unchanged Reference/Optimized fit. deterministic_math enables deterministic algorithms, failing on unsupported operations, and sdpa_kernel(SDPBackend.MATH) only during fit. Restore global settings. Inference retains original implementation.",
+    "independent_process_repetitions": 2,
+    "inference_fixture": "First K32 episode; initial write value handle modulo16. Read its8 queries. Replace handles0/1 with validation rows0/1 and values15/14. Read original8 plus two new query views and two superseded key query views:20 answers. Compare role scores/discrete answers; no scientific quality result.",
+    "interpretation_limit": "Finite auxiliary conformance is not competence, full-recipe proof, scientific/economic evidence or rescue of EXP-0008. Future scored studies need distinct frozen cohorts and exact validity gates.",
+    "maximum_children": 36,
+    "model_seeds": [
+      1103,
+      1709,
+      2909
+    ],
+    "operator_telemetry": "CPU dispatch profiler on fit records actual aten SDPA forward/backward names/counts. This is dispatch tracing, not physical CUDA kernel tracing. Record flags, versions/device/precision, all losses, initial/final encoder/decoder hashes, count/steps, child/fit wall, RSS and GPU allocation peaks.",
+    "profiles": [
+      "existing_default",
+      "deterministic_math"
+    ],
+    "recipe": {
+      "alignment_batch": 32,
+      "alignment_steps": 64,
+      "dense_set_steps": 64,
+      "learning_rate": 0.001,
+      "ridge_grid": [
+        0.01
+      ],
+      "threads": 1,
+      "threshold_grid": [
+        0.85
+      ],
+      "weight_decay": 0.0001
+    }
+  },
+  "cycle": 311,
+  "deadline_at": "2026-10-05T00:23:55Z",
+  "decision_rule": "KEEP technical repair only if process tests, deterministic fixture acceptance, regression and integrity pass. Otherwise INCONCLUSIVE preparation with exact failed/unexecuted scope. No promotion or new registration follows automatically.",
+  "document_type": "preparation_only_technical_preregistration",
+  "id": "PVM01-REPRO-PREPARATION-V1",
+  "next_question": "Distinct prospective alternative learned transport/indexed-memory comparison on a justified adverse paired-view task with strongest unchanged classical controls and full costs; not a retry of EXP-0008.",
+  "orchestration_failure_seconds_charged": 5,
+  "previous_decision_unchanged": "INCONCLUSIVE comparison",
+  "previous_experiment_id": "EXP-20261004-0008",
+  "process_supervision": {
+    "acceptance": [
+      "Successful and nonzero children preserve exact output and code.",
+      "Timeout kills parent, child and grandchild; no continuing heartbeat.",
+      "Early parent exit with descendants fails and kills them.",
+      "Actual uv -> Python -> grandchild boundary obeys deadline.",
+      "Assignment or resume failure prevents child code execution and closes owned handles."
+    ],
+    "auxiliary_runner": "Use new supervisor for this cycle technical tests and fixture children. Existing paid audited runner remains unchanged.",
+    "boundary": "Ordinary Popen/CreateProcess descendants including uv, child and grandchild; not a security sandbox or claim about externally delegated WMI/service processes.",
+    "deadline": "Monotonic total from before child construction, plus at most 3 seconds bounded cleanup. Lingering descendants after root exit are failure, never success.",
+    "implementation": "Trusted Windows Job Object, kill-on-close, no breakaway. File-backed stdout/stderr. Child suspended and assigned before resume. Every exit and failure closes job. Unsupported assignment fails before child code runs."
+  },
+  "question": "Can a minimal Windows whole-process-tree supervisor enforce auxiliary deadlines, and can unchanged dense fit obtain exact encoder/decoder/loss identity across dense/cache roles with deterministic math attention?",
+  "schema_version": 1,
+  "scope": {
+    "WT_8_9": false,
+    "external_model_API": false,
+    "fixed_public_auxiliary_fits": true,
+    "fresh_research_data": false,
+    "new_EXP_registration": false,
+    "new_architecture": false,
+    "old_model_loss_optimizer_and_benchmark_unchanged": true,
+    "paid_retry": false,
+    "research_scoring": false,
+    "schedule_change": false
+  },
+  "started_at": "2026-10-04T22:23:55Z",
+  "startup_seconds_already_charged": 140,
+  "validation": {
+    "all_failures_and_fixed_fits_charged": true,
+    "full_regression_once_after_targeted_pass": true,
+    "history_guard": "Preserve original raw tracked files and append-only prefixes recorded at startup. Preserve all old candidate cores, closed plans/results/analyses and archived bytes. Corrections append-only.",
+    "independent_git_clone": "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002",
+    "maintenance_manifest": "Archive previous manifest/evaluated source then freeze preparation maintenance after declared source changes; no previous result gate or cohort change.",
+    "maximum_source_repair_rounds": 2,
+    "no_cap_clipping": true,
+    "targeted_process_adapter_and_existing_cache_tests": true
+  },
+  "work_seconds_cap": 7200
+}

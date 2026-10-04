@@ -1,0 +1,35 @@
+{
+  "created_at": "2026-10-04T16:11:28Z",
+  "deadline_at": "2026-10-04T18:42:57.664034Z",
+  "hypothesis": "Runtime JSON serializes a path as str; trusted loader requires Path. A new benchmark wrapper with contained Path conversion should reach the fit phase boundary and reject invalid hash/identity/path without model or data access.",
+  "id": "PVM01-PATH-BINDING-REPAIR-V1",
+  "implementation": "Preserve failed benchmark v1/core/source/results exactly; add paired_view_mutable_memory_v2 wrapper and focused mocked boundary/worker tests. No actual data generation/fit or EXP. Future scoring requires a new prospective study, fresh unit entropy, manifest/certificate and registration; this plan grants no run or replacement ticket.",
+  "kind": "no_scoring_maintenance",
+  "previous_failed_result": "research/results/EXP-20261004-0004.json",
+  "previous_failed_result_sha256": "264183fa8c6d970f432f071b0719e9d76ddce2a8915b7606e26aa53b704a7bf0",
+  "resources": {
+    "additional_auxiliary_tests_cap_seconds": 800,
+    "combined_reference_stage_aux_cap_seconds": 1800,
+    "registration_cap": 0,
+    "research_fit_cap_seconds": 0
+  },
+  "schema_version": 1,
+  "tests": [
+    "string path matches a trusted Path through actual wrapper and prior run_suite up to pre-fit phase",
+    "bad hash/experiment identity and out-of-tree path rejected before fit",
+    "worker JSON plan path serialization traverses the wrapper to a mocked sentinel, no research generator/model called",
+    "v1 source/core/result hashes retained",
+    "full regression and doctor with maintenance"
+  ],
+  "unchanged": [
+    "scientific recipe",
+    "metrics/probability threshold grids",
+    "quality/economic gates",
+    "paired unit count",
+    "old attempts/budgets",
+    "model/core",
+    "failed v1 source",
+    "WT8-9 prohibition",
+    "no retry/final/API/schedule"
+  ]
+}
