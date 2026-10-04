@@ -1,0 +1,7 @@
+{
+  "charge_basis": "Full allowance retired conservatively for final ledger/report/hash verification and wrapper initialization or read-only bookkeeping outside timed child checks. May overcount; not measured research fit. No previous charge reduced.",
+  "created_at": "2026-10-04T20:47:17Z",
+  "new_research_seed_data_fit_or_registration": false,
+  "seconds_cap": 120,
+  "seconds_charged": 120
+}

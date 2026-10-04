@@ -1,0 +1,282 @@
+{
+  "analysis_path": "research/analyses/EXP-20261004-0007.md",
+  "analysis_sha256": "207e31415adf9de8513ed6b3ad49957b563bc11f2dc5b94b5970af2e8cf45de1",
+  "budget": {
+    "all_auxiliary_reservations_closed": true,
+    "auxiliary_charges": [
+      {
+        "charge_id": "PVM01-COMPACT-startup-V1",
+        "created_at": "2026-10-04T19:38:55Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 94
+      },
+      {
+        "charge_id": "PVM01-COMPACT-targeted-V1",
+        "created_at": "2026-10-04T19:48:41Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 9
+      },
+      {
+        "charge_id": "PVM01-COMPACT-preseed-full-V1",
+        "created_at": "2026-10-04T19:53:44Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 237
+      },
+      {
+        "charge_id": "PVM01-COMPACT-history-guard-V1",
+        "created_at": "2026-10-04T19:56:20Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 23
+      },
+      {
+        "charge_id": "PVM01-COMPACT-history-guard-V2",
+        "created_at": "2026-10-04T19:57:15Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 23
+      },
+      {
+        "charge_id": "PVM01-COMPACT-activation-gates-V1",
+        "created_at": "2026-10-04T20:01:51Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 105
+      },
+      {
+        "charge_id": "PVM01-COMPACT-controller-overhead-V1",
+        "created_at": "2026-10-04T20:14:33Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 76
+      },
+      {
+        "charge_id": "PVM01-COMPACT-stored-analysis-V1",
+        "created_at": "2026-10-04T20:18:04Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 21
+      },
+      {
+        "charge_id": "PVM01-COMPACT-raw-archive-V1",
+        "created_at": "2026-10-04T20:20:08Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 22
+      },
+      {
+        "charge_id": "PVM01-COMPACT-readonly-summary-error-V1",
+        "created_at": "2026-10-04T20:23:16Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 1
+      },
+      {
+        "charge_id": "PVM01-COMPACT-stored-diagnostics-V1",
+        "created_at": "2026-10-04T20:28:09Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 21
+      },
+      {
+        "charge_id": "PVM01-COMPACT-PCA-diagnostic-correction-V1",
+        "created_at": "2026-10-04T20:29:02Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 20
+      },
+      {
+        "charge_id": "PVM01-COMPACT-maintenance-close-V1",
+        "created_at": "2026-10-04T20:30:21Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 37
+      },
+      {
+        "charge_id": "PVM01-COMPACT-postrun-full-V1",
+        "created_at": "2026-10-04T20:36:37Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 276
+      },
+      {
+        "charge_id": "PVM01-COMPACT-postrun-gates-V1",
+        "created_at": "2026-10-04T20:37:44Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 56
+      },
+      {
+        "charge_id": "PVM01-COMPACT-write-analysis-V1",
+        "created_at": "2026-10-04T20:38:15Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 19
+      },
+      {
+        "charge_id": "PVM01-COMPACT-postanalysis-lifecycle-V2",
+        "created_at": "2026-10-04T20:39:07Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 30
+      },
+      {
+        "charge_id": "PVM01-COMPACT-postrun-gates-V2",
+        "created_at": "2026-10-04T20:41:04Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 105
+      },
+      {
+        "charge_id": "PVM01-COMPACT-helper-archive-V1",
+        "created_at": "2026-10-04T20:41:51Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 19
+      },
+      {
+        "charge_id": "PVM01-COMPACT-final-history-V1",
+        "created_at": "2026-10-04T20:43:15Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 39
+      },
+      {
+        "charge_id": "PVM01-COMPACT-original-validation-V1",
+        "created_at": "2026-10-04T20:46:51Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 105
+      },
+      {
+        "charge_id": "PVM01-COMPACT-final-accounting-allowance-V1",
+        "created_at": "2026-10-04T20:47:14Z",
+        "event": "research_program_aux_fit_charged",
+        "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+        "seconds": 120
+      }
+    ],
+    "budget_or_deadline_reset": false,
+    "charged_full_worker_seconds": 594.5230338999972,
+    "closed_before_deadline": true,
+    "elapsed_seconds_at_closure": 4463.979467,
+    "internal_algorithm_fit_seconds": 327.23818530006974,
+    "original_deadline_at": "2026-10-04T23:32:56Z",
+    "original_started_at": "2026-10-04T19:32:56Z",
+    "programme": {
+      "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+      "auxiliary_fit_seconds_conservative": 7165.0,
+      "cohort": "paired_view_mutable_memory_v4",
+      "continuation_compute_seconds_cap": 69344,
+      "continuation_compute_seconds_charged": 6998.717570699999,
+      "continuation_registration_attempts_cap": 17,
+      "continuation_registration_attempts_used": 4,
+      "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+      "experiment_id": "EXP-20261004-0007",
+      "experimental_fit_seconds": 2489.0540554000036,
+      "fit_seconds_cap": 71999.3364847,
+      "fit_seconds_charged": 9654.054055400004,
+      "fit_seconds_remaining": 62345.2824293,
+      "id": "NEXTAI-CONTINUATION-20261004-V1",
+      "paid_run_pending": false,
+      "pending_fit_reservation_seconds": 0.0,
+      "prior_compute_seconds_charged": 2655.336484700005,
+      "prior_program_closed": true,
+      "prior_program_id": "MUC03-AUTONOMOUS-20261004-V1",
+      "prior_registration_attempts_used": 3,
+      "program_closed": false,
+      "program_terminal": false,
+      "ready": true,
+      "registration_attempts_cap": 20,
+      "registration_attempts_used": 7,
+      "registration_budget_exhausted": false,
+      "scoring_authorized": false,
+      "stage_registration_attempts": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 2,
+        "reference_and_alternatives": 2,
+        "repair_reserve": 0,
+        "replication_and_fresh_final": 0,
+        "scale_and_generalization": 0
+      },
+      "stage_registration_caps": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 4,
+        "reference_and_alternatives": 5,
+        "repair_reserve": 2,
+        "replication_and_fresh_final": 3,
+        "scale_and_generalization": 3
+      },
+      "study_expired": false,
+      "study_path": "research/plans/PVM01-COMPACT-FEATURE-SCREEN-V1.json",
+      "study_terminal": true,
+      "unreserved_fit_seconds_remaining": 62345.2824293
+    },
+    "stage_auxiliary_seconds_cap": 1800,
+    "stage_auxiliary_seconds_charged": 1458,
+    "stage_total_compute_seconds": 2052.5230338999972,
+    "supervised_fit_phase_seconds": 383.31041189999087,
+    "worker_compute_cap_seconds": 15600
+  },
+  "checks": {
+    "WT8_9_access": false,
+    "archived_raw_source_runtime_files": 1749,
+    "completed_experiments_counter": 114,
+    "current_integrity": {
+      "benchmark_version": "paired_view_mutable_memory_v4",
+      "candidate_bundle_sha256": "ceb0430f4c46b5b0f4da407a85cea32af0ac5cf91afb96663232f7781672a9e2",
+      "checked_files": 1136,
+      "evaluator_sha256": "d678ceb69ead1ca4aba4091d979b3ef80f3e78a4a544fc279c56da7069ab0cd5",
+      "ok": true,
+      "problems": [],
+      "protocol_version": 3
+    },
+    "data_source_pairing_and_fit_identity_valid": true,
+    "doctor_and_lab_status_pass_clone_and_original": true,
+    "evaluated_source_commit": "3338c78a4fcfed453c703c7173d59012b52d6eed",
+    "external_model_api": false,
+    "failed_helpers_and_diagnostics_preserved_and_charged": true,
+    "failures_errors_skips_final_targeted": 0,
+    "fresh_paired_units": 5,
+    "index_guard_receipt_sha256": "c503eb0e64b6475f99e5a7e8999848067745e3ae7a9b1f4dbe35cbb40eec328a",
+    "indexed_raw_archive_native_result_files": 1809,
+    "initial_failure": "Lifecycle expected completed analysis before the report had been written; first doctor found the same missing file.",
+    "integrity_before_after_files": 1136,
+    "model_retry": false,
+    "original_BELIEFS_raw_unchanged": true,
+    "original_old_raw_bytes_and_prefixes_preserved": true,
+    "postanalysis_targeted_lifecycle_and_report_tests_passed": 6,
+    "postrun_full_suite_initial_failed": 1,
+    "postrun_full_suite_initial_passed": 1107,
+    "postrun_full_suite_tests": 1108,
+    "preregistration_before_implementation_commit": "2ba76b6c9b2d4de1d76dcbcca7b3e4de5663c48a",
+    "preseed_full_suite_tests_passed": 1108,
+    "repaired_lifecycle_report_and_doctor_pass": true,
+    "schedule_changed": false,
+    "trials_complete": 675,
+    "unique1108_regression_cases_validated": true,
+    "validated_maintenance_source_commit": "8a4ce106a166e1130733cf7932f604a7b00ad1c5",
+    "workers_complete": 75
+  },
+  "created_at": "2026-10-04T20:47:19Z",
+  "cycle": 309,
+  "decision": "DISCARD exact RFF512/512-step learned feature recipe",
+  "experiment_id": "EXP-20261004-0007",
+  "id": "PVM01-CYCLE-309-COMPLETION-V1",
+  "next_discriminating_question": "Preregister K32/128 versus including K512 feature-fit support exposure with fixed512 features/512 steps, source-identical correct transport and frozen/shuffled controls, optimized dense and strong classical/retrieval, five fresh paired units. Freeze before implementation/data; no current D rescue or second EXP in this cycle.",
+  "plan_path": "research/plans/EXP-20261004-0007.json",
+  "plan_sha256": "4947cf58db0932518d1840d4301ab9147148378bb173f235971e1f26ddef8f2b",
+  "result_sha256": "38e96aa575edace05453261cbdd157c39580c1e491fd6e4f74cc399b0147590f",
+  "study_path": "research/plans/PVM01-COMPACT-FEATURE-SCREEN-V1.json",
+  "study_sha256": "fff220213f1b1cea96ef53754f96d40bbcb6f2997f8a7371ecbed6a58e731aad",
+  "unexecuted_scope": [
+    "matched memory-training support exposure alternative",
+    "independent mechanism replication",
+    "adversarial task variant",
+    "frozen fresh final and strong classical non-domination"
+  ],
+  "whole_program_complete": false
+}

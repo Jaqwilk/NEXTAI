@@ -1,0 +1,26 @@
+{
+  "all_raw_helper_sources_archived_and_hash_verified": true,
+  "created_at": "2026-10-04T20:48:12Z",
+  "removed_paths": [
+    "research/tmp/pvm01_compact_archive.py",
+    "research/tmp/pvm01_compact_check.py",
+    "research/tmp/pvm01_compact_diagnostics.py",
+    "research/tmp/pvm01_compact_final_history.py",
+    "research/tmp/pvm01_compact_finalize.py",
+    "research/tmp/pvm01_compact_gates.py",
+    "research/tmp/pvm01_compact_guard.py",
+    "research/tmp/pvm01_compact_guard_v2.py",
+    "research/tmp/pvm01_compact_helpers_archive.py",
+    "research/tmp/pvm01_compact_maintenance.py",
+    "research/tmp/pvm01_compact_metadata.py",
+    "research/tmp/pvm01_compact_original_validate.py",
+    "research/tmp/pvm01_compact_pca_correction.py",
+    "research/tmp/pvm01_compact_postrun_gates.py",
+    "research/tmp/pvm01_compact_prepare.py",
+    "research/tmp/pvm01_compact_ready.py",
+    "research/tmp/pvm01_compact_run.py",
+    "research/tmp/pvm01_compact_write_analysis.py"
+  ],
+  "scientific_plans_results_logs_runtime_archives_untouched": true,
+  "verified_helpers_removed": 18
+}
