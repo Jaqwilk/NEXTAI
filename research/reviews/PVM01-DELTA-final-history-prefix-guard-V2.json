@@ -1,0 +1,112 @@
+{
+  "charged_seconds": 18,
+  "checks": {
+    "append_only_prefixes_verified": [
+      "research/events.jsonl",
+      "research/experiments.tsv",
+      "research/hypothesis_events.jsonl",
+      "research/plan_registry.jsonl",
+      "research/sources.jsonl"
+    ],
+    "completed_plan_result_analysis_archive_bytes_unchanged": true,
+    "historical_authority_sections_preserved": true,
+    "no_deleted_files": true,
+    "original_tracked_files_raw_unchanged": 15759,
+    "permitted_old_file_changes": [
+      ".gitattributes",
+      "AGENTS.md",
+      "config/baseline_semantics.json",
+      "config/research.toml",
+      "docs/CURRENT_STATUS.md",
+      "docs/SCIENTIFIC_PROTOCOL.md",
+      "program.md",
+      "research/LAB_PLAN.md",
+      "research/REPORT.md",
+      "research/REPORT.provenance.json",
+      "research/eval_manifest.json",
+      "research/events.jsonl",
+      "research/experiments.tsv",
+      "research/laboratory/preflight_certificate.json",
+      "research/plan_registry.jsonl",
+      "research/sources.jsonl",
+      "research/state.json",
+      "schemas/experiment_plan.schema.json",
+      "src/nextai_autoresearch/integrity.py",
+      "src/nextai_autoresearch/research_program.py",
+      "src/nextai_autoresearch/runner.py",
+      "src/nextai_autoresearch/utils.py",
+      "tests/test_runner_postseed_durability.py"
+    ],
+    "preexisting_EOL_differences": [
+      {
+        "clone_raw_sha256": "b294aaada20115299116394ffeba215f7021966dca96b9b1c6b66c834e8a5a56",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "61f895a188ed9b2e36ba8c3d166a6336f347341d7e8e7601b6d9bee8a834ded6",
+        "path": "research/BELIEFS.json"
+      },
+      {
+        "clone_raw_sha256": "3a24021377fa2e1c0a8a8dc3d34f45f3feb232fee18e287ed13f27c7fe5aac53",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "7afe5429543b5194a65b90303f9929535a5228ed1a3b1820fecb1b9f1a048328",
+        "path": "research/checks/AUDIT-REPAIR-harness-first.junit.xml"
+      },
+      {
+        "clone_raw_sha256": "a1135b77c6ba7f934067ed9e2a01c2aee652f75c24c20b7bea27111a74b2672d",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "4f81e6089924e8ce21bed4709df80f695ddc490b70f89ad90def482618ad10c7",
+        "path": "research/checks/dronepropa_protocol_gate_cycle75.json"
+      },
+      {
+        "clone_raw_sha256": "5cbaa81e004cd9f734ea2173543861ecec2bc3bdb6b636545a80f18265937685",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "7776e29dd35b8954b1592a977d0ed9b424f8687ecee3970ca98a5130eac40b3d",
+        "path": "research/checks/dronepropa_routing_sensitivity_cycle76.json"
+      },
+      {
+        "clone_raw_sha256": "52624d5839509a1fed89e6f1099d3098d886558115b0e0a1fdb3738493d2236d",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "c135a5fb0076388c926b389049d31cac1b049fad63944f1f7ff3746633c765a6",
+        "path": "research/checks/heldout_wt_changepoints_prequential_v1_development_smoke.json"
+      },
+      {
+        "clone_raw_sha256": "7aef5f0c4e5f364335fada3d7760f0557b3eb04289bdb0eb4aef5a94533c4fc8",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "f030c309c18b8651d309b1253a3739579e90cb567916d55c255cea9ab72fe63d",
+        "path": "research/checks/ncmapss_ds02_semantic_gate_v2_result.json"
+      },
+      {
+        "clone_raw_sha256": "14ce2e8bb5961863d425d15a74d9c8400a99c37b616d2205adcb38f4bde26010",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "d037450b6eab6ea693a3297afabda13b36254c2259dc5e68e91ed6932b6aafa1",
+        "path": "research/checks/ncmapss_ds08a_semantic_gate_v1_result.json"
+      },
+      {
+        "clone_raw_sha256": "7f13ea7b356ff4b11030e78f03eb6a21310842977bd8e45ca4ff7af9e6702b6c",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "7d7993af728a4c82010f2480fd337db28f20941f408e81f13563e9f1d687588c",
+        "path": "research/checks/real_system_calibration_cycle_228.json"
+      },
+      {
+        "clone_raw_sha256": "f3c09263894512daf7c181f77a8421aed105c8ca426b0fbc3ee0f5ccff44679c",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "7c23b36795d79e06c67f54caeb94bc3f81928417f940179fed38164502b90718",
+        "path": "research/data/suitesparse_real_pde_v1/audit_attempt_001.json"
+      },
+      {
+        "clone_raw_sha256": "17538876482de411b9648bb031f6fc4185631ceed4c5295a0b24e8404bfb567f",
+        "only_preexisting_line_endings": true,
+        "original_raw_sha256": "23dfe931685877720e4d666ee5017ef0b3c64a7d4ecf10f8c3570933fa33210a",
+        "path": "research/reviews/EXTERNAL-AUDIT-2026-09-03.md"
+      }
+    ],
+    "program_budget_registration_carry_forward_valid": true,
+    "state_cycle": 308
+  },
+  "correction": "The prospective baseline registry path is config/baseline_semantics.json, not jsonl; unchanged allow scope.",
+  "created_at": "2026-10-04T19:10:52Z",
+  "elapsed_seconds": 17.10736629999883,
+  "error": null,
+  "id": "PVM01-DELTA-final-history-prefix-guard-V2",
+  "previous_failed_check_preserved": "PVM01-DELTA-final-history-prefix-guard-V1",
+  "research_fit_or_new_data": false
+}

@@ -1,0 +1,12 @@
+{
+  "charged_seconds": 6,
+  "checks": {},
+  "created_at": "2026-10-04T19:09:16Z",
+  "elapsed_seconds": 5.985312899996643,
+  "error": {
+    "message": "['config/baseline_semantics.json']",
+    "type": "AssertionError"
+  },
+  "id": "PVM01-DELTA-final-history-prefix-guard-V1",
+  "research_fit_or_new_data": false
+}

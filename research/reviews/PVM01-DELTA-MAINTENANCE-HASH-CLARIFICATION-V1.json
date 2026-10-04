@@ -1,0 +1,12 @@
+{
+  "clarifies_receipt": "PVM01-DELTA-postrun-maintenance-regression-V1 source_or_recipe_changed_after_paid_run=false refers to tested scientific sources/recipe, not protected queue/config metadata. Evaluated raw source was archived before maintenance, both hashes remain explicit.",
+  "completed_result_or_plan_changed": false,
+  "created_at": "2026-10-04T19:15:54Z",
+  "evaluated_evaluator_sha256": "56fdd14f3c1de7aea00fec860d799348f91807fa32cdfed829950ca9d0e3328c",
+  "id": "PVM01-DELTA-MAINTENANCE-HASH-CLARIFICATION-V1",
+  "maintenance_evaluator_sha256": "19091b2cf072fb6671cbb42d293e00e9614f5247a6687dc6dd1ac790803b0726",
+  "protected_maintenance_metadata_changed_after_run": true,
+  "same_candidate_bundle": true,
+  "tested_candidate_generator_metric_and_schema_sources_unchanged_after_run": true,
+  "unchanged_source_files_checked": 1033
+}

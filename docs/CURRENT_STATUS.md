@@ -1,3 +1,27 @@
+# Current cycle308 — EXP-20261004-0006 completed (2026-10-04)
+
+One delta-memory screen:75/75 workers,675/675 trials, five fresh paired units.
+Updated additive→delta39.83→100%; gain60.17pp simultaneous98.75% CI[56.90,63.43],
+5/5positive. Retained contrast+0.61pp CI[−0.76,1.99] passes−2pp; both learning
+contrasts≈74.82pp and all delta/dense competence gates pass.
+KEEP narrow delta mechanism; no novelty, learned controller, economic/transfer
+claim or architecture promotion. Delta full99.7986%, UNKNOWN99.5278%;
+dense/cache and strong fitted retrieval/classics100%.
+Full service delta0.8302s versus cacheCPU1.4487s and ridge0.0885s;
+PCA scan0.1067s and68.25KiB versus delta473KiB. Full objective remains open.
+Fit phase223.5436s, full charged workers449.7621s; all failed/valid auxiliary
+checks charged append-only. Plan/result/source/runtime preserved before maintenance.
+Analysis:research/analyses/EXP-20261004-0006.md. MUC and0004/0005 results unchanged.
+Current study terminal, maintenance/scoring=false, continuation active.
+3/17 new tickets used; old3 tickets/2655.336485s carried unchanged. No retry,
+WT8–9, external models/API or schedule change. Use uv run nextai lab status.
+Next bounded cycle: preregister compact learned-feature memory versus frozen
+and shuffled controls, optimized dense and strongest classical/retrieval
+controls; or finite evidence-based alternative review. No new implementation,
+seed/data before freeze. Adverse, scaling, replication and frozen fresh final
+remain required. No second EXP in this completed cycle.
+Previous sections are preserved historical states.
+
 # Prospective cycle308 — PVM01 delta-memory screen (2026-10-04)
 
 PVM01-DELTA-MEMORY-SCREEN-V1 was frozen in Git6555a6ac before implementation.

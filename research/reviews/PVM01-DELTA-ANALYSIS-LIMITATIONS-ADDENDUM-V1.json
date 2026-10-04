@@ -1,0 +1,9 @@
+{
+  "cache_limitation": "No direct decoder hash; V2 discloses actual tiny set-loss and score differences, all observed answer/handle values identical",
+  "created_at": "2026-10-04T19:03:11Z",
+  "id": "PVM01-DELTA-ANALYSIS-LIMITATIONS-ADDENDUM-V1",
+  "old_latency_label_corrected_append_only": true,
+  "optional_plot_omitted": "matplotlib unavailable in project and bundled artifact runtime; failed checks preserved and charged; no dependency installed",
+  "paid_run_repeated": false,
+  "primary_and_competence_gates_unchanged": true
+}

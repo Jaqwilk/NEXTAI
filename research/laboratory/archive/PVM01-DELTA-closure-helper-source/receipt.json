@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-10-04T19:13:36Z",
+  "estimated_copy_bytes": 20301,
+  "files": {
+    "PVM01-DELTA-history-guard-V2.py": "886427a23789be1fe2562ec07016c8d0003b83db3e070e6804126faa5011aca0",
+    "PVM01-DELTA-write-report.py": "6f8281e046cd6e7a6ecb1a1cbb651412f0f78b2086d0cd0a0325a5ac410f5b86"
+  },
+  "free_bytes_after": 60412547072,
+  "free_bytes_before": 60412571648,
+  "purpose": "Reproduce stored-result report generation and append-only history guard; no candidate fit or new data"
+}

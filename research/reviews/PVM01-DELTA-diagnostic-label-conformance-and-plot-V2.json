@@ -1,0 +1,31 @@
+{
+  "charged_seconds": 2,
+  "checks": [
+    {
+      "all_answers_top_values_handles_identical": true,
+      "direct_decoder_hash_available": false,
+      "five_units": true,
+      "max_score_difference": 2.980232238769531e-07,
+      "max_set_loss_difference": 8.940696716308594e-08,
+      "operation": "stored dense cache outputs and training trace diagnostic"
+    },
+    {
+      "old_archived_metrics_sha256": "fe7fe85381509cb3ec6d255f38d541b2c23cee58ae97300e129b3cfba5e1ff81",
+      "old_result_sha256": "626bc4657db2cec8642f4c1f9f62d1ea3a6fb6a30191d64111818774e29c4190",
+      "operation": "old0005 pooled p95 label correction stored-only",
+      "summary_equals_raw_pooled_p95": true,
+      "workers": 40
+    }
+  ],
+  "created_at": "2026-10-04T18:56:51Z",
+  "elapsed_seconds": 1.188217100003385,
+  "error": {
+    "message": "No module named 'matplotlib'",
+    "type": "ModuleNotFoundError"
+  },
+  "id": "PVM01-DELTA-diagnostic-label-conformance-and-plot-V2",
+  "no_model_executed": true,
+  "old_and_current_completed_results_unchanged": true,
+  "prior_failed_check_preserved": "PVM01-DELTA-diagnostic-label-conformance-and-plot-V1",
+  "prior_failure_reason": "Exact set-loss trace equality was an exploratory assumption, not a frozen gate; the actual tiny differences are reported instead of asserting bitwise equality."
+}

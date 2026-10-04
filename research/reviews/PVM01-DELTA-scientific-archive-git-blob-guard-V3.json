@@ -1,0 +1,24 @@
+{
+  "archive_git_commit": "20c5bb32ae134861ec291949e3cf0b2ae9919f14",
+  "archive_receipt_sha256": "ae9924158485caf7681906d098958b81452aabc1a188fe07e5546de9d34cd233",
+  "charged_seconds": 3,
+  "checks": [
+    {
+      "files": 1732,
+      "operation": "raw scientific archive and native diagnostics indexed SHA256",
+      "status": "PASS"
+    },
+    {
+      "operation": "live source whitespace lint",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "correction": "Explicit git add --renormalize rereads only native diagnostics after prospective -text rule; source and archive bytes untouched.",
+  "created_at": "2026-10-04T18:54:22Z",
+  "elapsed_seconds": 2.871279900005902,
+  "id": "PVM01-DELTA-scientific-archive-style-recovery-V3",
+  "previous_failed_guards_preserved": true,
+  "status": "PASS"
+}

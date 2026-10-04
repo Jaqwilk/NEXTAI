@@ -1,0 +1,26 @@
+{
+  "charged_seconds": 230,
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1096
+  },
+  "created_at": "2026-10-04T19:07:40Z",
+  "elapsed_seconds": 229.3017389000015,
+  "error": null,
+  "id": "PVM01-DELTA-postrun-maintenance-regression-V1",
+  "integrity_after": {
+    "benchmark_version": "paired_view_mutable_memory_v3",
+    "candidate_bundle_sha256": "b66a0cb3da1fb807cb88cf24e28a071ff7a222e1c6d8fc6faf84992dd4eb2d3b",
+    "checked_files": 1111,
+    "evaluator_sha256": "19091b2cf072fb6671cbb42d293e00e9614f5247a6687dc6dd1ac790803b0726",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "maintenance_metadata_and_archive_validation": true,
+  "raw_xml_sha256": "a3bfce551d3c7a4f63bd43b211f55d32130fb27704b279b9f05457c4d55135e2",
+  "returncode": 0,
+  "source_or_recipe_changed_after_paid_run": false
+}

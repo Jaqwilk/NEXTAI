@@ -1,0 +1,9 @@
+{
+  "charged_seconds": 1,
+  "checks": [],
+  "created_at": "2026-10-04T18:55:31Z",
+  "elapsed_seconds": 0.6588121999957366,
+  "id": "PVM01-DELTA-diagnostic-label-conformance-and-plot-V1",
+  "no_model_executed": true,
+  "old_and_current_completed_results_unchanged": true
+}
