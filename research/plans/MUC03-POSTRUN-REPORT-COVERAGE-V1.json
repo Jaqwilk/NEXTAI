@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "MUC03-POSTRUN-REPORT-COVERAGE-V1",
+  "created_at": "2026-10-04T02:06:30Z",
+  "deadline_at": "2026-10-04T04:55:06Z",
+  "scope": "No-scoring presentation repair: disclose complete eligible rows excluded from the diagnostic Pareto front because declared axes are unmeasured. Keep immutable axes, eligibility and numerical front unchanged. Add one synthetic regression proving a legal classical row is disclosed and a failed/privileged row is not mislabelled as missing-axis eligible. Complete the required 12-outcome reflection and program resolution.",
+  "completed_result_path": "research/results/EXP-20261004-0003.json",
+  "completed_result_sha256": "1e4731e5d0ad121a4c5fb34c9472a487eef25f288dea3d86b4b7bb8b747ca495",
+  "source_before": {
+    "src/nextai_autoresearch/report.py": "92c9e7d9184ab993420a37e80cc59ce618e99821f70150f8bd82799bc0ab989d",
+    "tests/test_report_pareto_provenance.py": "ef70a886b911906f73418cdc2d847f47d90854f0accc8824dffabc5c454ff6cb"
+  },
+  "research_fit_or_scoring_authorized": false,
+  "registration_attempts_used_remain": 3,
+  "tested_model_or_metrics_change": false,
+  "new_architecture_authorized": false,
+  "full_test_reservation_seconds_cap": 600,
+  "stop": "Preserve every failure; no new research registration, scoring, fit or fourth reference recipe."
+}
