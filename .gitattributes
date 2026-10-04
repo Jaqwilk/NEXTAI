@@ -41,3 +41,7 @@ research/reviews/PVM01-REPRO-startup*.json -text
 
 # Nested fixed-fixture journals also retain their exact native output bytes.
 research/reviews/PVM01-REPRO-fixture-*/** -text
+
+research/reviews/PVM01-TRANSPORT-* -text
+research/checks/PVM01-TRANSPORT-* -text
+research/reviews/PVM01-TRANSPORT-*/** -text

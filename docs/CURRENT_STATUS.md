@@ -1,3 +1,21 @@
+# Cycle312 prospective metadata correction
+
+Active immutable contract is PVM01-TRANSPORT-COMPRESSION-ADVERSE-V2.json.
+V1 stale descriptive fields corrected before code/data; scientific scope/caps unchanged.
+No registration or fit; V1 bytes and freeze event preserved.
+
+# Prospective cycle312 — transport compression and adverse noise
+
+PVM01-TRANSPORT-COMPRESSION-ADVERSE-V1 preregistered before implementation/data.
+Five fresh paired units,14 arms, K32/128/512,updates0/1/4,noise0.02/0.04.
+Same2048/1024 recipe; strict deterministic math FIT,exact identity gates.
+Training-only PCA/grid/calibration; all strongest dense/cache/classical controls.
+Four-hour deadline2026-10-05T03:43:31Z,full workers16800s,aux2400s.
+Maintenance/scoring=false until clone conformance,freeze/preflight/readiness.
+Exactly one audited EXP,no retry; closed studies and economic gates unchanged.
+Continuation active; replication/frozen fresh final remain required.
+Earlier sections below remain preserved history.
+
 # Current cycle311 — technical preparation closed (2026-10-04)
 
 KEEP technical repair:36/36 corrected children,18/18 exact deterministic FITs,

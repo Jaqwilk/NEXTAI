@@ -1,0 +1,3 @@
+from .behavioral_conjugacy_library_transfer_v1 import run_benchmark
+
+BENCHMARK_VERSION = "behavioral_conjugacy_library_transfer_v2"

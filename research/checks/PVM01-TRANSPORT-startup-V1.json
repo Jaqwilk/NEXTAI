@@ -1,0 +1,32 @@
+{
+  "charge": 109,
+  "created_at": "2026-10-04T23:46:24Z",
+  "free_bytes": 37775081472,
+  "results": [
+    {
+      "elapsed_seconds": 45.574742500000866,
+      "exit_job_active_process_count": 0,
+      "exit_live_descendant_pids": [],
+      "label": "doctor",
+      "peak_tree_rss_bytes_sampled": 1383333888,
+      "pid": 33376,
+      "processes_created": 155,
+      "reason": "exited",
+      "returncode": 0,
+      "root_returncode": 0
+    },
+    {
+      "elapsed_seconds": 55.013187500007916,
+      "exit_job_active_process_count": 0,
+      "exit_live_descendant_pids": [],
+      "label": "lab",
+      "peak_tree_rss_bytes_sampled": 1383034880,
+      "pid": 25320,
+      "processes_created": 159,
+      "reason": "exited",
+      "returncode": 0,
+      "root_returncode": 0
+    }
+  ],
+  "wall_seconds": 103.76003749998927
+}
