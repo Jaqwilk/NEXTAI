@@ -19,6 +19,7 @@ FIXED_PROTECTED_FILES = (
     "research/plans/HAR01-NATIVE-TASK-CONTRACT-V1.json",
     "research/plans/HAR01-PRESEED-CONFORMANCE-V1.json",
     "research/plans/HAR01-PRESEED-CAP-CONFORMANCE-V1.json",
+    "research/plans/HAR01-ANALYSIS-CONFORMANCE-V1.json",
     "research/data_manifests/HAR01-ACQUISITION-V1.json",
     "research/data_manifests/HAR01-LICENSE-CONFORMANCE-V1.json",
     "scripts/run_har01_check.py",

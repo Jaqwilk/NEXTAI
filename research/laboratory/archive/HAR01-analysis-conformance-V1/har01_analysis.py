@@ -191,7 +191,7 @@ def analyze(result, study):
     learned_pass = all(row["pass"] for row in primary.values())
     analysis.update(reference=reference, reference_competent=competent, primary=primary, means=means,
                     economics=economics, qualified_routes=[arm for arm in ARMS if competent and economics[arm]["qualified"]],
-                    source_information_transfer="KEEP" if learned_pass else "DISCARD",
+                    source_information_transfer="KEEP" if competent and learned_pass else "DISCARD" if competent else "INCONCLUSIVE",
                     economic_decision="INCONCLUSIVE" if not competent else "KEEP" if any(row["qualified"] for row in economics.values()) else "DISCARD",
                     primary_family_confidence=.95, primary_endpoint_confidence=.9875,
                     economic_family_confidence_separate=.95,

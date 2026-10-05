@@ -1,0 +1,22 @@
+{
+  "before_paid_registration_seed_fit_or_outcomes": true,
+  "change": "Keep validity guards and all four primary endpoints intact; source-information verdict uses only those four endpoints. Economic qualification remains INCONCLUSIVE unless every target competence gate passes.",
+  "conformance_test": "tests/test_har01_analysis_contract.py",
+  "created_at": "2026-10-05T14:37:30Z",
+  "id": "HAR01-ANALYSIS-CONFORMANCE-V1",
+  "issue": "Analyzer coupled the source-information verdict to target dense competence; the frozen decision_policy couples failed competence to the ECONOMIC comparison and defines source-information KEEP/DISCARD by four source contrasts under valid measurement/source controls.",
+  "old_analyzer_sha256": "dd5f7202848a9255302eae42225497a7309702fb3fe2c252127e772ac7846003",
+  "study_path": "research/plans/HAR01-FROZEN-SOURCE-SCREEN-V1.json",
+  "study_sha256": "9ec218451704762a128415204a1b4f7aa6e016bac4a56122368e975f6d9013eb",
+  "unchanged": [
+    "metrics",
+    "intervals",
+    "thresholds",
+    "source/control validity",
+    "economic/reference gates",
+    "recipe",
+    "budgets",
+    "deadline",
+    "data"
+  ]
+}
