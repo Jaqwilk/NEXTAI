@@ -1,3 +1,18 @@
+# Prospective cycle317 - frozen five-pair fresh final
+
+PVM01-FRESH-FINAL-V1 frozen before implementation/new data.
+Same17 arms,4096 pairs,2048/1024 steps,calibration,3K,updates0/1/4,noise.02/.04.
+Fixed unaugmented dense_cached_cpu; neural transport/PCA and classic ridge/PCA assessed separately.
+Original8/18/60 and ten base-unit FA guards unchanged;mixed6NI ancillary unchanged.
+Five NEW final units; no earlier units,weights or outcomes pooled. Visible local same-law final,not blinded or transfer evidence.
+Before final arrays,export25 bounded fitted-source states with full charged copy/serialization cost for separately preregistered B transfer.
+Full workers10200s,aux3600s,fit90s/worker116s/external120s.
+Deadline2026-10-05T12:58:30Z; last replication_and_fresh_final ticket,no rescue/retry.
+Maintenance/scoring=false until clone conformance,freeze/preflight/readiness.
+Exactly one audited EXP,WT8-9/external models/APIs/schedule changes forbidden.
+After complete charges,explicit A resolution/accounting in next bounded cycle before B activation.
+A active,B authorized/unspent/inactive;expanded transfer/prototype goal remains open. Earlier sections are history.
+
 # Completed cycle316 - independent confirmation EXP-20261005-0005
 
 Five NEW paired units,17 fixed arms; valid=True.

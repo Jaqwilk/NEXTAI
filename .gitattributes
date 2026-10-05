@@ -57,3 +57,7 @@ research/checks/PVM01-BASE-REFERENCE-* -text
 
 # Startup observation is hash-bound to native Windows bytes.
 research/reviews/PVM01-BASE-REFERENCE-startup*.json -text
+
+# Preserve native byte hashes of fresh-final conformance and startup records.
+research/checks/PVM01-FRESH-FINAL-* -text
+research/reviews/PVM01-FRESH-FINAL-startup*.json -text

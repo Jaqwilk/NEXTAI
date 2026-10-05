@@ -1,0 +1,33 @@
+{
+  "K": [
+    32,
+    128,
+    512
+  ],
+  "control_false_abstention_max": 0.02,
+  "control_mean_accuracy_min": 0.95,
+  "control_unknown_min": 0.95,
+  "controls": [
+    "ridge",
+    "ridge32",
+    "ridge_pca_scan",
+    "ridge_pca_tree",
+    "kernel"
+  ],
+  "created_at": "2026-10-05T09:16:36Z",
+  "definition": "Matched-quality classical cost/state dominance requires all6 noise/K cells: original2pp noninferiority, service ratio upper<1, mean logical state<=candidate, original quality/absence guards.60 simultaneous two-sided Student-t df4 intervals give familywise95%. Preserve point Pareto diagnostics separately. Economic screening cannot qualify if any such control dominates. Stronger disclosed checking, no relaxed gate.",
+  "full_service_control_div_candidate_upper_strict_max": 1.0,
+  "id": "PVM01-FRESH-FINAL-CLASSICAL-ECONOMICS-V1",
+  "independent_units": 5,
+  "interval_level": 0.9991666666666666,
+  "logical_state_control_no_greater": true,
+  "noise": [
+    0.02,
+    0.04
+  ],
+  "paired_interval_family_comparisons": 60,
+  "parent_study_path": "research/plans/PVM01-FRESH-FINAL-V1.json",
+  "parent_study_sha256": "8b5912be1a70d10a8388b955ff9a7e5045e3a3937d4524486ef165e613841074",
+  "quality_control_minus_candidate_lower_min": -0.02,
+  "unchanged": "Exact previous original8/18/60 and selected18/60 gates,comparators and intervals; five new final units only. Main unaugmented dense_cached_cpu reference and ten base-unit/noise FA guards,all17 arms unchanged. Ancillary mixed6NI preserved separately. No pooled prior units,blinded/general-transfer or joint95% claim across families."
+}
