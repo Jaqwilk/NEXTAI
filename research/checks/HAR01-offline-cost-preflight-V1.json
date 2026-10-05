@@ -1,0 +1,8 @@
+{
+  "analyzer_sha256": "c7152b98d62af46482392261ddeb63490feabf409f0c9ed919e01cc3a0a31293",
+  "before_paid_registration_seed_fit_or_outcomes": true,
+  "decision_gates_changed": false,
+  "preflight_sha256": "300e7e7a5c375a38d91649dceb394eb1572bdd60604e5fcbdd89350d7bd7b309",
+  "source_costs_verified": 20,
+  "source_replayed": false
+}

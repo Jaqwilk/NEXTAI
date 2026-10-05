@@ -1,0 +1,164 @@
+{
+  "analysis_sha256": "be90b2f138f83d509a585916d4aa3bacce617033e51069c9b7311c1ed9b40fda",
+  "created_at": "2026-10-05T15:53:48Z",
+  "decision": "Preserve exact recipe;no HAR D-guided rescue. Separately preregister second native-family intake and verify true independent units before fit;keep economic and competence gates.",
+  "decision_or_threshold_change": false,
+  "experiment_id": "EXP-20261005-0007",
+  "interpretation": "None of five dense or raw T calibration units had any declared threshold satisfying both UNKNOWN>=.95 and known false abstention<=.02. Dense alignment training loss fell strongly; this does not establish development competence or causal undertraining. Raw nominal development ranking=100% while absence rejection and adverse false abstention fail: ranking and global absence calibration must be distinguished. No information-theoretic impossibility or architecture-family falsification follows.",
+  "new_evaluation_or_fit": false,
+  "next_scope": "Preparation-only optical-digit source/writer provenance and disjoint-unit feasibility;choose another independently justified public family if writer units cannot be verified;future five-pair three-scale screen then independent replication/fresh finals/prototype remain required.",
+  "posthoc_descriptive_only": true,
+  "result_sha256": "78380a19ffacf4a58af0bd8586425fbacee44b2e5a92c6e056f3699f769ed255",
+  "saved_T_only_calibration_and_loss_observations": {
+    "har01_native_raw_s0": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.42592592592592593,
+        "accuracy": 0.8564814814814815,
+        "known_false_abstention": 0.0,
+        "threshold": 0.95
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "9839e3b539c8eb0f9f1182c9de2e821e83896171c6821b30ed62ccbc30a6022e"
+    },
+    "har01_native_raw_s1": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.5324074074074074,
+        "accuracy": 0.8831018518518519,
+        "known_false_abstention": 0.0,
+        "threshold": 0.925
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "2b0a3a624d043b5af09a75188e26284b1c6f9ba959c1f056710ad71e8288e5e3"
+    },
+    "har01_native_raw_s2": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.7569444444444444,
+        "accuracy": 0.9328703703703703,
+        "known_false_abstention": 0.008487654320987654,
+        "threshold": 0.99
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "5ae859732226986f62f1660d91a5a42ce5c340e3cedcbaba447d79abf5df748f"
+    },
+    "har01_native_raw_s3": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.8726851851851852,
+        "accuracy": 0.9681712962962963,
+        "known_false_abstention": 0.0,
+        "threshold": 0.97
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "47b6d31b62650e7c858b11af189ae4804d924b00784d2570a3f38cc13cc64540"
+    },
+    "har01_native_raw_s4": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.4930555555555556,
+        "accuracy": 0.8732638888888888,
+        "known_false_abstention": 0.0,
+        "threshold": 0.95
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "50956fdc36545da5a21fcdf639b534a9cff624094b41d97bec233e7b9318ad67"
+    },
+    "har01_target_dense_s0": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.44212962962962965,
+        "accuracy": 0.5202546296296297,
+        "known_false_abstention": 0.14814814814814814,
+        "threshold": 0.8
+      },
+      "alignment_losses": {
+        "first": 0.028913618996739388,
+        "last": 4.150378572376212e-06,
+        "steps": 2048
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "9839e3b539c8eb0f9f1182c9de2e821e83896171c6821b30ed62ccbc30a6022e",
+      "dense_set_losses": {
+        "first": 0.8881610035896301,
+        "last": 0.5212035179138184,
+        "steps": 1024
+      }
+    },
+    "har01_target_dense_s1": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.5,
+        "accuracy": 0.7858796296296297,
+        "known_false_abstention": 0.06790123456790123,
+        "threshold": 0.8
+      },
+      "alignment_losses": {
+        "first": 0.029843714088201523,
+        "last": 5.819345460622571e-06,
+        "steps": 2048
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "2b0a3a624d043b5af09a75188e26284b1c6f9ba959c1f056710ad71e8288e5e3",
+      "dense_set_losses": {
+        "first": 1.2189455032348633,
+        "last": 0.5395460724830627,
+        "steps": 1024
+      }
+    },
+    "har01_target_dense_s2": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.40046296296296297,
+        "accuracy": 0.7714120370370371,
+        "known_false_abstention": 0.010802469135802469,
+        "threshold": 0.75
+      },
+      "alignment_losses": {
+        "first": 0.02943682111799717,
+        "last": 4.907585207547527e-06,
+        "steps": 2048
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "5ae859732226986f62f1660d91a5a42ce5c340e3cedcbaba447d79abf5df748f",
+      "dense_set_losses": {
+        "first": 1.178471565246582,
+        "last": 0.44378194212913513,
+        "steps": 1024
+      }
+    },
+    "har01_target_dense_s3": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.6828703703703703,
+        "accuracy": 0.9045138888888888,
+        "known_false_abstention": 0.019290123456790122,
+        "threshold": 0.8
+      },
+      "alignment_losses": {
+        "first": 0.03143280744552612,
+        "last": 5.089563273941167e-06,
+        "steps": 2048
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "47b6d31b62650e7c858b11af189ae4804d924b00784d2570a3f38cc13cc64540",
+      "dense_set_losses": {
+        "first": 0.4209338426589966,
+        "last": 0.2979529798030853,
+        "steps": 1024
+      }
+    },
+    "har01_target_dense_s4": {
+      "T_only_calibration_choice": {
+        "absent_rejection": 0.4583333333333333,
+        "accuracy": 0.7962962962962963,
+        "known_false_abstention": 0.06172839506172839,
+        "threshold": 0.8
+      },
+      "alignment_losses": {
+        "first": 0.02922803908586502,
+        "last": 5.010598670196487e-06,
+        "steps": 2048
+      },
+      "calibration_feasible": false,
+      "calibration_sha256": "50956fdc36545da5a21fcdf639b534a9cff624094b41d97bec233e7b9318ad67",
+      "dense_set_losses": {
+        "first": 0.8758856654167175,
+        "last": 0.6443442106246948,
+        "steps": 1024
+      }
+    }
+  }
+}

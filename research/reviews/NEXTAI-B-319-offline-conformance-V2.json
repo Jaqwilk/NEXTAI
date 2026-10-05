@@ -1,0 +1,33 @@
+{
+  "cap_seconds": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-c",
+    "import json,math,py_compile,sys; sys.path.insert(0,'scripts'); from pathlib import Path; from nextai_autoresearch.utils import atomic_write_json,sha256_file; from nextai_autoresearch.integrity import freeze_manifest,verify_manifest; from nextai_autoresearch.baseline_semantics import write_preflight_certificate,verify_preflight_certificate; from analyze_pvm01_confirmation import reuse_cost; r=Path.cwd(); py_compile.compile('scripts/analyze_har01.py',doraise=True); base=r/'research/laboratory/archive/EXP-20261005-0006-runtime/research/tmp/EXP-20261005-0006'; names=[f'pvm01_tc_{a}_s{i}' for a in ('transport_pca','transport_pca_untrained','transport_pca_shuffled','ridge_pca_scan') for i in range(5)]; records={n:json.loads((base/(n+'.supervisor.json')).read_text()) for n in names}; assert all(v['status']=='complete' and math.isfinite(v['execution']['supervised_fit_seconds']) and v['execution']['supervised_fit_seconds']>=0 for v in records.values()); assert reuse_cost(2.,3.,.5,1.,[1,4,16])['by_reuse']['16']=={'candidate_seconds':10.,'reference_seconds':19.}; freeze_manifest(r,overwrite=True); write_preflight_certificate(r); assert verify_manifest(r)['ok']; c=verify_preflight_certificate(r); atomic_write_json(r/'research/checks/HAR01-offline-cost-preflight-V1.json',{'source_costs_verified':len(records),'before_paid_registration_seed_fit_or_outcomes':True,'analyzer_sha256':sha256_file(r/'scripts/analyze_har01.py'),'preflight_sha256':c['certificate_sha256'],'source_replayed':False,'decision_gates_changed':False}); print(json.dumps({'source_costs_verified':len(records),'integrity':True,'preflight':True}),flush=True)"
+  ],
+  "conservative_accounting_allowance_seconds": 20,
+  "created_at": "2026-10-05T15:12:13Z",
+  "error": null,
+  "id": "NEXTAI-B-319-offline-conformance-V2",
+  "raw_outputs": {
+    "NEXTAI-B-319-offline-conformance-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-319-offline-conformance-V2.stdout.txt": "9213f501c014115a409f33a0639449e99b5c431ee2fd2b05eb778b2e4b249359"
+  },
+  "result": {
+    "elapsed_seconds": 2.309735799994087,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 224309248,
+    "pid": 27808,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 36,
+  "wall_seconds": 15.214766999997664,
+  "whole_process_tree_bounded": true
+}

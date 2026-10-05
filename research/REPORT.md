@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-10-05T15:00:22Z
+Generated: 2026-10-05T15:54:30Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -388,6 +388,58 @@ Pareto axes: maximize `transfer_accuracy, minimum_family_accuracy, near_equivale
 | EXP-20260901-0057 | specialist_empirical_joint_suite_v2 | implementable | complete | 0.9271 | - | 1 | 1734 | 96.71 | 2222 | 2.212e+06 | 1.214 (2; screening) | 88720 |  |
 | EXP-20260901-0057 | specialist_autoregressive_suite_v2 | implementable | complete | 0.8073 | - | 1 | 551 | 96.71 | 2222 | 9.941e+05 | 0.3181 (2; screening) | 72336 |  |
 | EXP-20260901-0057 | oracle_cross_family_suite_v2 | privileged support control | complete | 1 | - | 1 | 104 | 96.71 | 751.8 | 4.91e+05 | 0.3833 (2; screening) | 2472 |  |
+
+## har01_native_memory_v1 / quick
+
+Pareto axes: maximize `accuracy, fact_top1_accuracy, dense_unknown_rejection`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20261005-0007 | har01_source_trained_s0 | implementable | complete | 0.6176 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_trained_s1 | implementable | complete | 0.6884 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_trained_s2 | implementable | complete | 0.6461 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101770 |  |
+| EXP-20261005-0007 | har01_source_trained_s3 | implementable | complete | 0.5985 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_trained_s4 | implementable | complete | 0.674 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101769 |  |
+| EXP-20261005-0007 | har01_source_untrained_s0 | implementable | complete | 0.7676 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_untrained_s1 | implementable | complete | 0.7687 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_untrained_s2 | implementable | complete | 0.6452 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101770 |  |
+| EXP-20261005-0007 | har01_source_untrained_s3 | implementable | complete | 0.6701 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_untrained_s4 | implementable | complete | 0.7096 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101769 |  |
+| EXP-20261005-0007 | har01_source_shuffled_s0 | implementable | complete | 0.6404 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_shuffled_s1 | implementable | complete | 0.7517 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_shuffled_s2 | implementable | complete | 0.6426 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101770 |  |
+| EXP-20261005-0007 | har01_source_shuffled_s3 | implementable | complete | 0.5977 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101833 |  |
+| EXP-20261005-0007 | har01_source_shuffled_s4 | implementable | complete | 0.6667 | - | 1 | 5.035e+04 | - | - | - | 0.08754 (3) | 101769 |  |
+| EXP-20261005-0007 | har01_source_ridge_s0 | implementable | complete | 0.2101 | - | 1 | 8875 | - | - | - | 0.5 (3) | 32457 |  |
+| EXP-20261005-0007 | har01_source_ridge_s1 | implementable | complete | 0.2886 | - | 1 | 8875 | - | - | - | 0.5 (3) | 32457 |  |
+| EXP-20261005-0007 | har01_source_ridge_s2 | implementable | complete | 0.3082 | - | 1 | 8875 | - | - | - | 0.5 (3) | 32394 |  |
+| EXP-20261005-0007 | har01_source_ridge_s3 | implementable | complete | 0.2734 | - | 1 | 8875 | - | - | - | 0.5 (3) | 32457 |  |
+| EXP-20261005-0007 | har01_source_ridge_s4 | implementable | complete | 0.2802 | - | 1 | 8875 | - | - | - | 0.5 (3) | 32393 |  |
+| EXP-20261005-0007 | har01_target_dense_s0 | implementable | complete | 0.3934 | - | 1 | 6.833e+05 | - | - | - | 0.05815 (3) | 706953 |  |
+| EXP-20261005-0007 | har01_target_dense_s1 | implementable | complete | 0.584 | - | 1 | 6.833e+05 | - | - | - | 0.05815 (3) | 706953 |  |
+| EXP-20261005-0007 | har01_target_dense_s2 | implementable | complete | 0.6365 | - | 1 | 6.833e+05 | - | - | - | 0.05815 (3) | 706890 |  |
+| EXP-20261005-0007 | har01_target_dense_s3 | implementable | complete | 0.6686 | - | 1 | 6.833e+05 | - | - | - | 0.05815 (3) | 706953 |  |
+| EXP-20261005-0007 | har01_target_dense_s4 | implementable | complete | 0.6545 | - | 1 | 6.833e+05 | - | - | - | 0.05815 (3) | 706889 |  |
+| EXP-20261005-0007 | har01_target_ridge_pca_s0 | implementable | complete | 0.6198 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 31369 |  |
+| EXP-20261005-0007 | har01_target_ridge_pca_s1 | implementable | complete | 0.8084 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 31369 |  |
+| EXP-20261005-0007 | har01_target_ridge_pca_s2 | implementable | complete | 0.6495 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 31306 |  |
+| EXP-20261005-0007 | har01_target_ridge_pca_s3 | implementable | complete | 0.6003 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 31369 |  |
+| EXP-20261005-0007 | har01_target_ridge_pca_s4 | implementable | complete | 0.7055 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 31305 |  |
+| EXP-20261005-0007 | har01_target_kernel_s0 | implementable | complete | 0.7589 | - | 1 | 4.164e+04 | - | - | - | 0.1058 (3) | 88713 |  |
+| EXP-20261005-0007 | har01_target_kernel_s1 | implementable | complete | 0.707 | - | 1 | 4.164e+04 | - | - | - | 0.1058 (3) | 88713 |  |
+| EXP-20261005-0007 | har01_target_kernel_s2 | implementable | complete | 0.6895 | - | 1 | 4.164e+04 | - | - | - | 0.1058 (3) | 88650 |  |
+| EXP-20261005-0007 | har01_target_kernel_s3 | implementable | complete | 0.5846 | - | 1 | 4.164e+04 | - | - | - | 0.1058 (3) | 88713 |  |
+| EXP-20261005-0007 | har01_target_kernel_s4 | implementable | complete | 0.7068 | - | 1 | 4.164e+04 | - | - | - | 0.1058 (3) | 88649 |  |
+| EXP-20261005-0007 | har01_native_raw_s0 | implementable | complete | 0.7116 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 22921 |  |
+| EXP-20261005-0007 | har01_native_raw_s1 | implementable | complete | 0.7079 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 22921 |  |
+| EXP-20261005-0007 | har01_native_raw_s2 | implementable | complete | 0.622 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 22858 |  |
+| EXP-20261005-0007 | har01_native_raw_s3 | implementable | complete | 0.6704 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 22921 |  |
+| EXP-20261005-0007 | har01_native_raw_s4 | implementable | complete | 0.7229 | - | 1 | 1.707e+04 | - | - | - | 0.2573 (3) | 22857 |  |
+| EXP-20261005-0007 | har01_native_shift_s0 | implementable | complete | 0.7101 | - | 1 | 3.857e+04 | - | - | - | 0.6419 (3) | 22921 |  |
+| EXP-20261005-0007 | har01_native_shift_s1 | implementable | complete | 0.7044 | - | 1 | 3.857e+04 | - | - | - | 0.6419 (3) | 22921 |  |
+| EXP-20261005-0007 | har01_native_shift_s2 | implementable | complete | 0.622 | - | 1 | 3.857e+04 | - | - | - | 0.6419 (3) | 22858 |  |
+| EXP-20261005-0007 | har01_native_shift_s3 | implementable | complete | 0.6641 | - | 1 | 3.857e+04 | - | - | - | 0.6419 (3) | 22921 |  |
+| EXP-20261005-0007 | har01_native_shift_s4 | implementable | complete | 0.7229 | - | 1 | 3.857e+04 | - | - | - | 0.6419 (3) | 22857 |  |
 
 ## heldout_dronepropa_factor_recombination_v5 / quick
 

@@ -1,0 +1,12 @@
+{
+  "covers": [
+    "source/archive bookkeeping and evidence mirroring",
+    "aggregate report regeneration outside bounded checks",
+    "Git registration snapshots and verification",
+    "final archival/mirroring/commit/publishing bookkeeping"
+  ],
+  "created_at": "2026-10-05T15:14:40Z",
+  "is_exact_stopwatch_measurement": false,
+  "other_bounded_checks_fit_and_controller_charged_separately": true,
+  "seconds_charged_conservative": 350
+}

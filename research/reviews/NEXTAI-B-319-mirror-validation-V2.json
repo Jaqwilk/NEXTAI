@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 120,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/HAR01-close/mirror_validate_v2.py"
+  ],
+  "conservative_accounting_allowance_seconds": 20,
+  "created_at": "2026-10-05T16:20:17Z",
+  "error": null,
+  "id": "NEXTAI-B-319-mirror-validation-V2",
+  "raw_outputs": {
+    "NEXTAI-B-319-mirror-validation-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-319-mirror-validation-V2.stdout.txt": "ca6f641c22148e1c68ff71345781c1f9ffd9611bdb4d586209b0df0008618024"
+  },
+  "result": {
+    "elapsed_seconds": 36.946755399985705,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 644841472,
+    "pid": 17364,
+    "processes_created": 156,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 71,
+  "wall_seconds": 50.60701320000226,
+  "whole_process_tree_bounded": true
+}

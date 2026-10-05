@@ -1,0 +1,1 @@
+{"files_verified": 374, "protected_files_each_root": 1370, "runtime_and_archive_files": 317, "fresh_restoration": true, "scoring_authorized": false, "original_CLI_V1_timeout_retained": true}

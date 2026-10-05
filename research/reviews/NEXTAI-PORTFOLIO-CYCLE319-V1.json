@@ -1,0 +1,146 @@
+{
+  "beliefs_or_hypotheses_changed": false,
+  "completed_experiments_reviewed": 12,
+  "completed_range": [
+    111,
+    122
+  ],
+  "created_at": "2026-10-05T16:06:57Z",
+  "cycle": 319,
+  "failed_incomplete_outcomes_included": [
+    "EXP-20261004-0004",
+    "EXP-20261004-0008"
+  ],
+  "new_fit_or_evaluation": false,
+  "references": {
+    "EXP-20261004-0004": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261004-0004.md": "ba7c73955a59dae85b50945f861ed4684b16300985141938bc7a8831220aad37"
+      },
+      "plan_sha256": "4cdfadab1cd404630931d4f03106812542fbbb1e88276898b52f49b212442684",
+      "result_sha256": "264183fa8c6d970f432f071b0719e9d76ddce2a8915b7606e26aa53b704a7bf0",
+      "worker_status_counts": {
+        "crash": 1,
+        "stopped": 39
+      }
+    },
+    "EXP-20261004-0005": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261004-0005-LATENCY-LABEL-ADDENDUM-V1.md": "908cc6fd21b54ee04fb327c6b9ad45359c8aa5c3ed99523f585bb243772223e8",
+        "research/analyses/EXP-20261004-0005.md": "ccd47c7cd0e8146d2b980c1807a99383d4883322d1e20f6d41f9249516c91242"
+      },
+      "plan_sha256": "6abe1ddd6dc9a85809f074b4f80b0aac806116fa7ae5673d3b2c2322f24f0db4",
+      "result_sha256": "626bc4657db2cec8642f4c1f9f62d1ea3a6fb6a30191d64111818774e29c4190",
+      "worker_status_counts": {
+        "complete": 40
+      }
+    },
+    "EXP-20261004-0006": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261004-0006-CUDA-COST-ADDENDUM-V1.md": "fc97beecbd1912257e23631b49324616a80c955462417644d8817a5e88a3261f",
+        "research/analyses/EXP-20261004-0006.md": "6dc69deeb29a10cb1887baf8d03cd7697cfde07c4e20c2152610ce67a7985c92"
+      },
+      "plan_sha256": "af52719f34e22852b0b8ec0ef494a17a956b4f1dcb019d87f9f0bcfeff17b904",
+      "result_sha256": "d291d33e648ee135611f865fc5496c3150909a956934275f01507bd540a00651",
+      "worker_status_counts": {
+        "complete": 75
+      }
+    },
+    "EXP-20261004-0007": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261004-0007.md": "207e31415adf9de8513ed6b3ad49957b563bc11f2dc5b94b5970af2e8cf45de1"
+      },
+      "plan_sha256": "8134bcd55378cc99c3cf2a85f6105b0d32b5b8528b790f2248d03a22360b9674",
+      "result_sha256": "38e96aa575edace05453261cbdd157c39580c1e491fd6e4f74cc399b0147590f",
+      "worker_status_counts": {
+        "complete": 75
+      }
+    },
+    "EXP-20261004-0008": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261004-0008-ADDENDUM-V1.md": "f5959217f84deacf356549be0d5a04e8991f17d2b21f82daf00fb63e38a34dc5",
+        "research/analyses/EXP-20261004-0008-ADDENDUM-V2.md": "5c56d48220710c64f3ff782e30857f1a630c609c093b3c5ca5a96dd2662ed86b",
+        "research/analyses/EXP-20261004-0008-ADDENDUM-V3.md": "7366dd2159633d1e9dc828ec016a180b0df986b35d86bb72adf55b7d0b93bd8c",
+        "research/analyses/EXP-20261004-0008.md": "45458d437156b92db3f9e75fc865b2764578b1daf1dca3ae024284a4b70089ac"
+      },
+      "plan_sha256": "aeb3084d2375089e1d50cd475daec849f1d154dc94f475e00f63f4be3bf7af56",
+      "result_sha256": "5b6bcdebcef8c4e5a21266831100561434d38e057caa9e2c3eab9d075fbb3ac8",
+      "worker_status_counts": {
+        "complete": 80
+      }
+    },
+    "EXP-20261005-0001": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261005-0001.md": "b6d58608c2fc61e0f7778d92d3f5c40c9c5a9f6d7f3587abdd48946ec5ee0227"
+      },
+      "plan_sha256": "3d4e3da1c61c3be89ad2e81911327107792fcb369bed5890be55dbb88583cd09",
+      "result_sha256": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+      "worker_status_counts": {
+        "complete": 70
+      }
+    },
+    "EXP-20261005-0002": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261005-0002.md": "926336aebc622495bb2dccfa5187b7221cc0e5f15c6f94860956141e75c1f924"
+      },
+      "plan_sha256": "37820410ee10bdf7e3c25cba9bf451ee8b18a0bb1894a7a6c95851c02e488c2e",
+      "result_sha256": "d5d30770363f704797022eacd2c65a7615d419a26564571394029d046f588581",
+      "worker_status_counts": {
+        "complete": 70
+      }
+    },
+    "EXP-20261005-0003": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261005-0003-CUDA-TELEMETRY-ADDENDUM-V1.md": "fd13f313da60efe968fee79ffac186b83a98ed82878110530c96503fcf4847dc",
+        "research/analyses/EXP-20261005-0003.md": "9ab4e4fb0db8ae523bd6cea89cf958759c50487ff5d9aee5d700e0c12810c917"
+      },
+      "plan_sha256": "8ab199599286957a78a8d2eb64ae0d79cb9ae77bfae04400a96d1328ddbeb885",
+      "result_sha256": "322f41a172a476b6c259c667cb803968d05912138d3f85ef60d2b24a3aa4dc43",
+      "worker_status_counts": {
+        "complete": 85
+      }
+    },
+    "EXP-20261005-0004": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261005-0004.md": "2ed2fc770c5f571e4254675e874fa5a4cd3a675879bbc67669355a48356a2952"
+      },
+      "plan_sha256": "beea18bea2d8afcc80c7bf700b9fb347962e61db81db0b0812b5dfe4e37e27e5",
+      "result_sha256": "dc1dc3677e3ef05d872d54053bb98b443d4fe95539d27a0db803eb705412228a",
+      "worker_status_counts": {
+        "complete": 85
+      }
+    },
+    "EXP-20261005-0005": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261005-0005.md": "55932651714d79132fdc5704539831ef0b6967d2505c276f71abab67d013f887"
+      },
+      "plan_sha256": "49548e705ab4c9c36e6552da806d82bc04b5266e30f988417e0b89ee11951044",
+      "result_sha256": "60c771762b1c528a4227eed931098d1d9704cb00860e5647040859fab95aeeaa",
+      "worker_status_counts": {
+        "complete": 85
+      }
+    },
+    "EXP-20261005-0006": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261005-0006.md": "10666d7d7a15dfcfdd95d760481aee81fa339368d0376b8039de8107592e74ba"
+      },
+      "plan_sha256": "f31a8012894dab612bd8f8e873859c173da90f0922b73a9389f3b39db81039e0",
+      "result_sha256": "f71073703ceabb1c0062e9f817bb56e440758d13380bddacff0377b4cc6f24a8",
+      "worker_status_counts": {
+        "complete": 85
+      }
+    },
+    "EXP-20261005-0007": {
+      "analysis_and_append_only_addenda": {
+        "research/analyses/EXP-20261005-0007.md": "485496cf1cb37a49f1ab8c27d7a9c190c22a7c54f44a6a36f1846c35a91ee486"
+      },
+      "plan_sha256": "1a7d6ee1364b51f68f1b866ca5540a0ce50bda7db66eaa674dcd95d5fff784ce",
+      "result_sha256": "78380a19ffacf4a58af0bd8586425fbacee44b2e5a92c6e056f3699f769ed255",
+      "worker_status_counts": {
+        "complete": 45
+      }
+    }
+  },
+  "review_sha256": "a2cefc7de443319520fe800b08d8f12c1201b42675f56a4d3948e8a20427f003",
+  "schema_version": 1
+}

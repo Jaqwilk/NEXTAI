@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 300,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "nextai",
+    "doctor"
+  ],
+  "conservative_accounting_allowance_seconds": 20,
+  "created_at": "2026-10-05T16:11:15Z",
+  "error": null,
+  "id": "NEXTAI-B-319-terminal-doctor-V2",
+  "raw_outputs": {
+    "NEXTAI-B-319-terminal-doctor-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-319-terminal-doctor-V2.stdout.txt": "27ab8f066a62ef8e9e8cc770e485a793824670c8308927b4d0514a9b2d305cdc"
+  },
+  "result": {
+    "elapsed_seconds": 160.55098010000074,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4314091520,
+    "pid": 36852,
+    "processes_created": 155,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 195,
+  "wall_seconds": 174.37988249998307,
+  "whole_process_tree_bounded": true
+}

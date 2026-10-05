@@ -1,0 +1,12 @@
+[OK] benchmark=har01_native_memory_v1 status=maintenance protocol=v3
+[OK] laboratory=preparation_only next=NEXTAI-STUDY-REVIEW scoring=False
+[OK] cycle=319 completed=122
+[OK] hypotheses=59
+[OK] sources=459
+[OK] scientifically_invalid_results=4
+[OK] pending_plans=0
+[OK] integrity=ok files=1370
+[OK] audited_candidates=835
+[OK] hardware=cpu:24 ram_gb:31.7
+[ERROR] lifecycle: reflection is due: 12 completed experiments since the last review (cadence 12)
+Doctor: FAIL

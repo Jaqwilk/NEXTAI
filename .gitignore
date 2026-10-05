@@ -50,3 +50,6 @@ research/pc01_payload/**/*.pt
 
 # Licensed HAR payloads remain local; exact acquisition hashes/attribution are tracked.
 /research/data/har01_native_v1/
+
+# Native HAR screen is preserved byte-for-byte in its gzip bundle and publication record.
+/research/results/EXP-20261005-0007.json

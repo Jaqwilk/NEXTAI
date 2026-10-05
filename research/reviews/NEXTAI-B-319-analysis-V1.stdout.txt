@@ -1,0 +1,1 @@
+{"id": "EXP-20261005-0007", "valid": true, "source_information_transfer": "DISCARD", "economic_decision": "INCONCLUSIVE", "supervised_fit_seconds": 72.42878799987375, "full_worker_seconds": 180.55024020007113, "problems": []}
