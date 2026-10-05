@@ -1,0 +1,10 @@
+from pathlib import Path
+b=Path.cwd()
+s=(b/'research/tmp/pvm01_replication_integrate_v1.py').read_text().replace('EXP-20261005-0002','EXP-20261005-0003').replace('PVM01-REPLICATION-','PVM01-ROBUSTNESS-').replace('paired_view_mutable_memory_v7','paired_view_mutable_memory_v8')
+s=s.replace('4f6fceaf6a00b87114ca5fc22ca3f530028e10bb','41c82e2ea25b6d9c96ddee4520975304c4258da3')
+s=s.replace("continuation_registration_attempts_used']==7", "continuation_registration_attempts_used']==8")
+s=s.replace('len(logs)==70','len(logs)==85').replace('all70_raw_candidate_logs','all85_raw_candidate_logs').replace('restore_pvm01_replication_result.py','restore_pvm01_dense_noise_result.py')
+s=s.replace("['pvm01_replication_post_v1.py','pvm01_replication_publish_v1.py','pvm01_replication_report_v1.py','pvm01_replication_report_metadata_v1.py','pvm01_replication_history_postrun_v1.py','pvm01_replication_commit_certified_v1.py']", "['pvm01_robustness_post_v1.py','pvm01_robustness_publish_v1.py','pvm01_robustness_report_v1.py','pvm01_robustness_report_metadata_v1.py','pvm01_robustness_history_postrun_v1.py','pvm01_robustness_integrate_v1.py']")
+s=s.replace('Preserve independent replica, negative uncertainty gate and complete raw provenance','Preserve dense-noise intervention, frozen decisions and complete raw provenance')
+(b/'research/tmp/pvm01_robustness_integrate_v1.py').write_text(s,encoding='utf-8',newline='\n')
+print('Conditional postrun integration prepared; no new arrays, registration or fit')

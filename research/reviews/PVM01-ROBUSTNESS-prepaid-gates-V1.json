@@ -1,0 +1,29 @@
+{
+  "all85_semantic_source_records_and_schema": true,
+  "can_create_plan": true,
+  "checkout_byte_bridge_receipt_sha256": "2908c46a1f1d2f5cd6970db7a187265e0ca05f35e2bb3ab665dc1939b6b8eab7",
+  "commands": [
+    {
+      "label": "doctor",
+      "returncode": 0
+    },
+    {
+      "label": "lab",
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-05T04:42:46Z",
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1198
+  },
+  "minimum_future_reserves": {
+    "fresh_final_and_replication_min_seconds_unspent_after_worst_case_this_study": 20800,
+    "remaining_registration_tickets_min_after_this_study": 2,
+    "stage_b_not_activated_or_spent": true
+  },
+  "new_private_seed_data_fit_registration": false,
+  "readiness_integrity_preflight": true
+}
