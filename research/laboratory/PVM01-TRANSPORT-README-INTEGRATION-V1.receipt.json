@@ -1,0 +1,37 @@
+{
+  "candidate_bundle_unchanged": true,
+  "conflicts": [
+    "research/eval_manifest.json",
+    "research/laboratory/preflight_certificate.json"
+  ],
+  "created_at": "2026-10-05T01:41:03Z",
+  "documentation_commit": "7344683c2c358de262b3e6b26ece0839c234a96a",
+  "experiment_id": "EXP-20261005-0001",
+  "incoming_user_files_preserved": [
+    "README.md",
+    "README.pl.md",
+    "docs/README_DESIGN_RESEARCH.md",
+    "docs/assets/nextai-banner.svg",
+    "docs/assets/research-loop.svg",
+    "research/eval_manifest.json",
+    "research/laboratory/README-PRESENTATION-20261005-V1.receipt.json",
+    "research/laboratory/archive/README-PRESENTATION-20261005-V1/README.md.raw",
+    "research/laboratory/certificates/711ad695124285f060168830a91d916d89da2dea9b5f17a8d4b82f20e0c32d74.json",
+    "research/laboratory/preflight_certificate.json",
+    "research/manifests/paired_view_mutable_memory_v5-protocol-v3-a22de64ab867.json"
+  ],
+  "protected_changes_since_premerge": [
+    "README.md"
+  ],
+  "raw_archives": {
+    "premerge/README.md": "3d280154f2bbb0322c6932fc2e2b67423d0120d86b971931d4db93c6f7580d9c",
+    "premerge/research/eval_manifest.json": "6100cd028c43535d924456f4a5c5b5f77b7049078805ab18129887df9a7ce970",
+    "premerge/research/laboratory/preflight_certificate.json": "a59815a434e4042ca3695b23877a31f1648eb165d6a81e72e8c97cd2dac1aab9",
+    "user-documentation/README.md": "39db095f752b0a31bf86cc7ad270af413986e1c0dbf68ec526ae36faf3d34671",
+    "user-documentation/research/eval_manifest.json": "d67b5bd57b90039ec29c6f58202a48575a0df82078dcaa6155c69fc2d27566e9",
+    "user-documentation/research/laboratory/preflight_certificate.json": "e5d95930b2575620282f15f55741be3391d5c07af636ab74384423b0af3a8cce"
+  },
+  "research_completion_parent": "73bec5b89f6c6e2b414ac211d846cfbf7d86f88e",
+  "research_model_task_metrics_seeds_unchanged": true,
+  "scoring": false
+}

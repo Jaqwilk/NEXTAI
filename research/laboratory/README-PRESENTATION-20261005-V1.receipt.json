@@ -1,0 +1,71 @@
+{
+  "base_commit": "905ed709ad18d3fdc2dac863deb121cefbf1b874",
+  "candidate_bundle_sha256": "5b44c0b2494de595e1ee7348a6c5a2552c52c5e0f177fc4fcbcd3b15075b3b78",
+  "candidate_bundle_unchanged": true,
+  "created_at": "2026-10-05T01:27:34Z",
+  "current_certificate_raw_sha256": "e5d95930b2575620282f15f55741be3391d5c07af636ab74384423b0af3a8cce",
+  "current_manifest_raw_sha256": "d67b5bd57b90039ec29c6f58202a48575a0df82078dcaa6155c69fc2d27566e9",
+  "design_analysis": "docs/README_DESIGN_RESEARCH.md",
+  "id": "README-PRESENTATION-20261005-V1",
+  "new_research_data": false,
+  "new_research_fit": false,
+  "new_research_registration": false,
+  "preservation": {
+    "old_certificate_raw_bytes_preserved": true,
+    "old_manifest_raw_bytes_preserved": true,
+    "raw_snapshot_mapping_sha256": "19740946198d37a07123b90e4636c82116a82f55a21a84070daaa77241193d8a",
+    "scientific_results_and_ledgers_unchanged": true,
+    "source_tests_config_schemas_and_lockfile_unchanged": true,
+    "unchanged_prior_tracked_raw_files": 25219
+  },
+  "preserved_research_state": {
+    "benchmark": "paired_view_mutable_memory_v5",
+    "benchmark_status": "maintenance",
+    "compute_seconds_charged": 14100.799251400153,
+    "compute_seconds_remaining": 57898.53723329985,
+    "cycle": 311,
+    "last_experiment": "EXP-20261004-0008",
+    "last_experiment_decision": "INCONCLUSIVE",
+    "pending_paid_run": false,
+    "registration_attempts_used": 8,
+    "scoring": false
+  },
+  "previous_certificate_archive": "research/laboratory/certificates/711ad695124285f060168830a91d916d89da2dea9b5f17a8d4b82f20e0c32d74.json",
+  "previous_certificate_raw_sha256": "c42197dbdeb5c29d1593262dd80d9e55facdef0223d01c8c66a5d15a35b259ba",
+  "previous_manifest_archive": "research/manifests/paired_view_mutable_memory_v5-protocol-v3-a22de64ab867.json",
+  "previous_manifest_raw_sha256": "5417747bc2bfe73a0166c7f0d5dd40483f44f3752f376f88d120d42492023a36",
+  "protected_file_changes": [
+    "README.md"
+  ],
+  "protected_file_count": 1171,
+  "readme_after_sha256": "39db095f752b0a31bf86cc7ad270af413986e1c0dbf68ec526ae36faf3d34671",
+  "readme_before_raw": "research/laboratory/archive/README-PRESENTATION-20261005-V1/README.md.raw",
+  "readme_before_sha256": "3d280154f2bbb0322c6932fc2e2b67423d0120d86b971931d4db93c6f7580d9c",
+  "repository_metadata": {
+    "description": "A falsification-first laboratory exploring computational AI mechanisms, with preregistered experiments, strong controls and full-cost accounting.",
+    "topics": [
+      "ai-research",
+      "benchmarking",
+      "computational-intelligence",
+      "machine-learning",
+      "python",
+      "pytorch",
+      "reproducible-research"
+    ]
+  },
+  "research_budget_changed": false,
+  "schedule_changed": false,
+  "schema_version": 1,
+  "scope": "User-requested README/GitHub presentation migration; no scientific experiment",
+  "validation": {
+    "doctor": "PASS",
+    "full_regression_rationale": "Documentation/assets only; historical 1127 passing tests are attributed to cycle311, not rerun for this migration",
+    "full_regression_rerun": false,
+    "github_markdown_api": "PASS in EN and PL; three tables, two disclosure sections, six images with alt text each",
+    "lab_status": "PASS; preparation_ready=true, scoring_ready=false; no errors or warnings",
+    "local_links": "PASS in both README versions and design analysis",
+    "navigation_heading_slugs": "PASS in both README versions",
+    "svg_xml": "PASS; both assets",
+    "visual_preview": "GitHub GFM render inspected in light/dark; Polish workflow inspected"
+  }
+}
