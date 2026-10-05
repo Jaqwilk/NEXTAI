@@ -1,0 +1,17 @@
+{
+  "all_trials_predictions_failures_and_costs_included": true,
+  "bundle_bytes": 17648813,
+  "bundle_path": "research/results/EXP-20261005-0002.json.gz",
+  "bundle_sha256": "ecffdb043f576708b155603ef7908ac7b5c3f92dc423f33cf9069043ab73e9db",
+  "codec": "lossless gzip/mtime0",
+  "created_at": "2026-10-05T02:51:16Z",
+  "experiment_id": "EXP-20261005-0002",
+  "frozen_shared_restorer_sha256": "7dc35b62ee66325fc3d453888f51a3c8b349ed3baa77287a628fd03616628fcd",
+  "native_bytes": 137885947,
+  "native_path": "research/results/EXP-20261005-0002.json",
+  "native_result_unmodified": true,
+  "native_sha256": "d5d30770363f704797022eacd2c65a7615d419a26564571394029d046f588581",
+  "restoration_command": "uv run --no-sync python scripts/restore_pvm01_replication_result.py",
+  "restoration_script_sha256": "dc532086002c3d2c9b0b58aef3b5351d07aa681116cc7eeb000be1898b4de2df",
+  "schema_version": 2
+}

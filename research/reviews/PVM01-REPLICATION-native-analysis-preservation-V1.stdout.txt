@@ -1,0 +1,9 @@
+{
+  "experiment_id": "EXP-20261005-0002",
+  "valid_comparison": true,
+  "neural_decision": "KEEP exact transport/PCA recipe for independent validation",
+  "neural_economic_screen_qualified": false,
+  "selected_route_decision": "DISCARD exact selected-route economic qualification",
+  "selected_route_screen_qualified": false
+}
+Native analysis, full source/runtime preservation, maintenance freeze: completed

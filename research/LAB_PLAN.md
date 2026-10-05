@@ -1,3 +1,20 @@
+# Completed cycle313 — independent replication EXP-20261005-0002
+
+All70 workers/1260 trials complete, five NEW paired units; integrity passed.
+All8 neural learning/compression gates pass; no full neural economic qualification.
+Selected ridge/PCA passes competence/UNKNOWN/FA and15/18 economic gates.
+Three adverse-noise noninferiority CIs fail unchanged-2pp gate despite positive means;
+one weaker reference unit drives the variance. No selected-route promotion/fresh final.
+Analysis: research/analyses/EXP-20261005-0002.md; immutable plan/results preserved.
+Current v7 is maintenance,scoring=false; finite A remains active, B unspent/inactive.
+Next bounded question: preregister fresh five-pair dense-reference stability ablation,
+training dense-set noise0.02 versus mixed0.02/0.04 only; same architecture,
+4096 alignment pairs,2048 transport and1024 decoder steps, unchanged calibration,
+metrics,thresholds,3K,updates0/1/4, two dev noises and strong classical controls.
+No next implementation/data/fit/EXP in cycle313. Reserve fresh final; no retry,
+WT8-9,external models/APIs or schedule change. Expanded goal remains open.
+Previous sections below are preserved history.
+
 # Prospective cycle313 — independent fixed-recipe replication
 
 PVM01-INDEPENDENT-REPLICATION-V1 frozen before code/new data.

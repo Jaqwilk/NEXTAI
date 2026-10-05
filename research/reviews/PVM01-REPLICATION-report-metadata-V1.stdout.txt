@@ -1,0 +1,2 @@
+Independent replication report written C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\analyses\EXP-20261005-0002.md
+Report/variance diagnosis/durable queue, maintenance freeze: 1252

@@ -1,0 +1,359 @@
+{
+  "created_at": "2026-10-05T02:55:34Z",
+  "experiment_id": "EXP-20261005-0002",
+  "failed_selected_gates": {
+    "0.04:K128:accuracy": {
+      "high": 0.033504237908765805,
+      "level": 0.9972222222222222,
+      "low": -0.025587571242099146,
+      "mean": 0.00395833333333333,
+      "n": 5,
+      "positive_units": 1,
+      "values": [
+        -0.002083333333333326,
+        0.0,
+        0.021874999999999978,
+        0.0,
+        0.0
+      ]
+    },
+    "0.04:K32:accuracy": {
+      "high": 0.05233489602642302,
+      "level": 0.9972222222222222,
+      "low": -0.03941822935975625,
+      "mean": 0.006458333333333388,
+      "n": 5,
+      "positive_units": 1,
+      "values": [
+        -0.0010416666666666075,
+        0.0,
+        0.034375000000000155,
+        0.0,
+        -0.0010416666666666075
+      ]
+    },
+    "0.04:K512:accuracy": {
+      "high": 0.03690833233529793,
+      "level": 0.9972222222222222,
+      "low": -0.02690833233529792,
+      "mean": 0.0050000000000000044,
+      "n": 5,
+      "positive_units": 2,
+      "values": [
+        -0.002083333333333326,
+        -0.0010416666666667185,
+        0.023958333333333304,
+        0.004166666666666763,
+        0.0
+      ]
+    }
+  },
+  "interpretation": "Positive mean selected-minus-reference differences; negative interval lower limits from n5 paired variation. Qualification remains failed. Keep all fixed gates and preserve outcome; test reference training-noise robustness prospectively.",
+  "no_new_data_fit_or_model": true,
+  "unit_metrics": {
+    "dense": {
+      "0.02": {
+        "0": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9986111111111112,
+          "updated": 1.0
+        },
+        "1": {
+          "accuracy": 0.9986111111111112,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9944444444444444,
+          "updated": 1.0
+        },
+        "2": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "3": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "4": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9986111111111112,
+          "updated": 1.0
+        }
+      },
+      "0.04": {
+        "0": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "1": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9986111111111112,
+          "updated": 1.0
+        },
+        "2": {
+          "accuracy": 0.9729166666666667,
+          "false_abstention": 0.036111111111111115,
+          "retained": 0.9680555555555556,
+          "unknown": 1.0,
+          "updated": 0.9597222222222223
+        },
+        "3": {
+          "accuracy": 0.998611111111111,
+          "false_abstention": 0.001851851851851852,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 0.9986111111111112
+        },
+        "4": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        }
+      }
+    },
+    "dense_cached_cpu": {
+      "0.02": {
+        "0": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9986111111111112,
+          "updated": 1.0
+        },
+        "1": {
+          "accuracy": 0.9986111111111112,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9944444444444444,
+          "updated": 1.0
+        },
+        "2": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "3": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "4": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9986111111111112,
+          "updated": 1.0
+        }
+      },
+      "0.04": {
+        "0": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "1": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9986111111111112,
+          "updated": 1.0
+        },
+        "2": {
+          "accuracy": 0.9729166666666667,
+          "false_abstention": 0.036111111111111115,
+          "retained": 0.9680555555555556,
+          "unknown": 1.0,
+          "updated": 0.9597222222222223
+        },
+        "3": {
+          "accuracy": 0.998611111111111,
+          "false_abstention": 0.001851851851851852,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 0.9986111111111112
+        },
+        "4": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        }
+      }
+    },
+    "ridge_pca_scan": {
+      "0.02": {
+        "0": {
+          "accuracy": 0.998611111111111,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9944444444444446,
+          "updated": 1.0
+        },
+        "1": {
+          "accuracy": 0.9986111111111112,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9944444444444444,
+          "updated": 1.0
+        },
+        "2": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "3": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "4": {
+          "accuracy": 0.9993055555555556,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9972222222222222,
+          "updated": 1.0
+        }
+      },
+      "0.04": {
+        "0": {
+          "accuracy": 0.9982638888888888,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9930555555555556,
+          "updated": 1.0
+        },
+        "1": {
+          "accuracy": 0.9993055555555556,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9972222222222222,
+          "updated": 1.0
+        },
+        "2": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.000462962962962963,
+          "retained": 0.9986111111111112,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "3": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "4": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9986111111111112,
+          "updated": 1.0
+        }
+      }
+    },
+    "transport_pca": {
+      "0.02": {
+        "0": {
+          "accuracy": 0.998611111111111,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9944444444444446,
+          "updated": 1.0
+        },
+        "1": {
+          "accuracy": 0.9986111111111112,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9944444444444444,
+          "updated": 1.0
+        },
+        "2": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "3": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "4": {
+          "accuracy": 0.9993055555555556,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9972222222222222,
+          "updated": 1.0
+        }
+      },
+      "0.04": {
+        "0": {
+          "accuracy": 0.9989583333333333,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9958333333333333,
+          "updated": 1.0
+        },
+        "1": {
+          "accuracy": 0.9993055555555556,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9972222222222222,
+          "updated": 1.0
+        },
+        "2": {
+          "accuracy": 0.9996527777777777,
+          "false_abstention": 0.000462962962962963,
+          "retained": 0.9986111111111112,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "3": {
+          "accuracy": 1.0,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 1.0,
+          "updated": 1.0
+        },
+        "4": {
+          "accuracy": 0.9993055555555556,
+          "false_abstention": 0.0,
+          "retained": 1.0,
+          "unknown": 0.9972222222222222,
+          "updated": 1.0
+        }
+      }
+    }
+  }
+}

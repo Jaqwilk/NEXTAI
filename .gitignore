@@ -32,3 +32,6 @@ research/pc01_payload/**/*.pt
 
 # Complete native record is versioned losslessly as its gzip bundle and exact hash.
 /research/results/EXP-20261005-0001.json
+
+# Native independent replica is versioned losslessly as gzip plus its exact hash.
+/research/results/EXP-20261005-0002.json

@@ -1,0 +1,68 @@
+{
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "program",
+        "register"
+      ],
+      "label": "register",
+      "raw_outputs": {
+        "PVM01-REPLICATION-EXP-20261005-0002-register-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-REPLICATION-EXP-20261005-0002-register-V1.stdout.txt": "0f28b144663c01d6359cbd2b74595e4d8107ed6b4f41f39066785630cfc23ac2"
+      },
+      "result": {
+        "elapsed_seconds": 49.42103509999288,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 1915129856,
+        "pid": 31748,
+        "processes_created": 157,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "run",
+        "--plan",
+        "research/plans/EXP-20261005-0002.json"
+      ],
+      "label": "run",
+      "raw_outputs": {
+        "PVM01-REPLICATION-EXP-20261005-0002-run-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-REPLICATION-EXP-20261005-0002-run-V1.stdout.txt": "abdb47c58c1d5a9b7700ad19f00522a55d2c2f357dc1d178134283baff4a6951"
+      },
+      "result": {
+        "elapsed_seconds": 648.0950464999914,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 1912631296,
+        "pid": 18572,
+        "processes_created": 373,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    }
+  ],
+  "controller_overhead_seconds": 189.1079686000012,
+  "created_at": "2026-10-05T02:48:12Z",
+  "error": null,
+  "experiment_id": "EXP-20261005-0002",
+  "id": "PVM01-REPLICATION-audited-run-overhead-V1",
+  "no_retry": true,
+  "overhead_seconds_charged_conservatively": 200,
+  "prepared_source_git_commit": "2635d03fd28c62e90d19400c9c9b29cb9a75a8aa",
+  "study_sha256": "70c804a3a5eb89e2d2e27649d935c9a81e2cb25689cbe9138d15490bc11419c9",
+  "wall_seconds": 732.7629304000002,
+  "worker_full_wall_seconds_already_charged": 543.654961799999
+}

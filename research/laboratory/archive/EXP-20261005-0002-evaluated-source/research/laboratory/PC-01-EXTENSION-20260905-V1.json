@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-EXTENSION-20260905-V1",
+  "restart_id": "LAB-RESTART-20260904-V1",
+  "milestone_id": "PC-01",
+  "cycle": 286,
+  "authorized_by": "user",
+  "user_message": "tak zatwierdam",
+  "approved_scope": "One additional service cycle, at most 60 minutes, to complete integration and validation; no training or scoring.",
+  "started_at": "2026-09-05T09:27:06Z",
+  "deadline_at": "2026-09-05T10:27:06Z",
+  "additional_service_cycles": 1,
+  "additional_service_minutes": 60,
+  "original_service_cycles": 2,
+  "original_service_minutes": 120,
+  "original_contract_unchanged": true,
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "schedule_authorized": false,
+  "publication_authorized": false,
+  "action_id": "PC-01-INTEGRATION",
+  "completion_action": "PC-01-DECISION",
+  "scope": [
+    "EXECUTION_ADAPTER",
+    "AUTHORITATIVE_SERIES_LEDGER",
+    "PARENT_AND_DEVICE_ENFORCEMENT",
+    "END_TO_END_CONFORMANCE"
+  ],
+  "history_archive": "research/laboratory/archive/PC-01-HARNESS-V1",
+  "prior_manifest_archive": "research/manifests/PC-01-INTEGRATION-BEFORE.json"
+}

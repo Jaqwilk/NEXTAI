@@ -1,6 +1,6 @@
 {
   "inputs": {
-    "config_sha256": "847a84671366d7cba3221b0c148761a63fbe5910b46950933751afa28c112574",
+    "config_sha256": "cd2965309505e887990248e35b02a8e88fe722b024a2ad207cdc702938e67d9f",
     "documents": {
       "research/plans/EXP-20260830-0001.json": "7c8bb6a2804e50a24fc38c328ac4989a512e92d0820c1da216362749750d1c7c",
       "research/plans/EXP-20260830-0002.json": "777ded0d75ac03435d91d54cc4e6a6fbfe1edfa535a46d2883b0d810d66fc2c3",
@@ -118,6 +118,7 @@
       "research/plans/EXP-20261004-0007.json": "4947cf58db0932518d1840d4301ab9147148378bb173f235971e1f26ddef8f2b",
       "research/plans/EXP-20261004-0008.json": "1d80c6241138d2dfe37dce2d05a5407c7b0150d1d5c0e7fab0d6cb7654f553a6",
       "research/plans/EXP-20261005-0001.json": "0da11c100e79b24e63369a7442e60d4ad5fad83c8535af431b445eb29f73a054",
+      "research/plans/EXP-20261005-0002.json": "7ce08b2e89546435e390ff06b8aa5bb018ad928983f40bedf403b96d1b410491",
       "research/results/EXP-20260830-0001.json": "1ca7d06db2a616f79098a363d874fe565e024449d21df3034a708606006d6633",
       "research/results/EXP-20260830-0002.json": "0bf088f2faaf4e327692d88f54ecf5498f0e672dbee5d25766f76baa4458b5bd",
       "research/results/EXP-20260830-0003.json": "8c1bb4dd1b5610a71b170435ced283193829994c3a5383a1e64528487ca738ae",
@@ -233,7 +234,8 @@
       "research/results/EXP-20261004-0006.json": "26a8e0ada9d422e4b7a9e6daecc58e3ac0292e51a2cedf09373c51197395aaaa",
       "research/results/EXP-20261004-0007.json": "bbe9b0145cfd335055b0020cc8b72d0b874ac270604c7970bdb1ec72696a4853",
       "research/results/EXP-20261004-0008.json": "16d5fe7fbf4364ba48708af0cd0ed8fe2f4c479b86d9f29f029da80036182183",
-      "research/results/EXP-20261005-0001.json": "2dde2af2d59e0725708dc4153a2f790fb234d587b52e7db01587a1fd5d06cb55"
+      "research/results/EXP-20261005-0001.json": "2dde2af2d59e0725708dc4153a2f790fb234d587b52e7db01587a1fd5d06cb55",
+      "research/results/EXP-20261005-0002.json": "dbc586677a0ae47c6ded85b918747bab5ad156b1efc1128cbbf3f8584019ce96"
     },
     "renderer": {
       "comparison_contract.py": "ae2fbdcc500b2f92e030c19e48ae8ac1611b2c423c533eb632541dd76fd07a42",
@@ -247,6 +249,6 @@
     },
     "validity_sha256": "64bf36f1a5e32b685e2bab2ca658792fedbffa90ab936d12f8085cd182878aa9"
   },
-  "report_sha256": "c7640b35f908430fd06528b5fb4ffb697759613b65c9e10c933315413d156e9a",
+  "report_sha256": "390babe1a454ae4614cc322c4cbb8bbf15ff20f8fc5ef0c538c41583391991ca",
   "schema_version": 1
 }

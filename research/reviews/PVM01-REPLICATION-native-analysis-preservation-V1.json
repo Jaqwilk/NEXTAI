@@ -1,0 +1,30 @@
+{
+  "cap": 200,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_replication_post_v1.py"
+  ],
+  "created_at": "2026-10-05T02:49:26Z",
+  "error": null,
+  "id": "PVM01-REPLICATION-native-analysis-preservation-V1",
+  "raw_outputs": {
+    "PVM01-REPLICATION-native-analysis-preservation-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-REPLICATION-native-analysis-preservation-V1.stdout.txt": "5b6bb32058c71d3d63197a3c463f833f4791387f55b76626ae56d1bd37bbb0c1"
+  },
+  "result": {
+    "elapsed_seconds": 7.379661499988288,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 963657728,
+    "pid": 31172,
+    "processes_created": 7,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 19,
+  "wall_seconds": 13.075123499991605
+}
