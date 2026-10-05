@@ -1,15 +1,15 @@
 {
   "benchmark_version": "paired_view_mutable_memory_v5",
   "candidate_bundle_sha256": "5b44c0b2494de595e1ee7348a6c5a2552c52c5e0f177fc4fcbcd3b15075b3b78",
-  "created_at": "2026-10-05T01:24:57Z",
-  "evaluator_sha256": "315fbf6ba7261be8dbb2afb857bd12deba602514e1a37f7655ca0b32a26c692f",
+  "created_at": "2026-10-04T23:30:19Z",
+  "evaluator_sha256": "15442af48d255dbd554d7ff6301e2404686a1f9679dfea47f055f169a62c688c",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
     ".gitattributes": "8061770149901f154d0107dce06ddb41f60eee47deb0b8e31eaaa8c3c0a7753a",
     ".gitignore": "400d80c03ef34316c02b8fcf08181cdb9b23ead69e1b652899edb550a1a4c03c",
     "AGENTS.md": "9812c9f4d05067f483ab4b2bd421bbaba21b2583fde0d498e80d16eae3b8e170",
-    "README.md": "39db095f752b0a31bf86cc7ad270af413986e1c0dbf68ec526ae36faf3d34671",
+    "README.md": "3d280154f2bbb0322c6932fc2e2b67423d0120d86b971931d4db93c6f7580d9c",
     "config/baseline_semantics.json": "0ec30e92f4d5855c36c8ed3e66fa0ab7d23ed70503c482f8782582eb4f08f447",
     "config/bootstrap_sizes.json": "c27d3c644692dad1c5b22397c9908ab6728793c33edb5314288078d35aeae672",
     "config/research.toml": "59679d98a749715a1ae24ed23806c81f22c038eee38c35f5086c5eae41c0b5df",
