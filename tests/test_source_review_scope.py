@@ -11,7 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def record():
-    return copy.deepcopy(read_jsonl(ROOT / "research/sources.jsonl")[-1])
+    return copy.deepcopy(next(source for source in read_jsonl(ROOT / "research/sources.jsonl")
+                              if "checked_scope" in source))
 
 
 def test_source_scope_preserves_old_and_new_ledger_record_validity():

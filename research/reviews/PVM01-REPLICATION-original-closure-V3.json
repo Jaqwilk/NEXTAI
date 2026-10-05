@@ -1,0 +1,30 @@
+{
+  "cap": 450,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_replication_original_check_v3.py"
+  ],
+  "created_at": "2026-10-05T03:24:15Z",
+  "error": null,
+  "id": "PVM01-REPLICATION-original-closure-V3",
+  "raw_outputs": {
+    "PVM01-REPLICATION-original-closure-V3.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-REPLICATION-original-closure-V3.stdout.txt": "dabe64c0547af8e3a422d6f07e1bc2a4a39690eb343490af4be4da13357c97ad"
+  },
+  "result": {
+    "elapsed_seconds": 168.86077519999526,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 2425004032,
+    "pid": 22612,
+    "processes_created": 318,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 180,
+  "wall_seconds": 174.60258770000655
+}

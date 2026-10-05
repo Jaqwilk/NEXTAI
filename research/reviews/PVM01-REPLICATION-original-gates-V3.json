@@ -1,0 +1,30 @@
+{
+  "both_native_hashes_verified": true,
+  "cadence_unchanged": true,
+  "commands": [
+    {
+      "label": "doctor",
+      "raw_outputs": {
+        "PVM01-REPLICATION-original-doctor-V3.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-REPLICATION-original-doctor-V3.stdout.txt": "d7f8f5d25c8c9577b3be2f9964d2145041a4dada0ec43cd9265558c326575fe7"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "lab",
+      "raw_outputs": {
+        "PVM01-REPLICATION-original-lab-V3.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-REPLICATION-original-lab-V3.stdout.txt": "531e1ea640cba2ac2dd26cf1442f2c029e1c8e5b4fe568ff56fbc1414db940e8"
+      },
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-05T03:24:04Z",
+  "failed_V1_check_preserved": "research/reviews/PVM01-REPLICATION-original-closure-V2.json",
+  "history_integrity_preflight_doctor_lab": true,
+  "history_receipt": "research/reviews/PVM01-REPLICATION-history-original-postrun-V1.json",
+  "no_new_seed_data_model_fit_scoring": true,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "required_review": "research/reviews/PVM01-LITERATURE-CYCLE-313-V1.md",
+  "source_revision": "fe50961030ae1add9e8588191716bff02db51086"
+}

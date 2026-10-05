@@ -1,8 +1,8 @@
 {
   "benchmark_version": "paired_view_mutable_memory_v7",
   "candidate_bundle_sha256": "ec3f8ea54f5cab6469a3f70c845d226192071f029d2938a1d2eb6ab1afb77ada",
-  "created_at": "2026-10-05T03:24:11Z",
-  "evaluator_sha256": "4c77181ae14d9a50b0d9f04193d8fa93d79643b9e1891b19f7eba4969671d985",
+  "created_at": "2026-10-05T03:17:08Z",
+  "evaluator_sha256": "2ab969d41447fdec33d280acea2ab78b810533bd011815cdb33897ac0533e250",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -1234,7 +1234,7 @@
     "tests/test_semantic_trace_compilation.py": "15726a636ea79ec248a08ce90084539ca086a53e83e5149a8cd1859376451bcf",
     "tests/test_semantic_trace_compilation_adversarial.py": "8a46ea5df4d1d39b8e66920ea29c94a61630407a0bb7f08fe490dce7ddd2521e",
     "tests/test_shared_transition_adaptive_compute.py": "3312e5aa7e757617ec7f890705ae7d5d0fad2c0cc7ab74763822837e2c622636",
-    "tests/test_source_review_scope.py": "34d51fb847f0d9927a8a64328c162b645bd407116a641eaaa1ccd5720c9d4e4d",
+    "tests/test_source_review_scope.py": "bf73095e99144ab7560b4dc585892a8c32f5f961d51b9fe666d3c2a71bf74c2d",
     "tests/test_sparse_energy_factor_graph_masked_byte.py": "8a813d9e2463176a3b6d4740f544d2aa712f63581d016748efd87cfdfe4f65a7",
     "tests/test_stack_depth_disjoint_corpus_v12.py": "0d2d415e0bb28a6e5ae1f7d1142f328da568e25093deb99cd2f158aefbf9a6ea",
     "tests/test_stack_depth_masked_infilling_v8.py": "6125e214f620c1cfa04bad389a98cf7c6bf71d6be47823e1edfd43d2cf2eb494",
