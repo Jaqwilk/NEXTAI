@@ -47,7 +47,7 @@ def main():
         assert len(records) == 1
         identity = records[0]["experiment_id"]
         remaining = min(study["resources"]["fit_seconds_study_cap"] + cap - (time.monotonic() - started) - 35,
-                        (deadline - datetime.now(timezone.utc)).total_seconds() - 35)
+                        (deadline - datetime.now(timezone.utc)).total_seconds() - 600)
         assert remaining > 0, "Deadline exhausted after registration; paid ticket preserved"
         result = run_bounded(["uv", "run", "--no-sync", "nextai", "run", "--plan", records[0]["plan_path"]],
             cwd=root, env=environment, stdout_path=prefix.with_suffix(".stdout.txt"),

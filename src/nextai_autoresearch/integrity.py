@@ -28,6 +28,7 @@ FIXED_PROTECTED_FILES = (
     "scripts/analyze_har01.py",
     "scripts/run_har01_experiment.py",
     "scripts/check_har01_readiness.py",
+    "scripts/restore_har01_result.py",
     "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
     "research/plans/NEXTAI-B-METADATA-CONFORMANCE-ADDENDUM-V1.json",
     "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
