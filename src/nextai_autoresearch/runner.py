@@ -675,9 +675,9 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                     "unit_nonces": unit_nonces,
                     "entropy_policy": "independent256bit_each_unit_separate_from_model_seed_v1"})
                 runtime_plan.update(pvm01_private_data_path=str(private_path), pvm01_private_data_sha256=sha256_file(private_path))
-            if plan["benchmark"] in {"har01_native_memory_v1", "asm01_native_memory_v2"}:
+            if plan["benchmark"] in {"har01_native_memory_v1", "asm01_native_memory_v2", "asm01_native_memory_v3"}:
                 from .research_program import verify_pvm01_fresh_realization
-                private_prefix = "asm01" if plan["benchmark"] == "asm01_native_memory_v2" else "har01"
+                private_prefix = "asm01" if plan["benchmark"] in {"asm01_native_memory_v2", "asm01_native_memory_v3"} else "har01"
                 private_path = runtime_plan_path.parent / f"{private_prefix}-private-data.json"
                 if private_path.exists():
                     raise FileExistsError("Native data realization exists; no retry")
@@ -795,7 +795,7 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                 "interpretation_status": "pending_codex_analysis",
             }
             validate_document("experiment_result", result, base)
-            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11", "har01_native_memory_v1", "asm01_native_memory_v2"})
+            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11", "har01_native_memory_v1", "asm01_native_memory_v2", "asm01_native_memory_v3"})
             for candidate in candidate_results:
                 summary = candidate.get("summary", {})
                 append_experiment_row(

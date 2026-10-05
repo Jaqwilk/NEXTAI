@@ -79,7 +79,7 @@ def _study_scope(study):
         if study["cohort"] != "har01_native_memory_v1":
             raise ValueError("Native source-transfer recipe/cohort mismatch")
     if study.get("study_kind") == "asm01_frozen_source_transfer":
-        if study["cohort"] != "asm01_native_memory_v2":
+        if study["cohort"] not in {"asm01_native_memory_v2", "asm01_native_memory_v3"}:
             raise ValueError("Canonical native pen source-transfer recipe/cohort mismatch")
     return {**extra, **{key: study[key] for key in ("roles", "recipe", "data", "diagnostics", "diagnosis_gates", "reference_gates")},
             "classical_baselines": study["candidates"], "deadline_at": study["study_deadline_at"],

@@ -15,6 +15,12 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V3.json",
+    "research/plans/ASM01-VERIFIED-SERIALIZER-TASK-V3.json",
+    "research/data_manifests/ASM01-ACQUISITION-V3.json",
+    "scripts/preregister_asm01_verified_screen.py",
+    "scripts/run_asm01_verified_check.py",
+    "scripts/acquire_asm01_verified_v3.py",
     "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V1.json",
     "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V2.json",
     "research/plans/ASM01-PROSPECTIVE-NATIVE-TASK-V1.json",
