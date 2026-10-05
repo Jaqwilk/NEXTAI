@@ -1,0 +1,22 @@
+{
+  "correction": "One corrected launch of the SAME frozen native conformance code: NEXTAI-B-323-T1-serializer-conformance-V2,check cap160s,child timeout90s. Allow existing65s overhead guard after the observed32.47s reservation. No source/fixture/plan/model/geometry/gate/data change.",
+  "created_at": "2026-10-05T22:05:09Z",
+  "cycle": 323,
+  "deadline_unchanged": "2026-10-05T23:38:34Z",
+  "failed_check_path": "research/reviews/NEXTAI-B-323-T1-serializer-conformance-V1.json",
+  "failed_check_seconds_charged": 73,
+  "failed_check_sha256": "4e20a2ace077e5c71f3e6d0cc95df288e17ef89133af285c06ff77c06c75ecf5",
+  "fit": 0,
+  "global_auxiliary_cap_unchanged_seconds": 2200,
+  "native_parse_started_count_before_correction": 0,
+  "new_EXP": 0,
+  "new_native_data_access": false,
+  "paid_experiment_retry": false,
+  "parent_study_path": "research/plans/ASM01-SERIALIZER-STRUCTURE-PREPARATION-V1.json",
+  "parent_study_sha256": "8db10c6c2bd714994b86f4b83e88593ef7e90a3ab15014c258cb2e8e88a2f8ae",
+  "process_supervision_source_sha256": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b",
+  "proof": "run_bounded rejects nonpositive timeout before Job construction, output opening or subprocess creation; receipt result=null/raw_outputs={}, no native conformance receipt. Therefore no numeric T1 child ran.",
+  "repair_plan_sha256": "9b4d91cd42c681bf89c5dc42420a7d4f723a0de5f798674ce06825df92d04a86",
+  "schema_version": 1,
+  "scoring": false
+}

@@ -1,0 +1,19 @@
+{
+  "cap_seconds": 90,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/verify_asm01_exposed_serializer_v4.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T22:02:51Z",
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\scripts\\run_asm01_structure_check.py\", line 46, in main\n    result = run_bounded(command, cwd=root, env=environment,\n                         stdout_path=prefix.with_suffix(\".stdout.txt\"),\n                         stderr_path=prefix.with_suffix(\".stderr.txt\"), timeout_seconds=remaining)\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\process_supervision.py\", line 178, in run_bounded\n    raise ValueError(\"Timeout must be finite and positive\")\nValueError: Timeout must be finite and positive\n",
+  "id": "NEXTAI-B-323-T1-serializer-conformance-V1",
+  "raw_outputs": {},
+  "result": null,
+  "seconds_charged": 73,
+  "wall_seconds": 32.47477020000224,
+  "whole_process_tree_bounded": true
+}

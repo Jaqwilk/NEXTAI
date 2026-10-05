@@ -1,0 +1,203 @@
+{
+  "cohort": "asm01_native_memory_v3",
+  "comparison": {
+    "arms": [
+      "source_trained",
+      "source_untrained",
+      "source_shuffled",
+      "source_ridge",
+      "target_dense_cached_cpu",
+      "target_ridge_pca",
+      "target_kernel",
+      "native_raw",
+      "native_banded_DTW"
+    ],
+    "conditions": [
+      "nominal",
+      "adverse"
+    ],
+    "confidence_rule": "Prospective two-axis absolute score plus top1-top2 margin, same policy for all arms. Absolute grid=[0,.25,.5,.65,.75,.8,.85,.9,.925,.95,.97,.98,.99,.995,.999,.9995,.9999,1], margin=[0,.005,.01,.02,.04,.08,.16,.32]. Select only Tcal under unchanged UNKNOWN>=.95/knownFA<=.02, then full accuracy with deterministic ties. Separate future study must freeze exact score normalization, DTW and cost equations before implementation/data.",
+    "motivation": "Closed HAR showed perfect native nominal ranking but weak absence decisions. A prospective native family and confidence policy address identifiability/rejection, not more-step rescue on HAR dev.",
+    "scales": [
+      16,
+      32,
+      64
+    ],
+    "strong_classical": "Ridge/PCA exact scan, nonlinear native transport, raw geometry and exact band4 DTW on the SAME public32x2 views; no full private trajectory or labels for a privileged classical baseline.",
+    "updates": [
+      0,
+      1,
+      4
+    ]
+  },
+  "created_at": "2026-10-05T22:08:23Z",
+  "decision": "KEEP only the scoped transferred-information effect if all4primary endpoints pass; otherwise DISCARD exact learned transfer recipe. Economics INCONCLUSIVE if reference fails competence; qualified routes also need unchanged all3K/conditions gates and strong classical non-domination. Never falsify all architectures from an intake failure.",
+  "execution_authority": false,
+  "id": "ASM01-VERIFIED-SERIALIZER-TASK-V3",
+  "independent_units": {
+    "archive_identity_gate": "Require exactly45 Wn native writer folders, each with183 distinct M.n.txt entries whose filename writer n agrees with folder Wn, total8235. No missing/duplicate canonical sample allowed. Exactly one publisher foreign member W6/15.5.TXT (9459bytes) is excluded from the legal membership map, preserved in archive, never numerically read. No other exception or sample/writer substitution.",
+    "fresh_final_dev": [
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "fresh_final_train": [
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "pairing": "Source state i -> fixed train/dev writer pair i; no favorable source/target selection",
+    "replication_dev": [
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "replication_train": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "screen_dev": [
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "screen_train": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "unit": "writer; query repeats/points/augmentations are not independent units",
+    "unused_writers": [
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ]
+  },
+  "intake": {
+    "archive_manifest_and_extraction_cap_bytes": 134217728,
+    "archive_url": "https://archive.ics.uci.edu/ml/machine-learning-databases/00208/Online%20Handwritten%20Assamese%20Characters%20Dataset.rar",
+    "download_stream_cap_bytes": 10485760,
+    "excluded_foreign_member": {
+      "bytes": 9459,
+      "path": "Online Handwritten Assamese Characters Dataset/W6/15.5.TXT"
+    },
+    "maximum_two_root_total_footprint_bytes": 335544320,
+    "minimum_free_bytes_after_operation": 10737418240,
+    "new_coordinate_access_before_preregistration": false,
+    "publisher_estimate": "7.7MB; exact length unavailable from HEAD",
+    "publisher_sha256": "d6ad543e65269d53e38fdac6a32dd20bcd942e7616891a6cf95986894b454a4d",
+    "reuse_preserved_archive_without_new_download": true,
+    "sequence": "Freeze a NEW complete scientific study/cohort and versioned delegated wrappers before remaining native T/D content. Reuse exact preserved publisher; verify canonical archive map, bounded footprint/disk gate and frozen V4 parser. Process all1830 screen samples without dropping/replacing any; disclose previously exposed T1 and never call its bytes fresh. D remains numerically unopened until that study. Future replication/final files and Data_Table.pdf remain unopened. Clone/preflight/readiness before one audited EXP, no paid retry."
+  },
+  "invalid_parent_task_path": "research/plans/ASM01-CANONICAL-NATIVE-TASK-V2.json",
+  "invalid_parent_task_sha256": "debdeea304bec803b482c421b6d7d54dfc398a8563f7312f7a84fdbe226063a9",
+  "metadata_correction_evidence_path": "research/reviews/ASM01-DUPLICATE-LOCATION-METADATA-V1.json",
+  "metadata_correction_evidence_sha256": "2364442ebe7c43673c35c0955abfac935a9f0219eb37ae3032e58acc61fea6a9",
+  "metrics": {
+    "economic_gates": {
+      "adversarial_required": true,
+      "all_preprocessing_ingest_index_updates_cache_warmup_decoding_included": true,
+      "at_least3_scale_points_at_matched_quality": true,
+      "candidate_quality_difference_simultaneous_lower_min": -0.02,
+      "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+      "independent_seed_data_units_min": 5,
+      "known_false_abstention_max": 0.02,
+      "non_dominated_against_strong_classical_required": true,
+      "p95_ratio_upper_max": 0.9,
+      "reference_each_seed_accuracy_min": 0.9,
+      "reference_mean_accuracy_min": 0.95,
+      "unknown_rejection_min": 0.95
+    },
+    "full_answer": "Current random fact value AND exact current source URI; UNKNOWN=-1/null. Private sample/writer ID absent from query.",
+    "full_boundary": "Acquisition/archive/parser, native coordinate processing/resampling, normalization, input copies, all target gridfits/source restore, threshold calibration, ingest/index, cache, updates, query and value/source decoding. Disclose compressed filesystem reads and source sunk fit separately; do not infer energy.",
+    "separate": [
+      "known fact top1",
+      "source attribution",
+      "updated known accuracy",
+      "retained known accuracy",
+      "UNKNOWN rejection",
+      "known false abstention",
+      "full answer accuracy",
+      "full service and batch1 p50/p95",
+      "resident/peak state",
+      "fit and full cold worker cost"
+    ],
+    "source_information_primary": "Four trained-minus-untrained/shuffled top1/UNKNOWN endpoints;5fixed pairs,mean>=.02,two-sided98.75% Studentt df4 intervals lower>0,5/5positive; family95%"
+  },
+  "native_views": {
+    "adverse": "On query only remove every fourth selected point before arc-length resampling; same write view. This is simulated reduced acquisition resolution, not a new independent identity or physical recording.",
+    "identity": "One physically acquired(writer,character sample) trajectory; M.N only provenance, never query key or learning feature",
+    "invalidity_policy": "Any missing/degenerate required native sample invalidates intake; no selective sample dropping or writer replacement after content",
+    "recipe": "Remove pen-up separators and consecutive repeated positions within each stroke; require at least4 pen-down coordinate points. Even-index points form write view, odd-index points form query view. Resample each view at32 equally spaced cumulative arc-length positions, normalize translation by centroid and common fixed per-view RMS, flatten XY to64 values. No random Gaussian substitute, family labels, ontology or public exact identity key.",
+    "within_identity_dependence": "Views are dependent subsamples of one acquisition, not independently acquired observations; disclose this limit"
+  },
+  "next_action": "Separate bounded ASM01-FROZEN-SOURCE-SCREEN-V3 preregistration with exact unchanged source states/models, 4096pairs/2048alignment/1024decoder, all9arms, five fixed writer pairs,3K/updates/nominal-adverse, grids,metrics and gates; explicit remaining global/protected budgets. Then minimal delegated cohort/loader and acquisition adapters, independent-clone conformance, complete native feasibility,freeze/preflight/readiness before exactly one audited EXP. This task artifact grants no fit,registration,scoring or new-data access.",
+  "original_task_path": "research/plans/ASM01-PROSPECTIVE-NATIVE-TASK-V1.json",
+  "original_task_sha256": "218d7a5d7fd0efb748341f76a4d83fb2e62ab793136382888ef241d877872360",
+  "preparation_parent_path": "research/plans/ASM01-SERIALIZER-STRUCTURE-PREPARATION-V1.json",
+  "preparation_parent_sha256": "8db10c6c2bd714994b86f4b83e88593ef7e90a3ab15014c258cb2e8e88a2f8ae",
+  "program_contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "question": "Does information in actual frozen learned source states transfer to native pen-trajectory instance memory beyond identical untrained/shuffled source states and target/native classics, with a competent dense reference and full costs?",
+  "revision_reason": "Preserve failed V1/V2 intake and V3 technical header result. Exact exposed T1 now passes separately preregistered singleton-zero metadata normalization; numeric/geometry/model/metrics/threshold/grids unchanged. T1 is already exposed, not fresh or blinded; new scientific intake/cohort still required.",
+  "schema_version": 1,
+  "serializer": {
+    "grammar": "Exact public column header once immediately after STROKE_COUNT enables singleton PEN_UP0 release annotation; remove only that zero. All other marker forms keep V3 semantics. Delegate all points, current positive stroke serial/state1/XY bounds, byte/point caps, alternating pen/count checks and geometry to unchanged V3/V1. No unfamiliar-row inference or sample dropping.",
+    "known_T1_conformance_path": "research/reviews/ASM01-EXPOSED-T1-SERIALIZER-CONFORMANCE-V1.json",
+    "known_T1_conformance_sha256": "99cab8cfed5d94659b9f40beec518a6db6ea13b0e21b5c779beb1d3a3d39d2cf",
+    "module": "nextai_autoresearch.asm01_task_v4",
+    "repair_path": "research/plans/ASM01-SERIALIZER-METADATA-REPAIR-V1.json",
+    "repair_sha256": "9b4d91cd42c681bf89c5dc42420a7d4f723a0de5f798674ce06825df92d04a86",
+    "scope_limit": "Technical conformance on ONE already-exposed T1; no guarantee of remaining writers or array feasibility. New scientific intake stops on any required unknown/missing/degenerate native sample without rescue or replacement.",
+    "source_path": "src/nextai_autoresearch/asm01_task_v4.py",
+    "source_sha256": "5d51c82c39dd56b230ec8406ad27dc48cf548de6757cb692b1e155fe0d0bb9f1"
+  },
+  "source": {
+    "all_other_native_coordinate_arrays_seen": false,
+    "already_exposed_T1_processed_in_technical_conformance": true,
+    "arrays_seen": true,
+    "coordinate_values_emitted_to_assistant": false,
+    "dataset_role": "instance fingerprint memory, not Assamese OCR or semantic character classification",
+    "doi": "10.24432/C50C8Q",
+    "id": "SRC-0461",
+    "license": "CC BY4.0",
+    "native_family": "Human electronic-pen stroke trajectories, independent of HAR smartphone inertial windows and PVM artificial continuous identities"
+  },
+  "status": "prospective_task_requires_separate_study_and_finished_clone_validation",
+  "training": {
+    "calibration_feasibility": "95 calibration identities permit K64 plus31 distinct unknown identities; queries may repeat identities, uncertainty remains writer-pair level.",
+    "calibration_instances": 95,
+    "distinct_fit_instances_per_train_writer": 64,
+    "kernel_landmarks": "First64 distinct fit native samples, not128 repeated draws; finite bandwidth/ridge grids from HAR declared again in separate study",
+    "recipe": "Existing64D residual linear/GELU encoder and2layer4head256FF residual-zero-init dense decoder;2048alignment/1024decoder steps,4096pairs. Actual source states frozen and same legal target ridge readout on trained/untrained/shuffled/source-ridge arms. No new architecture.",
+    "source": "Actual25 exported source states of EXP-20261005-0006; no source fit or source-array replay",
+    "split": "One runner-private permutation of183 native IDs before arrays per T writer;64fit/24validation/95calibration. Separate writer dev, no Dev-guided fit/calibration.",
+    "target_pairs": 4096,
+    "validation_instances": 24
+  }
+}

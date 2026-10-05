@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 260,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/seal_asm01_serializer_preparation.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T22:10:40Z",
+  "error": null,
+  "id": "NEXTAI-B-323-maintenance-seal-V1",
+  "raw_outputs": {
+    "NEXTAI-B-323-maintenance-seal-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-323-maintenance-seal-V1.stdout.txt": "81891c3eb7d2592dc3e3874fa71a4f4fd741b1f694c2bebfe602b91ab3ea189d"
+  },
+  "result": {
+    "elapsed_seconds": 90.00657990001491,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1134817280,
+    "pid": 356,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 148,
+  "wall_seconds": 107.92609630001243,
+  "whole_process_tree_bounded": true
+}

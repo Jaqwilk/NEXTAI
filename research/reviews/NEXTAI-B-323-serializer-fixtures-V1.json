@@ -1,0 +1,40 @@
+{
+  "cap_seconds": 90,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_asm01_native_grammar_v3.py",
+    "tests/test_asm01_native_serializer_v4.py",
+    "-q",
+    "--basetemp",
+    "research/tmp/ASM01-serializer-fixtures-V1",
+    "--junitxml",
+    "research/reviews/NEXTAI-B-323-serializer-fixtures-V1.xml"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T22:00:57Z",
+  "error": null,
+  "id": "NEXTAI-B-323-serializer-fixtures-V1",
+  "raw_outputs": {
+    "NEXTAI-B-323-serializer-fixtures-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-323-serializer-fixtures-V1.stdout.txt": "0f1ce25265e1578eacb483076506888917c69a93904f3ac0ac6e2e1bc57437a4"
+  },
+  "result": {
+    "elapsed_seconds": 0.5741386000008788,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 82169856,
+    "pid": 35128,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 57,
+  "wall_seconds": 16.54137869999977,
+  "whole_process_tree_bounded": true
+}

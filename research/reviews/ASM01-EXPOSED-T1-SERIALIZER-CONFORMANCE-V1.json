@@ -1,0 +1,30 @@
+{
+  "D_samples_opened": 0,
+  "all3_descriptors_equal": true,
+  "complete": true,
+  "coordinate_values_or_names_emitted": false,
+  "created_at": "2026-10-05T22:05:28Z",
+  "cycle": 323,
+  "descriptor_sha256": {
+    "adverse": "5de790a7e9baf5bdc44ad040896fb101e448d000a1de6107b9c5b383f10b8cc2",
+    "nominal": "3322c96536468cdf046a4590befff91b563f3ef0f34159bc0f8d711395dc2281",
+    "write": "4bc64c79d33a6b93aa1d1e6a904bfc13e520195b1ff80f44e48b333a242ecaaf"
+  },
+  "fit": 0,
+  "independent_point_reference_equal": true,
+  "native_array_returned": true,
+  "new_extraction": false,
+  "new_samples_opened": 0,
+  "old_v3_failure_reproduced": "Pen-up supplied state/stroke",
+  "point_dtype": "float32",
+  "point_shape": [
+    290,
+    2
+  ],
+  "raw_numeric_point_rows": 290,
+  "repair_sha256": "9b4d91cd42c681bf89c5dc42420a7d4f723a0de5f798674ce06825df92d04a86",
+  "sample_sha256": "4c3e65ac49ff5ad55f521ab9f86b47dbaa55cfb5cd341d6d1d234ad1d4e9dfff",
+  "samples_opened": 1,
+  "scoring": false,
+  "source_commit": "d47051853c629c0951b29964005489e49d87167f"
+}

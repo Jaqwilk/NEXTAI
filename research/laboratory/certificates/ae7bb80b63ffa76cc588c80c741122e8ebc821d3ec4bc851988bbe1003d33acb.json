@@ -1,11 +1,11 @@
 {
   "benchmark_version": "asm01_native_memory_v2",
-  "certificate_sha256": "daf162b55061d7f9a495f2600dbe9495c6cc76ec2baffb1d82399619a919bfba",
-  "created_at": "2026-10-05T22:08:43Z",
-  "evaluator_sha256": "9ec1e46be71851f0640b16247bd1c498622dc1138645a3fa830f3f5fad85b0e2",
+  "certificate_sha256": "75c6614ee7754d7fa3cd3b94261740ee84bc2daf50afa83b2b27a913281f1d7c",
+  "created_at": "2026-10-05T21:19:49Z",
+  "evaluator_sha256": "f37454681b04675d0cae6474f48fbd4e2ed0492ae87266ca7184d0a6483d0baf",
   "files": {
     "baseline_registry": "7feb110298b9c6e32a7b33c4f23df1c91d5c056a4cd04c84184a37d0104d04db",
-    "manifest": "b0998f2e092378f7f811bbce85a9600c30d41ac23d893d0f5ad9f490da5ff703",
+    "manifest": "b3ead099bfd64b666a1d0873b9ba4c712105754c953ca59e73573e6bb0d831e7",
     "runner": "85da92d521b7d6aa71d8549ef9312f193aba15fabd15944756949c186250e69c",
     "schema:experiment_plan": "78f9d33956b396fc0c9258332dbb41e26caa46688245c3b5c9ed4a09193de707",
     "schema:experiment_result": "ea41b0a4c0ee6fd8d0deaa54b315ae21849532aa12bf2eb638d2c6f010508471",
