@@ -1,11 +1,3 @@
-# Cycle320 preparation — independent pen-trajectory intake (2026-10-05)
-
-Prospective preparation contract: research/plans/NEXTAI-FAMILY2-INTAKE-PREPARATION-V1.json, frozen before metadata at554a76c. Zero new EXP,registration or research fit; deadline2026-10-05T19:32:51Z,auxiliary cap1800s including startup,metadata checks,failures and conservative administration. B remains active; protected7 tickets/47000s unchanged; A/MUC stay closed and consumed.
-Original full doctor and CLI lab status now PASS; prior319 CLI timeout is preserved. Metadata only: processed optdigits lacks writer IDs; original writer mapping unverified. NIST by_write has documented writer provenance but current bounded directory is incomplete and specific licence applicability unresolved. Selected prospective family: UCI Online Handwritten Assamese Characters,45writers x183 native pen trajectories,explicit writer filenames,CC BY4.0. No coordinate/image/label sample has been opened.
-Next-task contract: research/plans/ASM01-PROSPECTIVE-NATIVE-TASK-V1.json. Fixed disjoint T1–5/D16–20 screen,T6–10/D21–25 replication,T11–15/D26–30 fresh final;5paired units,3K16/32/64,updates0/1/4,nominal/adverse. Native instance fingerprints,not OCR; subsampled views are dependent within an acquisition. Actual frozen source states versus identical untrained/shuffled controls,competent dense and strong classical/geometry controls; prospective absolute-score plus margin calibration from T only. All quality/UNKNOWN/FA/economic gates unchanged. Full recipe/caps/normalization must be frozen in a separate scientific study before implementation and coordinate intake;this task document is not EXP authority.
-Disk gate prevented the first metadata attempt before bytes. Byte-preserving NTFS compression then reclaimed3.25GB with26 exact result/copy hashes unchanged;zero deletion. Second metadata attempt saved1643227B of names/ZIP-directory metadata,then failed on a missing HEAD Content-Length. Failure and exact source preserved;recovery uses saved metadata only and declares the length unknown. Reports: research/analyses/FAMILY2-CYCLE320-PREPARATION-V1.md and research/laboratory/FAMILY2-CYCLE320-COMPLETION-V1.receipt.json contain final checks/accounting.
-Current HAR maintenance,scoring=false. This cycle does not establish learning,transfer,economics or goal completion. Next separate cycle: preregister complete ASM01 five-pair screen,validate minimal parser/generator/methods in clone,verify actual licensed intake,freeze/preflight/readiness,then one audited EXP. No HAR dev rescue,paid retry,WT8-9,external model/API or schedule change. Earlier sections below remain history.
-
 # Completed cycle319 — native HAR transfer EXP-20261005-0007 (2026-10-05)
 
 The sole preregistered HAR01-FROZEN-SOURCE-SCREEN-V1 execution completed in the independent Git clone:45/45 workers,810/810 trials,five fixed subject/source-seed pairs,K16/32/64,updates0/1/4,nominal/adverse. Full worker charge180.55024020007113s; supervised fit72.42878799987375s. Exact evaluated source and all317 runtime files were archived before terminal maintenance; the native result is retained locally and published losslessly with its immutable hash. Analysis: research/analyses/EXP-20261005-0007.md.
@@ -523,7 +515,7 @@ Reference/learning/absence gates and finite training-only grids are immutable in
 
 Previous sections are preserved history.
 
-# NEXTAI — new continuation active; MUC retained as technical test (2026-10-04)
+# Current bounded cycle304 — NEXTAI continuation preparation (2026-10-04)
 
 Nowy program NEXTAI-CONTINUATION-20261004-V1 jest zatwierdzony: maksymalnie 17 dodatkowych rejestracji i 69344 s obliczeń, z zachowaniem 3 zużytych rejestracji i 2655.336485 s. Kontrakt: research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json. Zamknięty MUC03 i jego wyniki pozostają niezmienione. Nowa autoryzacja pozwala na zmianę receptur, uzasadniony nowy benchmark, minimalne prototypy, ablacje i replikacje; porażka jednej receptury nie zamyka programu. Nie ma potrzeby ponownego pytania o działania objęte tym zakresem.
 
@@ -537,7 +529,7 @@ Bramki ekonomiczne pozostają bez osłabienia. Cały fit i czas testów, także 
 
 Poniżej zachowano wcześniejsze sekcje jako historię; nie zastępują tej autoryzacji. Stałe niezmienniki naukowe i techniczne nadal obowiązują.
 
-# NEXTAI — MUC03 resolved INCONCLUSIVE at reference gate
+# NEXTAI laboratory cycle — protocol v3
 
 ## Latest cycle 303 — MUC03 resolution INCONCLUSIVE (2026-10-04)
 
@@ -665,25 +657,114 @@ with user authority in the matching research/laboratory record. The new cohort
 is mutable_contact_ledger_hard_negatives_v2. No retry, WT 8-9, final/calibration
 reuse, tuning, new architecture, promotion, external model/API or schedule change.
 Any worker failure or cap stops the unstarted scope and preserves all outcomes.
+The append-only pre-seed conformance addendum preserves invalidated
+EXP-20261003-0001 and bounds one corrected preregistration before the one actual
+execution; it fixes serializer fields and historical fixtures without metric,
+threshold, model, data, seed, deadline or budget changes.
 Use `uv run nextai lab status` for the verified queue. All sections below are
 historical unless explicitly selected by this new authority.
 
-Metrics and decision thresholds are immutable in the contract before the new
-sampler implementation. Primary endpoints are dense latest-record top1 and
-UNKNOWN rejection (absent subject / absent relation) at the fixed0.5 threshold.
-Five paired independent seed/data units receive simultaneous97.5% paired t
-intervals (Bonferroni familywise95% for two endpoints). Minimum effects: +5pp
-selection and +10pp rejection, both positive lower bounds, >=4 positive pairs.
-Known acceptance/end-to-end quality and false abstention are guarded at2pp.
-The unchanged BM25 top4 end-to-end reader and classical last-write graph are
-also measured. This is visible development, not a hidden final or architecture
-promotion. Old calibration EXP-20261002-0001 remains complete and immutable.
+## 1. Start safely
 
-State at authorization:107 completed experiments, cycle300, zero pending.
-Implementation and full clone regression (1029/1029) passed. EXP-20261003-0001 was
-append-only invalidated before any scoring seed: missing result serializer fields
-and stale historical fixtures. MUC02-HARD-NEGATIVES-PRESEED-CONFORMANCE-V1
-freezes the correction and permits one corrected registration, preserving both
-registration records and allowing only one actual five-pair execution. Metrics,
-thresholds, model, data and original deadline/budgets remain unchanged.
-This historical paragraph describes the pre-seed state; execution is now closed above.
+Read the complete required startup set in AGENTS.md. Run:
+
+```powershell
+uv run nextai doctor
+uv run nextai lab status
+```
+
+Inspect Git changes, STOP, PAUSE and research/run.lock. A stop file, live lock,
+schema/integrity/lifecycle error stops the cycle. Explicitly authorized maintenance
+may repair a gate, without scoring, and must append a maintenance event.
+Do not discard another task's changes. A pending experiment must be completed or
+append-only invalidated before creating another one. Check available disk space
+and bound installed/extracted footprint before every installation or download;
+at least 10 GiB must remain. Preserve dependency locks and acquisition receipts.
+
+## 2. Read the current milestone, not the old search backlog
+
+LAB-RESTART-20260904-V1 starts with the positive-control design milestone PC-01.
+The old eight-result G1-POST-EXP-0059-V1 window is historical, not restarted.
+Cycle 228 completed CAL-20260901-0001: do not rerun it, overwrite it or count it
+as candidate evidence. PC-01 is a new learning/measurement calibration with a
+new contract, task, recipe and result identity, not a replay of that diagnostic.
+
+One wake performs one bounded deliverable or resumes the one in progress.
+The first package is reproducibility + positive controls + WT causal isolation,
+followed by a decision. No language prototype, new architecture search, paid
+service, external model/API, publication or deployment is implicit in preparation.
+
+## 3. Service and development are explicit work, not scoring
+
+When benchmark_status is maintenance or the effective laboratory authority is preparation_only:
+do not create/run an EXP plan. Produce only the next named preparation artifact.
+For PC-01, select a licensed local corpus and an established small-transformer
+recipe; freeze data units, split, training budget, controls, thresholds, timing
+scenarios and instrumentation tests before candidate implementation/training.
+Record primary sources, size/space checks and what remains unknown. Do not claim
+positive-control success from unit tests or from the old 0.68-second fit.
+
+Each milestone has a fixed maximum number of service cycles and development
+attempts in LAB_PLAN.md. Append lab_milestone_progress to research/events.jsonl
+with milestone_id, attempt, artifact paths/hashes, observed checks, next action
+and cumulative budget. At the cap, stop and report ready, failed or blocked;
+do not rename the milestone to get more attempts. No forced score after two
+service cycles; no unbounded literature-only loop.
+
+## 4. Open a scored cohort only after its contract exists
+
+Do not reactivate the retained SuiteSparse cohort to escape maintenance.
+A new benchmark/cohort must name one of: mechanism, economics, transfer.
+Its frozen contract must specify per-task useful-quality thresholds, required
+controls and failure policies, metrics/directions, hardware/scenario, full-cost
+boundary, seed policy, independent data units, development cap, final selection,
+uncertainty analysis and invalidation rules. No automatic global 0.95 threshold
+for loss tasks. Implement and test the claim-specific gates before activation;
+the legacy promotion CLI alone does not establish a protocol-v3 claim.
+
+Freeze a new evaluator and semantic-baseline certificate before registration.
+Use nextai plan new to register the immutable experiment and evaluator digest.
+Then implement the tested change under candidates/, using only preregistered
+development data/attempts. Re-freeze candidate changes only if the evaluator is
+unchanged. Invalid plans are append-only invalidated, not edited. Final recipes
+and source hashes must be frozen before any final holdout result is visible.
+Do not use current filenames as proof of historical implementation identity:
+nextai provenance checks hashes from the immutable result against local/Git bytes.
+
+## 5. Run and interpret one experiment
+
+Only the audited nextai run --plan research/plans/EXP-....json route may create
+scored evidence. Source audit and integrity precede runner-random seed realization.
+No bypass runner, deleted failure or hidden training/preprocessing is allowed.
+A single seed screens only. A replicated claim requires at least three seeds
+and independent data units appropriate to the question, not just permutations
+of the same trace. Keep all timing samples, failed cells and resource overruns.
+
+For each analysis keep these exact top-level sections:
+
+OBSERVATION
+INTERPRETATION
+CONFIDENCE
+ALTERNATIVE EXPLANATIONS
+DECISION
+NEXT DISCRIMINATING EXPERIMENT
+
+Separate learning, economic advantage and transfer. Report narrower positives
+even when the full economic contract fails. Do not promote them into architecture
+success. Conversely, a bad control invalidates that comparison, not all learning.
+Record adverse results, exact scope and the next discriminating question.
+Never rescue-tune on a final test. Use a new question and fresh test set.
+
+## 6. Close durably
+
+Append events and, only when warranted, hypothesis updates. Preserve all old
+probabilities and completed artifacts. A belief shift is not a reward target.
+Refresh nextai report (content provenance, not file timestamps). Run doctor and
+pytest, record exact results and any unverified platform. Update state without
+resetting the 99 historical results or old cycle counter; service work is not
+a new scientific result. At most one scored experiment per wake.
+Report milestone/experiment ID, immutable contract/plan, observations, confidence,
+decision, budget/integrity and exact next action. End this cycle.
+
+Review cadences still apply to completed experiments. A milestone review may be
+earlier. Schedule behavior remains best-effort; no catch-up or overlapping runs.

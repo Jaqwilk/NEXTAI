@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\scripts\intake_family2_metadata.py", line 97, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\scripts\intake_family2_metadata.py", line 44, in main
+    original, _ = request("https://archive.ics.uci.edu/ml/machine-learning-databases/optdigits/optdigits-orig.names")
+                  ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\scripts\intake_family2_metadata.py", line 23, in request
+    assert free - (LIMIT - USED) >= FLOOR
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

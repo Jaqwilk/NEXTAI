@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\scripts\intake_family2_metadata.py", line 97, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\scripts\intake_family2_metadata.py", line 83, in main
+    assamese_archive_bytes=int(assamese["Content-Length"]),
+                           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'

@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-10-05T18:11:46Z",
+  "parent_commit": "24ad3a51ad1960b58229bb5559c358b62815805e",
+  "sha256": {
+    ".gitattributes": "1ce3628164fe314cf7ab7cf4f1f73e09747f984e1372668db3b8294e41576071",
+    "AGENTS.md": "8816967d6c3ae7159de3199722828988da83d2109151e08851277ddcaa26a099",
+    "config/research.toml": "d9673c35d9bf9cdc61da4cae5dc35337bc177ed9ed8637de76ad78d6188fa69f",
+    "docs/CURRENT_STATUS.md": "231c906ea8bd28c091240734b5fb49219068cd9153266978aba4fab62b1080c4",
+    "program.md": "285cc6952a19b54c7178a76d865ffc39a6d95137b5916f5754479a1223ac1fb7",
+    "research/LAB_PLAN.md": "103cee1184a00a64bb01617e2bfb96b6242fdb452440e3377aba68ec108d225a",
+    "research/eval_manifest.json": "eb433af320bf0a02997b2338a1b053ded3b61830acbfc3b44731ca5c12a728d7",
+    "research/laboratory/preflight_certificate.json": "c5f4f636e14848cef28e55afc9b8f790812868e4c4114dc8e18bbf51d808b2f0",
+    "research/state.json": "576875f93125869b2e059f20c2264c31a803818a25fdfd087566d53dbc03268d"
+  }
+}

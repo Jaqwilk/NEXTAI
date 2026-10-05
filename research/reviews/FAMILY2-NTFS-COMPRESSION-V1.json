@@ -1,0 +1,172 @@
+{
+  "all_paths_and_bytes_preserved": true,
+  "compression": "NTFS transparent LZX. Future filesystem read/decompression cost remains inside full measured boundary; historical measured outcomes are unchanged.",
+  "content_sha256": {
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0001.json": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0002.json": "d5d30770363f704797022eacd2c65a7615d419a26564571394029d046f588581",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0003.json": "322f41a172a476b6c259c667cb803968d05912138d3f85ef60d2b24a3aa4dc43",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0004.json": "dc1dc3677e3ef05d872d54053bb98b443d4fe95539d27a0db803eb705412228a",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0005.json": "60c771762b1c528a4227eed931098d1d9704cb00860e5647040859fab95aeeaa",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0006.json": "f71073703ceabb1c0062e9f817bb56e440758d13380bddacff0377b4cc6f24a8",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0007.json": "78380a19ffacf4a58af0bd8586425fbacee44b2e5a92c6e056f3699f769ed255",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\HAR01-result-restoration-proof-V1\\research\\results\\EXP-20261005-0007.json": "78380a19ffacf4a58af0bd8586425fbacee44b2e5a92c6e056f3699f769ed255",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-REPLICATION-publication-conformance-V1\\good\\research\\results\\EXP-20261005-0002.json": "d5d30770363f704797022eacd2c65a7615d419a26564571394029d046f588581",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-ROBUSTNESS-publication-conformance-V1\\good\\research\\results\\EXP-20261005-0003.json": "322f41a172a476b6c259c667cb803968d05912138d3f85ef60d2b24a3aa4dc43",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-TRANSPORT-publication-conformance-V1\\good\\research\\results\\EXP-20261005-0001.json": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-TRANSPORT-publication-conformance-V2\\good\\research\\results\\EXP-20261005-0001.json": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c315p2\\bad-resource-existing\\research\\results\\EXP-20261005-0004.json": "dc1dc3677e3ef05d872d54053bb98b443d4fe95539d27a0db803eb705412228a",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c315p2\\good\\research\\results\\EXP-20261005-0004.json": "dc1dc3677e3ef05d872d54053bb98b443d4fe95539d27a0db803eb705412228a",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c316p1\\bad-resource-existing\\research\\results\\EXP-20261005-0005.json": "60c771762b1c528a4227eed931098d1d9704cb00860e5647040859fab95aeeaa",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c316p1\\good\\research\\results\\EXP-20261005-0005.json": "60c771762b1c528a4227eed931098d1d9704cb00860e5647040859fab95aeeaa",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\bad-fitted-existing\\research\\results\\EXP-20261005-0006.json": "f71073703ceabb1c0062e9f817bb56e440758d13380bddacff0377b4cc6f24a8",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\bad-resource-existing\\research\\results\\EXP-20261005-0006.json": "f71073703ceabb1c0062e9f817bb56e440758d13380bddacff0377b4cc6f24a8",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\good\\research\\results\\EXP-20261005-0006.json": "f71073703ceabb1c0062e9f817bb56e440758d13380bddacff0377b4cc6f24a8",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0001.json": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0002.json": "d5d30770363f704797022eacd2c65a7615d419a26564571394029d046f588581",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0003.json": "322f41a172a476b6c259c667cb803968d05912138d3f85ef60d2b24a3aa4dc43",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0004.json": "dc1dc3677e3ef05d872d54053bb98b443d4fe95539d27a0db803eb705412228a",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0005.json": "60c771762b1c528a4227eed931098d1d9704cb00860e5647040859fab95aeeaa",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0006.json": "f71073703ceabb1c0062e9f817bb56e440758d13380bddacff0377b4cc6f24a8",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0007.json": "78380a19ffacf4a58af0bd8586425fbacee44b2e5a92c6e056f3699f769ed255"
+  },
+  "created_at": "2026-10-05T18:00:16Z",
+  "disk_free_after": 11653210112,
+  "disk_free_before": 8403369984,
+  "elapsed_seconds": 73.11902269997518,
+  "files_deleted": 0,
+  "files_verified": 26,
+  "results": [
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n138�035�840 total bytes of data are stored in 20�914�176 bytes.\r\nThe compression ratio is 6,6 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0001.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n137�885�947 total bytes of data are stored in 20�606�976 bytes.\r\nThe compression ratio is 6,7 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0002.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�828�308 total bytes of data are stored in 26�902�528 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0003.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�972�541 total bytes of data are stored in 26�857�472 bytes.\r\nThe compression ratio is 6,3 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0004.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�967�907 total bytes of data are stored in 27�058�176 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0005.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n168�209�092 total bytes of data are stored in 27�328�512 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0006.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n72�987�218 total bytes of data are stored in 12�304�384 bytes.\r\nThe compression ratio is 5,9 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\results\\EXP-20261005-0007.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n138�035�840 total bytes of data are stored in 20�914�176 bytes.\r\nThe compression ratio is 6,6 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0001.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n137�885�947 total bytes of data are stored in 20�606�976 bytes.\r\nThe compression ratio is 6,7 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0002.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�828�308 total bytes of data are stored in 26�902�528 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0003.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�972�541 total bytes of data are stored in 26�857�472 bytes.\r\nThe compression ratio is 6,3 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0004.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�967�907 total bytes of data are stored in 27�058�176 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0005.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n168�209�092 total bytes of data are stored in 27�328�512 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0006.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n72�987�218 total bytes of data are stored in 12�304�384 bytes.\r\nThe compression ratio is 5,9 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\results\\EXP-20261005-0007.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c315p2\\bad-resource-existing\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�972�541 total bytes of data are stored in 26�857�472 bytes.\r\nThe compression ratio is 6,3 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c315p2\\bad-resource-existing\\research\\results\\EXP-20261005-0004.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c315p2\\good\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�972�541 total bytes of data are stored in 26�857�472 bytes.\r\nThe compression ratio is 6,3 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c315p2\\good\\research\\results\\EXP-20261005-0004.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c316p1\\bad-resource-existing\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�967�907 total bytes of data are stored in 27�058�176 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c316p1\\bad-resource-existing\\research\\results\\EXP-20261005-0005.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c316p1\\good\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�967�907 total bytes of data are stored in 27�058�176 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c316p1\\good\\research\\results\\EXP-20261005-0005.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\bad-fitted-existing\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n168�209�092 total bytes of data are stored in 27�328�512 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\bad-fitted-existing\\research\\results\\EXP-20261005-0006.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\bad-resource-existing\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n168�209�092 total bytes of data are stored in 27�328�512 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\bad-resource-existing\\research\\results\\EXP-20261005-0006.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\good\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n168�209�092 total bytes of data are stored in 27�328�512 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\c317p1\\good\\research\\results\\EXP-20261005-0006.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\HAR01-result-restoration-proof-V1\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n72�987�218 total bytes of data are stored in 12�304�384 bytes.\r\nThe compression ratio is 5,9 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\HAR01-result-restoration-proof-V1\\research\\results\\EXP-20261005-0007.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-REPLICATION-publication-conformance-V1\\good\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n137�885�947 total bytes of data are stored in 20�606�976 bytes.\r\nThe compression ratio is 6,7 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-REPLICATION-publication-conformance-V1\\good\\research\\results\\EXP-20261005-0002.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-ROBUSTNESS-publication-conformance-V1\\good\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n167�828�308 total bytes of data are stored in 26�902�528 bytes.\r\nThe compression ratio is 6,2 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-ROBUSTNESS-publication-conformance-V1\\good\\research\\results\\EXP-20261005-0003.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-TRANSPORT-publication-conformance-V1\\good\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n138�035�840 total bytes of data are stored in 20�914�176 bytes.\r\nThe compression ratio is 6,6 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-TRANSPORT-publication-conformance-V1\\good\\research\\results\\EXP-20261005-0001.json",
+      "returncode": 0
+    },
+    {
+      "output": "\r\n Compressing files in C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-TRANSPORT-publication-conformance-V2\\good\\research\\results\\\r\n\r\n\r\n1 files within 1 directories were compressed.\r\n138�035�840 total bytes of data are stored in 20�914�176 bytes.\r\nThe compression ratio is 6,6 to 1.\r\n",
+      "path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-TRANSPORT-publication-conformance-V2\\good\\research\\results\\EXP-20261005-0001.json",
+      "returncode": 0
+    }
+  ],
+  "scope": "Only the 14 preserved native PVM/HAR results and verified large JSON copies in completed restoration fixtures; no WT files, source states, journals, other projects or OS settings",
+  "space_reclaimed_bytes": 3249840128
+}

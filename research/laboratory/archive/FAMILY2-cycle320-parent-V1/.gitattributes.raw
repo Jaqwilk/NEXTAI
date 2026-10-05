@@ -72,6 +72,3 @@ research/checks/NEXTAI-B-* -text
 research/data_manifests/HAR01-*.raw.txt -text
 research/laboratory/archive/HAR01-*/** -text
 research/checks/HAR01-* -text
-
-# Preserve exact cycle320 publisher and parent metadata bytes.
-research/laboratory/archive/FAMILY2-*/** -text

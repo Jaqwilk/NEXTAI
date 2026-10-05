@@ -1,0 +1,8 @@
+{
+  "charge_basis": "Conservative prepaid allowance for metadata web/file operations, startup reads, contract/Git/mirroring/report administration; independent doctor/CLI/tests charged separately",
+  "created_at": "2026-10-05T17:39:22Z",
+  "download_cap_bytes": 4194304,
+  "id": "NEXTAI-B-320-metadata-administration",
+  "metadata_only": true,
+  "seconds_charged": 300
+}

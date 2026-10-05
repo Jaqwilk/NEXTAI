@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-10-05T18:12:55Z",
+  "logical_to_physical": {
+    ".gitattributes": ".gitattributes.raw"
+  },
+  "reason": "Preserve original bytes without applying nested Git attribute rules to archive copies.",
+  "sha256": "1ce3628164fe314cf7ab7cf4f1f73e09747f984e1372668db3b8294e41576071"
+}
