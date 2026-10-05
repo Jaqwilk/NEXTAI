@@ -1,0 +1,30 @@
+{
+  "commands": [
+    {
+      "label": "good",
+      "outputs": {
+        "PVM01-TRANSPORT-publication-good-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-TRANSPORT-publication-good-V1.stdout.txt": "54e1697ed4ae355dc423ffb6fb239b750dbe24fd01397184fc88a92b8da443fa"
+      },
+      "returncode": 0,
+      "root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-TRANSPORT-publication-conformance-V1\\good"
+    },
+    {
+      "label": "bad-existing",
+      "outputs": {
+        "PVM01-TRANSPORT-publication-bad-existing-V1.stderr.txt": "f78066cd7e7f1d5b68fa9ff553f57cce2719b2a2cbc98c41460a8d896092f5db",
+        "PVM01-TRANSPORT-publication-bad-existing-V1.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "returncode": 1,
+      "root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-TRANSPORT-publication-conformance-V1\\bad-existing"
+    }
+  ],
+  "created_at": "2026-10-05T01:20:25Z",
+  "existing_record_never_overwritten": true,
+  "free_space_after": 26442231808,
+  "free_space_before": 26633883648,
+  "lossless_restoration_exact": true,
+  "native_hash": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+  "new_fit_seed_scoring": false,
+  "wall_seconds": 2.6342065000062576
+}

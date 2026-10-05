@@ -1,0 +1,18 @@
+{
+  "all_trials_predictions_failures_and_costs_included": true,
+  "bundle_bytes": 17881181,
+  "bundle_path": "research/results/EXP-20261005-0001.json.gz",
+  "bundle_sha256": "5be9a534f2a292af66f1dedb43561b537f7343553335baca86826e80634093d9",
+  "codec": "lossless gzip/mtime0",
+  "correction": "Publication metadata is not a scored result; use laboratory namespace so report result discovery remains strict",
+  "created_at": "2026-10-05T01:34:44Z",
+  "experiment_id": "EXP-20261005-0001",
+  "native_bytes": 138035840,
+  "native_path": "research/results/EXP-20261005-0001.json",
+  "native_result_unmodified": true,
+  "native_sha256": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+  "previous_metadata_path": "research/laboratory/EXP-20261005-0001-publication-V1.json",
+  "previous_metadata_sha256": "10f332c8adf31b4ec0519ae6d83aead6d7dabad91e7a704dc0f9cc325ca3ec0e",
+  "restoration_command": "uv run --no-sync python scripts/restore_pvm01_transport_result.py",
+  "restoration_script_sha256": "7dc35b62ee66325fc3d453888f51a3c8b349ed3baa77287a628fd03616628fcd"
+}

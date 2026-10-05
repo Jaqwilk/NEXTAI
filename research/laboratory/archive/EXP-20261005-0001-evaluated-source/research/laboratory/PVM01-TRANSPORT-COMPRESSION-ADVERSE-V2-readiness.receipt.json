@@ -1,0 +1,30 @@
+{
+  "classical_economic_contract_sha256": "06688b5c493c08d701a236fedcfb549e27489ec7596715c73535b8d04fe7a512",
+  "classical_economic_preregistration_git_commit": "10024844bf3828d7997a26a5ecb4257633ab7a02",
+  "created_at": "2026-10-05T00:49:20Z",
+  "economic_conformance_receipt_sha256": "ef21ebec1f11c8331ce59a535ffc83fc0a5cbc87de7dec7639ed93e86504aebb",
+  "evaluator_sha256": "af4a384869ce0e9caa52f623bdd0c65b1e0c54551b2d17e1094dbe096ff54ccd",
+  "fresh_final_executed": false,
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1137
+  },
+  "full_regression_receipt_sha256": "698eb8292f6acc0c847ed1bb37ff92b0baa43d0a6f73387b74667db04bff66ed",
+  "history_source_receipt_sha256": "b03b890281640d32bd4c5ea79599ea19dfd418295f45f39870bc0ddb32eb37f0",
+  "id": "PVM01-TRANSPORT-COMPRESSION-ADVERSE-V2-readiness",
+  "independent_clone_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "new_private_seed_data_fit_EXP_before_readiness": false,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "post_schema_targeted_tests": 27,
+  "preregistration_git_commit": "90940d44e09d49b6260c5d1bc6997802fe096f18",
+  "protected_files": 1250,
+  "ready_for_exactly_one_audited_registration": true,
+  "shared_runtime_not_source_or_state": true,
+  "study_path": "research/plans/PVM01-TRANSPORT-COMPRESSION-ADVERSE-V2.json",
+  "study_sha256": "d11a65e01dbeb3af4b65b1b808fcaac401be663bf54d8620cf832b24ecd7056f",
+  "targeted_tests": 30,
+  "validated_source_git_commit": "e96b09d1db5e8e673f51c70f3e896c947d3eeaaa",
+  "whole_program_complete": false
+}

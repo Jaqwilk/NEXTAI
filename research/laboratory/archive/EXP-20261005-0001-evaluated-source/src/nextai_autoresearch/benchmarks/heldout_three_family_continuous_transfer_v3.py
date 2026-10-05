@@ -1,0 +1,4 @@
+from .heldout_three_family_continuous_transfer_v1 import run_suite
+
+
+BENCHMARK_VERSION = "heldout_three_family_continuous_transfer_v3"

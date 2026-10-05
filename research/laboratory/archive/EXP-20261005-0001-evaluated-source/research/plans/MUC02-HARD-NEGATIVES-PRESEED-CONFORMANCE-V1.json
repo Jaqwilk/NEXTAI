@@ -1,0 +1,30 @@
+{
+  "additional_corrected_registrations_cap": 1,
+  "authority_interpretation": "The user authorizes autonomous preregistration, minimal implementation, testing and one five-pair experiment, with no execution retry. This pre-seed harness correction preserves the failed registration and its consumed accounting instead of executing an unserializable plan; it adds no model run, seed substitution, tuning or fresh budget.",
+  "automatic_retry": false,
+  "candidate_change_preregistered_before_implementation": "EXP-20261003-0001",
+  "corrected_cohort": "mutable_contact_ledger_hard_negatives_v2",
+  "correction": "Add exactly the six already preregistered aggregate metric names to the result serialization schema. Set historical test fixture benchmark identities explicitly and isolate latest authority overlays in historical queue tests. Metric equations, decision thresholds, data, seeds, candidate/model, pair sampling, optimizer, 4096 pairs and192 steps remain unchanged. A new evaluator/cohort must be frozen and all regression tests pass before the corrected registration.",
+  "created_at": "2026-10-03T21:49:44Z",
+  "deadline_at": "2026-10-04T01:08:25Z",
+  "executed_experiment_attempts_cap": 1,
+  "failure_counts": {
+    "failed": 16,
+    "passed": 1012,
+    "tests": 1028
+  },
+  "failure_receipt_path": "research/reviews/MUC02-HARD-NEGATIVES-preseed-full-tests.xml",
+  "failure_receipt_sha256": "3c3e5a67de08bb87d69f7733284481d8b2a88198ca3efa774c944c9e87f650df",
+  "fit_seconds_total_cap": 3600,
+  "id": "MUC02-HARD-NEGATIVES-PRESEED-CONFORMANCE-V1",
+  "implemented_sampler_ref": "17b4e86 preregistration preceded changed sampler; full test failure was seen before scoring and caused no result-guided change",
+  "original_registration_cap_preserved": 1,
+  "parent_contract_path": "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json",
+  "parent_contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+  "prior_registration": "EXP-20261003-0001",
+  "prior_registration_sha256": "2cfdb8d005727909bc2d0fbd7a470ab885f38590d965744ba776cd7a195d2f37",
+  "prior_registration_status": "append-only invalidated before any scoring seed/model fit",
+  "registrations_total_cap_including_invalidated": 2,
+  "runner_seed_draws_cap": 5,
+  "schema_version": 1
+}

@@ -1,0 +1,47 @@
+# Reproducible protected bytes, independent of platform/core.autocrlf.
+* text=auto eol=lf
+
+# Historical v2 manifests committed hashes of CRLF working-tree bytes.
+# Preserve those exact bytes; do not silently create a new data cohort.
+research/checks/dronepropa_anonymous_split_v1.jsonl text eol=crlf
+research/data/suitesparse_real_pde_v1/audit.json text eol=crlf
+research/data/suitesparse_real_pde_v1/recycling_audit.json text eol=crlf
+
+# Frozen source/evidence archives preserve exact historical bytes, including CRLF.
+research/laboratory/archive/** -text
+research/laboratory/*.xml -text
+research/tmp/** -text
+
+# Hash-bound prospective stage records keep their originally authorized bytes.
+research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json -text
+research/laboratory/MUC02-HARD-NEGATIVES-20261003-V1.json -text
+research/plans/MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1.json -text
+research/reviews/MUC02-HARD-NEGATIVES-*.xml -text
+research/reviews/MUC03-*.xml -text
+
+# Hash-bound continuation test journals preserve native failure tracebacks.
+research/reviews/NEXTAI-continuation-*.xml -text
+
+research/reviews/PVM01-*.xml -text
+
+# Native tool diagnostics preserve exact captured CRLF bytes and failure traces.
+research/reviews/PVM01-*.stdout.txt -text
+research/reviews/PVM01-*.stderr.txt -text
+
+# Compact preregistration retains the exact native bytes bound by its freeze.
+research/plans/PVM01-COMPACT-FEATURE-SCREEN-V1.json -text
+research/reviews/PVM01-COMPACT-startup-*.json -text
+
+# Capacity-exposure preregistration and startup snapshot retain hash-bound bytes.
+research/plans/PVM01-CAPACITY-EXPOSURE-V1.json -text
+research/reviews/PVM01-EXPOSURE-startup*.json -text
+
+# Preparation startup records preserve their native raw snapshot bytes.
+research/reviews/PVM01-REPRO-startup*.json -text
+
+# Nested fixed-fixture journals also retain their exact native output bytes.
+research/reviews/PVM01-REPRO-fixture-*/** -text
+
+research/reviews/PVM01-TRANSPORT-* -text
+research/checks/PVM01-TRANSPORT-* -text
+research/reviews/PVM01-TRANSPORT-*/** -text

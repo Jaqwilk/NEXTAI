@@ -1,0 +1,30 @@
+{
+  "cap": 120,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_transport_post.py"
+  ],
+  "created_at": "2026-10-05T01:10:25Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-post-analysis-archive-V1",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-post-analysis-archive-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-TRANSPORT-post-analysis-archive-V1.stdout.txt": "65e597ef404ce7b021ef92e793cc4718b400a9a16f1a72aae3e2f4494b665348"
+  },
+  "result": {
+    "elapsed_seconds": 7.799944799990044,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 963784704,
+    "pid": 17404,
+    "processes_created": 7,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 18,
+  "wall_seconds": 12.37015080000856
+}

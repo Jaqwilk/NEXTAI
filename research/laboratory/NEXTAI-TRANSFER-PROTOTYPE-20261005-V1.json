@@ -1,0 +1,46 @@
+{
+  "id": "NEXTAI-TRANSFER-PROTOTYPE-20261005-V1",
+  "created_at": "2026-10-05 01:21:01 UTC",
+  "source": "User edit of the active thread goal",
+  "source_goal_updated_at_unix": 1791163227,
+  "exact_user_objective": "Doprowadź NEXTAI do rzetelnego sprawdzenia, czy uczony mechanizm dorównuje kompetentnemu transformerowi przy niższym pełnym koszcie inferencji, z uwzględnieniem mocnych metod klasycznych. Następnie sprawdź transfer na dwóch niezależnych rodzinach zadań, w tym jednej opartej na rzeczywistych publicznych danych z odpowiednią licencją, i zbuduj minimalny lokalny prototyp aktualizowalnej pamięci z wyborem faktów, wskazaniem źródła i rozpoznawaniem braku odpowiedzi.\\\n\\\nTo rozszerzenie obecnego celu: dokończ rozpoczęte badanie bez zmiany jego planu, progów i limitów. Zachowaj historię, wyniki i niezmienniki AGENTS.md; bez retry, WT 8–9, zewnętrznych modeli/API i zmian harmonogramu.\\\n\\\nEtap A zachowuje dotychczasowy limit 17 rejestracji i 69 344 s, pomniejszony o całe zużycie. Po jego rozliczeniu zatwierdzam etap B: dodatkowe 12 rejestracji i 72 000 s. Rozliczaj fit, ewaluację, testy i nieudane wykonania; zarezerwuj środki na replikacje i świeży finał.\\\n\\\nPracuj autonomicznie. Przed implementacją i nowymi danymi prerejestruj hipotezę, recepturę, metryki, progi, budżet i regułę decyzji. Waliduj w klonie. Rozdziel ranking, aktualizacje i UNKNOWN. Po porażce oceń alternatywy, nie tylko więcej kroków; nie osłabiaj kontroli ani kryteriów po wynikach.\\\n\\\nDalszą drogę i prototyp wybierz z dowodów: mechanizm uczony, klasyczny lub hybrydowy. Zakończ odtwarzalnym porównaniem jakości i pełnych kosztów przy trzech skalach, niezależnych replikacjach i świeżym teście końcowym, z co najmniej pięcioma sparowanymi jednostkami danych/seedów. Raportuj niepewność i decyzję. Wynik negatywny jest dopuszczalny. Przy niewykonalności przedstaw dowody i alternatywy; przy wyczerpaniu limitów również niewykonany zakres. Sam limit nie oznacza ukończenia celu.",
+  "stage_a_contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+  "stage_a_existing_registration_cap": 17,
+  "stage_a_existing_compute_cap_seconds": 69344,
+  "stage_a_previous_usage_remains_consumed": true,
+  "current_study_path": "research/plans/PVM01-TRANSPORT-COMPRESSION-ADVERSE-V2.json",
+  "current_study_sha256": "d11a65e01dbeb3af4b65b1b808fcaac401be663bf54d8620cf832b24ecd7056f",
+  "current_study_plan_thresholds_limits_unchanged": true,
+  "stage_b": {
+    "additional_registration_attempts_cap": 12,
+    "additional_compute_seconds_cap": 72000,
+    "activation": "After durable stage A accounting; create a separate hash-bound prospective program contract carrying all previous usage",
+    "active_now": false,
+    "reserve_for_replication_and_fresh_final_required": true,
+    "all_fit_evaluation_tests_and_failures_charged": true
+  },
+  "deliverables": {
+    "independent_task_families": 2,
+    "at_least_one_licensed_public_real_data_family": true,
+    "local_minimal_memory_prototype": {
+      "updates": true,
+      "fact_selection": true,
+      "source_attribution": true,
+      "unknown": true
+    },
+    "route_selected_from_evidence": [
+      "learned",
+      "classical",
+      "hybrid"
+    ],
+    "three_scales": true,
+    "independent_replication": true,
+    "frozen_fresh_final": true,
+    "minimum_paired_data_seed_units": 5
+  },
+  "no_retry": true,
+  "wt_files_8_9_authorized": false,
+  "external_models_apis_authorized": false,
+  "schedule_change_authorized": false,
+  "goal_complete": false
+}

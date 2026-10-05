@@ -1,0 +1,92 @@
+{
+  "experiment_id": "EXP-20261005-0001",
+  "valid_comparison": true,
+  "failures": [],
+  "primary_gates": {
+    "0.02:transport_pca_untrained:accuracy": true,
+    "0.02:transport_pca_shuffled:accuracy": true,
+    "0.02:transport_full:accuracy": true,
+    "0.02:transport_full:retained": true,
+    "0.04:transport_pca_untrained:accuracy": true,
+    "0.04:transport_pca_shuffled:accuracy": true,
+    "0.04:transport_full:accuracy": true,
+    "0.04:transport_full:retained": true,
+    "all_eight_endpoints": true
+  },
+  "competence_gates": {
+    "0.02:transport_pca": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "false_abstention": true
+    },
+    "0.02:dense": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "false_abstention": true
+    },
+    "0.02:dense_cached_cpu": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "false_abstention": true
+    },
+    "0.02:dense_cached_cuda": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "false_abstention": true
+    },
+    "0.04:transport_pca": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "false_abstention": true
+    },
+    "0.04:dense": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "false_abstention": true
+    },
+    "0.04:dense_cached_cpu": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "false_abstention": true
+    },
+    "0.04:dense_cached_cuda": {
+      "five_units": true,
+      "mean_accuracy": true,
+      "each_unit_accuracy": true,
+      "each_K_accuracy": true,
+      "mean_unknown": true,
+      "each_unit_unknown": true,
+      "false_abstention": true
+    }
+  },
+  "decision": "KEEP exact transport/PCA recipe for independent validation"
+}
+Native analysis, full source/runtime preservation, maintenance freeze: completed

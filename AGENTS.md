@@ -1,3 +1,32 @@
+# Current cycle312 — transport/PCA comparison completed (2026-10-05)
+
+EXP-20261005-0001:70 workers/1260 trials,5 paired fresh units,noise0.02/0.04,K32/128/512,updates0/1/4.
+Valid exact FIT/data/cache identity;8 primary and competence gates PASS.
+KEEP transport/PCA narrow learned reference;full99.972/99.958%,known ranking100%.
+Ridge/PCA-scan matches quality at lower service/state in all6 cells.
+Economic_screen_qualified=false; no novelty/LLM/transfer/promotion claim.
+Full1137 tests PASS; all failures/costs/source/runtime preserved; no retry/WT8-9.
+Current study terminal,maintenance,scoring=false. A remains active.
+Next: preregister independent fixed-recipe replication of learned/classical transport,
+with strong dense/cache,causal controls,three scales,5 fresh units and full costs.
+Reserve replication/frozen fresh final; no second EXP this cycle.
+Report:research/analyses/EXP-20261005-0001.md. Final budget:cycle312 completion receipt.
+Full native result versioned losslessly; after fresh checkout run
+uv run --no-sync python scripts/restore_pvm01_transport_result.py before doctor/lab.
+
+# Current user goal extension — transfer and local prototype
+
+Authority:research/laboratory/NEXTAI-TRANSFER-PROTOTYPE-20261005-V1.json.
+Current experiment plan/thresholds/caps unchanged; all A usage remains consumed.
+A retains17 additional registrations/69344s minus usage.
+After A accounting,B additional12 registrations/72000s; B not active now.
+Then two independent task families,one based on licensed public real data,
+and local update/fact/source/UNKNOWN memory,selected from evidence:
+learned,classical or hybrid. Preregister before code/new data,validate clone,
+reserve replications/fresh final,charge all fit/eval/tests/failures.
+No retry,WT8-9,external models/APIs,schedule changes. Whole goal not complete.
+Earlier sections below remain preserved history.
+
 # Cycle312 prospective metadata correction
 
 Active immutable contract is PVM01-TRANSPORT-COMPRESSION-ADVERSE-V2.json.

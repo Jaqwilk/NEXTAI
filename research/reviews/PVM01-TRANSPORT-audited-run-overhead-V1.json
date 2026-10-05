@@ -1,0 +1,68 @@
+{
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "program",
+        "register"
+      ],
+      "label": "register",
+      "raw_outputs": {
+        "PVM01-TRANSPORT-EXP-20261005-0001-register-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-TRANSPORT-EXP-20261005-0001-register-V1.stdout.txt": "5031163d64a613cabad7b1ab5e385ca06a5999e31ed299f05e296e7c1fd5b5b9"
+      },
+      "result": {
+        "elapsed_seconds": 36.600711100007175,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 1380143104,
+        "pid": 25116,
+        "processes_created": 157,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "run",
+        "--plan",
+        "research/plans/EXP-20261005-0001.json"
+      ],
+      "label": "run",
+      "raw_outputs": {
+        "PVM01-TRANSPORT-EXP-20261005-0001-run-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-TRANSPORT-EXP-20261005-0001-run-V1.stdout.txt": "62fa73c664be29baf7480bb11c1b08e79add25789f5afd56222fe6767710a976"
+      },
+      "result": {
+        "elapsed_seconds": 651.1905609999958,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 1613131776,
+        "pid": 27080,
+        "processes_created": 373,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    }
+  ],
+  "controller_overhead_seconds": 147.15081250006915,
+  "created_at": "2026-10-05T01:07:51Z",
+  "error": null,
+  "experiment_id": "EXP-20261005-0001",
+  "id": "PVM01-TRANSPORT-audited-run-overhead-V1",
+  "no_retry": true,
+  "overhead_seconds_charged_conservatively": 158,
+  "prepared_source_git_commit": "b3084dc22c056a806dda976b7ee4babb926184df",
+  "study_sha256": "d11a65e01dbeb3af4b65b1b808fcaac401be663bf54d8620cf832b24ecd7056f",
+  "wall_seconds": 714.0221124999953,
+  "worker_full_wall_seconds_already_charged": 566.8712999999261
+}

@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-10-05T00:54:03Z
+Generated: 2026-10-05T01:39:49Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1717,6 +1717,83 @@ Pareto axes: maximize `accuracy, dense_unknown_rejection`; minimize `mean_query_
 | EXP-20261004-0008 | pvm01_raw_s2 | implementable | complete | 0.2493 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
 | EXP-20261004-0008 | pvm01_raw_s3 | implementable | complete | 0.2497 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
 | EXP-20261004-0008 | pvm01_raw_s4 | implementable | complete | 0.2497 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+
+## paired_view_mutable_memory_v6 / quick
+
+Pareto axes: maximize `accuracy, dense_unknown_rejection`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20261005-0001 | pvm01_tc_transport_pca_s0 | implementable | complete | 0.999 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_s1 | implementable | complete | 0.9997 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_s2 | implementable | complete | 0.9998 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_s3 | implementable | complete | 1 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 | yes |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_s4 | implementable | complete | 0.9998 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_full_s0 | implementable | complete | 0.9991 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_full_s1 | implementable | complete | 1 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_full_s2 | implementable | complete | 0.9993 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_full_s3 | implementable | complete | 1 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_full_s4 | implementable | complete | 1 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 230400 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_untrained_s0 | implementable | complete | 0.2491 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_untrained_s1 | implementable | complete | 0.25 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_untrained_s2 | implementable | complete | 0.2479 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_untrained_s3 | implementable | complete | 0.2495 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_untrained_s4 | implementable | complete | 0.25 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_shuffled_s0 | implementable | complete | 0.25 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_shuffled_s1 | implementable | complete | 0.2497 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_shuffled_s2 | implementable | complete | 0.25 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_shuffled_s3 | implementable | complete | 0.2497 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_transport_pca_shuffled_s4 | implementable | complete | 0.25 | - | 1 | 7.014e+04 | - | - | - | 0.3079 (3) | 136192 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_s0 | implementable | complete | 0.9995 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_s1 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_s2 | implementable | complete | 0.9998 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_s3 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_s4 | implementable | complete | 0.9998 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 764416 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cpu_s0 | implementable | complete | 0.9995 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cpu_s1 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cpu_s2 | implementable | complete | 0.9998 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cpu_s3 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cpu_s4 | implementable | complete | 0.9998 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cuda_s0 | implementable | complete | 0.9995 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cuda_s1 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cuda_s2 | implementable | complete | 0.9998 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cuda_s3 | implementable | complete | 0.9997 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_dense_cached_cuda_s4 | implementable | complete | 0.9998 | - | 1 | 3.372e+05 | - | - | - | 0.06472 (3) | 1.2887e+06 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge_s0 | implementable | complete | 0.9991 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge_s1 | implementable | complete | 0.9944 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 | yes |
+| EXP-20261005-0001 | pvm01_tc_ridge_s2 | implementable | complete | 0.9993 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 | yes |
+| EXP-20261005-0001 | pvm01_tc_ridge_s3 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 | yes |
+| EXP-20261005-0001 | pvm01_tc_ridge_s4 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 311808 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge32_s0 | implementable | complete | 0.9991 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 | yes |
+| EXP-20261005-0001 | pvm01_tc_ridge32_s1 | implementable | complete | 0.9944 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge32_s2 | implementable | complete | 0.9993 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge32_s3 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge32_s4 | implementable | complete | 1 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 164096 | yes |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_scan_s0 | implementable | complete | 0.999 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 | yes |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_scan_s1 | implementable | complete | 0.9998 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_scan_s2 | implementable | complete | 0.9998 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_scan_s3 | implementable | complete | 0.9998 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 | yes |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_scan_s4 | implementable | complete | 0.9998 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 69888 | yes |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_tree_s0 | implementable | complete | 0.999 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_tree_s1 | implementable | complete | 0.9998 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_tree_s2 | implementable | complete | 0.9998 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_tree_s3 | implementable | complete | 0.9998 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261005-0001 | pvm01_tc_ridge_pca_tree_s4 | implementable | complete | 0.9998 | - | 1 | 3.686e+04 | - | - | - | 0.6462 (3) | 143808 |  |
+| EXP-20261005-0001 | pvm01_tc_kernel_s0 | implementable | complete | 0.9991 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 |  |
+| EXP-20261005-0001 | pvm01_tc_kernel_s1 | implementable | complete | 0.9931 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 |  |
+| EXP-20261005-0001 | pvm01_tc_kernel_s2 | implementable | complete | 1 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 |  |
+| EXP-20261005-0001 | pvm01_tc_kernel_s3 | implementable | complete | 1 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 | yes |
+| EXP-20261005-0001 | pvm01_tc_kernel_s4 | implementable | complete | 0.9998 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 803328 | yes |
+| EXP-20261005-0001 | pvm01_tc_raw_s0 | implementable | complete | 0.2493 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261005-0001 | pvm01_tc_raw_s1 | implementable | complete | 0.2484 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261005-0001 | pvm01_tc_raw_s2 | implementable | complete | 0.2484 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261005-0001 | pvm01_tc_raw_s3 | implementable | complete | 0.25 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261005-0001 | pvm01_tc_raw_s4 | implementable | complete | 0.2497 | - | 1 | 2.867e+04 | - | - | - | 1 (3) | 278528 |  |
+| EXP-20261005-0001 | pvm01_tc_delta_s0 | implementable | complete | 0.9731 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261005-0001 | pvm01_tc_delta_s1 | implementable | complete | 0.9844 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261005-0001 | pvm01_tc_delta_s2 | implementable | complete | 0.9804 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261005-0001 | pvm01_tc_delta_s3 | implementable | complete | 0.9771 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
+| EXP-20261005-0001 | pvm01_tc_delta_s4 | implementable | complete | 0.9835 | - | 1 | 2.381e+05 | - | - | - | 0 (3) | 484352 |  |
 
 ## pointer_machine_composition_v1 / quick
 

@@ -1,0 +1,25 @@
+{
+  "commands": [
+    {
+      "label": "good",
+      "outputs": {
+        "PVM01-TRANSPORT-publication-good-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-TRANSPORT-publication-good-V2.stdout.txt": "6bef0f6aed66279713ae3e16904a820fe89c74ffb28229d1902d429083ef395f"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "bad-existing",
+      "outputs": {
+        "PVM01-TRANSPORT-publication-bad-existing-V2.stderr.txt": "f78066cd7e7f1d5b68fa9ff553f57cce2719b2a2cbc98c41460a8d896092f5db",
+        "PVM01-TRANSPORT-publication-bad-existing-V2.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "returncode": 1
+    }
+  ],
+  "created_at": "2026-10-05T01:35:10Z",
+  "native_result_unmodified": true,
+  "new_fit_data_scoring": false,
+  "previous_metadata_bytes_preserved": true,
+  "strict_result_report_discovery_passed": true
+}
