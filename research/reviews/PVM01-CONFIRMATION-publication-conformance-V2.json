@@ -1,0 +1,40 @@
+{
+  "all85_trusted_journals_restored_exactly": true,
+  "bounded_additional_footprint": 571026487,
+  "commands": [
+    {
+      "label": "good",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-publication-good-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-publication-good-V2.stdout.txt": "771ffcc2da5ccf0de5d1489caf7b06971784c4025790836e2310866f6c3adbb9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "bad-existing",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-publication-bad-existing-V2.stderr.txt": "9cd23e0c90184057b3b4e9191b33fcad4771b2109236247e144956d6d15fe8b5",
+        "PVM01-CONFIRMATION-publication-bad-existing-V2.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "returncode": 1
+    },
+    {
+      "label": "bad-resource-existing",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-publication-bad-resource-existing-V2.stderr.txt": "8eae020641ca255cbe57b44cfb4d7f87533db90a33eda8cc099e073a2c304080",
+        "PVM01-CONFIRMATION-publication-bad-resource-existing-V2.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 1
+    }
+  ],
+  "created_at": "2026-10-05T07:08:34Z",
+  "existing_native_and_resource_records_never_overwritten": true,
+  "failed_V1_preserved": "research/reviews/PVM01-CONFIRMATION-publication-V1.json",
+  "free_space_after": 27171848192,
+  "free_space_before": 27578724352,
+  "lossless_restoration_exact": true,
+  "native_hash": "dc1dc3677e3ef05d872d54053bb98b443d4fe95539d27a0db803eb705412228a",
+  "new_fit_seed_scoring": false,
+  "technical_path_addendum": "research/plans/PVM01-CONFIRMATION-PUBLICATION-PATH-ADDENDUM-V1.json",
+  "wall_seconds": 4.506099499994889
+}

@@ -1,0 +1,68 @@
+{
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "program",
+        "register"
+      ],
+      "label": "register",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-EXP-20261005-0004-register-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-EXP-20261005-0004-register-V1.stdout.txt": "93121178d4de59f8247dc3865efa66eb5a8470f67a847f6e016a0dd5c69f3e0b"
+      },
+      "result": {
+        "elapsed_seconds": 79.02236489999632,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 2879959040,
+        "pid": 27076,
+        "processes_created": 157,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "run",
+        "--plan",
+        "research/plans/EXP-20261005-0004.json"
+      ],
+      "label": "run",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-EXP-20261005-0004-run-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-EXP-20261005-0004-run-V1.stdout.txt": "eb0afd43b13804d280f09bd56486d837fe6dec5b653659a799a02726670578da"
+      },
+      "result": {
+        "elapsed_seconds": 1015.1229839000007,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 2876731392,
+        "pid": 33540,
+        "processes_created": 418,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    }
+  ],
+  "controller_overhead_seconds": 297.7950422000431,
+  "created_at": "2026-10-05T06:50:49Z",
+  "error": null,
+  "experiment_id": "EXP-20261005-0004",
+  "id": "PVM01-CONFIRMATION-audited-run-overhead-V1",
+  "no_retry": true,
+  "overhead_seconds_charged_conservatively": 308,
+  "prepared_source_git_commit": "d9f7b3715c73b6bf688250f330a6b4da600aec8c",
+  "study_sha256": "1ecb3ecd34b1c155817f74b6d3ac9ccf7b7bb7922ceca2fa6a79f1f003fd2c1f",
+  "wall_seconds": 1151.2458789000084,
+  "worker_full_wall_seconds_already_charged": 853.4508366999653
+}

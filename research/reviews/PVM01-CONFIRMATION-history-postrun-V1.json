@@ -1,0 +1,31 @@
+{
+  "cap": 120,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_confirmation_history_v1.py",
+    "--postrun"
+  ],
+  "created_at": "2026-10-05T07:11:50Z",
+  "error": null,
+  "id": "PVM01-CONFIRMATION-history-postrun-V1",
+  "raw_outputs": {
+    "PVM01-CONFIRMATION-history-postrun-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-CONFIRMATION-history-postrun-V1.stdout.txt": "50d5569e4b4c26fb96612d1905cd3ecab925f0a6047c53ea6d60ef72ebeec1d2"
+  },
+  "result": {
+    "elapsed_seconds": 16.470007299998542,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 76685312,
+    "pid": 31104,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 31,
+  "wall_seconds": 25.267690399996354
+}

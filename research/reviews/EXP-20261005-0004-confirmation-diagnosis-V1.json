@@ -1,0 +1,113 @@
+{
+  "analysis_sha256": "2ed2fc770c5f571e4254675e874fa5a4cd3a675879bbc67669355a48356a2952",
+  "classical_failed_gates": [],
+  "created_at": "2026-10-05T07:09:27Z",
+  "exact_next_discriminating_experiment_proposal": "Use the last reference_and_alternatives ticket for a DISTINCT prospectively frozen five-pair confirmation against the UN-AUGMENTED dense_cached_cpu reference,with the same exact models,4096 pairs,2048/1024 steps,calibration,all17 arms,3K,both noises,updates0/1/4,8 learning and18/60 economic thresholds. Add the same <=2% each-unit/noise FA guard to the base reference; keep all mixed arms and their unchanged failed6 NI metrics as separately reported augmentation evidence,never rescue this completed qualification. Primary new question is whether fixed ridge/PCA or neural transport matches a competent unaugmented dense reference at lower full cost. Do not turn the mixed FA assay into a tautological base-versus-itself endpoint. Freeze the new reference choice,claim-specific gates and source before new data/code; five NEW units,no old-unit pooling or paid-plan retry. If qualified, use the remaining separate replication/final ticket for a frozen fresh five-pair final; otherwise explicit negative/inconclusive A accounting before authorized B. Keep at least24000s and1 final ticket reserved; no extra steps,new architecture or weakened economic gate.",
+  "experiment_id": "EXP-20261005-0004",
+  "independent_confirmation": {
+    "decision": "DISCARD exact selected-route independent qualification",
+    "no_promotion": true,
+    "reference_independently_confirmed": false,
+    "selected_route_independently_confirmed": false,
+    "selection_outcomes_excluded_from_intervals": true,
+    "trusted_resources_complete": true,
+    "valid_comparison": true
+  },
+  "next_is_not_execution_authority": true,
+  "reference_failed_gates": [
+    "0.04:false_abstention"
+  ],
+  "separate_secondary_ranking_update_intervals": {
+    "0.02:known_fact_top1_accuracy": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.02:retained": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.02:updated": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.04:known_fact_top1_accuracy": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.04:retained": {
+      "high": 0.0014803709209981956,
+      "level": 0.95,
+      "low": -0.0031470375876649008,
+      "mean": -0.0008333333333333526,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        -0.004166666666666763,
+        0.0
+      ]
+    },
+    "0.04:updated": {
+      "high": 0.00038901025091421157,
+      "level": 0.95,
+      "low": -0.0015001213620252298,
+      "mean": -0.0005555555555555092,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        -0.001388888888888773,
+        -0.001388888888888773,
+        0.0
+      ]
+    }
+  },
+  "whole_goal_complete": false
+}

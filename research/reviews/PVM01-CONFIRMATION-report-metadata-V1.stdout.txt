@@ -1,0 +1,2 @@
+Complete report with uncertainty,separate ranking/updates/UNKNOWN,fit/service/RAM/CUDA/amortization and unchanged decisions
+Report/append-only clarification/terminal maintenance documentation frozen

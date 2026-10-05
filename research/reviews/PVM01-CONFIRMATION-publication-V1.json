@@ -1,0 +1,30 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_confirmation_publish_v1.py"
+  ],
+  "created_at": "2026-10-05T07:01:42Z",
+  "error": null,
+  "id": "PVM01-CONFIRMATION-publication-V1",
+  "raw_outputs": {
+    "PVM01-CONFIRMATION-publication-V1.stderr.txt": "4d574ec728f4af8a11542fca22630bb78812d4e9ea2e35e0fdaa960859e3439d",
+    "PVM01-CONFIRMATION-publication-V1.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "result": {
+    "elapsed_seconds": 4.070387799991295,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 618045440,
+    "pid": 33444,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 18,
+  "wall_seconds": 12.984037699992768
+}

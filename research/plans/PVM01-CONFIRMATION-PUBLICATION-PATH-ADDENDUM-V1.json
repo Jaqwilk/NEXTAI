@@ -1,0 +1,15 @@
+{
+  "all_costs_charged_within_unchanged_3600s_aux_cap": true,
+  "cause": "Windows fixture destination was 261 characters, beyond the normal file-open boundary",
+  "completed_metadata_and_restorer_unchanged": true,
+  "controller_path": "research/tmp/pvm01_confirmation_publication_completion_v2.py",
+  "controller_sha256": "05e20a3939bb9db704149bbd27445bc0fbfcc1bb59e567884ce834c08c3d5cee",
+  "correction": "New distinct shorter ignored fixture directory research/tmp/c315p2; verify and reuse already immutable exact bundle, native result, publication metadata and restoration script",
+  "created_at": "2026-10-05T07:08:28Z",
+  "failed_raw_fixture_preserved": true,
+  "failed_receipt": "research/reviews/PVM01-CONFIRMATION-publication-V1.json",
+  "failed_receipt_sha256": "4ec0b86c0dece6f626c43795b17020c4ad791a487649e09409d0d067c11f24af",
+  "metrics_gates_source_scientific_controls_unchanged": true,
+  "new_registration_data_model_fit_scoring_or_paid_retry": false,
+  "scope": "No-scoring technical publication conformance completion"
+}

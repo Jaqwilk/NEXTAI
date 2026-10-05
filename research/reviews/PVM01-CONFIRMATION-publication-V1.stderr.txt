@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_confirmation_publish_v1.py", line 65, in <module>
+    target=root/f'research/laboratory/archive/{eid}-runtime'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
+                                                                                                                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\shutil.py", line 262, in copyfile
+    with open(dst, 'wb') as fdst:
+         ~~~~^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\PVM01-CONFIRMATION-publication-conformance-V1\\good\\research\\laboratory\\archive\\EXP-20261005-0004-runtime\\research\\tmp\\EXP-20261005-0004\\pvm01_noise_dense_cached_cpu_mixed_s0.resources.json'

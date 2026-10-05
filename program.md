@@ -1,3 +1,16 @@
+# Completed cycle315 - independent confirmation EXP-20261005-0004
+
+Five NEW paired units,17 fixed arms; valid=True.
+Reference confirmed=False; selected classical route confirmed=False.
+Decision: DISCARD exact selected-route independent qualification. No promotion,transfer or augmentation-benefit claim from adequacy.
+All102 scientific source bytes,recipes,data law,metrics,grids and thresholds unchanged.
+Trusted cumulative CUDA allocator peaks,RSS,full fit/service and descriptive reuse costs reported.
+Analysis:research/analyses/EXP-20261005-0004.md; full frozen machine analysis/diagnosis preserved.
+Current v9 maintenance,scoring=false; A active,B authorized/unspent/inactive.
+Next prospective question: Use the last reference_and_alternatives ticket for a DISTINCT prospectively frozen five-pair confirmation against the UN-AUGMENTED dense_cached_cpu reference,with the same exact models,4096 pairs,2048/1024 steps,calibration,all17 arms,3K,both noises,updates0/1/4,8 learning and18/60 economic thresholds. Add the same <=2% each-unit/noise FA guard to the base reference; keep all mixed arms and their unchanged failed6 NI metrics as separately reported augmentation evidence,never rescue this completed qualification. Primary new question is whether fixed ridge/PCA or neural transport matches a competent unaugmented dense reference at lower full cost. Do not turn the mixed FA assay into a tautological base-versus-itself endpoint. Freeze the new reference choice,claim-specific gates and source before new data/code; five NEW units,no old-unit pooling or paid-plan retry. If qualified, use the remaining separate replication/final ticket for a frozen fresh five-pair final; otherwise explicit negative/inconclusive A accounting before authorized B. Keep at least24000s and1 final ticket reserved; no extra steps,new architecture or weakened economic gate.
+No second EXP this cycle; no retry,WT8-9,external models/APIs or schedule change.
+Expanded final/transfer/prototype goal remains open. Previous sections preserved history.
+
 # Prospective cycle315 - independent selected-route confirmation
 
 PVM01-DENSE-NOISE-CONFIRMATION-V1 frozen before code/new data.

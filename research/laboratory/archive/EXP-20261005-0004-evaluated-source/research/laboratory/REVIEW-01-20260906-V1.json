@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "REVIEW-01-20260906-V1",
+  "kind": "user_authorized_bounded_decision_review_and_proposed_contract_preparation",
+  "created_at": "2026-09-05T23:20:00Z",
+  "started_at": "2026-09-05T23:20:00Z",
+  "deadline_at": "2026-09-06T00:20:00Z",
+  "stage_minutes_cap": 60,
+  "user_approval": "Zatwierdzam jeden ograniczony etap REVIEW-01: przegląd wyników R0, PC-01 i WT-01 oraz przygotowanie konkretnego planu małego eksperymentu pamięć–aktualizacje–kompozycja. Limit: jeden cykl przygotowawczy, maksymalnie 60 minut.",
+  "plan_path": "research/plans/REVIEW-01-V1.json",
+  "review_path": "research/analyses/REVIEW-01-V1.md",
+  "proposed_contract_path": "research/plans/MUC-01-PROPOSED-CONTRACT-V1.json",
+  "service_cycles_authorized": 1,
+  "service_minutes_authorized": 60,
+  "candidate_implementation_authorized": false,
+  "candidate_training_authorized": false,
+  "dataset_or_model_download_authorized": false,
+  "experiment_registration_authorized": false,
+  "scoring_authorized": false,
+  "wt_replication_authorized": false,
+  "wt_files_8_9_access_authorized": false,
+  "schedule_change_authorized": false,
+  "github_non_force_push_authorized": true,
+  "required_outputs": [
+    "verify EXP-20260906-0001 closure and GitHub master/main synchronization without rerunning it",
+    "review R0, PC-01 and WT-01 with claim boundaries",
+    "check primary sources and documented data availability without downloading data or models",
+    "write one concrete proposed memory-update-composition contract with task, scales, controls, mechanism isolation, full costs, thresholds, splits, budgets and terminal rules",
+    "validate the preparation, update the append-only queue, commit and non-force push master and main",
+    "stop for a new user decision"
+  ],
+  "forbidden_actions": [
+    "implement any candidate or benchmark generator",
+    "train or score any model",
+    "download any dataset, model or dependency",
+    "register or run an EXP",
+    "open WT files 8-9 or repeat EXP-20260906-0001",
+    "start WT replication or search for new recordings",
+    "change the schedule, deploy, force-push or start the proposed next stage"
+  ]
+}

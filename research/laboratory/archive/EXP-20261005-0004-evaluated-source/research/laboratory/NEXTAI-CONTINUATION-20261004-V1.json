@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-10-04T13:15:10Z",
+  "fit_seconds_total_cap": 69344,
+  "id": "NEXTAI-CONTINUATION-20261004-V1",
+  "program_contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+  "program_contract_sha256": "a55f190fd42631e2651a8d4ab3e61f2200d16d1e8afb2d71aa4edcbea6ba269a",
+  "registration_attempts_cap": 17,
+  "schema_version": 1,
+  "supersedes": "historical decision waits and finite-recipe stop only for this new authority; old program closure and results remain immutable",
+  "user_authorization": "Doprowadź NEXTAI do rzetelnego sprawdzenia, czy wybrany uczony mechanizm daje porównywalną jakość przy niższym pełnym koszcie inferencji niż kompetentny transformer, z uwzględnieniem mocnych metod klasycznych.\nZatwierdzam nowy program obejmujący diagnozę, zmianę receptur, uzasadnione przeprojektowanie benchmarku, minimalne prototypy, ablacje i replikacje. Zachowaj zamknięte badania bez zmian oraz dotychczasowe rozliczenie: pozostało maksymalnie **17 rejestracji i 69 344 sekundy budżetu obliczeniowego**, obejmującego fit oraz rozliczane testy.\nNajpierw rozdziel błędy rankingu od rozpoznawania braku odpowiedzi i oceń, czy MUC pozwala sensownie sprawdzić cel projektu. Jeśli nie, zachowaj go jako test techniczny i uzasadnij nowe zadanie wymagające uczenia. Nie osłabiaj klasycznych kontroli ani kryteriów po zobaczeniu wyników.\nPorażka jednej receptury ma prowadzić do oceny alternatyw i zmiany podejścia, nie automatycznego zamknięcia całego programu. Nie ograniczaj poszukiwań do zwiększania liczby kroków treningu. Przed każdą implementacją badawczą prerejestruj hipotezę, metryki, budżet i regułę decyzji. Pracuj autonomicznie w tym zakresie, waliduj zmiany w klonie, zachowuj wszystkie wyniki i niezmienniki AGENTS.md.\nZakończ odtwarzalnym porównaniem mechanizmu z kontrolami, obejmującym jakość, pełne koszty, replikacje i świeży test końcowy. Jeśli nie jest to wykonalne, przedstaw dowody, rozpatrzone alternatywy i konkretną przyczynę zakończenia. Przy wyczerpaniu budżetu raportuj również niewykonany zakres. Wynik negatywny jest dopuszczalny; pozytywnego nie wymuszaj."
+}
