@@ -1,0 +1,58 @@
+{
+  "all_three_native_hashes_verified": true,
+  "commands": [
+    {
+      "label": "restore-old",
+      "raw_outputs": {
+        "PVM01-ROBUSTNESS-original-restore-old-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-ROBUSTNESS-original-restore-old-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-new",
+      "raw_outputs": {
+        "PVM01-ROBUSTNESS-original-restore-new-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-ROBUSTNESS-original-restore-new-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-dense-noise",
+      "raw_outputs": {
+        "PVM01-ROBUSTNESS-original-restore-dense-noise-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-ROBUSTNESS-original-restore-dense-noise-V1.stdout.txt": "5dcb34e7c81985ff6057122c03ec91ad5ce6de4a8566570550e4fccbab4d9318"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "history",
+      "raw_outputs": {
+        "PVM01-ROBUSTNESS-original-history-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-ROBUSTNESS-original-history-V1.stdout.txt": "7c418d7b78db482a945a2b5d8580f645d5f184c6c694797d33bb2730b75fd4e3"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "doctor",
+      "raw_outputs": {
+        "PVM01-ROBUSTNESS-original-doctor-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-ROBUSTNESS-original-doctor-V1.stdout.txt": "c0d625570383235fd62e818c52d23b11e2f18509e5ccd2e92f533c6e5d858a98"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "lab",
+      "raw_outputs": {
+        "PVM01-ROBUSTNESS-original-lab-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-ROBUSTNESS-original-lab-V1.stdout.txt": "9ed42d3320a54356148a6d76758617debd015e1f55d9e8f6f4dceb33291bbeb0"
+      },
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-05T05:18:35Z",
+  "history_integrity_preflight_doctor_lab": true,
+  "no_new_seed_data_model_fit_scoring": true,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "source_revision": "f1a6a679bfaf5a92c46ef0ebe19645250a87cb40"
+}

@@ -1,0 +1,30 @@
+{
+  "cap": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_robustness_integrate_v1.py"
+  ],
+  "created_at": "2026-10-05T05:13:43Z",
+  "error": null,
+  "id": "PVM01-ROBUSTNESS-integrate-original-V1",
+  "raw_outputs": {
+    "PVM01-ROBUSTNESS-integrate-original-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-ROBUSTNESS-integrate-original-V1.stdout.txt": "b1ab18336bebfd42832ba7dde39bf0af5d752903a9fdabf60e4f00ff8bc2780d"
+  },
+  "result": {
+    "elapsed_seconds": 89.11067850000109,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1040887808,
+    "pid": 23164,
+    "processes_created": 74,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 102,
+  "wall_seconds": 96.47592700000678
+}
