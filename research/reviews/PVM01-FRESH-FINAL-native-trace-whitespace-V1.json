@@ -1,0 +1,13 @@
+{
+  "action": "Verify all other staged files with diff --check,exclude exactly these two byte-preserved raw artifacts and resume the interrupted commit. No data,model,metric,threshold,cap,deadline or paid registration change.",
+  "charged_administrative_envelope": "PVM01-FRESH-FINAL-administration-prepaid-V1",
+  "created_at": "2026-10-05T09:55:01Z",
+  "git_check_output": "research/checks/PVM01-FRESH-FINAL-targeted-V2.xml:21: trailing whitespace.\n+tests\\test_pvm01_fresh_final.py:37: \r\nresearch/reviews/PVM01-FRESH-FINAL-targeted-V2.stdout.txt:26: trailing whitespace.\n+tests\\test_pvm01_fresh_final.py:37: \r\n",
+  "git_check_returncode": 2,
+  "new_fit_arrays_scoring_registration": false,
+  "observation": "The validation commit stopped because preserved failed pytest raw stdout/XML contain trailing space in the original traceback. Their bytes are scientific failure evidence and must not be rewritten. This is a formatting-only Git check,not a test or scientific gate failure.",
+  "preserved_raw_trace_sha256": {
+    "research/checks/PVM01-FRESH-FINAL-targeted-V2.xml": "6d5c838c0826026f4616185ca2187eb301ad11bacfef1749f5f0d48eaca6318b",
+    "research/reviews/PVM01-FRESH-FINAL-targeted-V2.stdout.txt": "63fbc77f1d5cf4199e1be0406bb1574ae7d7d95c2b0da2fbeb24b3abaef33feb"
+  }
+}

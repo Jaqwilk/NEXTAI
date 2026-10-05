@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "id": "MUC-01-PROPOSED-CONTRACT-V1",
+  "title": "Mutable Contact Ledger: local memory update and unseen composition screen",
+  "status": "proposal_for_user_decision",
+  "created_at": "2026-09-05T23:20:00Z",
+  "claim_type": "mechanism_and_matched_quality_economics_screen",
+  "research_question": "Can a small model with locally updated memory preserve comparable answer correctness at lower fully accounted cost as the number of facts grows, when facts are replaced and answers require composition?",
+  "authorization": {
+    "candidate_implementation_authorized": false,
+    "training_authorized": false,
+    "experiment_registration_authorized": false,
+    "scoring_authorized": false,
+    "data_or_model_download_authorized": false,
+    "next_stage_requires_new_user_approval": true
+  },
+  "task": {
+    "name": "mutable_contact_ledger_v1",
+    "source": "original deterministic procedural generator; no external corpus",
+    "input_format": "Timestamped short natural-language ledger statements followed by one natural-language query.",
+    "fact_example": "At step 014, Neri's amber contact became Luma.",
+    "replacement_example": "At step 031, Neri's amber contact became Sora, replacing the earlier contact.",
+    "query_example": "Starting at Neri, follow amber, then copper, then jade. Which contact is reached now?",
+    "answer_format": "Exactly one canonical entity token or UNKNOWN; deterministic exact-match scoring after normalization of surrounding whitespace only.",
+    "semantics": "Each (entity, relation) key has one current value; the highest timestamp replaces prior values. A query follows the current value for its ordered relation sequence. Missing links yield UNKNOWN.",
+    "knowledge_size_definition": "K is the number of distinct current (entity, relation) keys after all replacements; stale statements remain in the visible history.",
+    "knowledge_sizes": [32, 128, 512],
+    "reasoning_depths": [1, 2, 4],
+    "axes_are_full_cross_product": true,
+    "replacement_rate_per_world": 0.25,
+    "queries_per_world": 16,
+    "query_strata": {
+      "replacement_affected": 6,
+      "unchanged_retention": 8,
+      "unknown_or_missing_path": 2,
+      "unseen_relation_composition_for_depth_2_or_4": 8
+    },
+    "distractors": "Every world contains lexically overlapping off-path keys, stale replaced values and near-match entity/relation statements. Distractors are sampled independently of the answer and are included within K.",
+    "unseen_composition": "For D=2 and D=4, half of final queries use ordered relation tuples absent from train and development while every individual relation and every shorter constituent occurs in training.",
+    "leakage_guards": [
+      "split by whole generated world before serialization",
+      "disjoint world seeds and entity inventories across train, development and final",
+      "no evidence IDs, graph edges, answer labels or generator state exposed to a system",
+      "timestamps and raw statement order are the only update-order information",
+      "final seeds are runner-random and unavailable before recipe freeze",
+      "all systems receive byte-identical raw text and queries for a cell"
+    ]
+  },
+  "data_split": {
+    "unit": "whole independently generated world",
+    "train_worlds_per_K_D_cell": 45,
+    "development_worlds_per_K_D_cell": 15,
+    "final_worlds_per_K_D_cell": 30,
+    "total_train_worlds": 405,
+    "total_development_worlds": 135,
+    "total_final_worlds": 270,
+    "final_queries": 4320,
+    "selection": "At most two complete development attempts. Select one full frozen recipe using only development macro exact match, then seal all systems and thresholds before final generation.",
+    "final_access": "One later registered screen only after separate authority; no final inspection, rescue tuning or replacement seed."
+  },
+  "tokenization": {
+    "method": "One shared 2048-entry byte-pair vocabulary learned only from training text, plus byte fallback.",
+    "sharing": "The same frozen tokenization is used by every learned system; the classical control receives the identical UTF-8 text.",
+    "cost_accounting": "Tokenizer learning, serialization and per-event/query tokenization time and peak memory are charged and reported.",
+    "context_guard": "Every serialized full-history example must fit the frozen 8192-token limit; violation before scoring blocks the cohort rather than truncating evidence."
+  },
+  "systems": [
+    {
+      "id": "dense_transformer_v1",
+      "role": "competent learned full-context baseline",
+      "specification": "Decoder-only causal transformer, 6 layers, 6 heads, width 384, context 8192, learned positions, pre-layer normalization, GELU MLP, tied embeddings and constrained one-entity answer decoding.",
+      "training": "AdamW/cosine recipe adapted from the already validated PC-01 control; identical train/dev units and per-role fit cap; no pretrained weights."
+    },
+    {
+      "id": "bm25_iterative_reader_v1",
+      "role": "retrieval baseline",
+      "specification": "BM25 index over raw ledger statements. At each reasoning hop, retrieve top-4 using the question and current predicted entity; at most 16 unique statements reach a source-comparable small transformer reader. Index construction, each lookup and reader work are charged.",
+      "training": "The reader uses the same tokenizer, width/depth family, train/dev units and fit cap as the dense baseline; retrieval parameters are frozen after development."
+    },
+    {
+      "id": "symbolic_last_write_graph_v1",
+      "role": "strong classical control",
+      "specification": "A disclosed deterministic parser for the public ledger grammar, a timestamped hash map with last-write-wins replacement and generic pointer traversal for D hops.",
+      "privilege_boundary": "It receives raw text only, never generator objects, evidence IDs or answers. Its hand-written grammar and update/composition rule are declared task-specific prior structure; runtime, parser failures and state are charged. Code-authoring time is disclosed but excluded for every system.",
+      "purpose": "Calibrate task validity and test whether a learned system is merely an expensive recreation of explicit retrieval/rules."
+    },
+    {
+      "id": "delta_fast_memory_v1",
+      "role": "candidate",
+      "specification": "A learned text encoder writes key/value vectors into one bounded fast-weight associative matrix. A replacement applies only the delta update M <- M + eta * (v - M k) k^T for the encoded key. A learned controller performs exactly D reads and produces one entity.",
+      "fixed_mechanism_under_test": "Local delta correction of an existing associative key without global parameter training or append-only storage at update time.",
+      "forbidden_shortcuts": "No timestamp sort outside the learned memory, no symbolic key table, no raw-statement cache consulted at query time, no generator graph and no per-world gradient update."
+    },
+    {
+      "id": "append_only_similarity_memory_v1",
+      "role": "source-identical mechanism ablation",
+      "specification": "Use the candidate's encoder, controller, dimensions, initialization family, tokenizer, training budget and answer head, but store every encoded statement in an append-only list and retrieve top-4 by similarity; no delta overwrite. Retrieved records retain their public timestamps.",
+      "isolated_contrast": "delta_fast_memory_v1 minus append_only_similarity_memory_v1 isolates local delta overwrite from ordinary learned similarity retrieval while the classical control separately exposes gains available from hand-written parsing/rules."
+    }
+  ],
+  "measurement": {
+    "quality": [
+      "overall exact-match accuracy by K and D",
+      "replacement-affected exact-match accuracy",
+      "unchanged-fact retention accuracy",
+      "unseen-composition exact-match accuracy for D=2 and D=4",
+      "UNKNOWN exact-match accuracy",
+      "invalid-answer rate"
+    ],
+    "cost": [
+      "corpus serialization and tokenizer-fit time",
+      "tokenization and text-encoding time",
+      "training time and optimizer/model state",
+      "initial ingestion and retrieval-index construction time",
+      "per-replacement update p50 and p95 latency",
+      "per-query p50 and p95 latency at batch 1 with device synchronization",
+      "peak process RSS, CUDA allocated and CUDA reserved bytes",
+      "persistent model, memory and index bytes",
+      "estimated operations and bytes touched, explicitly labelled estimates",
+      "complete workload cost at reuse counts Q=1, 16 and 256 queries per world"
+    ],
+    "amortization": {
+      "formula": "C_A,Q = tokenizer_fit/A + model_fit/A + corpus_encode + index_or_memory_build + updates + Q*query, reported per query and per world",
+      "independent_world_reuse_A": [1, 100, 10000],
+      "primary_A": 100,
+      "query_reuse_Q": [1, 16, 256],
+      "shared_costs": "Shared generator cost is reported and included in absolute totals; no system may omit required preprocessing because another role already paid for it."
+    },
+    "timing_protocol": "Same idle local device, fixed CPU thread count, no concurrent GPU job, 20 warm-ups then at least 100 measured operations per reported latency statistic, explicit CUDA synchronization, raw samples retained.",
+    "uncertainty": "World-clustered paired bootstrap with 10000 deterministic resamples and two-sided 95% intervals. Timing intervals resample whole measured worlds. Seed variability is not estimated by the one-seed screen."
+  },
+  "prospective_gates": {
+    "control_validity": [
+      "symbolic_last_write_graph_v1 overall exact match >= 0.995 and parser failure rate <= 0.001",
+      "dense_transformer_v1 overall exact match >= 0.85 and replacement-affected exact match >= 0.80",
+      "all systems complete every KxD cell within resource limits with no leakage or context truncation"
+    ],
+    "comparable_quality": [
+      "delta_fast_memory_v1 overall exact match >= 0.95 in every KxD cell",
+      "its paired 95% lower bound versus the best learned non-candidate system is >= -0.01 in every KxD cell",
+      "replacement-affected exact match >= 0.95, unchanged-fact retention >= 0.99, unseen-composition exact match >= 0.90 and UNKNOWN exact match >= 0.95"
+    ],
+    "mechanism_effect": [
+      "on replacement-affected unseen-composition queries, candidate minus append-only ablation exact match >= 0.05 at each K",
+      "the paired 95% lower bound of that contrast is > 0 when pooled across D=2 and D=4",
+      "candidate retention is no more than 0.01 below the ablation and conformance tests prove a replacement mutates only bounded fast state"
+    ],
+    "economic_effect": [
+      "at K=512, D=4, A=100 and Q=16, the upper paired 95% bound on candidate full-cost time ratio is < 0.80 versus both dense transformer and retrieval baseline",
+      "candidate/dense and candidate/retrieval full-cost ratios do not increase from K=32 to 128 to 512 at D=4",
+      "candidate is Pareto non-dominated on exact match, full-cost time, update p95, persistent bytes and peak RAM/VRAM when the classical control is included",
+      "no economic claim is allowed if the classical control Pareto-dominates the candidate"
+    ]
+  },
+  "future_execution_budget_if_separately_authorized": {
+    "implementation_service_cycles": 1,
+    "implementation_service_minutes_cap": 60,
+    "complete_development_attempts_cap": 2,
+    "final_registered_screens_cap": 1,
+    "runner_random_final_seeds": 1,
+    "automatic_retry": false,
+    "learned_systems_with_fit": 4,
+    "fit_seconds_cap_per_learned_system": 1200,
+    "total_fit_seconds_cap": 4800,
+    "final_worker_wall_seconds_cap": 7200,
+    "classical_cpu_fit_or_validation_seconds_cap": 600,
+    "peak_rss_bytes_cap": 25769803776,
+    "peak_vram_reserved_bytes_cap": 11811160064,
+    "downloads": 0,
+    "external_models_or_apis": 0,
+    "promotion_from_one_seed": false
+  },
+  "decision_rules": {
+    "positive": "All control, comparable-quality, mechanism and economic gates pass. Record only a promising screen and request a separately frozen minimum three-seed replication on independent generator families; do not promote automatically.",
+    "mechanism_positive_economics_negative": "Keep the narrow local-overwrite mechanism result, reject the lower-cost claim, and stop for a decision; do not hide classical dominance or tune on final.",
+    "negative": "If controls are valid but comparable quality or mechanism effect fails, discard this exact delta-memory version after the one final screen. No rescue tuning, seed replacement or automatic new mechanism.",
+    "inconclusive": "Any invalid control, leakage, context overflow, missing cost, timeout, OOM, crash, nonfinite output, incomplete cell or integrity failure preserves all artifacts and stops. No automatic retry.",
+    "transfer_and_novelty": "This task cannot establish natural-language transfer, real-world knowledge updating, architectural novelty, a scaling law or an LLM successor under any outcome."
+  },
+  "prior_art_boundary": [
+    "LongMemEval motivates timestamped histories, knowledge-update, multi-session reasoning and abstention, but its released scale and LLM-judge/API evaluation are not used here.",
+    "bAbI motivates generated worlds, supporting-fact depth and configurable decoys; CLUTRR motivates held-out relation compositions.",
+    "End-To-End Memory Networks establish learned external memory and multi-hop reading; RAG establishes parametric plus indexed non-parametric memory.",
+    "Linear Transformers Are Secretly Fast Weight Programmers directly establishes the fast-weight interpretation and delta-rule correction, so no novelty is claimed for the mechanism itself."
+  ],
+  "stop_condition": "This file is a proposal only. Stop at REVIEW-01-DECISION. A separate explicit user authorization must precede any generator/candidate implementation, training, freeze, EXP registration, scoring or final data generation."
+}

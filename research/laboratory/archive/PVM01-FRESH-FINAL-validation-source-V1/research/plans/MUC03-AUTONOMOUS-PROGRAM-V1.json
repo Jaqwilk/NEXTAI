@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "MUC03-AUTONOMOUS-20261004-V1",
+  "created_at": "2026-10-03T22:58:46.647851+00:00",
+  "objective": "Doprowadź NEXTAI do rzetelnego rozstrzygnięcia, czy wybrany mechanizm może zapewnić porównywalną jakość przy niższym pełnym koszcie inferencji niż kompetentny transformer, z uwzględnieniem mocnych metod klasycznych. Zatwierdzam autonomiczny program do 20 nowych zarejestrowanych eksperymentów i 20 godzin łącznego treningu; nieudane rejestracje i przebiegi również zużywają budżet.\nZacznij od rozdzielenia niedouczenia, błędów odrzucania odpowiedzi i problemów uogólnienia po EXP-20261004-0001. Najpierw uzyskaj stabilny model odniesienia, następnie testuj najbardziej uzasadniony mechanizm, jego ablacje, skalowanie kosztów i generalizację. Samodzielnie wybieraj kolejne badania na podstawie wyników. Każde prerejestruj z progami, liczbą prób i warunkiem zakończenia. Nie powtarzaj bez końca nieskutecznych receptur.\nZachowuj całą historię, stosuj świeże dane końcowe, replikacje i pełne rozliczenie kosztów. Waliduj zmiany w klonie i zachowaj niezmienniki AGENTS.md. Nie pytaj ponownie o zgodę na działania objęte tym programem.\nWynikiem ma być odtwarzalny prototyp z potwierdzoną przewagą albo udokumentowana negatywna lub nierozstrzygająca ocena przetestowanych podejść. Przy wyczerpaniu budżetu zakończ program raportem, bez deklarowania nieudowodnionego sukcesu.",
+  "registration_attempts_cap": 20,
+  "fit_seconds_total_cap": 72000,
+  "previous_result": "research/results/EXP-20261004-0001.json",
+  "previous_result_sha256": "66000914c334c624435bf7681a50ba6b76f9e93f60c45516c1cf847576921449",
+  "prior_budgets_reset": false,
+  "registration_accounting": "reserve append-only ticket before validation; every failed registration and invalidated plan counts; no same-plan execution retry; crashes retain actual or conservative fit charge",
+  "auxiliary_fit_accounting": "charge whole recorded test wall time conservatively for fixture fits; reserve before tests; no unregistered research training",
+  "stages": [
+    {
+      "id": "reference",
+      "registration_cap": 6,
+      "stop": "maximum3 tested training/data/optimizer recipes; failed registration consumes one slot; no competent reference -> explicitly inconclusive comparison, never falsify whole family"
+    },
+    {
+      "id": "mechanism_and_ablations",
+      "registration_cap": 3,
+      "entry": "stable competent transformer; preregister one selected justified mechanism and source-identical ablations; include legal last-write map and retrieval/classical controls"
+    },
+    {
+      "id": "scale_and_generalization",
+      "registration_cap": 4,
+      "entry": "interpretable mechanism comparison; at least3 K scales, independent D, adverse update/distractor/generalization tests; preserve lower-quality cheaper failures"
+    },
+    {
+      "id": "replication_and_fresh_final",
+      "registration_cap": 5,
+      "entry": "freeze one recipe/source/threshold before fresh held-out final; at least5 independent seed/data units with adverse test; no final-guided rescue"
+    },
+    {
+      "id": "repair_reserve",
+      "registration_cap": 2,
+      "entry": "concrete conformance failure, new prospective repair; consumed tickets/budgets never reset"
+    }
+  ],
+  "economic_claim_gates": {
+    "reference_mean_accuracy_min": 0.95,
+    "reference_each_seed_accuracy_min": 0.9,
+    "candidate_quality_difference_simultaneous_lower_min": -0.02,
+    "known_false_abstention_max": 0.02,
+    "unknown_rejection_min": 0.95,
+    "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+    "p95_ratio_upper_max": 0.9,
+    "independent_seed_data_units_min": 5,
+    "adversarial_required": true,
+    "non_dominated_against_strong_classical_required": true,
+    "at_least3_scale_points_at_matched_quality": true,
+    "all_preprocessing_ingest_index_updates_cache_warmup_decoding_included": true
+  },
+  "final_evidence": "fresh final generator inaccessible to candidate and not inspected by researcher before source/recipe freeze; local visibility explicitly disclosed; independently blinded external holdout needed for broad claims",
+  "end_states": [
+    "reproducible prototype with replicated scoped advantage",
+    "documented negative tested mechanism(s)",
+    "documented inconclusive comparison with exact failed reference/integrity/power gate"
+  ],
+  "termination": "stop at first exhausted global cap, STOP/PAUSE, decisive replicated rejection, or verified final resolution; report all remaining scope and all consumed attempts",
+  "wt_files_8_9_access_authorized": false,
+  "external_model_api_authorized": false,
+  "schedule_change_authorized": false,
+  "one_new_experiment_per_cycle": true
+}

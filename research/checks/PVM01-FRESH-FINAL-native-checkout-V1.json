@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-05T09:53:46Z",
+  "files": {
+    "false": {
+      "research/checks/PVM01-FRESH-FINAL-full-V1.xml": "ae0b638b75a7e6d2254c3055998a503cb4062b078783e28ae15150a32c0d8794",
+      "research/checks/PVM01-FRESH-FINAL-targeted-V4.xml": "d25f330ae2e13823c3e01cd5cb8caa1c975c74059110f9bf148a77de29732397",
+      "research/reviews/PVM01-FRESH-FINAL-startup-observation-V1.json": "72f6e9b7baf6424ba6bbc6c095b58651c0ac2e95b3a75f9b1f9d342970e99521",
+      "schemas/experiment_plan.schema.json": "37e3f98882f5b8f5a14aefe99afb0924a2ad6822ca4631c9a541b9f0973abb8d",
+      "scripts/analyze_pvm01_fresh_final.py": "decbf6a4c3dde17802638d79ec6133ccf66ef0549b6861e38ef12d740399e12f",
+      "tests/test_pvm01_fresh_final.py": "c66481a073aefeb23c0175444da6ea2f0261debfa9bf1090459bbaa60f2843a8"
+    },
+    "true": {
+      "research/checks/PVM01-FRESH-FINAL-full-V1.xml": "ae0b638b75a7e6d2254c3055998a503cb4062b078783e28ae15150a32c0d8794",
+      "research/checks/PVM01-FRESH-FINAL-targeted-V4.xml": "d25f330ae2e13823c3e01cd5cb8caa1c975c74059110f9bf148a77de29732397",
+      "research/reviews/PVM01-FRESH-FINAL-startup-observation-V1.json": "72f6e9b7baf6424ba6bbc6c095b58651c0ac2e95b3a75f9b1f9d342970e99521",
+      "schemas/experiment_plan.schema.json": "37e3f98882f5b8f5a14aefe99afb0924a2ad6822ca4631c9a541b9f0973abb8d",
+      "scripts/analyze_pvm01_fresh_final.py": "decbf6a4c3dde17802638d79ec6133ccf66ef0549b6861e38ef12d740399e12f",
+      "tests/test_pvm01_fresh_final.py": "c66481a073aefeb23c0175444da6ea2f0261debfa9bf1090459bbaa60f2843a8"
+    }
+  },
+  "old_records_unchanged": true,
+  "same_native_bytes_under_both_autocrlf_policies": true
+}

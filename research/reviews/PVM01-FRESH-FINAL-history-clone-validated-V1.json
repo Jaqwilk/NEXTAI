@@ -1,0 +1,20 @@
+{
+  "all112_scientific_source_bytes_preserved": true,
+  "all_old_candidate_and_test_bytes_preserved": true,
+  "created_at": "2026-10-05T09:50:43Z",
+  "five_historical_original_eol_proof_applied": false,
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1310
+  },
+  "new_scored_data_fit_EXP": false,
+  "no_stop_pause_lock": true,
+  "old_attributes_and_ignore_prefixes_preserved": true,
+  "old_baseline_registry_bytes_preserved": true,
+  "old_nonmutable_raw_files": 54931,
+  "old_prefixes_preserved": true,
+  "protected_integrity_preflight": true,
+  "target": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002"
+}

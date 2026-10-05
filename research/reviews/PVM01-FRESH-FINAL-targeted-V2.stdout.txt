@@ -1,0 +1,60 @@
+F....................................................................... [ 69%]
+...............................                                          [100%]
+================================== FAILURES ===================================
+_ test_final_role_exact_schema_binding_preserves_historical_contracts[valid] __
+
+change = 'valid'
+
+    @pytest.mark.parametrize('change', ['valid', 'missing_role', 'wrong_role', 'legacy_role', 'old_addon', 'old_hash', 'missing_resource'])
+    def test_final_role_exact_schema_binding_preserves_historical_contracts(change):
+        plan = json.loads((ROOT/'research/plans/EXP-20261005-0005.json').read_text())
+        validate_document('experiment_plan', plan, ROOT)
+        plan['benchmark'] = STUDY['cohort']
+        plan['research_program_protocol'].update(_study_scope(STUDY))
+        protocol = plan['research_program_protocol']
+        if change == 'missing_role': del protocol['evaluation_data_role']
+        elif change == 'wrong_role': protocol['evaluation_data_role'] = 'development'
+        elif change == 'legacy_role':
+            plan = json.loads((ROOT/'research/plans/EXP-20261005-0005.json').read_text())
+            plan['research_program_protocol']['evaluation_data_role'] = 'frozen_fresh_final_v1'
+        elif change == 'old_addon': protocol['classical_economic_contract_path'] = 'research/plans/PVM01-BASE-REFERENCE-CLASSICAL-ECONOMICS-V1.json'
+        elif change == 'old_hash': protocol['classical_economic_contract_sha256'] = '06adddd5263f6fcc1d60df00e74b41e906909413563e1333d0fb78f4edc25ee3'
+        elif change == 'missing_resource': del protocol['resource_measurement_version']
+>       if change == 'valid': validate_document('experiment_plan', plan, ROOT)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_pvm01_fresh_final.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'alternative_explanations': ['Observation alignment, rejection and ranking failures are measured separately.'], 'architecture_family': 'paired_view_learning_reference', 'benchmark': 'paired_view_mutable_memory_v11', 'budget': 'quick', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: research_program_protocol.classical_economic_contract_sha256: '5f6565713391799b8aeb2f1a54e9a0faa976d6bde5ec1645618284aabd8cc5fb' is not one of ['06688b5c493c08d701a236fedcfb549e27489ec7596715c73535b8d04fe7a512', 'efab9dbb8e2fc19f6b3c163c4bc0eaa88009299f6bfbb524ea38cf1b21096c09', '3d81817d5e1627bd16f5c12e9fbade1d0721431a09337c6a99888d2f1da57d64', 'ee666f18410417345fb75e48f8b720f388d71d8f52bf06bcce0a6cbbebfe9325', '06adddd5263f6fcc1d60df00e74b41e906909413563e1333d0fb78f4edc25ee3']
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+=========================== short test summary info ===========================
+FAILED tests/test_pvm01_fresh_final.py::test_final_role_exact_schema_binding_preserves_historical_contracts[valid]

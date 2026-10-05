@@ -1,0 +1,34 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "tests/test_pvm01_fresh_final.py",
+    "tests/test_pvm01_base_reference.py",
+    "tests/test_pvm01_confirmation.py",
+    "--junitxml=research/checks/PVM01-FRESH-FINAL-targeted-V3.xml"
+  ],
+  "created_at": "2026-10-05T09:30:39Z",
+  "error": null,
+  "id": "PVM01-FRESH-FINAL-targeted-V3",
+  "raw_outputs": {
+    "PVM01-FRESH-FINAL-targeted-V3.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-FRESH-FINAL-targeted-V3.stdout.txt": "61215e09af7976f678d341886a3066755278382d7be401382f1a23b9ff62b764"
+  },
+  "result": {
+    "elapsed_seconds": 3.268499099998735,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 622538752,
+    "pid": 13408,
+    "processes_created": 5,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 19,
+  "wall_seconds": 13.880529199988814
+}

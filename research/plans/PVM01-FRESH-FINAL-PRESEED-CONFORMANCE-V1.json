@@ -1,0 +1,15 @@
+{
+  "changed_protected_files": [
+    "tests/test_pvm01_fresh_final.py"
+  ],
+  "created_at": "2026-10-05T09:35:34Z",
+  "first_validation_source_archive": "research/laboratory/archive/PVM01-FRESH-FINAL-validation-source-V1",
+  "id": "PVM01-FRESH-FINAL-PRESEED-CONFORMANCE-V1",
+  "new_private_arrays_fit_registration_scoring": false,
+  "observation": "Six additional preregistered fitted-state provenance guard tests were added while the first maintenance freeze controller was in flight. The first manifest retained the preceding test hash; its subsequent validation source archive retained the newer test bytes. Both are preserved verbatim. Two earlier auxiliary fixture failures are also retained: nonexistent test filename,then omitted new addon hash in schema enum. No research registration/private arrays/fit/scoring occurred.",
+  "original_manifest_sha256": "57371d9acf2a4f86bf7a11ea94345a3e52d2136d0c9db2b235661e60467bb5ca",
+  "parent_study_path": "research/plans/PVM01-FRESH-FINAL-V1.json",
+  "parent_study_sha256": "8b5912be1a70d10a8388b955ff9a7e5045e3a3937d4524486ef165e613841074",
+  "repair": "After112 scientific source checks and passing current targeted112 tests,freeze a distinct V2 maintenance certificate/source archive before full regression/readiness. No metric,threshold,recipe,cap,deadline,baseline or historical result changes. Preserve the first manifest/archive,all failed outputs and all charges;no paid retry.",
+  "targeted_receipt_sha256": "a05b46e740a66e3b02377f1d320c57d80a24ce41fbcdcaa31a4153f1ced7ce80"
+}
