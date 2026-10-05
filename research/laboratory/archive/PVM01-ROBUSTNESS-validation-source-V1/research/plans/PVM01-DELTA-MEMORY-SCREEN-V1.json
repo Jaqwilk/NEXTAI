@@ -1,0 +1,742 @@
+{
+  "auxiliary_charge_id_prefix": "PVM01-DELTA-",
+  "candidates": [
+    "pvm01_dense_s0",
+    "pvm01_dense_s1",
+    "pvm01_dense_s2",
+    "pvm01_dense_s3",
+    "pvm01_dense_s4",
+    "pvm01_pointer_s0",
+    "pvm01_pointer_s1",
+    "pvm01_pointer_s2",
+    "pvm01_pointer_s3",
+    "pvm01_pointer_s4",
+    "pvm01_ridge_s0",
+    "pvm01_ridge_s1",
+    "pvm01_ridge_s2",
+    "pvm01_ridge_s3",
+    "pvm01_ridge_s4",
+    "pvm01_kernel_s0",
+    "pvm01_kernel_s1",
+    "pvm01_kernel_s2",
+    "pvm01_kernel_s3",
+    "pvm01_kernel_s4",
+    "pvm01_raw_s0",
+    "pvm01_raw_s1",
+    "pvm01_raw_s2",
+    "pvm01_raw_s3",
+    "pvm01_raw_s4",
+    "pvm01_delta_s0",
+    "pvm01_delta_s1",
+    "pvm01_delta_s2",
+    "pvm01_delta_s3",
+    "pvm01_delta_s4",
+    "pvm01_additive_s0",
+    "pvm01_additive_s1",
+    "pvm01_additive_s2",
+    "pvm01_additive_s3",
+    "pvm01_additive_s4",
+    "pvm01_delta_untrained_s0",
+    "pvm01_delta_untrained_s1",
+    "pvm01_delta_untrained_s2",
+    "pvm01_delta_untrained_s3",
+    "pvm01_delta_untrained_s4",
+    "pvm01_delta_shuffled_s0",
+    "pvm01_delta_shuffled_s1",
+    "pvm01_delta_shuffled_s2",
+    "pvm01_delta_shuffled_s3",
+    "pvm01_delta_shuffled_s4",
+    "pvm01_ridge32_s0",
+    "pvm01_ridge32_s1",
+    "pvm01_ridge32_s2",
+    "pvm01_ridge32_s3",
+    "pvm01_ridge32_s4",
+    "pvm01_ridge_pca_scan_s0",
+    "pvm01_ridge_pca_scan_s1",
+    "pvm01_ridge_pca_scan_s2",
+    "pvm01_ridge_pca_scan_s3",
+    "pvm01_ridge_pca_scan_s4",
+    "pvm01_ridge_pca_tree_s0",
+    "pvm01_ridge_pca_tree_s1",
+    "pvm01_ridge_pca_tree_s2",
+    "pvm01_ridge_pca_tree_s3",
+    "pvm01_ridge_pca_tree_s4",
+    "pvm01_dense_cached_cpu_s0",
+    "pvm01_dense_cached_cpu_s1",
+    "pvm01_dense_cached_cpu_s2",
+    "pvm01_dense_cached_cpu_s3",
+    "pvm01_dense_cached_cpu_s4",
+    "pvm01_dense_cached_cuda_s0",
+    "pvm01_dense_cached_cuda_s1",
+    "pvm01_dense_cached_cuda_s2",
+    "pvm01_dense_cached_cuda_s3",
+    "pvm01_dense_cached_cuda_s4",
+    "pvm01_exact_nn_cpu_s0",
+    "pvm01_exact_nn_cpu_s1",
+    "pvm01_exact_nn_cpu_s2",
+    "pvm01_exact_nn_cpu_s3",
+    "pvm01_exact_nn_cpu_s4"
+  ],
+  "cohort": "paired_view_mutable_memory_v3",
+  "data": {
+    "axis_encoding": {
+      "1": 0,
+      "2": 1,
+      "3": 4
+    },
+    "axis_semantics": "legacy matrix.reasoning_depth stores an UPDATE-ROUND LABEL, never reasoning; actual update_rounds recorded in every trial",
+    "dev_episodes_per_cell": 5,
+    "generation_policy": "no structural/model-based resampling; all draws retained",
+    "legal_candidate_inputs": "only float32 paired train arrays, legal train episodes/labels; inference timestamp/handle/write observation/value and query observation; no teacher matrices, nonce, identity, flags or target handle",
+    "private_entropy": "five independent256-bit runner nonces, realized after preregistration, separate from model seed; private artifact inaccessible to candidate imports/inputs; same arrays across roles",
+    "split_names": [
+      "T-fit",
+      "T-validation",
+      "T-calibration",
+      "T-sets",
+      "D"
+    ],
+    "tag": "PVM01-DELTA-MEMORY-SCREEN-V1",
+    "train_calibration_episodes_per_K": 3,
+    "train_calibration_episodes_per_K_and_update": 3,
+    "train_calibration_update_rounds": [
+      0,
+      1,
+      4
+    ],
+    "train_episode_batch": 4,
+    "train_episode_queries": 8,
+    "train_episode_support_sizes": [
+      32,
+      128
+    ],
+    "train_pairs": 4096,
+    "train_validation_pairs": 512
+  },
+  "decision_policy": "Validity first: all75 workers/675 trials and all integrity/pairing/source equivalence required. Dense competence gates unchanged. KEEP narrow delta mechanism for further validation only if four primary gates and delta competence pass; if primary update effect passes but competence/retention fails, KEEP narrow observed effect and DISCARD this economic recipe. Valid primary failure DISCARD exact RFF2048/sigma.35/beta1 recipe, not family. Poor dense control or crash makes comparison INCONCLUSIVE, preserve all and stop unstarted; no retry. No economic/transfer/architecture promotion. Strong classical success must remain and may dominate. Whole program stays active until full objective or justified broader resolution.",
+  "diagnosis_gates": {
+    "all_five_updated_gains_positive": true,
+    "both_learning_ci_lower_min": 0.1,
+    "delta_vs_shuffled_mean_full_answer_gain_min": 0.2,
+    "delta_vs_untrained_mean_full_answer_gain_min": 0.2,
+    "independent_units": 5,
+    "interpretation": "Update effect of known delta/LMS rule within a learned transport + fixed features memory, not necessity of neural memory or architecture novelty.",
+    "retained_difference_ci_lower_min": -0.02,
+    "simultaneous_primary_interval_level": 0.9875,
+    "updated_gain_ci_lower_min": 0.05,
+    "updated_gain_mean_min": 0.1
+  },
+  "diagnostics": {
+    "cost_boundary": "Raw float32 vector inputs, copies, normalize/encode, feature expansion, W alloc/read/write, all metadata, retrieval/index/cache build and maintenance, warmup, queries, decoding, synchronization and Python output included. Loaded service workload and process initialization separately measured/charged. Updated rounds are not reasoning. Every kernel/library process init is in full worker. No energy claim. One fixed device/thread deployment per arm; timing crossover not tested, so costs are screening diagnostics.",
+    "logging": "All losses, grids, component timings and predictions retained. Full fit_report appears once in first trial per worker plus fit journal; later trials reference its canonical SHA256. New v3 result may use compact JSON whitespace without removing raw values. Old result serializers/bytes unchanged.",
+    "per_cell": [
+      "full_answer_accuracy",
+      "known_fact_top1_accuracy",
+      "known_false_abstention",
+      "absent_identity_rejection",
+      "updated_known_accuracy",
+      "retained_known_accuracy",
+      "stale_value_errors",
+      "wrong_fact_errors",
+      "nonabstaining_known_value_accuracy",
+      "accepted_answer_accuracy"
+    ],
+    "private_boundary": "static source/import audit plus stripped inputs; local evaluator not an OS security sandbox or externally blinded final",
+    "raw_predictions": "Each answer then reveal truth/stratum; decision_score is max value activation for compact memory and max cosine for retrieval. Compact memory does not output a fact handle, so fact_top1_accuracy/wrong_fact/stale-at-correct-handle are NULL with explicit not-applicable flag; never score None as correct handle. Full/updated/retained/value/absence accuracy remain shared. No auxiliary query scan or hidden handle reconstruction.",
+    "reproducibility": [
+      "legal train/dev array hashes",
+      "private artifact hash",
+      "initial/final encoder hashes",
+      "all optimizer losses",
+      "classical grid scores and chosen threshold",
+      "raw component timings",
+      "allocation/ingest/index/update/query logical state and device/RSS costs",
+      "RFF projection hash",
+      "delta/additive initial/final encoder and exact loss identity",
+      "cached vs conventional decoder numerical conformance",
+      "PCA scan/tree weights and projection identity"
+    ]
+  },
+  "economic_gates": {
+    "adversarial_required": true,
+    "all_preprocessing_ingest_index_updates_cache_warmup_decoding_included": true,
+    "at_least3_scale_points_at_matched_quality": true,
+    "candidate_quality_difference_simultaneous_lower_min": -0.02,
+    "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+    "independent_seed_data_units_min": 5,
+    "known_false_abstention_max": 0.02,
+    "non_dominated_against_strong_classical_required": true,
+    "p95_ratio_upper_max": 0.9,
+    "reference_each_seed_accuracy_min": 0.9,
+    "reference_mean_accuracy_min": 0.95,
+    "unknown_rejection_min": 0.95
+  },
+  "forbidden": [
+    "WT8-9",
+    "final access",
+    "external model/API",
+    "pretrained model",
+    "schedule changes",
+    "scored bypass",
+    "retry",
+    "closed cohort/result changes"
+  ],
+  "freshness_policy": "Five new runner-random model seeds and independent256bit private nonces after paid preregistration. Audit disjointness from consumed0004/0005 seed and nonce realizations. Collision invalidates with no replacement/retry. Same legal arrays across all15 arms per unit; no deliberate previous arrays/calibration/checkpoints reused.",
+  "id": "PVM01-DELTA-MEMORY-SCREEN-V1",
+  "implementation_scope": "Add one compact memory core and one optimized control core, thin per-unit wrappers and v3 evaluator with unchanged task generator; minimally extend private dispatch/cohort/schema and scoped metadata, claim-specific stored-result analysis and conformance tests. Preserve old pvm01_core, task, evaluatorsv1/v2, aliases, analyzers, completedplans/results/analyses raw bytes. No private task import or target access in candidates. No new dependency. Local fixture conformance only before paid fresh seeds.",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "queries_per_cell": 64,
+    "reasoning_depths": [
+      1,
+      2,
+      3
+    ],
+    "seed_policy": {
+      "count": 5,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "next_alternatives": "If capacity/rejection fails, separately preregister a different structural approach: strong learned transport with local explicit indexed retrieval, or end-to-end learned compact kernel feature/gate with source-identical classical filter controls. Do not silently grow steps, alter this frozen recipe or tune on D.",
+  "prepared_source_commit": "4cc7931a13b3a9f1a5573081246233747a625fc5",
+  "primary_endpoints": [
+    "delta_minus_additive_updated_answer_accuracy_updates1_4",
+    "delta_minus_additive_retained_answer_accuracy_updates1_4",
+    "delta_full_answer_minus_delta_untrained",
+    "delta_full_answer_minus_delta_shuffled"
+  ],
+  "prior_art": [
+    {
+      "relationship": "Prior delta fast-weight correction and additive contrast; our fixed-gate hybrid is not a faithful paper reproduction or novelty claim.",
+      "url": "https://arxiv.org/abs/2102.11174"
+    },
+    {
+      "relationship": "Established random Fourier approximation; inference memory uses a fixed RFF map, not newly invented capacity theory.",
+      "url": "https://proceedings.neurips.cc/paper/2007/hash/013a006f03dbc5392effeb8f18fda755-Abstract.html"
+    },
+    {
+      "relationship": "Official exact nearest-neighbor implementation and compulsory float64/copy/build accounting.",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html"
+    }
+  ],
+  "program_contract_sha256": "a55f190fd42631e2651a8d4ab3e61f2200d16d1e8afb2d71aa4edcbea6ba269a",
+  "question": "Does classical local delta correction in a compact associative memory with learned view transport improve replacement accuracy without unacceptable retention loss, and how does it compare with competent cached dense Transformer and strong optimized classical retrieval on identical legal fresh observations?",
+  "recipe": {
+    "alignment_batch": 256,
+    "alignment_loss": "mean squared error paired query->write observation",
+    "alignment_steps": 2048,
+    "architecture": "shared query view transport: Linear64->64 residual plus Linear64->128,GELU,Linear128->64; writes remain raw64; L2-normalized matching. No external weights. Dense control adds conventional two-layer nn.TransformerDecoder with width64,heads4,FF256,GELU,pre-norm,dropout0,self+cross dense softmax attention and dense cosine pointer. Output residual projections initially zero to preserve trained transport; fit contrastive set loss. Pointer/exact_nn omit decoder.",
+    "dense_set_batch": 4,
+    "dense_set_loss": "cross entropy over K normalized scores and one NULL score; fixed scale20, NULL cosine0.85; plus0.1*MSE decoded query versus normalized target write for known queries",
+    "dense_set_queries": 8,
+    "dense_set_steps": 1024,
+    "encoder_during_dense_set_fit": "frozen after supervised alignment; decoder trained, no value shortcuts or labels in query",
+    "exact_nn": "source-identical complete query transport fit; weights must match pointer exactly, full scan cosine instead of dense softmax; own repeated fit fully charged",
+    "exact_nn_cpu": "Exact same fitted transport moved to CPU float32 after fitting, full cosine scan and no softmax shortlist; all copies charged. Not a new learned recipe.",
+    "kernel": "RBF Nyström transport,512 first training-query landmarks, all4096 pairs, float64 primal ridge; bandwidths[0.25,0.5,1.0], ridge[0.0001,0.01]; minimal reserved512 train-only MSE, deterministic grid order; all search/landmarks/fit charged",
+    "learning_rate": 0.001,
+    "memory_bandwidth": 0.35,
+    "memory_control": "All four memory arms use the same core, feature projection, capacity, initialized transport, fitting batch order and write order. Delta/additive differ only by subtraction of current memory prediction. delta_untrained freezes transport; delta_shuffled uses identical fixed shuffled pairing rule. Both controls retain the same delta update. CPU float32 inference after exact CUDA transport fit; device copy included in fit.",
+    "memory_equations": "Normalize raw write x and transported query T(q). Draw R[64,1024] Gaussian(0,1/bandwidth) once from model seed xor fixed constant; phi(x)=[cos(xR),sin(xR)]/sqrt(1024), exact unit norm up to fp32. W[2048,16] starts zero per episode. Delta W += phi(x) outer (onehot(value)-phi(x)@W); additive W += phi(x) outer onehot(value). Read y=phi(T(q))@W, choose argmax16, decision_score=max(y), return UNKNOWN if below train-selected threshold. No replay, postwrite correction, key/value dictionary, latent identities or query handle. Timestamp dictionary rejects older writes only; all accepted observations update W. Both methods preserve current observation noise; no canonical-key shortcut.",
+    "memory_feature_dimension": 2048,
+    "memory_frequencies": 1024,
+    "memory_learning_scope": "The transport is learned exactly as reference; the fixed RFF feature map and online delta/LMS rule are classical, not trained by backpropagation through memory and not a newly learned controller. No novel architecture or adaptive write-gate claim.",
+    "memory_projection_seed_xor": 1380337201,
+    "memory_write_strength": 1.0,
+    "optimized_dense": "Train exact unchanged dense model/recipe on CUDA; two new arms use identical final weights. Inference conventional single independent query: cache per-layer projected cross-attention K,V on each accepted write; evaluate algebraically equivalent two-layer pre-norm decoder with self-attention(single token), full dense cross softmax and same FF/GELU on CPU float32 and CUDA float32. Every cache allocation, copy, write maintenance and query charged. Numerical equivalence against PyTorch decoder on fixed synthetic fixtures required before seeds. Existing uncached CUDA reference retained.",
+    "optimized_ridge": "ridge32 uses same all4096/intercept ridge grid and train512 MSE selection in float64, then stores float32 and uses explicit bias without per-query append. PCA variants fit SVD on normalized legal T-fit writes, consider ranks16/32/64 crossed whitening exponent0/.5; normalize projected keys and queries, select smallest train512 mean squared L2 distance between normalized projected transport output and target, deterministic ascending rank/exponent ties. No latent-map access. exact scan and cKDTree share exact fitted projection and selected ridge weights. Tree uses eps0,p2,workers1,leafsize16,copy_data=True; lazily rebuild after writes before first read, build and float64 copies fully included; no stale index. Own repeated fit charged. Original float64 ridge and nonlinear Nyström retained.",
+    "optimizer": "AdamW",
+    "precision": "float32",
+    "raw": "zero-fit raw-space cosine, same update/absence interface",
+    "ridge": "query-to-write ridge with intercept; all4096 legal pairs, choose minimal MSE on reserved512 training-only pairs, fixed ascending grid ties first",
+    "ridge_grid": [
+      1e-06,
+      0.001,
+      0.1
+    ],
+    "selection": "last fixed optimizer step; no checkpoint, dev/hyperparameter adaptation or seed selection; all outcomes retained",
+    "shuffled": "same transport code/initialization/batches/steps, a single fixed runner-seed permutation of positive write correspondences; train set controls not relabeled",
+    "threads": 1,
+    "threshold_grid": [
+      0.0,
+      0.025,
+      0.05,
+      0.075,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.225,
+      0.25,
+      0.275,
+      0.3,
+      0.325,
+      0.35,
+      0.375,
+      0.4,
+      0.425,
+      0.45,
+      0.475,
+      0.5,
+      0.525,
+      0.55,
+      0.575,
+      0.6,
+      0.625,
+      0.65,
+      0.675,
+      0.7,
+      0.725,
+      0.75,
+      0.775,
+      0.8,
+      0.825,
+      0.85,
+      0.875,
+      0.9,
+      0.925,
+      0.95,
+      0.975,
+      1.0,
+      1.025,
+      1.05,
+      1.075,
+      1.1,
+      1.125,
+      1.15,
+      1.175,
+      1.2,
+      1.225,
+      1.25,
+      1.275,
+      1.3,
+      1.325,
+      1.35,
+      1.375,
+      1.4,
+      1.425,
+      1.45,
+      1.475,
+      1.5,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "threshold_selection": "Training-only27 calibration episodes: K32/128/512 crossed updates0/1/4,3 each,64 queries. Same finite grid for all methods, prefer known false abstention<=.02 and absent rejection>=.95, then maximal full answer, larger rejection, lower threshold; if infeasible same maximum-accuracy tie rule. Raw score scales differ and are disclosed; no dev choice.",
+    "untrained": "source-identical query transport initialization and pointer, zero updates",
+    "weight_decay": 0.0001
+  },
+  "reference_gates": {
+    "absent_identity_rejection_mean_min": 0.95,
+    "each_K_mean_accuracy_min": 0.9,
+    "each_seed_absent_identity_rejection_min": 0.9,
+    "each_seed_full_answer_accuracy_min": 0.9,
+    "independent_units": 5,
+    "known_false_abstention_mean_max": 0.02,
+    "mean_full_answer_accuracy_min": 0.95
+  },
+  "registration_attempts_for_this_study_cap": 1,
+  "resources": {
+    "auxiliary_test_seconds_cap": 1800,
+    "compute_charge_basis": "full_worker_wall_v1",
+    "cuda_required": true,
+    "fit_seconds_per_role_cap": 120,
+    "fit_seconds_study_cap": 11100,
+    "max_cuda_reserved_bytes": 4294967296,
+    "max_rss_bytes": 8589934592,
+    "worker_charge_ceiling_with_monitor_margin": 148,
+    "worker_seconds_cap": 144
+  },
+  "roles": {
+    "pvm01_additive_s0": {
+      "arm": "additive",
+      "fit_steps": 2048,
+      "seed_index": 0
+    },
+    "pvm01_additive_s1": {
+      "arm": "additive",
+      "fit_steps": 2048,
+      "seed_index": 1
+    },
+    "pvm01_additive_s2": {
+      "arm": "additive",
+      "fit_steps": 2048,
+      "seed_index": 2
+    },
+    "pvm01_additive_s3": {
+      "arm": "additive",
+      "fit_steps": 2048,
+      "seed_index": 3
+    },
+    "pvm01_additive_s4": {
+      "arm": "additive",
+      "fit_steps": 2048,
+      "seed_index": 4
+    },
+    "pvm01_delta_s0": {
+      "arm": "delta",
+      "fit_steps": 2048,
+      "seed_index": 0
+    },
+    "pvm01_delta_s1": {
+      "arm": "delta",
+      "fit_steps": 2048,
+      "seed_index": 1
+    },
+    "pvm01_delta_s2": {
+      "arm": "delta",
+      "fit_steps": 2048,
+      "seed_index": 2
+    },
+    "pvm01_delta_s3": {
+      "arm": "delta",
+      "fit_steps": 2048,
+      "seed_index": 3
+    },
+    "pvm01_delta_s4": {
+      "arm": "delta",
+      "fit_steps": 2048,
+      "seed_index": 4
+    },
+    "pvm01_delta_shuffled_s0": {
+      "arm": "delta_shuffled",
+      "fit_steps": 2048,
+      "seed_index": 0
+    },
+    "pvm01_delta_shuffled_s1": {
+      "arm": "delta_shuffled",
+      "fit_steps": 2048,
+      "seed_index": 1
+    },
+    "pvm01_delta_shuffled_s2": {
+      "arm": "delta_shuffled",
+      "fit_steps": 2048,
+      "seed_index": 2
+    },
+    "pvm01_delta_shuffled_s3": {
+      "arm": "delta_shuffled",
+      "fit_steps": 2048,
+      "seed_index": 3
+    },
+    "pvm01_delta_shuffled_s4": {
+      "arm": "delta_shuffled",
+      "fit_steps": 2048,
+      "seed_index": 4
+    },
+    "pvm01_delta_untrained_s0": {
+      "arm": "delta_untrained",
+      "fit_steps": 0,
+      "seed_index": 0
+    },
+    "pvm01_delta_untrained_s1": {
+      "arm": "delta_untrained",
+      "fit_steps": 0,
+      "seed_index": 1
+    },
+    "pvm01_delta_untrained_s2": {
+      "arm": "delta_untrained",
+      "fit_steps": 0,
+      "seed_index": 2
+    },
+    "pvm01_delta_untrained_s3": {
+      "arm": "delta_untrained",
+      "fit_steps": 0,
+      "seed_index": 3
+    },
+    "pvm01_delta_untrained_s4": {
+      "arm": "delta_untrained",
+      "fit_steps": 0,
+      "seed_index": 4
+    },
+    "pvm01_dense_cached_cpu_s0": {
+      "arm": "dense_cached_cpu",
+      "fit_steps": 2048,
+      "seed_index": 0
+    },
+    "pvm01_dense_cached_cpu_s1": {
+      "arm": "dense_cached_cpu",
+      "fit_steps": 2048,
+      "seed_index": 1
+    },
+    "pvm01_dense_cached_cpu_s2": {
+      "arm": "dense_cached_cpu",
+      "fit_steps": 2048,
+      "seed_index": 2
+    },
+    "pvm01_dense_cached_cpu_s3": {
+      "arm": "dense_cached_cpu",
+      "fit_steps": 2048,
+      "seed_index": 3
+    },
+    "pvm01_dense_cached_cpu_s4": {
+      "arm": "dense_cached_cpu",
+      "fit_steps": 2048,
+      "seed_index": 4
+    },
+    "pvm01_dense_cached_cuda_s0": {
+      "arm": "dense_cached_cuda",
+      "fit_steps": 2048,
+      "seed_index": 0
+    },
+    "pvm01_dense_cached_cuda_s1": {
+      "arm": "dense_cached_cuda",
+      "fit_steps": 2048,
+      "seed_index": 1
+    },
+    "pvm01_dense_cached_cuda_s2": {
+      "arm": "dense_cached_cuda",
+      "fit_steps": 2048,
+      "seed_index": 2
+    },
+    "pvm01_dense_cached_cuda_s3": {
+      "arm": "dense_cached_cuda",
+      "fit_steps": 2048,
+      "seed_index": 3
+    },
+    "pvm01_dense_cached_cuda_s4": {
+      "arm": "dense_cached_cuda",
+      "fit_steps": 2048,
+      "seed_index": 4
+    },
+    "pvm01_dense_s0": {
+      "arm": "dense",
+      "fit_steps": 2048,
+      "seed_index": 0
+    },
+    "pvm01_dense_s1": {
+      "arm": "dense",
+      "fit_steps": 2048,
+      "seed_index": 1
+    },
+    "pvm01_dense_s2": {
+      "arm": "dense",
+      "fit_steps": 2048,
+      "seed_index": 2
+    },
+    "pvm01_dense_s3": {
+      "arm": "dense",
+      "fit_steps": 2048,
+      "seed_index": 3
+    },
+    "pvm01_dense_s4": {
+      "arm": "dense",
+      "fit_steps": 2048,
+      "seed_index": 4
+    },
+    "pvm01_exact_nn_cpu_s0": {
+      "arm": "exact_nn_cpu",
+      "fit_steps": 2048,
+      "seed_index": 0
+    },
+    "pvm01_exact_nn_cpu_s1": {
+      "arm": "exact_nn_cpu",
+      "fit_steps": 2048,
+      "seed_index": 1
+    },
+    "pvm01_exact_nn_cpu_s2": {
+      "arm": "exact_nn_cpu",
+      "fit_steps": 2048,
+      "seed_index": 2
+    },
+    "pvm01_exact_nn_cpu_s3": {
+      "arm": "exact_nn_cpu",
+      "fit_steps": 2048,
+      "seed_index": 3
+    },
+    "pvm01_exact_nn_cpu_s4": {
+      "arm": "exact_nn_cpu",
+      "fit_steps": 2048,
+      "seed_index": 4
+    },
+    "pvm01_kernel_s0": {
+      "arm": "kernel",
+      "fit_steps": 0,
+      "seed_index": 0
+    },
+    "pvm01_kernel_s1": {
+      "arm": "kernel",
+      "fit_steps": 0,
+      "seed_index": 1
+    },
+    "pvm01_kernel_s2": {
+      "arm": "kernel",
+      "fit_steps": 0,
+      "seed_index": 2
+    },
+    "pvm01_kernel_s3": {
+      "arm": "kernel",
+      "fit_steps": 0,
+      "seed_index": 3
+    },
+    "pvm01_kernel_s4": {
+      "arm": "kernel",
+      "fit_steps": 0,
+      "seed_index": 4
+    },
+    "pvm01_pointer_s0": {
+      "arm": "pointer",
+      "fit_steps": 2048,
+      "seed_index": 0
+    },
+    "pvm01_pointer_s1": {
+      "arm": "pointer",
+      "fit_steps": 2048,
+      "seed_index": 1
+    },
+    "pvm01_pointer_s2": {
+      "arm": "pointer",
+      "fit_steps": 2048,
+      "seed_index": 2
+    },
+    "pvm01_pointer_s3": {
+      "arm": "pointer",
+      "fit_steps": 2048,
+      "seed_index": 3
+    },
+    "pvm01_pointer_s4": {
+      "arm": "pointer",
+      "fit_steps": 2048,
+      "seed_index": 4
+    },
+    "pvm01_raw_s0": {
+      "arm": "raw",
+      "fit_steps": 0,
+      "seed_index": 0
+    },
+    "pvm01_raw_s1": {
+      "arm": "raw",
+      "fit_steps": 0,
+      "seed_index": 1
+    },
+    "pvm01_raw_s2": {
+      "arm": "raw",
+      "fit_steps": 0,
+      "seed_index": 2
+    },
+    "pvm01_raw_s3": {
+      "arm": "raw",
+      "fit_steps": 0,
+      "seed_index": 3
+    },
+    "pvm01_raw_s4": {
+      "arm": "raw",
+      "fit_steps": 0,
+      "seed_index": 4
+    },
+    "pvm01_ridge32_s0": {
+      "arm": "ridge32",
+      "fit_steps": 0,
+      "seed_index": 0
+    },
+    "pvm01_ridge32_s1": {
+      "arm": "ridge32",
+      "fit_steps": 0,
+      "seed_index": 1
+    },
+    "pvm01_ridge32_s2": {
+      "arm": "ridge32",
+      "fit_steps": 0,
+      "seed_index": 2
+    },
+    "pvm01_ridge32_s3": {
+      "arm": "ridge32",
+      "fit_steps": 0,
+      "seed_index": 3
+    },
+    "pvm01_ridge32_s4": {
+      "arm": "ridge32",
+      "fit_steps": 0,
+      "seed_index": 4
+    },
+    "pvm01_ridge_pca_scan_s0": {
+      "arm": "ridge_pca_scan",
+      "fit_steps": 0,
+      "seed_index": 0
+    },
+    "pvm01_ridge_pca_scan_s1": {
+      "arm": "ridge_pca_scan",
+      "fit_steps": 0,
+      "seed_index": 1
+    },
+    "pvm01_ridge_pca_scan_s2": {
+      "arm": "ridge_pca_scan",
+      "fit_steps": 0,
+      "seed_index": 2
+    },
+    "pvm01_ridge_pca_scan_s3": {
+      "arm": "ridge_pca_scan",
+      "fit_steps": 0,
+      "seed_index": 3
+    },
+    "pvm01_ridge_pca_scan_s4": {
+      "arm": "ridge_pca_scan",
+      "fit_steps": 0,
+      "seed_index": 4
+    },
+    "pvm01_ridge_pca_tree_s0": {
+      "arm": "ridge_pca_tree",
+      "fit_steps": 0,
+      "seed_index": 0
+    },
+    "pvm01_ridge_pca_tree_s1": {
+      "arm": "ridge_pca_tree",
+      "fit_steps": 0,
+      "seed_index": 1
+    },
+    "pvm01_ridge_pca_tree_s2": {
+      "arm": "ridge_pca_tree",
+      "fit_steps": 0,
+      "seed_index": 2
+    },
+    "pvm01_ridge_pca_tree_s3": {
+      "arm": "ridge_pca_tree",
+      "fit_steps": 0,
+      "seed_index": 3
+    },
+    "pvm01_ridge_pca_tree_s4": {
+      "arm": "ridge_pca_tree",
+      "fit_steps": 0,
+      "seed_index": 4
+    },
+    "pvm01_ridge_s0": {
+      "arm": "ridge",
+      "fit_steps": 0,
+      "seed_index": 0
+    },
+    "pvm01_ridge_s1": {
+      "arm": "ridge",
+      "fit_steps": 0,
+      "seed_index": 1
+    },
+    "pvm01_ridge_s2": {
+      "arm": "ridge",
+      "fit_steps": 0,
+      "seed_index": 2
+    },
+    "pvm01_ridge_s3": {
+      "arm": "ridge",
+      "fit_steps": 0,
+      "seed_index": 3
+    },
+    "pvm01_ridge_s4": {
+      "arm": "ridge",
+      "fit_steps": 0,
+      "seed_index": 4
+    }
+  },
+  "schema_version": 1,
+  "stage": "mechanism_and_ablations",
+  "study_deadline_at": "2026-10-04T22:02:25Z",
+  "study_kind": "paired_view_delta_memory",
+  "study_started_at": "2026-10-04T18:02:25Z",
+  "task_contract_path": "research/plans/PVM01-TASK-CONTRACT-V1.json",
+  "task_contract_sha256": "7b8c775a3ebfd6a1645d171caab7237c3a7bc11c44cb7b7fdc26e7eec6c2c326",
+  "uncertainty": "Five fresh independent combined model-seed/data units. Equal means over K/update cells; updated and retained contrasts only updates1/4. Four paired two-sided98.75% Student-t df4 intervals give Bonferroni familywise95%. Preregistered minima apply in addition. Other metrics paired/descriptive95% intervals and all unit/cell values, no sample-size inflation from episodes/questions. Cost selection envelope reported with all controls and no inferential economic claim before adverse/final."
+}

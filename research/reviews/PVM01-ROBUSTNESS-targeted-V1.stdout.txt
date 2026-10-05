@@ -1,0 +1,14 @@
+............................F................................            [100%]
+================================== FAILURES ===================================
+________ test_all85_roles_audited_and_analyzers_protected_before_data _________
+
+    def test_all85_roles_audited_and_analyzers_protected_before_data():
+        config = load_config(ROOT)
+        assert len(STUDY["roles"]) == len(STUDY["candidates"]) == 85
+>       for name in STUDY["candidates"]: assert audit_candidate(ROOT / f"src/nextai_autoresearch/candidates/{name}.py", config.audit)["ok"], name
+                                                                                                                        ^^^^^^^^^^^^
+E       AttributeError: 'ResearchConfig' object has no attribute 'audit'
+
+tests\test_pvm01_dense_noise.py:211: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/test_pvm01_dense_noise.py::test_all85_roles_audited_and_analyzers_protected_before_data

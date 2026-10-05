@@ -1,0 +1,31 @@
+{
+  "cap": 800,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "--junitxml=research/checks/PVM01-ROBUSTNESS-full-V1.xml"
+  ],
+  "created_at": "2026-10-05T04:06:43Z",
+  "error": null,
+  "id": "PVM01-ROBUSTNESS-full-V1",
+  "raw_outputs": {
+    "PVM01-ROBUSTNESS-full-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-ROBUSTNESS-full-V1.stdout.txt": "f850e64289c2f8336be422ea8d1673500129ec679ee75ac9f878c24fbd111413"
+  },
+  "result": {
+    "elapsed_seconds": 433.03781380000873,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4468649984,
+    "pid": 36636,
+    "processes_created": 1085,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 444,
+  "wall_seconds": 438.78077589999884
+}

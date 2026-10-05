@@ -1,0 +1,90 @@
+{
+  "alternative_policy": "one recipe failure closes that recipe; assess at least two distinct justified alternatives before a branch-level negative decision; never terminate whole program merely for one failed reference recipe",
+  "auxiliary_fit_accounting": "reserve before tests; charge full test wall conservatively including failed runs; pending reservations consume the full bound",
+  "carry_forward": {
+    "authority_path": "research/laboratory/MUC03-AUTONOMOUS-20261004-V1.json",
+    "auxiliary_fit_seconds_conservative": 1439.0,
+    "completion_receipt_path": "research/laboratory/MUC03-AUTONOMOUS-PROGRAM-COMPLETION-V1.receipt.json",
+    "contract_path": "research/plans/MUC03-AUTONOMOUS-PROGRAM-V1.json",
+    "document_sha256": {
+      "research/analyses/MUC03-AUTONOMOUS-PROGRAM-RESOLUTION-V1.md": "835fea2b1ac9bdf184a7b1900d60f6b36867c451a784918068a24e48125b58e7",
+      "research/laboratory/MUC03-AUTONOMOUS-20261004-V1.json": "9f9ddc030ce64c8415335f4c780b350a2ca0bc09f439131857a052d1ce380b91",
+      "research/laboratory/MUC03-AUTONOMOUS-PROGRAM-COMPLETION-V1.receipt.json": "f937785811352266fe68e7134d14c90ceef38d5c605afaeee5640c2c4c918739",
+      "research/plans/MUC03-AUTONOMOUS-PROGRAM-V1.json": "b8c3f80a5b7fbfd8813911f71d5d368d1a12b0df18a86b51bf2c82285caadf42",
+      "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json": "1e23bbc061fd4d7b658709c2b9607da5cf752a53193a4a6d4b9e19e7fdbd4bdf",
+      "research/results/EXP-20261004-0001.json": "66000914c334c624435bf7681a50ba6b76f9e93f60c45516c1cf847576921449",
+      "research/results/EXP-20261004-0002.json": "aa3cd68590fce3d463499f371bfab5c438cf40bcc749f27405ceddf70f0c6e8d",
+      "research/results/EXP-20261004-0003.json": "1e4731e5d0ad121a4c5fb34c9472a487eef25f288dea3d86b4b7bb8b747ca495"
+    },
+    "experimental_fit_seconds": 1216.3364847000048,
+    "fit_seconds_charged": 2655.336484700005,
+    "program_events_sha256": "3f359ef0436523d45901c42c27b562cecc9a5aaa3e9b7d1c36b26817b069b0aa",
+    "program_id": "MUC03-AUTONOMOUS-20261004-V1",
+    "registration_attempts_used": 3,
+    "rounded_down_unused_seconds": 0.6635153000056744,
+    "terminal_study_path": "research/plans/MUC03-REFERENCE-CALIBRATION-V1.json"
+  },
+  "created_at": "2026-10-04T13:15:10Z",
+  "economic_claim_gates": {
+    "adversarial_required": true,
+    "all_preprocessing_ingest_index_updates_cache_warmup_decoding_included": true,
+    "at_least3_scale_points_at_matched_quality": true,
+    "candidate_quality_difference_simultaneous_lower_min": -0.02,
+    "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+    "independent_seed_data_units_min": 5,
+    "known_false_abstention_max": 0.02,
+    "non_dominated_against_strong_classical_required": true,
+    "p95_ratio_upper_max": 0.9,
+    "reference_each_seed_accuracy_min": 0.9,
+    "reference_mean_accuracy_min": 0.95,
+    "unknown_rejection_min": 0.95
+  },
+  "external_model_api_authorized": false,
+  "first_study_path": "research/plans/NEXTAI-CONTINUATION-PREPARATION-V1.json",
+  "fit_seconds_total_cap": 69344,
+  "id": "NEXTAI-CONTINUATION-20261004-V1",
+  "local_holdout_limit": "fresh generator seeds are hidden from candidates until audited execution, but this local agent can inspect evaluator code; broad claims require independently blinded evidence",
+  "objective": "Doprowadź NEXTAI do rzetelnego sprawdzenia, czy wybrany uczony mechanizm daje porównywalną jakość przy niższym pełnym koszcie inferencji niż kompetentny transformer, z uwzględnieniem mocnych metod klasycznych.\nZatwierdzam nowy program obejmujący diagnozę, zmianę receptur, uzasadnione przeprojektowanie benchmarku, minimalne prototypy, ablacje i replikacje. Zachowaj zamknięte badania bez zmian oraz dotychczasowe rozliczenie: pozostało maksymalnie **17 rejestracji i 69 344 sekundy budżetu obliczeniowego**, obejmującego fit oraz rozliczane testy.\nNajpierw rozdziel błędy rankingu od rozpoznawania braku odpowiedzi i oceń, czy MUC pozwala sensownie sprawdzić cel projektu. Jeśli nie, zachowaj go jako test techniczny i uzasadnij nowe zadanie wymagające uczenia. Nie osłabiaj klasycznych kontroli ani kryteriów po zobaczeniu wyników.\nPorażka jednej receptury ma prowadzić do oceny alternatyw i zmiany podejścia, nie automatycznego zamknięcia całego programu. Nie ograniczaj poszukiwań do zwiększania liczby kroków treningu. Przed każdą implementacją badawczą prerejestruj hipotezę, metryki, budżet i regułę decyzji. Pracuj autonomicznie w tym zakresie, waliduj zmiany w klonie, zachowuj wszystkie wyniki i niezmienniki AGENTS.md.\nZakończ odtwarzalnym porównaniem mechanizmu z kontrolami, obejmującym jakość, pełne koszty, replikacje i świeży test końcowy. Jeśli nie jest to wykonalne, przedstaw dowody, rozpatrzone alternatywy i konkretną przyczynę zakończenia. Przy wyczerpaniu budżetu raportuj również niewykonany zakres. Wynik negatywny jest dopuszczalny; pozytywnego nie wymuszaj.",
+  "one_new_experiment_per_cycle": true,
+  "prior_budgets_reset": false,
+  "registration_accounting": "new tickets 1..17 also display cumulative 4..20; reserve before validation; failed and invalidated tickets remain consumed; no same-study retry",
+  "registration_attempts_cap": 17,
+  "schedule_change_authorized": false,
+  "schema_version": 1,
+  "scientific_scope": [
+    "separate ranking from absence using preserved MUC predictions; posthoc diagnostics cannot change completed endpoints",
+    "retain MUC as a technical test if a legal symbolic solver makes learning unnecessary",
+    "justify a new learning-required task; freeze new benchmark/cohort and strong competent controls before scoring",
+    "finite recipe changes may change sampling, loss, input representation or optimizer, not only optimizer steps",
+    "minimal selected mechanism with source-identical ablations, three scale points, independent task depth, adverse cases and at least five independent final seed/data units",
+    "fresh final only after immutable recipe/source/threshold freeze; no final-guided rescue"
+  ],
+  "stages": [
+    {
+      "id": "diagnosis_and_task",
+      "registration_cap": 0
+    },
+    {
+      "id": "reference_and_alternatives",
+      "registration_cap": 5
+    },
+    {
+      "id": "mechanism_and_ablations",
+      "registration_cap": 4
+    },
+    {
+      "id": "scale_and_generalization",
+      "registration_cap": 3
+    },
+    {
+      "id": "replication_and_fresh_final",
+      "registration_cap": 3
+    },
+    {
+      "id": "repair_reserve",
+      "registration_cap": 2
+    }
+  ],
+  "termination": "global cap, STOP/PAUSE, verified fresh-final resolution, or documented infeasibility after evidence and concrete evaluated alternatives; always disclose unexecuted scope",
+  "wt_files_8_9_access_authorized": false
+}

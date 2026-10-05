@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "measured_at": "2026-09-04T19:43:30Z",
+  "method": "HTTP HEAD Content-Length from the official download.pytorch.org mirror; package bodies were not downloaded. Hash identifiers come from uv.lock and remain verified by uv during installation, not by HEAD.",
+  "sizes": {
+    "sha256:a393b506844035c0dac2f30ea8478c343b8e95a429f06f3b3cadfc7f53adb597": {"size": 768372201, "url": "https://download-r2.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp312-cp312-linux_x86_64.whl", "metadata_url": "https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp312-cp312-linux_x86_64.whl"},
+    "sha256:3313061c1fec4c7310cf47944e84513dcd27b6173b72a349bb7ca68d0ee6e9c0": {"size": 2532302369, "url": "https://download-r2.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp312-cp312-win_amd64.whl", "metadata_url": "https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp312-cp312-win_amd64.whl"},
+    "sha256:0f3bc53c988ce9568cd876a2a5316761e84a8704135ec8068f5f81b4417979cb": {"size": 768368309, "url": "https://download-r2.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp313-cp313-linux_x86_64.whl", "metadata_url": "https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp313-cp313-linux_x86_64.whl"},
+    "sha256:519330eef09534acad8110b6f423d2fe58c1d8e9ada999ed077a637a0021f908": {"size": 2532308219, "url": "https://download-r2.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp313-cp313-win_amd64.whl", "metadata_url": "https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp313-cp313-win_amd64.whl"},
+    "sha256:35cba404c0d742406cdcba1609085874bc60facdfbc50e910c47a92405fef44c": {"size": 768413667, "url": "https://download-r2.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp313-cp313t-linux_x86_64.whl", "metadata_url": "https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp313-cp313t-linux_x86_64.whl"}
+  }
+}
