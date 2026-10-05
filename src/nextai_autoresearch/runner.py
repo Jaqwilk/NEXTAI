@@ -786,7 +786,7 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                 "interpretation_status": "pending_codex_analysis",
             }
             validate_document("experiment_result", result, base)
-            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11"})
+            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11", "har01_native_memory_v1"})
             for candidate in candidate_results:
                 summary = candidate.get("summary", {})
                 append_experiment_row(

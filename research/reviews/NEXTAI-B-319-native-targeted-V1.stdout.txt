@@ -1,0 +1,62 @@
+............FF...                                                        [100%]
+================================== FAILURES ===================================
+___ test_native_schema_accepts_only_frozen_matrix_and_recipe_without_ticket ___
+
+    def test_native_schema_accepts_only_frozen_matrix_and_recipe_without_ticket():
+        plan = native_plan()
+        validate_document("experiment_plan", plan, ROOT)
+        changed = copy.deepcopy(plan)
+        changed["matrix"]["knowledge_sizes"][-1] = 512
+        with pytest.raises(ValueError):
+>           validate_document("experiment_plan", changed, ROOT)
+
+tests\test_har01_native_transfer.py:180: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'alternative_explanations': ['Observation alignment, rejection and ranking failures are measured separately.'], 'architecture_family': 'paired_view_learning_reference', 'benchmark': 'har01_native_memory_v1', 'budget': 'quick', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix: {'knowledge_sizes': [16, 32, 64], 'reasoning_depths': [1, 2, 3], 'queries_per_cell': 64, 'seed_policy': {'method': 'runner_random_v1', 'count': 5, 'minimum': 1000000, 'maximum': 2147483647}} was expected
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+____ test_all_native_roles_are_audited_and_private_native_imports_rejected ____
+
+tmp_path = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-477/test_all_native_roles_are_audi0')
+
+    def test_all_native_roles_are_audited_and_private_native_imports_rejected(tmp_path):
+        config = load_config(ROOT)
+        for name in STUDY["candidates"]:
+>           assert audit_candidate(name, config, ROOT).ok
+E           AssertionError: assert False
+E            +  where False = AuditResult(ok=False, candidate='har01_source_trained_s0', path=WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-V...utoresearch/candidates/pvm01_optimized_core.py'), '9bbb7f3ed1a1e60ad4dfe462ab4d07f3c4831c823eba54c56c8e5280dce7e32b'))).ok
+E            +    where AuditResult(ok=False, candidate='har01_source_trained_s0', path=WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-V...utoresearch/candidates/pvm01_optimized_core.py'), '9bbb7f3ed1a1e60ad4dfe462ab4d07f3c4831c823eba54c56c8e5280dce7e32b'))) = audit_candidate('har01_source_trained_s0', ResearchConfig(raw={'schema_version': 1, 'project': {'name': 'NEXTAI Autoresearch', 'objective': 'Find computational p...ATION-V1.json'}}, path=WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/config/research.toml')), WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002'))
+
+tests\test_har01_native_transfer.py:190: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_har01_native_transfer.py::test_native_schema_accepts_only_frozen_matrix_and_recipe_without_ticket
+FAILED tests/test_har01_native_transfer.py::test_all_native_roles_are_audited_and_private_native_imports_rejected
+2 failed, 15 passed in 3.82s

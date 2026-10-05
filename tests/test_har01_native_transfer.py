@@ -5,6 +5,7 @@ import json
 import numpy as np
 import pytest
 import torch
+from jsonschema.exceptions import ValidationError
 
 from nextai_autoresearch.audit import audit_candidate
 from nextai_autoresearch.config import load_config
@@ -176,11 +177,11 @@ def test_native_schema_accepts_only_frozen_matrix_and_recipe_without_ticket():
     validate_document("experiment_plan", plan, ROOT)
     changed = copy.deepcopy(plan)
     changed["matrix"]["knowledge_sizes"][-1] = 512
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         validate_document("experiment_plan", changed, ROOT)
     changed = copy.deepcopy(plan)
     changed["research_program_protocol"]["recipe"]["alignment_steps"] = 8192
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         validate_document("experiment_plan", changed, ROOT)
 
 
@@ -190,5 +191,6 @@ def test_all_native_roles_are_audited_and_private_native_imports_rejected(tmp_pa
         assert audit_candidate(name, config, ROOT).ok
     directory = tmp_path / "src/nextai_autoresearch/candidates"
     directory.mkdir(parents=True)
-    (directory / "native_leak.py").write_text("from nextai_autoresearch.har01_task import load_unit\n", encoding="utf-8")
-    assert not audit_candidate("native_leak", config, tmp_path).ok
+    (directory / "native_leak.py").write_text("from nextai_autoresearch.har01_task import load_unit\nclass Candidate: pass\n", encoding="utf-8")
+    rejected = audit_candidate("native_leak", config, tmp_path)
+    assert not rejected.ok and any("evaluator" in problem for problem in rejected.problems)

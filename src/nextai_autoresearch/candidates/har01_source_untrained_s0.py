@@ -1,2 +1,6 @@
 """Preregistered native role; shared source-identical implementation."""
-from .har01_core import Candidate
+from .har01_core import Candidate as NativeCandidate
+
+
+class Candidate(NativeCandidate):
+    pass

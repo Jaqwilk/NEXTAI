@@ -1,0 +1,33 @@
+{
+  "cap_seconds": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "tests/test_har01_native_transfer.py",
+    "tests/test_har01_intake.py"
+  ],
+  "conservative_accounting_allowance_seconds": 20,
+  "created_at": "2026-10-05T14:07:17Z",
+  "error": null,
+  "id": "NEXTAI-B-319-native-targeted-V1",
+  "raw_outputs": {
+    "NEXTAI-B-319-native-targeted-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-319-native-targeted-V1.stdout.txt": "8db0102df52c8f4ff160af5d7cd0090f951bba3f37af4cef6194c5dfe721a85e"
+  },
+  "result": {
+    "elapsed_seconds": 4.548324500006856,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1390141440,
+    "pid": 36380,
+    "processes_created": 5,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 38,
+  "wall_seconds": 17.414037500013364,
+  "whole_process_tree_bounded": true
+}
