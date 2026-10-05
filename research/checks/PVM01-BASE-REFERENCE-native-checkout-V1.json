@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-05T08:06:33Z",
+  "files": {
+    "false": {
+      "research/checks/PVM01-BASE-REFERENCE-full-V1.xml": "97fb9cc4ee17d650a742a27736325d693dd96a0c6da2a9d73e8ddebec3152589",
+      "research/checks/PVM01-BASE-REFERENCE-targeted-V1.xml": "5edbc92870aba8f04703e2ec829a2b9587ace365dcb4af7edfddd5075d99a84e",
+      "research/reviews/PVM01-BASE-REFERENCE-startup-observation-V1.json": "8cc55eeb4122c157c36a5499b7c0d72304f7ccae693a6f118b646a7512323feb",
+      "schemas/experiment_plan.schema.json": "11c03b8b576449e3ed8321c8066f812fbdebce549679e154c18d6daa1511042d",
+      "scripts/analyze_pvm01_base_reference.py": "1fb382dbac3e4402e62bf6a068d77314cfbd7901bf220893f3a0274c67c6c45a",
+      "tests/test_pvm01_base_reference.py": "2e10161970b41aa81dcc072f9c3e0bf69483ce2d0710d9bad4036f52cb3c33a7"
+    },
+    "true": {
+      "research/checks/PVM01-BASE-REFERENCE-full-V1.xml": "97fb9cc4ee17d650a742a27736325d693dd96a0c6da2a9d73e8ddebec3152589",
+      "research/checks/PVM01-BASE-REFERENCE-targeted-V1.xml": "5edbc92870aba8f04703e2ec829a2b9587ace365dcb4af7edfddd5075d99a84e",
+      "research/reviews/PVM01-BASE-REFERENCE-startup-observation-V1.json": "8cc55eeb4122c157c36a5499b7c0d72304f7ccae693a6f118b646a7512323feb",
+      "schemas/experiment_plan.schema.json": "11c03b8b576449e3ed8321c8066f812fbdebce549679e154c18d6daa1511042d",
+      "scripts/analyze_pvm01_base_reference.py": "1fb382dbac3e4402e62bf6a068d77314cfbd7901bf220893f3a0274c67c6c45a",
+      "tests/test_pvm01_base_reference.py": "2e10161970b41aa81dcc072f9c3e0bf69483ce2d0710d9bad4036f52cb3c33a7"
+    }
+  },
+  "old_records_unchanged": true,
+  "same_native_bytes_under_both_autocrlf_policies": true
+}

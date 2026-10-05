@@ -1,0 +1,56 @@
+{
+  "cohort": "muc03_reference_calibration_v1",
+  "created_at": "2026-10-04T13:15:10Z",
+  "decision_rule": "MUC remains a technical correctness/update test when exact legal symbolic control solves all worlds; learned-memory economic testing moves to a justified preregistered cohort requiring a learned observation map. Diagnostic associations remain posthoc, not causal evidence. Preparation succeeds only if old accounting is verified, new budget cannot reset it, clone tests pass, and no scored execution occurs.",
+  "forbidden": [
+    "scored run",
+    "research fit",
+    "new EXP registration",
+    "old result or completed plan modification",
+    "WT8-9",
+    "external model/API",
+    "schedule change",
+    "final data generation"
+  ],
+  "hypotheses": [
+    "ranking improves with fit yet worsens as distractor K grows",
+    "absence fails separately because independent negative-pair loss gives no set-level calibration or absent-subject/relation support",
+    "the legal symbolic exact-last-write algorithm is a constructive counterexample to MUC requiring learned inference"
+  ],
+  "id": "NEXTAI-CONTINUATION-PREPARATION-V1",
+  "implementation_scope": [
+    "parameterize existing append-only accounting for explicit continuation authority with verified immutable carry-forward; preserve historical status semantics",
+    "enforce preparation-only study refusal and no paid registration",
+    "stored-output-only diagnostic script and reproducible diagnosis report",
+    "prospective design of a new task and controls; no generator, candidate, training or final access in this preparation cycle"
+  ],
+  "metrics": [
+    "stored dense known top1, accepted-correct and false abstention by seed and K",
+    "stored unknown rejection by subject/relation and K",
+    "stored negative pair false-positive counts and denominators",
+    "historical cost boundaries and exact symbolic legal-input proof"
+  ],
+  "program_contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+  "program_contract_sha256": "a55f190fd42631e2651a8d4ab3e61f2200d16d1e8afb2d71aa4edcbea6ba269a",
+  "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+  "question": "Can stored evidence identify ranking versus absence failures, and does a public exact key map make MUC inadequate for a learning-versus-compute claim?",
+  "registration_attempts_for_this_study_cap": 0,
+  "resources": {
+    "auxiliary_test_seconds_cap": 1800,
+    "fit_seconds_per_role_cap": 0,
+    "fit_seconds_study_cap": 0,
+    "work_minutes_cap": 120
+  },
+  "schema_version": 1,
+  "stage": "diagnosis_and_task",
+  "study_deadline_at": "2026-10-04T15:15:10.494742+00:00",
+  "study_kind": "preparation_only",
+  "test_requirements": [
+    "tampering with carry hashes/counts/events fails closed",
+    "old closure remains closed and charged identically",
+    "new continuation has exactly17 additional tickets and69344 seconds before tests",
+    "failed tickets, pending last-ticket run, auxiliary reservations and charges remain auditable",
+    "current no-scoring preparation cannot register and does not consume a ticket",
+    "new authority active does not falsely report whole-program completion"
+  ]
+}

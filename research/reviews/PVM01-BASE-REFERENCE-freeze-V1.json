@@ -1,0 +1,30 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_base_reference_freeze_v1.py"
+  ],
+  "created_at": "2026-10-05T07:52:27Z",
+  "error": null,
+  "id": "PVM01-BASE-REFERENCE-freeze-V1",
+  "raw_outputs": {
+    "PVM01-BASE-REFERENCE-freeze-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-BASE-REFERENCE-freeze-V1.stdout.txt": "3442ee5f417c921c02b21d542c93687afd434db23dc7b2eca704646a8e483572"
+  },
+  "result": {
+    "elapsed_seconds": 51.590256900002714,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1036566528,
+    "pid": 37044,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 66,
+  "wall_seconds": 60.534108599997126
+}

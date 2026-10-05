@@ -1,0 +1,116 @@
+{
+  "adverse_variants_to_freeze_before_scoring": [
+    "nearby latent distractors without oracle-based filtering of methods",
+    "higher noise and independent update churn",
+    "fresh coordinates/identity draws and label reassignment",
+    "no values that expose query views or correspondences at inference"
+  ],
+  "broad_claim_limit": "Code-visible synthetic evaluator and runner-private fresh final are local evidence; general capability, LLM replacement or real-world economics require independent tasks and independently blinded evaluation.",
+  "cohort": "paired_view_mutable_memory_v1",
+  "created_at": "2026-10-04T13:38:29Z",
+  "decision_rule": "Retain as the new screening cohort only when input-boundary tests and learning requirement/competence controls pass. If not, diagnose the failed map/loss/data factor and assess another preregistered alternative; do not close the whole program for one recipe. A memory advantage needs the unchanged economic gates, strong classical non-domination, source-identical ablations, adverse variants and five fresh final units after source/recipe freeze.",
+  "economic_claim_gates_unchanged": {
+    "adversarial_required": true,
+    "all_preprocessing_ingest_index_updates_cache_warmup_decoding_included": true,
+    "at_least3_scale_points_at_matched_quality": true,
+    "candidate_quality_difference_simultaneous_lower_min": -0.02,
+    "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+    "independent_seed_data_units_min": 5,
+    "known_false_abstention_max": 0.02,
+    "non_dominated_against_strong_classical_required": true,
+    "p95_ratio_upper_max": 0.9,
+    "reference_each_seed_accuracy_min": 0.9,
+    "reference_mean_accuracy_min": 0.95,
+    "unknown_rejection_min": 0.95
+  },
+  "fit_or_registration_authorized_by_this_document": false,
+  "full_cost_boundary": [
+    "data acquisition/generation and training separately reported and included in deployment amortization assumptions",
+    "fit including failures and all validation/hyperparameter search",
+    "raw input parsing and dtype/device copies",
+    "session/model allocation, ingest and initial embedding/index construction",
+    "every replacement including index removal/rebuild or state correction",
+    "every warmup and cache fill, with cold and warm workloads explicit",
+    "query representation, retrieval/attention/state read, UNKNOWN decision and output decoding",
+    "CPU/GPU synchronized total workload; peak RSS/CUDA plus logical state and bytes; operation estimates labeled; no wall-time complexity claim"
+  ],
+  "id": "PVM01-TASK-CONTRACT-V1",
+  "implementation_entry": "A separate frozen reference-study plan, cloned validation, current integrity/preflight and readiness are required before scoring; this preparation study performs no generator/model implementation or training.",
+  "learning_controls": [
+    "untrained source-identical neural encoder/reader",
+    "same source with shuffled positive train correspondences, preregistered once",
+    "raw-space cosine or nearest-neighbor retrieval without fit",
+    "linear ridge/CCA view transport fit only from the same legal positive pairs; training-only hyperparameter selection",
+    "nonlinear kernel-ridge view transport from the same legal pairs, with preregistered bounded grid",
+    "exact nearest-neighbor retrieval using the identical trained encoder, charging the full encoder fit and index",
+    "strong classical indexed retrieval added before mechanism scoring when applicable; never silently omitted"
+  ],
+  "learning_requirement_gate": {
+    "both_simultaneous_97_5_ci_lower_min": 0.1,
+    "conventional_or_classical_learning_allowed": true,
+    "interpretation": "learning of an observation map must matter on fresh identities; this gate cannot prove neural learning is intrinsically required or transfer beyond this task",
+    "trained_vs_shuffled_mean_full_answer_gain_min": 0.2,
+    "trained_vs_untrained_mean_full_answer_gain_min": 0.2
+  },
+  "matrix": {
+    "axes_limit": "update history depth is independent of K; it is not recursive reasoning depth or compositional transfer",
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "known_strata": "where updates exist, half known queries target updated records and half retained records; with0 updates all are retention",
+    "queries_per_episode": 64,
+    "query_fractions": {
+      "absent_identity": 0.25,
+      "known": 0.75
+    },
+    "update_rounds": [
+      0,
+      1,
+      4
+    ],
+    "updated_fraction": 0.25
+  },
+  "prior_art": [
+    "SRC-0435",
+    "SRC-0438",
+    "SRC-0439",
+    "SRC-0440"
+  ],
+  "private_generator": {
+    "A_B": "independent orthonormal-column64x16 matrices per independent seed/data unit, realized from separate runner-private entropy after preregistration; not derived from the candidate seed or passed protocol",
+    "freshness": "distinct namespace/nonces for train/dev and later final; a unit shares its observation map across those splits but never identities or noise realizations; candidate roles share exact raw arrays and training correspondences",
+    "identities": "independent normalized Gaussian16-vectors newly drawn per episode; no finite train/test identity vocabulary",
+    "latent_dimensions": 16,
+    "observation_dimensions": 64,
+    "query_view": "B @ tanh(0.8*z) + independent N(0,0.02^2) noise64",
+    "structural_resampling": "none: preserve confusable random cases, do not filter by model outcome",
+    "values": "uniform0..15, independent of latent identity; replacements change the previous value",
+    "visibility": "candidate sees only legal public arrays and supervised train correspondences; evaluator alone knows latent identities, absence and view parameters",
+    "write_view": "A @ tanh(1.5*z) + independent N(0,0.02^2) noise64"
+  },
+  "program_contract_sha256": "a55f190fd42631e2651a8d4ab3e61f2200d16d1e8afb2d71aa4edcbea6ba269a",
+  "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+  "public_input": {
+    "no_query_view_in_values": true,
+    "output": "one value in0..15 or UNKNOWN",
+    "query": "64 float32 coordinates; no handle, latent key, teacher coefficients or answer flags",
+    "write": "timestamp:int, opaque stable write handle:int, observation:64 float32 coordinates, value:int in0..15",
+    "write_handle_rule": "all methods may use the stable handle only to replace an earlier version of that record; queries never expose it; charge parsing, map maintenance and compaction"
+  },
+  "purpose": "Measure learned query-to-record alignment, absence and mutable-memory inference cost on new unseen continuous identities; this is a scoped synthetic memory test, not a language-model or intelligence claim.",
+  "reason_for_new_cohort": "MUC exposes exact string keys and timestamp semantics; a legal last-write map solves all valid worlds without learning. Changing MUC after its results would not preserve a coherent comparison cohort.",
+  "reference_controls": "First reference study must freeze a conventional dense softmax Transformer with legal caching/compaction, plus a dense attention pointer control. Exact architecture, fit recipe, loss, fixed finite classical grids and worker caps are separately preregistered before any implementation. A name alone does not establish competence.",
+  "reference_gates": {
+    "absent_identity_rejection_mean_min": 0.95,
+    "each_K_mean_accuracy_min": 0.9,
+    "each_seed_absent_identity_rejection_min": 0.9,
+    "each_seed_full_answer_accuracy_min": 0.9,
+    "independent_units": 5,
+    "known_false_abstention_mean_max": 0.02,
+    "mean_full_answer_accuracy_min": 0.95
+  },
+  "schema_version": 1,
+  "status": "prospective_task_contract_before_generator_or_candidate_implementation"
+}
