@@ -1,0 +1,16 @@
+{
+  "experiment_id": "EXP-20261005-0006",
+  "valid_comparison": true,
+  "reference_independently_confirmed": true,
+  "selected_route_independently_confirmed": true,
+  "neural_route_independently_confirmed": false,
+  "decision": "KEEP locally validated fixed routes for separately preregistered transfer",
+  "no_promotion": true,
+  "selection_outcomes_excluded_from_intervals": true,
+  "mixed_assay_used_as_gate": false,
+  "base_vs_itself_assay_used": false,
+  "trusted_resources_complete": true,
+  "fitted_source_states_complete": true,
+  "fresh_final_executed": true,
+  "independently_blinded_evaluation": false
+}

@@ -1,0 +1,90 @@
+{
+  "all_six_native_hashes_verified": true,
+  "commands": [
+    {
+      "label": "restore-old",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-restore-old-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-restore-old-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-new",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-restore-new-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-restore-new-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-dense-noise",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-restore-dense-noise-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-restore-dense-noise-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-confirmation",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-restore-confirmation-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-restore-confirmation-V1.stdout.txt": "1bb353d78d8eb8a83688ff67baefcf64a73f6548c7dc9f4c4903350a9e814e88"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-base-reference",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-restore-base-reference-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-restore-base-reference-V1.stdout.txt": "1bb353d78d8eb8a83688ff67baefcf64a73f6548c7dc9f4c4903350a9e814e88"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-fresh-final",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-restore-fresh-final-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-restore-fresh-final-V1.stdout.txt": "d494f75fd5a497d5a261144f890e65e90c5cfa9b580a1adf2795ba0fd3854480"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "history",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-history-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-history-V1.stdout.txt": "d2e614aceeeca762216c61cd7aa8db3d523644c59070d0a841f1dee22ca1281e"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "frozen-reanalysis",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-frozen-reanalysis-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-frozen-reanalysis-V1.stdout.txt": "7f550ed3e1477408aabf20ef589eb3936bbd76cb637e7c7c50bce414e85e9171"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "doctor",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-doctor-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-doctor-V1.stdout.txt": "27d120f26d8545cde7ad0b053fbc83ea0ddf9577f5b2e3af4894aea88e8cd82a"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "lab",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-original-lab-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-original-lab-V1.stdout.txt": "176ac54a7f6d04414657a0be891ad2d2c2e30170ac7f0a6a888ed845757cf00b"
+      },
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-05T10:45:20Z",
+  "history_integrity_preflight_doctor_lab": true,
+  "no_new_seed_data_model_fit_scoring": true,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "source_revision": "4622e9e29ece85fa5f08343949ebda0a347dd9a4"
+}
