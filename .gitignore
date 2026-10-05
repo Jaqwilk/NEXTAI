@@ -35,3 +35,6 @@ research/pc01_payload/**/*.pt
 
 # Native independent replica is versioned losslessly as gzip plus its exact hash.
 /research/results/EXP-20261005-0002.json
+
+# Native dense-noise record is versioned losslessly as gzip plus its exact hash.
+/research/results/EXP-20261005-0003.json

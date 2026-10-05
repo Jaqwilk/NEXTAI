@@ -1,0 +1,2 @@
+Report with all frozen endpoints,units,three scales,full costs and conditional next experiment: C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\analyses\EXP-20261005-0003.md
+Report, exact failed/pass gate diagnosis, durable next question, maintenance freeze: 1275

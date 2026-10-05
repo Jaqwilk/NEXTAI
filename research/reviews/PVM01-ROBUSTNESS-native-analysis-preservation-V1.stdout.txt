@@ -1,0 +1,9 @@
+{
+  "experiment_id": "EXP-20261005-0003",
+  "valid_comparison": true,
+  "decision": "KEEP fixed mixed-noise reference",
+  "causal_improvement": false,
+  "neural_economics": false,
+  "classical_economics": true
+}
+Native analysis, full source/runtime preservation, maintenance freeze: completed

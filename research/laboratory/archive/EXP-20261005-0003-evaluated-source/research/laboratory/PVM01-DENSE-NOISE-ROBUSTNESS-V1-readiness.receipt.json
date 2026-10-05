@@ -1,0 +1,26 @@
+{
+  "classical_economic_contract_sha256": "3d81817d5e1627bd16f5c12e9fbade1d0721431a09337c6a99888d2f1da57d64",
+  "created_at": "2026-10-05T04:38:15Z",
+  "evaluator_sha256": "306967ca6340f3d670665c8b00505cd6627214b2cefd30de55b6f58288a4566c",
+  "fresh_final_executed": false,
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1198
+  },
+  "full_regression_receipt_sha256": "e5216c26b883cc81d3a38c891e9977ce5049eb51bf64422235acab1a0a111f3b",
+  "history_source_receipt_sha256": "1e8176b3ac7c9270e9e248de6bf5d5f1a77312f44636a99a2b310ff637ade332",
+  "id": "PVM01-DENSE-NOISE-ROBUSTNESS-V1-readiness",
+  "independent_clone_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "new_private_seed_data_fit_EXP_before_readiness": false,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "preregistration_git_commit": "e2342788c37e9bcb7d80db9331e9c2e825c695cf",
+  "protected_files": 1275,
+  "ready_for_exactly_one_audited_registration": true,
+  "shared_runtime_not_source_or_state": true,
+  "study_path": "research/plans/PVM01-DENSE-NOISE-ROBUSTNESS-V1.json",
+  "study_sha256": "8e5be712a03769f9e4705df9848494895b8da77a80785d256fbd2b6b107e46ee",
+  "validated_source_git_commit": "60bfdc8a0c409a43617abb2176cc5cd69be5773a",
+  "whole_program_complete": false
+}

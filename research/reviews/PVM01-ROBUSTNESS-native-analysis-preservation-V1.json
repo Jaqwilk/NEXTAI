@@ -1,0 +1,30 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_robustness_post_v1.py"
+  ],
+  "created_at": "2026-10-05T05:04:42Z",
+  "error": null,
+  "id": "PVM01-ROBUSTNESS-native-analysis-preservation-V1",
+  "raw_outputs": {
+    "PVM01-ROBUSTNESS-native-analysis-preservation-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-ROBUSTNESS-native-analysis-preservation-V1.stdout.txt": "7ee2e7c6796a7aec27fbb23ab9639dac51529f475a9536e709f67b39c07f502d"
+  },
+  "result": {
+    "elapsed_seconds": 8.51856540000881,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1135611904,
+    "pid": 31520,
+    "processes_created": 7,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 21,
+  "wall_seconds": 15.773758700001054
+}

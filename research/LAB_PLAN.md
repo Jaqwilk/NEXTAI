@@ -1,3 +1,18 @@
+# Completed cycle314 — paired training-noise intervention EXP-20261005-0003
+
+Workers 85, complete 85, trials 1530; five NEW paired units; valid=True.
+Reference decision: KEEP fixed mixed-noise reference; causal false-abstention improvement=False.
+Neural economic qualification=False; selected classical qualification=True.
+Both original/mixed references show0% known false abstention; previous weak unit did not recur.
+Adequacy is established within frozen margins; augmentation benefit is not established.
+All frozen metrics,thresholds,cost gates and failed/partial outcomes remain preserved.
+Analysis: research/analyses/EXP-20261005-0003.md; exact unit/gate diagnosis: research/reviews/EXP-20261005-0003-reference-noise-diagnosis-V1.json.
+Current v8 is maintenance,scoring=false; finite A stays active, B authorized/unspent/inactive.
+Next bounded question (prospective only): Independent unchanged-recipe confirmation of selected mixed-noise reference and ridge/PCA-scan, five NEW paired units, all3K,bothnoise,updates0/1/4,strongcontrols and exact frozen metrics/caps. If confirmed, separately preregister a fresh five-pair final.
+No next implementation/data/fit/EXP in cycle314. Reserve final/replication; no paid-plan retry,
+WT8-9,external models/APIs or schedule changes. Expanded transfer/prototype goal remains open.
+Previous sections below are preserved history.
+
 # Prospective cycle314 — dense training-noise robustness
 
 PVM01-DENSE-NOISE-ROBUSTNESS-V1 frozen before implementation/new data.

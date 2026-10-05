@@ -1,0 +1,29 @@
+{
+  "bounded_additional_footprint": 570593788,
+  "commands": [
+    {
+      "label": "good",
+      "outputs": {
+        "PVM01-ROBUSTNESS-publication-good-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-ROBUSTNESS-publication-good-V1.stdout.txt": "782cb55d018b1312c1d23a3187b9a7eeef94b370d6a9da4d60faafcf56ffadbe"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "bad-existing",
+      "outputs": {
+        "PVM01-ROBUSTNESS-publication-bad-existing-V1.stderr.txt": "9312ff146ba776a9b358f75c4731c19cdd90c78d0f51041de635423e4cbe9fb2",
+        "PVM01-ROBUSTNESS-publication-bad-existing-V1.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "returncode": 1
+    }
+  ],
+  "created_at": "2026-10-05T05:05:40Z",
+  "existing_record_never_overwritten": true,
+  "free_space_after": 30670491648,
+  "free_space_before": 30907445248,
+  "lossless_restoration_exact": true,
+  "native_hash": "322f41a172a476b6c259c667cb803968d05912138d3f85ef60d2b24a3aa4dc43",
+  "new_fit_seed_scoring": false,
+  "wall_seconds": 3.2852045000036014
+}

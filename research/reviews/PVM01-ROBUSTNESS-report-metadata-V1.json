@@ -1,0 +1,30 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_robustness_report_metadata_v1.py"
+  ],
+  "created_at": "2026-10-05T05:08:53Z",
+  "error": null,
+  "id": "PVM01-ROBUSTNESS-report-metadata-V1",
+  "raw_outputs": {
+    "PVM01-ROBUSTNESS-report-metadata-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-ROBUSTNESS-report-metadata-V1.stdout.txt": "c1f9e3d970401c4afb61ffc2f4e948207830b6d5edcc49d6b2a4df7ae8c116b2"
+  },
+  "result": {
+    "elapsed_seconds": 53.20097330000135,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1378095104,
+    "pid": 24200,
+    "processes_created": 7,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 66,
+  "wall_seconds": 60.555561000001035
+}

@@ -1,0 +1,30 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_robustness_history_postrun_v1.py"
+  ],
+  "created_at": "2026-10-05T05:10:19Z",
+  "error": null,
+  "id": "PVM01-ROBUSTNESS-history-clone-postrun-V1",
+  "raw_outputs": {
+    "PVM01-ROBUSTNESS-history-clone-postrun-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-ROBUSTNESS-history-clone-postrun-V1.stdout.txt": "bdb178dc477e999f6f0403d21a441da35540a548a9198b704f7b43933f5cf92e"
+  },
+  "result": {
+    "elapsed_seconds": 14.330088299990166,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 74047488,
+    "pid": 27508,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 27,
+  "wall_seconds": 21.645662400012952
+}
