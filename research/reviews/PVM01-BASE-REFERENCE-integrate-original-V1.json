@@ -1,0 +1,30 @@
+{
+  "cap": 300,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_base_reference_integrate_v1.py"
+  ],
+  "created_at": "2026-10-05T08:46:40Z",
+  "error": null,
+  "id": "PVM01-BASE-REFERENCE-integrate-original-V1",
+  "raw_outputs": {
+    "PVM01-BASE-REFERENCE-integrate-original-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-BASE-REFERENCE-integrate-original-V1.stdout.txt": "cc38d50d10cc8299114a232fd2f8cdb64c8bf52aa48320eda1b995d541d1830c"
+  },
+  "result": {
+    "elapsed_seconds": 110.63031700000283,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1081143296,
+    "pid": 22544,
+    "processes_created": 76,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 127,
+  "wall_seconds": 121.21315470000263
+}

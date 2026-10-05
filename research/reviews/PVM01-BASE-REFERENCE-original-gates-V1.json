@@ -1,0 +1,82 @@
+{
+  "all_five_native_hashes_verified": true,
+  "commands": [
+    {
+      "label": "restore-old",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-restore-old-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-restore-old-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-new",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-restore-new-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-restore-new-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-dense-noise",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-restore-dense-noise-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-restore-dense-noise-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-confirmation",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-restore-confirmation-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-restore-confirmation-V1.stdout.txt": "1bb353d78d8eb8a83688ff67baefcf64a73f6548c7dc9f4c4903350a9e814e88"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-base-reference",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-restore-base-reference-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-restore-base-reference-V1.stdout.txt": "fc7366309baadbd4d6a4ff4648f21f7ce3fb2efaadbf8cf0b117b6dc377319b4"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "history",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-history-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-history-V1.stdout.txt": "f883e1465287b461f165c8c57d4ad32f1135d684e8e958d701256b7f2dbf4937"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "frozen-reanalysis",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-frozen-reanalysis-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-frozen-reanalysis-V1.stdout.txt": "a26aa3b4faa268d4ee001dcb8763aac4572ed4eab889153ca05206d29bd1b6e6"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "doctor",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-doctor-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-doctor-V1.stdout.txt": "1d83c5bcf282ee3df57df91fc95dd6ab18d0b4f2089e5b8e71ee920a26317473"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "lab",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-original-lab-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-original-lab-V1.stdout.txt": "994c513c32aecbde263b13143a614f515e54041c4b65ffe731347b4dd4ab039d"
+      },
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-05T08:52:49Z",
+  "history_integrity_preflight_doctor_lab": true,
+  "no_new_seed_data_model_fit_scoring": true,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "source_revision": "26cbec8c4e33ba956fbb4d1686c88e9f28b74770"
+}

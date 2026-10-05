@@ -1,0 +1,30 @@
+{
+  "cap": 650,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_base_reference_original_check_v1.py"
+  ],
+  "created_at": "2026-10-05T08:53:10Z",
+  "error": null,
+  "id": "PVM01-BASE-REFERENCE-original-closure-V1",
+  "raw_outputs": {
+    "PVM01-BASE-REFERENCE-original-closure-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-BASE-REFERENCE-original-closure-V1.stdout.txt": "32a64eba63d2d652fa82f0a1f840b202b45656aec11c6138a4f07fd973179426"
+  },
+  "result": {
+    "elapsed_seconds": 324.0083711000043,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 3785641984,
+    "pid": 12032,
+    "processes_created": 349,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 340,
+  "wall_seconds": 334.53755019999517
+}
