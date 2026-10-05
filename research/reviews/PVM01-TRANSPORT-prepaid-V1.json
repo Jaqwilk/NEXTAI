@@ -1,0 +1,30 @@
+{
+  "cap": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_transport_prepaid.py"
+  ],
+  "created_at": "2026-10-05T00:52:16Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-prepaid-V1",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-prepaid-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-TRANSPORT-prepaid-V1.stdout.txt": "6791443f727262089b5c904df4c4d74f1fa442bbdea3d0d5f5bb9843f748cdfb"
+  },
+  "result": {
+    "elapsed_seconds": 170.43591800000286,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1552465920,
+    "pid": 34564,
+    "processes_created": 466,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 179,
+  "wall_seconds": 173.59353569999803
+}

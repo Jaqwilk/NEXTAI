@@ -1,0 +1,23 @@
+{
+  "all70_semantic_source_records_and_schema": true,
+  "can_create_plan": true,
+  "commands": [
+    {
+      "label": "doctor",
+      "returncode": 0
+    },
+    {
+      "label": "lab",
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-05T00:52:09Z",
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1137
+  },
+  "new_private_seed_data_fit_registration": false,
+  "readiness_integrity_preflight": true
+}
