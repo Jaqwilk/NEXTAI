@@ -1,3 +1,18 @@
+# Current cycle325 — complete ASM01 screen grammar inventory (2026-10-05)
+
+ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V1 is preparation only.
+Deadline2026-10-06T01:37:00Z;auxiliary1800s includes startup,failure/admin costs.
+Exactly1830 fixed screen text files;75 prior raw exposures/74 conversions disclosed.
+Inventory every lexical row and categorical lifecycle; redact names/X/Y/unknown tokens.
+No numeric coordinates,parser/model/descriptor,repair,fit,EXP,new extraction/download.
+Future writers6..15/21..30 and Data_Table remain inaccessible.
+Freeze a concrete separate repair before future code; preserve all V1/V2/V3 failures.
+Scientific comparison remains INCONCLUSIVE; maintenance/scoring=false.
+B/full goal active; protected7tickets/47000s and every scientific gate unchanged.
+No paid retry,WT8-9,external models/API or schedule change.
+
+Earlier stage-specific sections below remain preserved history.
+
 # Current cycle324 — ASM01 V3 native intake invalidity (2026-10-05)
 
 The scientific V3 study was frozen before implementation and remaining data.

@@ -1,0 +1,8 @@
+{
+  "cap_seconds": 300,
+  "conservative_prepaid": true,
+  "created_at": "2026-10-05T23:49:02Z",
+  "id": "NEXTAI-B-325-administration-prepaid",
+  "scope": "Required reads including unsuccessful administrative path/glob/blank-JSON reads, syntax and contract construction, metadata archives, settled mirrors/report and Git. No native inventory, parser/model call or fixture fit; substantive checks charged separately.",
+  "seconds_charged": 300
+}

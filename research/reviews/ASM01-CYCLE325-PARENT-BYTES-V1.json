@@ -1,0 +1,15 @@
+{
+  "all_current_protected_files": 1446,
+  "archive_path": "research/laboratory/archive/ASM01-cycle325-parent-V1",
+  "created_at": "2026-10-05T23:49:02Z",
+  "files": {
+    "AGENTS.md": "9b05da140645e57473dcc27ab14a2f4c457e030423a410477818829474631a02",
+    "config/research.toml": "3992f0c3999fe558295299200920af4c2f18112b17f3d8af2c9c847344b3b50c",
+    "docs/CURRENT_STATUS.md": "a6eb39c374f002a94fbe3c8231dd0ab1359444f46ab5205e37e01e38166a6cfa",
+    "program.md": "d7213d12c8fdb6709e097522a06c59a8986f376b48207c0c88672cb6a51b2200",
+    "research/LAB_PLAN.md": "b46b9fcfc8fcb444fde68ee5188ba43b95c3bb2a779bcd5cb5b29f7c23ff23f0",
+    "research/eval_manifest.json": "f2b82374d7e6367cd86b441b09790a9629dd4361e58297745e495ad81419551e",
+    "research/laboratory/preflight_certificate.json": "f3795efac87266fa2e5689b6658561b05317858eb2ecbf6aa8e0ce36b359780d",
+    "research/state.json": "1784cdcfad4782f24e9f327900c246edc71e32d1f37192f0230aabf017f44937"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "B_seconds_after_prepaid": 16584.55024020007,
+  "clarification": "The descriptive budget_at_freeze object was sampled after startup but before the300-second prepaid administration. Its label is imprecise; the append-only ledger and receipts are authoritative. The immutable1800-second cycle cap includes all startup and administration; protected7tickets/47000seconds, scientific gates and zero-fit/registration scope are unchanged.",
+  "created_at": "2026-10-05T23:50:02Z",
+  "prepaid_seconds": 300,
+  "scientific_or_resource_rule_changed": false,
+  "snapshot_before_prepaid_B_seconds": 16284.550240200071,
+  "study_path": "research/plans/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V1.json",
+  "study_sha256": "2f01c210d0e1ea1d067106188a39660246e59e71d56a2528dfaa52b35bb9c683"
+}
