@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-10-05T11:04:07Z",
+  "cycle": 318,
+  "error": null,
+  "parent_revision": "a3d2e86e20dcdd30411e9cc435cce00be93942d7",
+  "previous_goal_turn": "progress: completed audited fresh final, restoration, charging and atomic publication",
+  "raw_outputs": {
+    "research/reviews/NEXTAI-B-startup-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-B-startup-V1.stdout.txt": "3c102f96fce92afd82b533e7f7f33c7f348c963bc0502831258aa6802ed5919c",
+    "research/reviews/NEXTAI-B-startup-doctor-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-B-startup-doctor-V1.stdout.txt": "27d120f26d8545cde7ad0b053fbc83ea0ddf9577f5b2e3af4894aea88e8cd82a",
+    "research/reviews/NEXTAI-B-startup-lab-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-B-startup-lab-V1.stdout.txt": "072d0a728987c5b795a4887a704b6b61d3fcaa39589d3dc7e4a346fd6a8218da"
+  },
+  "registration_data_model_fit_scoring": false,
+  "reserved_cap_seconds": 650,
+  "result": {
+    "elapsed_seconds": 328.2826908999996,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4180680704,
+    "pid": 36032,
+    "processes_created": 316,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 346,
+  "wall_seconds": 340.3702916999755
+}

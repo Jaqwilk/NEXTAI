@@ -1,0 +1,77 @@
+{
+  "B_contract_shape_frozen": {
+    "compute_seconds_cap": 72000,
+    "deliverables": "two independently sourced task families,at least one licensed real public family,source-state information-transfer controls,three scales,five paired units,independent replication and frozen fresh finals,one evidence-selected minimal local fact/source/update/UNKNOWN prototype",
+    "economic_gates": "all unchanged A economic gates copied exactly; native-task competence and causal transfer endpoints require separate prospective study before data/code",
+    "program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+    "protected_allocations": {
+      "frozen_fresh_final": {
+        "attempts": 3,
+        "seconds_per_attempt": 8000
+      },
+      "independent_replication": {
+        "attempts": 3,
+        "seconds_per_attempt": 6000
+      },
+      "prototype_evaluation": {
+        "attempts": 1,
+        "seconds_per_attempt": 5000
+      }
+    },
+    "registration_attempts_cap": 12,
+    "stages": {
+      "frozen_fresh_final": 3,
+      "independent_replication": 3,
+      "prototype_evaluation": 1,
+      "repair_reserve": 1,
+      "task_design": 0,
+      "transfer_family_1_screen": 2,
+      "transfer_family_2_screen": 2
+    },
+    "unspent_A_credit_added": false
+  },
+  "cohort": "paired_view_mutable_memory_v11",
+  "created_at": "2026-10-05T11:06:55Z",
+  "cycle": 318,
+  "decision_rule": "KEEP technical B activation only if original doctor/lab,clone regression,immutable A accounting,negative guard fixtures,maintenance integrity/preflight and original validation pass. Scientific A decisions remain exact local neural alignment KEEP,neural economic qualification DISCARD,classical ridge/PCA local final KEEP. Transfer/prototype unexecuted;whole goal active.",
+  "forbidden": [
+    "new EXP",
+    "scored result",
+    "research fit",
+    "source fit replay",
+    "new target arrays or data download",
+    "WT8-9",
+    "external models/APIs",
+    "schedule changes",
+    "completed scientific artifact changes",
+    "paid-plan retry"
+  ],
+  "id": "NEXTAI-A-CLOSURE-B-PREPARATION-V1",
+  "implementation_scope": [
+    "Extend only existing hash-bound research authority for approved B12/72000 after exact closed A accounting, preserving legacy status and global paid-run/no-retry semantics",
+    "Bind completed A documents and native outcomes, filtered program events, counts, consumed tests/failures, zero unresolved reservations and closure receipt; do not add unused A credit to B",
+    "Enforce current-program ticket numbering and prospective 7 tickets/47000 seconds protected for three independent replications,three fresh finals and one prototype evaluation; release only consumed protected-stage slots",
+    "Meaningful positive/negative fixtures for authority,carry-forward,tampering,failed and final paid tickets,pending reservations,stage caps,no-scoring and protected budgets",
+    "Archive old manifest/preflight and only changed harness source; preserve old science,candidates,plans,results,raw sources and append-only ledger prefixes",
+    "Use existing outcome/fit-state records for source provenance; metadata-only primary-source/licence/task feasibility review; no target data content,generator,model,new fit,EXP or scoring this cycle"
+  ],
+  "program_contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+  "program_contract_sha256": "a55f190fd42631e2651a8d4ab3e61f2200d16d1e8afb2d71aa4edcbea6ba269a",
+  "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+  "question": "Close A at its verified fresh-final resolution without erasing unused or consumed scope, then activate only explicitly authorized B with immutable cumulative accounting and protected replication/final/prototype budgets. Design independent native transfer tasks before implementation or acquisition.",
+  "registration_attempts_for_this_study_cap": 0,
+  "resources": {
+    "A_post_closure_administration_prepaid_seconds_cap": 450,
+    "auxiliary_test_seconds_cap": 4800,
+    "fit_seconds_per_role_cap": 0,
+    "fit_seconds_study_cap": 0,
+    "startup_reservation_cap": 650,
+    "startup_seconds_already_charged": 346,
+    "work_minutes_cap": 240
+  },
+  "schema_version": 1,
+  "stage": "diagnosis_and_task",
+  "study_deadline_at": "2026-10-05T14:52:01Z",
+  "study_kind": "preparation_only",
+  "study_started_at": "2026-10-05T10:52:01Z"
+}
