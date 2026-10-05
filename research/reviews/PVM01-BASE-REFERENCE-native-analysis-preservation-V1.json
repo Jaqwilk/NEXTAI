@@ -1,0 +1,30 @@
+{
+  "cap": 220,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_base_reference_post_v1.py"
+  ],
+  "created_at": "2026-10-05T08:38:30Z",
+  "error": null,
+  "id": "PVM01-BASE-REFERENCE-native-analysis-preservation-V1",
+  "raw_outputs": {
+    "PVM01-BASE-REFERENCE-native-analysis-preservation-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-BASE-REFERENCE-native-analysis-preservation-V1.stdout.txt": "1ac64e99acbad8922224e02877c181cff7a7a0b9f7430dad614d90889aadd0b9"
+  },
+  "result": {
+    "elapsed_seconds": 10.312839200007147,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1535406080,
+    "pid": 33384,
+    "processes_created": 7,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 26,
+  "wall_seconds": 20.69356109999353
+}

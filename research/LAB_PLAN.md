@@ -1,3 +1,17 @@
+# Completed cycle316 - independent confirmation EXP-20261005-0005
+
+Five NEW paired units,17 fixed arms; valid=True.
+Main UN-AUGMENTED reference confirmed=True; selected classical route confirmed=True.
+Decision: KEEP exact selected route for separately frozen fresh final. No promotion,transfer or augmentation-benefit claim from adequacy.
+Ancillary mixed-reference NI remains separately reported with unchanged gates.
+All107 scientific source bytes,recipes,data law,metrics,grids and thresholds unchanged.
+Trusted cumulative CUDA allocator peaks,RSS,full fit/service and descriptive reuse costs reported.
+Analysis:research/analyses/EXP-20261005-0005.md; full frozen machine analysis/diagnosis preserved.
+Current v10 maintenance,scoring=false; A active,B authorized/unspent/inactive.
+Next prospective question: Preregister a separately frozen fresh-final five-pair comparison of exact ridge/PCA-scan against the UN-AUGMENTED dense_cached_cpu reference,all17 arms,three scales,both noises,updates0/1/4,strong controls and unchanged scientific thresholds. Exclude ALL prior selecting/replication/confirmation train/dev units,seeds,nonces and weights. Validate in clone,freeze/preflight/readiness before fresh arrays and exactly one audited EXP in a NEW cycle. Keep the ancillary mixed NI assay distinct. Use the remaining final-stage ticket and at least24000s reserved; no promotion from this cohort.
+No second EXP this cycle; no retry,WT8-9,external models/APIs or schedule change.
+Expanded final/transfer/prototype goal remains open. Previous sections preserved history.
+
 # Prospective cycle316 - distinct unaugmented-reference confirmation
 
 PVM01-BASE-REFERENCE-CONFIRMATION-V1 frozen before implementation/new data.

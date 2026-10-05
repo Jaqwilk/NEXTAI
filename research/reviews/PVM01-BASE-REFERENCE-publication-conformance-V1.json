@@ -1,0 +1,37 @@
+{
+  "bounded_additional_footprint": 571012585,
+  "commands": [
+    {
+      "label": "good",
+      "outputs": {
+        "PVM01-BASE-REFERENCE-publication-good-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-publication-good-V1.stdout.txt": "9531333e156dcf5eb0cf0deaf61db1eb7237dbde943e179bbca12b217a7f12aa"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "bad-existing",
+      "outputs": {
+        "PVM01-BASE-REFERENCE-publication-bad-existing-V1.stderr.txt": "1a52df321ac3edcc419ea141de7d5c7936d7aecec2bdf899ba762e9685dc430b",
+        "PVM01-BASE-REFERENCE-publication-bad-existing-V1.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "returncode": 1
+    },
+    {
+      "label": "bad-resource-existing",
+      "outputs": {
+        "PVM01-BASE-REFERENCE-publication-bad-resource-existing-V1.stderr.txt": "6e99cba0b40913ab8d16b39d2c215daf862fe4d05b77bea6befa7e8d2b2b56fd",
+        "PVM01-BASE-REFERENCE-publication-bad-resource-existing-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 1
+    }
+  ],
+  "created_at": "2026-10-05T08:39:23Z",
+  "existing_record_never_overwritten": true,
+  "free_space_after": 23417630720,
+  "free_space_before": 23846625280,
+  "lossless_restoration_exact": true,
+  "native_hash": "60c771762b1c528a4227eed931098d1d9704cb00860e5647040859fab95aeeaa",
+  "new_fit_seed_scoring": false,
+  "wall_seconds": 8.383772000001045
+}

@@ -1,0 +1,30 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_base_reference_report_metadata_v1.py"
+  ],
+  "created_at": "2026-10-05T08:42:08Z",
+  "error": null,
+  "id": "PVM01-BASE-REFERENCE-report-metadata-V1",
+  "raw_outputs": {
+    "PVM01-BASE-REFERENCE-report-metadata-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-BASE-REFERENCE-report-metadata-V1.stdout.txt": "3b2688955863dc1efe53e217aa41d570f2e89755860990aa2262d87203977fb6"
+  },
+  "result": {
+    "elapsed_seconds": 72.37935289999587,
+    "exit_job_active_process_count": 1,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1137950720,
+    "pid": 29620,
+    "processes_created": 7,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 88,
+  "wall_seconds": 82.82522859999153
+}

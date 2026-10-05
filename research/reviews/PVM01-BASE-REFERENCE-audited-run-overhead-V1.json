@@ -1,0 +1,68 @@
+{
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "program",
+        "register"
+      ],
+      "label": "register",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-EXP-20261005-0005-register-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-EXP-20261005-0005-register-V1.stdout.txt": "9fe66753fac4309b0db1d444890aea3e2a50485753173d4f2078e9dd7be2f48f"
+      },
+      "result": {
+        "elapsed_seconds": 95.53253890000633,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 3349590016,
+        "pid": 36532,
+        "processes_created": 157,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "run",
+        "--plan",
+        "research/plans/EXP-20261005-0005.json"
+      ],
+      "label": "run",
+      "raw_outputs": {
+        "PVM01-BASE-REFERENCE-EXP-20261005-0005-run-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-BASE-REFERENCE-EXP-20261005-0005-run-V1.stdout.txt": "99eb9236d665e07f15312b8087821ab5ca97384abc5d2f047560e59f2a6f4446"
+      },
+      "result": {
+        "elapsed_seconds": 1075.3554353000072,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 3348398080,
+        "pid": 11420,
+        "processes_created": 418,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    }
+  ],
+  "controller_overhead_seconds": 355.7275755999872,
+  "created_at": "2026-10-05T08:37:14Z",
+  "error": null,
+  "experiment_id": "EXP-20261005-0005",
+  "id": "PVM01-BASE-REFERENCE-audited-run-overhead-V1",
+  "no_retry": true,
+  "overhead_seconds_charged_conservatively": 366,
+  "prepared_source_git_commit": "6db1effc2a3ce86d9403a4d4766f42355e4a08a1",
+  "study_sha256": "f743b9c6536d68e32cfe73d1154380bb1f6afb6c3e415c55669e516e25b8c5ec",
+  "wall_seconds": 1239.797568599999,
+  "worker_full_wall_seconds_already_charged": 884.0699930000119
+}

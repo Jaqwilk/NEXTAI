@@ -1,0 +1,37 @@
+{
+  "cpu_boundary": "Root-worker RSS snapshots; parent sampled process-tree peak reported separately",
+  "gpu_boundary": "Cumulative PyTorch allocator/reservation peaks since worker start; driver/context VRAM and energy unmeasured",
+  "schema_version": 1,
+  "snapshots": [
+    {
+      "cuda_available": true,
+      "cuda_peak_allocated_bytes": 0,
+      "cuda_peak_reserved_bytes": 0,
+      "phase": "initializing",
+      "process_rss_bytes": 491057152
+    },
+    {
+      "cuda_available": true,
+      "cuda_peak_allocated_bytes": 0,
+      "cuda_peak_reserved_bytes": 0,
+      "phase": "fit",
+      "process_rss_bytes": 491843584
+    },
+    {
+      "cuda_available": true,
+      "cuda_peak_allocated_bytes": 80080896,
+      "cuda_peak_reserved_bytes": 98566144,
+      "phase": "evaluation",
+      "process_rss_bytes": 1321439232
+    },
+    {
+      "cuda_available": true,
+      "cuda_peak_allocated_bytes": 80080896,
+      "cuda_peak_reserved_bytes": 98566144,
+      "phase": "complete",
+      "process_rss_bytes": 1330065408
+    }
+  ],
+  "timed_service_modified": false,
+  "version": "cumulative_cuda_phase_peaks_v1"
+}

@@ -1,0 +1,21 @@
+{
+  "additional_budget": 0,
+  "created_at": "2026-10-04T16:19:58Z",
+  "deadline_at": "2026-10-04T18:42:57.664034Z",
+  "future_checkout": "The recovery subtree contains no active .gitattributes file; parent archive/** -text applies.",
+  "id": "PVM01-ARCHIVE-RAW-BYTES-ADDENDUM-V1",
+  "implementation": "Append a complete raw byte archive, rename only the archive representation of .gitattributes to .gitattributes.raw so it cannot act as an attributes file, and record original-to-archive path mapping. Never mutate the source evidence, completed results or original preservation receipts. Verify every archived raw SHA256 and corresponding committed Git blob.",
+  "kind": "no_scoring_maintenance",
+  "observation": "First source archive working-tree hashes are intact, but nested archived .gitattributes applies conversions while staging. The first failed verification and commit remain preserved.",
+  "parent_plan": "research/plans/PVM01-PATH-BINDING-REPAIR-V1.json",
+  "parent_sha256": "bf95d40c896f30221f72503c6e6e5a6189905ff19d952258ef86c8e963c82f35",
+  "registration_cap": 0,
+  "research_fit_cap_seconds": 0,
+  "schema_version": 1,
+  "tests": [
+    "All 1053 source bytes match the original raw preservation map.",
+    "All 46 runtime bytes remain exact.",
+    "Every recovery Git blob matches its raw working-tree bytes.",
+    "Original failed archive commit and failed test receipt remain reachable."
+  ]
+}
