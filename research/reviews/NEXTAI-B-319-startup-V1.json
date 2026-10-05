@@ -1,0 +1,25 @@
+{
+  "cap_seconds": 650,
+  "conservative_accounting_allowance_seconds": 20,
+  "created_at": "2026-10-05T13:21:17Z",
+  "error": null,
+  "id": "NEXTAI-B-319-startup-V1",
+  "no_research_fit": true,
+  "raw_outputs": {
+    "NEXTAI-B-319-startup-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-319-startup-V1.stdout.txt": "1e4b0bf720307d3a7ff4892c3a0baaa349a819f95c83495375cfcedb7d094646"
+  },
+  "result": {
+    "elapsed_seconds": 345.4378324999998,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4163940352,
+    "pid": 2868,
+    "processes_created": 315,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 379,
+  "wall_seconds": 358.4363934000139
+}
