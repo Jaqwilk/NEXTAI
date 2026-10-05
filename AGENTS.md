@@ -1,3 +1,17 @@
+# Prospective cycle315 - independent selected-route confirmation
+
+PVM01-DENSE-NOISE-CONFIRMATION-V1 frozen before code/new data.
+Same17 arms,4096 pairs,2048/1024 steps,calibration,all metrics/grids/thresholds.
+Five NEW paired units,K32/128/512,updates0/1/4,noise.02/.04; no old-unit pooling.
+Add trusted cumulative CUDA allocator phase snapshots and descriptive fit/reuse costs;
+energy and total driver/context VRAM remain unmeasured. Timed service unchanged.
+Full workers20400s,aux3600s including startup and240s prepaid bookkeeping.
+Deadline2026-10-05T09:26:48Z; reserve20800s and1 future final registration.
+Maintenance/scoring=false until clone conformance,freeze/preflight/readiness.
+Exactly one audited EXP,no retry,WT8-9,external models/APIs or schedule change.
+A active,B authorized/unspent/inactive; transfer/prototype goal remains open.
+Previous sections are preserved history.
+
 # Completed cycle314 — paired training-noise intervention EXP-20261005-0003
 
 Workers 85, complete 85, trials 1530; five NEW paired units; valid=True.

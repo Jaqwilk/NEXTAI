@@ -48,3 +48,6 @@ research/reviews/PVM01-TRANSPORT-*/** -text
 
 # Preserve native byte hashes of this bounded study's JUnit/check records.
 research/checks/PVM01-ROBUSTNESS-* -text
+
+# Preserve native byte hashes of independent confirmation check records.
+research/checks/PVM01-CONFIRMATION-* -text
