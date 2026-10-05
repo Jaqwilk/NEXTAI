@@ -1,0 +1,17 @@
+{
+  "D_samples_opened": 0,
+  "complete": false,
+  "created_at": "2026-10-05T21:09:44Z",
+  "error": "ValueError: Pen-up supplied state/stroke",
+  "fit": 0,
+  "native_array_returned": false,
+  "new_extraction": false,
+  "new_samples_opened": 0,
+  "partial_numeric_conversion_count": "not instrumented; authorized T1 only",
+  "preserved_original_parser_error": "Native point grammar",
+  "samples_opened": 1,
+  "scoring": false,
+  "single_already_exposed_training_sample": "research/data/asm01_native_v1/screen-text-v2/Online Handwritten Assamese Characters Dataset/W1/1.1.TXT",
+  "source_commit": "834f3fca3c7ae741e6bac925105280a230869848",
+  "study_sha256": "2e33af01acf0fee203275a84f434279de6c5f098a6ee2178bc87fd994b7ea217"
+}
