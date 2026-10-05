@@ -91,8 +91,7 @@ def test_degenerate_geometry_is_rejected():
         parse_native_sample(("\n".join(rows) + "\n").encode("ascii"))
 
 
-@pytest.mark.parametrize("payload", [None, bytearray(b"x"), header_sample() + b" " * 262144],
-                         ids=["none", "bytearray", "oversize-before-strip"])
+@pytest.mark.parametrize("payload", [None, bytearray(b"x"), header_sample() + b" " * 262144])
 def test_original_byte_cap_and_type_precede_header_removal(payload):
     with pytest.raises(ValueError, match="Native sample byte cap/type"):
         parse_native_sample(payload)

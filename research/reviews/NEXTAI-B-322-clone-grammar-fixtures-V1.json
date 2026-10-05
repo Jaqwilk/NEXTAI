@@ -1,0 +1,39 @@
+{
+  "cap_seconds": 150,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "tests/test_asm01_native_grammar_v3.py",
+    "-q",
+    "--basetemp",
+    "research/tmp/ASM01-grammar-fixtures-cycle322-V1",
+    "--junitxml",
+    "research/reviews/NEXTAI-B-322-clone-grammar-fixtures-V1.xml"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T21:02:41Z",
+  "error": null,
+  "id": "NEXTAI-B-322-clone-grammar-fixtures-V1",
+  "raw_outputs": {
+    "NEXTAI-B-322-clone-grammar-fixtures-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-322-clone-grammar-fixtures-V1.stdout.txt": "863ae638a76e1dcbec4b680ecbbf4cdd3263c4e5c3e978073226a2f91d3c8c58"
+  },
+  "result": {
+    "elapsed_seconds": 0.6061058999912348,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 88645632,
+    "pid": 38012,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 55,
+  "wall_seconds": 14.331585799984168,
+  "whole_process_tree_bounded": true
+}
