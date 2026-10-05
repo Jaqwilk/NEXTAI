@@ -1,0 +1,127 @@
+{
+  "D_samples_opened": 0,
+  "categorical_serial_consistent": false,
+  "character_names_emitted_or_used_as_keys": false,
+  "column_header_positions": [
+    2
+  ],
+  "complete_row_inventory": true,
+  "coordinate_values_converted_or_emitted": false,
+  "created_at": "2026-10-05T21:53:05Z",
+  "cycle": 323,
+  "declared_strokes": 3,
+  "diagnosis_script_sha256": "9490f0ce4ba965d47bd9b641f17685f488028cff97455dc36359366202affd5a",
+  "fit": 0,
+  "id": "ASM01-SERIALIZER-STRUCTURE-DIAGNOSIS-V1",
+  "known_T1_samples_opened": 1,
+  "marker_rows": [
+    {
+      "extra_kinds": [],
+      "extra_token_count": 0,
+      "marker": "PEN_DOWN",
+      "nonempty_line_index": 3,
+      "tab_field_kinds": [
+        "text_redacted"
+      ],
+      "trailing_state_serial_tokens": []
+    },
+    {
+      "extra_kinds": [
+        "unsigned_integer"
+      ],
+      "extra_token_count": 1,
+      "marker": "PEN_UP",
+      "nonempty_line_index": 94,
+      "tab_field_kinds": [
+        "text_redacted"
+      ],
+      "trailing_state_serial_tokens": [
+        "0"
+      ]
+    },
+    {
+      "extra_kinds": [],
+      "extra_token_count": 0,
+      "marker": "PEN_DOWN",
+      "nonempty_line_index": 95,
+      "tab_field_kinds": [
+        "text_redacted"
+      ],
+      "trailing_state_serial_tokens": []
+    },
+    {
+      "extra_kinds": [
+        "unsigned_integer"
+      ],
+      "extra_token_count": 1,
+      "marker": "PEN_UP",
+      "nonempty_line_index": 206,
+      "tab_field_kinds": [
+        "text_redacted"
+      ],
+      "trailing_state_serial_tokens": [
+        "0"
+      ]
+    },
+    {
+      "extra_kinds": [],
+      "extra_token_count": 0,
+      "marker": "PEN_DOWN",
+      "nonempty_line_index": 207,
+      "tab_field_kinds": [
+        "text_redacted"
+      ],
+      "trailing_state_serial_tokens": []
+    },
+    {
+      "extra_kinds": [
+        "unsigned_integer"
+      ],
+      "extra_token_count": 1,
+      "marker": "PEN_UP",
+      "nonempty_line_index": 298,
+      "tab_field_kinds": [
+        "text_redacted"
+      ],
+      "trailing_state_serial_tokens": [
+        "0"
+      ]
+    }
+  ],
+  "native_parser_or_models_called": false,
+  "new_extraction": false,
+  "new_native_samples_opened": 0,
+  "nonempty_line_count": 300,
+  "observed_down_count": 3,
+  "pen_alternation_complete": true,
+  "point_array_or_descriptors_created": false,
+  "point_field_lexical_kind_counts": {
+    "unsigned_integer/unsigned_integer/unsigned_integer/unsigned_integer": 290
+  },
+  "point_serial_token_counts": {
+    "1": 90,
+    "2": 110,
+    "3": 90
+  },
+  "point_state_token_counts": {
+    "1": 290
+  },
+  "raw_line_count": 300,
+  "row_counts": {
+    "PEN_DOWN": 3,
+    "PEN_UP": 3,
+    "character_end": 1,
+    "character_header": 1,
+    "column_header": 1,
+    "point_row": 290,
+    "stroke_count": 1
+  },
+  "sample_bytes": 10644,
+  "sample_path": "research/data/asm01_native_v1/screen-text-v2/Online Handwritten Assamese Characters Dataset/W1/1.1.TXT",
+  "sample_sha256": "4c3e65ac49ff5ad55f521ab9f86b47dbaa55cfb5cd341d6d1d234ad1d4e9dfff",
+  "schema_version": 1,
+  "scoring": false,
+  "source_commit": "bebd5025f7351a84d8ff90a19f87728011d60e13",
+  "study_sha256": "8db10c6c2bd714994b86f4b83e88593ef7e90a3ab15014c258cb2e8e88a2f8ae",
+  "unknown_row_forms_redacted": {}
+}

@@ -1,0 +1,62 @@
+{
+  "created_at": "2026-10-05T21:55:53Z",
+  "cycle": 323,
+  "decision_rule": "KEEP narrowly for exact technical conformance only if all declared tests,T1 comparison and clone integrity/lifecycle pass. Native failure stops unstarted scope without another parser rescue in this cycle. No transfer/economic/quality or scoring readiness claim; new scientific cohort/intake still required.",
+  "diagnosis_interpretation": "All exposed T1 strokes end in PEN_UP followed only by0. V1 treats one trailing integer as a positive current stroke serial, causing the reproduced failure. The diagnosis categorical_serial_consistent=false combines that conservative old marker interpretation with point checks; it is not separate proof that point serials are wrong. No point/geometry law is changed.",
+  "diagnosis_path": "research/reviews/ASM01-SERIALIZER-STRUCTURE-DIAGNOSIS-V1.json",
+  "diagnosis_sha256": "15cb0a271203d648e5feb488c1afdcd7f44f6cda1329222834d6ef81871974ae",
+  "fixtures": [
+    "Single/multi-stroke native singleton0 closes, with whitespace variants; exact points and all3 descriptor arrays equal original explicit-serial legacy fixtures.",
+    "No-header old valid/error equivalence, old V3 header/singleton0 failure remains reproducible, headed old valid forms unchanged.",
+    "Duplicate/misplaced/malformed header, missing/repeated/early UP, wrong declared count, wrong point serial/state and XY bounds/type must fail.",
+    "Wrong/negative/decimal/extra marker flags, byte/type/ASCII caps and degenerate geometry remain strict; short pytest parameter IDs only.",
+    "All31 earlier V3 fixture cases pass without modification; new module does not replace any historical source."
+  ],
+  "id": "ASM01-SERIALIZER-METADATA-REPAIR-V1",
+  "immutable_source_sha256": {
+    "src/nextai_autoresearch/asm01_task.py": "858dd782f3823368435d0b490baee3e6633483907fcb861c58ca1da2246eaefd",
+    "src/nextai_autoresearch/asm01_task_v2.py": "32c6c9c9e1aa6069e35d5741b7a674ee33b71db25c9d3362e69f24bbfe4672c5",
+    "src/nextai_autoresearch/asm01_task_v3.py": "2419e5f101db1ac6708f6e817f33a77f31915e2e251412578c4ce3dd9907ff49",
+    "tests/test_asm01_native_grammar_v3.py": "e05ae3bc01c1509b05b3f0be545f2104d0890fa8f41ade4a043a3f82b5bcb34f"
+  },
+  "native_test": "Exactly one bounded numeric conversion of SHA-bound already-exposed T1 after fixture PASS, independent clone only. Verify point array against direct point-row extraction with within-stroke deduplication and per-stroke reset; compare all3 descriptors exactly. Emit only counts,shape,dtype and hashes, never coordinates or names. No model or fit.",
+  "native_validation": {
+    "already_exposed_training_sample": true,
+    "class_names_or_coordinate_values_in_outputs": false,
+    "expected_bytes": 10644,
+    "expected_sha256": "4c3e65ac49ff5ad55f521ab9f86b47dbaa55cfb5cd341d6d1d234ad1d4e9dfff",
+    "new_extraction": false,
+    "new_sample_access": false,
+    "numerical_conversion_authorized_for_this_sample_only": true,
+    "relative_path": "research/data/asm01_native_v1/screen-text-v2/Online Handwritten Assamese Characters Dataset/W1/1.1.TXT",
+    "root": "Independent NEXTAI-VALIDATION-20261002 checkout only"
+  },
+  "parent_study_path": "research/plans/ASM01-SERIALIZER-STRUCTURE-PREPARATION-V1.json",
+  "parent_study_sha256": "8db10c6c2bd714994b86f4b83e88593ef7e90a3ab15014c258cb2e8e88a2f8ae",
+  "question": "Does removing only the singleton0 annotation of explicit PEN_UP in a correctly headed publisher sample resolve T1 while preserving every V3 numeric, serial, lifecycle, descriptor and legacy rule?",
+  "recipe": {
+    "all_other_forms": "Preserve V3 meaning and outcome. In particular legacy PEN_UP/current-positive-serial and PEN_UP/0/current-positive-serial remain unchanged; negative, decimal, wrong or extra state/serial fields still reject under V3. No-header PEN_UP0 remains rejected, because no publisher header identifies the new format.",
+    "delegation": "Pass normalized bytes to exact V3. V3/V1 still enforce alternating pen lifecycle, declared stroke count, every point integer/bound/state1/current serial, deduplication,32768-point cap and all three view feasibility checks.",
+    "geometry_models_metrics_change": false,
+    "header_gate": "Normalize only when the exact X/Y/STYLUS_STATE/STROKE header occurs once at stripped nonempty index2. Otherwise delegate original bytes to exact V3, preserving legacy no-header success/failure and malformed/duplicate/misplaced-header rejection.",
+    "new_module": "src/nextai_autoresearch/asm01_task_v4.py",
+    "pre_normalization": "Original bytes type, ASCII decoding and262144-byte cap before any normalization.",
+    "sole_new_rule": "Only a stripped line with exact whitespace-separated tokens [PEN_UP,0] is replaced by PEN_UP. Interpret that explicit marker's singleton0 as publisher release-state annotation, not a stroke serial. Do not remove any other token or row."
+  },
+  "resources": "Same parent120min/2200s, including every startup/failure/test/admin; no extra allowance. Zero research fit/EXP/registration/new sample/download/extraction/NPZ/D/future access.",
+  "schema_version": 1,
+  "study_kind": "preparation_only",
+  "unchanged_gates": {
+    "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+    "known_false_abstention_max": 0.02,
+    "p95_ratio_upper_max": 0.9,
+    "paired_units_min": 5,
+    "protected_future_compute_seconds": 47000,
+    "protected_future_tickets": 7,
+    "quality_difference_simultaneous_lower_min": -0.02,
+    "reference_each_seed_accuracy_min": 0.9,
+    "reference_mean_accuracy_min": 0.95,
+    "strong_classical_non_domination_required": true,
+    "unknown_rejection_min": 0.95
+  }
+}

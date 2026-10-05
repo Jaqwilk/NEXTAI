@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 90,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/diagnose_asm01_serializer_structure.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T21:53:33Z",
+  "error": null,
+  "id": "NEXTAI-B-323-T1-structural-diagnosis-V1",
+  "raw_outputs": {
+    "NEXTAI-B-323-T1-structural-diagnosis-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-323-T1-structural-diagnosis-V1.stdout.txt": "0c706c58d9a218b17066f81d927c62a62bf208b338cfe93ec4ef507ebbce0432"
+  },
+  "result": {
+    "elapsed_seconds": 0.173563499993179,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 55681024,
+    "pid": 36716,
+    "processes_created": 6,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 54,
+  "wall_seconds": 13.907736499997554,
+  "whole_process_tree_bounded": true
+}
