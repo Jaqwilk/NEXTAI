@@ -1,3 +1,20 @@
+# Current cycle322 — prospective native grammar conformance (2026-10-05)
+
+ASM01-NATIVE-GRAMMAR-CONFORMANCE-V1 is a separate preparation-only contract.
+Deadline2026-10-05T22:08:28Z; auxiliary1800s including startup/failures/admin;
+zero research fit,EXP or registration. Keep maintenance/scoring=false.
+A versioned parser adapter accepts only the public four-column header after
+stroke count. Preserve exact V1/V2 source,all models/descriptors/gates.
+Test public positive/negative fixtures and only the already-exposed W1/1.1
+training sample in the independent clone; no new sample,extraction,D,future
+replication/final data or native NPZ. Native failure stops unstarted scope.
+Technical success does not establish transfer or scoring readiness; a new
+separately frozen scientific cohort/intake is required for one audited EXP.
+B remains active; protected7tickets/47000s and old budgets/history unchanged.
+No paid retry,WT8-9,external model/API or schedule change.
+
+All earlier stage-specific text below is preserved history.
+
 # Current state - cycle321 ASM01 intake invalidity (2026-10-05)
 
 ASM01 scientific V1 and canonical-membership V2 were both preregistered before

@@ -1,0 +1,17 @@
+{
+  "all_current_protected_files": 1432,
+  "archive_path": "research/laboratory/archive/ASM01-grammar-cycle322-parent-V1",
+  "created_at": "2026-10-05T20:55:40Z",
+  "files": {
+    "AGENTS.md": "32e0ba457d88269a2ba7317adaf479441436d177c0d0712f3f697d26700ad604",
+    "config/research.toml": "f5b34549e077130e144b62b2a909800a40657eb891b8e1e114dc47e4680f8b29",
+    "docs/CURRENT_STATUS.md": "b380f02ef52537df73276fac802f71a725ae763958a8c28479cc5bd9a6d3f651",
+    "program.md": "a7bb3d68f996970b607e671f4fe0dcd8b0b9175c2e914905d36f8792b76d607e",
+    "research/LAB_PLAN.md": "e728dc349142a3e297f56a88333fc4f193a08e6ae4a63acc87cfd03630694dfd",
+    "research/eval_manifest.json": "b1e9356c57778db141c849b8d236b1cf23db58a9623fcd374057730ede68eb0f",
+    "research/laboratory/preflight_certificate.json": "52c2a0723d4ab3dc991d7b5b0a6c9d3e7160cbe085e55a66d7dabcc0f916663a",
+    "research/state.json": "375f2c3fd3bbde6c0b6dfe208b7d0a8cef89f5c92e4288ae576fcc9f22bd94bb",
+    "src/nextai_autoresearch/asm01_task.py": "858dd782f3823368435d0b490baee3e6633483907fcb861c58ca1da2246eaefd",
+    "src/nextai_autoresearch/asm01_task_v2.py": "32c6c9c9e1aa6069e35d5741b7a674ee33b71db25c9d3362e69f24bbfe4672c5"
+  }
+}

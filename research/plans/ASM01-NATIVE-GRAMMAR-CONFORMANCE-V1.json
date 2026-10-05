@@ -1,0 +1,103 @@
+{
+  "cohort": "asm01_native_memory_v2",
+  "created_at": "2026-10-05T20:55:40Z",
+  "cycle": 322,
+  "decision_rule": "KEEP technical adapter only if every declared fixture, old-source preservation, single authorized native conformance and clone integrity check passes. Native failure stops all unstarted scientific scope and is INCONCLUSIVE, with no same-cycle schema rescue. No learning/transfer/economic claim or scoring readiness from technical success.",
+  "forbidden": [
+    "new EXP/registration",
+    "research fit",
+    "scoring",
+    "new native sample/NPZ/generator data",
+    "model or descriptor changes",
+    "source replay",
+    "D sample numerical access",
+    "future replication/final files",
+    "WT8-9",
+    "external model/API",
+    "schedule changes",
+    "paid retry",
+    "completed plan/result edits",
+    "weakened gates"
+  ],
+  "id": "ASM01-NATIVE-GRAMMAR-CONFORMANCE-V1",
+  "immutable_parent_reference_sha256": {
+    "research/data_manifests/ASM01-ACQUISITION-V1.json": "b4119f1c33f73ea721babb4f0481e2561f3c6fd92bccd6f968b683e2af84caf9",
+    "research/data_manifests/ASM01-ACQUISITION-V2.json": "8e6b2a0a355b831d2a55b346d3be25eb9ad792ec35b2897c6d73562cd6d8a505",
+    "research/laboratory/ASM01-CYCLE321-COMPLETION-V1.receipt.json": "721bca8f42dbfc4ea8c7404530e53cc075d3f9a220103147148e268cb90cc72c",
+    "research/plans/ASM01-CANONICAL-NATIVE-TASK-V2.json": "debdeea304bec803b482c421b6d7d54dfc398a8563f7312f7a84fdbe226063a9",
+    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V1.json": "eeed8e364291320100eaf10d54788cbb29b1407b92fdf95aa0f85f257c08fa4e",
+    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V2.json": "ff35bd63a84ce510fc13e67f5d1f5314620607a634899aa321d74c2d39411925",
+    "research/reviews/ASM01-NATIVE-GRAMMAR-DIAGNOSIS-V1.json": "970d9b8b8c4693ddd94c531621dcd89f33c520fce8dee4728e3383fe7cdd5ac7"
+  },
+  "native_validation": {
+    "already_exposed_training_sample": true,
+    "class_names_or_coordinate_values_in_outputs": false,
+    "expected_bytes": 10644,
+    "expected_sha256": "4c3e65ac49ff5ad55f521ab9f86b47dbaa55cfb5cd341d6d1d234ad1d4e9dfff",
+    "new_extraction": false,
+    "new_sample_access": false,
+    "numerical_conversion_authorized_for_this_sample_only": true,
+    "relative_path": "research/data/asm01_native_v1/screen-text-v2/Online Handwritten Assamese Characters Dataset/W1/1.1.TXT",
+    "root": "Independent NEXTAI-VALIDATION-20261002 checkout only"
+  },
+  "next_discriminating_experiment": "After technical success, separately freeze a NEW ASM scientific cohort and intake with the same source states,models,4096pairs,steps,metrics,calibration/classical grids,gates,costs and five predefined disjoint writer pairs; verify native feasibility,independent clone/preflight/readiness before exactly one audited EXP. Preserve the exposed-T1 limitation and failed V1/V2; no same-plan retry.",
+  "parent_manifest_sha256": "b1e9356c57778db141c849b8d236b1cf23db58a9623fcd374057730ede68eb0f",
+  "previous_goal_turn_classification": "progress: cycle321 preserved failed intake, code conformance, exact histories and charged results; identified the public-header failure and changed the next safe action",
+  "program_contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+  "question": "Does a minimal versioned grammar adapter remove the specific public column-header failure while preserving every numeric, stroke, geometry, model and scientific rule?",
+  "recipe": {
+    "absent_header": "Delegate original bytes unchanged; preserve V1 success/failure and outputs",
+    "accepted_location": "Only index2 of the stripped nonempty lines, immediately after CHARACTER_NAME and STROKE_COUNT; zero or one exact whitespace-separated header. No other line removed.",
+    "column_tokens": [
+      "X",
+      "Y",
+      "STYLUS_STATE",
+      "STROKE"
+    ],
+    "descriptor_and_model_change": false,
+    "duplicate_or_misplaced_header": "Reject before numeric conversion",
+    "implementation": "New parse_native_sample adapter only; original asm01_task.py/v2 and all source/candidate/benchmark/model/analysis/scientific-plan bytes stay unchanged. Delegate numeric/stroke/geometry handling to the exact V1 parser.",
+    "malformed_header": "Reject via unchanged strict V1 grammar, never infer or reorder fields",
+    "new_module": "src/nextai_autoresearch/asm01_task_v3.py",
+    "original_byte_and_point_caps": "Apply the original bytes type/262144-byte cap before removal; retain32768point cap and all original numeric/state/stroke/bounds/view validation"
+  },
+  "registration_attempts_for_this_study_cap": 0,
+  "resources": {
+    "administration_prepaid_seconds": 300,
+    "auxiliary_test_seconds_cap": 1800,
+    "fit_seconds_per_role_cap": 0,
+    "fit_seconds_study_cap": 0,
+    "native_sample_bytes_cap": 262144,
+    "native_samples_cap": 1,
+    "new_download_bytes_cap": 0,
+    "work_minutes_cap": 90
+  },
+  "schema_version": 1,
+  "stage": "task_design",
+  "study_deadline_at": "2026-10-05T22:08:28Z",
+  "study_kind": "preparation_only",
+  "study_started_at": "2026-10-05T20:38:28Z",
+  "tests": [
+    "Space/tab-separated valid public header, legacy no-header exact output equivalence and equal write/nominal/adverse descriptors",
+    "Duplicate header, header before stroke count or after PEN_DOWN/points, reordered/missing/extra/renamed/case-changed columns must reject",
+    "Point bounds, point state, stroke serial, pen lifecycle, degenerate view, input type and pre-removal byte cap remain strict",
+    "Original V1 parser still fails on the valid header fixture and unchanged already-exposed T1 payload",
+    "Single native T1 parse and all3 descriptors finite/nondegenerate; return only count/shape/hashes, never coordinate/class values; no fitting or performance inference",
+    "Clone source identity, protected science byte preservation, manifest/preflight/doctor/lab lifecycle and prefix accounting"
+  ],
+  "unchanged_gates": {
+    "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+    "known_false_abstention_max": 0.02,
+    "p95_ratio_upper_max": 0.9,
+    "paired_units_min": 5,
+    "protected_future_compute_seconds": 47000,
+    "protected_future_tickets": 7,
+    "quality_difference_simultaneous_lower_min": -0.02,
+    "reference_each_seed_accuracy_min": 0.9,
+    "reference_mean_accuracy_min": 0.95,
+    "strong_classical_non_domination_required": true,
+    "unknown_rejection_min": 0.95
+  }
+}
