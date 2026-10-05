@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_replication_original_check_v2.py", line 22, in <module>
+    assert result.returncode==0,label
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: doctor

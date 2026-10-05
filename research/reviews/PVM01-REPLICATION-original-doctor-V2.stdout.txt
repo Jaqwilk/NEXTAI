@@ -1,0 +1,11 @@
+[OK] benchmark=paired_view_mutable_memory_v7 status=maintenance protocol=v3
+[OK] laboratory=preparation_only next=NEXTAI-STUDY-REVIEW scoring=False
+[OK] cycle=313 completed=117
+[OK] hypotheses=59
+[OK] scientifically_invalid_results=4
+[OK] pending_plans=0
+[OK] integrity=ok files=1252
+[OK] audited_candidates=773
+[OK] hardware=cpu:24 ram_gb:31.7
+[ERROR] sources: <root>: Additional properties are not allowed ('checked_scope' was unexpected)
+Doctor: FAIL

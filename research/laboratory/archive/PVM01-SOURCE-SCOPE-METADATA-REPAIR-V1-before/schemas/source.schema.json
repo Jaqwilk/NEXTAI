@@ -26,8 +26,7 @@
     "primary_source": {"type": "boolean"},
     "claims_supported": {"type": "array", "items": {"type": "string"}, "minItems": 1},
     "relevance": {"type": "string", "minLength": 10},
-    "checked_at": {"type": "string", "format": "date-time"},
-    "checked_scope": {"type": "string", "minLength": 1, "maxLength": 1024, "pattern": "\\S"}
+    "checked_at": {"type": "string", "format": "date-time"}
   }
 }
 
