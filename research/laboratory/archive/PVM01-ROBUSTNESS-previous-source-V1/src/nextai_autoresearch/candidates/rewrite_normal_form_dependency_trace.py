@@ -1,0 +1,5 @@
+from nextai_autoresearch.semantic_trace_adversarial_core import RewriteDependencyTrace
+
+
+class Candidate(RewriteDependencyTrace):
+    pass

@@ -1,3 +1,18 @@
+# Prospective cycle314 — dense training-noise robustness
+
+PVM01-DENSE-NOISE-ROBUSTNESS-V1 frozen before implementation/new data.
+Five fresh paired units,17 arms,85 workers,K32/128/512,updates0/1/4,D noise.02/.04.
+Only odd-half dense training contexts/queries receive independent Gaussian noise
+to marginal.04; model,4096 alignment pairs,2048/1024 steps and calibration unchanged.
+Original14 controls retained; six simultaneous primary noninferiority endpoints,
+separate causal FA claim, and original learning/competence/economic gates frozen.
+Full worker cap20400s,aux3600s including startup and180s prepaid bookkeeping;
+deadline2026-10-05T07:33:50Z. Reserve20800s and2 registrations for replication/final.
+Maintenance/scoring=false until clone conformance,freeze/preflight/readiness.
+One audited EXP,no retry,WT8-9,external model/API or schedule change.
+A active; B inactive; extended transfer/prototype goal remains open.
+Earlier sections preserved as history.
+
 # Completed cycle313 — independent replication EXP-20261005-0002
 
 All70 workers/1260 trials complete, five NEW paired units; integrity passed.

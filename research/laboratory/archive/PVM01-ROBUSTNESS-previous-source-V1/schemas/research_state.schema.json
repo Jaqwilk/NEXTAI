@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextai.local/schemas/research_state.schema.json",
+  "title": "Research state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "generation",
+    "phase",
+    "cycle_number",
+    "completed_experiments",
+    "active_experiment_id",
+    "last_experiment_id",
+    "last_reflection_cycle",
+    "last_reflection_completed_experiments",
+    "last_literature_review_completed_experiments",
+    "updated_at"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "protocol_version": {"type": "integer", "minimum": 1},
+    "generation": {"type": "integer", "minimum": 0},
+    "phase": {
+      "enum": ["infrastructure", "breadth", "consolidation", "tournament", "integration", "adversarial", "paused"]
+    },
+    "cycle_number": {"type": "integer", "minimum": 0},
+    "completed_experiments": {"type": "integer", "minimum": 0},
+    "active_experiment_id": {
+      "type": ["string", "null"],
+      "pattern": "^EXP-[0-9]{8}-[0-9]{4}$"
+    },
+    "last_experiment_id": {
+      "type": ["string", "null"],
+      "pattern": "^EXP-[0-9]{8}-[0-9]{4}$"
+    },
+    "last_reflection_cycle": {"type": "integer", "minimum": 0},
+    "last_reflection_completed_experiments": {"type": "integer", "minimum": 0},
+    "last_literature_review_completed_experiments": {"type": "integer", "minimum": 0},
+    "last_failure_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}
