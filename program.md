@@ -1,3 +1,10 @@
+# Prospective cycle319 — frozen-source native HAR screen (2026-10-05)
+
+HAR01-FROZEN-SOURCE-SCREEN-V1 and HAR01-NATIVE-TASK-CONTRACT-V1 were frozen before implementation or target content. B remains active with12/72000 caps and protected7 tickets/47000s for replication, fresh final and prototype. Closed A/MUC budgets and failures remain consumed.
+One native screen:45 roles,5 disjoint train/dev subject pairs T1–5/D16–20,actual paired source states from EXP-20261005-0006 frozen; identical native target readout for trained/untrained/shuffled source controls, source ridge and strong target/native controls. K16/32/64,updates0/1/4,nominal/adverse. Dense2048/1024steps,4096pairs; all grids/metrics/thresholds frozen. Full answer requires value AND current source; UNKNOWN,ranking,retained and updated facts separate.
+Deadline2026-10-05T17:08:19Z; workerwall9000s,auxiliary3500s including startup,intake,tests,failures and controller overhead; fit120s/worker180s. No paid retry or source refit. HAR numerical subjects6–15/21–30 remain unopened. Archive retains publisher CC BY4 web declaration and noncommercial README discrepancy; use restricted to local noncommercial attributed research.
+Current HAR maintenance/scoring=false until independent clone conformance,integrity freeze,preflight and readiness; exactly one audited EXP then durable analysis and accounting. Goal remains active after this bounded cycle. All earlier sections below are preserved history.
+
 # Current authority - cycle318 A resolution and B preparation (2026-10-05)
 
 A is closed at its verified fresh-final resolution, not at its global cap:11/17 registrations and35649.98936010008/69344 seconds consumed. Prior MUC03 remains3 registrations/2655.336484700005 seconds. Both histories and all failures stay consumed. Unspent6 A tickets/33694.01063989992 seconds are not added to B.

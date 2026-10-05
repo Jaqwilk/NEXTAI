@@ -1,0 +1,8 @@
+{
+  "files": {
+    "config/baseline_semantics.json": "271de6d2d8ce3e329e22293a82a637e5ea055acac5118c8ed6950e939e1ecaf2",
+    "research/eval_manifest.json": "6aa4bd83d294f0ef5d387c722cc62a2473ea882d7a6deedb5721078cd41b2c57",
+    "research/laboratory/preflight_certificate.json": "1f0028f4fdf56a9ba351c3768efd085a834b9dca716f85bc783bc06a342123de"
+  },
+  "source_commit": "6c3c341"
+}

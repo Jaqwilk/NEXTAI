@@ -15,7 +15,7 @@ from nextai_autoresearch.benchmarks.har01_native_memory_v1 import source_state, 
 from nextai_autoresearch.candidates.har01_core import Candidate
 from nextai_autoresearch.research_program import _study_scope
 from nextai_autoresearch.schemas import validate_document
-from nextai_autoresearch.utils import sha256_file
+from nextai_autoresearch.utils import sha256_file, atomic_write_json
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -194,3 +194,51 @@ def test_all_native_roles_are_audited_and_private_native_imports_rejected(tmp_pa
     (directory / "native_leak.py").write_text("from nextai_autoresearch.har01_task import load_unit\nclass Candidate: pass\n", encoding="utf-8")
     rejected = audit_candidate("native_leak", config, tmp_path)
     assert not rejected.ok and any("evaluator" in problem for problem in rejected.problems)
+
+
+def test_real_native_worker_reads_serialized_plan_before_any_research_fit(tmp_path, monkeypatch):
+    from nextai_autoresearch import worker_resources
+    from nextai_autoresearch.worker import run_worker
+    from nextai_autoresearch.benchmarks import har01_native_memory_v1 as benchmark
+
+    class FitBoundary(Exception):
+        pass
+
+    phases = []
+
+    class TestResources:
+        def __init__(self, *args):
+            pass
+
+        def start(self):
+            phases.append("start")
+
+        def phase(self, name):
+            phases.append(name)
+            assert name == "fit"
+            raise FitBoundary("Serialized native worker reached the pre-fit boundary")
+
+        def close(self):
+            phases.append("close")
+
+    plan = native_plan()
+    plan["experiment_id"] = "EXP-20990101-9999"
+    plan["matrix"]["seeds"] = [101, 102, 103, 104, 105]
+    contract = tmp_path / plan["research_program_protocol"]["task_contract_path"]
+    contract.parent.mkdir(parents=True)
+    contract.write_bytes((ROOT / plan["research_program_protocol"]["task_contract_path"]).read_bytes())
+    private = tmp_path / "research/tmp" / plan["experiment_id"] / "har01-private-data.json"
+    atomic_write_json(private, {"experiment_id": plan["experiment_id"], "unit_nonces": [f"{i:064x}" for i in range(5)]})
+    plan.update(har01_private_data_path=str(private), har01_private_data_sha256=sha256_file(private))
+    monkeypatch.setattr(benchmark, "project_root", lambda: tmp_path)
+    monkeypatch.setattr(worker_resources, "WorkerResources", TestResources)
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: True)
+    monkeypatch.setattr(benchmark, "load_unit", lambda *args: pytest.fail("Native arrays accessed before boundary"))
+    runtime, output = tmp_path / "runtime.json", tmp_path / "worker.json"
+    atomic_write_json(runtime, plan)
+    assert run_worker(runtime, "har01_source_trained_s0", output) == 1
+    result = json.loads(output.read_text())
+    assert result["error_type"] == "FitBoundary" and result["trials"] == []
+    assert "har01_native_memory_v1.py" in result["traceback"] and phases == ["start", "fit", "close"]
+    assert not output.with_suffix(".fits.jsonl").exists()
+    assert not output.with_suffix(".data.jsonl").exists()
