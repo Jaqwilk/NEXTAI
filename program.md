@@ -1,3 +1,19 @@
+# Prospective cycle313 — independent fixed-recipe replication
+
+PVM01-INDEPENDENT-REPLICATION-V1 frozen before code/new data.
+All14 arms and scientific recipes unchanged;5 fresh paired units,K32/128/512,
+updates0/1/4,noise0.02/0.04. New v7 integration extends pre-array freshness
+through EXP-20261005-0001; no new candidate architecture or data law.
+Original8/18/60 gates retained; selected ridge/PCA route has prospective18/60
+secondary cost/quality/non-domination families. No pooling selecting units.
+Full workers16800s,aux3600s including startup171s and administration180s;
+deadline2026-10-05T05:54:18Z. Keep20800s and2 tickets for replication/fresh final.
+Maintenance/scoring=false until clone tests,freeze/preflight/readiness pass.
+Exactly one audited EXP,no retry,WT8-9/API/schedule changes.
+Pending original cycle312 doctor/lab now PASS; old receipt/costs preserved.
+A remains active; authorized B inactive. Transfer/prototype goal remains open.
+Previous sections below are preserved history.
+
 # Current cycle312 — transport/PCA comparison completed (2026-10-05)
 
 EXP-20261005-0001:70 workers/1260 trials,5 paired fresh units,noise0.02/0.04,K32/128/512,updates0/1/4.
