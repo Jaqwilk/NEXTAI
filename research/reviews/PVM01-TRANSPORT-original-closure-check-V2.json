@@ -1,0 +1,38 @@
+{
+  "cap": 176,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_transport_original_validation_v2.py"
+  ],
+  "created_at": "2026-10-05T01:48:18Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-original-closure-check-V2",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-original-closure-check-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-TRANSPORT-original-closure-check-V2.stdout.txt": "a82cd1f9fda042a05a76a8dc72ecd84e315d6da68617b740eb9ab3f525acd23d"
+  },
+  "result": {
+    "elapsed_seconds": 156.00368100000196,
+    "exit_job_active_process_count": 8,
+    "exit_live_descendant_pids": [
+      34292,
+      5808,
+      31984,
+      31928,
+      23468,
+      33492,
+      14444
+    ],
+    "peak_tree_rss_bytes_sampled": 2027995136,
+    "pid": 32500,
+    "processes_created": 318,
+    "reason": "timeout",
+    "returncode": 124,
+    "root_returncode": 124
+  },
+  "seconds_charged": 166,
+  "wall_seconds": 160.50116250000428
+}

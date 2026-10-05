@@ -1,0 +1,44 @@
+{
+  "all_old_nonmutable_clone_raw_preserved": true,
+  "base_revision": "905ed709ad18d3fdc2dac863deb121cefbf1b874",
+  "correction": "Clone-local raw snapshot is not a raw snapshot of the distinct original checkout; prove CRLF/LF equivalence and unchanged immutable Git blobs for only these files.",
+  "created_at": "2026-10-05T01:44:58Z",
+  "differences": [
+    {
+      "clone_raw_sha256": "54b5dbc67bec8441a48de1a530bef46521283ec1e33cfd61e9a959eb1c1101ca",
+      "difference": "CRLF/LF only",
+      "original_raw_sha256": "323a7920c2bbee97a636b85aa25c4380aa2d187ebb411ce290af4d5d8465dfb9",
+      "path": "research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense.stdout.txt",
+      "unchanged_git_blob": "d24b524f125cb84ee8f9afe8bb32d6535572c2f6"
+    },
+    {
+      "clone_raw_sha256": "c80fcaa74c054bcce4d2d857aa57bf773a0ef727ed6575896c69a28cff84049a",
+      "difference": "CRLF/LF only",
+      "original_raw_sha256": "a74fc269aa64665138132d25f34598cf6fdec2b72f29c8e3e640fa244dd92c27",
+      "path": "research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense_cached_cpu.stdout.txt",
+      "unchanged_git_blob": "f45c3039d4e7eaf7d4bbb9f305e90da3e39815d3"
+    },
+    {
+      "clone_raw_sha256": "b89b4330cc181e30a3db51f911089becddeb6b74c261d58cc39d553076491df0",
+      "difference": "CRLF/LF only",
+      "original_raw_sha256": "654c0f4c44c9ee8eabc4fe991326547a76274802659076b0607880920929de97",
+      "path": "research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense_cached_cuda.stdout.txt",
+      "unchanged_git_blob": "8f2183bae19c372522a47bceb18fadb4b29376b8"
+    },
+    {
+      "clone_raw_sha256": "60e7005d028d0918a946787ed0ca71f44fcfc7088b16a855ecc5b3e666c9d12d",
+      "difference": "CRLF/LF only",
+      "original_raw_sha256": "67368149fee8042068923a20b7dde9a3ae61d83e32715c059eed76b9429ae468",
+      "path": "research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-1-dense.stdout.txt",
+      "unchanged_git_blob": "aa43b9e4ff28707a68c37e7e6d5c69ecca2a14ad"
+    },
+    {
+      "clone_raw_sha256": "36e49e302033fd6e47768a3d6a688640671b66c77fdf97713408c0698edd4c84",
+      "difference": "CRLF/LF only",
+      "original_raw_sha256": "3a80e0d02ddc30e22086bfc3572f46155b5806159812c47504f49125633ec6b1",
+      "path": "research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-1-dense_cached_cpu.stdout.txt",
+      "unchanged_git_blob": "cd76f95a08c2c36148b391dbed002172c3e4cff0"
+    }
+  ],
+  "original_files_not_modified": true
+}

@@ -1,0 +1,13 @@
+{
+  "bounded_check_receipt": "research/reviews/PVM01-TRANSPORT-original-closure-check-V2.json",
+  "bounded_check_seconds_charged": 166,
+  "created_at": "2026-10-05T01:50:28Z",
+  "full_tests_passed": 1137,
+  "old_checkout_eol_proof": "research/laboratory/PVM01-TRANSPORT-original-checkout-EOL-V1.json",
+  "old_history_check_preceded_doctor_and_passed": true,
+  "original_doctor": "PASS",
+  "original_lab_status": "TIMEOUT/no completed output",
+  "pending": "Complete original CLI lab status in a separately preregistered maintenance cycle; do not retry the research experiment.",
+  "research_execution_complete_no_retry": true,
+  "source_validation_in_clone_complete": true
+}

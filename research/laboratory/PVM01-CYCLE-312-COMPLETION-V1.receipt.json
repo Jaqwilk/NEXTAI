@@ -1,0 +1,222 @@
+{
+  "all_research_workers_and_tests_started_within_deadline": true,
+  "analysis_path": "research/analyses/EXP-20261005-0001.md",
+  "analysis_raw_sha256": "b6d58608c2fc61e0f7778d92d3f5c40c9c5a9f6d7f3587abdd48946ec5ee0227",
+  "answers": 403200,
+  "audited_run_accounting": {
+    "commands": [
+      {
+        "command": [
+          "uv",
+          "run",
+          "--no-sync",
+          "nextai",
+          "program",
+          "register"
+        ],
+        "label": "register",
+        "raw_outputs": {
+          "PVM01-TRANSPORT-EXP-20261005-0001-register-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "PVM01-TRANSPORT-EXP-20261005-0001-register-V1.stdout.txt": "5031163d64a613cabad7b1ab5e385ca06a5999e31ed299f05e296e7c1fd5b5b9"
+        },
+        "result": {
+          "elapsed_seconds": 36.600711100007175,
+          "exit_job_active_process_count": 0,
+          "exit_live_descendant_pids": [],
+          "peak_tree_rss_bytes_sampled": 1380143104,
+          "pid": 25116,
+          "processes_created": 157,
+          "reason": "exited",
+          "returncode": 0,
+          "root_returncode": 0
+        }
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--no-sync",
+          "nextai",
+          "run",
+          "--plan",
+          "research/plans/EXP-20261005-0001.json"
+        ],
+        "label": "run",
+        "raw_outputs": {
+          "PVM01-TRANSPORT-EXP-20261005-0001-run-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "PVM01-TRANSPORT-EXP-20261005-0001-run-V1.stdout.txt": "62fa73c664be29baf7480bb11c1b08e79add25789f5afd56222fe6767710a976"
+        },
+        "result": {
+          "elapsed_seconds": 651.1905609999958,
+          "exit_job_active_process_count": 0,
+          "exit_live_descendant_pids": [],
+          "peak_tree_rss_bytes_sampled": 1613131776,
+          "pid": 27080,
+          "processes_created": 373,
+          "reason": "exited",
+          "returncode": 0,
+          "root_returncode": 0
+        }
+      }
+    ],
+    "controller_overhead_seconds": 147.15081250006915,
+    "created_at": "2026-10-05T01:07:51Z",
+    "error": null,
+    "experiment_id": "EXP-20261005-0001",
+    "id": "PVM01-TRANSPORT-audited-run-overhead-V1",
+    "no_retry": true,
+    "overhead_seconds_charged_conservatively": 158,
+    "prepared_source_git_commit": "b3084dc22c056a806dda976b7ee4babb926184df",
+    "study_sha256": "d11a65e01dbeb3af4b65b1b808fcaac401be663bf54d8620cf832b24ecd7056f",
+    "wall_seconds": 714.0221124999953,
+    "worker_full_wall_seconds_already_charged": 566.8712999999261
+  },
+  "clone_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "completed_trials": 1260,
+  "completed_workers": 70,
+  "created_at": "2026-10-05T01:50:29Z",
+  "cycle": 312,
+  "decision": "KEEP exact transport/PCA as a learned reference; reject full economic advantage; select ridge/PCA-scan for prospective independent replication.",
+  "economic_screen_qualified": false,
+  "evaluated_source_revision": "b3084dc22c056a806dda976b7ee4babb926184df",
+  "exact_next_discriminating_experiment": "After a no-scoring maintenance status check, preregister independent frozen ridge/PCA-scan and transport/PCA replication versus dense/cache with untrained/permuted transport controls, five fresh paired units, three K scales, two noise conditions and explicit updates; reserve fresh final and licensed real-data transfer.",
+  "experiment_id": "EXP-20261005-0001",
+  "extended_goal_completed": false,
+  "five_fresh_paired_units": true,
+  "full_study_worker_and_auxiliary_charge_seconds": 2966.871299999926,
+  "full_tests": {
+    "failed": 0,
+    "passed": 1137,
+    "raw_output": "research/reviews/PVM01-TRANSPORT-full-V4.stdout.txt",
+    "skipped": 0
+  },
+  "immutable_plan_path": "research/plans/EXP-20261005-0001.json",
+  "immutable_plan_raw_sha256": "3d4e3da1c61c3be89ad2e81911327107792fcb369bed5890be55dbb88583cd09",
+  "integration_revision": "0b5a85aedfe42908a191f5d0964bbd9fede2c7f0",
+  "integrity_clone": {
+    "benchmark_version": "paired_view_mutable_memory_v6",
+    "candidate_bundle_sha256": "8a8f36d8dacd89f4f451dbda1b2eac0848522ba6b30d586d14c73ef6dce8c500",
+    "checked_files": 1250,
+    "evaluator_sha256": "30b6bf9fe1303ee5598405ca2d4dbd992ccf7a0061651cf43a7fde7f605faff8",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "integrity_original": {
+    "benchmark_version": "paired_view_mutable_memory_v6",
+    "candidate_bundle_sha256": "8a8f36d8dacd89f4f451dbda1b2eac0848522ba6b30d586d14c73ef6dce8c500",
+    "checked_files": 1250,
+    "evaluator_sha256": "30b6bf9fe1303ee5598405ca2d4dbd992ccf7a0061651cf43a7fde7f605faff8",
+    "ok": true,
+    "problems": [],
+    "protocol_version": 3
+  },
+  "lossless_publication": {
+    "all_trials_predictions_failures_and_costs_included": true,
+    "bundle_bytes": 17881181,
+    "bundle_path": "research/results/EXP-20261005-0001.json.gz",
+    "bundle_sha256": "5be9a534f2a292af66f1dedb43561b537f7343553335baca86826e80634093d9",
+    "codec": "lossless gzip/mtime0",
+    "correction": "Publication metadata is not a scored result; use laboratory namespace so report result discovery remains strict",
+    "created_at": "2026-10-05T01:34:44Z",
+    "experiment_id": "EXP-20261005-0001",
+    "native_bytes": 138035840,
+    "native_path": "research/results/EXP-20261005-0001.json",
+    "native_result_unmodified": true,
+    "native_sha256": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+    "previous_metadata_path": "research/laboratory/EXP-20261005-0001-publication-V1.json",
+    "previous_metadata_sha256": "10f332c8adf31b4ec0519ae6d83aead6d7dabad91e7a704dc0f9cc325ca3ec0e",
+    "restoration_command": "uv run --no-sync python scripts/restore_pvm01_transport_result.py",
+    "restoration_script_sha256": "7dc35b62ee66325fc3d453888f51a3c8b349ed3baa77287a628fd03616628fcd"
+  },
+  "machine_analysis_path": "research/reviews/EXP-20261005-0001-PVM01-transport-analysis.json",
+  "machine_analysis_raw_sha256": "551e7e155c85ca7277a75ae7498011d52f7dcb8ef00792df86ff64416c2dbaac",
+  "matched_quality_classical_dominators": [
+    "ridge_pca_scan"
+  ],
+  "native_result_sha256": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c",
+  "one_registered_scored_experiment_no_retry": true,
+  "original_doctor": "PASS",
+  "original_lab_status_completed": false,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "pending_postrun_validation_receipt": "research/laboratory/PVM01-TRANSPORT-original-validation-partial-V1.receipt.json",
+  "preflight_both": true,
+  "prior_budgets_reset": false,
+  "program_accounting": {
+    "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+    "auxiliary_fit_seconds_conservative": 13136.0,
+    "cohort": "paired_view_mutable_memory_v6",
+    "continuation_compute_seconds_cap": 69344,
+    "continuation_compute_seconds_charged": 14592.334066700074,
+    "continuation_registration_attempts_cap": 17,
+    "continuation_registration_attempts_used": 6,
+    "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+    "experiment_id": "EXP-20261005-0001",
+    "experimental_fit_seconds": 4111.670551400079,
+    "fit_seconds_cap": 71999.3364847,
+    "fit_seconds_charged": 17247.67055140008,
+    "fit_seconds_remaining": 54751.665933299926,
+    "id": "NEXTAI-CONTINUATION-20261004-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "prior_compute_seconds_charged": 2655.336484700005,
+    "prior_program_closed": true,
+    "prior_program_id": "MUC03-AUTONOMOUS-20261004-V1",
+    "prior_registration_attempts_used": 3,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": true,
+    "registration_attempts_cap": 20,
+    "registration_attempts_used": 9,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 3,
+      "reference_and_alternatives": 3,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 0,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 4,
+      "reference_and_alternatives": 5,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 3,
+      "scale_and_generalization": 3
+    },
+    "study_expired": false,
+    "study_path": "research/plans/PVM01-TRANSPORT-COMPRESSION-ADVERSE-V2.json",
+    "study_terminal": true,
+    "unreserved_fit_seconds_remaining": 54751.665933299926
+  },
+  "research_comparison_complete": true,
+  "restrictions": {
+    "no_WT_8_9": true,
+    "no_external_models_apis": true,
+    "no_failed_outcomes_hidden": true,
+    "no_schedule_changes": true
+  },
+  "runtime_archive_manifest": "research/laboratory/EXP-20261005-0001-runtime-archive.json",
+  "schema_tests_passed": 27,
+  "separate_user_readme_charge_addendum": "research/laboratory/README-PRESENTATION-ACCOUNTING-ADDENDUM-20261005-V1.json",
+  "separate_user_readme_conservative_charge_seconds": 180,
+  "source_archive": "research/laboratory/archive/EXP-20261005-0001-evaluated-source",
+  "source_validated_revision": "e96b09d1db5e8e673f51c70f3e896c947d3eeaaa",
+  "stage_a_remaining_new_registrations": 11,
+  "stage_b_authorized_but_not_activated": {
+    "compute_seconds": 72000,
+    "registrations": 12,
+    "spent_compute_seconds": 0,
+    "spent_registrations": 0
+  },
+  "stage_deadline": "2026-10-05T03:43:31Z",
+  "study_auxiliary_seconds_cap": 2400,
+  "study_auxiliary_seconds_charged": 2400,
+  "study_path": "research/plans/PVM01-TRANSPORT-COMPRESSION-ADVERSE-V2.json",
+  "study_raw_sha256": "d11a65e01dbeb3af4b65b1b808fcaac401be663bf54d8620cf832b24ecd7056f",
+  "targeted_tests_passed": 30,
+  "technical_postrun_scope_complete": false,
+  "valid_comparison": true
+}

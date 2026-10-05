@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_transport_original_validation_v1.py", line 32, in <module>
+    assert sha256_file(o/rel)==digest,rel
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: research/reviews/PVM01-REPRO-fixture-V1/existing_default-1103-0-dense.stdout.txt
