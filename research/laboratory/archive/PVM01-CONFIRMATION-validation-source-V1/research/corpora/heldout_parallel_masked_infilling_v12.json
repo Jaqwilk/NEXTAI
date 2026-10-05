@@ -1,0 +1,678 @@
+{
+  "benchmark_version": "heldout_parallel_masked_infilling_v12",
+  "entries": [
+    {
+      "path": "src/nextai_autoresearch/candidates/online_update_core.py",
+      "role": "train",
+      "sha256": "cf88376b561f811f140f0bd76c05f5d6a6a2e7d68cac93cd4a7d3bf404d90d6e",
+      "size": 15577
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/probabilistic_circuit_core.py",
+      "role": "train",
+      "sha256": "c76dda73a21080511c98b42280c2b8d61388d3cfc69425418608d83f00d44476",
+      "size": 16585
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/compression_core.py",
+      "role": "train",
+      "sha256": "b0a19d5de662278331d0effc458a7b17e9868a1a66bbc0166fffffaa46cb863a",
+      "size": 11601
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/wt_predictive_state_controls_core.py",
+      "role": "train",
+      "sha256": "0ac4334fab835b5f83eaf6b3516a6ead22c3485c77317d470026eb77ca160513",
+      "size": 13461
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/relation_fragment_core.py",
+      "role": "train",
+      "sha256": "93aaeac537cf5113bbe0a840e03635295bd98ad98bfdacf53f64866c76a2e1e7",
+      "size": 10486
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/masked_byte_core.py",
+      "role": "train",
+      "sha256": "7aa365c81ab6e26d989dd18c04d13421a76853ed1a17752fd25793d5f7ed9fa8",
+      "size": 9883
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/continuous_local_controls_core.py",
+      "role": "train",
+      "sha256": "94608af7ca1e1dec5079e3537534729eee3a44d671a51de0b9f78a31776f39b4",
+      "size": 10208
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/multiverse_local_core.py",
+      "role": "train",
+      "sha256": "09a64f95ed8666ffb09d50089276e1af47566ba8a6e8e67a20045731361c46b9",
+      "size": 9359
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/heldout_three_family_continuous_transfer_v1.py",
+      "role": "train",
+      "sha256": "cadb96685031e62ee8ec5c5b448608982526d19d39d86318a98bb1a0595975f6",
+      "size": 15492
+    },
+    {
+      "path": "research/audits/wt_changepoints_dev_baseline_preflight_v1.py",
+      "role": "train",
+      "sha256": "8a1ea01ff897b82679c501a418b798998547b04304c8ee13bf833466548ffd33",
+      "size": 14085
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/wt_prequential_baseline_core.py",
+      "role": "train",
+      "sha256": "8b7f2b10a75178c10dfddd02cb2bd71eb91c6b38aa566825494fefba06904877",
+      "size": 10429
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/masked_baselines.py",
+      "role": "train",
+      "sha256": "0248fb90e43040349ed16d35cef026895ed444c926560bd11f4afd164d91b27f",
+      "size": 8450
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/invariant_residual_module_core.py",
+      "role": "train",
+      "sha256": "1a918e7cca7b7c8283107f7318d6c562a0d9ce1207baaa68ad864e29043dc3a7",
+      "size": 9593
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/semantic_reaction_composition_v1.py",
+      "role": "train",
+      "sha256": "cf04e9f399daed1db1b563ff82c3de4e775296c7e7b3ff874b66d9def9bf87f3",
+      "size": 9096
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/heldout_mechanism_recombination_v1.py",
+      "role": "train",
+      "sha256": "01e817792651340b8c4db659fca2badb2efb2284be7e60a1d10262743d8efc4a",
+      "size": 11427
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/tensor_baseline_core.py",
+      "role": "train",
+      "sha256": "d60f56f56972f7c2f06ae181fbc2ae14e3a3251f3f3f4734c256aec18cd44fd8",
+      "size": 8391
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/tensor_indexed_local_operator_core.py",
+      "role": "train",
+      "sha256": "38f1e3ffb3f1a1ca673fb16d1371653f5e0c360e1e0ba3a5bc8ac6664fb1f713",
+      "size": 9512
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/shared_state_core.py",
+      "role": "train",
+      "sha256": "d5c4d8cd8c302f4b66bbb1ea2db9e5f9bf10ab4a8624b14c0be6bbea56a64971",
+      "size": 7862
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/causal_intervention_adversarial_v2.py",
+      "role": "train",
+      "sha256": "c4bbf001000ea0c31bd6c7f8a43faf5657c457355a9f90b238b732edf80f75b7",
+      "size": 9497
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/heldout_repository_sequence_compression_v1.py",
+      "role": "train",
+      "sha256": "10faab20c6a6e009dcb9ddcca8e71cbf291b9e10c1b8ae258a199487a0e77b84",
+      "size": 14226
+    },
+    {
+      "path": "tests/test_protocol_v2.py",
+      "role": "train",
+      "sha256": "0441f1d62ebefdca35226bf47a52f0af64acb16f07b3fa50ac2cb52c3fcb73b2",
+      "size": 11609
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/cross_family_pointer_core.py",
+      "role": "train",
+      "sha256": "51bd8c1744b8815c1d109a47f949d4ef77bb3660e7c512b34c6d4d297ae72de0",
+      "size": 7867
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/surprise_transition_machine_byte_core.py",
+      "role": "train",
+      "sha256": "4e275f620d4ef88fa6586ee27931ac3030c21070c9ebdf8494d7c8e101eeaf5b",
+      "size": 8698
+    },
+    {
+      "path": "tests/test_heldout_mechanism_recombination_v1.py",
+      "role": "train",
+      "sha256": "e3037e0ebf389af72fd5ed8864bfe7e6b4a17f1231b77def2d8d18444406da6f",
+      "size": 7907
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/layer_local_goodness_core.py",
+      "role": "train",
+      "sha256": "4237e01f6c7d9fca45d97f85ee33983d9216751473503825ab8667dd9e8f2238",
+      "size": 6621
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/population_local_rule_core.py",
+      "role": "train",
+      "sha256": "ded1efa7b7c2a385fb8c1bf8001d17a01cf328196b3c3ffe749a34212ca50f58",
+      "size": 7348
+    },
+    {
+      "path": "tests/test_wt_changepoints_prequential_v1.py",
+      "role": "train",
+      "sha256": "8ddd0404792c288f1037b8ce04f7fc077326a649aee4353bb06e22fa92144f03",
+      "size": 9948
+    },
+    {
+      "path": "research/data/dronepropa_v1/audit_mat_v5.py",
+      "role": "train",
+      "sha256": "4744113d745f3f9da4e921647534bed379adb39a117c3eddf890e7b89fa974dc",
+      "size": 9986
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/cross_family_learner_core.py",
+      "role": "train",
+      "sha256": "a092854db3a1bd139ff368afb9bf36284ab20f7495b563bc9885415cd7baf087",
+      "size": 6666
+    },
+    {
+      "path": "tests/test_dronepropa_protocol_v1.py",
+      "role": "train",
+      "sha256": "fa4304d86caf051013d39e58037c3b3f158576eff2d8f420777d7d26207bf471",
+      "size": 8468
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/posterior_partition_decision_dag_core_v1.py",
+      "role": "train",
+      "sha256": "98bc36fdc850c09a18a7b1beddf3a611111d3d8912c042aed170ec41e76f3ceb",
+      "size": 7781
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/amortized_constraint_order_vm_core.py",
+      "role": "train",
+      "sha256": "3884019982d38655dea8b571d2675ddb2a81802c0c19646372c131a6c75ee242",
+      "size": 7102
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/heldout_mechanism_recombination_v4.py",
+      "role": "train",
+      "sha256": "796088b7969f26b7a0156beb557fa0d269ead33d646c555420fbb4666c655692",
+      "size": 8705
+    },
+    {
+      "path": "tests/test_predictive_equivalence_index.py",
+      "role": "train",
+      "sha256": "5b54315fe917e2955544ff4e0c1c4cf5e9f50f5c3fd1d5ff71ed020b7a552467",
+      "size": 5707
+    },
+    {
+      "path": "research/audits/mechanism_recombination_gate_v1.py",
+      "role": "train",
+      "sha256": "d9d95bb75e93d41ff6cc558cd581f09c9623522c0b94b76fb429eaee432afd9b",
+      "size": 8280
+    },
+    {
+      "path": "research/checks/dronepropa_routing_sensitivity.py",
+      "role": "train",
+      "sha256": "c3a1d0caecf3edb2ab4231b762a0d5f3140c78786da52149b072a48f21e280f2",
+      "size": 8136
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/program_induction_from_whole_io_v2.py",
+      "role": "train",
+      "sha256": "d4b118024ab0d031b00089e28b7ecb14dec3f8fe3c5f7734152a41184b2237e7",
+      "size": 9006
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/conjugacy_library_core.py",
+      "role": "train",
+      "sha256": "1477614bef66ce5fb81c30164a8bc99c4489c2b56cb22b2e29b4473a0b101171",
+      "size": 8605
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/cross_family_shared_representation_v2.py",
+      "role": "train",
+      "sha256": "ce8e2f488e917e06d5149c78719f12df7b07a6d68ccd6c4898b2a3f15835fcba",
+      "size": 9398
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/continuous_local_cellular_v1.py",
+      "role": "train",
+      "sha256": "43b6fdc34be399aa9c6607cd53388eaf4c432359543d7c335ebc3cbb12760baf",
+      "size": 8740
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/operator_algebra_core.py",
+      "role": "train",
+      "sha256": "c4e1f3ea073a90eeea45cffef276220b2967a5de30917b646970930cdd8104a2",
+      "size": 6863
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/wt_temporal_predictive_state_core.py",
+      "role": "train",
+      "sha256": "bd7636dab22e0ac5cca75b58ffcbcdb9745eb49a2159736b0eddef30efa51795",
+      "size": 7504
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/dronepropa_baselines.py",
+      "role": "train",
+      "sha256": "26b968b80a6623d46c4ab123d8f11ce3deb348387454b60b946e354a5e6620d6",
+      "size": 6624
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/wt_multiresolution_lifting_core.py",
+      "role": "train",
+      "sha256": "97be6d0ca4268b37f8f9b1c14bdd74fb04603625489aa6afc5bccd3a1bfb05f4",
+      "size": 6057
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/causal_intervention_v1.py",
+      "role": "train",
+      "sha256": "f00d72a34b21ecae571234ac349eed63a5a7f88960cbd571c1f9e02b94eaafbc",
+      "size": 7265
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/equality_grammar_masked_byte_core.py",
+      "role": "train",
+      "sha256": "73a45aea52364ab57a119ba393b7b5d55dceb91baa3fb522630ed08f5fd01dca",
+      "size": 6689
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/born_mps_masked_byte_core.py",
+      "role": "train",
+      "sha256": "151f50f4104f4db900fb797e0c8abc1761f60da6c990312b8661c3f099e9cf12",
+      "size": 6957
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/continuous_local_rule_core.py",
+      "role": "train",
+      "sha256": "1ccfd4cbb5175654bdeee72331ce632dc9204eb557307aed02c1597807390140",
+      "size": 7047
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/dyadic_lifted_local_core.py",
+      "role": "train",
+      "sha256": "b0de25d3b49578b23f8751462717a7f63d36a42f93456aca2c695a9f1e6dbd53",
+      "size": 7150
+    },
+    {
+      "path": "tests/test_baseline_semantics.py",
+      "role": "train",
+      "sha256": "050cf5ed1439ba424288120d71e4d6a56f25dc7b2b2fc0f0201a347d0d000ebb",
+      "size": 4397
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/raw_sensor_probe_learner_core.py",
+      "role": "train",
+      "sha256": "f99beebb6a71a9c5db69e605b6347e761dff00da5a923a6afd04efac85840706",
+      "size": 5268
+    },
+    {
+      "path": "tests/test_program_induction_whole_io.py",
+      "role": "train",
+      "sha256": "38088e68af6aaeac2e4acd01a304d0c2331b8116b6cdae48f716408aee20c8eb",
+      "size": 6138
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/mechanism_recombination_core.py",
+      "role": "train",
+      "sha256": "b9313c4f4f0760740a459ba650dc9d302ea24c8b89dd86e434b31145323af77a",
+      "size": 6237
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/raw_sensor_acquisition_controls_core.py",
+      "role": "train",
+      "sha256": "590991f958b7943f31ec4e93a62a678bc0e880741a9f8ddcc4989534ad7a4434",
+      "size": 5026
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/sparse_energy_factor_graph_core.py",
+      "role": "train",
+      "sha256": "3da8a5ff8a4bf212b13ce2f0645230e23c312f7a939959a2cfc377d6eff11819",
+      "size": 6669
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/factorized_flux_reaction_core.py",
+      "role": "train",
+      "sha256": "98854719aea9cc4d06b906410d09eea248410d6f97d1eda2eecf89cb2f365670",
+      "size": 5704
+    },
+    {
+      "path": "tests/test_wt_predictive_state_controls.py",
+      "role": "train",
+      "sha256": "f11ba5efd8e9e7e2650d418cf70e0051756ed789f9678fce54cbc0ec6ef4ded0",
+      "size": 5828
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/wt_candidate_under_test.py",
+      "role": "train",
+      "sha256": "881b255e07bda112e7cfa99422a18967c4cd532f43b37a302db318b79daeb953",
+      "size": 4099
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/shared_tensor_dynamics_core.py",
+      "role": "train",
+      "sha256": "a7ea43b1e593c1a9b9254dc395ba832cfc87fca809a5c3107343dfd16c5aeb05",
+      "size": 5694
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/support_calibrated_algorithmic_prior_core.py",
+      "role": "train",
+      "sha256": "5a767cd9d12ef5fa247810f412df11ab4fd5bd87a2492dc3d5fbcb6bdab80174",
+      "size": 7243
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/experience_operator_compiler_core.py",
+      "role": "train",
+      "sha256": "d9df56e565f3f89fce0c9a9b94a59df00c639c8dd88a5a6b8f5566f917c23e1b",
+      "size": 5424
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/shared_local_update_law_v1.py",
+      "role": "train",
+      "sha256": "a3161a1990d39b4b0d697f950ac3abc4982fd41f422038fb053333d889187dfc",
+      "size": 5653
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/heldout_raw_sensor_active_identification_v1.py",
+      "role": "train",
+      "sha256": "5054cc6532e34be9791cb844707dd8f738e6119819e10984fd0b3de137c151bf",
+      "size": 7553
+    },
+    {
+      "path": "tests/test_wt_multiresolution_lifting.py",
+      "role": "train",
+      "sha256": "74a39daf9ef455e933d4869c747f5760af6b123fd4a78595535c8f0997467b44",
+      "size": 5046
+    },
+    {
+      "path": "tests/test_continuous_local_candidates.py",
+      "role": "train",
+      "sha256": "4497f43f476625d3ff4a28acc05c44fc4e50c7ac705897c1cd60afde12b01545",
+      "size": 4428
+    },
+    {
+      "path": "tests/test_population_local_rule.py",
+      "role": "train",
+      "sha256": "deb192d61b86b4e0ebfc7e5f60f37493f7c26f0c88af07f7707c106aa7519d59",
+      "size": 3699
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/shared_operator_subspace_arx.py",
+      "role": "train",
+      "sha256": "e257962ee7c91aaf64a085cbbb3818bda67a4d5ff530ab51f5521eb25e07fb21",
+      "size": 4976
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/conditional_execution_byte_core.py",
+      "role": "train",
+      "sha256": "410ea810211d1ee1fe9402340617f1b4ab2f1b9dd0140ea4dff9c034c6a61ac6",
+      "size": 4934
+    },
+    {
+      "path": "tests/test_raw_sensor_active_identification_v1.py",
+      "role": "train",
+      "sha256": "fea3b8ee65158ea19ad6239bcf16e11c80029d4d31d18273aea19987c9589634",
+      "size": 4866
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/shared_bounded_recurrent_residual_v1.py",
+      "role": "train",
+      "sha256": "28fdb4079c8ec2bf32db128606608f758149edb9cacf55bb53f1fdcf7c30bd73",
+      "size": 4118
+    },
+    {
+      "path": "tests/test_wt_temporal_predictive_state.py",
+      "role": "train",
+      "sha256": "952ab5b94db7e91c39aa5f09ef1d9d38c5b93aed96c2a31a0a95ec92bb319ebb",
+      "size": 4498
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/program_library_adversarial_v2.py",
+      "role": "train",
+      "sha256": "dfd2d3258aa1bae729e90d057512840ae75836e4fcc89807be28dabed9a45305",
+      "size": 5877
+    },
+    {
+      "path": "tests/test_runner_postseed_durability.py",
+      "role": "train",
+      "sha256": "abf68a4e14883a1efe4915e019bdabd032de896b04464c0d045b73cc637be51c",
+      "size": 5938
+    },
+    {
+      "path": "tests/test_operator_experience_v4.py",
+      "role": "train",
+      "sha256": "cc2a763be94e7390d263c6f829da9bf012f3b1030945adff3f94406790d9bcc8",
+      "size": 5535
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/orthogonal_reservoir_core.py",
+      "role": "train",
+      "sha256": "7143b6476b03c0784ff0ab77f2dc84f8f9b0ebf7ee15bc09abb6790fcda2dafc",
+      "size": 4587
+    },
+    {
+      "path": "research/audits/three_family_algorithmic_prior_noise_floor_v1.py",
+      "role": "train",
+      "sha256": "989af718bd40cac9fa45c4186d0e47f9f9bb9d5f4bace829c3f5ed0c058f2a13",
+      "size": 6555
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/macro_operator_dag_core.py",
+      "role": "train",
+      "sha256": "f74c808165d4b83f1b28812bdeaee105e48a928a3ba06e7042fb2eabd2c7676c",
+      "size": 4236
+    },
+    {
+      "path": "tests/test_dyadic_lifted_local.py",
+      "role": "train",
+      "sha256": "c6c9bd07a7e823b9c12ea3d1babeb337f7e86a953ead02281d5b13f7d9a2db13",
+      "size": 3680
+    },
+    {
+      "path": "tests/test_preflight_contract.py",
+      "role": "train",
+      "sha256": "f1cec13ad96d00b66ce570cada0578de069e05a4db657100dabbfb386a66c8cf",
+      "size": 5325
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/local_sparse_predictive_code_core.py",
+      "role": "train",
+      "sha256": "bf5e46105fbc75a55c000c81aff85e834fcc73fcd3d39f1f6f69e39877912c62",
+      "size": 3955
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/predictive_equivalence_index_core.py",
+      "role": "train",
+      "sha256": "54a4ace2ed93d6af527c87709690e342425abf4efa3c87fd3476d8d97a29c5a6",
+      "size": 3533
+    },
+    {
+      "path": "tests/test_sparse_energy_factor_graph_masked_byte.py",
+      "role": "train",
+      "sha256": "8a813d9e2463176a3b6d4740f544d2aa712f63581d016748efd87cfdfe4f65a7",
+      "size": 3419
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/cross_family_specialist_core.py",
+      "role": "train",
+      "sha256": "77839d2e7c36b4a02c16054490877adb7d886a28e798fffae12d4867a3011b49",
+      "size": 5190
+    },
+    {
+      "path": "tests/test_learned_pushdown_masked_byte.py",
+      "role": "train",
+      "sha256": "ca5d2331e74e529c94f4799dd2dca03703303577ee8f9bd42a9d32416f2a2896",
+      "size": 2754
+    },
+    {
+      "path": "tests/test_experience_operator_compiler.py",
+      "role": "train",
+      "sha256": "c3765cda1c3fbe5194db7c0f56a7b1a6af6c09e156614d33c6b002b5c2ad3171",
+      "size": 3370
+    },
+    {
+      "path": "tests/test_invariant_residual_module.py",
+      "role": "train",
+      "sha256": "b26d2fa7d9713cca30c2f0de5424d7b17b708a7422831b6a9a8f61cfa67cddfa",
+      "size": 4150
+    },
+    {
+      "path": "tests/test_layer_local_goodness_byte.py",
+      "role": "train",
+      "sha256": "e777382cbc28018888f7be4dfc5e91b4cab532ebf6fdb3bd24efb52c476a38c1",
+      "size": 3392
+    },
+    {
+      "path": "tests/test_opaque_alias_acquisition.py",
+      "role": "train",
+      "sha256": "febfdb79a21285a32b341498a561e91d651042c6b6c7bb73a846e53f3d7ac734",
+      "size": 2999
+    },
+    {
+      "path": "tests/test_report_pareto_provenance.py",
+      "role": "train",
+      "sha256": "ef70a886b911906f73418cdc2d847f47d90854f0accc8824dffabc5c454ff6cb",
+      "size": 5220
+    },
+    {
+      "path": "tests/test_factorized_flux_reaction.py",
+      "role": "train",
+      "sha256": "53f579179fb96b35ce0e72214574613cd412b891f95de873dd2ccad7a24858c2",
+      "size": 3507
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/cross_family_specialist_v2_core.py",
+      "role": "train",
+      "sha256": "72dd408232b3c061c45c5311e072b42cd92a09b6def1bc1e07d4601f91e086bd",
+      "size": 5143
+    },
+    {
+      "path": "tests/test_candidates.py",
+      "role": "train",
+      "sha256": "d7fde4c0d54c5c9be141aac8551a9f08245dabfbd3102fd75ddb957e0dc13700",
+      "size": 3277
+    },
+    {
+      "path": "tests/test_operator_experience_v6.py",
+      "role": "train",
+      "sha256": "aff9dfbd0004872526db867b93c14c5ae0c8245c87d93f416ee6365c39d5b3fd",
+      "size": 4230
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/fragment_state_core.py",
+      "role": "train",
+      "sha256": "6eb6b41e12eedf6ca48e44f953d04b941026f8d4473dc6d0bd4cadeb5ac881be",
+      "size": 3610
+    },
+    {
+      "path": "tests/test_orthogonal_reservoir_byte.py",
+      "role": "train",
+      "sha256": "7783818d53b2c85645cc002757a75cf0954f59585ba35fe269e11c0deb45cee4",
+      "size": 3095
+    },
+    {
+      "path": "tests/test_wt_candidate_under_test.py",
+      "role": "train",
+      "sha256": "4a68b5d0af1abacfa1ae2b6599535b80944c768212a7ba348e8223d89db74754",
+      "size": 3147
+    },
+    {
+      "path": "tests/test_equality_grammar_masked_byte.py",
+      "role": "train",
+      "sha256": "4b7c2cfbdc2e72a315f86b8393c1bb280c53ff7a4f6e2df4828ca08d9ae8ed6a",
+      "size": 2824
+    },
+    {
+      "path": "tests/test_bounded_recurrent_residual.py",
+      "role": "train",
+      "sha256": "0392bed9a2794f065054a1897ad83d409b842465cacb89786d6552cdcdfe05ca",
+      "size": 3650
+    },
+    {
+      "path": "tests/test_wt_changepoints_prequential_v2.py",
+      "role": "train",
+      "sha256": "81690f89318eb2f20f1b05c4549a2f6d8c7a516af77b6e4cd6cdec2828eeaa91",
+      "size": 6218
+    },
+    {
+      "path": "src/nextai_autoresearch/candidates/vsa_superposition.py",
+      "role": "train",
+      "sha256": "2cfc1449e75dfb6b10b6fe75008d14c15681f68f719e9277740e206f68f936c1",
+      "size": 3828
+    },
+    {
+      "path": "tests/test_born_mps_masked_byte.py",
+      "role": "train",
+      "sha256": "c1d220a48c153852c89afcdad99ffa65edf0ccaabc144016e39b551d5a95d5c9",
+      "size": 2402
+    },
+    {
+      "path": "research/checks/test_local_update_law_v1.py",
+      "role": "train",
+      "sha256": "abdd35e2c181ddcbad6c182faf25103537d7e85e856e9c8031c2b7437f9182e6",
+      "size": 3328
+    },
+    {
+      "path": "tests/test_three_family_continuous_transfer.py",
+      "role": "validation",
+      "sha256": "ed26dd323be80436652f42c2fe4b25d0fc0cf6f9f7e7f56753ce5a2e18511884",
+      "size": 28084
+    },
+    {
+      "path": "tests/test_parallel_masked_infilling.py",
+      "role": "validation",
+      "sha256": "b88d8855a717842b70278950323dcacfda9d6457701b60092b9201864073b748",
+      "size": 23614
+    },
+    {
+      "path": "research/audits/ncmapss_hdf5_audit.py",
+      "role": "validation",
+      "sha256": "47bda4d42ab50f82a81f6156dd2cf24db3b2d35265b490fe298e083a89499c44",
+      "size": 15876
+    },
+    {
+      "path": "tests/test_dronepropa_factor_recombination.py",
+      "role": "validation",
+      "sha256": "09fb16e29d194767717f76f540b27689241646cba023a1ffe43884125b2a012b",
+      "size": 14764
+    },
+    {
+      "path": "tests/test_heldout_repository_sequence_compression.py",
+      "role": "validation",
+      "sha256": "f884f40a807485dfc7abf4aae07e05e950fa86dd11baa1aebac92e40d5193184",
+      "size": 12576
+    },
+    {
+      "path": "tests/test_continuous_local_cellular_v1.py",
+      "role": "validation",
+      "sha256": "0203281a42558408fdc34873c9c7bd790229564015ed82e0d8104c226672dd62",
+      "size": 11598
+    },
+    {
+      "path": "research/checks/dronepropa_protocol_gate.py",
+      "role": "validation",
+      "sha256": "cd93d3f3d328c41b3e04d433685b474cb717eef1802969baebac5100850104b0",
+      "size": 10511
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/associative_relational_relaxation_adversarial_v2.py",
+      "role": "test",
+      "sha256": "c49116137e109a2928fbafd26eade7852efc5c5eaf232ce09b57052d41cc048f",
+      "size": 10504
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/heldout_dronepropa_factor_recombination_v1.py",
+      "role": "test",
+      "sha256": "9d3871ae937c86988e5fdfd97c58b80efd73effc5b892a1f9675452232eccb4c",
+      "size": 31632
+    },
+    {
+      "path": "src/nextai_autoresearch/benchmarks/heldout_wt_changepoints_prequential_v1.py",
+      "role": "test",
+      "sha256": "ddfb3c376c2f7eaf3b56e0825e313afcb56169d5d5e784888de280f37abdce9a",
+      "size": 13253
+    }
+  ],
+  "schema_version": 1
+}

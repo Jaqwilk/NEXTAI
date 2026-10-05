@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_confirmation_history_v1.py", line 36, in <module>
+    receipt=json.loads((b/f'research/reviews/{cid}.json').read_text(encoding='utf-8')); assert receipt['result']['returncode']==0 and not receipt['error'],cid
+                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PVM01-CONFIRMATION-full-V1
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_confirmation_commit_validated_v1.py", line 6, in <module>
+    subprocess.run(['uv','run','--no-sync','python','research/tmp/pvm01_confirmation_history_v1.py'],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['uv', 'run', '--no-sync', 'python', 'research/tmp/pvm01_confirmation_history_v1.py']' returned non-zero exit status 1.

@@ -1,0 +1,12 @@
+{
+  "B_not_borrowed_or_activated": true,
+  "accounting_formula": "current A fit_seconds_remaining -20400 worker cap -(3600-current-study already charged auxiliary). Current auxiliary is counted once,including startup,failures and prepaid administration.",
+  "before_new_private_seed_data_fit_EXP": true,
+  "created_at": "2026-10-05T06:09:18Z",
+  "id": "PVM01-CONFIRMATION-FINAL-RESERVE-ADDENDUM-V1",
+  "minimum_future_registration_tickets": 1,
+  "minimum_remaining_A_seconds_after_worst_case_current_study": 24000,
+  "parent_study_path": "research/plans/PVM01-DENSE-NOISE-CONFIRMATION-V1.json",
+  "parent_study_sha256": "1ecb3ecd34b1c155817f74b6d3ac9ccf7b7bb7922ceca2fa6a79f1f003fd2c1f",
+  "purpose": "Strengthen reserved funds for a same17-arm fresh final:20400 full workers+3600 auxiliary=24000s. No current metrics,recipe,data,budgets,deadline or scientific gate changes; no final activation."
+}

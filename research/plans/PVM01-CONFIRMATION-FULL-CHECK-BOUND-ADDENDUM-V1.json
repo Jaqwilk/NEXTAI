@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-10-05T06:02:32Z",
+  "failed_checks_preserved": [
+    "research/reviews/PVM01-CONFIRMATION-full-V1.json",
+    "research/reviews/PVM01-CONFIRMATION-history-source-V1.json"
+  ],
+  "failed_costs_remain_consumed": true,
+  "frozen_study_auxiliary_cap_unchanged": 3600,
+  "id": "PVM01-CONFIRMATION-FULL-CHECK-BOUND-ADDENDUM-V1",
+  "no_paid_plan_retry": true,
+  "no_scientific_metric_recipe_threshold_or_data_change": true,
+  "observed": "Full1238 regression passed emitted checks through98% but its500s external timeout terminated the process tree before final JUnit. Previous full1198 used432.1s versus earlier371.9s,with increasing stored scientific history. No assertion failure emitted; this is an incomplete technical check,not a passing suite. History controller correctly rejected it.",
+  "prospective_next_technical_check": {
+    "all_tests_unchanged": true,
+    "full_JUnit_required_no_skips": true,
+    "id": "PVM01-CONFIRMATION-full-V2",
+    "reservation_seconds": 840,
+    "whole_tree_timeout_seconds": 800
+  },
+  "research_arrays_seeds_fit_EXP": false,
+  "study_path": "research/plans/PVM01-DENSE-NOISE-CONFIRMATION-V1.json",
+  "study_sha256": "1ecb3ecd34b1c155817f74b6d3ac9ccf7b7bb7922ceca2fa6a79f1f003fd2c1f",
+  "terminated_descendant_pids_verified_absent": [
+    32604,
+    24192,
+    11560,
+    35100
+  ]
+}

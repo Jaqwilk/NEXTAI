@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-10-05T06:14:14Z",
+  "files": {
+    "false": {
+      "research/checks/PVM01-CONFIRMATION-full-V2.xml": "9e8b1571845b4270a78c0b0619d49fdc8d41644136ab20f974792ae0bae54719",
+      "research/checks/PVM01-CONFIRMATION-targeted-V1.xml": "e932c457ebf549382989044298c97bd2be18350e921dec93a885e91f8852935f",
+      "schemas/experiment_plan.schema.json": "8672a1d821b7534f79c8c41800d7e457d3e2fa66fd2d5c70845fa3ec77681147",
+      "src/nextai_autoresearch/worker_resource_peaks.py": "d4cf4cfa977b8bdf73b98d4ba0023154a9da6639c06faa4d809c6e072b2abc71",
+      "tests/test_pvm01_confirmation.py": "45ba23b46661b30f2a080be6f4e7348be68ff59c76ae73a6e688e23662f40f21"
+    },
+    "true": {
+      "research/checks/PVM01-CONFIRMATION-full-V2.xml": "9e8b1571845b4270a78c0b0619d49fdc8d41644136ab20f974792ae0bae54719",
+      "research/checks/PVM01-CONFIRMATION-targeted-V1.xml": "e932c457ebf549382989044298c97bd2be18350e921dec93a885e91f8852935f",
+      "schemas/experiment_plan.schema.json": "8672a1d821b7534f79c8c41800d7e457d3e2fa66fd2d5c70845fa3ec77681147",
+      "src/nextai_autoresearch/worker_resource_peaks.py": "d4cf4cfa977b8bdf73b98d4ba0023154a9da6639c06faa4d809c6e072b2abc71",
+      "tests/test_pvm01_confirmation.py": "45ba23b46661b30f2a080be6f4e7348be68ff59c76ae73a6e688e23662f40f21"
+    }
+  },
+  "old_records_unchanged": true,
+  "same_native_bytes_under_both_autocrlf_policies": true
+}

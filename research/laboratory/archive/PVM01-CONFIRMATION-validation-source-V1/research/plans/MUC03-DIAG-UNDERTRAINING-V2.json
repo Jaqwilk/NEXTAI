@@ -1,0 +1,202 @@
+{
+  "architecture_promotion": false,
+  "candidates": [
+    "muc03_hard_192_s0",
+    "muc03_hard_768_s0",
+    "muc03_hard_192_s1",
+    "muc03_hard_768_s1",
+    "muc03_hard_192_s2",
+    "muc03_hard_768_s2",
+    "muc03_hard_192_s3",
+    "muc03_hard_768_s3",
+    "muc03_hard_192_s4",
+    "muc03_hard_768_s4",
+    "symbolic_last_write_graph_v2"
+  ],
+  "cohort": "muc03_undertraining_v1",
+  "correction": "Failed ticket1 consumed by historical CLI unit fixture in real clone ledger before readiness. No EXP plan, no scoring seed, no research fit. New prospective registration; original stage deadline and all metrics/model/step counts/caps unchanged.",
+  "created_at": "2026-10-03T23:36:09Z",
+  "data": {
+    "dev_iid": "rename ED->ET in the same fresh dev graph/questions/targets; targets never used by candidate before answer",
+    "dev_shift": "original fresh ED dev worlds",
+    "dev_worlds_per_cell": 15,
+    "fresh_splits": [
+      "T",
+      "D"
+    ],
+    "old_calibration_or_final_reuse": false,
+    "proposal_rule": "hash(tag|seed|split|K|D|world[|proposal=n]); only infeasible query strata reject, every proposal fsynced",
+    "structural_proposals_cap": 64,
+    "tag": "MUC03-DIAG-UNDERTRAINING-V2",
+    "train_diagnostic_worlds_per_cell": 3,
+    "train_worlds_per_cell": 45
+  },
+  "decision_policy": "diagnose each cause separately; choose768 reference only if all stable-reference gates pass; otherwise preregister next bounded diagnostic based on cause, never promote an architecture from this diagnostic",
+  "diagnosis_gates": {
+    "namespace_gap_min": 0.1,
+    "namespace_gap_positive_pairs_min": 4,
+    "ranking_competence_min": 0.9,
+    "rejection_accepted_gap_min": 0.05,
+    "undertraining_long_train_accuracy_min": 0.95,
+    "undertraining_training_gain_min": 0.05,
+    "unknown_competence_min": 0.9
+  },
+  "diagnostics": {
+    "dev_iid_end_to_end": false,
+    "dev_shift_end_to_end": true,
+    "domains": [
+      "train_seen",
+      "dev_iid",
+      "dev_shift"
+    ],
+    "fixed_final_checkpoint": true,
+    "known_queries": 2,
+    "queries_per_world": 4,
+    "rejection_threshold": 0.5,
+    "top1": "all serialized rows, argmax probability then latest timestamp for exact tie; correct iff latest queried key; before threshold",
+    "training_pair_accuracy": "existing frozen fit diagnostic over4096 training pairs, not checkpoint selection",
+    "unknown_queries": "one absent subject namespace999 and one absent relation violet"
+  },
+  "factors": "training192 vs768 paired; evaluation namespace ET (seen train vocabulary) vsED (disjoint prefix), same fresh dev graph; prespecified interaction, no task/threshold changes",
+  "failure_policy": "first failure stops unstarted roles; partial evidence retained; no same-plan retry; consumed registration stays charged",
+  "id": "MUC03-DIAG-UNDERTRAINING-V2",
+  "implementation_identity": "unchanged MUC v2 Reader/core/AdamW/hard sampler; only fit step cap changes between paired learned roles; new fresh-data and namespace diagnostic evaluator",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "queries_per_cell": 16,
+    "reasoning_depths": [
+      1,
+      2,
+      4
+    ],
+    "seed_policy": {
+      "count": 5,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "primary_endpoints": [
+    "training_pair_accuracy",
+    "dev_shift_fact_top1_accuracy"
+  ],
+  "program_contract_sha256": "b8c3f80a5b7fbfd8813911f71d5d368d1a12b0df18a86b51bf2c82285caadf42",
+  "question": "Does more fixed-step training repair hard-pair competence, and are remaining errors due to namespace shift or fixed rejection rather than ranking?",
+  "recipe": {
+    "batch_size": 32,
+    "dropout": 0.0,
+    "encoder_layers": 6,
+    "feedforward_width": 1536,
+    "frozen_control": "same initialization and inference as BM25 pair reader; zero updates",
+    "heads": 6,
+    "learning_rate": 0.0003,
+    "optimizer": "AdamW",
+    "pad_mask": true,
+    "pair_bytes_cap": 96,
+    "retrieval": "actual BM25 k1=1.2 b=0.75, top 4; identical learned pair model and disclosed iterative path loop",
+    "sampling": "4096 balanced pairs; identical anchors/positives/order; only negative key distribution differs",
+    "seed_source": "five runner_random_v1 paired seeds, same initialization and batches within pair",
+    "selection": "none; fixed final optimizer step; dev evaluated once for competence only",
+    "training_pairs": 4096,
+    "updates": 192,
+    "weight_decay": 0.01,
+    "width": 384
+  },
+  "reference_gates": {
+    "dev_shift_top1_each_seed_min": 0.9,
+    "dev_shift_top1_mean_min": 0.95,
+    "e2e_accuracy_each_seed_min": 0.85,
+    "e2e_accuracy_mean_min": 0.9,
+    "known_false_abstention_each_seed_max": 0.05,
+    "known_false_abstention_mean_max": 0.02,
+    "symbolic_accuracy_min": 0.995,
+    "symbolic_parser_failure_max": 0.001,
+    "training_each_seed_min": 0.99,
+    "unknown_rejection_mean_min": 0.9
+  },
+  "registration_attempts_for_this_study_cap": 1,
+  "resources": {
+    "cuda_required": true,
+    "fit_seconds_per_role_cap": 350,
+    "fit_seconds_study_cap": 3500,
+    "max_cuda_reserved_bytes": 4294967296,
+    "max_rss_bytes": 8589934592,
+    "worker_seconds_cap": 2400
+  },
+  "roles": {
+    "muc03_hard_192_s0": {
+      "arm": "192",
+      "fit_steps": 192,
+      "negative_sampling": "hard",
+      "seed_index": 0
+    },
+    "muc03_hard_192_s1": {
+      "arm": "192",
+      "fit_steps": 192,
+      "negative_sampling": "hard",
+      "seed_index": 1
+    },
+    "muc03_hard_192_s2": {
+      "arm": "192",
+      "fit_steps": 192,
+      "negative_sampling": "hard",
+      "seed_index": 2
+    },
+    "muc03_hard_192_s3": {
+      "arm": "192",
+      "fit_steps": 192,
+      "negative_sampling": "hard",
+      "seed_index": 3
+    },
+    "muc03_hard_192_s4": {
+      "arm": "192",
+      "fit_steps": 192,
+      "negative_sampling": "hard",
+      "seed_index": 4
+    },
+    "muc03_hard_768_s0": {
+      "arm": "768",
+      "fit_steps": 768,
+      "negative_sampling": "hard",
+      "seed_index": 0
+    },
+    "muc03_hard_768_s1": {
+      "arm": "768",
+      "fit_steps": 768,
+      "negative_sampling": "hard",
+      "seed_index": 1
+    },
+    "muc03_hard_768_s2": {
+      "arm": "768",
+      "fit_steps": 768,
+      "negative_sampling": "hard",
+      "seed_index": 2
+    },
+    "muc03_hard_768_s3": {
+      "arm": "768",
+      "fit_steps": 768,
+      "negative_sampling": "hard",
+      "seed_index": 3
+    },
+    "muc03_hard_768_s4": {
+      "arm": "768",
+      "fit_steps": 768,
+      "negative_sampling": "hard",
+      "seed_index": 4
+    },
+    "symbolic_last_write_graph_v2": {
+      "arm": "symbolic",
+      "fit_steps": 0,
+      "seed_index": null
+    }
+  },
+  "schema_version": 1,
+  "stage": "reference",
+  "study_deadline_at": "2026-10-04T02:58:46.647851+00:00",
+  "supersedes_unexecuted_study": "research/plans/MUC03-DIAG-UNDERTRAINING-V1.json",
+  "uncertainty": "paired five seed/data units, equal9cell means; two-sided97.5% Student-t df4 for primary differences, Bonferroni familywise95%; other contrasts95% descriptive; no question pseudoreplication"
+}

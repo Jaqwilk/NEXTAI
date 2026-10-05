@@ -1,0 +1,32 @@
+{
+  "cap": 840,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "-q",
+    "--durations=20",
+    "--junitxml=research/checks/PVM01-CONFIRMATION-full-V2.xml"
+  ],
+  "created_at": "2026-10-05T06:11:19Z",
+  "error": null,
+  "id": "PVM01-CONFIRMATION-full-V2",
+  "raw_outputs": {
+    "PVM01-CONFIRMATION-full-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-CONFIRMATION-full-V2.stdout.txt": "87d0bce6701478c0300e1e178d6c545c2c396827c0caff80d9ec420831ee8ce9"
+  },
+  "result": {
+    "elapsed_seconds": 504.0952408000012,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4970385408,
+    "pid": 37384,
+    "processes_created": 1085,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 517,
+  "wall_seconds": 511.3965593999892
+}
