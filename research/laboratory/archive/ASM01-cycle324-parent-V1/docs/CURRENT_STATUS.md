@@ -1,19 +1,3 @@
-# Prospective cycle324 — verified serializer native ASM01 screen (2026-10-05)
-
-ASM01-FROZEN-SOURCE-SCREEN-V3 freezes the unchanged nine-arm, five-pair screen.
-Actual source states,4096pairs,2048alignment/1024decoder,K16/32/64,updates0/1/4,
-nominal/adverse,all metrics/grids/competence/UNKNOWN/FA/economic gates unchanged.
-Only new cohort/intake binding to the independently conformed V4 serializer.
-Known T1 disclosed; all1830 screen samples required without dropping/replacement.
-Native intake failure stops unstarted scope; no same-cycle parser/geometry rescue.
-Deadline2026-10-06T02:47:55Z; fullworker8300s,auxiliary2500s includes startup,
-tests/failures/controller; protected7tickets/47000s untouched. Maintenance and
-scoring=false until independent clone/native feasibility/freeze/preflight/readiness.
-Exactly one audited EXP at most; no source refit,paid retry,WT8-9,external API
-or schedule change. B and the complete transfer/prototype goal remain active.
-
-Earlier stage-specific sections below remain preserved history.
-
 # Current cycle323 — complete native serializer conformance (2026-10-05)
 
 ASM01-SERIALIZER-STRUCTURE-PREPARATION-V1 is preparation only.
