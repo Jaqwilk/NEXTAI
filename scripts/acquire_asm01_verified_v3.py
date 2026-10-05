@@ -42,6 +42,11 @@ def canonical_identities(records,exception):
 
 def main():
     root=Path(__file__).resolve().parents[1]
+    proof=json.loads((root/'research/reviews/ASM01-V3-PREINTAKE-CONFORMANCE-V1.json').read_text())
+    assert root.name=='NEXTAI-VALIDATION-20261002' and proof['all_fixture_tests_passed']
+    assert proof['remaining_native_content_unseen'] and proof['both_source_checkouts_identical']
+    for relative,digest in proof['implementation_sha256'].items():
+        assert sha256_file(root/relative)==digest
     study_path=root/'research/plans/ASM01-FROZEN-SOURCE-SCREEN-V3.json'
     task_path=root/'research/plans/ASM01-VERIFIED-SERIALIZER-TASK-V3.json'
     study=json.loads(study_path.read_text(encoding='utf-8'));task=json.loads(task_path.read_text(encoding='utf-8'))

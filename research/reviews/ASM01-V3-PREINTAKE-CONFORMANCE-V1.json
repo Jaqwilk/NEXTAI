@@ -1,0 +1,28 @@
+{
+  "all_fixture_tests_passed": true,
+  "both_source_checkouts_identical": true,
+  "compared_source_files": 1443,
+  "conformance_receipt_sha256": "03fee860cda93e16054b19ad17b18a98722c2e48f11ec3258cd6c6a40253b2b6",
+  "conformance_xml_sha256": "c91952797c4e41f1f75dd3249b9487b51caf74d00c442f66c20fb359e36a8afa",
+  "created_at": "2026-10-05T23:08:23Z",
+  "cycle": 324,
+  "exit_live_descendants": [],
+  "fixture_tests": 131,
+  "id": "ASM01-V3-PREINTAKE-CONFORMANCE-V1",
+  "implementation_sha256": {
+    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V3.json": "a3e338f334aeccf7543f72e9e1c6133188ac39acbd23a53792a4607c3f57d217",
+    "scripts/acquire_asm01_verified_v3.py": "c4ea59c70d276d861fa3697322aa58c9c536540890288aef588003fdbc4bcca2",
+    "scripts/run_asm01_verified_check.py": "1c9faeb90018d5618d250c441a8a8384eca9a846ca7f33096a2a6c5e1052211f",
+    "src/nextai_autoresearch/asm01_task_v5.py": "ef5c49accb6ec1f4fb2318499aae28131198139fc5a50aed01d69420c173686e",
+    "src/nextai_autoresearch/benchmarks/asm01_native_memory_v3.py": "e4bdc193276176dfe74eaf0b0949eda35b5f7e139b0aa0504de2f8caf9cd5d66",
+    "tests/test_asm01_v3_cohort_conformance.py": "315284330cc9535dc9c8610a64c3ee56bb2e6a15e2a95cb205bd23eb2eb7cf8f",
+    "tests/test_asm01_verified_binding.py": "67ff293b3341520c71407cc7f79d9549095006fa5a730011dcbaf0c24fbcf691"
+  },
+  "known_T1_previously_exposed": true,
+  "remaining_native_content_unseen": true,
+  "small_fixture_fits_included_in_auxiliary_charge": 63,
+  "study_path": "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V3.json",
+  "study_sha256": "a3e338f334aeccf7543f72e9e1c6133188ac39acbd23a53792a4607c3f57d217",
+  "task_sha256": "d34bf101fe22ad5fbe739d6ff05a24b96ce4939eca57720f76b8eb89063c4dd1",
+  "whole_process_tree_bounded": true
+}

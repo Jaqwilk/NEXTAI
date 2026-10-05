@@ -1,0 +1,45 @@
+{
+  "cap_seconds": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_asm01_native_transfer.py",
+    "tests/test_asm01_canonical_intake.py",
+    "tests/test_asm01_native_grammar_v3.py",
+    "tests/test_asm01_native_serializer_v4.py",
+    "tests/test_asm01_cohort_conformance.py",
+    "tests/test_asm01_v3_cohort_conformance.py",
+    "tests/test_asm01_verified_binding.py",
+    "--basetemp",
+    "research/tmp/ASM01-V3-fixed-fixtures-V1",
+    "--junitxml",
+    "research/reviews/NEXTAI-B-324-clone-conformance-V1.xml"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T23:06:59Z",
+  "error": null,
+  "id": "NEXTAI-B-324-clone-conformance-V1",
+  "raw_outputs": {
+    "NEXTAI-B-324-clone-conformance-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-324-clone-conformance-V1.stdout.txt": "a5bc2277eae64339118c9e67b8e82d03a49a34df838cf9fb9fb11964c720808a"
+  },
+  "result": {
+    "elapsed_seconds": 8.519938099983847,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1384312832,
+    "pid": 23416,
+    "processes_created": 6,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 63,
+  "wall_seconds": 22.465425399976084,
+  "whole_process_tree_bounded": true
+}
