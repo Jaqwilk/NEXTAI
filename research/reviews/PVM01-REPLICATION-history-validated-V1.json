@@ -1,0 +1,15 @@
+{
+  "all_old_candidate_and_test_bytes_preserved": true,
+  "created_at": "2026-10-05T02:29:02Z",
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1159
+  },
+  "new_scored_data_fit_EXP": false,
+  "no_stop_pause_lock": true,
+  "old_nonmutable_raw_files": 33581,
+  "old_prefixes_preserved": true,
+  "protected_integrity_preflight": true
+}
