@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-10-05T19:09:06Z",
+  "id": "NEXTAI-B-321-administration-prepaid",
+  "new_fit": 0,
+  "prepaid": true,
+  "scope": "Conservative prepaid bound for all cycle321 manual metadata inventories, preregistration writes, configuration/code editing, byte mirroring, ledger and closure administration. External bounded checks are charged separately. Includes the initial failed PowerShell inventory and unavailable-file read; no excluded computation.",
+  "seconds_charged": 300
+}

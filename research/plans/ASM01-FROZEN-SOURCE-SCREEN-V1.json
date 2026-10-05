@@ -1,0 +1,603 @@
+{
+  "candidates": [
+    "asm01_source_trained_s0",
+    "asm01_source_trained_s1",
+    "asm01_source_trained_s2",
+    "asm01_source_trained_s3",
+    "asm01_source_trained_s4",
+    "asm01_source_untrained_s0",
+    "asm01_source_untrained_s1",
+    "asm01_source_untrained_s2",
+    "asm01_source_untrained_s3",
+    "asm01_source_untrained_s4",
+    "asm01_source_shuffled_s0",
+    "asm01_source_shuffled_s1",
+    "asm01_source_shuffled_s2",
+    "asm01_source_shuffled_s3",
+    "asm01_source_shuffled_s4",
+    "asm01_source_ridge_s0",
+    "asm01_source_ridge_s1",
+    "asm01_source_ridge_s2",
+    "asm01_source_ridge_s3",
+    "asm01_source_ridge_s4",
+    "asm01_target_dense_s0",
+    "asm01_target_dense_s1",
+    "asm01_target_dense_s2",
+    "asm01_target_dense_s3",
+    "asm01_target_dense_s4",
+    "asm01_target_ridge_pca_s0",
+    "asm01_target_ridge_pca_s1",
+    "asm01_target_ridge_pca_s2",
+    "asm01_target_ridge_pca_s3",
+    "asm01_target_ridge_pca_s4",
+    "asm01_target_kernel_s0",
+    "asm01_target_kernel_s1",
+    "asm01_target_kernel_s2",
+    "asm01_target_kernel_s3",
+    "asm01_target_kernel_s4",
+    "asm01_native_raw_s0",
+    "asm01_native_raw_s1",
+    "asm01_native_raw_s2",
+    "asm01_native_raw_s3",
+    "asm01_native_raw_s4",
+    "asm01_native_dtw_s0",
+    "asm01_native_dtw_s1",
+    "asm01_native_dtw_s2",
+    "asm01_native_dtw_s3",
+    "asm01_native_dtw_s4"
+  ],
+  "cohort": "asm01_native_memory_v1",
+  "cost_boundary": {
+    "attribution": "Same acquisition shared once in aggregate and disclosed separately; per-route amortized totals include it. Sunk original source fit disclosed without replay/charging it again to B; all new work and failures charged.",
+    "energy_measured": false,
+    "service": "Raw pen-down paths already in memory -> descriptor, copies, service-state construction/restoration, ingest/index/cache, all updates, warmup, query and current value/source/UNKNOWN decode. Cold cost additionally includes bounded acquisition, archive decompression, text parsing, all grids/fit/calibration, process supervision and copied/compressed file reads."
+  },
+  "created_at": "2026-10-05T19:10:59Z",
+  "cycle": 321,
+  "data": {
+    "acquisition": {
+      "archive_manifest_and_extraction_cap_bytes": 134217728,
+      "archive_url": "https://archive.ics.uci.edu/ml/machine-learning-databases/00208/Online%20Handwritten%20Assamese%20Characters%20Dataset.rar",
+      "download_stream_cap_bytes": 10485760,
+      "maximum_two_root_total_footprint_bytes": 335544320,
+      "minimum_free_bytes_after_operation": 10737418240,
+      "publisher_estimate": "7.7MB; exact length unavailable from HEAD",
+      "sequence": "Freeze complete scientific study and minimal parser/generator tests in clone before coordinate payload. Hash one bounded publisher acquisition; list RAR sizes/names before extraction; stop for unsafe sizes/path, inconsistent count or licensing. Future replication/final coordinate files remain unopened. Do not open Data_Table.pdf or give character names/class labels to methods."
+    },
+    "all_data_hashes_required": true,
+    "axis_encoding": {
+      "1": 0,
+      "2": 1,
+      "3": 4
+    },
+    "calibration_instances": 95,
+    "dev_episodes_per_cell": 4,
+    "evaluation_conditions": [
+      "nominal",
+      "adverse"
+    ],
+    "fit_instances": 64,
+    "independent_units": {
+      "archive_identity_gate": "Require exactly45 documented writer IDs and183 unique sample files per writer; all source/writer/sample duplicates checked before model fit; no replacement writer on failure",
+      "fresh_final_dev": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "fresh_final_train": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "pairing": "Source state i -> fixed train/dev writer pair i; no favorable source/target selection",
+      "replication_dev": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "replication_train": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "screen_dev": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "screen_train": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unit": "writer; query repeats/points/augmentations are not independent units",
+      "unused_writers": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    "legal_inputs": "Only normalized64 native coordinates and legal random fact/source/version write metadata and T training labels. No sample, character or writer identifier on queries or in model features; no character-name/class label or Data_Table.pdf.",
+    "screen_writers": [
+      {
+        "dev_writer": 16,
+        "source_unit": 0,
+        "train_writer": 1,
+        "unit": 0
+      },
+      {
+        "dev_writer": 17,
+        "source_unit": 1,
+        "train_writer": 2,
+        "unit": 1
+      },
+      {
+        "dev_writer": 18,
+        "source_unit": 2,
+        "train_writer": 3,
+        "unit": 2
+      },
+      {
+        "dev_writer": 19,
+        "source_unit": 3,
+        "train_writer": 4,
+        "unit": 3
+      },
+      {
+        "dev_writer": 20,
+        "source_unit": 4,
+        "train_writer": 5,
+        "unit": 4
+      }
+    ],
+    "train_calibration_episodes_per_K": 3,
+    "train_pair_draw_rule": "One private permutation of183 sample IDs for each T writer:64fit/24validation/95calibration.4096 training pairs start with those64 distinct fit IDs, then4032 replacement draws.512 validation pairs start with24 distinct validation IDs, then488 replacement draws. Same pairs/all nine arms; repeats do not create independent samples.",
+    "train_pairs": 4096,
+    "train_sets_episodes_per_K": 128,
+    "train_validation_pairs": 512,
+    "validation_instances": 24
+  },
+  "decision_policy": "Missing/partial fiveunits, intake/source/sourceweight/datahash/resource/mandatorycontrol/evaluator invalidity =>INCONCLUSIVE; failure of competence makes economic comparison INCONCLUSIVE, not architecture falsification. Source-information KEEP only all4frozen primary gates; otherwise DISCARD this exact frozen-source/readout transfer recipe if measurement/control valid; expose both rank/UNKNOWN separately. Qualify a fixed route only unchanged competent-reference and percell quality/UNKNOWN/FA plus18economic andfixed strong-classical non-domination gates. No promotion/LLM/generalintelligence/blindholdout/general scaling claim. Preserve every failure and cost; exactlyone audited EXP,no paid retry/seed replacement,outcome-based tuning or sourcefitreplay. Independently justified alternatives require new prospective recipe/data; replication andfresh finals remainprotected.",
+  "diagnosis_gates": {
+    "economic_qualification": {
+      "UNKNOWN_minimum": 0.95,
+      "all_conditions_required": [
+        "nominal",
+        "adverse"
+      ],
+      "candidate_full_service_ratio_CI_upper": 0.8,
+      "candidate_p95_ratio_CI_upper": 0.9,
+      "candidate_quality_minus_dense_CI_lower": -0.02,
+      "known_false_abstention_maximum": 0.02,
+      "no_weakened_economics": true,
+      "per_condition_K_metrics": [
+        "accuracy",
+        "UNKNOWN",
+        "known_false_abstention"
+      ],
+      "quality_cost_family": "18pairedgates/route:2conditionsx3Kx(accuracyNI,service,p95); two-sided99.722222% df4 intervals; fivepairs",
+      "quality_guard_each_unit": 0.9,
+      "quality_guard_mean": 0.95,
+      "scales": [
+        16,
+        32,
+        64
+      ],
+      "strong_classical_nondomination": "Six fixed native/classical comparators:source_ridge,target_ridge_pca,target_kernel,native_raw,native_dtw andtarget_dense. For each route and comparator across6cells, simultaneous Studentt df4 intervals over108fixedcomparisons (NIquality,service,p95). Dominated if comparator qualityNI lower>=-.02 and both service/p95 ratio upper<=1 with oneupper<1, plus competence/UNKNOWN/FA. Aroute is not qualified by beating dense alone."
+    },
+    "source_information_effect": {
+      "CI_lower": 0.0,
+      "familywise_alpha": 0.05,
+      "mean_minimum": 0.02,
+      "positive_pairs": 5
+    }
+  },
+  "diagnostics": {
+    "secondary": [
+      "accuracy",
+      "fact_top1_accuracy",
+      "source_attribution_accuracy",
+      "known_false_abstention",
+      "dense_unknown_rejection",
+      "updated_known_accuracy",
+      "retained_known_accuracy",
+      "current_value_at_correct_handle",
+      "service_seconds",
+      "p50_latency_us",
+      "p95_latency_us",
+      "state_bytes",
+      "fit_seconds",
+      "fullcold_worker_wall"
+    ],
+    "secondary_intervals": "paired95% descriptive only; no source-transfer claim from target fit alone; adverse contrasts separatelyreported",
+    "source_information_primary_family": {
+      "condition": "nominal, equalweights over3Kx3updates",
+      "endpoints": [
+        "trained_minus_untrained:fact_top1",
+        "trained_minus_shuffled:fact_top1",
+        "trained_minus_untrained:UNKNOWN",
+        "trained_minus_shuffled:UNKNOWN"
+      ],
+      "interval": "two-sided Studentt df4, Bonferroni nominal family95% across4endpoints =>98.75% each; all four pass for source-information KEEP",
+      "mean_gain_minimum": 0.02,
+      "paired_CI_lower_must_exceed": 0.0,
+      "paired_units": 5,
+      "positive_pairs_required": 5
+    }
+  },
+  "forbidden": [
+    "paid retry",
+    "source refit",
+    "future writer coordinate access",
+    "WT8-9",
+    "external model/API",
+    "schedule changes",
+    "weakened gates",
+    "completed scientific artifact modification"
+  ],
+  "id": "ASM01-FROZEN-SOURCE-SCREEN-V1",
+  "intake_failure_policy": "Stop unstarted fitting/scoring on archive/identity/grammar/degeneracy/resource/deadline/source invalidity; retain exact bytes, costs and partial evidence. No paid retry or new source/writer replacement. Conformance fixes on synthetic public fixtures only before real content; no after-content recipe changes.",
+  "matrix": {
+    "knowledge_sizes": [
+      16,
+      32,
+      64
+    ],
+    "queries_per_cell": 64,
+    "reasoning_depths": [
+      1,
+      2,
+      3
+    ],
+    "seed_policy": {
+      "count": 5,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "native_parser": {
+    "dependence": "Views are dependent subsamples of one acquisition, not independently acquired observations; disclose this limit",
+    "filename_identity": "Publisher M.N.txt has CHARACTER M(1..183), WRITER N(1..45). Require exactly8235 unique pairs,45 writer IDs and183 native samples/writer. Directory names are ancillary, never identity features. All path/size metadata may be inspected; decode ONLY screen writers1..5/16..20.",
+    "grammar": "ASCII text; ignore blank lines. First CHARACTER_NAME: suffix discarded without matching names/classes. STROKE_COUNT: positive integer. PEN_DOWN/PEN_UP may be standalone markers or tab/space-delimited records with empty coordinate/state fields; any supplied stroke serial must match the current1-based stroke. Numeric point rows exactly4 integer fields X,Y,STYLUS_STATE,STROKE: X0..4392,Y0..4868, state1, current stroke. PEN_UP state if supplied must be0. PEN_DOWN state if supplied blank. Require alternating DOWN/UP, declared count matches strokes, terminal END_CHARACTER: suffix ignored; reject unknown rows/nonfinite/out-of-range/unsafe sizes. No after-content schema rescue.",
+    "invalidity": "Any missing/degenerate required native sample invalidates intake; no selective sample dropping or writer replacement after content",
+    "points_per_sample_cap": 32768,
+    "primary_format_source": "https://archive.ics.uci.edu/dataset/208/online+handwritten+assamese+characters+dataset",
+    "resampling": "After separators removed, cumulative Euclidean arc length includes straight chords between strokes, a disclosed deterministic representation rather than physical pen movement. Interpolate X and Y at32 uniformly spaced cumulative distances inclusive endpoints. Remove zero-length intervals for interpolation. Subtract each view centroid; RMS=sqrt(mean(sum(centered_xy^2,axis=1))); divide by RMS*sqrt(32), flatten64 float32. This fixed unit-L2 rescaling makes the proposed RMS representation compatible with frozen source64D inputs; same for every arm. No fitted target normalizer; transform is per-observation only.",
+    "reviewed_before_coordinate_content": true,
+    "sample_bytes_cap": 262144,
+    "trajectory": "Concatenate only pen-down coordinates in stroke order after removing consecutive duplicates WITHIN each stroke. At least4 remaining points required. Even zero-based indices =>write, odd=>query. Adverse query drops index3,7,11,... of its selected query points before resampling. Each required view needs>=2 distinct positions and positive arc length; otherwise intake invalid. Never drop/replace selected native sample."
+  },
+  "parent_completion_receipt_path": "research/laboratory/FAMILY2-CYCLE320-COMPLETION-V1.receipt.json",
+  "parent_completion_receipt_sha256": "03651b2ce30710275dede488755f680428bd45126e209b767af71dead4a585ac",
+  "program_contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "question": "Does information in actual frozen learned source states transfer to native pen-trajectory instance memory beyond identical untrained/shuffled source states and target/native classics, with a competent dense reference and full costs?",
+  "recipe": {
+    "alignment_batch": 128,
+    "alignment_steps": 2048,
+    "dense_set_steps": 1024,
+    "kernel_bandwidth_grid": [
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "kernel_landmarks": 64,
+    "kernel_ridge_grid": [
+      0.0001,
+      0.01,
+      1.0
+    ],
+    "learning_rate": 0.003,
+    "margin_grid": [
+      0.0,
+      0.005,
+      0.01,
+      0.02,
+      0.04,
+      0.08,
+      0.16,
+      0.32
+    ],
+    "native_dtw": "Exact band4 DTW on SAME public32x2 unit-L2 views. Local cost32*sum((x_i-y_j)^2). Dynamic program minimizes total squared cost within |i-j|<=4, starts(0,0), ends(31,31), allowed diagonal/up/left with that deterministic tie priority. Track length of selected minimum-sum path; d=sum/length. Similarity=1/(1+d). All distances, DP state/allocation and selection work charged. No private full trajectory.",
+    "native_raw": "No-fit cosine retrieval on the same normalized public32x2 trajectory views; no sample/class/writer ID or private trajectory.",
+    "pca_rank_grid": [
+      16,
+      32,
+      64
+    ],
+    "pca_whitening_grid": [
+      0.0,
+      0.5
+    ],
+    "ridge_grid": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "score_normalization": "For all cosine routes clip score[-1,1] then s=(1+cosine)/2. NativeDTW uses1/(1+d). Stable top1 is lowest insertion slot on ties; margin=top1_score-second_highest_score. Accept iff s>=absolute_threshold AND margin>=margin_threshold. Same two-axis policy for all9arms.",
+    "source_frozen": "Actual64->64 residual linear/GELU encoder or actual65xrank source ridge; original source PCA frozen. Source feature output ->native write projected in that frozen PCA using legal target ridge readout with intercept. Choose regularizer on T-validation normalized squaredL2 only; deterministic ascending grid ties. Same adaptation on allfour source arms; all source weights unchanged. No target gradient update of source model. Source PCA hashes of neural controls must be identical.",
+    "target_dense": "Unchanged PVM64D residual linear/GELU64/128/64 transport and2-layer4head256FF residual-zero-init Transformer decoder; same AdamW recipe,2048alignment+1024set steps,lastcheckpoint. Target native T pairs only, no source weights. Context K16/32 alternating; batch4sets/8queries; CE20temperature with0.85 absence class +0.1 knownMSE. Decoder sees each query independently with peer-query mask. Cache CPU projections at inference as unchanged dense_cached_cpu algebra; no random projection or new architecture.",
+    "target_kernel": "Same existing RBF Nystrom transport; first64 distinct fit samples, not repeated draw landmarks. Bandwidth/ridge grids unchanged, jitter1e-10, validation MSE and deterministic ascending ties; all grid fits charged.",
+    "target_ridge_pca": "Native64query->write ridge/intercept on4096draws, choose regularizer by512 reserved T-validation MSE. T-write-only PCA ranks16/32/64 xwhitening0/.5, min validation normalizedL2 deterministic ascending rank/exponent. ExactCPU cosine scan and full chargedupdates.",
+    "threads": 1,
+    "threshold_grid": [
+      0.0,
+      0.25,
+      0.5,
+      0.65,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.925,
+      0.95,
+      0.97,
+      0.98,
+      0.99,
+      0.995,
+      0.999,
+      0.9995,
+      0.9999,
+      1.0
+    ],
+    "threshold_selection": "All27 nominal T-calibration episodes (3Kx3updatecountsx3episodes), same144 absolute/margin pairs for all9arms. Eligible iff knownFA<=.02 and UNKNOWN>=.95. Eligible first, then maximize full answer accuracy, higher UNKNOWN, lower absolute threshold, lower margin threshold, in that order. If none eligible retain best same ordered tuple and mark infeasible. No D threshold selection.",
+    "weight_decay": 0.0001
+  },
+  "reference_gates": {
+    "accuracy_each_unit_minimum": 0.9,
+    "accuracy_mean_minimum": 0.95,
+    "dense_unknown_rejection_minimum": 0.95,
+    "known_false_abstention_maximum": 0.02,
+    "three_K_each_condition": true
+  },
+  "registration_attempts_for_this_study_cap": 1,
+  "resources": {
+    "administration_prepaid_seconds_cap": 300,
+    "auxiliary_test_seconds_cap": 3600,
+    "compute_charge_basis": "full_worker_wall_v1",
+    "cuda_required": true,
+    "fit_seconds_per_role_cap": 120,
+    "fit_seconds_study_cap": 9000,
+    "max_cuda_reserved_bytes": 4294967296,
+    "max_rss_bytes": 4294967296,
+    "protected_future_compute_seconds": 47000,
+    "protected_future_tickets": 7,
+    "startup_charge_included_seconds": 222,
+    "work_minutes_cap": 180,
+    "worker_charge_ceiling_with_monitor_margin": 184,
+    "worker_seconds_cap": 180
+  },
+  "roles": {
+    "asm01_native_dtw_s0": {
+      "arm": "native_dtw",
+      "seed_index": 0
+    },
+    "asm01_native_dtw_s1": {
+      "arm": "native_dtw",
+      "seed_index": 1
+    },
+    "asm01_native_dtw_s2": {
+      "arm": "native_dtw",
+      "seed_index": 2
+    },
+    "asm01_native_dtw_s3": {
+      "arm": "native_dtw",
+      "seed_index": 3
+    },
+    "asm01_native_dtw_s4": {
+      "arm": "native_dtw",
+      "seed_index": 4
+    },
+    "asm01_native_raw_s0": {
+      "arm": "native_raw",
+      "seed_index": 0
+    },
+    "asm01_native_raw_s1": {
+      "arm": "native_raw",
+      "seed_index": 1
+    },
+    "asm01_native_raw_s2": {
+      "arm": "native_raw",
+      "seed_index": 2
+    },
+    "asm01_native_raw_s3": {
+      "arm": "native_raw",
+      "seed_index": 3
+    },
+    "asm01_native_raw_s4": {
+      "arm": "native_raw",
+      "seed_index": 4
+    },
+    "asm01_source_ridge_s0": {
+      "arm": "source_ridge",
+      "seed_index": 0
+    },
+    "asm01_source_ridge_s1": {
+      "arm": "source_ridge",
+      "seed_index": 1
+    },
+    "asm01_source_ridge_s2": {
+      "arm": "source_ridge",
+      "seed_index": 2
+    },
+    "asm01_source_ridge_s3": {
+      "arm": "source_ridge",
+      "seed_index": 3
+    },
+    "asm01_source_ridge_s4": {
+      "arm": "source_ridge",
+      "seed_index": 4
+    },
+    "asm01_source_shuffled_s0": {
+      "arm": "source_shuffled",
+      "seed_index": 0
+    },
+    "asm01_source_shuffled_s1": {
+      "arm": "source_shuffled",
+      "seed_index": 1
+    },
+    "asm01_source_shuffled_s2": {
+      "arm": "source_shuffled",
+      "seed_index": 2
+    },
+    "asm01_source_shuffled_s3": {
+      "arm": "source_shuffled",
+      "seed_index": 3
+    },
+    "asm01_source_shuffled_s4": {
+      "arm": "source_shuffled",
+      "seed_index": 4
+    },
+    "asm01_source_trained_s0": {
+      "arm": "source_trained",
+      "seed_index": 0
+    },
+    "asm01_source_trained_s1": {
+      "arm": "source_trained",
+      "seed_index": 1
+    },
+    "asm01_source_trained_s2": {
+      "arm": "source_trained",
+      "seed_index": 2
+    },
+    "asm01_source_trained_s3": {
+      "arm": "source_trained",
+      "seed_index": 3
+    },
+    "asm01_source_trained_s4": {
+      "arm": "source_trained",
+      "seed_index": 4
+    },
+    "asm01_source_untrained_s0": {
+      "arm": "source_untrained",
+      "seed_index": 0
+    },
+    "asm01_source_untrained_s1": {
+      "arm": "source_untrained",
+      "seed_index": 1
+    },
+    "asm01_source_untrained_s2": {
+      "arm": "source_untrained",
+      "seed_index": 2
+    },
+    "asm01_source_untrained_s3": {
+      "arm": "source_untrained",
+      "seed_index": 3
+    },
+    "asm01_source_untrained_s4": {
+      "arm": "source_untrained",
+      "seed_index": 4
+    },
+    "asm01_target_dense_s0": {
+      "arm": "target_dense",
+      "seed_index": 0
+    },
+    "asm01_target_dense_s1": {
+      "arm": "target_dense",
+      "seed_index": 1
+    },
+    "asm01_target_dense_s2": {
+      "arm": "target_dense",
+      "seed_index": 2
+    },
+    "asm01_target_dense_s3": {
+      "arm": "target_dense",
+      "seed_index": 3
+    },
+    "asm01_target_dense_s4": {
+      "arm": "target_dense",
+      "seed_index": 4
+    },
+    "asm01_target_kernel_s0": {
+      "arm": "target_kernel",
+      "seed_index": 0
+    },
+    "asm01_target_kernel_s1": {
+      "arm": "target_kernel",
+      "seed_index": 1
+    },
+    "asm01_target_kernel_s2": {
+      "arm": "target_kernel",
+      "seed_index": 2
+    },
+    "asm01_target_kernel_s3": {
+      "arm": "target_kernel",
+      "seed_index": 3
+    },
+    "asm01_target_kernel_s4": {
+      "arm": "target_kernel",
+      "seed_index": 4
+    },
+    "asm01_target_ridge_pca_s0": {
+      "arm": "target_ridge_pca",
+      "seed_index": 0
+    },
+    "asm01_target_ridge_pca_s1": {
+      "arm": "target_ridge_pca",
+      "seed_index": 1
+    },
+    "asm01_target_ridge_pca_s2": {
+      "arm": "target_ridge_pca",
+      "seed_index": 2
+    },
+    "asm01_target_ridge_pca_s3": {
+      "arm": "target_ridge_pca",
+      "seed_index": 3
+    },
+    "asm01_target_ridge_pca_s4": {
+      "arm": "target_ridge_pca",
+      "seed_index": 4
+    }
+  },
+  "schema_version": 1,
+  "source_evidence": {
+    "experiment_id": "EXP-20261005-0006",
+    "no_source_refit": true,
+    "pairing": "Actual exported source unit i to fixed writer pair i. All25 source/PCA/ridge arrays exactly preserved; no source fit replay, source nonces/data or cache.",
+    "publication_path": "research/laboratory/EXP-20261005-0006-fitted-state-publication-V1.json",
+    "publication_sha256": "cf0e825db0e8c099013988a61bf836e008a65e1ef3a4fa1be82edf9b8aa06e31"
+  },
+  "stage": "transfer_family_2_screen",
+  "storage_recovery": {
+    "auxiliary_cap_seconds": 650,
+    "before_after_hash_required": true,
+    "file_count_cap": 12000,
+    "method": "Transparent NTFS LZX with every file path and SHA256 preserved; no deletion or OS setting changes.",
+    "scope": "Only JSON/JSONL/TXT/LOG files>=256KiB inside completed EXP-20261005-0001..0007-runtime archives in original/clone and matching closed clone research/tmp/EXP folders; no source NPZ, WT, other projects or fresh-data files.",
+    "total_logical_bytes_cap": 20000000000
+  },
+  "study_deadline_at": "2026-10-05T21:50:32Z",
+  "study_kind": "asm01_frozen_source_transfer",
+  "study_started_at": "2026-10-05T18:50:32Z",
+  "task_contract_path": "research/plans/ASM01-PROSPECTIVE-NATIVE-TASK-V1.json",
+  "task_contract_sha256": "218d7a5d7fd0efb748341f76a4d83fb2e62ab793136382888ef241d877872360"
+}
