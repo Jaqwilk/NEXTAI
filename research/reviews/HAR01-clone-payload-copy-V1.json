@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "file": "publisher.zip",
+      "bytes": 61005872,
+      "sha256": "c00b803081a5c797cd5e4b83700a9810b38d53d9d84e01917e090e1fdbc81031"
+    },
+    {
+      "file": "screen.npz",
+      "bytes": 5406527,
+      "sha256": "d8c0084c16f490e79654910b8dd28834dedbfd97204003bb689507a96ac37dfd"
+    },
+    {
+      "file": "publisher-document-0.txt",
+      "bytes": 6304,
+      "sha256": "eaee53f45825f349681a1a1b92a997a0082648f9b5bf93ddb3290caeede4b3a8"
+    }
+  ],
+  "copy_wall_seconds": 0.15063220000592992,
+  "free_space_after_bytes": 16435777536,
+  "independent_physical_payload_copy": true,
+  "shared_candidate_code": false,
+  "within_acquisition_footprint_cap": true,
+  "copy_cost_covered_by_cycle319_conservative_administration_allowance": true
+}

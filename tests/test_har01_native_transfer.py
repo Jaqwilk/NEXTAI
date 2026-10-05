@@ -135,6 +135,21 @@ def test_real_dense_architecture_native_context_fit_and_cache_agree():
         torch.testing.assert_close(full, cached, rtol=1e-5, atol=1e-5)
 
 
+def test_native_classical_controls_preserve_full_finite_training_grid():
+    rng = np.random.default_rng(123123)
+    values = rng.normal(size=(144, 64)).astype(np.float32)
+    queries = values.copy()
+    for arm, expected_grid in (("target_ridge_pca", 6), ("target_kernel", 12)):
+        model = Candidate(777, arm, STUDY["recipe"])
+        model.fit(values[:128], queries[:128], values[128:], queries[128:])
+        assert len(model.report["classical_grid"]) == expected_grid
+        assert np.isfinite(model.weights).all() and model.weights.dtype == np.float32
+        if arm == "target_ridge_pca":
+            assert len(model.report["pca_grid"]) == 6
+        else:
+            assert len(model.landmarks) == 128
+
+
 def test_intervals_use_five_units_and_detect_null_or_missing_pairs():
     null = paired_interval([0.] * 5, 4)
     assert null["lower"] == null["upper"] == 0

@@ -146,8 +146,7 @@ class Candidate(Reference):
         elif self.route == "target_ridge_pca":
             self.weights, self.grid, self.fit_operations_estimate = ridge(
                 queries, writes, validation_queries, validation_writes, self.recipe["ridge_grid"])
-            self.weights = self.weights.astype(np.float32)
-            predicted = validation_queries @ self.weights[:-1] + self.weights[-1]
+            predicted = validation_queries.astype(np.float64) @ self.weights[:-1] + self.weights[-1]
             _, singular, vectors = np.linalg.svd(unit(writes.astype(np.float64)), full_matrices=False)
             choices, best = [], float("inf")
             for rank in self.recipe["pca_rank_grid"]:
@@ -160,6 +159,7 @@ class Candidate(Reference):
                     if score < best:
                         best, self.projection = score, projection.astype(np.float32).copy()
             self.pca_grid = choices
+            self.weights = self.weights.astype(np.float32)
             self.fit_operations_estimate += 2 * len(writes) * 64 ** 2 + 64 ** 3
         elif self.route == "target_kernel":
             inputs, held = queries.astype(np.float64), validation_queries.astype(np.float64)
