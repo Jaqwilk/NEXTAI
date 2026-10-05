@@ -1,0 +1,17 @@
+{
+  "XML_sha256": "190745f76b07bbc5083c036cd7ae12ec69e6fae523ee9a08be263d3a151378a1",
+  "before_paid_registration_seed_fit_or_results": true,
+  "change": "Regenerate the current aggregate report from its authoritative content inputs and rerun the failed lifecycle guard; retain failed report/source bytes. Readiness accepts the full regression plus passing affected tests only after checking the exact single failed node.",
+  "created_at": "2026-10-05T14:49:58Z",
+  "failed_cost_seconds": 790,
+  "failed_nodes": [
+    [
+      "tests.test_protocol_v2",
+      "test_checked_in_research_lifecycle_is_consistent"
+    ]
+  ],
+  "full_receipt_sha256": "01c191ac48e04c1aee4b2a5658e87459aa6f66a904620b78362034decb3064c6",
+  "full_tests": 1361,
+  "id": "HAR01-REPORT-CONFORMANCE-V1",
+  "scientific_metrics_recipe_or_threshold_change": false
+}

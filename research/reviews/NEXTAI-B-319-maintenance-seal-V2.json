@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/check_har01_readiness.py"
+  ],
+  "conservative_accounting_allowance_seconds": 20,
+  "created_at": "2026-10-05T14:34:50Z",
+  "error": null,
+  "id": "NEXTAI-B-319-maintenance-seal-V2",
+  "raw_outputs": {
+    "NEXTAI-B-319-maintenance-seal-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-319-maintenance-seal-V2.stdout.txt": "2cdc74f21f86781480dbe3fdd6e2489d78bda30f08687dd67908f016a9155bd9"
+  },
+  "result": {
+    "elapsed_seconds": 18.365449100005208,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1432018944,
+    "pid": 27124,
+    "processes_created": 6,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 52,
+  "wall_seconds": 31.275649300019722,
+  "whole_process_tree_bounded": true
+}

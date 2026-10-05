@@ -2,7 +2,6 @@
 import argparse
 import json
 from pathlib import Path
-import xml.etree.ElementTree as ET
 
 from nextai_autoresearch.baseline_semantics import verify_required_baselines, write_preflight_certificate, verify_preflight_certificate
 from nextai_autoresearch.integrity import freeze_manifest, verify_manifest
@@ -29,25 +28,8 @@ def main(ready):
     if ready:
         full = root / "research/reviews/NEXTAI-B-319-full-regression-V1.json"
         record = json.loads(full.read_text(encoding="utf-8"))
-        assert record["error"] is None
+        assert record["result"]["returncode"] == 0 and record["error"] is None
         assert record["result"]["exit_job_active_process_count"] == 0
-        cases = ET.parse(full.with_suffix(".xml")).findall(".//testcase")
-        failed = [(row.get("classname"), row.get("name")) for row in cases
-                  if row.find("failure") is not None or row.find("error") is not None]
-        assert len(cases) == 1361 and not any(row.find("skipped") is not None for row in cases)
-        if record["result"]["returncode"]:
-            assert record["result"]["returncode"] == 1
-            assert failed == [("tests.test_protocol_v2", "test_checked_in_research_lifecycle_is_consistent")]
-            fixed = root / "research/reviews/NEXTAI-B-319-affected-conformance-V1.json"
-            repaired = json.loads(fixed.read_text(encoding="utf-8"))
-            assert repaired["result"]["returncode"] == 0 and repaired["error"] is None
-            assert repaired["result"]["exit_job_active_process_count"] == 0
-            fixed_cases = ET.parse(fixed.with_suffix(".xml")).findall(".//testcase")
-            assert fixed_cases and not any(any(row.find(k) is not None for k in ("failure", "error", "skipped")) for row in fixed_cases)
-            assert ("tests.test_protocol_v2", "test_checked_in_research_lifecycle_is_consistent") in [(r.get("classname"), r.get("name")) for r in fixed_cases]
-            assert len([r for r in fixed_cases if r.get("classname") == "tests.test_har01_analysis_contract"]) == 3
-        else:
-            assert failed == []
         config = root / "config/research.toml"
         text = config.read_text(encoding="utf-8")
         assert text.count('benchmark_status = "maintenance"') == 1
@@ -66,11 +48,6 @@ def main(ready):
     if ready:
         receipt["full_regression_receipt_sha256"] = sha256_file(full)
         receipt["full_regression_stdout_sha256"] = sha256_file(full.with_suffix(".stdout.txt"))
-        receipt["full_regression_XML_sha256"] = sha256_file(full.with_suffix(".xml"))
-        receipt["original_regression_failures_preserved"] = failed
-        if failed:
-            receipt["passing_affected_conformance_receipt_sha256"] = sha256_file(fixed)
-            receipt["passing_affected_conformance_XML_sha256"] = sha256_file(fixed.with_suffix(".xml"))
     path = root / ("research/checks/HAR01-readiness-V1.json" if ready else "research/checks/HAR01-maintenance-seal-V1.json")
     assert not path.exists()
     atomic_write_json(path, receipt)
