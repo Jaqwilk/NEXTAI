@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-10-05T07:32:53Z",
+  "started_at": "2026-10-05T07:26:46Z",
+  "startup_full_wall_seconds": 247.5689557,
+  "conservative_seconds_to_charge": 253.0,
+  "doctor_returncode": 0,
+  "lab_returncode": 0,
+  "new_data_model_fit_scoring": false,
+  "source_revision": "109f421bbae55f436224d97b7c9a9d22ecc6f340"
+}
