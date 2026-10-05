@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.179" timestamp="2026-10-05T21:33:39.129570+02:00" hostname="3vilOS20"><testcase classname="" name="tests.test_asm01_canonical_intake" file="tests/test_asm01_canonical_intake.py" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\tests\test_asm01_canonical_intake.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\NEXTAI-VALIDATION-20261002\tests\test_asm01_canonical_intake.py:3: in &lt;module&gt;
+    from scripts.acquire_asm01_canonical_v2 import canonical_identities
+scripts\acquire_asm01_canonical_v2.py:11: in &lt;module&gt;
+    from acquire_asm01 import archive_index
+E   ModuleNotFoundError: No module named 'acquire_asm01'</error></testcase></testsuite></testsuites>

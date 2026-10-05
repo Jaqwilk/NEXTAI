@@ -1,0 +1,41 @@
+{
+  "cap_seconds": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests/test_asm01_cohort_conformance.py",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests/test_asm01_native_transfer.py",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests/test_asm01_canonical_intake.py",
+    "-q",
+    "--basetemp",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/ASM01-cohort-public-fixture-V1",
+    "--junitxml",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI/research/reviews/NEXTAI-B-321-cohort-precontent-conformance-V1.xml"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T19:42:39Z",
+  "error": null,
+  "id": "NEXTAI-B-321-cohort-precontent-conformance-V1",
+  "raw_outputs": {
+    "NEXTAI-B-321-cohort-precontent-conformance-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-321-cohort-precontent-conformance-V1.stdout.txt": "d99cd6a203c4081e96697f8a2863e9155d78d633d9eb71d8d73ec6f445a0fc26"
+  },
+  "result": {
+    "elapsed_seconds": 5.3865399999776855,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1364221952,
+    "pid": 38820,
+    "processes_created": 6,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 60,
+  "wall_seconds": 19.153192900004797,
+  "whole_process_tree_bounded": true
+}

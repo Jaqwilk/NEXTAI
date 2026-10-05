@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\acquire_asm01.py", line 169, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\acquire_asm01.py", line 120, in main
+    samples=identities(records)
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\acquire_asm01.py", line 75, in identities
+    raise ValueError('Duplicate/out-of-range native identity')
+ValueError: Duplicate/out-of-range native identity

@@ -1,0 +1,39 @@
+{
+  "cap_seconds": 160,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests/test_asm01_canonical_intake.py",
+    "-q",
+    "--basetemp",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/ASM01-canonical-fixture-V2",
+    "--junitxml",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI/research/reviews/NEXTAI-B-321-canonical-precontent-conformance-V2.xml"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T19:35:59Z",
+  "error": null,
+  "id": "NEXTAI-B-321-canonical-precontent-conformance-V2",
+  "raw_outputs": {
+    "NEXTAI-B-321-canonical-precontent-conformance-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-321-canonical-precontent-conformance-V2.stdout.txt": "c7e4112ee00157f6cd73b78553233801e1ebd66836f258ef8f46fb8e60480444"
+  },
+  "result": {
+    "elapsed_seconds": 0.6136427999881562,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 86392832,
+    "pid": 34960,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 55,
+  "wall_seconds": 14.45460379999713,
+  "whole_process_tree_bounded": true
+}

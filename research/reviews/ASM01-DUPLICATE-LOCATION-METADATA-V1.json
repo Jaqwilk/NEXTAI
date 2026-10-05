@@ -1,0 +1,160 @@
+{
+  "charge_scope": "Inside the cycle321 prepaid300s administration bound; header metadata only, no tests/fit",
+  "created_at": "2026-10-05T19:30:10Z",
+  "duplicates": [
+    {
+      "character": 15,
+      "files": [
+        {
+          "bytes": 5572,
+          "path": "Online Handwritten Assamese Characters Dataset/W5/15.5.TXT"
+        },
+        {
+          "bytes": 9459,
+          "path": "Online Handwritten Assamese Characters Dataset/W6/15.5.TXT"
+        }
+      ],
+      "writer": 5
+    }
+  ],
+  "folder_writer_counts": {
+    "Online Handwritten Assamese Characters Dataset/W1": {
+      "1": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W10": {
+      "10": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W11": {
+      "11": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W12": {
+      "12": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W13": {
+      "13": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W14": {
+      "14": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W15": {
+      "15": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W16": {
+      "16": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W17": {
+      "17": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W18": {
+      "18": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W19": {
+      "19": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W2": {
+      "2": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W20": {
+      "20": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W21": {
+      "21": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W22": {
+      "22": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W23": {
+      "23": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W24": {
+      "24": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W25": {
+      "25": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W26": {
+      "26": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W27": {
+      "27": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W28": {
+      "28": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W29": {
+      "29": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W3": {
+      "3": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W30": {
+      "30": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W31": {
+      "31": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W32": {
+      "32": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W33": {
+      "33": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W34": {
+      "34": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W35": {
+      "35": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W36": {
+      "36": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W37": {
+      "37": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W38": {
+      "38": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W39": {
+      "39": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W4": {
+      "4": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W40": {
+      "40": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W41": {
+      "41": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W42": {
+      "42": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W43": {
+      "43": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W44": {
+      "44": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W45": {
+      "45": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W5": {
+      "5": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W6": {
+      "5": 1,
+      "6": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W7": {
+      "7": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W8": {
+      "8": 183
+    },
+    "Online Handwritten Assamese Characters Dataset/W9": {
+      "9": 183
+    }
+  },
+  "native_coordinate_files_parsed": 0,
+  "publisher_sha256": "d6ad543e65269d53e38fdac6a32dd20bcd942e7616891a6cf95986894b454a4d"
+}

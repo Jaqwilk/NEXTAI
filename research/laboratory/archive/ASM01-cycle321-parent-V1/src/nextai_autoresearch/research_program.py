@@ -78,9 +78,6 @@ def _study_scope(study):
     if study.get("study_kind") == "native_frozen_source_transfer":
         if study["cohort"] != "har01_native_memory_v1":
             raise ValueError("Native source-transfer recipe/cohort mismatch")
-    if study.get("study_kind") == "asm01_frozen_source_transfer":
-        if study["cohort"] != "asm01_native_memory_v2":
-            raise ValueError("Canonical native pen source-transfer recipe/cohort mismatch")
     return {**extra, **{key: study[key] for key in ("roles", "recipe", "data", "diagnostics", "diagnosis_gates", "reference_gates")},
             "classical_baselines": study["candidates"], "deadline_at": study["study_deadline_at"],
             "fit_seconds_cap": resources["fit_seconds_per_role_cap"], "fit_seconds_total_cap": resources["fit_seconds_study_cap"],
@@ -527,7 +524,7 @@ def create_plan(base, requested=None):
                 predicted_outcome="Write-only PCA may preserve learned transport quality under noise0.02/0.04; classical controls may dominate; no predetermined success.",
                 falsification_criteria=["Any frozen eight primary or competence gate fails; invalid fit identity makes comparison inconclusive."],
                 alternative_explanations=["Classical transport/PCA/exact retrieval, nonlinear representation and deployment overhead remain distinct explanations."])
-        if study.get("study_kind") in {"native_frozen_source_transfer", "asm01_frozen_source_transfer"}:
+        if study.get("study_kind") == "native_frozen_source_transfer":
             plan.update(architecture_family="frozen_source_features_native_sensor_memory",
                 predicted_outcome="Actual frozen source weights may add useful native information beyond preserved untrained/shuffled states under identical target readout; native classical retrieval may suffice; no predetermined success.",
                 falsification_criteria=["Any frozen source-information primary gate fails; failed reference or source/data/resource integrity yields an inconclusive qualified comparison, not architectural falsification."],

@@ -675,10 +675,9 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                     "unit_nonces": unit_nonces,
                     "entropy_policy": "independent256bit_each_unit_separate_from_model_seed_v1"})
                 runtime_plan.update(pvm01_private_data_path=str(private_path), pvm01_private_data_sha256=sha256_file(private_path))
-            if plan["benchmark"] in {"har01_native_memory_v1", "asm01_native_memory_v2"}:
+            if plan["benchmark"] == "har01_native_memory_v1":
                 from .research_program import verify_pvm01_fresh_realization
-                private_prefix = "asm01" if plan["benchmark"] == "asm01_native_memory_v2" else "har01"
-                private_path = runtime_plan_path.parent / f"{private_prefix}-private-data.json"
+                private_path = runtime_plan_path.parent / "har01-private-data.json"
                 if private_path.exists():
                     raise FileExistsError("Native data realization exists; no retry")
                 unit_nonces = [secrets.token_hex(32) for _ in evaluation_matrix["seeds"]]
@@ -692,15 +691,7 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                 if (set(evaluation_matrix["seeds"]) & set(previous["matrix"]["seeds"])
                         or set(unit_nonces) & set(previous_private["unit_nonces"])):
                     raise ValueError("Consumed source seed/data collision; no replacement")
-                if private_prefix == "asm01":
-                    native_history = base / "research/laboratory/archive/EXP-20261005-0007-runtime/research/tmp/EXP-20261005-0007"
-                    native_plan = load_json(native_history / "runtime-plan.json")
-                    native_private = load_json(native_history / "har01-private-data.json")
-                    if (set(evaluation_matrix["seeds"]) & set(native_plan["matrix"]["seeds"])
-                            or set(unit_nonces) & set(native_private["unit_nonces"])):
-                        raise ValueError("Consumed native seed/data collision; no replacement")
-                runtime_plan.update({f"{private_prefix}_private_data_path": str(private_path),
-                                     f"{private_prefix}_private_data_sha256": sha256_file(private_path)})
+                runtime_plan.update(har01_private_data_path=str(private_path), har01_private_data_sha256=sha256_file(private_path))
             atomic_write_json(runtime_plan_path, runtime_plan)
             _append_postseed_event(
                 base,
@@ -795,7 +786,7 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                 "interpretation_status": "pending_codex_analysis",
             }
             validate_document("experiment_result", result, base)
-            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11", "har01_native_memory_v1", "asm01_native_memory_v2"})
+            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11", "har01_native_memory_v1"})
             for candidate in candidate_results:
                 summary = candidate.get("summary", {})
                 append_experiment_row(

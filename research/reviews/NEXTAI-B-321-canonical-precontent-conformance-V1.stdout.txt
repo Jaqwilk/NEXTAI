@@ -1,0 +1,17 @@
+
+=================================== ERRORS ====================================
+____________ ERROR collecting tests/test_asm01_canonical_intake.py ____________
+ImportError while importing test module 'C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\tests\test_asm01_canonical_intake.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\NEXTAI-VALIDATION-20261002\tests\test_asm01_canonical_intake.py:3: in <module>
+    from scripts.acquire_asm01_canonical_v2 import canonical_identities
+scripts\acquire_asm01_canonical_v2.py:11: in <module>
+    from acquire_asm01 import archive_index
+E   ModuleNotFoundError: No module named 'acquire_asm01'
+=========================== short test summary info ===========================
+ERROR ..\NEXTAI-VALIDATION-20261002\tests\test_asm01_canonical_intake.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!

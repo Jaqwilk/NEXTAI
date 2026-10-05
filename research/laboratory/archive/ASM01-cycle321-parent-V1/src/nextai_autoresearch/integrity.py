@@ -15,15 +15,6 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
-    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V1.json",
-    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V2.json",
-    "research/plans/ASM01-PROSPECTIVE-NATIVE-TASK-V1.json",
-    "research/plans/ASM01-CANONICAL-NATIVE-TASK-V2.json",
-    "research/data_manifests/ASM01-ACQUISITION-V1.json",
-    "research/data_manifests/ASM01-ACQUISITION-V2.json",
-    "scripts/run_asm01_check.py",
-    "scripts/acquire_asm01.py",
-    "scripts/acquire_asm01_canonical_v2.py",
     "research/plans/HAR01-FROZEN-SOURCE-SCREEN-V1.json",
     "research/plans/HAR01-NATIVE-TASK-CONTRACT-V1.json",
     "research/plans/HAR01-PRESEED-CONFORMANCE-V1.json",

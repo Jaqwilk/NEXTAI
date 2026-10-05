@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-10-05T19:36:25Z",
+  "files": {
+    "AGENTS.md": "b066751bcf75dd8d18063ed7f1190fb3841e89766d8e64ba148597cc95252a0d",
+    "config/baseline_semantics.json": "1b0f59dc81fc2d4d565bb169e22d2e46ae1d1ac9fec6feae2ef8d6691112bc22",
+    "config/research.toml": "c0208b905d19510ac7dd63aa09fd30329656a7392e740160826534da2fe8f6fc",
+    "docs/CURRENT_STATUS.md": "3e618a4f5b60d6f7d2c55373fdeebd9fba6085656fc824b38b63546b1852d2b3",
+    "program.md": "e633ffdd5257ff0714633f84ca99d279da723356411f6a9c4f90b524088bc9a4",
+    "research/LAB_PLAN.md": "92c92f0366b3ce53852c8ef5dd3911e63c93bf862fc6106134ee61dd0fb091d2",
+    "research/eval_manifest.json": "b9bd92f7b151a04669b9ec0a69657e5cd75ae44606c1489134f1e238a4f38ced",
+    "research/laboratory/preflight_certificate.json": "dc85ef6151823d52980ec68297680e5b79afe661b881339cd7c9e9742ecbb052",
+    "schemas/experiment_plan.schema.json": "cb7509e04804aa8fa995564b3acb1c177663ada5fd34d3946082ae7f16ca8096",
+    "src/nextai_autoresearch/audit.py": "e852777aa84ed4250e70f92beba6368b54878989fcbb57024490bd37ca9f05aa",
+    "src/nextai_autoresearch/integrity.py": "2d7c238a1771f7d65815368e65f62a951ea3ca6e3476305f5e293f8eb808c541",
+    "src/nextai_autoresearch/research_program.py": "55c5eb076784c6447ddfc62c99710d85585e98dcca3890c01adcb97a4e330310",
+    "src/nextai_autoresearch/runner.py": "34509afcd1d1143c23c7642966f951b5b5660b662c2c7074e0e8942cb992333e"
+  },
+  "no_scoring": true,
+  "path": "research/laboratory/archive/ASM01-cycle321-parent-V1"
+}
