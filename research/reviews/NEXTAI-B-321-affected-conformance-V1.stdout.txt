@@ -1,0 +1,14 @@
+............................F                                            [100%]
+================================== FAILURES ===================================
+______________ test_checked_in_research_lifecycle_is_consistent _______________
+
+    def test_checked_in_research_lifecycle_is_consistent() -> None:
+>       assert lifecycle_problems(project_root()) == []
+E       AssertionError: assert ['research/RE...ntent inputs'] == []
+E         
+E         Left contains one more item: 'research/REPORT.md is stale relative to its content inputs'
+E         Use -v to get more diff
+
+..\NEXTAI-VALIDATION-20261002\tests\test_protocol_v2.py:311: AssertionError
+=========================== short test summary info ===========================
+FAILED ..\NEXTAI-VALIDATION-20261002\tests\test_protocol_v2.py::test_checked_in_research_lifecycle_is_consistent

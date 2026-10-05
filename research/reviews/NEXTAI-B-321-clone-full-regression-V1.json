@@ -1,0 +1,43 @@
+{
+  "cap_seconds": 600,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests",
+    "-q",
+    "--basetemp",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/ASM01-full-regression-fixture-V1",
+    "--junitxml",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI/research/reviews/NEXTAI-B-321-clone-full-regression-V1.xml"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T20:04:53Z",
+  "error": null,
+  "id": "NEXTAI-B-321-clone-full-regression-V1",
+  "raw_outputs": {
+    "NEXTAI-B-321-clone-full-regression-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-321-clone-full-regression-V1.stdout.txt": "bfe61db908a2a6e5701d86a0acfb0bec8be5235aaa6c65dff4b2d481dbb42f41"
+  },
+  "result": {
+    "elapsed_seconds": 520.9906871999847,
+    "exit_job_active_process_count": 4,
+    "exit_live_descendant_pids": [
+      21724,
+      36356,
+      31416
+    ],
+    "peak_tree_rss_bytes_sampled": 6592913408,
+    "pid": 37656,
+    "processes_created": 673,
+    "reason": "timeout",
+    "returncode": 124,
+    "root_returncode": 124
+  },
+  "seconds_charged": 576,
+  "wall_seconds": 535.0036833000195,
+  "whole_process_tree_bounded": true
+}

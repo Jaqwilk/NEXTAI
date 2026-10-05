@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 450,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/scripts/verify_asm01_clone_maintenance.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T20:25:18Z",
+  "error": null,
+  "id": "NEXTAI-B-321-clone-lab-lifecycle-V2",
+  "raw_outputs": {
+    "NEXTAI-B-321-clone-lab-lifecycle-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-321-clone-lab-lifecycle-V2.stdout.txt": "922e3fd757178616486fc071a55e40ebde2483b440cce551d6b63004d4f0e837"
+  },
+  "result": {
+    "elapsed_seconds": 317.5984243999992,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4457447424,
+    "pid": 32000,
+    "processes_created": 164,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 372,
+  "wall_seconds": 331.4716880999913,
+  "whole_process_tree_bounded": true
+}

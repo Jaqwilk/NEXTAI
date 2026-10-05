@@ -1,0 +1,42 @@
+{
+  "cap_seconds": 220,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-m",
+    "pytest",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests/test_asm01_cohort_conformance.py",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests/test_asm01_native_transfer.py",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests/test_asm01_canonical_intake.py",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/tests/test_protocol_v2.py::test_checked_in_research_lifecycle_is_consistent",
+    "-q",
+    "--basetemp",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/ASM01-affected-regression-fixture-V1",
+    "--junitxml",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI/research/reviews/NEXTAI-B-321-affected-conformance-V1.xml"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T20:08:27Z",
+  "error": null,
+  "id": "NEXTAI-B-321-affected-conformance-V1",
+  "raw_outputs": {
+    "NEXTAI-B-321-affected-conformance-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-321-affected-conformance-V1.stdout.txt": "27903259d219f6088ebf819e8726c8c4e903b17c02c87b234c2d03295387a111"
+  },
+  "result": {
+    "elapsed_seconds": 47.573410900018644,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 5596745728,
+    "pid": 27508,
+    "processes_created": 6,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 102,
+  "wall_seconds": 61.2867781999812,
+  "whole_process_tree_bounded": true
+}
