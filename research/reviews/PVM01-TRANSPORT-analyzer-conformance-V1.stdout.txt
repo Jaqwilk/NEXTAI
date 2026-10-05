@@ -1,0 +1,1 @@
+Stored analyzer end-to-end valid/null/dominance/exact drift: PASS; no models/data fit

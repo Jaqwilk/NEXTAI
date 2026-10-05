@@ -1,0 +1,65 @@
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 25%]
+........................................................................ [ 31%]
+........................................................................ [ 37%]
+........................................................................ [ 44%]
+........................................................................ [ 50%]
+........................................................................ [ 56%]
+........................................................................ [ 63%]
+........................................................................ [ 69%]
+........................................................................ [ 75%]
+...........................................F............................ [ 82%]
+........................................................................ [ 88%]
+........................................................................ [ 94%]
+.........................................................                [100%]
+================================== FAILURES ===================================
+_________ test_v6_all70_roles_audited_and_schema_before_registration __________
+
+    def test_v6_all70_roles_audited_and_schema_before_registration():
+        config = load_config(ROOT)
+        for name in STUDY["candidates"]:
+            audit = audit_candidate(name, config, ROOT)
+            assert audit.ok, audit.problems
+        plan = json.loads((ROOT / "research/plans/EXP-20261004-0008.json").read_text())
+        plan["benchmark"] = STUDY["cohort"]
+        plan["candidates"] = STUDY["candidates"]
+        plan["research_program_protocol"].update(_study_scope(STUDY))
+>       validate_document("experiment_plan", plan, ROOT)
+
+tests\test_pvm01_transport_compression.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'alternative_explanations': ['Classical RFF/LMS update, retrieval, finite capacity, representation learning and deplo...y': 'learned_compact_features_capacity_exposure', 'benchmark': 'paired_view_mutable_memory_v6', 'budget': 'quick', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: research_program_protocol: Additional properties are not allowed ('classical_economic_contract_path', 'classical_economic_contract_sha256' were unexpected)
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+=========================== short test summary info ===========================
+FAILED tests/test_pvm01_transport_compression.py::test_v6_all70_roles_audited_and_schema_before_registration

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_transport_commit.py", line 11, in <module>
+    name=entry[3:];assert name in allowed or name.startswith(prefixes),(entry,"Unrelated change preserved; stop staging")
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('?? research/laboratory/certificates/0164bd2de0df4697a03897775b1c191402022b572d07aae01c987175ee97488e.json', 'Unrelated change preserved; stop staging')

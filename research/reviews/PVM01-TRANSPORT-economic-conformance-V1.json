@@ -1,0 +1,30 @@
+{
+  "cap": 120,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_transport_analyzer_fixture_v2.py"
+  ],
+  "created_at": "2026-10-05T00:26:00Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-economic-conformance-V1",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-economic-conformance-V1.stderr.txt": "bef1ecfeeb2d0d64e0133538b6679055152d0d7091a5c39518be59de1ca4d5af",
+    "PVM01-TRANSPORT-economic-conformance-V1.stdout.txt": "9839b5dbeaefac6ed80b80fce6625f4f34cd4ab1f248494e0caa3fddef32dc6a"
+  },
+  "result": {
+    "elapsed_seconds": 3.189125899996725,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 203206656,
+    "pid": 32752,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 12,
+  "wall_seconds": 6.3309783000004245
+}

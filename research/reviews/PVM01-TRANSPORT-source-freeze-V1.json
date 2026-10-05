@@ -1,0 +1,30 @@
+{
+  "cap": 100,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_transport_metadata.py"
+  ],
+  "created_at": "2026-10-04T23:55:25Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-source-freeze-V1",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-source-freeze-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-TRANSPORT-source-freeze-V1.stdout.txt": "bde44da2026d8b945c9e4c0561a6c7825953dcd53724fd2874fa6c9d55522c71"
+  },
+  "result": {
+    "elapsed_seconds": 1.757493199998862,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 63021056,
+    "pid": 30340,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 10,
+  "wall_seconds": 4.9157574999990175
+}

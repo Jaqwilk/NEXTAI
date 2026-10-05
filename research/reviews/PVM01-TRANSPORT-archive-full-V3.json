@@ -1,0 +1,30 @@
+{
+  "cap": 60,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_transport_save_source.py"
+  ],
+  "created_at": "2026-10-05T00:35:13Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-archive-full-V3",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-archive-full-V3.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-TRANSPORT-archive-full-V3.stdout.txt": "8f8658e2b26246211c3859f7640b554ef18648c9fcaf1c3108a7fffcd5d0c1eb"
+  },
+  "result": {
+    "elapsed_seconds": 1.4159459999937098,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 50831360,
+    "pid": 1852,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 10,
+  "wall_seconds": 4.5578945000015665
+}

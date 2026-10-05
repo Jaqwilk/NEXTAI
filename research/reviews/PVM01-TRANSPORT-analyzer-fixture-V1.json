@@ -1,0 +1,11 @@
+{
+  "classical_dominance_prevents_economic_qualification": true,
+  "good_valid_keep": true,
+  "private_arrays_fit_registration": false,
+  "statistical_fixture_only": true,
+  "synthetic_inputs_sha256": {
+    "EXP-20990101-9801.json": "71b8d314b9ea9a9c8b6b66a2954cb43ffeeccd62832bc18337b27568a23e09f0",
+    "EXP-20990101-9802.json": "7484171bbb5b234aa868bcc3697d513d70b9df6f575606986e4cf58e80d18de5"
+  },
+  "tiny_exact_decoder_loss_drift_invalidates": true
+}

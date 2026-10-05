@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_transport_commit_v2.py", line 16, in <module>
+    assert hashlib.sha256(raw).hexdigest()==digest,("Protected Git index bytes differ",name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Protected Git index bytes differ', 'research/checks/dronepropa_anonymous_split_v1.jsonl')

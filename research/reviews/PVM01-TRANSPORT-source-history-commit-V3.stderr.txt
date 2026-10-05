@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_transport_commit_v3.py", line 39, in <module>
+    subprocess.run(["git","diff","--cached","--check","--","config","src","schemas","tests","scripts","docs/CURRENT_STATUS.md"],cwd=b,check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'diff', '--cached', '--check', '--', 'config', 'src', 'schemas', 'tests', 'scripts', 'docs/CURRENT_STATUS.md']' returned non-zero exit status 2.

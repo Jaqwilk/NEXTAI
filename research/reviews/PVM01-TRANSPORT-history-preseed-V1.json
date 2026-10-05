@@ -1,0 +1,32 @@
+{
+  "cap": 90,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_transport_history.py",
+    "--label",
+    "preseed"
+  ],
+  "created_at": "2026-10-05T00:01:20Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-history-preseed-V1",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-history-preseed-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-TRANSPORT-history-preseed-V1.stdout.txt": "06e0169fe2d2213b7ff686601df7ad556e865e86644bec9f355a8cf78012894e"
+  },
+  "result": {
+    "elapsed_seconds": 9.697478699992644,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 68964352,
+    "pid": 33028,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 18,
+  "wall_seconds": 12.912928699995973
+}

@@ -1,0 +1,73 @@
+......F...............F......                                            [100%]
+================================== FAILURES ===================================
+___________ test_v6_rejects_private_path_before_any_array_or_model ____________
+
+    def test_v6_rejects_private_path_before_any_array_or_model():
+        plan = {"experiment_id": "EXP-20990101-9901", "matrix": {"knowledge_sizes": [32,128,512], "reasoning_depths": [1,2,3], "seeds": [1103,1709,2909,3109,4109]}, "research_program_protocol": {}, "pvm01_private_data_path": str(ROOT / "program.md")}
+>       with pytest.raises(ValueError, match="binding"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'binding'
+E         Actual message: 'Runner-private path must match this experiment'
+
+tests\test_pvm01_transport_compression.py:115: AssertionError
+____ test_new_units_reject_consumed_realizations_without_replacement[none] ____
+
+tmp_path = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-430/test_new_units_reject_consumed0')
+collision = 'none'
+
+    @pytest.mark.parametrize("collision", ["none", "seed", "nonce", "duplicate"])
+    def test_new_units_reject_consumed_realizations_without_replacement(tmp_path, collision):
+        from nextai_autoresearch.research_program import verify_pvm01_fresh_realization
+        paths = {
+            "EXP-20261004-0004": "research/laboratory/archive/EXP-20261004-0004-runtime/research/tmp/EXP-20261004-0004",
+            "EXP-20261004-0005": "research/laboratory/archive/EXP-20261004-0005-runtime",
+            "EXP-20261004-0006": "research/laboratory/archive/EXP-20261004-0006-runtime/research/tmp/EXP-20261004-0006",
+            "EXP-20261004-0007": "research/laboratory/archive/EXP-20261004-0007-runtime/research/tmp/EXP-20261004-0007",
+        }
+        for index, (identity, relative) in enumerate(paths.items()):
+            directory = tmp_path / relative
+            private = directory / "pvm01-private-data.json"
+            atomic_write_json(private, {"experiment_id": identity, "unit_nonces": [f"{index+1:064x}"]*5})
+            atomic_write_json(directory / "runtime-plan.json", {
+                "experiment_id": identity, "matrix": {"seeds": [101+index]},
+                "pvm01_private_data_sha256": sha256_file(private)})
+        seeds, nonces = list(range(1001, 1006)), [f"{i:064x}" for i in range(2001, 2006)]
+        if collision == "seed":
+            seeds[0] = 101
+        elif collision == "nonce":
+            nonces[0] = f"{1:064x}"
+        elif collision == "duplicate":
+            nonces[0] = nonces[1]
+        if collision == "none":
+>           verify_pvm01_fresh_realization(tmp_path, seeds, nonces)
+
+tests\test_pvm01_delta_memory.py:230: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:277: in verify_pvm01_fresh_realization
+    runtime = load_json(directory / "runtime-plan.json")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\utils.py:52: in load_json
+    with path.open("r", encoding="utf-8") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/NATAN/AppData/Local/Temp/pytest-of-NATAN/pytest-430/test_new_units_reject_consumed0/research/laboratory/archive/EXP-20261004-0008-runtime/research/tmp/EXP-20261004-0008/runtime-plan.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\NATAN\\AppData\\Local\\Temp\\pytest-of-NATAN\\pytest-430\\test_new_units_reject_consumed0\\research\\laboratory\\archive\\EXP-20261004-0008-runtime\\research\\tmp\\EXP-20261004-0008\\runtime-plan.json'
+
+..\..\..\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\pathlib\_local.py:537: FileNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/test_pvm01_transport_compression.py::test_v6_rejects_private_path_before_any_array_or_model
+FAILED tests/test_pvm01_delta_memory.py::test_new_units_reject_consumed_realizations_without_replacement[none]

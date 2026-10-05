@@ -1,0 +1,30 @@
+{
+  "cap": 120,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_transport_commit_v2.py"
+  ],
+  "created_at": "2026-10-05T00:44:33Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-source-history-commit-V2",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-source-history-commit-V2.stderr.txt": "dd4fcf8a097a3d8e750f9a65ff509fd919f72a4604f172afe9236be85f96db48",
+    "PVM01-TRANSPORT-source-history-commit-V2.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "result": {
+    "elapsed_seconds": 4.546447900007479,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 104894464,
+    "pid": 32364,
+    "processes_created": 116,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 13,
+  "wall_seconds": 7.741113099997165
+}

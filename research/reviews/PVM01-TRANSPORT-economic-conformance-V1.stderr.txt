@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_transport_analyzer_fixture_v2.py", line 41, in <module>
+    x=module.analyze(root,'EXP-20990101-9803');assert not x['descriptive_classical_dominators'] and x['matched_quality_classical_dominators'] and not x['economic_screen_qualified']
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

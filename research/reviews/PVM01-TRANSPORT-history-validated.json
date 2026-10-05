@@ -1,0 +1,9 @@
+{
+  "all_old_candidate_and_test_bytes_preserved": true,
+  "created_at": "2026-10-05T00:43:16Z",
+  "label": "validated",
+  "no_stop_pause_lock": true,
+  "old_nonmutable_raw_files": 25201,
+  "old_prefixes_preserved": true,
+  "protected_integrity_preflight": true
+}

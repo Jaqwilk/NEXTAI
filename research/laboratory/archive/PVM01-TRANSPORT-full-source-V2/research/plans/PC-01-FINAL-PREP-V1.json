@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "PC-01-FINAL-PREP-V1",
+  "kind": "no_scoring_preparation_and_prospective_transition_contract",
+  "user_approval": "kontyynuj: prepare the v2-to-v3 contract and final-series evaluation adapter only; execution needs separate approval",
+  "started_at": "2026-09-05T16:07:59Z",
+  "deadline_at": "2026-09-05T16:52:59Z",
+  "self_imposed_service_minutes_cap": 45,
+  "training_authorized": false,
+  "scoring_authorized": false,
+  "final_series_freeze_authorized": false,
+  "final_access_authorized": false,
+  "additional_dev_attempts": 0,
+  "selected_dev_id": "EXP-20260905-0002",
+  "selected_plan_sha256": "6b617d2c0880ea619b705930b1f12dedb9f128919c4c40e3ddf61769d4175988",
+  "selected_result_sha256": "53744bbbf3d8980c95fce59e86083f387b4659ba78012e5391f0bde9bc80616c",
+  "selected_evaluator_sha256": "bbb174b5f8bab4717c483a4b152e27bdbf5cebc803a37d3aa1b5a88ae1233773",
+  "selected_cohort": "pc01_byte_lm_learning_measurement_v2",
+  "target_cohort": "pc01_byte_lm_learning_measurement_v3",
+  "candidate": "pc01_byte_gpt_v1",
+  "candidate_audit_sha256": "27c90b510333990d4943b0c79f12286912971be60bcb00eb2f532421a5a73d3d",
+  "design_sha256": "f9e3d889485ff5e63c9f74caae3118f2f44c3872b91400931e72c8e1ce67a280",
+  "recipe_sha256": "fa4a920b9c9b1848f3818e6bd7a3f6052a04619a3d8c75e4804a53883a872966",
+  "data_sha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+  "metadata_receipt": "research/laboratory/PC-01-GPU-METADATA-V1.receipt.json",
+  "metadata_receipt_sha256": "1f0c2dd2c3ec66faa66ee15a8c0dd2504689967223e9329b251f790bb550193f",
+  "nonseries_ast_sha256": "23b3ca2856c7913037d83a8e7eee3b010c6ecc3a496a002e761b72576bcadc9b",
+  "source_constraints": {
+    "src/nextai_autoresearch/candidates/pc01_byte_gpt_v1.py": "426bfa8b9da43fb7cd991e104e48dfd366cf037dd9e840330d671b2174706aaa",
+    "src/nextai_autoresearch/pc01_worker.py": "252de6c89dfcf1095232433d606971c64d69a41198bc772c645dd6026dcadace",
+    "src/nextai_autoresearch/pc01_gpu_metadata.py": "9d8ac7c7780f7516728663ffe6d8b67d3680af72fc7734bf7e168b49c001ff98",
+    "src/nextai_autoresearch/pc01_telemetry.py": "4b998b96132011b3f8359cfcce9cd315bca4d474432c40907a4ba6b7f75ad209",
+    "src/nextai_autoresearch/runner.py": "3de7203eae1da32f02564a3688810ff32d1e32a86cc03c9c5cd0ba4cb158ee75"
+  },
+  "prospective_final_contract": {
+    "claim": "Replicated local positive-control learning, not architecture promotion, economics, transfer, independent-corpus generalization or a blind holdout.",
+    "initialization": "Fresh independent initialization per runner seed. Select the recipe/source, never resume dev best.pt.",
+    "replicates": 3,
+    "seed_policy": {
+      "method": "runner_random_v1",
+      "minimum": 10000,
+      "maximum": 2147483647,
+      "unique": true,
+      "count_per_plan": 1
+    },
+    "updates": 5000,
+    "selection": "Same best-trained-dev-checkpoint rule and every-250-update schedule; no shortening or tuning in response to the v2 dev curve.",
+    "quality": {
+      "maximum_trained_bpb_each": 3.5,
+      "minimum_frozen_minus_trained_bpb_each": 1,
+      "paired_mean_delta_lower_95pct_t_df2_strictly_above": 0,
+      "secondary_minimum_unigram_minus_trained_bpb_each": 0.1
+    },
+    "controls": "All original ten controls plus mandatory ordered identified before-fit/after-timing GPU metadata for every v3 replica. Retain metadata during series validation.",
+    "baselines": "Fresh train-only unigram/bigram and source-identical frozen control in each v3 final run. Never pool v2 scores as final replicas.",
+    "fit_seconds_per_replica": 1200,
+    "worker_seconds_per_replica": 1800,
+    "series_fit_reservation_seconds": 3600,
+    "total_pc01_fit_cap_seconds": 7200,
+    "independent_corpus_count": 1,
+    "uncertainty": "All three seed values, mean, sample SD, range and paired t interval df=2, conditional on the one corpus; no independence claim for byte targets.",
+    "failure_policy": "Every failed, timed-out, invalid or omitted replica prevents a positive series verdict. No replacement seed or holdout-guided rescue; a valid final negative closes this tested version.",
+    "transition": "Bind the exact selected v2 plan/result/source/evaluator and current separately certified v3 evaluator in the actual immutable series. The contract alone never permits execution.",
+    "remaining_boundary": "STOP/PAUSE, maintenance, integrity, pending-plan, audit-before-seed and cumulative attempt/fit guards remain mandatory. One final experiment per bounded cycle."
+  },
+  "validation": [
+    "Reject altered selected ID, plan/result hash, recipe, data, candidate or trusted worker source, unknown cohort, missing transition or changed target evaluator.",
+    "Synthetic end-to-end v3 three-replica lifecycle and quality decision; legacy v1/v2 conformance unchanged; no real final access.",
+    "Positive, valid-negative and inconclusive series with missing/malformed/swapped metadata, omitted/crashed/duplicate seeds, and unchanged quality thresholds.",
+    "Full regression; all history and ledger prefixes preserved; new certificate; maintenance denial readback."
+  ],
+  "historical_counts": {
+    "completed_results": 101,
+    "dev_attempts": 2,
+    "fit_seconds_charged": 1500.4259332000001
+  },
+  "original_service_accounting_reset": false,
+  "archive": "research/laboratory/archive/PC-01-METADATA-CYCLE-290",
+  "archive_manifest": "research/manifests/PC-01-FINAL-PREP-BEFORE.json",
+  "completion": "Return to PC-01-DECISION with a prepared contract/adapter. No production series, EXP registration, activation, training, publishing or schedule change in this stage."
+}

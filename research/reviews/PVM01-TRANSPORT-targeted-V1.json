@@ -1,0 +1,34 @@
+{
+  "cap": 300,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "tests/test_pvm01_transport_compression.py",
+    "tests/test_pvm01_repro_policy.py",
+    "tests/test_pvm01_delta_memory.py",
+    "-q",
+    "--junitxml=research/checks/PVM01-TRANSPORT-targeted-V1.xml"
+  ],
+  "created_at": "2026-10-04T23:56:50Z",
+  "error": null,
+  "id": "PVM01-TRANSPORT-targeted-V1",
+  "raw_outputs": {
+    "PVM01-TRANSPORT-targeted-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-TRANSPORT-targeted-V1.stdout.txt": "489d463f47948c1c51ed4398d2c83647acf2f9d6408b94b5f436e3568f4287e1"
+  },
+  "result": {
+    "elapsed_seconds": 5.326586399998632,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1018077184,
+    "pid": 25052,
+    "processes_created": 5,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 14,
+  "wall_seconds": 8.486991199999466
+}

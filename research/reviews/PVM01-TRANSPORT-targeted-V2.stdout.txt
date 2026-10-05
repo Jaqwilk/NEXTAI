@@ -1,0 +1,19 @@
+.........F....................                                           [100%]
+================================== FAILURES ===================================
+___ test_v6_freshness_rejects_last_consumed_unit_without_changing_old_scope ___
+
+    def test_v6_freshness_rejects_last_consumed_unit_without_changing_old_scope():
+        from nextai_autoresearch.research_program import verify_pvm01_fresh_realization
+        previous = json.loads((ROOT / "research/laboratory/archive/EXP-20261004-0008-runtime/research/tmp/EXP-20261004-0008/runtime-plan.json").read_text())
+        seeds = [previous["matrix"]["seeds"][0], 31001, 31002, 31003, 31004]
+        nonces = [f"{i:064x}" for i in range(31001, 31006)]
+        verify_pvm01_fresh_realization(ROOT, seeds, nonces)
+        with pytest.raises(ValueError, match="collision"):
+            verify_pvm01_fresh_realization(ROOT, seeds, nonces, include_latest=True)
+>       reports["dense_cached_cpu"]["dense_set_losses"] = [.2,.1]
+        ^^^^^^^
+E       NameError: name 'reports' is not defined
+
+tests\test_pvm01_transport_compression.py:155: NameError
+=========================== short test summary info ===========================
+FAILED tests/test_pvm01_transport_compression.py::test_v6_freshness_rejects_last_consumed_unit_without_changing_old_scope

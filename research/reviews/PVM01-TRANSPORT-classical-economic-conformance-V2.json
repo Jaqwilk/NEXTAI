@@ -1,0 +1,7 @@
+{
+  "exact_loss_drift_remains_invalid": true,
+  "fixture_only": true,
+  "models_fit_private_data_registration": false,
+  "per_K_unknown_failure_rejects_economics_despite_overall_competence": true,
+  "tiny_point_quality_difference_does_not_hide_classical_dominance": true
+}

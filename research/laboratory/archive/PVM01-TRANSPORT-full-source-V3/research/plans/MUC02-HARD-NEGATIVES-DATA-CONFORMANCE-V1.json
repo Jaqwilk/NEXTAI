@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "MUC02-HARD-NEGATIVES-DATA-CONFORMANCE-V1",
+  "created_at": "2026-10-03T21:33:28Z",
+  "parent_contract_path": "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json",
+  "parent_contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+  "phase": "pre-registration harness conformance; no sampler implementation, experiment seed or fit exists",
+  "trigger": "K32,D4 unit fixture seed937: the historical generator cannot form required retention query strata in every randomly drawn graph",
+  "data_generation_policy": "For each world, proposal0 uses the original hash-derived seed. On only an infeasible query-stratum RuntimeError, proposal1..63 append |proposal=<n> to the seed hash input and use the same muc02_task.make_world. Accept first structurally feasible graph. All proposals and failure reasons are fsynced in the worker data journal; at64 failures terminate stage. No model prediction, quality score or training result selects a world. This conditions the graph distribution on availability of the fixed query strata; report this limitation. This is a prospective bounded data-construction algorithm, not an experiment/model retry or replacement of the five runner seeds.",
+  "maximum_proposals_per_world": 64,
+  "runner_seed_substitution": false,
+  "experiment_retry": false,
+  "metrics_recipe_thresholds_changed": false,
+  "model_changed": false,
+  "sampling_factor_changed": false,
+  "failed_fixture_receipt": "research/reviews/MUC02-HARD-NEGATIVES-harness-final-tests.xml",
+  "failed_fixture_receipt_sha256": "944e2860ca155a1bb61af1b27e560146f282622b22515a0d544120c29e21530c"
+}

@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-10-05T00:35:06Z",
+  "files": {
+    "pvm01_transport_analyzer_fixture.py": "7bff02b2b56542eb28428ce581757a7137259eddd9320ad23311866540d0a8d6",
+    "pvm01_transport_analyzer_fixture_v2.py": "d4329c357b9f7c61d1bfad028bbc912d7588f59ca37c4b6205d9bdfc0df14b34",
+    "pvm01_transport_analyzer_fixture_v3.py": "4827d0705a76481b7768a7e835ae42e5d97b69d02ed8fdbcb984750466ece619",
+    "pvm01_transport_execute.py": "4226df8f1ed8ff06a211a606f204d3b78c4b9f45079ac02073224d150d7b415b",
+    "pvm01_transport_full.py": "867b834ce402099c0aa5e6fa99c50dda9818ef6ae825ebd013b431568f5045fb",
+    "pvm01_transport_full_v3.py": "cde17f209ba9356d7522fb49ddf778f0d0e653a846bf01f2102cbf0cc7a149ae",
+    "pvm01_transport_history.py": "8fb43de94716e540c3711df40141ad2bae07086b93d5297522201c58fe423b0a",
+    "pvm01_transport_implement.py": "219e7e609a2a8d0096cd1240f1bcffee724373d373f9e215493f03d66f555f1c",
+    "pvm01_transport_metadata.py": "d828e872cee0e43b358d6ef7025ddf2caf119cba2b49cd8b9a49ea11b03ec165",
+    "pvm01_transport_prepaid.py": "ebf46bd09481f054b9685d160a7dc20e48a81c584da570d741e3728646abeb32",
+    "pvm01_transport_prepare.py": "8b43539f6235665ca6b1df426628b35d19262a57479a9535f3bab9b5f53a460b",
+    "pvm01_transport_save_source.py": "7ea378a84b286e15fd9a0ceedbf6cef4d93c38688a7857723ec133c3c1562629"
+  },
+  "public_fixtures_not_research_fit": true
+}

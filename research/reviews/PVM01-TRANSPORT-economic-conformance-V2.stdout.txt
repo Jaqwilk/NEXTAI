@@ -1,0 +1,2 @@
+Stored analyzer end-to-end valid/null/dominance/exact drift: PASS; no models/data fit
+New preregistered classical/per-K economic controls: PASS
