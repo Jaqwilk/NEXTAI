@@ -1,0 +1,33 @@
+{
+  "cap_seconds": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/check_har01_readiness.py",
+    "--ready"
+  ],
+  "conservative_accounting_allowance_seconds": 20,
+  "created_at": "2026-10-05T14:57:46Z",
+  "error": null,
+  "id": "NEXTAI-B-319-readiness-V1",
+  "raw_outputs": {
+    "NEXTAI-B-319-readiness-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-319-readiness-V1.stdout.txt": "651db5b7d7a7fc8307e0954e0c9b71baf4a241a7e959aae9ebb178829c951507"
+  },
+  "result": {
+    "elapsed_seconds": 31.553608899994288,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1443573760,
+    "pid": 33840,
+    "processes_created": 6,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 65,
+  "wall_seconds": 44.47646450001048,
+  "whole_process_tree_bounded": true
+}

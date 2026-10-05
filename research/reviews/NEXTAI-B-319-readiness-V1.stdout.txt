@@ -1,0 +1,1 @@
+{"ready": true, "integrity_ok": true, "semantic_nodes": 7}

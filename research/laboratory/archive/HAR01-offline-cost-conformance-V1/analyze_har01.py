@@ -4,8 +4,6 @@ import math
 from pathlib import Path
 import sys
 
-from analyze_pvm01_confirmation import reuse_cost
-
 from nextai_autoresearch.har01_analysis import analyze, ARMS
 from nextai_autoresearch.ledger import read_jsonl
 from nextai_autoresearch.pc01_telemetry import read_device_sample
@@ -76,41 +74,6 @@ def main(identity):
         study_sha256=protocol["study_sha256"], task_sha256=protocol["task_contract_sha256"],
         supervised_fit_seconds=fit, full_worker_seconds=total,
         hardware_boundary="Same machine/load protocol; CUDA allocator peaks exclude driver/context and energy; CPU tree RSS is sampled. Timing is not an algorithmic complexity claim.")
-    intake = json.loads((root / "research/data_manifests/HAR01-ACQUISITION-V1.json").read_text(encoding="utf-8"))
-    acquisition = intake["download_seconds"] + intake["full_intake_wall_seconds"]
-    offline, services, source_costs = {}, {}, {}
-    for outcome in result["candidates"]:
-        if outcome["status"] != "complete" or len(outcome.get("trials", [])) != 18:
-            continue
-        name = outcome["candidate"]
-        report = outcome["trials"][0]["fit_report"]
-        all_service = sum(row["full_workload_seconds"] for row in outcome["trials"])
-        non_service = max(0., outcome["execution"]["wall_seconds"] - all_service)
-        original_fit = 0.
-        if report.get("source_provenance"):
-            source = report["source_provenance"]
-            saved = root / ("research/laboratory/archive/EXP-20261005-0006-runtime/research/tmp/"
-                f"EXP-20261005-0006/pvm01_tc_{source['source_arm']}_s{source['source_unit']}.supervisor.json")
-            original = json.loads(saved.read_text(encoding="utf-8"))
-            assert original["status"] == "complete"
-            original_fit = original["execution"]["supervised_fit_seconds"]
-            source_costs[name] = {"historical_source_fit_seconds": original_fit,
-                "source_receipt_sha256": sha256_file(saved), "charged_to_B_again": False, "source_replayed": False}
-        offline[name] = non_service + acquisition + original_fit
-        services[name] = {condition: sum(row["full_workload_seconds"] for row in outcome["trials"] if row["condition"] == condition)
-                          for condition in ("nominal", "adverse")}
-    reuse = {}
-    for name, service in services.items():
-        index = study["roles"][name]["seed_index"]
-        reference = f"har01_target_dense_s{index}"
-        if reference in services:
-            reuse[name] = {condition: reuse_cost(offline[name], offline[reference], service[condition],
-                                                services[reference][condition], [1, 4, 16])
-                           for condition in ("nominal", "adverse")}
-    analysis["descriptive_reuse_costs"] = reuse
-    analysis["historical_source_costs"] = source_costs
-    analysis["shared_actual_acquisition_intake_seconds"] = acquisition
-    analysis["reuse_boundary"] = "Per native unit/condition all9 service trials; actual full-worker non-service overhead plus original source fit and shared acquisition/intake included once. Research-wide tests/failures/admin/controller are separately charged and disclosed. Descriptive only; no new gate."
     target = root / f"research/analyses/{identity}-har01.json"
     if target.exists():
         assert json.loads(target.read_text(encoding="utf-8")) == analysis, "Immutable analysis already exists with different bytes"
@@ -142,8 +105,6 @@ def main(identity):
         f"Competent target dense reference at all fixed condition/scale cells: {analysis.get('reference_competent', False)}. Qualified routes: {analysis.get('qualified_routes', [])}.",
         "A failed competent-reference gate makes the qualified comparison inconclusive; it does not falsify an architectural family. Narrow ranking/UNKNOWN effects are retained separately. Target-only readout fitting is not evidence of source-information transfer. This is visible public development screening, without blinded holdout, independent replication or promotion.",
         "All18 economic guards/route and108 fixed strong-comparator contrasts/route retain their frozen simultaneous intervals; candidate service and p95, preprocessing, copies, restoration, allocations, ingest, updates, caches, query and output decoding are charged. Matched quality and strong-classical non-domination are mandatory.",
-        f"Actual shared acquisition/intake {acquisition:.6f}s. Machine analysis includes descriptive R1/R4/R16 for every paired role/condition: original source supervised fit, full native worker non-service time and shared acquisition/intake included once, plus R complete condition workloads. Original source fit is disclosed without replay or a second charge to B. Research-wide tests/failures/controller/admin remain separate, fully charged research costs.",
-        "The service boundary starts with raw physical windows in memory and includes their64feature parser/scaling. Publisher download, raw file decoding, data routing and fits are offline; they are disclosed and included in the descriptive amortized costs. No claim covers physical sensor acquisition, energy or external serving infrastructure.",
         "", "## INTEGRITY / BUDGET / NEXT DISCRIMINATING EXPERIMENT", "",
         f"Integrity before/after: {result.get('integrity_before', {}).get('ok')}/{result.get('integrity_after', {}).get('ok')}; trusted resource/journal checks {sum(checks.values())}/45. Problems: {analysis['problems']}.",
         "The cycle completion receipt adds startup/intake/conformance failures, analysis and controller overhead to full worker wall, with all reserves settled. No paid retry, WT8–9, external model/API or schedule change.",

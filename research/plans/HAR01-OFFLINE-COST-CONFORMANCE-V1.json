@@ -1,0 +1,12 @@
+{
+  "before_paid_registration_seed_fit_or_outcomes": true,
+  "created_at": "2026-10-05T15:06:06Z",
+  "id": "HAR01-OFFLINE-COST-CONFORMANCE-V1",
+  "implementation": "For each native unit/condition, sum all9 condition service trials; add once full worker non-service wall, shared actual acquisition/intake and original actual supervised source fit for source arms. Source fit comes from preserved source outcomes without replay. Historical source costs disclosed for system amortization, never charged to B a second time. All tests/failures/controller/admin charged separately to the research wallet and disclosed, never hidden as inference work.",
+  "no_decision_change": "Economic18/108 and source4 gates remain exactly unchanged; reuse totals are descriptive, not qualification gates.",
+  "old_analyzer_sha256": "e246709b5357cb5892ed1e4903000b50d4f7d929b9389de9e9318e322483821f",
+  "required_contract_field": "cost_boundary.offline; descriptive R1/R4/R16",
+  "service_boundary": "In-memory raw native sensor windows;64feature parser/scaling and all copies/restore/alloc/ingest/update/cache/warmup/query/output timed. Archive download, raw file decode, training and validation are offline and included once in reuse totals.",
+  "study_sha256": "9ec218451704762a128415204a1b4f7aa6e016bac4a56122368e975f6d9013eb",
+  "task_sha256": "73a28822fe3ea49a007d919350190415a67186ac402427bbd2367f902abe8672"
+}
