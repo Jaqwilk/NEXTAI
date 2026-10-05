@@ -1,0 +1,22 @@
+{
+  "id": "PC-01-ACTIVATION-20260905-V1",
+  "user_authorization": "zatwierdzam etap",
+  "scope": "Validate prospective PC-01 activation, preregister, implement and execute exactly one development attempt. No automatic retry or final access.",
+  "restart_id": "LAB-RESTART-20260904-V1",
+  "original_restart_path": "research/laboratory/restart.json",
+  "cohort": "pc01_byte_lm_learning_measurement_v1",
+  "candidate": "pc01_byte_gpt_v1",
+  "phase": "dev",
+  "max_registered_attempts": 1,
+  "development_seed": 1103,
+  "max_fit_seconds": 1200,
+  "max_worker_seconds": 1800,
+  "final_access_authorized": false,
+  "final_series_freeze_authorized": false,
+  "architecture_promotion_authorized": false,
+  "original_service_budget_reset": false,
+  "prior_integration_seal": "research/laboratory/PC-01-INTEGRATION-V1.json",
+  "prior_source_archive": "research/laboratory/archive/PC-01-INTEGRATION-V1",
+  "prior_manifest_archive": "research/manifests/PC-01-ACTIVATION-BEFORE.json",
+  "after_attempt": "Stop, preserve outcome and request a decision; unused design allowance is not execution authority."
+}

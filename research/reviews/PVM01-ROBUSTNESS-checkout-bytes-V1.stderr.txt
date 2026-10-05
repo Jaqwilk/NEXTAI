@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_robustness_checkout_bytes_v1.py", line 28, in <module>
+    assert sha256_file(root/name)==sha256_file(b/name),(policy,name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('true', 'research/checks/PVM01-ROBUSTNESS-targeted-V1.xml')

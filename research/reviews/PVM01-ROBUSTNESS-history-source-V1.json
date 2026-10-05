@@ -1,0 +1,30 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_robustness_commit_validated_v1.py"
+  ],
+  "created_at": "2026-10-05T04:23:24Z",
+  "error": null,
+  "id": "PVM01-ROBUSTNESS-history-source-V1",
+  "raw_outputs": {
+    "PVM01-ROBUSTNESS-history-source-V1.stderr.txt": "36effb207f4485771ee7b7eb6de6d88efda2713508f542f392c658f40bc4178f",
+    "PVM01-ROBUSTNESS-history-source-V1.stdout.txt": "ac42cc3bd44029c9e7b0e89026382a6bbb7cee2301cebeacb59cb4487fbd5e94"
+  },
+  "result": {
+    "elapsed_seconds": 52.76259610000125,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 880132096,
+    "pid": 22304,
+    "processes_created": 67,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 64,
+  "wall_seconds": 58.5095425999898
+}

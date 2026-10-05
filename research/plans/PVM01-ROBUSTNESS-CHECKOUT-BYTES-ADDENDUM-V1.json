@@ -1,0 +1,13 @@
+{
+  "before_implementation": true,
+  "before_sha256": "8d89bd12073f5fca65a3fa62b6ca0be567ada04565a4795c016c49b907ae0b01",
+  "conformance": "Checkout-index under core.autocrlf true and false must recover exact normalized registry and native JUnit bytes. Preserve before bytes and full1198 tests; rerun relevant semantic/metadata checks, refreeze/preflight before registration.",
+  "created_at": "2026-10-05T04:27:14Z",
+  "git_expected_sha256": "271de6d2d8ce3e329e22293a82a637e5ea055acac5118c8ed6950e939e1ecaf2",
+  "id": "PVM01-ROBUSTNESS-CHECKOUT-BYTES-ADDENDUM-V1",
+  "new_data_fit_EXP": false,
+  "normalization": "Exactly replace CRLF with LF for protected baseline JSON, with JSON-value equality and exact Git-blob byte proof. Append current ROBUSTNESS check-only -text attribute; old attributes remain prefix. No source,metric,threshold,model,recipe,cohort,old result or old budget change.",
+  "observed_git_warning": "baseline_semantics CRLF working tree versus LF committed bytes; new raw JUnit checks lack -text policy.",
+  "scoring": false,
+  "study_sha256": "8e5be712a03769f9e4705df9848494895b8da77a80785d256fbd2b6b107e46ee"
+}

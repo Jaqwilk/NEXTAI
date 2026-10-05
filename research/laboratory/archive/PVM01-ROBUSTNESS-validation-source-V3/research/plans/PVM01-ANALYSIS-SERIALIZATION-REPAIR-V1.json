@@ -1,0 +1,55 @@
+{
+  "allowed_changes": [
+    "new analyze_pvm01_reference_v2.py delegates all computations to unchanged v1 and compares canonical JSON",
+    "targeted idempotence and corruption tests with no model execution",
+    "protect new script/repair plan; preserve manifests and refreeze maintenance",
+    "append-only diagnosis/receipts and current queue documentation"
+  ],
+  "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+  "budget": {
+    "additional_auxiliary_cap_seconds": 600,
+    "all_failed_checks_charged": true,
+    "combined_v2_stage_auxiliary_cap_seconds": 1800,
+    "prior_v2_auxiliary_seconds_charged": 691
+  },
+  "created_at": "2026-10-04T17:48:10Z",
+  "diagnosis": "Frozen analysis function returns integer seed-index dictionary keys. JSON stores text keys. Legacy CLI compares these representations directly when its destination exists and falsely fails.",
+  "forbidden": [
+    "change raw plan/result/analysis or v1 script",
+    "metric/threshold/unit weighting changes",
+    "new scored run",
+    "research fit",
+    "data generation",
+    "retry",
+    "WT8-9",
+    "external model/API",
+    "schedule changes"
+  ],
+  "id": "PVM01-ANALYSIS-SERIALIZATION-REPAIR-V1",
+  "original_study_deadline_at": "2026-10-04T20:56:06Z",
+  "original_study_started_at": "2026-10-04T16:56:06Z",
+  "prior_closed_experiment": "EXP-20261004-0005",
+  "program_contract_sha256": "a55f190fd42631e2651a8d4ab3e61f2200d16d1e8afb2d71aa4edcbea6ba269a",
+  "schema_version": 1,
+  "scope": "No-scoring stored-result serializer repair after complete0005; no model/data generation, research fit, EXP registration or retry.",
+  "scoring": false,
+  "source_before": "ab29fa9e3e8aa3cded64054d05371fb3aa9b9608",
+  "unchanged_raw_sha256": {
+    "research/analyses/EXP-20261004-0005.md": "ccd47c7cd0e8146d2b980c1807a99383d4883322d1e20f6d41f9249516c91242",
+    "research/plans/EXP-20261004-0005.json": "6abe1ddd6dc9a85809f074b4f80b0aac806116fa7ae5673d3b2c2322f24f0db4",
+    "research/plans/PVM01-REFERENCE-V2.json": "ef47381328f192fb8a6a6cd7b9a414a781be479da5f9aa51a9aad74947768690",
+    "research/results/EXP-20261004-0004.json": "264183fa8c6d970f432f071b0719e9d76ddce2a8915b7606e26aa53b704a7bf0",
+    "research/results/EXP-20261004-0005.json": "626bc4657db2cec8642f4c1f9f62d1ea3a6fb6a30191d64111818774e29c4190",
+    "research/reviews/EXP-20261004-0005-PVM01-reference-analysis.json": "e887f35592e4fdd01e21c7387316344bf403edb633ea6a8da0dc49bf5e498765",
+    "scripts/analyze_pvm01_reference.py": "81d00a1e48eb9852bf21ed1caf12054764b8e4b9cc8e1906d092ee8ee736d42f",
+    "src/nextai_autoresearch/candidates/pvm01_core.py": "773bf869e9dd2a5dea9bdcbf7dfbc32cdb79745634603dc57b7571f0dbf9fa15",
+    "src/nextai_autoresearch/pvm01_task.py": "4f4c791458ba280908825f7fa323a501a9403a1296a7e510b86aa2b2969d08cd"
+  },
+  "validation": [
+    "reproduce legacy CLI assertion on stored0005 without rewriting its bytes",
+    "new v2 CLI twice on stored0004/0005 preserves identical canonical output and raw existing file bytes",
+    "corrupt existing derived output is rejected without overwrite",
+    "full clone regression, freeze/preflight/doctor/history guards"
+  ],
+  "whole_program_complete": false
+}

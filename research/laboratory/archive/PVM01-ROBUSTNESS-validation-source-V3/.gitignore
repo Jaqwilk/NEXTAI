@@ -1,0 +1,37 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Runtime artifacts. Scientific ledgers and result JSON files stay tracked.
+research/run.lock
+research/run.lock.guard
+research/run.lock.stale-*
+research/tmp/
+research/logs/*.log
+STOP
+PAUSE
+
+# Keep large benchmark payloads local; acquisition metadata and manifests stay tracked.
+research/data/*/archive/
+research/data/*/extracted/
+research/data/**/*.zip
+research/data/**/*.h5
+research/data/**/*.npy
+research/data/**/*.mat
+
+# PC-01 licensed corpus bytes and model state stay local; metadata remains tracked.
+research/data/pc01_tinyshakespeare_v1/input.txt
+research/pc01_payload/**/*.pt
+
+# Complete native record is versioned losslessly as its gzip bundle and exact hash.
+/research/results/EXP-20261005-0001.json
+
+# Native independent replica is versioned losslessly as gzip plus its exact hash.
+/research/results/EXP-20261005-0002.json

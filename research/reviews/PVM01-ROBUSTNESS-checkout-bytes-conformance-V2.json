@@ -1,0 +1,31 @@
+{
+  "all_prior_validation_sources_and_failed_check_preserved": true,
+  "checks": [
+    {
+      "core_autocrlf": "true",
+      "files": {
+        ".gitattributes": "81eae39d5aec6dd57bd39b3d5cb11ccf29a87d33277df54d27224d65fcfe8c9a",
+        "config/baseline_semantics.json": "271de6d2d8ce3e329e22293a82a637e5ea055acac5118c8ed6950e939e1ecaf2",
+        "research/checks/PVM01-ROBUSTNESS-full-V1.xml": "f595250f8c226a043b150dc6abdc83494905ce98fd601810e4b39d2ef1101aa1",
+        "research/checks/PVM01-ROBUSTNESS-full-V2.xml": "6f688dedfe48058112e2b220c781c0f6645e98d08596409a21347452e61f75f2",
+        "research/checks/PVM01-ROBUSTNESS-targeted-V1.xml": "ddae9ed14d1c38e56f2ab45661c29ec3ad0f6254bc9b47b8249903b86b34a48a"
+      }
+    },
+    {
+      "core_autocrlf": "false",
+      "files": {
+        ".gitattributes": "81eae39d5aec6dd57bd39b3d5cb11ccf29a87d33277df54d27224d65fcfe8c9a",
+        "config/baseline_semantics.json": "271de6d2d8ce3e329e22293a82a637e5ea055acac5118c8ed6950e939e1ecaf2",
+        "research/checks/PVM01-ROBUSTNESS-full-V1.xml": "f595250f8c226a043b150dc6abdc83494905ce98fd601810e4b39d2ef1101aa1",
+        "research/checks/PVM01-ROBUSTNESS-full-V2.xml": "6f688dedfe48058112e2b220c781c0f6645e98d08596409a21347452e61f75f2",
+        "research/checks/PVM01-ROBUSTNESS-targeted-V1.xml": "ddae9ed14d1c38e56f2ab45661c29ec3ad0f6254bc9b47b8249903b86b34a48a"
+      }
+    }
+  ],
+  "created_at": "2026-10-05T04:30:05Z",
+  "native_failed_JUnit_bytes_preserved": true,
+  "new_data_fit_EXP": false,
+  "old_attributes_prefix_preserved": true,
+  "same_committed_LF_bytes": true,
+  "same_registry_JSON_semantics": true
+}
