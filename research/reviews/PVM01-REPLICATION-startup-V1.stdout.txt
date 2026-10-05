@@ -1,0 +1,2 @@
+Startup doctor PASS
+Startup lab PASS

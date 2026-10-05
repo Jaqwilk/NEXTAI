@@ -1,0 +1,28 @@
+{
+  "base_commit": "3ec82b0169174a6d4e6c5cd66bf919dfd02b93d6",
+  "budget_source": "standing continuation A; anticipated replication auxiliary cost",
+  "created_at": "2026-10-05T02:02:47Z",
+  "error": null,
+  "id": "PVM01-REPLICATION-startup-V1",
+  "old_study_costs_and_outcomes_unchanged": true,
+  "proposed_cycle": 313,
+  "purpose": "Unchanged-source startup and completion of prior pending original lab CLI; no model/data/EXP or scored retry.",
+  "raw_outputs": {
+    "PVM01-REPLICATION-startup-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-REPLICATION-startup-V1.stdout.txt": "bc871318ba98af3d53d221f1bc11924022a349327c7931ea726c01a88fc18391"
+  },
+  "result": {
+    "elapsed_seconds": 135.47404319999623,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1947672576,
+    "pid": 26848,
+    "processes_created": 316,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_cap": 600,
+  "seconds_charged": 171,
+  "wall_seconds": 165.28198309999425
+}

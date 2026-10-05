@@ -1,0 +1,14 @@
+{
+  "completed_pending_scope_from": "research/laboratory/PVM01-TRANSPORT-original-validation-partial-V1.receipt.json",
+  "created_at": "2026-10-05T02:07:33Z",
+  "cycle312_costs_results_and_receipts_unchanged": true,
+  "experiment_id": "EXP-20261005-0001",
+  "new_research_registration_or_fit": false,
+  "new_startup_receipt": "research/reviews/PVM01-REPLICATION-startup-V1.json",
+  "new_startup_receipt_sha256": "2942af9a4673707da504bb6f4497c80c0c6ad04a56e18547dcc6c63bc4de61d2",
+  "original_doctor": "PASS",
+  "original_lab_status": "PASS",
+  "scoring": false,
+  "seconds_charged_in_cycle313": 171,
+  "source_commit": "3ec82b0169174a6d4e6c5cd66bf919dfd02b93d6"
+}
