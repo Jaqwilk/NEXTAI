@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "pc01_diagnostic_result"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^EXP-[0-9]{8}-[0-9]{4}$"
+    },
+    "benchmark": {
+      "const": "pc01_byte_lm_learning_measurement_v1"
+    },
+    "plan_path": {
+      "type": "string"
+    },
+    "plan_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "phase": {
+      "enum": [
+        "dev",
+        "final"
+      ]
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "inconclusive"
+      ]
+    },
+    "runtime_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "execution": {
+      "type": "object"
+    },
+    "measurement": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "integrity_before": {
+      "type": "object"
+    },
+    "integrity_after": {
+      "type": "object"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "architecture_promoted": {
+      "const": false
+    },
+    "pareto_front": {
+      "const": []
+    },
+    "candidates": {
+      "const": []
+    },
+    "evidence_scope": {
+      "const": "local_single_corpus_diagnostic"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "experiment_id",
+    "benchmark",
+    "plan_path",
+    "plan_sha256",
+    "phase",
+    "started_at",
+    "completed_at",
+    "status",
+    "runtime_sha256",
+    "execution",
+    "measurement",
+    "integrity_before",
+    "integrity_after",
+    "error",
+    "architecture_promoted",
+    "pareto_front",
+    "candidates",
+    "evidence_scope"
+  ]
+}

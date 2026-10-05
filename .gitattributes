@@ -51,3 +51,6 @@ research/checks/PVM01-ROBUSTNESS-* -text
 
 # Preserve native byte hashes of independent confirmation check records.
 research/checks/PVM01-CONFIRMATION-* -text
+
+# Preserve native byte hashes of base-reference conformance records.
+research/checks/PVM01-BASE-REFERENCE-* -text

@@ -1,3 +1,17 @@
+# Prospective cycle316 - distinct unaugmented-reference confirmation
+
+PVM01-BASE-REFERENCE-CONFIRMATION-V1 frozen before implementation/new data.
+Same17 arms,4096 pairs,2048/1024 steps,calibration,3K,updates0/1/4,noise.02/.04.
+New claim uses fixed unaugmented dense_cached_cpu reference and ten base-unit FA guards.
+Original8/18/60 thresholds unchanged; mixed six NI assay retained separately.
+Five NEW paired units; failed315 qualification/history remain unchanged.
+Full workers10200s,aux3600s,fit90s/worker116s/external120s prospectively bounded.
+Deadline2026-10-05T11:26:46Z; reserve24000s and1 final registration.
+Maintenance/scoring=false until clone conformance,freeze/preflight/readiness.
+Exactly one audited EXP,no retry,WT8-9,external models/APIs or schedule change.
+Last reference_and_alternatives ticket; A active,B authorized/unspent/inactive.
+Expanded final/transfer/prototype goal remains open. Earlier sections are history.
+
 # Completed cycle315 - independent confirmation EXP-20261005-0004
 
 Five NEW paired units,17 fixed arms; valid=True.
