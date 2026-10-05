@@ -1,0 +1,31 @@
+{
+  "cap_seconds": 700,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/nextai_b_original_checks_v1.py"
+  ],
+  "created_at": "2026-10-05T12:49:50Z",
+  "error": null,
+  "id": "NEXTAI-B-original-gates-V1",
+  "raw_outputs": {
+    "NEXTAI-B-original-gates-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-original-gates-V1.stdout.txt": "0c03920f75fbad1140d8320bd92a4b6842435543712df898e66956dccf469240"
+  },
+  "result": {
+    "elapsed_seconds": 486.95686730000307,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4725710848,
+    "pid": 22732,
+    "processes_created": 499,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 505,
+  "wall_seconds": 499.8713400999841,
+  "whole_process_tree_bounded": true
+}

@@ -1,0 +1,28 @@
+{
+  "all_Git_checkout_protected_bytes_match": true,
+  "all_worktree_protected_bytes_match": true,
+  "created_at": "2026-10-05T12:39:21Z",
+  "first_literal_blob_check_failure": "Incorrectly equated raw CRLF checkout SHA with its historical LF Git blob;not a source or history change",
+  "legacy_declared_CRLF_bridges": [
+    {
+      "checkout_sha256": "8381cc9d8e245059cf6ce49a5ba988bb50a588a14de445e73cb72709fdaffed0",
+      "path": "research/checks/dronepropa_anonymous_split_v1.jsonl",
+      "reason": "Existing explicit eol=crlf attribute;old blob and raw checkout unchanged",
+      "unchanged_git_blob_sha256": "70d19cbd5948fdc47fb59b919be18326561547d012bd0a7097bcae9653196d74"
+    },
+    {
+      "checkout_sha256": "8f4e2c023f12fbf2a04e8f0fa111a5386e67c7bded0d997c634a2e5f44776ed2",
+      "path": "research/data/suitesparse_real_pde_v1/audit.json",
+      "reason": "Existing explicit eol=crlf attribute;old blob and raw checkout unchanged",
+      "unchanged_git_blob_sha256": "96466f790944e07742419cb47ab6dc7a4b28906daa2bcf9d92295eb67e698bd9"
+    },
+    {
+      "checkout_sha256": "82bac4874eac4cf94e89be5eeeae68b2011e20b658072482fdefd926bd824ea3",
+      "path": "research/data/suitesparse_real_pde_v1/recycling_audit.json",
+      "reason": "Existing explicit eol=crlf attribute;old blob and raw checkout unchanged",
+      "unchanged_git_blob_sha256": "cd532171c66c71fbdab4b80774aa670b8a453cea12726bd59f12b6ecd958ed5e"
+    }
+  ],
+  "new_metadata_eol_proof_path": "research/reviews/NEXTAI-B-generated-metadata-EOL-proof-V1.json",
+  "protected_files": 1303
+}

@@ -1,0 +1,13 @@
+{
+  "charge_id": "NEXTAI-B-final-administration-prepaid-V1",
+  "combined_cycle_worst_case_including_current_original_reservation": 4786,
+  "created_at": "2026-10-05T12:44:23Z",
+  "cycle_cap": 4800,
+  "new_research_fit_or_EXP": false,
+  "scope": [
+    "remaining administrative source/checkout/provenance checks,receipt construction and safe Git synchronization/publication",
+    "up to300 seconds bounded final native job",
+    "up to150 seconds conservative allowance for remaining metadata and wrapper ledger-finalization overhead"
+  ],
+  "seconds_charged": 450
+}

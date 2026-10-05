@@ -1,0 +1,1 @@
+{"cycle": 318, "decision": "KEEP technical preparation", "cycle_auxiliary_charged": 4591, "B_charged": 2576.0, "B_remaining": 69424.0, "whole_goal_completed": false}
