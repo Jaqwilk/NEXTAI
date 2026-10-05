@@ -1,0 +1,6 @@
+{
+  "conservative_seconds_backfilled": 40,
+  "created_at": "2026-10-05T14:31:39Z",
+  "error": "Intermediate cap reader rejected the historical preparation-only zero cap before mutation; zero cap restored; historical preparation study unchanged.",
+  "paid_registration_or_fit": false
+}

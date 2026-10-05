@@ -1,0 +1,26 @@
+{
+  "authorized_changes": [
+    "Read the strictly hash-bound one-attempt cap for this exact new study; missing fields in other studies still fail.",
+    "Backfill conservative40seconds for the failed pre-reservation technical invocation."
+  ],
+  "before_paid_registration_or_research_fit": true,
+  "created_at": "2026-10-05T14:30:30Z",
+  "failed_status_source_sha256": "d511633fd1d0f6305f0d504d6f52df0382ada01df7befbb21acdef7c3c29b1b9",
+  "failed_wrapper_receipt_sha256": "26c883e35af0e0a80dcb0b18fc856357d62ab13e29472569f1cf4d22b5a3464f",
+  "id": "HAR01-PRESEED-CAP-CONFORMANCE-V1",
+  "reason": "Frozen new study omitted the legacy supervisor field. Its single-experiment/no-retry policy is unchanged; bind the omitted one-attempt cap through this append-only addendum instead of editing the frozen study.",
+  "registration_attempts_for_this_study_cap": 1,
+  "study_path": "research/plans/HAR01-FROZEN-SOURCE-SCREEN-V1.json",
+  "study_sha256": "9ec218451704762a128415204a1b4f7aa6e016bac4a56122368e975f6d9013eb",
+  "unchanged": [
+    "data",
+    "candidates",
+    "recipe",
+    "metrics",
+    "thresholds",
+    "resources",
+    "deadline",
+    "program caps",
+    "no retry"
+  ]
+}

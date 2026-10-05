@@ -182,20 +182,7 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
         auxiliary += amount
     current_tickets = [e for e in tickets if e["study_path"] == study_path]
     failed = [e for e in events if e.get("event") == "research_program_registration_failed" and e.get("study_path") == study_path]
-    study_registration_cap = study.get("registration_attempts_for_this_study_cap")
-    if study_registration_cap is None and study.get("id") == "HAR01-FROZEN-SOURCE-SCREEN-V1":
-        cap_addendum = _document(base, "research/plans/HAR01-PRESEED-CAP-CONFORMANCE-V1.json")
-        if (study.get("study_kind") != "native_frozen_source_transfer"
-                or study.get("cohort") != "har01_native_memory_v1"
-                or cap_addendum["study_path"] != study_path
-                or cap_addendum["study_sha256"] != _bound_hash(base, study_path)
-                or cap_addendum["study_sha256"] != "9ec218451704762a128415204a1b4f7aa6e016bac4a56122368e975f6d9013eb"
-                or cap_addendum["registration_attempts_for_this_study_cap"] != 1):
-            raise ValueError("Native pre-seed registration cap addendum mismatch")
-        study_registration_cap = 1
-    if type(study_registration_cap) is not int or study_registration_cap < 0:
-        raise ValueError("Study registration cap missing or invalid")
-    if len(current_tickets) > study_registration_cap or len(current_plans) > 1:
+    if len(current_tickets) > study["registration_attempts_for_this_study_cap"] or len(current_plans) > 1:
         raise ValueError("Study registration cap exceeded")
     experiment_id = current_plans[0]["experiment_id"] if current_plans else None
     preparation_ends = [e for e in events if e.get("event") == "research_program_preparation_completed"

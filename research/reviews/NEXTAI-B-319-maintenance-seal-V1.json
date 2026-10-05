@@ -1,0 +1,14 @@
+{
+  "cost_conservative_seconds_to_backfill": 40,
+  "created_at": "2026-10-05T14:30:30Z",
+  "error": "'registration_attempts_for_this_study_cap'",
+  "error_type": "KeyError",
+  "evidence": "Captured failed wrapper exit in exec session54430; no scientific subprocess started.",
+  "id": "NEXTAI-B-319-maintenance-seal-V1",
+  "research_fit_seed_or_registration_reached": false,
+  "result": {
+    "phase": "before_auxiliary_reservation",
+    "returncode": 1
+  },
+  "source_commit": "ba5b946"
+}
