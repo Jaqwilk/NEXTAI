@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-10-05T11:51:30Z",
+  "prepaid_A_administration_seconds": 450,
+  "raw_outputs": {
+    "NEXTAI-B-activation-supervision-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-activation-supervision-V1.stdout.txt": "5ebb985d9f6585f72782026dbe85898cc17f618fe94b3f77a7f124694f2c152e"
+  },
+  "result": {
+    "elapsed_seconds": 98.59193939997931,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 634626048,
+    "pid": 32068,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "whole_wall_seconds": 98.59251930000028
+}

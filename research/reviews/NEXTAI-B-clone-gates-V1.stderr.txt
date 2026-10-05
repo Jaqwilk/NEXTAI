@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\check_transfer_preparation.py", line 140, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\check_transfer_preparation.py", line 136, in main
+    check(root, original=args.original, seal=args.seal)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\check_transfer_preparation.py", line 89, in check
+    assert len(publication["exports"]) == 25 and len(publication["files"]) == 50
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object of type 'int' has no len()
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\nextai_b_clone_checks_v1.py", line 3, in <module>
+    subprocess.run(command,check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NATAN\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['uv', 'run', '--no-sync', 'python', 'scripts/check_transfer_preparation.py', '--snapshot', '--seal']' returned non-zero exit status 1.

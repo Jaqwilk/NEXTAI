@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-10-05T12:03:00Z",
+  "files": {
+    ".gitattributes": "8818e4a435a131e14afcc2eb563c0274d9b72f5fe030c1fd6abe94aba0ed9ff4",
+    "config/research.toml": "991e29fc15f868defea9c875fab7d20595c24db002b776d7bc6dc26674a41063",
+    "schemas/source.schema.json": "cf2d380780e592a0c65d9e7047c0f8a3158db126c0339da4b131d2130c7a2d20",
+    "scripts/check_transfer_preparation.py": "baab863e5d74dad86949fc660aac96d4679fe1cd6e1ca7d0fda17b565869ba43",
+    "scripts/prepare_transfer_program.py": "647814515fffff2aa3c2948ee63102a4a7cb6f64d37aee68ab86d353ca90ee7b",
+    "scripts/run_transfer_preparation_check.py": "860621c8cd93795abcd867b97b639ff574288c5e18c391173112de7e33f7ddb3",
+    "src/nextai_autoresearch/integrity.py": "0a6ae7d3e5d9cfe8cdfd8bbe214de6886b5407ca67961ba221bd2a3cd6e70bf9",
+    "src/nextai_autoresearch/research_program.py": "1d8333e9683d8c08f9cc105d617fa376aecb877ce74c378073d4b31e5640df01",
+    "tests/test_source_metadata.py": "71866e62217005799d6e08e842cdbca680b95e7f04c2cf4a1933a28e9171e8c0",
+    "tests/test_transfer_program_authority.py": "d0db384c479240a1a48fddceff51f40a4f3e762b23012219c0d2c74209a63702"
+  },
+  "full_check_id": "NEXTAI-B-full-V2",
+  "raw_source_archive": "research/laboratory/archive/NEXTAI-B-final-tested-source-V2",
+  "source_held_unchanged_until_terminal": true
+}

@@ -1,0 +1,39 @@
+{
+  "cohort": "paired_view_mutable_memory_v11",
+  "created_at": "2026-10-05T11:51:16Z",
+  "cycle": 318,
+  "decision_rule": "KEEP technical B activation only if original doctor/lab,clone regression,immutable A accounting,negative guard fixtures,maintenance integrity/preflight and original validation pass. Scientific A decisions remain exact local neural alignment KEEP,neural economic qualification DISCARD,classical ridge/PCA local final KEEP. Transfer/prototype unexecuted;whole goal active.",
+  "forbidden": [
+    "new EXP",
+    "scored result",
+    "research fit",
+    "source fit replay",
+    "new target arrays or data download",
+    "WT8-9",
+    "external models/APIs",
+    "schedule changes",
+    "completed scientific artifact changes",
+    "paid-plan retry"
+  ],
+  "id": "NEXTAI-TRANSFER-PREPARATION-V1",
+  "next_discriminating_experiment": "Separate native-family prospective contract before target data/implementation;five paired units,three scales,strong classical and competent dense controls,actual-source/untrained/shuffled controls and one audited EXP",
+  "parent_preparation_path": "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
+  "parent_preparation_sha256": "9c91c15cbf19bb5019189a35a2a0b65a1372fdf805cf101049a6c221e6018e58",
+  "program_contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+  "question": "Validate immutable B activation and native-task metadata feasibility; no target data or research execution",
+  "registration_attempts_for_this_study_cap": 0,
+  "resources": {
+    "auxiliary_test_seconds_cap": 2785,
+    "fit_seconds_per_role_cap": 0,
+    "fit_seconds_study_cap": 0,
+    "shared_cycle318_auxiliary_cap": 4800,
+    "work_minutes_cap": 240
+  },
+  "schema_version": 1,
+  "stage": "task_design",
+  "study_deadline_at": "2026-10-05T14:52:01Z",
+  "study_kind": "preparation_only",
+  "study_started_at": "2026-10-05T10:52:01Z"
+}

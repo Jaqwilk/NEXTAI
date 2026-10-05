@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 1050,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "--junitxml=research/reviews/NEXTAI-B-full-V1.xml",
+    "-q"
+  ],
+  "created_at": "2026-10-05T11:35:45Z",
+  "error": null,
+  "id": "NEXTAI-B-full-V1",
+  "raw_outputs": {
+    "NEXTAI-B-full-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-full-V1.stdout.txt": "82174af705a84ee9a49e2ed5d20fb56487d6414612e542dd0b88c0605971163e"
+  },
+  "result": {
+    "elapsed_seconds": 733.0906938999833,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 6246076416,
+    "pid": 33280,
+    "processes_created": 1091,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 751,
+  "wall_seconds": 745.1337789999961,
+  "whole_process_tree_bounded": true
+}

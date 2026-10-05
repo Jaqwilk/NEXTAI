@@ -1,0 +1,20 @@
+{
+  "archive_path": "research/laboratory/archive/NEXTAI-B-full-V2-before-queue-fixture-repair",
+  "combined_auxiliary_cap_unchanged": 4800,
+  "created_at": "2026-10-05T12:26:33Z",
+  "failed_full_check_path": "research/reviews/NEXTAI-B-full-V2.json",
+  "failed_full_check_sha256": "a83661033f607f1cc18755c172d6465c365b5fd030bc44fe70ad941e32e4022d",
+  "full_passed": 1342,
+  "full_tests": 1343,
+  "harness_change": "History checker treats only this archived current-queue test as an explicit mutable exception and verifies both old and corrected bytes; same112 scientific guards,all old candidates and all other old tests unchanged",
+  "id": "NEXTAI-B-CURRENT-QUEUE-CONFORMANCE-ADDENDUM-V1",
+  "new_research_registration_fit_data_scoring": false,
+  "original_test_path": "tests/test_muc01_activation.py",
+  "original_test_sha256": "5c5a129d75609a9c6e530dbb60d200cb60bc269aea8fbce87678e2bec1aa209f",
+  "paid_retry": false,
+  "parent_plan_path": "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
+  "parent_plan_sha256": "9c91c15cbf19bb5019189a35a2a0b65a1372fdf805cf101049a6c221e6018e58",
+  "prospective_repair": "Only the current-queue assertion distinguishes unchanged legacy20 from approved B26 and asserts B12, prior14,closedA11/17 and unchanged72000s; preserve every other test and production/scientific source byte",
+  "sole_failure": "test_current_queue_resolves_new_authority_without_resetting_v1 assumes old aggregate20; approved B uses14 consumed+12 new=26",
+  "validation": "All1342 unchanged passing full-suite cases remain evidence for the unchanged production code; run the entire corrected activation module plus authority/schema/lifecycle regression in clone and original. No third equivalent whole-suite fit cost is necessary for a current-queue test-only expectation change. Any additional production or unresolved failure requires fresh appropriate checks"
+}

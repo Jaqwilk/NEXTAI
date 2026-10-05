@@ -1,3 +1,18 @@
+# Current authority - cycle318 A resolution and B preparation (2026-10-05)
+
+A is closed at its verified fresh-final resolution, not at its global cap:11/17 registrations and35649.98936010008/69344 seconds consumed. Prior MUC03 remains3 registrations/2655.336484700005 seconds. Both histories and all failures stay consumed. Unspent6 A tickets/33694.01063989992 seconds are not added to B.
+A analysis: research/analyses/NEXTAI-A-CONTINUATION-PROGRAM-RESOLUTION-V1.md.
+A immutable closure: research/laboratory/NEXTAI-A-CONTINUATION-PROGRAM-COMPLETION-V1.receipt.json.
+Decision unchanged: local learned alignment KEEP; exact neural economic qualification DISCARD against strong classical controls; exact ridge/PCA-scan fresh-final route KEEP. No architecture,transfer,LLM or augmentation-benefit claim.
+
+The approved B authority is now hash-bound to closed A,all11 native outcomes and the actual25 fitted source states. Contract: research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json. New wallet12 registrations/72000 seconds; all fit,evaluation,tests and failed executions charged. Protected future allocation7 tickets/47000 seconds covers three independent replications,three fresh finals and one local prototype evaluation. No unused A credit or historical reset.
+
+Cycle318 is preparation only,under research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json and the B continuation research/plans/NEXTAI-TRANSFER-PREPARATION-V1.json:zero new EXP,registration or research fit; no target data/download,generator or source fit replay. Current v11 benchmark remains maintenance,scoring=false. The unchanged combined auxiliary cap is4800 seconds and deadline2026-10-05T14:52:01Z. Technical conformance and all failed checks are recorded in this cycle's completion receipt.
+Metadata-only native-task feasibility: research/analyses/NEXTAI-B-TASK-FEASIBILITY-V1.md. Official optical digit and physical smartphone sources currently specify CC BY4.0; writer/subject independence,finite counts and concrete native views remain prospective uncertainties. Neither dataset was downloaded or viewed.
+
+Next separate bounded cycle: preregister one independently sourced native transfer task/intake,metrics,thresholds,recipe,cost and decision before target content or implementation;five paired source/target units and three justified scales,actual source-trained versus preserved untrained/shuffled controls with identical permitted adaptation,a competent target dense Transformer and strong native classical grids. Prefer the subject-defined physical family if its prospective intake is feasible; preserve intake failures and assess an independently justified alternative without outcome-based rescue. Ranking,source,current/retained/updated values and UNKNOWN stay separate. Target refitting alone is not source-information transfer. Independently replicate and freeze fresh target finals before the evidence-selected minimal local fact/source/update/UNKNOWN prototype.
+One audited EXP per bounded cycle; no paid-plan retry,WT8-9,external models/APIs or schedule change. Whole transfer/prototype goal remains ACTIVE; previous sections are preserved history.
+
 # Completed cycle317 - frozen fresh final EXP-20261005-0006
 
 Five NEW paired units,17 fixed arms; valid=True.

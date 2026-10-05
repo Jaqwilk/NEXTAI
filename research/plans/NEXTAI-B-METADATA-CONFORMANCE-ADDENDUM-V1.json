@@ -1,0 +1,20 @@
+{
+  "bounds_unchanged": true,
+  "created_at": "2026-10-05T11:39:12Z",
+  "data_download": false,
+  "id": "NEXTAI-B-METADATA-CONFORMANCE-ADDENDUM-V1",
+  "ledger_sources_rewritten": false,
+  "new_registration": 0,
+  "observed_failure_path": "research/reviews/NEXTAI-B-full-V1.json",
+  "observed_failure_sha256": "a7eacc42b59c757073eccec88acc4a4461ce7a3f7a32b713e007bd74f9400ad8",
+  "parent_path": "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
+  "parent_sha256": "9c91c15cbf19bb5019189a35a2a0b65a1372fdf805cf101049a6c221e6018e58",
+  "prospective_repair": [
+    "Add only optional DOI and license string properties to source.schema.json; keep required fields,additionalProperties=false and all scientific schemas/metrics/gates fixed",
+    "Refresh generated REPORT.md and its provenance after the authorized study configuration change",
+    "Add only the new A-closure/B authority documents and no-scoring script to protected_files; preserve prior manifest/preflight before the authorized maintenance freeze"
+  ],
+  "research_fit": 0,
+  "source_before_path": "research/laboratory/archive/NEXTAI-B-source-schema-before-repair-V1/source.schema.json",
+  "source_before_sha256": "fed1f141c1661c40849909d18f704141b5b6228a7ade865db8c0040ca69ebb6a"
+}

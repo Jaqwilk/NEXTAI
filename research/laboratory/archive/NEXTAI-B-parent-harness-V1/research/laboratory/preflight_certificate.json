@@ -1,0 +1,21 @@
+{
+  "benchmark_version": "paired_view_mutable_memory_v11",
+  "certificate_sha256": "678d370edeb267ba8458a0f9bd6fc06e5d259bc036012fc70877134afe05e322",
+  "created_at": "2026-10-05T10:29:05Z",
+  "evaluator_sha256": "3e76d176e4ea398f4bb3a2e02fb0a07eec15b2d264bdf86f678e3fb26228f6c7",
+  "files": {
+    "baseline_registry": "271de6d2d8ce3e329e22293a82a637e5ea055acac5118c8ed6950e939e1ecaf2",
+    "manifest": "269af3f808a363f05d0ed70abb13091385d73950aec4ca406cd01d6562e0ebe5",
+    "runner": "24ee91ba24ec33568a927ac5d169e18f6ce878814e016da2ce2977adf18c8ebf",
+    "schema:experiment_plan": "37e3f98882f5b8f5a14aefe99afb0924a2ad6822ca4631c9a541b9f0973abb8d",
+    "schema:experiment_result": "ea41b0a4c0ee6fd8d0deaa54b315ae21849532aa12bf2eb638d2c6f010508471",
+    "schema:hypothesis": "9a84509261b2a34c4be43dd208918ce4eb0565c2bebb90e9e80d82fdf0e3937f",
+    "schema:laboratory_restart": "2c48b9e31acdd1d32c3f33bc1e70b90222622e330ce2b26e786ef00758a8cd02",
+    "schema:pc01_plan": "c99d35a113f7f572de59660c1846c0f3339e329450eb71734afcccdb2b96304c",
+    "schema:pc01_replica": "ab8dc09cd3268a6107a54cde0b9e5e4e590334291fe4f8a290269782f9a67365",
+    "schema:pc01_result": "ff51e5d130d0dcd7a59ff4fc72fca677c65b25d04842898b6277e4155801b288",
+    "schema:research_state": "f155fb268b3ef422b9e1547a450222c2bdf040ef7d2d28a9025eec8281bb41bd",
+    "schema:source": "fed1f141c1661c40849909d18f704141b5b6228a7ade865db8c0040ca69ebb6a"
+  },
+  "schema_version": 1
+}

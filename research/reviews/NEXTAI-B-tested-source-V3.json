@@ -1,0 +1,29 @@
+{
+  "archived_source_path": "research/laboratory/archive/NEXTAI-B-final-tested-source-V3",
+  "created_at": "2026-10-05T12:35:36Z",
+  "files": {
+    ".gitattributes": "8818e4a435a131e14afcc2eb563c0274d9b72f5fe030c1fd6abe94aba0ed9ff4",
+    "config/research.toml": "991e29fc15f868defea9c875fab7d20595c24db002b776d7bc6dc26674a41063",
+    "schemas/source.schema.json": "cf2d380780e592a0c65d9e7047c0f8a3158db126c0339da4b131d2130c7a2d20",
+    "scripts/check_transfer_preparation.py": "d2800aafeb41bcdb3cf027ad9aba1721594f3afcd8b15696bbd5968c4803e222",
+    "scripts/prepare_transfer_program.py": "647814515fffff2aa3c2948ee63102a4a7cb6f64d37aee68ab86d353ca90ee7b",
+    "scripts/run_transfer_preparation_check.py": "860621c8cd93795abcd867b97b639ff574288c5e18c391173112de7e33f7ddb3",
+    "src/nextai_autoresearch/integrity.py": "0a6ae7d3e5d9cfe8cdfd8bbe214de6886b5407ca67961ba221bd2a3cd6e70bf9",
+    "src/nextai_autoresearch/research_program.py": "1d8333e9683d8c08f9cc105d617fa376aecb877ce74c378073d4b31e5640df01",
+    "tests/test_muc01_activation.py": "7339cb353f347ec58d3bdb7a7af9e36e83ec99d7ebf79bcf78bf59f7609b7350",
+    "tests/test_source_metadata.py": "71866e62217005799d6e08e842cdbca680b95e7f04c2cf4a1933a28e9171e8c0",
+    "tests/test_transfer_program_authority.py": "d0db384c479240a1a48fddceff51f40a4f3e762b23012219c0d2c74209a63702"
+  },
+  "full_suite_V2": {
+    "passed": 1342,
+    "sole_stale_queue_fixture_corrected": true,
+    "tests": 1343
+  },
+  "full_suite_production_code_identical_to_V2": true,
+  "only_postfull_changes": [
+    "One current-queue test now checks B26=14+12 and preserves legacy20; raw old test archived",
+    "Read-only history checker proves this single test exception;no candidate or experimental change"
+  ],
+  "postfull_affected_module_and_authority_schema_lifecycle_tests": 59,
+  "postfull_check_path": "research/reviews/NEXTAI-B-queue-conformance-V3.json"
+}

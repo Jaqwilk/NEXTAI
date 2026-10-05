@@ -1,0 +1,14 @@
+{
+  "archived_source": {
+    "research/laboratory/archive/NEXTAI-B-clone-gates-V1-source/research/eval_manifest.json": "8dde057af8dd2218b46988de8555af083368fe5273378205a9cb91aec2fb268b",
+    "research/laboratory/archive/NEXTAI-B-clone-gates-V1-source/research/laboratory/preflight_certificate.json": "dd3304d9557b9e620d6f6972a546bda36aa60c371eaa75afb6a79450bd3172ac",
+    "research/laboratory/archive/NEXTAI-B-clone-gates-V1-source/scripts/check_transfer_preparation.py": "2748e099c72a3a99c37871e25774e0f8792025e8b2fedd50a891a19e3b5176d2"
+  },
+  "cause": "Publication exports is the integer25, not a sequence; verification script used len(int)",
+  "created_at": "2026-10-05T12:01:11Z",
+  "failed_check_path": "research/reviews/NEXTAI-B-clone-gates-V1.json",
+  "failed_check_sha256": "ba04e0289e2817f7038b82c5fd2ac07ca00c0d5c918f9af9b39d62cd2ea7c546",
+  "paid_EXP_retry": false,
+  "repair": "Read the exact count as an integer; retain required25 states and50 byte-verified ZIP/native files",
+  "scientific_data_threshold_recipe_changes": false
+}

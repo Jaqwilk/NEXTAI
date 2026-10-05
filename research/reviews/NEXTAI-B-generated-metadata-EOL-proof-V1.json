@@ -1,0 +1,10 @@
+{
+  "canonical_publication_sha256": "4381e5127a3f0679d0ea7c44f4b6ca70d333324635d573a865355fa8a7fd63e9",
+  "completed_science_and_evidence_changed": false,
+  "created_at": "2026-10-05T12:37:10Z",
+  "difference": "CRLF/LF only",
+  "native_source_archive_path": "research/laboratory/archive/NEXTAI-B-generated-metadata-native-V1/research/reviews/NEXTAI-B-parent-attribute-raw-alias-V1.json",
+  "native_source_sha256": "49932200b0a14056ffcd7486e999eeb706a310673806a890c407796e069394e6",
+  "path": "research/reviews/NEXTAI-B-parent-attribute-raw-alias-V1.json",
+  "scope": "Unbound administrative JSON,not a completed plan/result or captured stdout;JSON semantics unchanged"
+}

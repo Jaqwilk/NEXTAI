@@ -1,0 +1,15 @@
+{
+  "active_experiment_id": null,
+  "completed_experiments": 121,
+  "cycle_number": 317,
+  "generation": 2,
+  "last_experiment_id": "EXP-20261005-0006",
+  "last_failure_at": "2026-09-05T13:10:07Z",
+  "last_literature_review_completed_experiments": 117,
+  "last_reflection_completed_experiments": 110,
+  "last_reflection_cycle": 303,
+  "phase": "infrastructure",
+  "protocol_version": 3,
+  "schema_version": 1,
+  "updated_at": "2026-10-05T10:27:11Z"
+}

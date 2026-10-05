@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-10-05T11:24:34Z",
+  "full_check_id": "NEXTAI-B-full-V1",
+  "no_source_edit_until_check_terminal": true,
+  "preregistration_revision": "6c6e77c0b8dfcf8a86c6e95f012b64464d4d5426",
+  "tested_raw_sha256": {
+    ".gitattributes": "8818e4a435a131e14afcc2eb563c0274d9b72f5fe030c1fd6abe94aba0ed9ff4",
+    "config/research.toml": "359204d1e066085e34679e39707e22db8d4c794160869580ea51b8debd8a1809",
+    "scripts/run_transfer_preparation_check.py": "860621c8cd93795abcd867b97b639ff574288c5e18c391173112de7e33f7ddb3",
+    "src/nextai_autoresearch/research_program.py": "06fb8c2ec826d5c210de94fe78fc085ff48a04cf55a5f3bf5b733eea6eee1ec5",
+    "tests/test_transfer_program_authority.py": "d0db384c479240a1a48fddceff51f40a4f3e762b23012219c0d2c74209a63702"
+  },
+  "unchanged_since_full_check_launch": true
+}

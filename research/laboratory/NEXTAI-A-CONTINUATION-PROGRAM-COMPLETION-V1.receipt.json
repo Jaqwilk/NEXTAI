@@ -1,0 +1,239 @@
+{
+  "all_auxiliary_reservations_resolved": true,
+  "all_outcomes": [
+    {
+      "analysis_path": "research/analyses/EXP-20261004-0004.md",
+      "experiment_id": "EXP-20261004-0004",
+      "plan_path": "research/plans/EXP-20261004-0004.json",
+      "result_path": "research/results/EXP-20261004-0004.json",
+      "sha256": {
+        "research/analyses/EXP-20261004-0004.md": "ba7c73955a59dae85b50945f861ed4684b16300985141938bc7a8831220aad37",
+        "research/plans/EXP-20261004-0004.json": "4cdfadab1cd404630931d4f03106812542fbbb1e88276898b52f49b212442684",
+        "research/results/EXP-20261004-0004.json": "264183fa8c6d970f432f071b0719e9d76ddce2a8915b7606e26aa53b704a7bf0"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261004-0005.md",
+      "experiment_id": "EXP-20261004-0005",
+      "plan_path": "research/plans/EXP-20261004-0005.json",
+      "result_path": "research/results/EXP-20261004-0005.json",
+      "sha256": {
+        "research/analyses/EXP-20261004-0005.md": "ccd47c7cd0e8146d2b980c1807a99383d4883322d1e20f6d41f9249516c91242",
+        "research/plans/EXP-20261004-0005.json": "6abe1ddd6dc9a85809f074b4f80b0aac806116fa7ae5673d3b2c2322f24f0db4",
+        "research/results/EXP-20261004-0005.json": "626bc4657db2cec8642f4c1f9f62d1ea3a6fb6a30191d64111818774e29c4190"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261004-0006.md",
+      "experiment_id": "EXP-20261004-0006",
+      "plan_path": "research/plans/EXP-20261004-0006.json",
+      "result_path": "research/results/EXP-20261004-0006.json",
+      "sha256": {
+        "research/analyses/EXP-20261004-0006.md": "6dc69deeb29a10cb1887baf8d03cd7697cfde07c4e20c2152610ce67a7985c92",
+        "research/plans/EXP-20261004-0006.json": "af52719f34e22852b0b8ec0ef494a17a956b4f1dcb019d87f9f0bcfeff17b904",
+        "research/results/EXP-20261004-0006.json": "d291d33e648ee135611f865fc5496c3150909a956934275f01507bd540a00651"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261004-0007.md",
+      "experiment_id": "EXP-20261004-0007",
+      "plan_path": "research/plans/EXP-20261004-0007.json",
+      "result_path": "research/results/EXP-20261004-0007.json",
+      "sha256": {
+        "research/analyses/EXP-20261004-0007.md": "207e31415adf9de8513ed6b3ad49957b563bc11f2dc5b94b5970af2e8cf45de1",
+        "research/plans/EXP-20261004-0007.json": "8134bcd55378cc99c3cf2a85f6105b0d32b5b8528b790f2248d03a22360b9674",
+        "research/results/EXP-20261004-0007.json": "38e96aa575edace05453261cbdd157c39580c1e491fd6e4f74cc399b0147590f"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261004-0008.md",
+      "experiment_id": "EXP-20261004-0008",
+      "plan_path": "research/plans/EXP-20261004-0008.json",
+      "result_path": "research/results/EXP-20261004-0008.json",
+      "sha256": {
+        "research/analyses/EXP-20261004-0008.md": "45458d437156b92db3f9e75fc865b2764578b1daf1dca3ae024284a4b70089ac",
+        "research/plans/EXP-20261004-0008.json": "aeb3084d2375089e1d50cd475daec849f1d154dc94f475e00f63f4be3bf7af56",
+        "research/results/EXP-20261004-0008.json": "5b6bcdebcef8c4e5a21266831100561434d38e057caa9e2c3eab9d075fbb3ac8"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261005-0001.md",
+      "experiment_id": "EXP-20261005-0001",
+      "plan_path": "research/plans/EXP-20261005-0001.json",
+      "result_path": "research/results/EXP-20261005-0001.json",
+      "sha256": {
+        "research/analyses/EXP-20261005-0001.md": "b6d58608c2fc61e0f7778d92d3f5c40c9c5a9f6d7f3587abdd48946ec5ee0227",
+        "research/plans/EXP-20261005-0001.json": "3d4e3da1c61c3be89ad2e81911327107792fcb369bed5890be55dbb88583cd09",
+        "research/results/EXP-20261005-0001.json": "79f5bbc04dbb28f69d96d171feaec49fa96f4990a99d05d461fed784a1bf4c1c"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261005-0002.md",
+      "experiment_id": "EXP-20261005-0002",
+      "plan_path": "research/plans/EXP-20261005-0002.json",
+      "result_path": "research/results/EXP-20261005-0002.json",
+      "sha256": {
+        "research/analyses/EXP-20261005-0002.md": "926336aebc622495bb2dccfa5187b7221cc0e5f15c6f94860956141e75c1f924",
+        "research/plans/EXP-20261005-0002.json": "37820410ee10bdf7e3c25cba9bf451ee8b18a0bb1894a7a6c95851c02e488c2e",
+        "research/results/EXP-20261005-0002.json": "d5d30770363f704797022eacd2c65a7615d419a26564571394029d046f588581"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261005-0003.md",
+      "experiment_id": "EXP-20261005-0003",
+      "plan_path": "research/plans/EXP-20261005-0003.json",
+      "result_path": "research/results/EXP-20261005-0003.json",
+      "sha256": {
+        "research/analyses/EXP-20261005-0003.md": "9ab4e4fb0db8ae523bd6cea89cf958759c50487ff5d9aee5d700e0c12810c917",
+        "research/plans/EXP-20261005-0003.json": "8ab199599286957a78a8d2eb64ae0d79cb9ae77bfae04400a96d1328ddbeb885",
+        "research/results/EXP-20261005-0003.json": "322f41a172a476b6c259c667cb803968d05912138d3f85ef60d2b24a3aa4dc43"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261005-0004.md",
+      "experiment_id": "EXP-20261005-0004",
+      "plan_path": "research/plans/EXP-20261005-0004.json",
+      "result_path": "research/results/EXP-20261005-0004.json",
+      "sha256": {
+        "research/analyses/EXP-20261005-0004.md": "2ed2fc770c5f571e4254675e874fa5a4cd3a675879bbc67669355a48356a2952",
+        "research/plans/EXP-20261005-0004.json": "beea18bea2d8afcc80c7bf700b9fb347962e61db81db0b0812b5dfe4e37e27e5",
+        "research/results/EXP-20261005-0004.json": "dc1dc3677e3ef05d872d54053bb98b443d4fe95539d27a0db803eb705412228a"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261005-0005.md",
+      "experiment_id": "EXP-20261005-0005",
+      "plan_path": "research/plans/EXP-20261005-0005.json",
+      "result_path": "research/results/EXP-20261005-0005.json",
+      "sha256": {
+        "research/analyses/EXP-20261005-0005.md": "55932651714d79132fdc5704539831ef0b6967d2505c276f71abab67d013f887",
+        "research/plans/EXP-20261005-0005.json": "49548e705ab4c9c36e6552da806d82bc04b5266e30f988417e0b89ee11951044",
+        "research/results/EXP-20261005-0005.json": "60c771762b1c528a4227eed931098d1d9704cb00860e5647040859fab95aeeaa"
+      }
+    },
+    {
+      "analysis_path": "research/analyses/EXP-20261005-0006.md",
+      "experiment_id": "EXP-20261005-0006",
+      "plan_path": "research/plans/EXP-20261005-0006.json",
+      "result_path": "research/results/EXP-20261005-0006.json",
+      "sha256": {
+        "research/analyses/EXP-20261005-0006.md": "10666d7d7a15dfcfdd95d760481aee81fa339368d0376b8039de8107592e74ba",
+        "research/plans/EXP-20261005-0006.json": "f31a8012894dab612bd8f8e873859c173da90f0922b73a9389f3b39db81039e0",
+        "research/results/EXP-20261005-0006.json": "f71073703ceabb1c0062e9f817bb56e440758d13380bddacff0377b4cc6f24a8"
+      }
+    }
+  ],
+  "analysis_path": "research/analyses/NEXTAI-A-CONTINUATION-PROGRAM-RESOLUTION-V1.md",
+  "analysis_sha256": "c1e5d7653a0813b002e9b656dd4993cff3a6a208936c0f8c2ecf940a4eb5c804",
+  "closure_administration_prepaid_seconds": 450,
+  "created_at": "2026-10-05T11:51:04Z",
+  "cumulative_budget_before_completion_event": {
+    "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+    "auxiliary_fit_seconds_conservative": 30144.0,
+    "cohort": "paired_view_mutable_memory_v11",
+    "continuation_compute_seconds_cap": 69344,
+    "continuation_compute_seconds_charged": 35649.98936010008,
+    "continuation_registration_attempts_cap": 17,
+    "continuation_registration_attempts_used": 11,
+    "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+    "experiment_id": null,
+    "experimental_fit_seconds": 8161.325844800085,
+    "fit_seconds_cap": 71999.3364847,
+    "fit_seconds_charged": 38305.325844800085,
+    "fit_seconds_remaining": 33694.01063989992,
+    "id": "NEXTAI-CONTINUATION-20261004-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "prior_compute_seconds_charged": 2655.336484700005,
+    "prior_program_closed": true,
+    "prior_program_id": "MUC03-AUTONOMOUS-20261004-V1",
+    "prior_registration_attempts_used": 3,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": false,
+    "registration_attempts_cap": 20,
+    "registration_attempts_used": 14,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 3,
+      "reference_and_alternatives": 5,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 3,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 4,
+      "reference_and_alternatives": 5,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 3,
+      "scale_and_generalization": 3
+    },
+    "study_expired": false,
+    "study_path": "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
+    "study_terminal": false,
+    "unreserved_fit_seconds_remaining": 33694.01063989992
+  },
+  "extended_goal_completed": false,
+  "id": "NEXTAI-A-CONTINUATION-PROGRAM-COMPLETION-V1",
+  "new_registrations_cycle318": 0,
+  "program_id": "NEXTAI-CONTINUATION-20261004-V1",
+  "research_fit_cycle318": 0,
+  "scientific_decisions": {
+    "exact_neural_economics": "DISCARD",
+    "local_learned_alignment": "KEEP",
+    "local_ridge_pca_fresh_final": "KEEP",
+    "transfer_and_prototype": "UNEXECUTED"
+  },
+  "stage_a_budget_before_completion_event": {
+    "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+    "auxiliary_fit_seconds_conservative": 28705.0,
+    "cohort": "paired_view_mutable_memory_v11",
+    "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+    "experiment_id": null,
+    "experimental_fit_seconds": 6944.98936010008,
+    "fit_seconds_cap": 69344,
+    "fit_seconds_charged": 35649.98936010008,
+    "fit_seconds_remaining": 33694.01063989992,
+    "id": "NEXTAI-CONTINUATION-20261004-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "program_closed": false,
+    "program_terminal": false,
+    "ready": false,
+    "registration_attempts_cap": 17,
+    "registration_attempts_used": 11,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_registration_attempts": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 3,
+      "reference_and_alternatives": 5,
+      "repair_reserve": 0,
+      "replication_and_fresh_final": 3,
+      "scale_and_generalization": 0
+    },
+    "stage_registration_caps": {
+      "diagnosis_and_task": 0,
+      "mechanism_and_ablations": 4,
+      "reference_and_alternatives": 5,
+      "repair_reserve": 2,
+      "replication_and_fresh_final": 3,
+      "scale_and_generalization": 3
+    },
+    "study_expired": false,
+    "study_path": "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
+    "study_terminal": false,
+    "unreserved_fit_seconds_remaining": 33694.01063989992
+  },
+  "status": "complete_at_verified_fresh_final_resolution",
+  "technical_B_validation_completed": false,
+  "terminal_study_path": "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
+  "terminal_study_sha256": "9c91c15cbf19bb5019189a35a2a0b65a1372fdf805cf101049a6c221e6018e58",
+  "termination_basis": "global cap, STOP/PAUSE, verified fresh-final resolution, or documented infeasibility after evidence and concrete evaluated alternatives; always disclose unexecuted scope",
+  "unspent_A_credit_added_to_B": false,
+  "unused_A_compute_seconds": 33694.01063989992,
+  "unused_A_registration_attempts": 6
+}

@@ -1,0 +1,3 @@
+import subprocess
+subprocess.run(['uv','run','--no-sync','python','scripts/check_transfer_preparation.py','--seal','--queue-repair'],check=True)
+subprocess.run(['uv','run','--no-sync','pytest','-q','tests/test_muc01_activation.py','tests/test_transfer_program_authority.py','tests/test_source_metadata.py','tests/test_research_continuation.py','tests/test_muc03_program.py','tests/test_integrity_and_schemas.py::test_repository_documents_validate','tests/test_protocol_v2.py::test_checked_in_research_lifecycle_is_consistent','--junitxml=research/reviews/NEXTAI-B-queue-conformance-V3.xml'],check=True)

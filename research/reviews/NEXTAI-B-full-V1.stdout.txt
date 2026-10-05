@@ -1,0 +1,77 @@
+........................................................................ [  5%]
+........................................................................ [ 10%]
+........................................................................ [ 16%]
+........................................................................ [ 21%]
+.F...................................................................... [ 26%]
+........................................................................ [ 32%]
+........................................................................ [ 37%]
+........................................................................ [ 43%]
+........................................................................ [ 48%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+.............................................F.......................... [ 64%]
+........................................................................ [ 70%]
+........................................................................ [ 75%]
+........................................................................ [ 80%]
+........................................................................ [ 86%]
+........................................................................ [ 91%]
+........................................................................ [ 96%]
+.........................................                                [100%]
+================================== FAILURES ===================================
+_____________________ test_repository_documents_validate ______________________
+
+    def test_repository_documents_validate() -> None:
+        root = project_root()
+        assert check_all_schemas(root) == []
+        validate_document("research_state", load_json(root / "research" / "state.json"), root)
+        for hypothesis in latest_hypotheses(root).values():
+            validate_document("hypothesis", hypothesis, root)
+        for source in read_jsonl(root / "research" / "sources.jsonl"):
+>           validate_document("source", source, root)
+
+tests\test_integrity_and_schemas.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'source'
+value = {'authors': ['E. Alpaydin', 'C. Kaynak'], 'checked_at': '2026-10-05T11:10:04Z', 'checked_scope': 'Official metadata/li...test split from43 people', 'UCI currently states CC BY4.0; listed optdigits.tra550.4KB and optdigits.tes258.5KB'], ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: <root>: Additional properties are not allowed ('doi', 'license' were unexpected)
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+______________ test_checked_in_research_lifecycle_is_consistent _______________
+
+    def test_checked_in_research_lifecycle_is_consistent() -> None:
+>       assert lifecycle_problems(project_root()) == []
+E       AssertionError: assert ['research/RE...ntent inputs'] == []
+E         
+E         Left contains one more item: 'research/REPORT.md is stale relative to its content inputs'
+E         Use -v to get more diff
+
+tests\test_protocol_v2.py:311: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_integrity_and_schemas.py::test_repository_documents_validate
+FAILED tests/test_protocol_v2.py::test_checked_in_research_lifecycle_is_consistent

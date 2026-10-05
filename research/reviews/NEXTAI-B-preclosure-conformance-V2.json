@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 650,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-c",
+    "from nextai_autoresearch.report import write_report; print(write_report(),flush=True); import py_compile; py_compile.compile(\"scripts/prepare_transfer_program.py\",doraise=True); import pytest; raise SystemExit(pytest.main([\"-q\",\"tests/test_transfer_program_authority.py\",\"tests/test_source_metadata.py\",\"tests/test_research_continuation.py\",\"tests/test_muc03_program.py\",\"tests/test_integrity_and_schemas.py::test_repository_documents_validate\",\"tests/test_protocol_v2.py::test_checked_in_research_lifecycle_is_consistent\",\"--junitxml=research/reviews/NEXTAI-B-preclosure-conformance-V2.xml\"]))"
+  ],
+  "created_at": "2026-10-05T11:49:19Z",
+  "error": null,
+  "id": "NEXTAI-B-preclosure-conformance-V2",
+  "raw_outputs": {
+    "NEXTAI-B-preclosure-conformance-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-preclosure-conformance-V2.stdout.txt": "e1002ccc16e25779c68afb726655ff1e42ccf9d3f461e7445ac911f1fcb5f465"
+  },
+  "result": {
+    "elapsed_seconds": 119.62809650000418,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4680699904,
+    "pid": 28380,
+    "processes_created": 24,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 137,
+  "wall_seconds": 131.7642972000176,
+  "whole_process_tree_bounded": true
+}

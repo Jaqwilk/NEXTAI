@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-10-05T11:51:16Z",
+  "extended_goal_completed": false,
+  "fit_seconds_total_cap": 72000,
+  "id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+  "prior_A_closed_and_accounted": true,
+  "program_contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "registration_attempts_cap": 12,
+  "schema_version": 1,
+  "scoring_requires_independent_frozen_study_readiness": true,
+  "source_authority_path": "research/laboratory/NEXTAI-TRANSFER-PROTOTYPE-20261005-V1.json",
+  "source_authority_sha256": "db81a4bd2cc9aff9f59799b3672c4bae0f0f67cac42326dcdc505849ee8b5872",
+  "user_authorization": "Doprowadź NEXTAI do rzetelnego sprawdzenia, czy uczony mechanizm dorównuje kompetentnemu transformerowi przy niższym pełnym koszcie inferencji, z uwzględnieniem mocnych metod klasycznych. Następnie sprawdź transfer na dwóch niezależnych rodzinach zadań, w tym jednej opartej na rzeczywistych publicznych danych z odpowiednią licencją, i zbuduj minimalny lokalny prototyp aktualizowalnej pamięci z wyborem faktów, wskazaniem źródła i rozpoznawaniem braku odpowiedzi.\\\n\\\nTo rozszerzenie obecnego celu: dokończ rozpoczęte badanie bez zmiany jego planu, progów i limitów. Zachowaj historię, wyniki i niezmienniki AGENTS.md; bez retry, WT 8–9, zewnętrznych modeli/API i zmian harmonogramu.\\\n\\\nEtap A zachowuje dotychczasowy limit 17 rejestracji i 69 344 s, pomniejszony o całe zużycie. Po jego rozliczeniu zatwierdzam etap B: dodatkowe 12 rejestracji i 72 000 s. Rozliczaj fit, ewaluację, testy i nieudane wykonania; zarezerwuj środki na replikacje i świeży finał.\\\n\\\nPracuj autonomicznie. Przed implementacją i nowymi danymi prerejestruj hipotezę, recepturę, metryki, progi, budżet i regułę decyzji. Waliduj w klonie. Rozdziel ranking, aktualizacje i UNKNOWN. Po porażce oceń alternatywy, nie tylko więcej kroków; nie osłabiaj kontroli ani kryteriów po wynikach.\\\n\\\nDalszą drogę i prototyp wybierz z dowodów: mechanizm uczony, klasyczny lub hybrydowy. Zakończ odtwarzalnym porównaniem jakości i pełnych kosztów przy trzech skalach, niezależnych replikacjach i świeżym teście końcowym, z co najmniej pięcioma sparowanymi jednostkami danych/seedów. Raportuj niepewność i decyzję. Wynik negatywny jest dopuszczalny. Przy niewykonalności przedstaw dowody i alternatywy; przy wyczerpaniu limitów również niewykonany zakres. Sam limit nie oznacza ukończenia celu."
+}

@@ -1,0 +1,8 @@
+{
+  "corrected_test_sha256": "7339cb353f347ec58d3bdb7a7af9e36e83ec99d7ebf79bcf78bf59f7609b7350",
+  "created_at": "2026-10-05T12:28:10Z",
+  "original_test_archive_path": "research/laboratory/archive/NEXTAI-B-full-V2-before-queue-fixture-repair/tests/test_muc01_activation.py",
+  "original_test_path": "tests/test_muc01_activation.py",
+  "original_test_sha256": "5c5a129d75609a9c6e530dbb60d200cb60bc269aea8fbce87678e2bec1aa209f",
+  "scope": "Only the prospective current-program budget assertions,not any scientific endpoint,control or old result"
+}

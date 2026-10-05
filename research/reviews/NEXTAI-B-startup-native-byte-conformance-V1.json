@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-10-05T11:09:28Z",
+  "observed": {
+    "research/reviews/NEXTAI-B-startup-V1.stdout.txt": {
+      "normalized_git_sha256": "6702bb1fa18323615b673bd5adb547048e283815fe5ffc11bfd436ca0b159dbb",
+      "only_EOL_difference": true,
+      "raw_sha256": "3c102f96fce92afd82b533e7f7f33c7f348c963bc0502831258aa6802ed5919c"
+    },
+    "research/reviews/NEXTAI-B-startup-doctor-V1.stdout.txt": {
+      "normalized_git_sha256": "c0ad09123f5f7794ca0042f48551d1b8d1794a7a9a83d9323c0e4e1eb84b97f9",
+      "only_EOL_difference": true,
+      "raw_sha256": "27d120f26d8545cde7ad0b053fbc83ea0ddf9577f5b2e3af4894aea88e8cd82a"
+    },
+    "research/reviews/NEXTAI-B-startup-lab-V1.stdout.txt": {
+      "normalized_git_sha256": "64714a980bdf1aa2625c82715ca2bb1f31f251d4a89866b54ea252312e97ffab",
+      "only_EOL_difference": true,
+      "raw_sha256": "072d0a728987c5b795a4887a704b6b61d3fcaa39589d3dc7e4a346fd6a8218da"
+    }
+  },
+  "registration_data_fit_scoring": false,
+  "repair": "Preserve the unchanged captured raw working bytes in a distinct following Git commit using scoped -text attributes; preserve initial normalized Git representation and preregistration commit. No completed scientific plan/result changed."
+}

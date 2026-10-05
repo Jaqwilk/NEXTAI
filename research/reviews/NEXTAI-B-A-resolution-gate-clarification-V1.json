@@ -1,0 +1,28 @@
+{
+  "A_accounting_changed": false,
+  "clarification_path": "research/analyses/NEXTAI-A-RESOLUTION-GATE-CLARIFICATION-V1.md",
+  "clarification_sha256": "84368ad98a378dd98bfc5458abf2278db101c9c3accd9ee2f29e6790e1e3ae49",
+  "completed_records_rewritten": false,
+  "corrected_narrative_path": "research/analyses/NEXTAI-A-CONTINUATION-PROGRAM-RESOLUTION-V1.md",
+  "created_at": "2026-10-05T12:18:31Z",
+  "exact_gate_counts": {
+    "ridge_pca_scan": {
+      "economic_gates_passed": 18,
+      "economic_gates_total": 18,
+      "joint_qualified": true,
+      "matched_quality_dominators": []
+    },
+    "transport_pca": {
+      "economic_gates_passed": 18,
+      "economic_gates_total": 18,
+      "joint_qualified": false,
+      "matched_quality_dominators": [
+        "ridge_pca_scan"
+      ]
+    }
+  },
+  "immutable_source_path": "research/reviews/EXP-20261005-0006-PVM01-fresh-final-analysis.json",
+  "immutable_source_sha256": "f3e4ffc4146e83e3c129eed9bfaceed8219d013f04c3f326429083810cfaa404",
+  "preserved_narrative_sha256": "c1e5d7653a0813b002e9b656dd4993cff3a6a208936c0f8c2ecf940a4eb5c804",
+  "scientific_decisions_changed": false
+}

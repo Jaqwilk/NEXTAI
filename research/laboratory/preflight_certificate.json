@@ -1,11 +1,11 @@
 {
   "benchmark_version": "paired_view_mutable_memory_v11",
-  "certificate_sha256": "678d370edeb267ba8458a0f9bd6fc06e5d259bc036012fc70877134afe05e322",
-  "created_at": "2026-10-05T10:29:05Z",
-  "evaluator_sha256": "3e76d176e4ea398f4bb3a2e02fb0a07eec15b2d264bdf86f678e3fb26228f6c7",
+  "certificate_sha256": "68e823c1f2c8da11bf13d9a32564f391cc82db2bd59fe6720b771226f5bae0d3",
+  "created_at": "2026-10-05T12:28:25Z",
+  "evaluator_sha256": "ade03fe8b385a99a574f247c37ba28a673b9eec5b73853d0f7e02a2a4847bd12",
   "files": {
     "baseline_registry": "271de6d2d8ce3e329e22293a82a637e5ea055acac5118c8ed6950e939e1ecaf2",
-    "manifest": "269af3f808a363f05d0ed70abb13091385d73950aec4ca406cd01d6562e0ebe5",
+    "manifest": "6aa4bd83d294f0ef5d387c722cc62a2473ea882d7a6deedb5721078cd41b2c57",
     "runner": "24ee91ba24ec33568a927ac5d169e18f6ce878814e016da2ce2977adf18c8ebf",
     "schema:experiment_plan": "37e3f98882f5b8f5a14aefe99afb0924a2ad6822ca4631c9a541b9f0973abb8d",
     "schema:experiment_result": "ea41b0a4c0ee6fd8d0deaa54b315ae21849532aa12bf2eb638d2c6f010508471",
@@ -15,7 +15,7 @@
     "schema:pc01_replica": "ab8dc09cd3268a6107a54cde0b9e5e4e590334291fe4f8a290269782f9a67365",
     "schema:pc01_result": "ff51e5d130d0dcd7a59ff4fc72fca677c65b25d04842898b6277e4155801b288",
     "schema:research_state": "f155fb268b3ef422b9e1547a450222c2bdf040ef7d2d28a9025eec8281bb41bd",
-    "schema:source": "fed1f141c1661c40849909d18f704141b5b6228a7ade865db8c0040ca69ebb6a"
+    "schema:source": "cf2d380780e592a0c65d9e7047c0f8a3158db126c0339da4b131d2130c7a2d20"
   },
   "schema_version": 1
 }

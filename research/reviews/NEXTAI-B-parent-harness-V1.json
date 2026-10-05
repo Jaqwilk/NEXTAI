@@ -1,0 +1,18 @@
+{
+  "archived_raw_sha256": {
+    ".gitattributes": "44531edc629874657acbbbf32562dea250be189f5aea1ef176ec4aa8f27163c3",
+    "AGENTS.md": "1101a5a3fa6c81bde14ca80c89a6d3bb9d8ad2fb8d4194bc9d6d93170141a40e",
+    "config/research.toml": "0f657359e89e8b478f270b60b1927d407465b96ff18255d3bf1c4e50cc6d5289",
+    "docs/CURRENT_STATUS.md": "2c4463aced39662fd0c91c2d4ab6b8463821bfbfff99a6d14d693e019890f5b4",
+    "program.md": "e7ee23d255319daa3ba4a530480e3e4b6bd2e3c23b376b8f39899944275db39c",
+    "research/LAB_PLAN.md": "b32a2284cef21ec030a57e048dc69ee7591ad42398f8c156885885d70721bec5",
+    "research/eval_manifest.json": "269af3f808a363f05d0ed70abb13091385d73950aec4ca406cd01d6562e0ebe5",
+    "research/laboratory/preflight_certificate.json": "f7994bf5bf4227eedab04f9bd9c6210f43d1990dedde2f05646306c38f158fc8",
+    "research/state.json": "cc192707a2a75acc6be225cad929062288f11c0e0f101d69c7b0b07a46aec7c7",
+    "src/nextai_autoresearch/integrity.py": "ea2036609d8f3079f081dacc2d597e52aa5967f793e02c123d4d6a1060340c6d",
+    "src/nextai_autoresearch/research_program.py": "ec3727359e241a3f9b84f1705be35c5ccba930fccfbddb78a4e832aed9c7bd8d"
+  },
+  "created_at": "2026-10-05T11:09:28Z",
+  "parent_revision": "a3d2e86e20dcdd30411e9cc435cce00be93942d7",
+  "science_plan_result_candidate_bytes_changed": false
+}

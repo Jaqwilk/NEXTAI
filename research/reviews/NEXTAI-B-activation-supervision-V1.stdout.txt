@@ -1,0 +1,1 @@
+{"status": "A closed; B preparation active", "raw_A_charged": 35649.98936010008, "cumulative_charged": 38305.325844800085, "B_charged": 0, "B_protected_seconds": 47000, "elapsed_seconds": 98.42682610001066}

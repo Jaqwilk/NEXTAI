@@ -1,0 +1,31 @@
+{
+  "cap_seconds": 330,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/nextai_b_postfull_queue_conformance_v3.py"
+  ],
+  "created_at": "2026-10-05T12:32:16Z",
+  "error": null,
+  "id": "NEXTAI-B-queue-conformance-V3",
+  "raw_outputs": {
+    "NEXTAI-B-queue-conformance-V3.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-queue-conformance-V3.stdout.txt": "6e1627fb22604e8bf7cbb6c64e8b8b7a288d9965818cce3353cce6f77014af2c"
+  },
+  "result": {
+    "elapsed_seconds": 206.3070233000035,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4721778688,
+    "pid": 35136,
+    "processes_created": 195,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 225,
+  "wall_seconds": 219.26305320000392,
+  "whole_process_tree_bounded": true
+}
