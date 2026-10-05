@@ -1,0 +1,33 @@
+{
+  "cap_seconds": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-c",
+    "import json; from pathlib import Path; from nextai_autoresearch.integrity import freeze_manifest,verify_manifest; from nextai_autoresearch.baseline_semantics import write_preflight_certificate; from nextai_autoresearch.utils import sha256_file,atomic_write_json,utc_now; r=Path.cwd(); p=r/'research/laboratory/archive/ASM01-cycle325-parent-V1/research/eval_manifest.json'; m=json.loads(p.read_text()); allowed={'AGENTS.md','program.md','research/LAB_PLAN.md','docs/CURRENT_STATUS.md','config/research.toml'}; assert all(sha256_file(r/f)==h for f,h in m['files'].items() if f not in allowed); new=freeze_manifest(r,overwrite=True); write_preflight_certificate(r); assert verify_manifest(r)['ok']; output=r/'research/reviews/ASM01-INVENTORY-PRECONTENT-SEAL-V1.json'; assert not output.exists(); atomic_write_json(output,{'created_at':utc_now(),'old_science_bytes_unchanged':True,'declared_metadata_changes':sorted(allowed),'protected_files':len(new['files']),'manifest_sha256':sha256_file(r/'research/eval_manifest.json'),'new_native_content_read':False,'source_state_replayed':False,'scoring':False}); print(json.dumps({'protected_files':len(new['files']),'old_science_bytes_unchanged':True,'new_native_content_read':False}))"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T23:58:26Z",
+  "error": null,
+  "id": "NEXTAI-B-325-precontent-seal-V1",
+  "raw_outputs": {
+    "NEXTAI-B-325-precontent-seal-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-325-precontent-seal-V1.stdout.txt": "2e75414bce3401c50af4123edd7d0993d6413f1481af40d1581111b4003a483e"
+  },
+  "result": {
+    "elapsed_seconds": 1.8672064999991562,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 64020480,
+    "pid": 22220,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 56,
+  "wall_seconds": 15.487902199995006,
+  "whole_process_tree_bounded": true
+}
