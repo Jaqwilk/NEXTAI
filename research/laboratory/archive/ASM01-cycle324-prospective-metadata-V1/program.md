@@ -1,23 +1,3 @@
-# Current cycle324 — ASM01 V3 native intake invalidity (2026-10-05)
-
-The scientific V3 study was frozen before implementation and remaining data.
-Independent clone conformance131/131 PASS; unchanged models/geometry/grids/gates.
-One native intake converted74 samples of writer1, then sample75 failed
-Native point grammar.75 attempted text hashes preserved; D0,NPZ0,fit0,EXP0.
-Stop unstarted scope; no same-cycle parser/geometry/sample rescue or paid retry.
-Exact offending row form remains uninstrumented; failure is not a valid
-learning/transfer/economic null. Scientific comparison INCONCLUSIVE.
-Current V3 maintenance,scoring=false; full failures and costs retained.
-B and extended goal remain active,protected7tickets/47000s unchanged.
-Next separately preregistered preparation should inventory complete lexical
-forms of the fixed screen cohort before another scientific intake,without
-coordinate/name emission,numeric conversion,fit,new sample replacement or
-future writer access. Distinguish release metadata from changed geometry;
-freeze concrete rules before repair and preserve every earlier failed version.
-No WT8-9,external model/API or schedule change.
-
-Earlier stage-specific sections below remain preserved history.
-
 # Prospective cycle324 — verified serializer native ASM01 screen (2026-10-05)
 
 ASM01-FROZEN-SOURCE-SCREEN-V3 freezes the unchanged nine-arm, five-pair screen.

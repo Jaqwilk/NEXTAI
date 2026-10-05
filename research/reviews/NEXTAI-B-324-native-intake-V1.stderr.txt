@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\acquire_asm01_verified_v3.py", line 130, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\acquire_asm01_verified_v3.py", line 104, in main
+    value=parse_native_sample(payload);digest=arrays_hash(value)
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\src\nextai_autoresearch\asm01_task_v4.py", line 16, in parse_native_sample
+    return _parse_v3(("\n".join(normalized) + "\n").encode("ascii"))
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\src\nextai_autoresearch\asm01_task_v3.py", line 20, in parse_native_sample
+    return _parse_v1(normalized)
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\src\nextai_autoresearch\asm01_task.py", line 42, in parse_native_sample
+    raise ValueError('Native point grammar')
+ValueError: Native point grammar

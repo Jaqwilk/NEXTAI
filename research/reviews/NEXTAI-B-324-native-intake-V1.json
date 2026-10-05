@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 260,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/acquire_asm01_verified_v3.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T23:09:54Z",
+  "error": null,
+  "id": "NEXTAI-B-324-native-intake-V1",
+  "raw_outputs": {
+    "NEXTAI-B-324-native-intake-V1.stderr.txt": "12500e547e251ada0f90e2cd8f0a878a6d0cb3ddb34eabda7218a1a589e72ad9",
+    "NEXTAI-B-324-native-intake-V1.stdout.txt": "209c26a3ef78276a201867347f55433399c25f0aedd5d56564304cbc33aa1b2b"
+  },
+  "result": {
+    "elapsed_seconds": 1.7061858999950346,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 75550720,
+    "pid": 24804,
+    "processes_created": 5,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "seconds_charged": 56,
+  "wall_seconds": 15.556819500023266,
+  "whole_process_tree_bounded": true
+}
