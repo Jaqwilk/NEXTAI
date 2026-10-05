@@ -1,0 +1,917 @@
+{
+  "alternative_explanations": [
+    "Observation alignment, rejection and ranking failures are measured separately."
+  ],
+  "architecture_family": "paired_view_learning_reference",
+  "benchmark": "paired_view_mutable_memory_v11",
+  "budget": "quick",
+  "candidates": [
+    "pvm01_tc_transport_pca_s0",
+    "pvm01_tc_transport_pca_s1",
+    "pvm01_tc_transport_pca_s2",
+    "pvm01_tc_transport_pca_s3",
+    "pvm01_tc_transport_pca_s4",
+    "pvm01_tc_transport_full_s0",
+    "pvm01_tc_transport_full_s1",
+    "pvm01_tc_transport_full_s2",
+    "pvm01_tc_transport_full_s3",
+    "pvm01_tc_transport_full_s4",
+    "pvm01_tc_transport_pca_untrained_s0",
+    "pvm01_tc_transport_pca_untrained_s1",
+    "pvm01_tc_transport_pca_untrained_s2",
+    "pvm01_tc_transport_pca_untrained_s3",
+    "pvm01_tc_transport_pca_untrained_s4",
+    "pvm01_tc_transport_pca_shuffled_s0",
+    "pvm01_tc_transport_pca_shuffled_s1",
+    "pvm01_tc_transport_pca_shuffled_s2",
+    "pvm01_tc_transport_pca_shuffled_s3",
+    "pvm01_tc_transport_pca_shuffled_s4",
+    "pvm01_tc_dense_s0",
+    "pvm01_tc_dense_s1",
+    "pvm01_tc_dense_s2",
+    "pvm01_tc_dense_s3",
+    "pvm01_tc_dense_s4",
+    "pvm01_tc_dense_cached_cpu_s0",
+    "pvm01_tc_dense_cached_cpu_s1",
+    "pvm01_tc_dense_cached_cpu_s2",
+    "pvm01_tc_dense_cached_cpu_s3",
+    "pvm01_tc_dense_cached_cpu_s4",
+    "pvm01_tc_dense_cached_cuda_s0",
+    "pvm01_tc_dense_cached_cuda_s1",
+    "pvm01_tc_dense_cached_cuda_s2",
+    "pvm01_tc_dense_cached_cuda_s3",
+    "pvm01_tc_dense_cached_cuda_s4",
+    "pvm01_tc_ridge_s0",
+    "pvm01_tc_ridge_s1",
+    "pvm01_tc_ridge_s2",
+    "pvm01_tc_ridge_s3",
+    "pvm01_tc_ridge_s4",
+    "pvm01_tc_ridge32_s0",
+    "pvm01_tc_ridge32_s1",
+    "pvm01_tc_ridge32_s2",
+    "pvm01_tc_ridge32_s3",
+    "pvm01_tc_ridge32_s4",
+    "pvm01_tc_ridge_pca_scan_s0",
+    "pvm01_tc_ridge_pca_scan_s1",
+    "pvm01_tc_ridge_pca_scan_s2",
+    "pvm01_tc_ridge_pca_scan_s3",
+    "pvm01_tc_ridge_pca_scan_s4",
+    "pvm01_tc_ridge_pca_tree_s0",
+    "pvm01_tc_ridge_pca_tree_s1",
+    "pvm01_tc_ridge_pca_tree_s2",
+    "pvm01_tc_ridge_pca_tree_s3",
+    "pvm01_tc_ridge_pca_tree_s4",
+    "pvm01_tc_kernel_s0",
+    "pvm01_tc_kernel_s1",
+    "pvm01_tc_kernel_s2",
+    "pvm01_tc_kernel_s3",
+    "pvm01_tc_kernel_s4",
+    "pvm01_tc_raw_s0",
+    "pvm01_tc_raw_s1",
+    "pvm01_tc_raw_s2",
+    "pvm01_tc_raw_s3",
+    "pvm01_tc_raw_s4",
+    "pvm01_tc_delta_s0",
+    "pvm01_tc_delta_s1",
+    "pvm01_tc_delta_s2",
+    "pvm01_tc_delta_s3",
+    "pvm01_tc_delta_s4",
+    "pvm01_noise_dense_mixed_s0",
+    "pvm01_noise_dense_mixed_s1",
+    "pvm01_noise_dense_mixed_s2",
+    "pvm01_noise_dense_mixed_s3",
+    "pvm01_noise_dense_mixed_s4",
+    "pvm01_noise_dense_cached_cpu_mixed_s0",
+    "pvm01_noise_dense_cached_cpu_mixed_s1",
+    "pvm01_noise_dense_cached_cpu_mixed_s2",
+    "pvm01_noise_dense_cached_cpu_mixed_s3",
+    "pvm01_noise_dense_cached_cpu_mixed_s4",
+    "pvm01_noise_dense_cached_cuda_mixed_s0",
+    "pvm01_noise_dense_cached_cuda_mixed_s1",
+    "pvm01_noise_dense_cached_cuda_mixed_s2",
+    "pvm01_noise_dense_cached_cuda_mixed_s3",
+    "pvm01_noise_dense_cached_cuda_mixed_s4"
+  ],
+  "confounds": [
+    "Visible synthetic development; five combined seed/data units; no externally blinded final; update labels are not reasoning depth."
+  ],
+  "created_at": "2026-10-05T10:08:32Z",
+  "eligibility_contract": {
+    "metric": "accuracy",
+    "minimum": 0.9
+  },
+  "evaluator_sha256": "0e8d7fb7cd40cb1255502f659ab2b5c059152520106ac484f3e9aa52ed452c06",
+  "experiment_id": "EXP-20261005-0006",
+  "falsification_criteria": [
+    "Stable-reference gates fail, or all outcomes are invalid/partial; retain every outcome."
+  ],
+  "git_before": {
+    "branch": "codex/muc03-autonomous-20261004",
+    "commit": "ce061d50b7e871dafc4dca9408d1af9e287a7598",
+    "dirty": true
+  },
+  "hypothesis_id": "HYP-0012",
+  "matrix": {
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "queries_per_cell": 64,
+    "reasoning_depths": [
+      1,
+      2,
+      3
+    ],
+    "seeds": [
+      1270692420,
+      1923159572,
+      1378783241,
+      1820455788,
+      617072124
+    ]
+  },
+  "metric_directions": {
+    "accuracy": "maximize",
+    "dense_unknown_rejection": "maximize",
+    "fact_top1_accuracy": "maximize",
+    "fit_ops": "minimize",
+    "mean_query_ops": "minimize",
+    "p95_latency_us": "minimize",
+    "preprocessing_ops": "minimize",
+    "state_bytes": "minimize"
+  },
+  "outcome_policy": {
+    "negative": "Invalid/partial source,fit,cache,data,resources,export or missing five independent units => INCONCLUSIVE. All original base competence gates and ten <=2% each-unit/noise base false-abstention guards must pass. Selected ridge/PCA and neural transport/PCA qualify separately only with the same original8 learning/compression,18 economic/per-cell quality/UNKNOWN/FA and60 fixed-comparator non-domination checks. Ancillary mixed six NI formulas/thresholds retained separately; they cannot alter this base-final decision. KEEP each qualifying exact locally validated route as source evidence for separately preregistered transfer. Competent failed qualification DISCARD exact; failed reference controls INCONCLUSIVE. No promotion,novelty,transfer claim or final-guided rescue. Point-estimate cheaper classic is not statistical domination. Preserve every outcome and cost, no paid retry.",
+    "null": "Invalid/partial source,fit,cache,data,resources,export or missing five independent units => INCONCLUSIVE. All original base competence gates and ten <=2% each-unit/noise base false-abstention guards must pass. Selected ridge/PCA and neural transport/PCA qualify separately only with the same original8 learning/compression,18 economic/per-cell quality/UNKNOWN/FA and60 fixed-comparator non-domination checks. Ancillary mixed six NI formulas/thresholds retained separately; they cannot alter this base-final decision. KEEP each qualifying exact locally validated route as source evidence for separately preregistered transfer. Competent failed qualification DISCARD exact; failed reference controls INCONCLUSIVE. No promotion,novelty,transfer claim or final-guided rescue. Point-estimate cheaper classic is not statistical domination. Preserve every outcome and cost, no paid retry.",
+    "positive": "Invalid/partial source,fit,cache,data,resources,export or missing five independent units => INCONCLUSIVE. All original base competence gates and ten <=2% each-unit/noise base false-abstention guards must pass. Selected ridge/PCA and neural transport/PCA qualify separately only with the same original8 learning/compression,18 economic/per-cell quality/UNKNOWN/FA and60 fixed-comparator non-domination checks. Ancillary mixed six NI formulas/thresholds retained separately; they cannot alter this base-final decision. KEEP each qualifying exact locally validated route as source evidence for separately preregistered transfer. Competent failed qualification DISCARD exact; failed reference controls INCONCLUSIVE. No promotion,novelty,transfer claim or final-guided rescue. Point-estimate cheaper classic is not statistical domination. Preserve every outcome and cost, no paid retry."
+  },
+  "parent_experiment_id": null,
+  "predicted_outcome": "Legal trained alignment may improve ranking/absence over untrained and shuffled controls; classical transport may suffice; no predetermined success.",
+  "primary_metrics": [
+    "accuracy",
+    "fact_top1_accuracy",
+    "dense_unknown_rejection",
+    "mean_query_ops",
+    "p95_latency_us",
+    "state_bytes",
+    "fit_ops",
+    "preprocessing_ops"
+  ],
+  "promotion_criteria": [
+    "None: diagnostic only; economic prototype needs fresh replicated final and classical non-domination."
+  ],
+  "pvm01_private_data_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\EXP-20261005-0006\\pvm01-private-data.json",
+  "pvm01_private_data_sha256": "bd6f1aff9433821d3bd9294512c0d5b29417aad222b60edfcab1a53b400ed3e2",
+  "research_program_protocol": {
+    "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+    "classical_baselines": [
+      "pvm01_tc_transport_pca_s0",
+      "pvm01_tc_transport_pca_s1",
+      "pvm01_tc_transport_pca_s2",
+      "pvm01_tc_transport_pca_s3",
+      "pvm01_tc_transport_pca_s4",
+      "pvm01_tc_transport_full_s0",
+      "pvm01_tc_transport_full_s1",
+      "pvm01_tc_transport_full_s2",
+      "pvm01_tc_transport_full_s3",
+      "pvm01_tc_transport_full_s4",
+      "pvm01_tc_transport_pca_untrained_s0",
+      "pvm01_tc_transport_pca_untrained_s1",
+      "pvm01_tc_transport_pca_untrained_s2",
+      "pvm01_tc_transport_pca_untrained_s3",
+      "pvm01_tc_transport_pca_untrained_s4",
+      "pvm01_tc_transport_pca_shuffled_s0",
+      "pvm01_tc_transport_pca_shuffled_s1",
+      "pvm01_tc_transport_pca_shuffled_s2",
+      "pvm01_tc_transport_pca_shuffled_s3",
+      "pvm01_tc_transport_pca_shuffled_s4",
+      "pvm01_tc_dense_s0",
+      "pvm01_tc_dense_s1",
+      "pvm01_tc_dense_s2",
+      "pvm01_tc_dense_s3",
+      "pvm01_tc_dense_s4",
+      "pvm01_tc_dense_cached_cpu_s0",
+      "pvm01_tc_dense_cached_cpu_s1",
+      "pvm01_tc_dense_cached_cpu_s2",
+      "pvm01_tc_dense_cached_cpu_s3",
+      "pvm01_tc_dense_cached_cpu_s4",
+      "pvm01_tc_dense_cached_cuda_s0",
+      "pvm01_tc_dense_cached_cuda_s1",
+      "pvm01_tc_dense_cached_cuda_s2",
+      "pvm01_tc_dense_cached_cuda_s3",
+      "pvm01_tc_dense_cached_cuda_s4",
+      "pvm01_tc_ridge_s0",
+      "pvm01_tc_ridge_s1",
+      "pvm01_tc_ridge_s2",
+      "pvm01_tc_ridge_s3",
+      "pvm01_tc_ridge_s4",
+      "pvm01_tc_ridge32_s0",
+      "pvm01_tc_ridge32_s1",
+      "pvm01_tc_ridge32_s2",
+      "pvm01_tc_ridge32_s3",
+      "pvm01_tc_ridge32_s4",
+      "pvm01_tc_ridge_pca_scan_s0",
+      "pvm01_tc_ridge_pca_scan_s1",
+      "pvm01_tc_ridge_pca_scan_s2",
+      "pvm01_tc_ridge_pca_scan_s3",
+      "pvm01_tc_ridge_pca_scan_s4",
+      "pvm01_tc_ridge_pca_tree_s0",
+      "pvm01_tc_ridge_pca_tree_s1",
+      "pvm01_tc_ridge_pca_tree_s2",
+      "pvm01_tc_ridge_pca_tree_s3",
+      "pvm01_tc_ridge_pca_tree_s4",
+      "pvm01_tc_kernel_s0",
+      "pvm01_tc_kernel_s1",
+      "pvm01_tc_kernel_s2",
+      "pvm01_tc_kernel_s3",
+      "pvm01_tc_kernel_s4",
+      "pvm01_tc_raw_s0",
+      "pvm01_tc_raw_s1",
+      "pvm01_tc_raw_s2",
+      "pvm01_tc_raw_s3",
+      "pvm01_tc_raw_s4",
+      "pvm01_tc_delta_s0",
+      "pvm01_tc_delta_s1",
+      "pvm01_tc_delta_s2",
+      "pvm01_tc_delta_s3",
+      "pvm01_tc_delta_s4",
+      "pvm01_noise_dense_mixed_s0",
+      "pvm01_noise_dense_mixed_s1",
+      "pvm01_noise_dense_mixed_s2",
+      "pvm01_noise_dense_mixed_s3",
+      "pvm01_noise_dense_mixed_s4",
+      "pvm01_noise_dense_cached_cpu_mixed_s0",
+      "pvm01_noise_dense_cached_cpu_mixed_s1",
+      "pvm01_noise_dense_cached_cpu_mixed_s2",
+      "pvm01_noise_dense_cached_cpu_mixed_s3",
+      "pvm01_noise_dense_cached_cpu_mixed_s4",
+      "pvm01_noise_dense_cached_cuda_mixed_s0",
+      "pvm01_noise_dense_cached_cuda_mixed_s1",
+      "pvm01_noise_dense_cached_cuda_mixed_s2",
+      "pvm01_noise_dense_cached_cuda_mixed_s3",
+      "pvm01_noise_dense_cached_cuda_mixed_s4"
+    ],
+    "classical_economic_contract_path": "research/plans/PVM01-FRESH-FINAL-CLASSICAL-ECONOMICS-V1.json",
+    "classical_economic_contract_sha256": "5f6565713391799b8aeb2f1a54e9a0faa976d6bde5ec1645618284aabd8cc5fb",
+    "compute_charge_basis": "full_worker_wall_v1",
+    "data": {
+      "adverse_pairing": "D conditions retain unchanged same latent/truth/draw pairing at noise.02/.04. No D arrays are used for augmentation or calibration. Base T-array hashes shared across85 roles; effective mixed T-set hashes separately recorded and exact across three mixed dense/cache roles.",
+      "axis_encoding": {
+        "1": 0,
+        "2": 1,
+        "3": 4
+      },
+      "axis_semantics": "legacy matrix.reasoning_depth stores an UPDATE-ROUND LABEL, never reasoning; actual update_rounds recorded in every trial",
+      "dev_episodes_per_cell": 5,
+      "evaluation_noise_standard_deviations": [
+        0.02,
+        0.04
+      ],
+      "generation_policy": "no structural/model-based resampling; all draws retained",
+      "legal_candidate_inputs": "only float32 paired train arrays, legal train episodes/labels; inference timestamp/handle/write observation/value and query observation; no teacher matrices, nonce, identity, flags or target handle",
+      "legal_training_sets": "Same128 base episodes/K32/128,8 queries,zero updates; all roles receive identical legal base arrays. Mixed dense roles copy arrays and add seeded independent Gaussian noise std sqrt(.04^2-.02^2) to contexts AND queries of odd-index64 episodes/K, leaving even64 and all labels unchanged. Marginal training noise .02/.04; no new identities, extra episodes, K512 support or D reuse. All alignment/validation/calibration remains .02.",
+      "private_entropy": "five independent256-bit runner nonces, realized after preregistration, separate from model seed; private artifact inaccessible to candidate imports/inputs; same arrays across roles",
+      "split_names": [
+        "T-fit",
+        "T-validation",
+        "T-calibration",
+        "T-sets",
+        "D"
+      ],
+      "tag": "PVM01-FRESH-FINAL-V1",
+      "train_calibration_episodes_per_K": 3,
+      "train_calibration_episodes_per_K_and_update": 3,
+      "train_calibration_update_rounds": [
+        0,
+        1,
+        4
+      ],
+      "train_episode_batch": 4,
+      "train_episode_queries": 8,
+      "train_episode_support_sizes": [
+        32,
+        128
+      ],
+      "train_pairs": 4096,
+      "train_validation_pairs": 512
+    },
+    "deadline_at": "2026-10-05T12:58:30Z",
+    "diagnosis_gates": {
+      "compression_full_and_retained_ci_lower_min": -0.02,
+      "independent_units": 5,
+      "learning_all_five_positive": true,
+      "learning_ci_lower_min": 0.1,
+      "learning_mean_gain_min": 0.2,
+      "primary_comparisons": 8,
+      "simultaneous_primary_interval_level": 0.99375
+    },
+    "diagnostics": {
+      "cost_boundary": "Raw float32 vector inputs, copies, normalize/encode, feature expansion, W alloc/read/write, all metadata, retrieval/index/cache build and maintenance, warmup, queries, decoding, synchronization and Python output included. Loaded service workload and process initialization separately measured/charged. Updated rounds are not reasoning. Every kernel/library process init is in full worker. No energy claim. One fixed device/thread deployment per arm; timing crossover not tested, so costs are screening diagnostics.",
+      "logging": "Full fit_report appears once per worker in first trial and fit journal; later trials reference its canonical SHA256. All predictions/losses/grids/components preserved; v5 may compact whitespace without dropping values. Old result bytes unchanged. V9 adds separately bound trusted worker-resource metadata; no replacement of fit reports,trial values,raw predictions or legacy sample journals.",
+      "per_cell": [
+        "full_answer_accuracy",
+        "known_fact_top1_accuracy",
+        "known_false_abstention",
+        "absent_identity_rejection",
+        "updated_known_accuracy",
+        "retained_known_accuracy",
+        "stale_value_errors",
+        "wrong_fact_errors",
+        "nonabstaining_known_value_accuracy",
+        "accepted_answer_accuracy"
+      ],
+      "private_boundary": "static source/import audit plus stripped inputs; local evaluator not an OS security sandbox or externally blinded final",
+      "raw_predictions": "Each answer then reveal truth/stratum; decision_score is max value activation for compact memory and max cosine for retrieval. Compact memory does not output a fact handle, so fact_top1_accuracy/wrong_fact/stale-at-correct-handle are NULL with explicit not-applicable flag; never score None as correct handle. Full/updated/retained/value/absence accuracy remain shared. No auxiliary query scan or hidden handle reconstruction. Same NULL fact-handle policy applies to all compact_* arms; no handle reconstruction. Retrieval/classical arms preserve actual handle diagnostics.",
+      "reproducibility": [
+        "all T arrays/hash and exact D pairing",
+        "same truth/update/noise directions across conditions",
+        "encoder initialization/final/2048 losses and2048+1024 dense/cache exact identity",
+        "PCA trained/frozen/shuffled same write-only projection; ridge scan/tree identity",
+        "strict FIT policy/backend dispatch and restored inference flags",
+        "raw prediction/fullcost/worker/RSS/CUDA evidence",
+        "Mixed dense/cache exact initialization,noise RNG,effective arrays,2048 encoder losses/hash,1024 decoder losses/hash,predictions; original baseline three-cache identity separately preserved"
+      ]
+    },
+    "evaluation_data_role": "frozen_fresh_final_v1",
+    "fit_seconds_cap": 90,
+    "fit_seconds_total_cap": 10200,
+    "max_cuda_reserved_bytes": 4294967296,
+    "max_rss_bytes": 8589934592,
+    "program_contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+    "program_contract_sha256": "a55f190fd42631e2651a8d4ab3e61f2200d16d1e8afb2d71aa4edcbea6ba269a",
+    "recipe": {
+      "alignment_batch": 256,
+      "alignment_loss": "mean squared error paired query->write observation",
+      "alignment_steps": 2048,
+      "architecture": "shared query view transport: Linear64->64 residual plus Linear64->128,GELU,Linear128->64; writes remain raw64; L2-normalized matching. No external weights. Dense control adds conventional two-layer nn.TransformerDecoder with width64,heads4,FF256,GELU,pre-norm,dropout0,self+cross dense softmax attention and dense cosine pointer. Output residual projections initially zero to preserve trained transport; fit contrastive set loss. Pointer/exact_nn omit decoder.",
+      "dense_noise_augmentation": {
+        "augmented_episode_parity": 1,
+        "augmented_noise": 0.04,
+        "base_noise": 0.02,
+        "base_observation_count_unchanged": true,
+        "context_then_query_by_ascending_K": true,
+        "independent_added_gaussian_std": 0.034641016151377546,
+        "noise_is_training_only": true,
+        "noise_rng_seed_xor": 1347246158
+      },
+      "dense_set_batch": 4,
+      "dense_set_loss": "cross entropy over K normalized scores and one NULL score; fixed scale20, NULL cosine0.85; plus0.1*MSE decoded query versus normalized target write for known queries",
+      "dense_set_queries": 8,
+      "dense_set_steps": 1024,
+      "encoder_during_dense_set_fit": "frozen after supervised alignment; decoder trained, no value shortcuts or labels in query",
+      "exact_nn": "source-identical complete query transport fit; weights must match pointer exactly, full scan cosine instead of dense softmax; own repeated fit fully charged",
+      "exact_nn_cpu": "Exact same fitted transport moved to CPU float32 after fitting, full cosine scan and no softmax shortlist; all copies charged. Not a new learned recipe.",
+      "fit_execution_policy": "All new transport arms and existing dense/cache use strict deterministic algorithms and math SDPA only during FIT, restoring flags afterward; existing architecture/loss/optimizer/data/batches unchanged.",
+      "kernel": "RBF Nyström transport,512 first training-query landmarks, all4096 pairs, float64 primal ridge; bandwidths[0.25,0.5,1.0], ridge[0.0001,0.01]; minimal reserved512 train-only MSE, deterministic grid order; all search/landmarks/fit charged",
+      "learning_rate": 0.001,
+      "memory_bandwidth": 0.35,
+      "memory_control": "All four memory arms use the same core, feature projection, capacity, initialized transport, fitting batch order and write order. Delta/additive differ only by subtraction of current memory prediction. delta_untrained freezes transport; delta_shuffled uses identical fixed shuffled pairing rule. Both controls retain the same delta update. CPU float32 inference after exact CUDA transport fit; device copy included in fit.",
+      "memory_equations": "Normalize raw write x and transported query T(q). Draw R[64,1024] Gaussian(0,1/bandwidth) once from model seed xor fixed constant; phi(x)=[cos(xR),sin(xR)]/sqrt(1024), exact unit norm up to fp32. W[2048,16] starts zero per episode. Delta W += phi(x) outer (onehot(value)-phi(x)@W); additive W += phi(x) outer onehot(value). Read y=phi(T(q))@W, choose argmax16, decision_score=max(y), return UNKNOWN if below train-selected threshold. No replay, postwrite correction, key/value dictionary, latent identities or query handle. Timestamp dictionary rejects older writes only; all accepted observations update W. Both methods preserve current observation noise; no canonical-key shortcut.",
+      "memory_feature_dimension": 2048,
+      "memory_frequencies": 1024,
+      "memory_learning_scope": "The transport is learned exactly as reference; the fixed RFF feature map and online delta/LMS rule are classical, not trained by backpropagation through memory and not a newly learned controller. No novel architecture or adaptive write-gate claim.",
+      "memory_projection_seed_xor": 1380337201,
+      "memory_write_strength": 1.0,
+      "optimized_dense": "Train exact unchanged dense model/recipe on CUDA; two new arms use identical final weights. Inference conventional single independent query: cache per-layer projected cross-attention K,V on each accepted write; evaluate algebraically equivalent two-layer pre-norm decoder with self-attention(single token), full dense cross softmax and same FF/GELU on CPU float32 and CUDA float32. Every cache allocation, copy, write maintenance and query charged. Numerical equivalence against PyTorch decoder on fixed synthetic fixtures required before seeds. Existing uncached CUDA reference retained.",
+      "optimized_ridge": "ridge32 uses same all4096/intercept ridge grid and train512 MSE selection in float64, then stores float32 and uses explicit bias without per-query append. PCA variants fit SVD on normalized legal T-fit writes, consider ranks16/32/64 crossed whitening exponent0/.5; normalize projected keys and queries, select smallest train512 mean squared L2 distance between normalized projected transport output and target, deterministic ascending rank/exponent ties. No latent-map access. exact scan and cKDTree share exact fitted projection and selected ridge weights. Tree uses eps0,p2,workers1,leafsize16,copy_data=True; lazily rebuild after writes before first read, build and float64 copies fully included; no stale index. Own repeated fit charged. Original float64 ridge and nonlinear Nyström retained.",
+      "optimizer": "AdamW",
+      "precision": "float32",
+      "raw": "zero-fit raw-space cosine, same update/absence interface",
+      "ridge": "query-to-write ridge with intercept; all4096 legal pairs, choose minimal MSE on reserved512 training-only pairs, fixed ascending grid ties first",
+      "ridge_grid": [
+        1e-06,
+        0.001,
+        0.1
+      ],
+      "selection": "last fixed optimizer step; no checkpoint, dev/hyperparameter adaptation or seed selection; all outcomes retained",
+      "shuffled": "same transport code/initialization/batches/steps, a single fixed runner-seed permutation of positive write correspondences; train set controls not relabeled",
+      "threads": 1,
+      "threshold_grid": [
+        0.0,
+        0.025,
+        0.05,
+        0.075,
+        0.1,
+        0.125,
+        0.15,
+        0.175,
+        0.2,
+        0.225,
+        0.25,
+        0.275,
+        0.3,
+        0.325,
+        0.35,
+        0.375,
+        0.4,
+        0.425,
+        0.45,
+        0.475,
+        0.5,
+        0.525,
+        0.55,
+        0.575,
+        0.6,
+        0.625,
+        0.65,
+        0.675,
+        0.7,
+        0.725,
+        0.75,
+        0.775,
+        0.8,
+        0.825,
+        0.85,
+        0.875,
+        0.9,
+        0.925,
+        0.95,
+        0.975,
+        1.0,
+        1.025,
+        1.05,
+        1.075,
+        1.1,
+        1.125,
+        1.15,
+        1.175,
+        1.2,
+        1.225,
+        1.25,
+        1.275,
+        1.3,
+        1.325,
+        1.35,
+        1.375,
+        1.4,
+        1.425,
+        1.45,
+        1.475,
+        1.5,
+        2.0,
+        4.0,
+        8.0
+      ],
+      "threshold_selection": "Training-only27 calibration episodes: K32/128/512 crossed updates0/1/4,3 each,64 queries. Same finite grid for all methods, prefer known false abstention<=.02 and absent rejection>=.95, then maximal full answer, larger rejection, lower threshold; if infeasible same maximum-accuracy tie rule. Raw score scales differ and are disclosed; no dev choice.",
+      "transport_compression": "After unchanged query->write fit, move encoder to CPU. Float64 SVD of normalized legal T-fit writes only; ranks16/32/64, exponent0, select first rank retaining >=95% squared singular-value energy. FP32 projection, exact cosine scan; full comparator uses same encoder with no projection. No learned indexing, key omission or threshold rescue.",
+      "transport_learning_controls": "Untrained skips optimizer; shuffled uses existing fixed seed-xor target permutation; same encoder source/init and PCA write-only projection, same threshold grid/policy. Full and trained PCA must have exact2048 losses/final encoder identity; dense/cache exact2048+1024 losses and encoder/decoder hashes, PCA scan/tree identity unchanged. No epsilon relaxation.",
+      "transport_pca_rank_grid": [
+        16,
+        32,
+        64
+      ],
+      "transport_pca_variance_fraction": 0.95,
+      "transport_pca_whitening_exponent": 0.0,
+      "untrained": "source-identical query transport initialization and pointer, zero updates",
+      "weight_decay": 0.0001
+    },
+    "reference_gates": {
+      "absent_identity_rejection_mean_min": 0.95,
+      "each_K_mean_accuracy_min": 0.9,
+      "each_seed_absent_identity_rejection_min": 0.9,
+      "each_seed_full_answer_accuracy_min": 0.9,
+      "independent_units": 5,
+      "known_false_abstention_mean_max": 0.02,
+      "mean_full_answer_accuracy_min": 0.95
+    },
+    "registration_ticket": 11,
+    "resource_measurement_version": "cumulative_cuda_phase_peaks_v1",
+    "roles": {
+      "pvm01_noise_dense_cached_cpu_mixed_s0": {
+        "arm": "dense_cached_cpu_mixed",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_noise_dense_cached_cpu_mixed_s1": {
+        "arm": "dense_cached_cpu_mixed",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_noise_dense_cached_cpu_mixed_s2": {
+        "arm": "dense_cached_cpu_mixed",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_noise_dense_cached_cpu_mixed_s3": {
+        "arm": "dense_cached_cpu_mixed",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_noise_dense_cached_cpu_mixed_s4": {
+        "arm": "dense_cached_cpu_mixed",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_noise_dense_cached_cuda_mixed_s0": {
+        "arm": "dense_cached_cuda_mixed",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_noise_dense_cached_cuda_mixed_s1": {
+        "arm": "dense_cached_cuda_mixed",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_noise_dense_cached_cuda_mixed_s2": {
+        "arm": "dense_cached_cuda_mixed",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_noise_dense_cached_cuda_mixed_s3": {
+        "arm": "dense_cached_cuda_mixed",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_noise_dense_cached_cuda_mixed_s4": {
+        "arm": "dense_cached_cuda_mixed",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_noise_dense_mixed_s0": {
+        "arm": "dense_mixed",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_noise_dense_mixed_s1": {
+        "arm": "dense_mixed",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_noise_dense_mixed_s2": {
+        "arm": "dense_mixed",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_noise_dense_mixed_s3": {
+        "arm": "dense_mixed",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_noise_dense_mixed_s4": {
+        "arm": "dense_mixed",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_tc_delta_s0": {
+        "arm": "delta",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_tc_delta_s1": {
+        "arm": "delta",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_tc_delta_s2": {
+        "arm": "delta",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_tc_delta_s3": {
+        "arm": "delta",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_tc_delta_s4": {
+        "arm": "delta",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_tc_dense_cached_cpu_s0": {
+        "arm": "dense_cached_cpu",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_tc_dense_cached_cpu_s1": {
+        "arm": "dense_cached_cpu",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_tc_dense_cached_cpu_s2": {
+        "arm": "dense_cached_cpu",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_tc_dense_cached_cpu_s3": {
+        "arm": "dense_cached_cpu",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_tc_dense_cached_cpu_s4": {
+        "arm": "dense_cached_cpu",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_tc_dense_cached_cuda_s0": {
+        "arm": "dense_cached_cuda",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_tc_dense_cached_cuda_s1": {
+        "arm": "dense_cached_cuda",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_tc_dense_cached_cuda_s2": {
+        "arm": "dense_cached_cuda",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_tc_dense_cached_cuda_s3": {
+        "arm": "dense_cached_cuda",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_tc_dense_cached_cuda_s4": {
+        "arm": "dense_cached_cuda",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_tc_dense_s0": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_tc_dense_s1": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_tc_dense_s2": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_tc_dense_s3": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_tc_dense_s4": {
+        "arm": "dense",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_tc_kernel_s0": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_tc_kernel_s1": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_tc_kernel_s2": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_tc_kernel_s3": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_tc_kernel_s4": {
+        "arm": "kernel",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_tc_raw_s0": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_tc_raw_s1": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_tc_raw_s2": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_tc_raw_s3": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_tc_raw_s4": {
+        "arm": "raw",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_tc_ridge32_s0": {
+        "arm": "ridge32",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_tc_ridge32_s1": {
+        "arm": "ridge32",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_tc_ridge32_s2": {
+        "arm": "ridge32",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_tc_ridge32_s3": {
+        "arm": "ridge32",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_tc_ridge32_s4": {
+        "arm": "ridge32",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_tc_ridge_pca_scan_s0": {
+        "arm": "ridge_pca_scan",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_tc_ridge_pca_scan_s1": {
+        "arm": "ridge_pca_scan",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_tc_ridge_pca_scan_s2": {
+        "arm": "ridge_pca_scan",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_tc_ridge_pca_scan_s3": {
+        "arm": "ridge_pca_scan",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_tc_ridge_pca_scan_s4": {
+        "arm": "ridge_pca_scan",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_tc_ridge_pca_tree_s0": {
+        "arm": "ridge_pca_tree",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_tc_ridge_pca_tree_s1": {
+        "arm": "ridge_pca_tree",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_tc_ridge_pca_tree_s2": {
+        "arm": "ridge_pca_tree",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_tc_ridge_pca_tree_s3": {
+        "arm": "ridge_pca_tree",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_tc_ridge_pca_tree_s4": {
+        "arm": "ridge_pca_tree",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_tc_ridge_s0": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_tc_ridge_s1": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_tc_ridge_s2": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_tc_ridge_s3": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_tc_ridge_s4": {
+        "arm": "ridge",
+        "fit_steps": 0,
+        "seed_index": 4
+      },
+      "pvm01_tc_transport_full_s0": {
+        "arm": "transport_full",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_tc_transport_full_s1": {
+        "arm": "transport_full",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_tc_transport_full_s2": {
+        "arm": "transport_full",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_tc_transport_full_s3": {
+        "arm": "transport_full",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_tc_transport_full_s4": {
+        "arm": "transport_full",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_tc_transport_pca_s0": {
+        "arm": "transport_pca",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_tc_transport_pca_s1": {
+        "arm": "transport_pca",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_tc_transport_pca_s2": {
+        "arm": "transport_pca",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_tc_transport_pca_s3": {
+        "arm": "transport_pca",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_tc_transport_pca_s4": {
+        "arm": "transport_pca",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_tc_transport_pca_shuffled_s0": {
+        "arm": "transport_pca_shuffled",
+        "fit_steps": 2048,
+        "seed_index": 0
+      },
+      "pvm01_tc_transport_pca_shuffled_s1": {
+        "arm": "transport_pca_shuffled",
+        "fit_steps": 2048,
+        "seed_index": 1
+      },
+      "pvm01_tc_transport_pca_shuffled_s2": {
+        "arm": "transport_pca_shuffled",
+        "fit_steps": 2048,
+        "seed_index": 2
+      },
+      "pvm01_tc_transport_pca_shuffled_s3": {
+        "arm": "transport_pca_shuffled",
+        "fit_steps": 2048,
+        "seed_index": 3
+      },
+      "pvm01_tc_transport_pca_shuffled_s4": {
+        "arm": "transport_pca_shuffled",
+        "fit_steps": 2048,
+        "seed_index": 4
+      },
+      "pvm01_tc_transport_pca_untrained_s0": {
+        "arm": "transport_pca_untrained",
+        "fit_steps": 0,
+        "seed_index": 0
+      },
+      "pvm01_tc_transport_pca_untrained_s1": {
+        "arm": "transport_pca_untrained",
+        "fit_steps": 0,
+        "seed_index": 1
+      },
+      "pvm01_tc_transport_pca_untrained_s2": {
+        "arm": "transport_pca_untrained",
+        "fit_steps": 0,
+        "seed_index": 2
+      },
+      "pvm01_tc_transport_pca_untrained_s3": {
+        "arm": "transport_pca_untrained",
+        "fit_steps": 0,
+        "seed_index": 3
+      },
+      "pvm01_tc_transport_pca_untrained_s4": {
+        "arm": "transport_pca_untrained",
+        "fit_steps": 0,
+        "seed_index": 4
+      }
+    },
+    "study_path": "research/plans/PVM01-FRESH-FINAL-V1.json",
+    "study_sha256": "8b5912be1a70d10a8388b955ff9a7e5045e3a3937d4524486ef165e613841074",
+    "task_contract_path": "research/plans/PVM01-TASK-CONTRACT-V1.json",
+    "task_contract_sha256": "7b8c775a3ebfd6a1645d171caab7237c3a7bc11c44cb7b7fdc26e7eec6c2c326",
+    "worker_seconds_cap": 116
+  },
+  "research_question": "On five entirely new independent paired units and all three scales, do the prospectively selected learned transport/PCA and classical ridge/PCA-scan separately reproduce their complete frozen quality and full-service cost qualification against competent unaugmented dense_cached_cpu and strong classical controls? This is a final for the visible same-law local PVM task, not blinded generalization or transfer.",
+  "schema_version": 1,
+  "status": "planned",
+  "title": "PVM01-FRESH-FINAL-V1"
+}

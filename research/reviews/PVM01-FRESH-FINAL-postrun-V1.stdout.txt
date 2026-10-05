@@ -1,0 +1,5 @@
+{"phase": "native-analysis-preservation", "returncode": 0, "wall_seconds": 11.547470100020291, "error": null}
+{"phase": "publication", "returncode": 0, "wall_seconds": 11.17597549999482, "error": null}
+{"phase": "report-metadata", "returncode": 0, "wall_seconds": 82.83183959999587, "error": null}
+{"phase": "history-postrun", "returncode": 0, "wall_seconds": 26.77154139999766, "error": null}
+All postrun phases completed once under a single reserved whole-tree envelope

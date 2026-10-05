@@ -1,0 +1,206 @@
+{
+  "all_export_cost_in_trusted_fit_phase_and_worker_wall": true,
+  "arm": "transport_pca",
+  "arrays": [
+    {
+      "dtype": "<f4",
+      "key": "model.linear.weight",
+      "sha256": "54cdc39a446b17cbda396f56d1cb34ef655c379cc0fa074b0b32cad4fb4bc9e3",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.linear.bias",
+      "sha256": "f232402d1f97cc6a9d20ee7f468dfd3e8f25ee89c3c71330cb8f9fd2b435b359",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.nonlin.0.weight",
+      "sha256": "b1a545cca82e510bdcc15bd10538305dfe92bb2f81ca0026b016ff8fa422ea25",
+      "shape": [
+        128,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.nonlin.0.bias",
+      "sha256": "59f6506fbbe883af102598f66d5e4d0a821f6d8695a0860a7df0389a241f4958",
+      "shape": [
+        128
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.nonlin.2.weight",
+      "sha256": "797b58fd882e1da16a125f496aed6827a8ed358fba76ccabfa101002d4077e8b",
+      "shape": [
+        64,
+        128
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.nonlin.2.bias",
+      "sha256": "cbc14a9cc004e7985d3ca3fc9f49d73fc4c36d30af1ccff265817e07f2820ace",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "projection",
+      "sha256": "80f20791f6c6c47a8bae84985e0f4cbbe49ca3c888540d645fe8cb38786cf1b9",
+      "shape": [
+        64,
+        16
+      ]
+    }
+  ],
+  "candidate": "pvm01_tc_transport_pca_s4",
+  "copied_before_final_arrays": true,
+  "copy_and_parameter_serialization_seconds": 0.002567400020780042,
+  "fit_report_sha256": "d701f6aefc71f6ac5951190af4d416cf1e5f7120009955f020f603b211ad8892",
+  "parameters_bytes": 88938,
+  "parameters_sha256": "a168ff49920eb1a1fd14f9ac3abb6c133c7acd5a29c0d9314915602f4ee0c814",
+  "recipe": {
+    "alignment_batch": 256,
+    "alignment_loss": "mean squared error paired query->write observation",
+    "alignment_steps": 2048,
+    "architecture": "shared query view transport: Linear64->64 residual plus Linear64->128,GELU,Linear128->64; writes remain raw64; L2-normalized matching. No external weights. Dense control adds conventional two-layer nn.TransformerDecoder with width64,heads4,FF256,GELU,pre-norm,dropout0,self+cross dense softmax attention and dense cosine pointer. Output residual projections initially zero to preserve trained transport; fit contrastive set loss. Pointer/exact_nn omit decoder.",
+    "dense_noise_augmentation": {
+      "augmented_episode_parity": 1,
+      "augmented_noise": 0.04,
+      "base_noise": 0.02,
+      "base_observation_count_unchanged": true,
+      "context_then_query_by_ascending_K": true,
+      "independent_added_gaussian_std": 0.034641016151377546,
+      "noise_is_training_only": true,
+      "noise_rng_seed_xor": 1347246158
+    },
+    "dense_set_batch": 4,
+    "dense_set_loss": "cross entropy over K normalized scores and one NULL score; fixed scale20, NULL cosine0.85; plus0.1*MSE decoded query versus normalized target write for known queries",
+    "dense_set_queries": 8,
+    "dense_set_steps": 1024,
+    "encoder_during_dense_set_fit": "frozen after supervised alignment; decoder trained, no value shortcuts or labels in query",
+    "exact_nn": "source-identical complete query transport fit; weights must match pointer exactly, full scan cosine instead of dense softmax; own repeated fit fully charged",
+    "exact_nn_cpu": "Exact same fitted transport moved to CPU float32 after fitting, full cosine scan and no softmax shortlist; all copies charged. Not a new learned recipe.",
+    "fit_execution_policy": "All new transport arms and existing dense/cache use strict deterministic algorithms and math SDPA only during FIT, restoring flags afterward; existing architecture/loss/optimizer/data/batches unchanged.",
+    "kernel": "RBF Nyström transport,512 first training-query landmarks, all4096 pairs, float64 primal ridge; bandwidths[0.25,0.5,1.0], ridge[0.0001,0.01]; minimal reserved512 train-only MSE, deterministic grid order; all search/landmarks/fit charged",
+    "learning_rate": 0.001,
+    "memory_bandwidth": 0.35,
+    "memory_control": "All four memory arms use the same core, feature projection, capacity, initialized transport, fitting batch order and write order. Delta/additive differ only by subtraction of current memory prediction. delta_untrained freezes transport; delta_shuffled uses identical fixed shuffled pairing rule. Both controls retain the same delta update. CPU float32 inference after exact CUDA transport fit; device copy included in fit.",
+    "memory_equations": "Normalize raw write x and transported query T(q). Draw R[64,1024] Gaussian(0,1/bandwidth) once from model seed xor fixed constant; phi(x)=[cos(xR),sin(xR)]/sqrt(1024), exact unit norm up to fp32. W[2048,16] starts zero per episode. Delta W += phi(x) outer (onehot(value)-phi(x)@W); additive W += phi(x) outer onehot(value). Read y=phi(T(q))@W, choose argmax16, decision_score=max(y), return UNKNOWN if below train-selected threshold. No replay, postwrite correction, key/value dictionary, latent identities or query handle. Timestamp dictionary rejects older writes only; all accepted observations update W. Both methods preserve current observation noise; no canonical-key shortcut.",
+    "memory_feature_dimension": 2048,
+    "memory_frequencies": 1024,
+    "memory_learning_scope": "The transport is learned exactly as reference; the fixed RFF feature map and online delta/LMS rule are classical, not trained by backpropagation through memory and not a newly learned controller. No novel architecture or adaptive write-gate claim.",
+    "memory_projection_seed_xor": 1380337201,
+    "memory_write_strength": 1.0,
+    "optimized_dense": "Train exact unchanged dense model/recipe on CUDA; two new arms use identical final weights. Inference conventional single independent query: cache per-layer projected cross-attention K,V on each accepted write; evaluate algebraically equivalent two-layer pre-norm decoder with self-attention(single token), full dense cross softmax and same FF/GELU on CPU float32 and CUDA float32. Every cache allocation, copy, write maintenance and query charged. Numerical equivalence against PyTorch decoder on fixed synthetic fixtures required before seeds. Existing uncached CUDA reference retained.",
+    "optimized_ridge": "ridge32 uses same all4096/intercept ridge grid and train512 MSE selection in float64, then stores float32 and uses explicit bias without per-query append. PCA variants fit SVD on normalized legal T-fit writes, consider ranks16/32/64 crossed whitening exponent0/.5; normalize projected keys and queries, select smallest train512 mean squared L2 distance between normalized projected transport output and target, deterministic ascending rank/exponent ties. No latent-map access. exact scan and cKDTree share exact fitted projection and selected ridge weights. Tree uses eps0,p2,workers1,leafsize16,copy_data=True; lazily rebuild after writes before first read, build and float64 copies fully included; no stale index. Own repeated fit charged. Original float64 ridge and nonlinear Nyström retained.",
+    "optimizer": "AdamW",
+    "precision": "float32",
+    "raw": "zero-fit raw-space cosine, same update/absence interface",
+    "ridge": "query-to-write ridge with intercept; all4096 legal pairs, choose minimal MSE on reserved512 training-only pairs, fixed ascending grid ties first",
+    "ridge_grid": [
+      1e-06,
+      0.001,
+      0.1
+    ],
+    "selection": "last fixed optimizer step; no checkpoint, dev/hyperparameter adaptation or seed selection; all outcomes retained",
+    "shuffled": "same transport code/initialization/batches/steps, a single fixed runner-seed permutation of positive write correspondences; train set controls not relabeled",
+    "threads": 1,
+    "threshold_grid": [
+      0.0,
+      0.025,
+      0.05,
+      0.075,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.225,
+      0.25,
+      0.275,
+      0.3,
+      0.325,
+      0.35,
+      0.375,
+      0.4,
+      0.425,
+      0.45,
+      0.475,
+      0.5,
+      0.525,
+      0.55,
+      0.575,
+      0.6,
+      0.625,
+      0.65,
+      0.675,
+      0.7,
+      0.725,
+      0.75,
+      0.775,
+      0.8,
+      0.825,
+      0.85,
+      0.875,
+      0.9,
+      0.925,
+      0.95,
+      0.975,
+      1.0,
+      1.025,
+      1.05,
+      1.075,
+      1.1,
+      1.125,
+      1.15,
+      1.175,
+      1.2,
+      1.225,
+      1.25,
+      1.275,
+      1.3,
+      1.325,
+      1.35,
+      1.375,
+      1.4,
+      1.425,
+      1.45,
+      1.475,
+      1.5,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "threshold_selection": "Training-only27 calibration episodes: K32/128/512 crossed updates0/1/4,3 each,64 queries. Same finite grid for all methods, prefer known false abstention<=.02 and absent rejection>=.95, then maximal full answer, larger rejection, lower threshold; if infeasible same maximum-accuracy tie rule. Raw score scales differ and are disclosed; no dev choice.",
+    "transport_compression": "After unchanged query->write fit, move encoder to CPU. Float64 SVD of normalized legal T-fit writes only; ranks16/32/64, exponent0, select first rank retaining >=95% squared singular-value energy. FP32 projection, exact cosine scan; full comparator uses same encoder with no projection. No learned indexing, key omission or threshold rescue.",
+    "transport_learning_controls": "Untrained skips optimizer; shuffled uses existing fixed seed-xor target permutation; same encoder source/init and PCA write-only projection, same threshold grid/policy. Full and trained PCA must have exact2048 losses/final encoder identity; dense/cache exact2048+1024 losses and encoder/decoder hashes, PCA scan/tree identity unchanged. No epsilon relaxation.",
+    "transport_pca_rank_grid": [
+      16,
+      32,
+      64
+    ],
+    "transport_pca_variance_fraction": 0.95,
+    "transport_pca_whitening_exponent": 0.0,
+    "untrained": "source-identical query transport initialization and pointer, zero updates",
+    "weight_decay": 0.0001
+  },
+  "recipe_sha256": "656dd3f0e80ab50f8791436f17a00a2cc7e7bf01fe1cf8287cb93f0f27211e3c",
+  "seed": 617072124,
+  "seed_index": 4,
+  "study_path": "research/plans/PVM01-FRESH-FINAL-V1.json",
+  "study_sha256": "8b5912be1a70d10a8388b955ff9a7e5045e3a3937d4524486ef165e613841074",
+  "threshold": 0.9,
+  "training_or_final_arrays_included": false,
+  "version": "PVM01-FITTED-SOURCE-STATE-V1"
+}

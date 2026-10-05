@@ -1,0 +1,68 @@
+{
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "program",
+        "register"
+      ],
+      "label": "register",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-EXP-20261005-0006-register-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-EXP-20261005-0006-register-V1.stdout.txt": "cfed28476feb97c0b95db2e3a07083808edd8822bd3a8bc8787b89381cdb90dc"
+      },
+      "result": {
+        "elapsed_seconds": 111.64394499998889,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 3750416384,
+        "pid": 21068,
+        "processes_created": 157,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "nextai",
+        "run",
+        "--plan",
+        "research/plans/EXP-20261005-0006.json"
+      ],
+      "label": "run",
+      "raw_outputs": {
+        "PVM01-FRESH-FINAL-EXP-20261005-0006-run-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-FRESH-FINAL-EXP-20261005-0006-run-V1.stdout.txt": "e0c3c44fd4f15da4330390e105b4ec0cab16aaf265a19432c21a3099f424618f"
+      },
+      "result": {
+        "elapsed_seconds": 1107.8875317000202,
+        "exit_job_active_process_count": 0,
+        "exit_live_descendant_pids": [],
+        "peak_tree_rss_bytes_sampled": 3749695488,
+        "pid": 20272,
+        "processes_created": 418,
+        "reason": "exited",
+        "returncode": 0,
+        "root_returncode": 0
+      }
+    }
+  ],
+  "controller_overhead_seconds": 413.33344949997263,
+  "created_at": "2026-10-05T10:27:36Z",
+  "error": null,
+  "experiment_id": "EXP-20261005-0006",
+  "id": "PVM01-FRESH-FINAL-audited-run-overhead-V1",
+  "no_retry": true,
+  "overhead_seconds_charged_conservatively": 424,
+  "prepared_source_git_commit": "ce061d50b7e871dafc4dca9408d1af9e287a7598",
+  "study_sha256": "8b5912be1a70d10a8388b955ff9a7e5045e3a3937d4524486ef165e613841074",
+  "wall_seconds": 1300.1255814000033,
+  "worker_full_wall_seconds_already_charged": 886.7921319000307
+}

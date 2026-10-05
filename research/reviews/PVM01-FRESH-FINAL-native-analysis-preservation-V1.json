@@ -1,0 +1,22 @@
+{
+  "charge_is_outer_batch_once_not_per_child": true,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\pvm01_fresh_final_post_v1.py"
+  ],
+  "created_at": "2026-10-05T10:28:39Z",
+  "error": null,
+  "id": "PVM01-FRESH-FINAL-native-analysis-preservation-V1",
+  "raw_outputs": {
+    "PVM01-FRESH-FINAL-native-analysis-preservation-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-FRESH-FINAL-native-analysis-preservation-V1.stdout.txt": "a2f23a2c228c01735c479e6915fa725321f259038039ce04eab1ff1cb90c9db2"
+  },
+  "result": {
+    "returncode": 0
+  },
+  "wall_seconds": 11.547470100020291,
+  "whole_process_tree_bound_and_charge": "research/reviews/PVM01-FRESH-FINAL-postrun-V1.json"
+}

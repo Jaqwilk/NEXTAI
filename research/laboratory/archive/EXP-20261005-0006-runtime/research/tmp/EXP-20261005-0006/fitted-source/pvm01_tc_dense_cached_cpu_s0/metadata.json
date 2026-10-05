@@ -1,0 +1,497 @@
+{
+  "all_export_cost_in_trusted_fit_phase_and_worker_wall": true,
+  "arm": "dense_cached_cpu",
+  "arrays": [
+    {
+      "dtype": "<f4",
+      "key": "model.linear.weight",
+      "sha256": "daf8a39e96366f4bb32fd0076948254f182d91d017d548efd59f030da767738a",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.linear.bias",
+      "sha256": "9ce5475dbb98d1c7a57b6339b7196f400a9bcf06e6129415f5fae46711cdbd84",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.nonlin.0.weight",
+      "sha256": "b92e6d9e0a7eecd55d32dca1cd5f2c1e748a5848b121f18963aaf979fe3e69e2",
+      "shape": [
+        128,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.nonlin.0.bias",
+      "sha256": "54ebdbe4e84c2a1cc0576b43a26e381d21217b72260808464ea104a8254e553c",
+      "shape": [
+        128
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.nonlin.2.weight",
+      "sha256": "cdc8c2c12d15395b880419b1fc762ce43fd7e5335cb68bb3fa4e810f87ac52d7",
+      "shape": [
+        64,
+        128
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "model.nonlin.2.bias",
+      "sha256": "91264312f031f0bdcbff845eda025939ec31e27e4fb39608a3dfa50ad5631385",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.self_attn.in_proj_weight",
+      "sha256": "3cdf3eb52cca70fb93a1af337db3045ec412234b58e059a824e8ba6d36c2fd78",
+      "shape": [
+        192,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.self_attn.in_proj_bias",
+      "sha256": "4e35231600ce46ea0838222286d4bcdc9badcc9d14b60f2074f86a1217358edd",
+      "shape": [
+        192
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.self_attn.out_proj.weight",
+      "sha256": "798b169d9aa2ac89ee602d6b9cde1af9c946eb012527051d6987d98f4195ebf7",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.self_attn.out_proj.bias",
+      "sha256": "5480b33d8b73d86263521b3ff257ea6594b1213face9980253d175f6ac7064f3",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.multihead_attn.in_proj_weight",
+      "sha256": "77ce32baf7b2e0f5aa845d446cda20605773acb9aba16ca1900690078d6830f7",
+      "shape": [
+        192,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.multihead_attn.in_proj_bias",
+      "sha256": "d18461a24a14ddf6674a941db00e1c3fc746c59a6844ed078d2a2ce3c0176893",
+      "shape": [
+        192
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.multihead_attn.out_proj.weight",
+      "sha256": "3dbaad043e2b8a61946b513034750856ead2131311e5ba4d08d0316261b45fd6",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.multihead_attn.out_proj.bias",
+      "sha256": "63afe3c4095a76fdfba6739537558971bbed85ce794c4d21ee7cbb0b11bd6596",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.linear1.weight",
+      "sha256": "5c21168dc35e6206637117f6fdaf11f0f1ed749fe0467e1bbdab24634b415794",
+      "shape": [
+        256,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.linear1.bias",
+      "sha256": "0dfc67d55c2244d06012b51ac528ac7318d8ae0167d60afe1ce6967d650e2d3d",
+      "shape": [
+        256
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.linear2.weight",
+      "sha256": "002edc7edecc25bbe8c6f0c8f9560ac64fe239723c8473ed57b53e214bff720f",
+      "shape": [
+        64,
+        256
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.linear2.bias",
+      "sha256": "8be0ac0f33489ff0a13fbca1e682f8c0bfcf10c29b2ca0118d9120690b42f649",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.norm1.weight",
+      "sha256": "fecc6f596aad1cf2ff50a35de0c827875e22087659b35e3b1c845c6d4dbe2937",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.norm1.bias",
+      "sha256": "1f462a0036615f3c6072a12747a3dc61e5fd79db2ef2f2b85f0952c477c8fad5",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.norm2.weight",
+      "sha256": "a80975cf8576cee714c39499a0764fcc36bccf45053b76618576fda9560c88af",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.norm2.bias",
+      "sha256": "c3bf0d41867416f1da03ed0721015e91aedd348f0208f0484a80faeaed5b86b0",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.norm3.weight",
+      "sha256": "63994e09f2c3178075d90bcc8578ee32a183474185e5682777e00fba68a1e4a0",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.0.norm3.bias",
+      "sha256": "03b6b50bfe0fdcba8cdff1ef15cb0f30333083608f02818fd8f6cd460adae5bc",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.self_attn.in_proj_weight",
+      "sha256": "3dd9325c0f8cdaaf82f770d1bcd5cbcf05280a71da88af82c95358099a338743",
+      "shape": [
+        192,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.self_attn.in_proj_bias",
+      "sha256": "a7de9de6e2d0c8f8f1161f20aede5f1874abbd3ee22082033189536124e3787c",
+      "shape": [
+        192
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.self_attn.out_proj.weight",
+      "sha256": "477fa951ba16969702cbf0dd9df7b2a9f9d112bf8d77b8a883cce338afe2e41e",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.self_attn.out_proj.bias",
+      "sha256": "0e87f8067d6731981bb2ea8977ebe16260ead9dc51475390d9ba364f777a0742",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.multihead_attn.in_proj_weight",
+      "sha256": "62e5885dd8e8e144cba5e0a534869a9911f4dafb47d557e35b60d1ac5cae1dfe",
+      "shape": [
+        192,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.multihead_attn.in_proj_bias",
+      "sha256": "f3b7538b954372d3ef5aef6bb2faf8ffe1a71e5aa178290565ffa84271b86cd2",
+      "shape": [
+        192
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.multihead_attn.out_proj.weight",
+      "sha256": "e0242cc03087646798da02cd0835c780a9b844812952a73396e5827780920712",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.multihead_attn.out_proj.bias",
+      "sha256": "f424b84dbc1137d126e7b6dc9a6c296774b737ad334460a7949d3c4d27f55a66",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.linear1.weight",
+      "sha256": "952d946030622510eaf3dcbf4fd39b4187aac3e8f74b3a0f78374861ad7ed831",
+      "shape": [
+        256,
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.linear1.bias",
+      "sha256": "f69ae6d5a0ebd50c2cb52fde865bcaf389a141d14978d3431facf3321df85ee0",
+      "shape": [
+        256
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.linear2.weight",
+      "sha256": "390b0d9ab77682bf8ed4ea5cd4a7bbf114d41617f512b3b859b2ae327bf0a019",
+      "shape": [
+        64,
+        256
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.linear2.bias",
+      "sha256": "ad91092769ff28a1a21742dd9e4cbc85ed57bb9f9e253f8ec03c8fe35d653e74",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.norm1.weight",
+      "sha256": "4c254c3377971eaf68adaad4b7f07228b7f6396c12387a7952a465204d1caeea",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.norm1.bias",
+      "sha256": "716d6fabebc48b0952d9caa79668eb8ee811f3e62368d45597d157becd214245",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.norm2.weight",
+      "sha256": "38cc2ff5f83c28e67a6336de9a7eec230d85bf47d2de1d7b4466d34dcaaea9e3",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.norm2.bias",
+      "sha256": "835ef251991d7c6c30d597a71f4527c1a18679afae47e63ce9354e80a97d2154",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.norm3.weight",
+      "sha256": "0e3c4c72a7c9e19b0df85d28ffc57afe33330a4520a56da9dcbb29797fd3e7d3",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "dtype": "<f4",
+      "key": "decoder.layers.1.norm3.bias",
+      "sha256": "db824840b8b8ee2868bebbb9314c73b9d27b49518c82ca89d75fe7039c81d15d",
+      "shape": [
+        64
+      ]
+    }
+  ],
+  "candidate": "pvm01_tc_dense_cached_cpu_s0",
+  "copied_before_final_arrays": true,
+  "copy_and_parameter_serialization_seconds": 0.005500500003108755,
+  "fit_report_sha256": "2673b593352a3092913c987369893fff567ea29ec21bf23c0354b0b15a7445ab",
+  "parameters_bytes": 629486,
+  "parameters_sha256": "29828151bffc746315256acff1b45e20b1a6fbe43949e1b443d5337f07d10112",
+  "recipe": {
+    "alignment_batch": 256,
+    "alignment_loss": "mean squared error paired query->write observation",
+    "alignment_steps": 2048,
+    "architecture": "shared query view transport: Linear64->64 residual plus Linear64->128,GELU,Linear128->64; writes remain raw64; L2-normalized matching. No external weights. Dense control adds conventional two-layer nn.TransformerDecoder with width64,heads4,FF256,GELU,pre-norm,dropout0,self+cross dense softmax attention and dense cosine pointer. Output residual projections initially zero to preserve trained transport; fit contrastive set loss. Pointer/exact_nn omit decoder.",
+    "dense_noise_augmentation": {
+      "augmented_episode_parity": 1,
+      "augmented_noise": 0.04,
+      "base_noise": 0.02,
+      "base_observation_count_unchanged": true,
+      "context_then_query_by_ascending_K": true,
+      "independent_added_gaussian_std": 0.034641016151377546,
+      "noise_is_training_only": true,
+      "noise_rng_seed_xor": 1347246158
+    },
+    "dense_set_batch": 4,
+    "dense_set_loss": "cross entropy over K normalized scores and one NULL score; fixed scale20, NULL cosine0.85; plus0.1*MSE decoded query versus normalized target write for known queries",
+    "dense_set_queries": 8,
+    "dense_set_steps": 1024,
+    "encoder_during_dense_set_fit": "frozen after supervised alignment; decoder trained, no value shortcuts or labels in query",
+    "exact_nn": "source-identical complete query transport fit; weights must match pointer exactly, full scan cosine instead of dense softmax; own repeated fit fully charged",
+    "exact_nn_cpu": "Exact same fitted transport moved to CPU float32 after fitting, full cosine scan and no softmax shortlist; all copies charged. Not a new learned recipe.",
+    "fit_execution_policy": "All new transport arms and existing dense/cache use strict deterministic algorithms and math SDPA only during FIT, restoring flags afterward; existing architecture/loss/optimizer/data/batches unchanged.",
+    "kernel": "RBF Nyström transport,512 first training-query landmarks, all4096 pairs, float64 primal ridge; bandwidths[0.25,0.5,1.0], ridge[0.0001,0.01]; minimal reserved512 train-only MSE, deterministic grid order; all search/landmarks/fit charged",
+    "learning_rate": 0.001,
+    "memory_bandwidth": 0.35,
+    "memory_control": "All four memory arms use the same core, feature projection, capacity, initialized transport, fitting batch order and write order. Delta/additive differ only by subtraction of current memory prediction. delta_untrained freezes transport; delta_shuffled uses identical fixed shuffled pairing rule. Both controls retain the same delta update. CPU float32 inference after exact CUDA transport fit; device copy included in fit.",
+    "memory_equations": "Normalize raw write x and transported query T(q). Draw R[64,1024] Gaussian(0,1/bandwidth) once from model seed xor fixed constant; phi(x)=[cos(xR),sin(xR)]/sqrt(1024), exact unit norm up to fp32. W[2048,16] starts zero per episode. Delta W += phi(x) outer (onehot(value)-phi(x)@W); additive W += phi(x) outer onehot(value). Read y=phi(T(q))@W, choose argmax16, decision_score=max(y), return UNKNOWN if below train-selected threshold. No replay, postwrite correction, key/value dictionary, latent identities or query handle. Timestamp dictionary rejects older writes only; all accepted observations update W. Both methods preserve current observation noise; no canonical-key shortcut.",
+    "memory_feature_dimension": 2048,
+    "memory_frequencies": 1024,
+    "memory_learning_scope": "The transport is learned exactly as reference; the fixed RFF feature map and online delta/LMS rule are classical, not trained by backpropagation through memory and not a newly learned controller. No novel architecture or adaptive write-gate claim.",
+    "memory_projection_seed_xor": 1380337201,
+    "memory_write_strength": 1.0,
+    "optimized_dense": "Train exact unchanged dense model/recipe on CUDA; two new arms use identical final weights. Inference conventional single independent query: cache per-layer projected cross-attention K,V on each accepted write; evaluate algebraically equivalent two-layer pre-norm decoder with self-attention(single token), full dense cross softmax and same FF/GELU on CPU float32 and CUDA float32. Every cache allocation, copy, write maintenance and query charged. Numerical equivalence against PyTorch decoder on fixed synthetic fixtures required before seeds. Existing uncached CUDA reference retained.",
+    "optimized_ridge": "ridge32 uses same all4096/intercept ridge grid and train512 MSE selection in float64, then stores float32 and uses explicit bias without per-query append. PCA variants fit SVD on normalized legal T-fit writes, consider ranks16/32/64 crossed whitening exponent0/.5; normalize projected keys and queries, select smallest train512 mean squared L2 distance between normalized projected transport output and target, deterministic ascending rank/exponent ties. No latent-map access. exact scan and cKDTree share exact fitted projection and selected ridge weights. Tree uses eps0,p2,workers1,leafsize16,copy_data=True; lazily rebuild after writes before first read, build and float64 copies fully included; no stale index. Own repeated fit charged. Original float64 ridge and nonlinear Nyström retained.",
+    "optimizer": "AdamW",
+    "precision": "float32",
+    "raw": "zero-fit raw-space cosine, same update/absence interface",
+    "ridge": "query-to-write ridge with intercept; all4096 legal pairs, choose minimal MSE on reserved512 training-only pairs, fixed ascending grid ties first",
+    "ridge_grid": [
+      1e-06,
+      0.001,
+      0.1
+    ],
+    "selection": "last fixed optimizer step; no checkpoint, dev/hyperparameter adaptation or seed selection; all outcomes retained",
+    "shuffled": "same transport code/initialization/batches/steps, a single fixed runner-seed permutation of positive write correspondences; train set controls not relabeled",
+    "threads": 1,
+    "threshold_grid": [
+      0.0,
+      0.025,
+      0.05,
+      0.075,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.225,
+      0.25,
+      0.275,
+      0.3,
+      0.325,
+      0.35,
+      0.375,
+      0.4,
+      0.425,
+      0.45,
+      0.475,
+      0.5,
+      0.525,
+      0.55,
+      0.575,
+      0.6,
+      0.625,
+      0.65,
+      0.675,
+      0.7,
+      0.725,
+      0.75,
+      0.775,
+      0.8,
+      0.825,
+      0.85,
+      0.875,
+      0.9,
+      0.925,
+      0.95,
+      0.975,
+      1.0,
+      1.025,
+      1.05,
+      1.075,
+      1.1,
+      1.125,
+      1.15,
+      1.175,
+      1.2,
+      1.225,
+      1.25,
+      1.275,
+      1.3,
+      1.325,
+      1.35,
+      1.375,
+      1.4,
+      1.425,
+      1.45,
+      1.475,
+      1.5,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "threshold_selection": "Training-only27 calibration episodes: K32/128/512 crossed updates0/1/4,3 each,64 queries. Same finite grid for all methods, prefer known false abstention<=.02 and absent rejection>=.95, then maximal full answer, larger rejection, lower threshold; if infeasible same maximum-accuracy tie rule. Raw score scales differ and are disclosed; no dev choice.",
+    "transport_compression": "After unchanged query->write fit, move encoder to CPU. Float64 SVD of normalized legal T-fit writes only; ranks16/32/64, exponent0, select first rank retaining >=95% squared singular-value energy. FP32 projection, exact cosine scan; full comparator uses same encoder with no projection. No learned indexing, key omission or threshold rescue.",
+    "transport_learning_controls": "Untrained skips optimizer; shuffled uses existing fixed seed-xor target permutation; same encoder source/init and PCA write-only projection, same threshold grid/policy. Full and trained PCA must have exact2048 losses/final encoder identity; dense/cache exact2048+1024 losses and encoder/decoder hashes, PCA scan/tree identity unchanged. No epsilon relaxation.",
+    "transport_pca_rank_grid": [
+      16,
+      32,
+      64
+    ],
+    "transport_pca_variance_fraction": 0.95,
+    "transport_pca_whitening_exponent": 0.0,
+    "untrained": "source-identical query transport initialization and pointer, zero updates",
+    "weight_decay": 0.0001
+  },
+  "recipe_sha256": "656dd3f0e80ab50f8791436f17a00a2cc7e7bf01fe1cf8287cb93f0f27211e3c",
+  "seed": 1270692420,
+  "seed_index": 0,
+  "study_path": "research/plans/PVM01-FRESH-FINAL-V1.json",
+  "study_sha256": "8b5912be1a70d10a8388b955ff9a7e5045e3a3937d4524486ef165e613841074",
+  "threshold": 0.85,
+  "training_or_final_arrays_included": false,
+  "version": "PVM01-FITTED-SOURCE-STATE-V1"
+}

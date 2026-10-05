@@ -44,3 +44,6 @@ research/pc01_payload/**/*.pt
 
 # Native independent-confirmation record is versioned losslessly as gzip plus its exact hash.
 /research/results/EXP-20261005-0005.json
+
+# Native independent-confirmation record is versioned losslessly as gzip plus its exact hash.
+/research/results/EXP-20261005-0006.json

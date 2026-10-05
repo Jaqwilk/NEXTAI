@@ -1,0 +1,120 @@
+{
+  "analysis_sha256": "10666d7d7a15dfcfdd95d760481aee81fa339368d0376b8039de8107592e74ba",
+  "ancillary_mixed_failed_gates": [
+    "0.04:false_abstention"
+  ],
+  "base_reference_failed_competence": [],
+  "classical_failed_gates": [],
+  "created_at": "2026-10-05T10:29:05Z",
+  "exact_next_discriminating_experiment_proposal": "In a separate bounded no-scoring cycle,close and hash-bind complete stage A usage and this exact final resolution before activating authorized B12/72000s. Preregister source-frozen transport/PCA versus its preserved untrained/shuffled source controls,competent Transformer and strong classical methods on the first independently sourced transfer family; five paired fresh target units,three scales,ranking/source,retained/updated answers and UNKNOWN separated,legal target-only calibration/adaptation and every preprocessing/fit/service/copy/restore cost disclosed. A second independent family must use licensed public real data. Do not refit source weights or select favorable final/source units. Independently replicate and freeze fresh target finals before an evidence-selected minimal local fact/source/update/UNKNOWN prototype. Each bounded cycle permits one audited EXP; a negative is preserved,not rescued.",
+  "experiment_id": "EXP-20261005-0006",
+  "independent_confirmation": {
+    "base_vs_itself_assay_used": false,
+    "decision": "KEEP locally validated fixed routes for separately preregistered transfer",
+    "fitted_source_states_complete": true,
+    "fresh_final_executed": true,
+    "independently_blinded_evaluation": false,
+    "mixed_assay_used_as_gate": false,
+    "neural_route_independently_confirmed": false,
+    "no_promotion": true,
+    "reference_independently_confirmed": true,
+    "selected_route_independently_confirmed": true,
+    "selection_outcomes_excluded_from_intervals": true,
+    "trusted_resources_complete": true,
+    "valid_comparison": true
+  },
+  "next_is_not_execution_authority": true,
+  "separate_secondary_ranking_update_intervals": {
+    "0.02:known_fact_top1_accuracy": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.02:retained": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.02:updated": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.04:known_fact_top1_accuracy": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.04:retained": {
+      "high": 0.0,
+      "level": 0.95,
+      "low": 0.0,
+      "mean": 0.0,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "0.04:updated": {
+      "high": 0.001973827894664208,
+      "level": 0.95,
+      "low": -0.004196050116886422,
+      "mean": -0.0011111111111111072,
+      "n": 5,
+      "positive_units": 0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.005555555555555536
+      ]
+    }
+  },
+  "whole_goal_complete": false
+}

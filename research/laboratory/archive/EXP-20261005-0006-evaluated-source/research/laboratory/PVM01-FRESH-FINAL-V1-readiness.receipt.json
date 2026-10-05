@@ -1,0 +1,28 @@
+{
+  "classical_economic_contract_sha256": "5f6565713391799b8aeb2f1a54e9a0faa976d6bde5ec1645618284aabd8cc5fb",
+  "created_at": "2026-10-05T09:55:43Z",
+  "evaluator_sha256": "0e8d7fb7cd40cb1255502f659ab2b5c059152520106ac484f3e9aa52ed452c06",
+  "fresh_final_executed": false,
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1310
+  },
+  "full_regression_receipt_sha256": "64cb34adadbef8a4b77b6f8310b5ca260783ed42de2a666a353c65c0412248df",
+  "history_source_receipt_sha256": "94d207909ce1fc01bae5d248b98745e60f655c1ed56253aba3000b7552d8f010",
+  "id": "PVM01-FRESH-FINAL-V1-readiness",
+  "independent_clone_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "new_private_seed_data_fit_EXP_before_readiness": false,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "preregistration_git_commit": "fe5c89cf05eda4c1c8c0a84971bebf7861fe3fba",
+  "protected_files": 1289,
+  "ready_for_exactly_one_audited_registration": true,
+  "scientific_sources_unchanged": 112,
+  "shared_runtime_not_source_or_state": true,
+  "study_path": "research/plans/PVM01-FRESH-FINAL-V1.json",
+  "study_sha256": "8b5912be1a70d10a8388b955ff9a7e5045e3a3937d4524486ef165e613841074",
+  "trusted_resource_phase_snapshots_validated": true,
+  "validated_source_git_commit": "0b0b1329e7b3cf6471c468691d27898803f196b0",
+  "whole_program_complete": false
+}

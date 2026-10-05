@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\restore_pvm01_fresh_final_result.py", line 29, in <module>
+    raise ValueError("Existing resource journal differs; preserved without overwrite")
+ValueError: Existing resource journal differs; preserved without overwrite

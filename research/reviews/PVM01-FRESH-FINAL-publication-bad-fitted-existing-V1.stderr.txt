@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\restore_pvm01_fresh_final_result.py", line 63, in <module>
+    if frozen.digest(target) != record["sha256"]:raise ValueError("Existing fitted source differs; preserved without overwrite")
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Existing fitted source differs; preserved without overwrite

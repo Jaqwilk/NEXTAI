@@ -1,3 +1,17 @@
+# Completed cycle317 - frozen fresh final EXP-20261005-0006
+
+Five NEW paired units,17 fixed arms; valid=True.
+Main UN-AUGMENTED reference confirmed=True; selected classical route confirmed=True.
+Decision: KEEP locally validated fixed routes for separately preregistered transfer. No promotion,transfer or augmentation-benefit claim from adequacy.
+Ancillary mixed-reference NI remains separately reported with unchanged gates.
+All112 scientific source bytes,recipes,data law,metrics,grids and thresholds unchanged.
+Trusted cumulative CUDA allocator peaks,RSS,full fit/service and descriptive reuse costs reported.
+Analysis:research/analyses/EXP-20261005-0006.md; full frozen machine analysis/diagnosis preserved.
+Current v11 maintenance,scoring=false; A active,B authorized/unspent/inactive.
+Next prospective question: In a separate bounded no-scoring cycle,close and hash-bind complete stage A usage and this exact final resolution before activating authorized B12/72000s. Preregister source-frozen transport/PCA versus its preserved untrained/shuffled source controls,competent Transformer and strong classical methods on the first independently sourced transfer family; five paired fresh target units,three scales,ranking/source,retained/updated answers and UNKNOWN separated,legal target-only calibration/adaptation and every preprocessing/fit/service/copy/restore cost disclosed. A second independent family must use licensed public real data. Do not refit source weights or select favorable final/source units. Independently replicate and freeze fresh target finals before an evidence-selected minimal local fact/source/update/UNKNOWN prototype. Each bounded cycle permits one audited EXP; a negative is preserved,not rescued.
+No second EXP this cycle; no retry,WT8-9,external models/APIs or schedule change.
+Local same-law final completed;expanded transfer/prototype goal remains open. Previous sections preserved history.
+
 # Prospective cycle317 - frozen five-pair fresh final
 
 PVM01-FRESH-FINAL-V1 frozen before implementation/new data.
