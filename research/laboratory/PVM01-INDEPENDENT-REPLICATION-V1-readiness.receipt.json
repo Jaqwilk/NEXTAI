@@ -1,0 +1,26 @@
+{
+  "classical_economic_contract_sha256": "efab9dbb8e2fc19f6b3c163c4bc0eaa88009299f6bfbb524ea38cf1b21096c09",
+  "created_at": "2026-10-05T02:29:59Z",
+  "evaluator_sha256": "cf67b928052300d12073423f93fd68aea59ca0b6c401a2c6d6af342a4d0a18d8",
+  "fresh_final_executed": false,
+  "full_regression": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 1159
+  },
+  "full_regression_receipt_sha256": "bc4abefc0bcfda4b5a48351a0e642bbdb71c605a7bfd9066050b44f3282dc0f0",
+  "history_source_receipt_sha256": "7096fd0ce6c393e066d86c38e3327bfb49b03303f1c1fb866847b0b4570db306",
+  "id": "PVM01-INDEPENDENT-REPLICATION-V1-readiness",
+  "independent_clone_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "new_private_seed_data_fit_EXP_before_readiness": false,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "preregistration_git_commit": "430e4e45a249ce0ec69e335bb04adda7f81ff913",
+  "protected_files": 1252,
+  "ready_for_exactly_one_audited_registration": true,
+  "shared_runtime_not_source_or_state": true,
+  "study_path": "research/plans/PVM01-INDEPENDENT-REPLICATION-V1.json",
+  "study_sha256": "70c804a3a5eb89e2d2e27649d935c9a81e2cb25689cbe9138d15490bc11419c9",
+  "validated_source_git_commit": "90ed00750c79f5d614bcd32149218d63d85783b7",
+  "whole_program_complete": false
+}

@@ -1,0 +1,30 @@
+{
+  "cap": 100,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_replication_commit_validated_v1.py"
+  ],
+  "created_at": "2026-10-05T02:29:39Z",
+  "error": null,
+  "id": "PVM01-REPLICATION-history-source-V1",
+  "raw_outputs": {
+    "PVM01-REPLICATION-history-source-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-REPLICATION-history-source-V1.stdout.txt": "9860b158590f29f0f851ae164ef14fdf29d908db6c505132409a7c6187710a7e"
+  },
+  "result": {
+    "elapsed_seconds": 41.16501480000443,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 821096448,
+    "pid": 35412,
+    "processes_created": 39,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 51,
+  "wall_seconds": 45.6280953999958
+}
