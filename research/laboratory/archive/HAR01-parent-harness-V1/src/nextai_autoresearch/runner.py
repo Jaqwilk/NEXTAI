@@ -675,23 +675,6 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                     "unit_nonces": unit_nonces,
                     "entropy_policy": "independent256bit_each_unit_separate_from_model_seed_v1"})
                 runtime_plan.update(pvm01_private_data_path=str(private_path), pvm01_private_data_sha256=sha256_file(private_path))
-            if plan["benchmark"] == "har01_native_memory_v1":
-                from .research_program import verify_pvm01_fresh_realization
-                private_path = runtime_plan_path.parent / "har01-private-data.json"
-                if private_path.exists():
-                    raise FileExistsError("Native data realization exists; no retry")
-                unit_nonces = [secrets.token_hex(32) for _ in evaluation_matrix["seeds"]]
-                atomic_write_json(private_path, {"experiment_id": plan["experiment_id"],
-                    "unit_nonces": unit_nonces, "entropy_policy": "independent256bit_each_native_unit_v1"})
-                verify_pvm01_fresh_realization(base, evaluation_matrix["seeds"], unit_nonces,
-                    include_latest=True, include_transport=True, include_replication=True,
-                    include_dense_noise=True, include_confirmation=True, include_base_reference=True)
-                previous = load_json(base / "research/laboratory/archive/EXP-20261005-0006-runtime/research/tmp/EXP-20261005-0006/runtime-plan.json")
-                previous_private = load_json(base / "research/laboratory/archive/EXP-20261005-0006-runtime/research/tmp/EXP-20261005-0006/pvm01-private-data.json")
-                if (set(evaluation_matrix["seeds"]) & set(previous["matrix"]["seeds"])
-                        or set(unit_nonces) & set(previous_private["unit_nonces"])):
-                    raise ValueError("Consumed source seed/data collision; no replacement")
-                runtime_plan.update(har01_private_data_path=str(private_path), har01_private_data_sha256=sha256_file(private_path))
             atomic_write_json(runtime_plan_path, runtime_plan)
             _append_postseed_event(
                 base,

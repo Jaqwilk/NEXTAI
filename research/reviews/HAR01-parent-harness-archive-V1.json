@@ -1,0 +1,42 @@
+{
+  "src/nextai_autoresearch/audit.py": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "7a31479d5cab26dede3fede08d8e453cd65f38ebb67986890906f306355b13a2"
+  },
+  "src/nextai_autoresearch/integrity.py": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "0a6ae7d3e5d9cfe8cdfd8bbe214de6886b5407ca67961ba221bd2a3cd6e70bf9"
+  },
+  "src/nextai_autoresearch/runner.py": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "24ee91ba24ec33568a927ac5d169e18f6ce878814e016da2ce2977adf18c8ebf"
+  },
+  "src/nextai_autoresearch/research_program.py": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "1d8333e9683d8c08f9cc105d617fa376aecb877ce74c378073d4b31e5640df01"
+  },
+  "schemas/experiment_plan.schema.json": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "37e3f98882f5b8f5a14aefe99afb0924a2ad6822ca4631c9a541b9f0973abb8d"
+  },
+  "config/research.toml": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "991e29fc15f868defea9c875fab7d20595c24db002b776d7bc6dc26674a41063"
+  },
+  "config/baseline_semantics.json": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "271de6d2d8ce3e329e22293a82a637e5ea055acac5118c8ed6950e939e1ecaf2"
+  },
+  ".gitignore": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "aee94de565c5067335837ea5513cccd50e2d8eec09264b793c382e7277c9ea6e"
+  },
+  ".gitattributes": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "8818e4a435a131e14afcc2eb563c0274d9b72f5fe030c1fd6abe94aba0ed9ff4"
+  },
+  "research/eval_manifest.json": {
+    "git_parent": "e2b14ee9adb57a816314a855b3cef82b715655b5",
+    "sha256": "6aa4bd83d294f0ef5d387c722cc62a2473ea882d7a6deedb5721078cd41b2c57"
+  }
+}

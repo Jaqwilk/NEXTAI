@@ -1,0 +1,14 @@
+[
+  {
+    "path": "research/data_manifests/HAR01-LICENSE-CONFORMANCE-V1.json",
+    "raw_sha256": "0fb66b0d8a20d2670f70a77dd7641d1dead98a55ec8913be5f8da9df47dc879c",
+    "normalized_sha256": "d0e0e1a4aa67764ce3e3fb57f8724ae293bad463831f589c58fd2825b9794bd9",
+    "json_identical": true
+  },
+  {
+    "path": "research/reviews/HAR01-parent-harness-archive-V1.json",
+    "raw_sha256": "c8ab603dad1cb6c5ea78329849bf1014a8a2c364cc1d4c0453159c120682ddf2",
+    "normalized_sha256": "8f171c0d200c50f6849385ecfab14e98f3c07752fcd652b47f1306b39558ed9e",
+    "json_identical": true
+  }
+]

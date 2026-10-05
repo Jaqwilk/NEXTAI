@@ -75,9 +75,6 @@ def _study_scope(study):
                      classical_economic_contract_sha256="5f6565713391799b8aeb2f1a54e9a0faa976d6bde5ec1645618284aabd8cc5fb",
                      resource_measurement_version="cumulative_cuda_phase_peaks_v1",
                      evaluation_data_role="frozen_fresh_final_v1")
-    if study.get("study_kind") == "native_frozen_source_transfer":
-        if study["cohort"] != "har01_native_memory_v1":
-            raise ValueError("Native source-transfer recipe/cohort mismatch")
     return {**extra, **{key: study[key] for key in ("roles", "recipe", "data", "diagnostics", "diagnosis_gates", "reference_gates")},
             "classical_baselines": study["candidates"], "deadline_at": study["study_deadline_at"],
             "fit_seconds_cap": resources["fit_seconds_per_role_cap"], "fit_seconds_total_cap": resources["fit_seconds_study_cap"],
@@ -511,12 +508,6 @@ def create_plan(base, requested=None):
                 predicted_outcome="Write-only PCA may preserve learned transport quality under noise0.02/0.04; classical controls may dominate; no predetermined success.",
                 falsification_criteria=["Any frozen eight primary or competence gate fails; invalid fit identity makes comparison inconclusive."],
                 alternative_explanations=["Classical transport/PCA/exact retrieval, nonlinear representation and deployment overhead remain distinct explanations."])
-        if study.get("study_kind") == "native_frozen_source_transfer":
-            plan.update(architecture_family="frozen_source_features_native_sensor_memory",
-                predicted_outcome="Actual frozen source weights may add useful native information beyond preserved untrained/shuffled states under identical target readout; native classical retrieval may suffice; no predetermined success.",
-                falsification_criteria=["Any frozen source-information primary gate fails; failed reference or source/data/resource integrity yields an inconclusive qualified comparison, not architectural falsification."],
-                alternative_explanations=["Target readout alone, native similarity, PCA/kernel/temporal alignment and hardware overhead must be separated from source information."],
-                confounds=["Visible public physical subjects; overlapping training windows are not independent units. Five disjoint evaluation subjects/source-seed pairs; no external blind holdout. Latest-write logic is hand-written; update rounds are not reasoning depth."])
         validate_document("experiment_plan", plan, base)
         verify_required_baselines(plan, base, run_tests=False)
         verify_preflight_certificate(base)

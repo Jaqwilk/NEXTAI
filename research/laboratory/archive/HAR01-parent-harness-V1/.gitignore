@@ -47,6 +47,3 @@ research/pc01_payload/**/*.pt
 
 # Native independent-confirmation record is versioned losslessly as gzip plus its exact hash.
 /research/results/EXP-20261005-0006.json
-
-# Licensed HAR payloads remain local; exact acquisition hashes/attribution are tracked.
-/research/data/har01_native_v1/

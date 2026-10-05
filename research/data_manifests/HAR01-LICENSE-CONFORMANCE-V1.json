@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "before_model_fit_or_scoring": true,
+  "publisher_metadata_license": "CC-BY-4.0",
+  "publisher_url": "https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones",
+  "legacy_archive_readme_sha256": "eaee53f45825f349681a1a1b92a997a0082648f9b5bf93ddb3290caeede4b3a8",
+  "legacy_archive_readme_path": "research/data_manifests/HAR01-publisher-README.raw.txt",
+  "legacy_restriction_quote": "Any commercial use is prohibited.",
+  "archive_required_attribution": "Anguita, Ghio, Oneto, Parra and Reyes-Ortiz, A Public Domain Dataset for Human Activity Recognition Using Smartphones, ESANN2013.",
+  "discrepancy_preserved": true,
+  "effective_use": "Local noncommercial scientific experiment with attribution, within both stated scopes; no commercial use or dataset redistribution. Do not infer unrestricted commercial rights from the web metadata.",
+  "dataset_payload_local_and_ignored": true,
+  "scientific_recipe_metrics_thresholds_budgets_unchanged": true
+}

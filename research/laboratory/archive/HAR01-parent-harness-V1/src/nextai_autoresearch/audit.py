@@ -12,9 +12,6 @@ from .utils import project_root, sha256_file
 
 CANDIDATE_NAME = re.compile(r"^[a-z][a-z0-9_]{1,63}$")
 FORBIDDEN_INTERNAL_PREFIXES = (
-    "nextai_autoresearch.har01_task",
-    "nextai_autoresearch.har01_analysis",
-    "nextai_autoresearch.pvm01_fitted_state",
     "nextai_autoresearch.pvm01_task",
     "nextai_autoresearch.pvm01_analysis",
     "nextai_autoresearch.muc02_negatives_task",

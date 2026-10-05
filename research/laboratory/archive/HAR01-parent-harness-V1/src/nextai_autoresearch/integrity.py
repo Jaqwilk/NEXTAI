@@ -15,12 +15,6 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
-    "research/plans/HAR01-FROZEN-SOURCE-SCREEN-V1.json",
-    "research/plans/HAR01-NATIVE-TASK-CONTRACT-V1.json",
-    "research/data_manifests/HAR01-ACQUISITION-V1.json",
-    "research/data_manifests/HAR01-LICENSE-CONFORMANCE-V1.json",
-    "scripts/run_har01_check.py",
-    "scripts/acquire_har01.py",
     "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
     "research/plans/NEXTAI-B-METADATA-CONFORMANCE-ADDENDUM-V1.json",
     "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",

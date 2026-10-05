@@ -67,8 +67,3 @@ research/reviews/NEXTAI-B-*.stdout.txt -text
 research/reviews/NEXTAI-B-*.stderr.txt -text
 research/reviews/NEXTAI-B-*.xml -text
 research/checks/NEXTAI-B-* -text
-
-# HAR intake/archive evidence retains exact captured publisher and parent bytes.
-research/data_manifests/HAR01-*.raw.txt -text
-research/laboratory/archive/HAR01-*/** -text
-research/checks/HAR01-* -text
