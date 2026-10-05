@@ -1,0 +1,15 @@
+{
+  "all_current_protected_files": 1434,
+  "archive_path": "research/laboratory/archive/ASM01-serializer-cycle323-parent-V1",
+  "created_at": "2026-10-05T21:50:18Z",
+  "files": {
+    "AGENTS.md": "f85691776baeb4d50c4b4fd9725ecb56c416459a29b3455f61dff9fe2b0be6aa",
+    "config/research.toml": "579bdcd37f9d40354ca4334f50a117ce373ea044559bd5cc9a39c49d38ec7aa5",
+    "docs/CURRENT_STATUS.md": "845f290c44e09545733b766fc603693f0e083f2ff174f6f1a524b2e3cc9642ca",
+    "program.md": "8875ec9156853ec53b26709c9d7a33a7fdd8f4eb1163946d61a74a4ef2922a03",
+    "research/LAB_PLAN.md": "f79400fd1857ba319ff8efe007222e444159ebc24d424868bea70181263c9539",
+    "research/eval_manifest.json": "b3ead099bfd64b666a1d0873b9ba4c712105754c953ca59e73573e6bb0d831e7",
+    "research/laboratory/preflight_certificate.json": "df734281989c682aff98a773e6463aa610b030897f734890708b9c3b0d115f42",
+    "research/state.json": "5bbe3dc1f039a9b789da511c9976f57eeefc08d41c6a75aaef79e71c7cd06f3c"
+  }
+}

@@ -1,19 +1,3 @@
-# Current cycle323 — complete native serializer conformance (2026-10-05)
-
-ASM01-SERIALIZER-STRUCTURE-PREPARATION-V1 is preparation only.
-Deadline2026-10-05T23:38:34Z; auxiliary2200s includes startup/failures/admin.
-Zero EXP,registration,research fit,new native sample/extraction/NPZ or scoring.
-Diagnose every row form in only exact already-exposed T1,redacting coordinates/names.
-Freeze a separate hash-bound concrete metadata repair BEFORE implementing it,
-then validate synthetic fixtures and one T1 parse in the independent clone.
-Preserve V1/V2/V3,all geometry/models/numeric rules/metrics/grids/gates/history.
-Native failure stops unstarted scope; no same-cycle schema rescue.
-Technical success needs a NEW separately frozen scientific cohort/intake;
-it is not learning,transfer,economics or scoring readiness. B remains active,
-protected7tickets/47000s unchanged; no paid retry,WT8-9,external model/API or schedule change.
-
-Earlier stage-specific sections below remain preserved history.
-
 # Current cycle322 — prospective native grammar conformance (2026-10-05)
 
 ASM01-NATIVE-GRAMMAR-CONFORMANCE-V1 is a separate preparation-only contract.

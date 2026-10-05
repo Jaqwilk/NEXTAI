@@ -1,0 +1,89 @@
+{
+  "cohort": "asm01_native_memory_v2",
+  "conditional_repair": {
+    "allowed_scope": "New minimal versioned adapter only. Metadata row normalization with exact public header/pen token grammar; original V1/V2/V3, candidates, models, generators, numeric bounds/state/stroke/point caps, geometry/views and scientific contracts remain byte-identical.",
+    "must_freeze_before_implementation": "A NEW immutable ASM01-SERIALIZER-METADATA-REPAIR-V1.json, hash-bound to the completed structural diagnosis, specifying every accepted/rejected change and fixture before parser implementation or renewed numeric T1 conversion.",
+    "not_authorized": "No post-parse native failure rescue in this cycle. If geometry/numeric law would need changing, close inconclusive and choose a separate prospective task decision.",
+    "validation": "Synthetic valid/invalid header/marker/lifecycle/numeric/type/byte cases and exact old-parser/descriptor equivalence; then one bounded parse of exact known T1, counts/shapes/hashes only. New sample/D/future access0, fit0, scoringfalse."
+  },
+  "created_at": "2026-10-05T21:50:18Z",
+  "cycle": 323,
+  "decision_rule": "KEEP only technical serializer conformance if complete diagnosis, separately preregistered repair fixtures, exact single T1 parse/views and clone integrity/lifecycle pass; otherwise INCONCLUSIVE and stop unstarted scope. No learning/transfer/economic claim or scoring readiness.",
+  "diagnosis_recipe": {
+    "bound": "One sample at most262144 bytes; record whole-sample SHA and complete row-count coverage; report unknown forms rather than guessing.",
+    "enumeration": "Every nonempty row: declared header/end category, complete recognized column-header positions, PEN_DOWN/PEN_UP token counts and per-field lexical kinds, point-row token counts/kinds and categorical state/stroke counts, pen alternation/serial pattern and declared stroke count.",
+    "models_and_geometry": "No original parser/model call, point array, descriptor, fitting, threshold/metric selection or scientific inference during diagnosis.",
+    "redaction": "Never emit character names, X/Y coordinate values or unknown raw tokens. Coordinate fields get lexical-kind histograms only, no int/float conversion. Emit only trailing categorical marker state/stroke fields when positions are unambiguous and only point state/stroke fields; any other fields redacted by type.",
+    "scope": "Only exact SHA-bound already-exposed W1/1.1 in the independent clone; no other native file, extraction or NPZ."
+  },
+  "forbidden": [
+    "EXP/registration",
+    "research fit",
+    "new native samples/extraction/NPZ",
+    "D/future coordinates",
+    "source refit",
+    "model/descriptor/gate changes",
+    "completed artifact edits",
+    "paid retry",
+    "WT8-9",
+    "external model/API",
+    "schedule changes"
+  ],
+  "id": "ASM01-SERIALIZER-STRUCTURE-PREPARATION-V1",
+  "native_validation": {
+    "already_exposed_training_sample": true,
+    "class_names_or_coordinate_values_in_outputs": false,
+    "expected_bytes": 10644,
+    "expected_sha256": "4c3e65ac49ff5ad55f521ab9f86b47dbaa55cfb5cd341d6d1d234ad1d4e9dfff",
+    "new_extraction": false,
+    "new_sample_access": false,
+    "numerical_conversion_authorized_for_this_sample_only": true,
+    "relative_path": "research/data/asm01_native_v1/screen-text-v2/Online Handwritten Assamese Characters Dataset/W1/1.1.TXT",
+    "root": "Independent NEXTAI-VALIDATION-20261002 checkout only"
+  },
+  "next_discriminating_experiment": "After technical success freeze a NEW native scientific intake/cohort with exact models,source states,4096pairs,steps,metrics,grids/gates and five predefined writer pairs; independent clone/native feasibility/preflight/readiness before exactly one audited three-scale nominal/adverse EXP. Disclose already-exposed T1 and preserve failed V1/V2/grammarV3.",
+  "parent_archive_path": "research/laboratory/archive/ASM01-serializer-cycle323-parent-V1",
+  "parent_manifest_sha256": "b3ead099bfd64b666a1d0873b9ba4c712105754c953ca59e73573e6bb0d831e7",
+  "parent_reference_sha256": {
+    "research/laboratory/ASM01-CYCLE322-COMPLETION-V1.receipt.json": "93e8430c98cd3cc6b432eae8b2e4e5b7a141b85a59d8f5914794bcdbe0d06bb6",
+    "research/plans/ASM01-CANONICAL-NATIVE-TASK-V2.json": "debdeea304bec803b482c421b6d7d54dfc398a8563f7312f7a84fdbe226063a9",
+    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V1.json": "eeed8e364291320100eaf10d54788cbb29b1407b92fdf95aa0f85f257c08fa4e",
+    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V2.json": "ff35bd63a84ce510fc13e67f5d1f5314620607a634899aa321d74c2d39411925",
+    "research/plans/ASM01-NATIVE-GRAMMAR-CONFORMANCE-V1.json": "2e33af01acf0fee203275a84f434279de6c5f098a6ee2178bc87fd994b7ea217",
+    "research/reviews/ASM01-EXPOSED-T1-GRAMMAR-CONFORMANCE-V1.json": "0a3e5e5188811cf0055bc1eef5295165dfbb5323fd4f7a79f8f78217bc50dcdd"
+  },
+  "previous_goal_turn_classification": "progress: cycle322 implemented and validated header handling, preserved failures and exact budgets, and identified PEN_UP as the next concrete serializer error; no genuine impasse",
+  "program_contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+  "question": "Which complete serializer row forms explain the exposed T1 failure, and can a separately prospectively frozen metadata-only normalization preserve all numeric geometry and scientific rules?",
+  "registration_attempts_for_this_study_cap": 0,
+  "resources": {
+    "administration_prepaid_seconds": 300,
+    "auxiliary_test_seconds_cap": 2200,
+    "fit_seconds_per_role_cap": 0,
+    "fit_seconds_study_cap": 0,
+    "native_sample_bytes_cap": 262144,
+    "native_samples_cap": 1,
+    "new_download_bytes_cap": 0,
+    "work_minutes_cap": 120
+  },
+  "schema_version": 1,
+  "stage": "task_design",
+  "study_deadline_at": "2026-10-05T23:38:34Z",
+  "study_kind": "preparation_only",
+  "study_started_at": "2026-10-05T21:38:34Z",
+  "unchanged_gates": {
+    "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+    "known_false_abstention_max": 0.02,
+    "p95_ratio_upper_max": 0.9,
+    "paired_units_min": 5,
+    "protected_future_compute_seconds": 47000,
+    "protected_future_tickets": 7,
+    "quality_difference_simultaneous_lower_min": -0.02,
+    "reference_each_seed_accuracy_min": 0.9,
+    "reference_mean_accuracy_min": 0.95,
+    "strong_classical_non_domination_required": true,
+    "unknown_rejection_min": 0.95
+  }
+}
