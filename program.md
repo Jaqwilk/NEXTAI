@@ -1,3 +1,29 @@
+# Current state - cycle321 ASM01 intake invalidity (2026-10-05)
+
+ASM01 scientific V1 and canonical-membership V2 were both preregistered before
+coordinate content; plans remain immutable. The bounded V1 archive check found one
+foreign W6/15.5.TXT; V2 preserved it and all8235 canonical samples, but the first
+training file then failed frozen point grammar at its public X/Y/STYLUS_STATE/STROKE
+column header. No coordinate point was numerically converted, D file parsed, paid
+registration, scientific fit or EXP performed. No post-content parser/model/threshold
+rescue in this cycle. Exact recipes are INCONCLUSIVE through intake failure.
+
+Current benchmark asm01_native_memory_v2=maintenance, scoring=false. Program B
+remains active; all auxiliary runs/failures are charged. Protected7tickets/47000s
+for replication, fresh finals and prototype remain untouched. Old MUC/A/HAR results,
+source states, and all failed receipts remain immutable. Use uv run nextai lab status.
+
+Next bounded question: preregister a separate no-scoring native serialization
+conformance before changing parser code. Accept only the documented four-token
+column header, keep descriptors/models/metrics/gates unchanged, test valid/malformed
+public fixtures and the already exposed T1/sample1 syntax only; preserve both failed
+versions. A new separately frozen cohort and successful native feasibility, clone
+preflight/readiness must precede exactly one audited five-pair study. D/native future
+writers, WT8-9, source replay, paid retries, external models/APIs and schedule changes
+remain forbidden outside a separately authorized prospective scientific scope.
+
+All earlier stage-specific text below is preserved history.
+
 # Cycle320 preparation — independent pen-trajectory intake (2026-10-05)
 
 Prospective preparation contract: research/plans/NEXTAI-FAMILY2-INTAKE-PREPARATION-V1.json, frozen before metadata at554a76c. Zero new EXP,registration or research fit; deadline2026-10-05T19:32:51Z,auxiliary cap1800s including startup,metadata checks,failures and conservative administration. B remains active; protected7 tickets/47000s unchanged; A/MUC stay closed and consumed.

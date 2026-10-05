@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 250,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/seal_asm01_failed_intake.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T19:54:14Z",
+  "error": null,
+  "id": "NEXTAI-B-321-maintenance-seal-V1",
+  "raw_outputs": {
+    "NEXTAI-B-321-maintenance-seal-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-321-maintenance-seal-V1.stdout.txt": "7b30f979941ab1cdae0362a7cf36ef5f265728f645e74a5b3d2f93e05e1228e0"
+  },
+  "result": {
+    "elapsed_seconds": 88.77567989999079,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1141497856,
+    "pid": 26572,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 143,
+  "wall_seconds": 102.92948610000894,
+  "whole_process_tree_bounded": true
+}

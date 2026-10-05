@@ -1,0 +1,29 @@
+{
+  "archive_index_sha256": "01273581e2f6887097b5f5c832eb2bc16c0f14514ac1018f711fb8678e2696db",
+  "attribution": "Baruah and Hazarika(2015), UCI, DOI10.24432/C50C8Q; native trajectory instance memory, not OCR.",
+  "complete": false,
+  "created_at": "2026-10-05T19:44:21Z",
+  "error": "ValueError: Native point grammar",
+  "excluded_foreign_member": {
+    "bytes": 9459,
+    "path": "Online Handwritten Assamese Characters Dataset/W6/15.5.TXT"
+  },
+  "excluded_foreign_member_numeric_reads": 0,
+  "expanded_archive_bytes": 66920184,
+  "footprint_bound_bytes": 335544320,
+  "free_space_after_bytes": 19014561792,
+  "free_space_before_bytes": 19034349568,
+  "full_intake_wall_seconds": 1.4446225000137929,
+  "license": "CC BY4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "native_legal_files": 8235,
+  "new_download_bytes": 0,
+  "no_archive_reacquisition": true,
+  "no_model_fit_or_scoring": true,
+  "preserved_failed_V1_receipt_sha256": "b4119f1c33f73ea721babb4f0481e2561f3c6fd92bccd6f968b683e2af84caf9",
+  "publisher_sha256": "d6ad543e65269d53e38fdac6a32dd20bcd942e7616891a6cf95986894b454a4d",
+  "samples_per_writer": 183,
+  "study_sha256": "ff35bd63a84ce510fc13e67f5d1f5314620607a634899aa321d74c2d39411925",
+  "task_contract_sha256": "debdeea304bec803b482c421b6d7d54dfc398a8563f7312f7a84fdbe226063a9",
+  "writer_count": 45
+}

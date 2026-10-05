@@ -53,6 +53,3 @@ research/pc01_payload/**/*.pt
 
 # Native HAR screen is preserved byte-for-byte in its gzip bundle and publication record.
 /research/results/EXP-20261005-0007.json
-
-# Native ASM publisher/sample/coordinate bytes remain local; manifests and hashes are tracked.
-/research/data/asm01_native_v1/
