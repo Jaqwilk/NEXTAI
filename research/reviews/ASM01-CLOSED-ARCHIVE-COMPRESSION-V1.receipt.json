@@ -1,0 +1,16 @@
+{
+  "all_paths_and_content_bytes_preserved": true,
+  "allocated_after": 1666682880,
+  "allocated_before": 13653361845,
+  "compression": "Transparent NTFS LZX; future reading/decompression stays in measured full cost",
+  "created_at": "2026-10-05T19:16:38Z",
+  "disk_free_after": 19047145472,
+  "disk_free_before": 7055466496,
+  "elapsed_seconds": 270.73018449998926,
+  "files_deleted": 0,
+  "files_verified": 4725,
+  "logical_bytes": 13653361845,
+  "proof_sha256": "84df0d637fac4d454d45f4e0926682abf9177a4170f107db2ff165938c5db55f",
+  "source_states_and_WT_not_touched": true,
+  "space_reclaimed_bytes": 11991678976
+}
