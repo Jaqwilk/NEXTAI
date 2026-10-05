@@ -1,0 +1,7 @@
+from pathlib import Path
+import json
+b=Path.cwd();a=json.loads((b/'research/reviews/EXP-20261005-0004-PVM01-confirmation-analysis.json').read_text(encoding='utf-8'))
+s=a['reference_selection']
+units={arm:{noise:{i:{k:u[k] for k in ('accuracy','unknown','false_abstention','known_fact_top1_accuracy','updated','retained','full_workload_seconds','p95_us','state_bytes')} for i,u in by_unit.items()} for noise,by_unit in a['arms'][arm].items()} for arm in ('dense','dense_mixed','dense_cached_cpu_mixed','transport_pca','ridge_pca_scan')}
+out={'reference':{k:s[k] for k in ('decision','base_reference_competent','mixed_reference_competent','adequate_for_prospective_selection','causal_false_abstention_improvement')},'reference_failed_gates':{k:s['primary_simultaneous_intervals'][k] for k,v in s['primary_gates'].items() if not v},'failed_unit_guards':[k for k,v in s['each_unit_false_abstention_guards'].items() if not v],'failed_competence':{k:{name:v for name,v in values.items() if not v} for k,values in s['competence_gates'].items() if not all(values.values())},'primary_failed':[k for k,v in a['primary_gates'].items() if not v],'routes':{key:{'qualified':a[key]['screen_qualified'],'decision':a[key]['decision'],'failed_economic':[k for k,v in a[key]['economic_gates'].items() if not v],'dominators':a[key]['matched_quality_dominators']} for key in ('selected_classical_route_confirmation','neural_economics_against_mixed_reference')},'units':units}
+print(json.dumps(out),flush=True)

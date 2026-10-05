@@ -1,0 +1,10 @@
+{
+  "experiment_id": "EXP-20261005-0004",
+  "valid_comparison": true,
+  "trusted_resources_complete": true,
+  "reference_independently_confirmed": false,
+  "selected_route_independently_confirmed": false,
+  "decision": "DISCARD exact selected-route independent qualification",
+  "no_promotion": true,
+  "selection_outcomes_excluded_from_intervals": true
+}

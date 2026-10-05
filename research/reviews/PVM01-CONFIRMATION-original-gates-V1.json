@@ -1,0 +1,74 @@
+{
+  "all_four_native_hashes_verified": true,
+  "commands": [
+    {
+      "label": "restore-old",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-original-restore-old-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-original-restore-old-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-new",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-original-restore-new-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-original-restore-new-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-dense-noise",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-original-restore-dense-noise-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-original-restore-dense-noise-V1.stdout.txt": "212ee7dde95848c01ffe77caa0e68b9c324e5219f8aa6c4f73970aba0823dfd9"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "restore-confirmation",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-original-restore-confirmation-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-original-restore-confirmation-V1.stdout.txt": "09ac4ae97730926b020424467bf62cd8fbbbe5939cd6c9c8d02149cb53e577f2"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "history",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-original-history-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-original-history-V1.stdout.txt": "87bc31edeb10322ede50d58a608518d54a93b316f4bdc30d3825fc7ff5e37fb6"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "frozen-reanalysis",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-original-frozen-reanalysis-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-original-frozen-reanalysis-V1.stdout.txt": "f23a6d310d258edf9eafcf689aea7062f8ba66388a70087e81e3eaf3e2aafc1b"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "doctor",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-original-doctor-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-original-doctor-V1.stdout.txt": "215114f2299f29b62228cdb0edf07625144fae416d3c648a34ceaea489753f7f"
+      },
+      "returncode": 0
+    },
+    {
+      "label": "lab",
+      "raw_outputs": {
+        "PVM01-CONFIRMATION-original-lab-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "PVM01-CONFIRMATION-original-lab-V1.stdout.txt": "74fa93d4b2dd061000481ca4bf67b53d5786c9afb987e38a025735a772beafb5"
+      },
+      "returncode": 0
+    }
+  ],
+  "created_at": "2026-10-05T07:19:37Z",
+  "history_integrity_preflight_doctor_lab": true,
+  "no_new_seed_data_model_fit_scoring": true,
+  "original_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI",
+  "source_revision": "884503b28b5a8a531f15367f493f98f5be0bce89"
+}
