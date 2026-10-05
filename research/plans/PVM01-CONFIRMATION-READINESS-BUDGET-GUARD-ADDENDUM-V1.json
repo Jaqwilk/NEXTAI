@@ -1,0 +1,16 @@
+{
+  "all_failed_costs_and_outcomes_preserved": true,
+  "cause": "status.fit_seconds_remaining already deducts uncharged live auxiliary reservations. The additional final-reserve guard subtracted that live500s again because it counted only completed charges. Correct effective auxiliary uses charged seconds or current reserved caps,matching trusted programme accounting.",
+  "completed_doctor_lab_semantic_tests_and_schema_not_repeated": true,
+  "created_at": "2026-10-05T06:27:17Z",
+  "current_limits_metrics_recipe_data_and_readiness_receipt_unchanged": true,
+  "failed_receipt": "research/reviews/PVM01-CONFIRMATION-prepaid-V1.json",
+  "failed_source_raw_archive": "research/laboratory/archive/PVM01-CONFIRMATION-readiness-budget-guard-before-V1",
+  "fixed_guard_effective_current_auxiliary": 2308,
+  "fresh_final_reserve_seconds": 24000,
+  "id": "PVM01-CONFIRMATION-READINESS-BUDGET-GUARD-ADDENDUM-V1",
+  "minimum_remaining_after_all_current_worst_case_costs": 24097.323601499927,
+  "parent_study_path": "research/plans/PVM01-DENSE-NOISE-CONFIRMATION-V1.json",
+  "parent_study_sha256": "1ecb3ecd34b1c155817f74b6d3ac9ccf7b7bb7922ceca2fa6a79f1f003fd2c1f",
+  "research_seed_data_fit_EXP_before_guard_completion": false
+}

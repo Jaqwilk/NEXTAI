@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\research\tmp\pvm01_confirmation_prepaid_v1.py", line 35, in <module>
+    assert value['fit_seconds_remaining']-study['resources']['fit_seconds_study_cap']-(3600-charged)>=24000
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

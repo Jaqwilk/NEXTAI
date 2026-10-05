@@ -1,0 +1,14 @@
+{
+  "all85_semantic_source_records_and_schema": true,
+  "can_create_plan": true,
+  "certifying_check_receipt": "research/reviews/PVM01-CONFIRMATION-prepaid-V2.json",
+  "corrected_guard_addendum_path": "research/plans/PVM01-CONFIRMATION-READINESS-BUDGET-GUARD-ADDENDUM-V1.json",
+  "corrected_guard_addendum_sha256": "6f100fa6cc4359cc1a5f1eadda702dbbfb1f4d7617e518c8e8ad6fd3f566de9f",
+  "created_at": "2026-10-05T06:27:17Z",
+  "doctor": "PASS prior exact retained output",
+  "lab": "PASS prior exact retained output",
+  "minimum_final_seconds_after_all_current_worst_case": 24097.323601499927,
+  "new_private_seed_data_fit_registration": false,
+  "readiness_integrity_preflight": true,
+  "semantic_tests_completed_before_V1_budget_only_assertion": true
+}

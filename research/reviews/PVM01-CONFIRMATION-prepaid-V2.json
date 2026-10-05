@@ -1,0 +1,30 @@
+{
+  "cap": 240,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_confirmation_prepaid_completion_v2.py"
+  ],
+  "created_at": "2026-10-05T06:28:12Z",
+  "error": null,
+  "id": "PVM01-CONFIRMATION-prepaid-V2",
+  "raw_outputs": {
+    "PVM01-CONFIRMATION-prepaid-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-CONFIRMATION-prepaid-V2.stdout.txt": "858fc3e4fb03a50f10e78c6eec6f3872955bd8259b82018acd079c86b098b5bc"
+  },
+  "result": {
+    "elapsed_seconds": 160.34844760000124,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 2875146240,
+    "pid": 35424,
+    "processes_created": 150,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 173,
+  "wall_seconds": 167.66777310000907
+}
