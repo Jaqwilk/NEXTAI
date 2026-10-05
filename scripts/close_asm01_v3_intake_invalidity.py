@@ -195,6 +195,8 @@ receipt = dict(schema_version=1, id='ASM01-CYCLE324-COMPLETION-V1', created_at=f
                intake_receipt_sha256=sha256_file(root / intake_path),
                maintenance_seal_sha256=sha256_file(root / seal_path),
                preintake_conformance_sha256=sha256_file(root / 'research/reviews/ASM01-V3-PREINTAKE-CONFORMANCE-V1.json'),
+               conformance_junit_sha256=sha256_file(root / 'research/reviews/NEXTAI-B-324-clone-conformance-V1.xml'),
+               lifecycle_junit_sha256=sha256_file(root / 'research/reviews/NEXTAI-B-324-clone-lifecycle-V1.xml'),
                passed_fixture_cases=131, passed_lifecycle_cases=1,
                full_independent_clone_lab_CLI_pass=True, original_startup_and_closing_doctor_pass=True,
                full_regression_repeated=False, protected_files=seal['protected_files'],
