@@ -1,0 +1,38 @@
+{
+  "cap_seconds": 150,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/verify_family2_preparation.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-05T18:26:36Z",
+  "error": null,
+  "id": "NEXTAI-B-320-clone-conformance-V2",
+  "raw_outputs": {
+    "NEXTAI-B-320-clone-conformance-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-320-clone-conformance-V2.stdout.txt": "cd2f72af4cdd8a0eebf8fd68b73ee39507dc83308d9b364734d037a72364c8d2"
+  },
+  "result": {
+    "elapsed_seconds": 67.40660969997407,
+    "exit_job_active_process_count": 6,
+    "exit_live_descendant_pids": [
+      17308,
+      36648,
+      35872,
+      36884,
+      5376
+    ],
+    "peak_tree_rss_bytes_sampled": 644231168,
+    "pid": 27576,
+    "processes_created": 18,
+    "reason": "timeout",
+    "returncode": 124,
+    "root_returncode": 124
+  },
+  "seconds_charged": 126,
+  "wall_seconds": 85.00462709998828,
+  "whole_process_tree_bounded": true
+}

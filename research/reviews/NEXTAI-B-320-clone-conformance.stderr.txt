@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\verify_family2_preparation.py", line 99, in <module>
+    module.main()
+    ~~~~~~~~~~~^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\scripts\intake_family2_metadata.py", line 53, in main
+    assert position >= 0
+           ^^^^^^^^^^^^^
+AssertionError

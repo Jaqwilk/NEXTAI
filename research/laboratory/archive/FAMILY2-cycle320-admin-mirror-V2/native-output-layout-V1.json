@@ -1,0 +1,15 @@
+{
+  "copies": {
+    "research/reviews/FAMILY2-ADMIN-MIRROR-V2.stderr.txt": {
+      "archived_path": "research/laboratory/archive/FAMILY2-cycle320-admin-mirror-V2/FAMILY2-ADMIN-MIRROR-V2.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "research/reviews/FAMILY2-ADMIN-MIRROR-V2.stdout.txt": {
+      "archived_path": "research/laboratory/archive/FAMILY2-cycle320-admin-mirror-V2/FAMILY2-ADMIN-MIRROR-V2.stdout.txt",
+      "sha256": "eaedc4d39b91d62074d890fa20b166a1c54787bf93471ed78ddf3de8e9c1cb6c"
+    }
+  },
+  "created_at": "2026-10-05T18:44:01Z",
+  "raw_originals_unchanged": true,
+  "reason": "Archive -text preserves exact Windows native capture bytes in Git; local originals retained at logical review paths."
+}

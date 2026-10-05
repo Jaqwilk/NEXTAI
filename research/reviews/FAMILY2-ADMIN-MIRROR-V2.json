@@ -1,0 +1,24 @@
+{
+  "charged_to_prepaid_id": "NEXTAI-B-320-metadata-administration",
+  "closed_files_only": true,
+  "created_at": "2026-10-05T18:40:45Z",
+  "id": "FAMILY2-ADMIN-MIRROR-V2",
+  "new_charge_seconds": 0,
+  "outputs": {
+    "FAMILY2-ADMIN-MIRROR-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "FAMILY2-ADMIN-MIRROR-V2.stdout.txt": "eaedc4d39b91d62074d890fa20b166a1c54787bf93471ed78ddf3de8e9c1cb6c"
+  },
+  "prepaid_seconds": 300,
+  "result": {
+    "elapsed_seconds": 2.6820715999929234,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 45273088,
+    "pid": 34200,
+    "processes_created": 7,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "script_sha256": "960532fbf529fcbe62a0a1475ee3b7073fb53330c1c6c3b288e4cb8c39b6521f"
+}

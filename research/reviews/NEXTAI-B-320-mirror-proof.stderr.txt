@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\scripts\verify_family2_mirror.py", line 35, in <module>
+    assert (root / relative).is_file() and (clone / relative).is_file(), relative
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: research/reviews/NEXTAI-B-320-mirror-proof.stderr.txt

@@ -1,0 +1,39 @@
+{
+  "clone_root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "created_at": "2026-10-05T18:29:18Z",
+  "current_integrity_preflight_ok": true,
+  "historical_ledger_prefixes_preserved": true,
+  "junit_sha256": "8841d0bff7e54d2e8255895f7b6ad8b3b7507e4c757dd15bb40372febe87ccf0",
+  "metadata_hashes_verified": {
+    "nist-central-directory-prefix.bin": "b028747dce51e10ca24545d3f5c4b3ae957d6282098bad39ad7ffccd7ba13000",
+    "nist-directory-tail.bin": "4d04bcfa9962d89ee452342dae1df4c5eeb84184d15d94ea2f49da4df60dca32",
+    "optdigits-orig.names.txt": "f59c1a0f3f65e3a121e793a00ff6cdd86d47941719103e03a171f9dbf545311e",
+    "optdigits.names.txt": "3e82f7202d72a2b7dbdbc324c8c90fe8853164f5d6ab978a071357ad3de89f02"
+  },
+  "network_requests": 0,
+  "new_EXP": 0,
+  "note": "Program/candidate audits are covered by the separate full CLI lab status; V2 39-case JUnit and process timeout are preserved, V3 uses a fresh local temp root.",
+  "nullable_HEAD_length_synthetic_cases": [
+    {
+      "recorded_length": null,
+      "supplied_length": null
+    },
+    {
+      "recorded_length": 1234,
+      "supplied_length": "1234"
+    }
+  ],
+  "old_protected_files": 1370,
+  "old_scientific_bytes_unchanged": true,
+  "parent_commit": "24ad3a51ad1960b58229bb5559c358b62815805e",
+  "previous_document_bytes_retained_verbatim": true,
+  "protected_future_compute_seconds": 47000,
+  "protected_future_registration_attempts": 7,
+  "pytest_exit_code": 0,
+  "python_source_root_confirmed": true,
+  "research_fit_seconds": 0,
+  "study_sha256": "dc8d6b48cad1872fb9047b99d05f573c32a348003a9139855599c6119579cfa5",
+  "target_numeric_samples_read": 0,
+  "task_sha256": "218d7a5d7fd0efb748341f76a4d83fb2e62ab793136382888ef241d877872360",
+  "writer_pool_and_resource_contract_ok": true
+}
