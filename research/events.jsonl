@@ -1246,3 +1246,5 @@
 {"charge_id":"NEXTAI-B-319-maintenance-seal-V2","created_at":"2026-10-05T14:34:37Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1","seconds":52}
 {"charge_id":"NEXTAI-B-319-full-regression-V1","created_at":"2026-10-05T14:35:32Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1","seconds_cap":1000}
 {"charge_id":"NEXTAI-B-319-full-regression-V1","created_at":"2026-10-05T14:48:22Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1","seconds":790}
+{"charge_id":"NEXTAI-B-319-affected-conformance-V1","created_at":"2026-10-05T14:53:17Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1","seconds_cap":300}
+{"charge_id":"NEXTAI-B-319-affected-conformance-V1","created_at":"2026-10-05T14:54:30Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1","seconds":93}
