@@ -1,0 +1,3 @@
+from pathlib import Path
+p=Path('scripts/analyze_pvm01_base_reference.py');s=p.read_text(encoding='utf-8');s=s.replace('    routes = {}\n', '    routes = {}\n    learning_ok = (len(analysis["primary_gates"]) == 9 and analysis["primary_gates"].get("all_eight_endpoints") is True\n                   and all(analysis["primary_gates"].values()))\n',1).replace('and all(analysis["primary_gates"].values())\n        route["decision"]', 'and learning_ok\n        route["decision"]',1);p.write_text(s,encoding='utf-8',newline='\n')
+for path in [p,Path('tests/test_pvm01_base_reference.py')]:compile(path.read_text(encoding='utf-8'),str(path),'exec')

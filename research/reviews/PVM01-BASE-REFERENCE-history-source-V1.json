@@ -1,0 +1,30 @@
+{
+  "cap": 180,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_base_reference_commit_validated_v1.py"
+  ],
+  "created_at": "2026-10-05T08:06:51Z",
+  "error": null,
+  "id": "PVM01-BASE-REFERENCE-history-source-V1",
+  "raw_outputs": {
+    "PVM01-BASE-REFERENCE-history-source-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-BASE-REFERENCE-history-source-V1.stdout.txt": "afba5f877e664de4852bab5e4ade268b58046ef774e2c520ef92ee83a85f180e"
+  },
+  "result": {
+    "elapsed_seconds": 74.82369550000294,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1047023616,
+    "pid": 35172,
+    "processes_created": 50,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 89,
+  "wall_seconds": 83.72612330000266
+}

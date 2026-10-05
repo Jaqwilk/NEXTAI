@@ -1,0 +1,30 @@
+{
+  "cap": 600,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "research/tmp/pvm01_base_reference_prepaid_v1.py"
+  ],
+  "created_at": "2026-10-05T08:14:29Z",
+  "error": null,
+  "id": "PVM01-BASE-REFERENCE-prepaid-V1",
+  "raw_outputs": {
+    "PVM01-BASE-REFERENCE-prepaid-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "PVM01-BASE-REFERENCE-prepaid-V1.stdout.txt": "8a59ce9f1db5bdadc6d2c7064f2ba0434e3270b11b0558fdd33340c063e08c73"
+  },
+  "result": {
+    "elapsed_seconds": 404.24522799999977,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 3480715264,
+    "pid": 37984,
+    "processes_created": 466,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 419,
+  "wall_seconds": 413.167343299996
+}
