@@ -1175,3 +1175,6 @@
 {"charge_id":"PVM01-FRESH-FINAL-full-V1","created_at":"2026-10-05T09:48:50Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":670}
 {"charge_id":"PVM01-FRESH-FINAL-history-source-V1","created_at":"2026-10-05T09:50:19Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":240}
 {"charge_id":"PVM01-FRESH-FINAL-history-source-V1","created_at":"2026-10-05T09:50:54Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":40}
+{"charge_id":"PVM01-FRESH-FINAL-prepaid-V1","created_at":"2026-10-05T09:55:42Z","event":"research_program_aux_fit_reserved","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds_cap":550}
+{"created_at":"2026-10-05T09:55:43Z","event":"research_program_study_ready","program_id":"NEXTAI-CONTINUATION-20261004-V1","receipt_path":"research/laboratory/PVM01-FRESH-FINAL-V1-readiness.receipt.json","receipt_sha256":"4d3a2b9b51c054ae3483cbde4acf097abe14e2c18e4fcda80bcb6aa69676741b","study_path":"research/plans/PVM01-FRESH-FINAL-V1.json","study_sha256":"8b5912be1a70d10a8388b955ff9a7e5045e3a3937d4524486ef165e613841074"}
+{"charge_id":"PVM01-FRESH-FINAL-prepaid-V1","created_at":"2026-10-05T10:03:41Z","event":"research_program_aux_fit_charged","program_id":"NEXTAI-CONTINUATION-20261004-V1","seconds":484}
