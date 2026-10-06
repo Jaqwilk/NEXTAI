@@ -1,0 +1,30 @@
+{
+  "EXP": 0,
+  "charged_preparation_seconds": 1200,
+  "conformance_cases": 0,
+  "created_at": "2026-10-06T15:12:51Z",
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\reviews\\HAR01-REPLICATION-prepare-clone-V1.py\", line 33, in main\n    out,result=run('conformance',['-m','pytest','-q','-x',*tests,f'--junitxml={xml}'],240)\n               ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI\\research\\reviews\\HAR01-REPLICATION-prepare-clone-V1.py\", line 28, in run\n    if result.returncode!=0 or result.exit_live_descendant_pids:raise RuntimeError(f'{label} failed; no retry or native continuation')\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: conformance failed; no retry or native continuation\n",
+  "fit": 0,
+  "jobs": [
+    {
+      "elapsed_seconds": 13.032867000000124,
+      "exit_job_active_process_count": 1,
+      "exit_live_descendant_pids": [
+        6844
+      ],
+      "label": "conformance",
+      "peak_tree_rss_bytes_sampled": 487190528,
+      "pid": 25636,
+      "processes_created": 3,
+      "reason": "lingering_descendants",
+      "returncode": 124,
+      "root_returncode": 1
+    }
+  ],
+  "preparation_clock_start": "2026-10-06T14:56:00Z",
+  "preparation_deadline": "2026-10-06T15:16:00Z",
+  "ready": false,
+  "retry": false,
+  "source_binding_sha256": "956c42f7225d96288dca1b807825d252efe2fc46b2358dca1233ebaf327e89ea",
+  "study_sha256": "d5567973e85b444d95ac13a70db9fe24b87c0ab3b672932e8322862c336ad12a"
+}

@@ -1,0 +1,9 @@
+{
+  "script": "research/reviews/HAR01-REPLICATION-close-failure-V1.py",
+  "error": "AssertionError: compared aggregate historical fit_seconds_charged with B-only expected value; actual B field is stage_b_compute_seconds_charged",
+  "charged_auxiliary_not_repeated": true,
+  "scientific_retry": false,
+  "native_intake": 0,
+  "EXP": 0,
+  "administrative_correction_only": true
+}

@@ -1,0 +1,38 @@
+.................................................F
+================================== FAILURES ===================================
+______ test_selected_zip_rows_only_are_converted_and_labels_stay_closed _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002B32E7A5F20>
+
+    def test_selected_zip_rows_only_are_converted_and_labels_stay_closed(monkeypatch):
+>       module = intake()
+                 ^^^^^^^^
+
+tests\test_har01_replication_intake.py:204: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_har01_replication_intake.py:30: in intake
+    spec.loader.exec_module(module)
+<frozen importlib._bootstrap_external>:1023: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    """One fresh, bounded replication intake from the preserved public HAR archive."""
+    import json
+    from pathlib import Path
+    import shutil
+    import time
+    
+    import numpy as np
+    
+    if __package__:
+        from .acquire_har01 import data_archive
+    else:
+>       from acquire_har01 import data_archive
+E       ModuleNotFoundError: No module named 'acquire_har01'
+
+scripts\acquire_har01_replication.py:12: ModuleNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/test_har01_replication_intake.py::test_selected_zip_rows_only_are_converted_and_labels_stay_closed
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!

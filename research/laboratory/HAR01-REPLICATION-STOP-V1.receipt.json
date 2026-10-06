@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-10-06T15:16:05Z",
+  "study_path": "research/plans/HAR01-INDEPENDENT-REPLICATION-V1.json",
+  "study_sha256": "d5567973e85b444d95ac13a70db9fe24b87c0ab3b672932e8322862c336ad12a",
+  "decision": "INCONCLUSIVE through clone conformance failure; STOP unstarted scientific scope",
+  "tests_completed": 50,
+  "tests_passed": 49,
+  "tests_failed": [
+    {
+      "classname": "tests.test_har01_replication_intake",
+      "name": "test_selected_zip_rows_only_are_converted_and_labels_stay_closed",
+      "file": "tests\\test_har01_replication_intake.py",
+      "line": "202",
+      "time": "0.005"
+    }
+  ],
+  "xml_sha256": "5693ee28edd4d4b515fb6f26fe1a97761666b66fed567f44f28e318578b1dbea",
+  "fit": 0,
+  "EXP": 0,
+  "native_intake": 0,
+  "retry": false,
+  "charged_preparation_seconds": 1200,
+  "charged_total_stage_seconds": 1200,
+  "B_used_seconds": 26169.55024020007,
+  "other_protected_registrations": 6,
+  "other_protected_seconds": 41000,
+  "scientific_scope_stopped": true,
+  "remaining_original_stage_seconds": 4800,
+  "remaining_stage_released_for_reuse": false
+}
