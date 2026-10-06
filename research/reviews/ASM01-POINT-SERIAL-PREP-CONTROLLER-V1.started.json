@@ -1,0 +1,11 @@
+{
+  "attempt": 1,
+  "command": [
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\reviews\\ASM01-POINT-SERIAL-PREP-CLONE-RUNNER-V1.py"
+  ],
+  "created_at": "2026-10-06T03:22:28Z",
+  "fit": 0,
+  "native": 0,
+  "timeout_seconds": 200
+}

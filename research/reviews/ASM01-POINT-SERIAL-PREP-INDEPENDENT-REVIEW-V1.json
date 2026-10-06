@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/muc_readonly",
+  "scope": "Read-only static review before the first synthetic execution; no tests, native or fit",
+  "status": "PASS",
+  "issues_remaining": [],
+  "normalizer_sha256": "fbc87c0ba993b73eaa751bc9ecc21cf0fb1ec544887b679cb9c42e8e5f844a8c",
+  "fixture_sha256": "f72d462712d2cce70a6897178999fd5b3af25b7e5f847d2ae52990c04c25423b",
+  "plan_sha256": "679a82220eeb6c0998038ebdbefbe9b2a988ffe2e4e48e974ce46d6ba48950db",
+  "cases": 38,
+  "opaque_XY_and_metadata_only_int_confirmed": true,
+  "exact_output_size_before_materialization_confirmed": true,
+  "point_order_empty_IDs_and_no_silent_fallback_confirmed": true,
+  "old_synthetic_arrays_and_all3_views_exact_comparison_confirmed": true,
+  "parent_bindings_and_all3_ledger_prefix_guards_confirmed": true,
+  "pre_first_run_fixture_refinement": "Two same-named coverage gaps found and closed before any test: exact normalized length guard plus early count guard; ledger prefixes plus parent-binding SHA. Source and scientific plan unchanged; V1 draft bytes and V1/V2 bindings preserved.",
+  "limitations": ["Release-to-legacy normalizer intentionally does not claim idempotence", "No active integration", "No proof of74 old-native arrays or1830 native feasibility"]
+}
