@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-10-06T02:51:02Z",
+  "experiment_id": "EXP-20261006-0001",
+  "published_result_commit": "09620f0dfe97017e804565a14f5b405c252b6416",
+  "root_HEAD_at_observation": "09620f0dfe97017e804565a14f5b405c252b6416",
+  "clone_HEAD_at_observation": "09620f0dfe97017e804565a14f5b405c252b6416",
+  "root_working_tree_clean_at_observation": true,
+  "clone_working_tree_clean_at_observation": true,
+  "GitHub_master_at_observation": "09620f0dfe97017e804565a14f5b405c252b6416",
+  "GitHub_main_at_observation": "09620f0dfe97017e804565a14f5b405c252b6416",
+  "non_force_atomic_fast_forward": true,
+  "stage_measured_seconds_through_observation": 3662,
+  "stage_seconds_charged_conservatively": 3863,
+  "closing_reserve_seconds_remaining_at_observation": 201,
+  "work_seconds_cap": 14400,
+  "scientific_result_complete": true,
+  "final_operational_validation_complete": false,
+  "postrun_Doctor_Lab": "not started after literature-cadence lifecycle failure",
+  "new_fit_seconds": 0,
+  "new_experiment_retry": false,
+  "note": "This records the published result snapshot. The subsequent metadata commit adds this receipt only; closing work remains inside the already charged reserve. No failed test is rerun."
+}
