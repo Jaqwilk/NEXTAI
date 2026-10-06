@@ -75,3 +75,8 @@ research/checks/HAR01-* -text
 
 # Preserve exact cycle320 publisher and parent metadata bytes.
 research/laboratory/archive/FAMILY2-*/** -text
+
+# Restore the exact failed HAR replication journals and terminal receipt bytes.
+research/laboratory/HAR01-REPLICATION-STOP-V1.receipt.json -text
+research/reviews/HAR01-REPLICATION-conformance-V1.xml -text
+research/reviews/HAR01-REPLICATION-conformance-V1.stdout.txt -text

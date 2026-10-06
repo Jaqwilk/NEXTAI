@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-06T15:29:28Z",
+  "reason": "Git text eol=lf normalized native CRLF evidence on checkout; restore exact immutable archive bytes and disable text conversion for three paths",
+  "canonical_archive_sha256": "834a85db94ad02ea63f92ed0c5085c8a1cff9b42affbf009996fcd6e7e810171",
+  "files": {
+    "research/laboratory/HAR01-REPLICATION-STOP-V1.receipt.json": {
+      "before_git_normalized_sha256": "3483bec81f2f8b72147e061b0cba7bd816c403ddf52b58705c9e7ca45b3e4dd4",
+      "restored_canonical_sha256": "396ef2f7a4cd33cc62b99a9eb9e71413a19f8f036ed913f0521bf40524e5e3bc"
+    },
+    "research/reviews/HAR01-REPLICATION-conformance-V1.xml": {
+      "before_git_normalized_sha256": "b0b85f9653864dba0041ce8ec4ed8cf1c2d3de029c459c780f3bff2d36ccd843",
+      "restored_canonical_sha256": "5693ee28edd4d4b515fb6f26fe1a97761666b66fed567f44f28e318578b1dbea"
+    },
+    "research/reviews/HAR01-REPLICATION-conformance-V1.stdout.txt": {
+      "before_git_normalized_sha256": "95565c9ba005147ebdd1337dd9294ab8a0c057ea0b930bb013c09afd589923e3",
+      "restored_canonical_sha256": "eedd46298cce95b893981a1b556022b1ab0975ea54d9a47d3ec7df8cb78c4e94"
+    }
+  },
+  "scientific_retry": false,
+  "new_scientific_execution": 0,
+  "additional_charge": 0,
+  "inside_precharged_failure_archive_report_1200s": true
+}
