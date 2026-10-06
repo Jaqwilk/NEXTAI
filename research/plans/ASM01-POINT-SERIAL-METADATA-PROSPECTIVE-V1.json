@@ -1,0 +1,37 @@
+{
+  "byte_caps": {
+    "aggregate": 479723520,
+    "per_file": 262144
+  },
+  "coordinate_conversions": 0,
+  "created_at": "2026-10-06T01:59:05Z",
+  "cycle_prepared": 327,
+  "execution_authority": false,
+  "id": "ASM01-POINT-SERIAL-METADATA-PROSPECTIVE-V1",
+  "inventory_receipt_path": "research/reviews/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.receipt.json",
+  "inventory_receipt_sha256": "ce4cc88018c02c0d6644cf2c9a8f74ad269458f1b07e33afd81e69bd7d227407",
+  "negative_Y_numeric_values_known": false,
+  "parent_study_path": "research/plans/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.json",
+  "parent_study_sha256": "730a9e6843eaf085970bad82e5878dc404f400634e0c8ff18ab9af0e4c46888d",
+  "partial_failed_conversion_points_unknown": true,
+  "preserved_screen_UIDs": 1830,
+  "prior_complete_numeric_conversions": 74,
+  "prior_lexical_text_exposures": 1830,
+  "protected_future_compute_seconds": 47000,
+  "protected_future_registration_attempts": 7,
+  "question": "Can explicit point serial metadata and a literal signed-zero alias preserve the frozen global geometry without dropping any point or sample?",
+  "recipe": "Prospectively freeze a NEW bounded metadata-only serialization study before code or renewed native access: explicit monotonically nondecreasing positive point stroke IDs are authoritative, all X/Y/state/serial rows and order retained, declared empty strokes preserved. Only literal coordinate -0 may alias0; reject every other signed coordinate or ambiguous/nonmonotone/out-of-range ID. Require exact old accepted-array and write/nominal/adverse descriptor equality, unchanged dedup/geometry/bounds/byte caps, complete1830 hash-bound feasibility and no filtering before a separately frozen scientific cohort/readiness/one audited EXP. Negative lexical Y remains numerically unknown. Any nonzero signed value, impossible geometry, changed old array or ambiguous IDs closes this exact route without rescue; assess a distinct licensed native family prospectively. Current user-requested independent MUC stage is separate and does not rewrite ASM results. Preserve future7tickets/47000s and full transfer/replication/fresh-final/prototype goal.",
+  "registration_attempts_allocated": 0,
+  "repair_implemented": false,
+  "requires_new_active_bounded_contract_before_code_or_native_access": true,
+  "research_fit_allocated": 0,
+  "schema_version": 1,
+  "semantic_limitations": [
+    "Serial histogram does not prove chronological monotonicity",
+    "Marker changes can alter consecutive-coordinate dedup and even/odd view parity",
+    "Literal -0 alias is an explicitly disclosed raw-token exception; nonzero signed Y remains unobserved",
+    "Metadata repair is not evidence of physical stroke semantics, learning, transfer or economics"
+  ],
+  "study_kind": "proposal_only",
+  "whole_goal_completed": false
+}
