@@ -1,0 +1,17 @@
+{
+  "B_wallet_preserved": true,
+  "active_manifest_sha256": "ace06ea747706293da2007c500efc9183cbb04bd3f5071ab265bb79fb6cfd3f6",
+  "active_preflight_sha256": "20dcdf19c7cc22beabce8e63afac9f647e03b377d4f1de4f648c6b36fb7ddff7",
+  "clone_package_origin_verified": true,
+  "clone_proof_sha256": "cb7da23a0b8ad1bc443b7cf8e0e00f77c3084d6d186a8907fe8c028e272c1e4d",
+  "cohort": "mutable_contact_ledger_negatives_replication_v1",
+  "conformance_check_sha256": "0650b5580e183a049abdb6cb1a12543dc5998704724d9319bc2af743c9329fdd",
+  "created_at": "2026-10-06T02:16:14Z",
+  "fit_seconds_charged": 0,
+  "junit_sha256": "412aa66a2021bb7de8a1c51f28cc5231ec144619f2d50c6cbbea777c7a664040",
+  "plan_sha256": "cbde3b9e16bc6a8b59139249d065a9faaa2cbad41c2891293b3156d5ae7ef4a4",
+  "required_checks_passed": true,
+  "scoring_seed_draws": 0,
+  "status": "validated_ready",
+  "tests_passed": 67
+}

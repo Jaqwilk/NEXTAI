@@ -1,8 +1,8 @@
 {
   "benchmark_version": "mutable_contact_ledger_negatives_replication_v1",
   "candidate_bundle_sha256": "9fd2ce57f164ad7e5763c37a9b4302fbe43e7c504c2029e0474b8186ff47b4f1",
-  "created_at": "2026-10-06T02:15:03Z",
-  "evaluator_sha256": "4933551a6298a48ed6889648ab51008f5a47774ff9d732b6a3205b6e6806b8f3",
+  "created_at": "2026-10-06T02:04:00Z",
+  "evaluator_sha256": "aba0fae81f984a946dc5b16b12fa3d43811bcd8e19d76e8e384432a69901f18f",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
@@ -12,7 +12,7 @@
     "README.md": "39db095f752b0a31bf86cc7ad270af413986e1c0dbf68ec526ae36faf3d34671",
     "config/baseline_semantics.json": "4ab2a817004b0317a0f45d39cbe9683d9a0c58b6b1988e9bd7240b41882f31fd",
     "config/bootstrap_sizes.json": "c27d3c644692dad1c5b22397c9908ab6728793c33edb5314288078d35aeae672",
-    "config/research.toml": "57e9c18499d0c2420c52163873435a54c3c4f7d59cba6a4f564a630a4b754e2d",
+    "config/research.toml": "2fbc09ddff1eb8b49aecb348e7303cea6b75680c44283a321f9ab41a241f1ac8",
     "docs/AUTOMATION_PROMPT.md": "90db3417169947b6310931efd0459610a95d198a5b2a00eacd92620b4dd56ef0",
     "docs/CODEX_SETUP.md": "e7e7714d028515ae18ae233b0f52678c6fb17fd7535b6355b7fd1f607af91e76",
     "docs/METRICS.md": "423206401e9a2e4661e0637d5dc31af380b503b70a86117cd6501832c13e71a6",

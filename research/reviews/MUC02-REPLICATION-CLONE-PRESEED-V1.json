@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "name": "targeted_conformance",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e15e1ea00cc99972a8dd72a70f32d5d0d5834ff793fa24b1c8ee31182eae87df",
+      "timed_out": false
+    },
+    {
+      "name": "doctor",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "06b2bf1cd399333a2f58a87b72e6b391ac0c368bdb8cd5b687894b614d911e09",
+      "timed_out": false
+    },
+    {
+      "name": "lab",
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4d516e11ffd581e7f6495eded7e0d28f0bf58cdaf5bc5d5fb650ee0dbd3c6014",
+      "timed_out": false
+    }
+  ],
+  "clone_package_origin_verified": true,
+  "complete": true,
+  "created_at": "2026-10-06T02:14:23Z",
+  "fit_seconds": 0,
+  "package_origin": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\__init__.py",
+  "scoring_seed_draws": 0
+}
