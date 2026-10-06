@@ -1,0 +1,39 @@
+{
+  "EXP": 0,
+  "blocking_facts": [
+    "HAR schema fixes oldstudy/hash/task and9000fit cap",
+    "loader fixedoldmanifest andsubjects1-5/16-20; nofresh6-10/21-25support",
+    "readiness fixesoldstudy/intake,1361cases andalreadyconsumedproofoutputs",
+    "checkrequires timeout+40<=cap;40>30.44976",
+    "controllerreserves900auxbeforeregister;900>30.44976",
+    "auxreservecannotreleaseplannedstageown6000beforeticket",
+    "ticketconsumedBEFOREreserve/schema checks; nofailedtrialregister"
+  ],
+  "created_at": "2026-10-06T04:10:22Z",
+  "decision": "NO EXECUTION under current bindings and auxiliary preparation allowance; prospective new harness/ownership preparation funding required",
+  "existing_check_strict_positive_timeout_plus_closing40_minimum_cap": 40,
+  "existing_controller_before_registration_aux_cap": 900,
+  "existing_paths_scope_and_sources_sha256": {
+    "schemas/experiment_plan.schema.json": "a8a7b622a28fa99b0734baf2ccfe562e550b4ac7cf2c23e68eaedf5b82a1d73d",
+    "scripts/check_har01_readiness.py": "540f6dd05433d882ec0f23d86221c46891659fbca1b5d41097f51c61339f9b9a",
+    "scripts/run_har01_check.py": "42c0d9243609c190101c44ab514348853ed0ffd3f17a49db961e205cf4d445c9",
+    "scripts/run_har01_experiment.py": "8d5b2414ca072efc73f36079d2dd2f89c4a043a866c5bc17e63c084b5664d42e",
+    "src/nextai_autoresearch/har01_task.py": "52c905470c46f10c28bf79872ab15454316a3560f880eb058cf7576b8d94cd6d",
+    "src/nextai_autoresearch/research_program.py": "de10707b47ccebb3f93ed8d642bafaf5d35136dd3865932304fa7cd9f42f1e68"
+  },
+  "fit": 0,
+  "full_goal": "ACTIVE/INCOMPLETE",
+  "independent_review": "muc_readonly read-only PASS; no tests imports or raw reads",
+  "metadata_read_failure_preserved": "Initialread used nonexistent src/nextai_autoresearch/data/har01_task.py;rg locatedcorrectmodule; no scientifictest or data attempt; includedcost",
+  "new_native_reads": 0,
+  "old_cap_shortfall": 6469.550240200071,
+  "old_worker_plus_aux_cap": 12500,
+  "planned_replication_max_total_reservation": 6030.449759799929,
+  "planned_replication_only_protected_release_seconds": 6000,
+  "registration": 0,
+  "retry": false,
+  "scientific_gate_changes": false,
+  "scope": "read-only feasibility; no executable scientific code",
+  "stage_after_full_charge_unprotected_seconds": 30.4497597999289,
+  "tests": 0
+}

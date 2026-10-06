@@ -1,0 +1,15 @@
+# Cykl336 — wykonalność niezależnej negatywnej replikacji HAR
+
+**Decyzja: NO EXECUTION z istniejącym harness. Cel pełny pozostaje nieukończony.**
+
+Kontrakt B dopuszcza negatywny wynik; nie wymaga dodatniego screening przed niezależną replikacją. Nowa replikacja pięciu świeżych sparowanych target units przy niezmienionej naukowej recepturze jest sensowną alternatywą do rescue ASM. Obecny program zwalnia jej własne6000s/1ticket na etapie registration, zachowując pozostałe6tickets/41000s. Przed registration auxiliary guard chroni jednak całe7/47000s. Po pełnym koszcie tego audytu pozostaje30.4497597999289s niechronionych.
+
+Nie ma gotowej ścieżki do świeżej replikacji. Schema7474/7742 wymusza stary9000s worker cap, study/hash/task; wraz3500aux daje12500s wobec maksymalnej6030.44976s rezerwacji nowej replikacji. har01_task.py54–74 wiąże loader ze starym manifestem iT1–5/D16–20. check_har01_readiness.py17–47 wymaga starego study/intake,1361cases i starych jednorazowych receipts. run_har01_check.py33 wymaga timeout+40<=cap, więc nawet jego minimalny cap przekracza pozostałe30.45s. run_har01_experiment.py27 rezerwuje900aux przed registration, co obecny auxiliary guard odrzuci. research_program.py475 zapisuje ticket przed reserve/schema checks: próbny registration spaliłby rejestrację. Nie wykonano go.
+
+Zmniejszenie deklaracji cap nie zmienia rzeczywistych potrzeb ani istniejących schema bindings. Stary screen nie może być wykonany ponownie, a stare tests/intake/readiness nie dowodzą gotowości świeżej kohorty. Potrzebne są nowa prerejestracja, cohort bindings, loader/schema/readiness i hardbounded budżet z audytem własnych kosztów, przed przyszłymi danymi i z conformance w klonie. Nie twierdzimy, że niewykonalna jest każda możliwa implementacja; wykazaliśmy niewykonalność istniejącej ścieżki z jej konkretnymi limitami.
+
+Opcje wymagające decyzji o finansowaniu: przydzielić część własnych6000s przyszłej replikacji także na jej przygotowanie przed registration, z jawnie hash-bound ownership, bez wydatków na screen/ASM i bez naruszania41000s pozostałych etapów; albo dodatkowy ograniczony budżet na nowe przygotowanie/rodzinę. Nie wolno po cichu przekierować chronionych środków, wyzerować historii, źródeł lub kosztów. Prototyp5000s nie jest shortcut: AGENTS217/230 wymaga niezależnej replikacji i świeżych targetfinals przed nim. WynikiA same-law nie są targetfinalB.
+
+W tym zakresie:200s od04:08 do04:11:20Z, obejmujące startup, prerejestrację, metadata/code reads, independent audit, koszt administracyjnego błędnego path i zamknięcie/publikację. Test0, fit0, EXP0, registration0, newnative0. Protected7/47000s zachowane. Wcześniejsze A resolution, HARnegative, ASMintakeinvalidity, MUCnegative i wszystkie failure/cost receipts pozostają bez zmian.
+
+Brakujące deliverables pełnego celu: druga niezależna naukowa rodzina; niezależne replikacje i świeże targetfinals B przy co najmniej5pairedunits/3scales; lokalny evidence-selected fact/source/update/UNKNOWNprototype; pełne koszty i uncertainty tych etapów. Ten audyt nie jest ukończeniem tych wymagań ani nowym EXP.
