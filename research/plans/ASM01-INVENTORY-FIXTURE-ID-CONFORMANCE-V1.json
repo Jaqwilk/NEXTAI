@@ -1,0 +1,42 @@
+{
+  "archive_path": "research/laboratory/archive/ASM01-inventory-fixture-ID-failure-V1",
+  "authority": "Standing finite B authority permits bounded no-scoring maintenance. This addendum allows only one further synthetic conformance after a fixture-framework error; it does NOT reopen the original stopped native scope.",
+  "corrected_outputs_prefix": "research/reviews/NEXTAI-B-325-inventory-fixtures-V2",
+  "correction": "Add only explicit short parameter IDs=[none,text,over-byte-cap,non-ascii] to test_input_type_bytes_and_encoding_guard. Keep exact payloads,assertions,all36 cases,and the entire scanner byte-identical. No skip,xfail,reduced byte-cap case or numeric/model change.",
+  "created_at": "2026-10-06T00:04:47Z",
+  "cycle": 325,
+  "decision_rule": "KEEP only fixture-ID repair if all36 corrected cases pass with original scanner,payloads and assertions intact and clone integrity/lifecycle passes; otherwise INCONCLUSIVE. Preserve original35 passes and2 setup/teardown errors. No native inventory,source model or research EXP follows in this cycle.",
+  "fixture_base_temp": "research/tmp/ASM01-INVENTORY-fixtures-V2",
+  "id": "ASM01-INVENTORY-FIXTURE-ID-CONFORMANCE-V1",
+  "next_discriminating_experiment": "New separately frozen inventory study/binding of the same scanner and fixed1830 members before remaining1755 native texts. Keep original failure-stop,all scientific geometry/gates,and future7tickets/47000s.",
+  "observations": {
+    "failing_node_count": 1,
+    "fixture_nodes": 36,
+    "native_files_opened": 0,
+    "passed": 35,
+    "scanner_guard_for_oversized_input_not_executed": true,
+    "setup_and_teardown_errors": 2
+  },
+  "resources": {
+    "auxiliary_test_seconds_cap": 1800,
+    "cap_scope": "Unchanged ENTIRE cycle325,including the failed run,startup,prepaid administration and all further checks. No increase.",
+    "corrected_fixture_executions_cap": 1,
+    "native_inventory_executions_authorized": 0,
+    "registration_attempts_cap": 0,
+    "research_fit_seconds_cap": 0,
+    "study_deadline_at": "2026-10-06T01:37:00Z"
+  },
+  "schema_version": 1,
+  "source_and_failed_records_sha256": {
+    "research/eval_manifest.json": "dbfcb3b7837eb6ad3dfee39b42ba12167f4a0171a373911fcc1f95abfdb34496",
+    "research/laboratory/preflight_certificate.json": "c6add7319d93f40ac9428bdf165ab5c65a155364f928b5d114bdabe011afef6f",
+    "research/reviews/NEXTAI-B-325-inventory-fixtures-V1.json": "68289d7278fffea067268ce60b57dfd460b0384586c037cbf86b2a8b08648ec3",
+    "research/reviews/NEXTAI-B-325-inventory-fixtures-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-B-325-inventory-fixtures-V1.stdout.txt": "ecf933454b36f3178e9ee2ecea3dae21faeb7eaadd58bbb77ef042c12a474038",
+    "research/reviews/NEXTAI-B-325-inventory-fixtures-V1.xml": "112c3e3b7d34b7aad91e950a219e5e98fc0f70d0ac3681e8bee5b646ec620833",
+    "src/nextai_autoresearch/asm01_grammar_inventory.py": "cd5759386fa5f412ea125c849c5958b7d284dec91e811f93f173a6ccb544eb86",
+    "tests/test_asm01_grammar_inventory.py": "e7bfd0454f10ffab2c972136f3632f44f56b9acf2c801ea64189cd77ff0c38bd"
+  },
+  "study_path": "research/plans/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V1.json",
+  "study_sha256": "2f01c210d0e1ea1d067106188a39660246e59e71d56a2528dfaa52b35bb9c683"
+}
