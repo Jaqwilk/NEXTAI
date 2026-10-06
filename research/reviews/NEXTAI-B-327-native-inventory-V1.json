@@ -1,0 +1,30 @@
+{
+  "cap_seconds": 150,
+  "command": [
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/.venv/Scripts/python.exe",
+    "-m",
+    "nextai_autoresearch.asm01_inventory_v3"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T01:43:23Z",
+  "error": null,
+  "id": "NEXTAI-B-327-native-inventory-V1",
+  "raw_outputs": {
+    "NEXTAI-B-327-native-inventory-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-327-native-inventory-V1.stdout.txt": "c4dce58ac8d5944c7e7a4e66f756064a998ff3b966c5feaa3f47d97abfd8f3b8"
+  },
+  "result": {
+    "elapsed_seconds": 2.5439885999949183,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 47312896,
+    "pid": 29344,
+    "processes_created": 5,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 57,
+  "wall_seconds": 16.11846900000819,
+  "whole_process_tree_bounded": true
+}
