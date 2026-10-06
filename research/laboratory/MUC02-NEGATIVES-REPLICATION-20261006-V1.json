@@ -1,0 +1,20 @@
+{
+  "WT8_9": false,
+  "architecture_change": false,
+  "automatic_retry": false,
+  "consumes_or_changes_B_wallet": false,
+  "created_at": "2026-10-06T01:53:34.128998+00:00",
+  "execution_attempt_cap": 1,
+  "external_model_API": false,
+  "fit_seconds_cap": 3600,
+  "human_instruction": "prawdź, czy trening na trudnych negatywach poprawia wybór faktów i rozpoznawanie braku odpowiedzi w MUC v2. Zatwierdzam nowy etap: prerejestrację, minimalną implementację i eksperyment w klonie na świeżych train/dev, porównujący losowe i trudne negatywy dla 5 sparowanych seedów. Zachowaj ten sam model, 4096 par i 192 kroki; przed implementacją zamroź metryki i progi. Limit etapu: 4 godziny pracy i 3600 sekund łącznego fitu. Pracuj autonomicznie do ukończenia testów i raportu z wynikami, kosztami, niepewnością oraz decyzją. Zachowaj historię i ograniczenia AGENTS.md; bez retry, WT 8–9 i nowych architektur. Przy awarii lub wyczerpaniu limitu zachowaj wyniki i zgłoś niedokończony zakres.",
+  "id": "MUC02-NEGATIVES-REPLICATION-20261006-V1",
+  "plan_path": "research/plans/MUC02-NEGATIVES-REPLICATION-20261006-V1.json",
+  "plan_sha256": "cbde3b9e16bc6a8b59139249d065a9faaa2cbad41c2891293b3156d5ae7ef4a4",
+  "registration_cap": 1,
+  "reopens_old_authority": false,
+  "schedule_change": false,
+  "schema_version": 1,
+  "separate_budget": true,
+  "work_seconds_cap": 14400
+}

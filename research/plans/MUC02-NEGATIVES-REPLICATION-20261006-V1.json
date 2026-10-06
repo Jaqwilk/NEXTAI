@@ -1,0 +1,245 @@
+{
+  "automatic_retry": false,
+  "candidates": [
+    "muc02_random_neg_s0",
+    "muc02_hard_neg_s0",
+    "muc02_random_neg_s1",
+    "muc02_hard_neg_s1",
+    "muc02_random_neg_s2",
+    "muc02_hard_neg_s2",
+    "muc02_random_neg_s3",
+    "muc02_hard_neg_s3",
+    "muc02_random_neg_s4",
+    "muc02_hard_neg_s4",
+    "symbolic_last_write_graph_v2"
+  ],
+  "claim": "Independent visible-development replication of the previously discarded exact MUC02 sampling comparison; no pooled confirmation, architecture, transfer or economic claim",
+  "created_at": "2026-10-06T01:53:34.128998+00:00",
+  "data": {
+    "development_split": "D",
+    "development_worlds_per_cell": 15,
+    "diagnostic_queries_per_world": 4,
+    "diagnostics": "two distinct known keys chosen from serialized dev statements, one absent-subject key ED999 + known relation, one known-subject key + absent relation violet; raw dense scores over every serialized record, including obsolete records",
+    "end_to_end": "unchanged MUC v2 BM25 top4 + same neural matcher + public timestamp tie + threshold0.5 + explicit path loop; 16 questions/world, 2 absent-subject UNKNOWN questions",
+    "knowledge_sizes": [
+      32,
+      128,
+      512
+    ],
+    "maximum_structural_proposals_per_world": 64,
+    "no_calibration_or_final_access": true,
+    "questions_per_world": 16,
+    "realized_seed_policy": "five runner_random_v1 seeds sampled once after source freeze; reject any historical MUC seed collision before fit; no resampling",
+    "reasoning_depths": [
+      1,
+      2,
+      4
+    ],
+    "seed_derivation": "integer SHA256 of MUC02-NEGATIVES-REPLICATION-20261006-V1|seed|split|K|D|index, optional |proposal=n; first16 bytes plus2**128; parametric unchanged muc03_task, no old/calibration/final worlds",
+    "source": "unchanged MUC v2 task grammar and strata; fresh TAG for all five paired train/dev units; ED dev and ET train prefixes preserved",
+    "structural_construction": "Same prospectively frozen conditional law as the old comparison: accept first graph satisfying fixed query strata among at most64 hash-bound proposals; every rejected proposal fsynced. Only query-strata RuntimeError permits another construction proposal. No model/outcome selection, runner seed substitution, fit/execution retry or sample filtering. Exhaustion/other failure stops all unstarted roles.",
+    "top1_rule": "maximum probability; exact tie resolved by largest public timestamp; correct only if chosen latest record for queried key; top1 measured before fixed rejection threshold",
+    "train_split": "T",
+    "train_worlds_per_cell": 45,
+    "unknown_rule": "reject iff maximum probability < 0.5; threshold never fitted or swept"
+  },
+  "deadline_at": "2026-10-06T05:50:00Z",
+  "decision_gates": {
+    "both_primary_simultaneous_ci_lower_gt": 0.0,
+    "decision": "KEEP hard sampling as dev recipe only if all primary and safety gates pass. Otherwise DISCARD this proposed recipe or INCONCLUSIVE on invalid/partial data. No architecture promotion; further fresh final experiment requires user authority.",
+    "fact_top1_gain_min": 0.05,
+    "known_accepted_and_e2e_accuracy_gain_min": -0.02,
+    "known_false_abstention_gain_max": 0.02,
+    "positive_pairs_min": 4,
+    "symbolic_accuracy_min": 0.995,
+    "symbolic_parser_failure_max": 0.001,
+    "unknown_rejection_gain_min": 0.1
+  },
+  "experiment_registrations_cap": 1,
+  "frozen_metrics_and_gates_equal_to_parent": true,
+  "id": "MUC02-NEGATIVES-REPLICATION-20261006-V1",
+  "implementation_scope": {
+    "analysis": "Reuse unchanged paired analysis and gates; no old/new pooling; descriptive comparison to preserved old experiment only",
+    "authorization": "New immutable sidecar authority, one registration/start, readiness and terminal guards; explicit config overlay takes priority only for this stage in LAB scope/contract/progress/problems. Preserve B authority/current study and old MUC terminal scope.",
+    "benchmark": "New fresh-TAG run_suite orchestration reuses unchanged run_trial, selection_diagnostics and diagnostic_metrics with explicit fresh-world/query providers",
+    "freshness": "Record historical MUC seeds in protocol and abort before any fit on collision; newTAG distinguishes every world. Unit fixtures use separate fixtureTAG; no scoring seed or train/dev content before source freeze.",
+    "model_and_sampler": "Reuse exact unchanged ten role modules, Reader, LearnedSystem, training_pairs, optimizer and192-step fit; no new candidate code",
+    "runner": "Canonical registered run_experiment and existing independent worker/resource supervision; same muc02_negatives_protocol schema. No scope-gate bypass."
+  },
+  "invariants": [
+    "immutable past plans/results; ledger prefixes preserved",
+    "preregister and freeze evaluator before changed sampling implementation",
+    "same legal text and model/optimizer budget per pair",
+    "fresh train/dev only; no current calibration/final worlds",
+    "all five pairs retained; partial/failed outcomes never omitted",
+    "no tuning/checkpoint selection/automatic second experiment",
+    "no external model/API/download/schedule/deployment"
+  ],
+  "measurement": {
+    "amortization": "fit divided among135 dev worlds per learned seed; world ingest once + 16 E2E queries repeated R=1/4/16; dense diagnostic work reported separately; evaluation work never hidden as free preprocessing",
+    "energy": "not measured; no energy/currency/economic advantage claim",
+    "full_boundary": "fresh-data generation timing, model initialization/fit/pair preprocessing, ingest/index/update, B1 end-to-end and dense diagnostics, warmup, output decoding, CPU/RAM/GPU/VRAM; exact parser/index counters separated from estimated FLOPs; raw world costs and latencies retained"
+  },
+  "metrics": {
+    "aggregation": "per-world diagnostic metrics then equal means of 9 KxD cells; end-to-end 16 questions per world; per-seed arm differences, never pool queries as independent replicates",
+    "primary": [
+      "fact_top1_accuracy",
+      "dense_unknown_rejection"
+    ],
+    "secondary": [
+      "accepted_fact_accuracy",
+      "known_false_abstention",
+      "pair_false_positive_rate",
+      "pair_false_negative_rate",
+      "hard_subject_fpr",
+      "hard_relation_fpr",
+      "unknown_subject_rejection",
+      "unknown_relation_rejection",
+      "e2e_accuracy",
+      "e2e_known_accuracy",
+      "e2e_unknown_rejection",
+      "replacement_accuracy",
+      "retention_accuracy",
+      "fit_seconds",
+      "fit_ops",
+      "preprocessing_ops",
+      "diagnostic_flops",
+      "p50_latency_us",
+      "p95_latency_us",
+      "worker_seconds",
+      "RSS",
+      "CUDA_reserved"
+    ],
+    "threshold": 0.5,
+    "uncertainty": "five independent paired seed/data units; Student-t df=4. Both primaries use two-sided 97.5% intervals (Bonferroni familywise 95% for two endpoints). Secondaries 95% paired t descriptive; no query-level binomial claims"
+  },
+  "model_identity": "unchanged Reader: 6 TransformerEncoder layers, width 384, 6 heads, FF1536, byte pairs96, dropout0, padding mask, scalar CLS head",
+  "negative_sampling": {
+    "hard": "2048 negatives: 1024 same-subject/different-relation and 1024 same-relation/different-subject; uniform within each type",
+    "pairing": "independent RNGs for anchor selection, negative selection and global pair permutation; same 2048 positives, document anchors, label order, initialization and minibatches in each pair",
+    "random": "uniform different known (subject,relation) key from the same world",
+    "unknown_training": "none added; absent keys remain dev-only; changed factor is negative key distribution only"
+  },
+  "new_architectures_authorized": false,
+  "new_cohort": "mutable_contact_ledger_negatives_replication_v1",
+  "paired_seeds": 5,
+  "parent_contract_path": "research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json",
+  "parent_contract_sha256": "9ac3642a903c1f5312a3fedadecd9b8b7580961d181fb77b67a283423bdd267a",
+  "parent_git_commit": "0a9b962d41498811d3f82194743df02c04adee53",
+  "prior_completion_path": "research/laboratory/MUC02-HARD-NEGATIVES-COMPLETION-V1.receipt.json",
+  "prior_completion_sha256": "306e844731d40ca75c651f91510ebbf88589f1d4b4ca5c510962950d3e5cd575",
+  "prior_experiment": "EXP-20261004-0001",
+  "prior_model_core_sha256": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+  "prior_result_sha256": "66000914c334c624435bf7681a50ba6b76f9e93f60c45516c1cf847576921449",
+  "recipe": {
+    "batch_size": 32,
+    "dropout": 0.0,
+    "encoder_layers": 6,
+    "feedforward_width": 1536,
+    "frozen_control": "same initialization and inference as BM25 pair reader; zero updates",
+    "heads": 6,
+    "learning_rate": 0.0003,
+    "optimizer": "AdamW",
+    "pad_mask": true,
+    "pair_bytes_cap": 96,
+    "retrieval": "actual BM25 k1=1.2 b=0.75, top 4; identical learned pair model and disclosed iterative path loop",
+    "sampling": "4096 balanced pairs; identical anchors/positives/order; only negative key distribution differs",
+    "seed_source": "five runner_random_v1 paired seeds, same initialization and batches within pair",
+    "selection": "none; fixed final optimizer step; dev evaluated once for competence only",
+    "training_pairs": 4096,
+    "updates": 192,
+    "weight_decay": 0.01,
+    "width": 384
+  },
+  "research_question": "Does training on single-field hard key mismatches improve dense fact selection and missing-answer recognition compared with random mismatches?",
+  "resources": {
+    "auxiliary_test_seconds_cap": 1800,
+    "budget_authority": "New human-authorized separate4h/3600fit stage; all stage wall including admin/tests/failures counted from01:50Z. Old A/MUC and B wallets remain consumed and unchanged; protected B7tickets/47000s untouched.",
+    "fit_boundary": "phase begins before model initialization; includes initialization, all pair preprocessing, exactly192 optimizer steps, training pair diagnostic, synchronization; development evaluation excluded from fit but charged separately and in complete worker",
+    "fit_seconds_per_learned_role": 350,
+    "fit_seconds_total_cap": 3600,
+    "max_cuda_reserved_bytes": 4294967296,
+    "max_rss_bytes": 8589934592,
+    "reserve": "10 x 350 = 3500 seconds supervised fit, 100 seconds reserve; symbolic role has no fit/training",
+    "stop_policy": "first worker failure, STOP/PAUSE, deadline or cap stops remaining roles; preserve trial journal, realized seeds, telemetry and unstarted scope; no retry/resume/seed substitution",
+    "work_seconds_cap": 14400,
+    "worker_seconds_per_role": 1800
+  },
+  "roles": {
+    "muc02_hard_neg_s0": {
+      "arm": "hard",
+      "seed_index": 0
+    },
+    "muc02_hard_neg_s1": {
+      "arm": "hard",
+      "seed_index": 1
+    },
+    "muc02_hard_neg_s2": {
+      "arm": "hard",
+      "seed_index": 2
+    },
+    "muc02_hard_neg_s3": {
+      "arm": "hard",
+      "seed_index": 3
+    },
+    "muc02_hard_neg_s4": {
+      "arm": "hard",
+      "seed_index": 4
+    },
+    "muc02_random_neg_s0": {
+      "arm": "random",
+      "seed_index": 0
+    },
+    "muc02_random_neg_s1": {
+      "arm": "random",
+      "seed_index": 1
+    },
+    "muc02_random_neg_s2": {
+      "arm": "random",
+      "seed_index": 2
+    },
+    "muc02_random_neg_s3": {
+      "arm": "random",
+      "seed_index": 3
+    },
+    "muc02_random_neg_s4": {
+      "arm": "random",
+      "seed_index": 4
+    }
+  },
+  "schema_version": 1,
+  "stage_started_at": "2026-10-06T01:50:00Z",
+  "unchanged_implementation_files": {
+    "scripts/analyze_muc02_hard_negatives.py": "34c0d17c4d54e8558b06fb65c992c7193fd5d8c03064c6defbba57c6bd525f9b",
+    "src/nextai_autoresearch/benchmarks/mutable_contact_ledger_hard_negatives_v1.py": "8bfd7383ff12d3ff6ebeca53e56981af5d06bbe38ac99426ff9b6f10e0750dfa",
+    "src/nextai_autoresearch/candidates/muc02_core.py": "1a33b1e1181ba50290ec1037d00def39173290c9676976a759e3d68bc12e4c63",
+    "src/nextai_autoresearch/candidates/muc02_hard_neg_s0.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_hard_neg_s1.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_hard_neg_s2.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_hard_neg_s3.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_hard_neg_s4.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_negatives.py": "28cfa08cf03753dbdfdb58967da5592a39c5b280c31314fa4c3b7aa143784243",
+    "src/nextai_autoresearch/candidates/muc02_random_neg_s0.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_random_neg_s1.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_random_neg_s2.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_random_neg_s3.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/muc02_random_neg_s4.py": "2eec24982a25e04461d80bb1ecabe1c62dcfb3513bc54af21588d897c4840554",
+    "src/nextai_autoresearch/candidates/symbolic_last_write_graph_v2.py": "4485dc9a878090b40069a592ee547db749ee60bf24300c1f23af5c8507fae717",
+    "src/nextai_autoresearch/muc02_negatives_analysis.py": "8cc69930b30f9e916dab58c783e612d60cfa3934d64e9c19e912ebbdc11adc0d",
+    "src/nextai_autoresearch/muc03_task.py": "18255ccf3c0fe2e6732915e0e8f94324a70d5e5b9f17b9f30d0c86455d62e010"
+  },
+  "validation": {
+    "failure": "First required check/worker failure stops unstarted scientific scope; preserve receipts and report INCONCLUSIVE. No corrective execution retry in this stage.",
+    "independent_clone": "Existing normalGit clone NEXTAI-VALIDATION-20261002, explicit PYTHONPATH=clone/src and package-origin assertion; all new scientific workers execute there only",
+    "required": [
+      "unchanged model/source hashes",
+      "fresh TAG/splits/world seeds",
+      "balanced paired negative types/anchor/positive/order coverage",
+      "authority/hash/readiness/terminal/one-registration/no-retry gates",
+      "primaries and known-answer safety threshold conformance",
+      "existing MUC02 candidate/harness/baseline tests",
+      "clone manifest/preflight/Doctor/Lab/lifecycle readiness before seed realization"
+    ]
+  },
+  "wt_files_8_9_access_authorized": false
+}
