@@ -15,6 +15,14 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/HAR01-INDEPENDENT-REPLICATION-V1.json",
+    "research/plans/HAR01-REPLICATION-TASK-V1.json",
+    "research/laboratory/HAR01-REPLICATION-PREPARATION-AUTHORITY-V1.json",
+    "research/data_manifests/HAR01-REPLICATION-ACQUISITION-V1.json",
+    "scripts/acquire_har01_replication.py",
+    "scripts/check_har01_replication_readiness.py",
+    "scripts/run_har01_replication_experiment.py",
+    "scripts/analyze_har01_replication.py",
     "research/plans/MUC02-NEGATIVES-REPLICATION-20261006-V1.json",
     "research/laboratory/MUC02-NEGATIVES-REPLICATION-20261006-V1.json",
     "scripts/preregister_muc02_negatives_replication.py",

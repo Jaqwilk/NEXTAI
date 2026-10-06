@@ -21,6 +21,88 @@ TRANSFER_STAGES = {"task_design": 0, "transfer_family_1_screen": 2, "transfer_fa
 TRANSFER_RESERVES = {"independent_replication": {"attempts": 3, "seconds_per_attempt": 6000},
                      "frozen_fresh_final": {"attempts": 3, "seconds_per_attempt": 8000},
                      "prototype_evaluation": {"attempts": 1, "seconds_per_attempt": 5000}}
+HAR_REPLICATION_STUDY = "research/plans/HAR01-INDEPENDENT-REPLICATION-V1.json"
+HAR_REPLICATION_SHA256 = "d5567973e85b444d95ac13a70db9fe24b87c0ab3b672932e8322862c336ad12a"
+HAR_PREPARATION_AUTHORITY = "research/laboratory/HAR01-REPLICATION-PREPARATION-AUTHORITY-V1.json"
+HAR_PREPARATION_SHA256 = "036894388f89b4dfb5377c27fbde737f42853104c8a69f4d356fcb2734111fb6"
+HAR_OWN_AUXILIARY_IDS = ("HAR01-REPLICATION-preparation-V1", "HAR01-REPLICATION-controller-V1")
+
+
+def _finite_seconds(value):
+    return type(value) in (int, float) and math.isfinite(value) and value >= 0
+
+
+def _har_replication_auxiliary(base, events):
+    """Credit only this exact human-authorized allocation, never a name prefix."""
+    if (_bound_hash(base, HAR_REPLICATION_STUDY) != HAR_REPLICATION_SHA256
+            or _bound_hash(base, HAR_PREPARATION_AUTHORITY) != HAR_PREPARATION_SHA256):
+        raise ValueError("HAR scoped preparation study/authority hash mismatch")
+    study = _document(base, HAR_REPLICATION_STUDY)
+    authority = _document(base, HAR_PREPARATION_AUTHORITY)
+    program_id = "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1"
+    permissions = [e for e in events if e.get("event") == "research_program_scoped_preparation_authorized"
+                   and e.get("study_path") == HAR_REPLICATION_STUDY]
+    if (len(permissions) != 1 or authority["program_id"] != program_id
+            or authority["study_path"] != HAR_REPLICATION_STUDY
+            or authority["stage"] != "independent_replication" or type(authority["stage_slot"]) is not int
+            or authority["stage_slot"] != 0 or authority["preparation_seconds_cap"] != 1200
+            or authority["whole_stage_seconds_cap"] != 6000
+            or study["auxiliary_charge_ownership"]["allowed_ids"] != list(HAR_OWN_AUXILIARY_IDS)):
+        raise ValueError("HAR scoped preparation authority missing, repeated or changed")
+    permission = permissions[0]
+    expected = {"program_id": program_id, "study_path": HAR_REPLICATION_STUDY,
+                "study_sha256": HAR_REPLICATION_SHA256, "authority_path": HAR_PREPARATION_AUTHORITY,
+                "authority_sha256": HAR_PREPARATION_SHA256}
+    if (any(permission.get(k) != v for k, v in expected.items())
+            or permission.get("human_authorized") is not True or permission.get("stage_slot") != 0
+            or type(permission.get("stage_slot")) is not int or permission.get("cap") != 1200
+            or not _finite_seconds(permission.get("cap")) or permission.get("whole_stage_cap") != 6000):
+        raise ValueError("HAR scoped preparation event binding changed")
+    owned = [e for e in events if e.get("event") in {"research_program_aux_fit_reserved", "research_program_aux_fit_charged"}
+             and (e.get("charge_id") in HAR_OWN_AUXILIARY_IDS or e.get("study_path") == HAR_REPLICATION_STUDY)]
+    reservations, charges = {}, {}
+    for event in owned:
+        identity = event.get("charge_id")
+        if identity not in HAR_OWN_AUXILIARY_IDS or any(event.get(k) != v for k, v in expected.items()):
+            raise ValueError("Foreign or incomplete HAR auxiliary ownership binding")
+        target = reservations if event["event"] == "research_program_aux_fit_reserved" else charges
+        if identity in target:
+            raise ValueError("Duplicate HAR auxiliary accounting")
+        target[identity] = event
+    if HAR_OWN_AUXILIARY_IDS[0] not in reservations or set(charges) - set(reservations):
+        raise ValueError("Missing HAR preparation reservation or unreserved charge")
+    total = 0.
+    for identity, reservation in reservations.items():
+        cap = reservation.get("seconds_cap")
+        amount = charges.get(identity, {}).get("seconds", cap)
+        if not _finite_seconds(cap) or not 0 < cap <= 1200 or not _finite_seconds(amount) or amount > cap:
+            raise ValueError("Invalid HAR owned auxiliary cap or charge")
+        total += amount
+    if total > 2400:
+        raise ValueError("HAR owned auxiliary allocation exceeded")
+    return total, expected
+
+
+def _har_worker_recovery(base, events, plan, observed):
+    recoveries = [e for e in events if e.get("event") == "research_program_worker_charge_recovery"
+                  and e.get("experiment_id") == plan["experiment_id"]]
+    if not recoveries:
+        return 0.
+    protocol = plan["research_program_protocol"]
+    if (len(recoveries) != 1 or protocol["study_path"] != HAR_REPLICATION_STUDY
+            or protocol["study_sha256"] != HAR_REPLICATION_SHA256):
+        raise ValueError("Worker recovery is repeated or outside exact HAR study")
+    event = recoveries[0]
+    expected = {"program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+                "study_path": HAR_REPLICATION_STUDY, "study_sha256": HAR_REPLICATION_SHA256,
+                "experiment_id": plan["experiment_id"]}
+    receipt = _document(base, event["receipt_path"])
+    total = event.get("worker_charge_total")
+    if (any(event.get(k) != v or receipt.get(k) != v for k, v in expected.items())
+            or _bound_hash(base, event["receipt_path"]) != event.get("receipt_sha256")
+            or not _finite_seconds(total) or total > 3600 or receipt.get("worker_charge_total") != total):
+        raise ValueError("HAR worker recovery receipt or finite allocation changed")
+    return max(0., total - observed)
 
 
 def _document(base, relative):
@@ -76,8 +158,10 @@ def _study_scope(study):
                      resource_measurement_version="cumulative_cuda_phase_peaks_v1",
                      evaluation_data_role="frozen_fresh_final_v1")
     if study.get("study_kind") == "native_frozen_source_transfer":
-        if study["cohort"] != "har01_native_memory_v1":
+        if study["cohort"] not in {"har01_native_memory_v1", "har01_native_memory_v2"}:
             raise ValueError("Native source-transfer recipe/cohort mismatch")
+        if study["cohort"] == "har01_native_memory_v2" and study.get("id") != "HAR01-INDEPENDENT-REPLICATION-V1":
+            raise ValueError("HAR v2 belongs only to the exact independent replication")
     if study.get("study_kind") == "asm01_frozen_source_transfer":
         if study["cohort"] not in {"asm01_native_memory_v2", "asm01_native_memory_v3"}:
             raise ValueError("Canonical native pen source-transfer recipe/cohort mismatch")
@@ -131,6 +215,9 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
     registered = [e for e in events if e.get("event") == "research_program_registered"]
     if len({e["ticket"] for e in registered}) != len(registered):
         raise ValueError("Research ticket registered repeatedly")
+    if any(e.get("experiment_id") not in {r["experiment_id"] for r in registered}
+           for e in events if e.get("event") == "research_program_worker_charge_recovery"):
+        raise ValueError("Worker recovery references an unregistered experiment")
     preserved = [e for e in events if e.get("event") == "research_program_outcome_preserved"]
     if (len({e["experiment_id"] for e in preserved}) != len(preserved)
             or {e["experiment_id"] for e in preserved} - {e["experiment_id"] for e in registered}):
@@ -162,12 +249,16 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
         if plan["experiment_id"] in result_hashes and (not result.is_file() or sha256_file(result) != result_hashes[plan["experiment_id"]]):
             raise ValueError("Preserved completed research result changed; budget cannot be reset")
         if result.exists():
-            fit += _execution_fit(load_json(result)["candidates"])
+            observed = _execution_fit(load_json(result)["candidates"])
+            fit += observed + _har_worker_recovery(base, events, plan, observed)
         else:
             supervisors = sorted((base / "research/tmp" / plan["experiment_id"]).glob("*.supervisor.json"))
             observed = _execution_fit(load_json(p) for p in supervisors)
-            fit += observed
-            if plan["experiment_id"] not in latest_plan_statuses(base):
+            recovered = _har_worker_recovery(base, events, plan, observed)
+            fit += observed + recovered
+            recovery_terminal = any(e.get("event") == "research_program_worker_charge_recovery"
+                                    and e.get("experiment_id") == plan["experiment_id"] for e in events)
+            if plan["experiment_id"] not in latest_plan_statuses(base) and not recovery_terminal:
                 pending_registered = True
                 fit_reserved += max(0., protocol["fit_seconds_total_cap"] - observed)
     reserves = [e for e in events if e.get("event") == "research_program_aux_fit_reserved"]
@@ -180,12 +271,16 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
     auxiliary = 0.
     for reservation in reserves:
         amount = completed.get(reservation["charge_id"], {}).get("seconds", reservation["seconds_cap"])
-        if not 0 <= amount <= reservation["seconds_cap"]:
+        if (not _finite_seconds(reservation["seconds_cap"]) or not _finite_seconds(amount)
+                or not 0 <= amount <= reservation["seconds_cap"]):
             raise ValueError("Auxiliary fit reservation exceeded")
         auxiliary += amount
     current_tickets = [e for e in tickets if e["study_path"] == study_path]
     failed = [e for e in events if e.get("event") == "research_program_registration_failed" and e.get("study_path") == study_path]
     study_registration_cap = study.get("registration_attempts_for_this_study_cap")
+    if study_registration_cap is None and study_path == HAR_REPLICATION_STUDY:
+        _har_replication_auxiliary(base, read_jsonl(base / "research/events.jsonl"))
+        study_registration_cap = 1
     if study_registration_cap is None and study.get("id") == "HAR01-FROZEN-SOURCE-SCREEN-V1":
         cap_addendum = _document(base, "research/plans/HAR01-PRESEED-CAP-CONFORMANCE-V1.json")
         if (study.get("study_kind") != "native_frozen_source_transfer"
@@ -207,7 +302,9 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
             or e["receipt_sha256"] != _bound_hash(base, e["receipt_path"]) for e in preparation_ends)):
         raise ValueError("Preparation completion receipt changed or repeated")
     terminal = bool(failed or (experiment_id and ((base / "research/results" / f"{experiment_id}.json").exists()
-                                                or experiment_id in latest_plan_statuses(base))) or preparation_ends)
+                                                or experiment_id in latest_plan_statuses(base)
+                                                or any(e.get("event") == "research_program_worker_charge_recovery"
+                                                       and e.get("experiment_id") == experiment_id for e in events))) or preparation_ends)
     ready_events = [e for e in events if e.get("event") == "research_program_study_ready" and e.get("study_path") == study_path]
     if len(ready_events) > 1:
         raise ValueError("Research readiness repeated")
@@ -328,6 +425,15 @@ def _transfer_status(base, events):
     current = _status_for(base, authority_path=TRANSFER_AUTHORITY, contract_path=TRANSFER_CONTRACT,
                           expected_caps=(12, 72000), authorization_event="research_program_transfer_prototype_authorized")
     protected_tickets, protected_seconds = _transfer_reserves(current["stage_registration_attempts"])
+    owned_auxiliary = 0.
+    if current["study_path"] == HAR_REPLICATION_STUDY:
+        owned_auxiliary, _ = _har_replication_auxiliary(base, events)
+        current_tickets = [e for e in events if e.get("event") == "research_program_registration_started"
+                           and e.get("program_id") == current["id"] and e.get("study_path") == HAR_REPLICATION_STUDY]
+        if current["stage_registration_attempts"]["independent_replication"] != len(current_tickets):
+            raise ValueError("HAR scoped preparation owns only first replication slot")
+        if not current_tickets:
+            protected_seconds -= owned_auxiliary
     return {**current, "prior_program_closed": True, "prior_program_id": previous["id"],
             "prior_registration_attempts_used": previous["registration_attempts_used"],
             "prior_compute_seconds_charged": previous["fit_seconds_charged"],
@@ -339,6 +445,7 @@ def _transfer_status(base, events):
             "stage_b_compute_seconds_cap": 72000,
             "protected_future_registration_attempts": protected_tickets,
             "protected_future_compute_seconds": protected_seconds,
+            "study_owned_auxiliary_seconds": owned_auxiliary,
             **{key: previous[key] + current[key] for key in keys},
             "registration_attempts_cap": previous["registration_attempts_used"] + 12,
             "fit_seconds_cap": previous["fit_seconds_charged"] + 72000}
@@ -357,9 +464,14 @@ def _check_transfer_study_reserve(value, study):
         return
     tickets, seconds = _transfer_reserves(value["stage_registration_attempts"], study["stage"])
     resources = study["resources"]
+    auxiliary_cap = resources["auxiliary_test_seconds_cap"]
+    worker_cap = resources["fit_seconds_study_cap"]
+    credit = value.get("study_owned_auxiliary_seconds", 0.) if value["study_path"] == HAR_REPLICATION_STUDY else 0.
+    if (not _finite_seconds(auxiliary_cap) or not _finite_seconds(worker_cap)
+            or not _finite_seconds(credit) or credit > auxiliary_cap):
+        raise ValueError("Invalid finite study resource cap or owned auxiliary credit")
     if (12 - value["stage_b_registration_attempts_used"] - 1 < tickets
-            or value["unreserved_fit_seconds_remaining"] - resources["fit_seconds_study_cap"]
-            - resources["auxiliary_test_seconds_cap"] < seconds):
+            or value["unreserved_fit_seconds_remaining"] - worker_cap - (auxiliary_cap - credit) < seconds):
         raise ValueError("Study would consume protected replication, fresh-final or prototype reserves")
 
 
@@ -378,17 +490,28 @@ def scope_problems(base, experiment_id=None):
 
 def auxiliary_reserve(base, charge_id, seconds_cap):
     value = status(base)
-    if (not value or value["program_closed"] or not isinstance(seconds_cap, (int, float))
+    if (not value or value["program_closed"] or type(seconds_cap) not in (int, float)
             or not math.isfinite(seconds_cap) or seconds_cap <= 0 or seconds_cap > value["unreserved_fit_seconds_remaining"]):
         raise ValueError("Insufficient research budget for auxiliary fit reservation")
-    if ("stage_b_registration_attempts_used" in value and
-            seconds_cap > value["unreserved_fit_seconds_remaining"] - value["protected_future_compute_seconds"]):
-        raise ValueError("Auxiliary reservation would consume protected future research reserves")
     events = read_jsonl(base / "research/events.jsonl")
+    binding = {}
+    protected = value.get("protected_future_compute_seconds", 0)
+    if charge_id in HAR_OWN_AUXILIARY_IDS:
+        if value["study_path"] != HAR_REPLICATION_STUDY:
+            raise ValueError("HAR auxiliary ID belongs only to its exact current study")
+        credit, binding = _har_replication_auxiliary(base, events)
+        if credit + seconds_cap > 2400:
+            raise ValueError("HAR owned auxiliary allocation exceeded")
+        protected = 41000
+        if not value["stage_registration_attempts"]["independent_replication"]:
+            _check_transfer_study_reserve(value, _document(base, HAR_REPLICATION_STUDY))
+    if ("stage_b_registration_attempts_used" in value and
+            seconds_cap > value["unreserved_fit_seconds_remaining"] - protected):
+        raise ValueError("Auxiliary reservation would consume protected future research reserves")
     if any(e.get("charge_id") == charge_id for e in events):
         raise ValueError("Auxiliary fit ID already consumed")
     append_jsonl(base / "research/events.jsonl", {"event": "research_program_aux_fit_reserved", "created_at": utc_now(),
-                 "program_id": value["id"], "charge_id": charge_id, "seconds_cap": seconds_cap})
+                 "program_id": value["id"], "charge_id": charge_id, "seconds_cap": seconds_cap, **binding})
 
 
 def auxiliary_charge(base, charge_id, seconds):
@@ -397,11 +520,14 @@ def auxiliary_charge(base, charge_id, seconds):
     if any(e.get("event") == "research_program_aux_fit_charged" and e.get("charge_id") == charge_id for e in events):
         raise ValueError("Repeated auxiliary fit accounting")
     reservations = [e for e in events if e.get("event") == "research_program_aux_fit_reserved" and e.get("charge_id") == charge_id]
-    if (len(reservations) != 1 or not isinstance(seconds, (int, float)) or not math.isfinite(seconds)
+    if (len(reservations) != 1 or type(seconds) not in (int, float) or not math.isfinite(seconds)
             or not 0 <= seconds <= reservations[0]["seconds_cap"]):
         raise ValueError("Auxiliary fit charge exceeds reservation or has no reservation")
+    binding = {}
+    if charge_id in HAR_OWN_AUXILIARY_IDS:
+        _, binding = _har_replication_auxiliary(base, events)
     append_jsonl(base / "research/events.jsonl", {"event": "research_program_aux_fit_charged", "created_at": utc_now(),
-                 "program_id": value["id"], "charge_id": charge_id, "seconds": seconds})
+                 "program_id": value["id"], "charge_id": charge_id, "seconds": seconds, **binding})
     status(base)  # Validate the durable accounting, including failed test runs.
 
 
