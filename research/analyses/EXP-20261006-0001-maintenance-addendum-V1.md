@@ -1,7 +1,7 @@
 # MUC0001 — osobne domknięcie utrzymania w cyklu329
 
 Wynik naukowy i decyzja **discard_proposed_recipe** pozostają niezmienione.
-Historyczny postrun MUC pozostał przerwany po należnym przeglądzie; nie powtórzono
+Historyczny postrun MUC pozostał przerwany przez obowiązek przeglądu; nie powtórzono
 go ani eksperymentu. Nowy, osobno prerejestrowany zakres NEXTAI-LITERATURE-CYCLE329-V4 wykonał
 rzeczywisty przegląd trzech pierwotnych abstraktów, zapisał źródła0463–0465
 i dopiero wtedy przesunął wskaźnik przeglądu117→123, bez zmiany kadencji6.
