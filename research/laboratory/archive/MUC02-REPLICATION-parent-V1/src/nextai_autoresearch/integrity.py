@@ -15,17 +15,6 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
-    "research/plans/MUC02-NEGATIVES-REPLICATION-20261006-V1.json",
-    "research/laboratory/MUC02-NEGATIVES-REPLICATION-20261006-V1.json",
-    "scripts/preregister_muc02_negatives_replication.py",
-    "scripts/prepare_muc02_replication.py",
-    "scripts/seal_muc02_replication.py",
-    "scripts/verify_muc02_replication_preseed.py",
-    "scripts/run_muc02_replication_check.py",
-    "scripts/ready_muc02_replication.py",
-    "scripts/register_muc02_replication.py",
-    "scripts/run_muc02_replication_experiment.py",
-    "scripts/close_muc02_replication.py",
     "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V3.json",
     "research/plans/ASM01-VERIFIED-SERIALIZER-TASK-V3.json",
     "research/data_manifests/ASM01-ACQUISITION-V3.json",

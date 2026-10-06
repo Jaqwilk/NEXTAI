@@ -1,15 +1,3 @@
-# Current separate MUC02 negative-sampling replication (2026-10-06)
-
-New human-authorized independent development stage; prior MUC failures/decisions remain consumed.
-Frozen MUC02-NEGATIVES-REPLICATION-20261006-V1 before implementation/data.
-Same model,4096 pairs,192 steps; random versus hard,5 fresh paired seeds.
-Deadline2026-10-06T05:50:00Z,stage wall14400s,total fit3600s; no execution retry.
-Same two primary effect/CI/sign and known-answer/symbolic gates; no outcome tuning.
-Canonical independent-clone experiment only after conformance,freeze/preflight/readiness.
-Separate wallet; B remains active with protected7tickets/47000s unchanged.
-ASM/HAR future writers,WT8-9,external models/API,architectures and schedule changes forbidden.
-Earlier stage-specific sections below remain preserved history.
-
 # Current cycle327 — extension-only inventory V3 (2026-10-06)
 
 New separate preparation-only contract; deadline03:21Z,all auxiliary1800s including failures/admin.

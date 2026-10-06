@@ -1,0 +1,21 @@
+{
+  "expense_boundary": "all initial reads, errors and administration included in full4h stage wall; no research/fit retry",
+  "fit_seconds": 0,
+  "metadata_only_command_errors": [
+    {
+      "error": "PowerShell ParserError; no search or mutation executed",
+      "operation": "rg search using POSIX brace syntax in PowerShell"
+    },
+    {
+      "error": "path absent; actual config/research.toml read afterwards",
+      "operation": "read research/config.json"
+    },
+    {
+      "error": "read-only access denied; disk checked with shutil.disk_usage afterwards",
+      "operation": "Get-Volume -DriveLetter C"
+    }
+  ],
+  "required_validation_checks_failed": 0,
+  "scoring_seeds_drawn": 0,
+  "stage_started_at": "2026-10-06T01:50:00Z"
+}

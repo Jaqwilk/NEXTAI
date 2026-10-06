@@ -177,12 +177,6 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
                         series_freeze: bool = False) -> list[str]:
     """One registered development attempt; invalidation does not replenish it."""
     try:
-        from .muc02_replication_stage import status as replication_status, scope_problems as replication_scope
-        replication = replication_status(base)
-        if replication is not None:
-            if candidate is not None or phase is not None or series_freeze:
-                return ["MUC replication does not reopen historical PC-01 or final-series operations"]
-            return replication_scope(base, experiment_id)
         from .research_program import status as program_status, scope_problems as program_scope
         if program_status(base) is not None:
             if candidate is not None or phase is not None or series_freeze:
@@ -262,19 +256,6 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
 def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
     base = (root or project_root()).resolve()
     progress = _historical_laboratory_progress(base)
-    from .muc02_replication_stage import status as replication_status
-    replication = replication_status(base)
-    if replication is not None:
-        stopped = replication["terminal"] or replication["expired"]
-        scope = {key: value for key, value in replication.items() if key != "preserved_research_program"}
-        return {**progress, "activation_id": replication["id"], "muc02_negatives": scope,
-                "preserved_research_program": replication["preserved_research_program"],
-                "scoring_authorized": replication["scoring_authorized"], "user_decision_required": stopped,
-                "next_action_id": "MUC02-REPLICATION-DECISION" if stopped else
-                    "MUC02-REPLICATION-RUNNING" if replication["started"] else
-                    "MUC02-REPLICATION-RUN" if replication["ready"] else "MUC02-REPLICATION-PREP",
-                "next_action": "Preserve every outcome and report the exact unfinished scope; no retry or automatic final."
-                    if stopped else "Complete the separately authorized fresh five-pair replication within its frozen caps."}
     from .research_program import status as program_status
     program = program_status(base)
     if program is not None:
@@ -652,12 +633,6 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
         path = (base / relative).resolve()
         if not path.is_relative_to(base) or not path.is_file():
             raise ValueError(f"Missing or invalid laboratory document: {relative}")
-    from .muc02_replication_stage import status as replication_status, PLAN as REPLICATION_PLAN
-    replication = replication_status(base)
-    if replication is not None:
-        return {**contract, "status": "dev_authorized" if replication["scoring_authorized"] else "preparation_only",
-                "scoring_authorized": replication["scoring_authorized"], "activation_id": replication["id"],
-                "maintenance_plan": REPLICATION_PLAN, "original_status": contract["status"]}
     from .research_program import status as program_status, CONTRACT as PROGRAM_CONTRACT
     program = program_status(base)
     if program is not None:
@@ -750,14 +725,6 @@ def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> l
         laboratory_progress(base)
     except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
         return [f"laboratory contract: {exc}"]
-    from .muc02_replication_stage import status as replication_status
-    replication = replication_status(base)
-    if replication is not None:
-        if scoring and not replication["scoring_authorized"]:
-            return ["MUC replication not ready, started, terminal or expired; no retry"]
-        if not replication["ready"] and config.benchmark_status != "maintenance":
-            return ["MUC replication preparation requires maintenance"]
-        return []
     from .research_program import status as program_status
     program = program_status(base)
     if program is not None:

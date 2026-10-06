@@ -5,7 +5,7 @@ name = "NEXTAI Autoresearch"
 objective = "Find computational principles that could improve capability per unit of end-to-end inference cost beyond dense autoregressive language models."
 generation = 2
 protocol_version = 3
-benchmark_version = "mutable_contact_ledger_negatives_replication_v1"
+benchmark_version = "asm01_native_memory_v3"
 benchmark_status = "maintenance"
 timezone = "Europe/Warsaw"
 
@@ -895,6 +895,3 @@ minimize = [
 
 [research_program]
 study_path = "research/plans/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.json"
-
-[muc02_replication]
-active = true
