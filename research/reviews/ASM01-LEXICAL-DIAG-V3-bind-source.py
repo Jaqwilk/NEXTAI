@@ -1,0 +1,9 @@
+from pathlib import Path
+from nextai_autoresearch.utils import sha256_file,atomic_write_json,utc_now
+root=Path.cwd();plan=root/'research/plans/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V3.json';digest=sha256_file(plan)
+clone=(root/'research/reviews/ASM01-LEXICAL-DIAG-CLONE-V2.py').read_text(encoding='utf-8').replace("identity='ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V2'","identity='ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V3'").replace('1c138c0d1b3868e247c356c9c2640d5490faca5a1bc0f7c5f6e16d2680a13e48',digest).replace('ASM01-LEXICAL-DIAG-SOURCE-BINDING-V2.json','ASM01-LEXICAL-DIAG-SOURCE-BINDING-V3.json').replace('ASM01-LEXICAL-DIAG-RESULT-V2','ASM01-LEXICAL-DIAG-RESULT-V3')
+(root/'research/reviews/ASM01-LEXICAL-DIAG-CLONE-V3.py').write_text(clone,encoding='utf-8',newline='\n')
+controller=(root/'research/reviews/ASM01-LEXICAL-DIAG-CONTROLLER-V2.py').read_text(encoding='utf-8').replace('V2','V3').replace('04:03:00','04:08:00').replace('03:57:00','04:03:00').replace('360','300').replace('334','335').replace('cykl333','cykl335').replace('03:57–04:03Z','04:03–04:08Z').replace('530.4497597999289','230.4497597999289').replace('530.4497598','230.4497598').replace('separateV3 przed kodem','V3 execution-binding; unchanged V2 classifier/fixtures przed driverem')
+(root/'research/reviews/ASM01-LEXICAL-DIAG-CONTROLLER-V3.py').write_text(controller,encoding='utf-8',newline='\n')
+paths=['research/reviews/ASM01-LEXICAL-DIAG-CLONE-V3.py','research/reviews/ASM01-LEXICAL-DIAG-CONTROLLER-V3.py'];atomic_write_json(root/'research/reviews/ASM01-LEXICAL-DIAG-SOURCE-BINDING-V3.json',{'created_at':utc_now(),'plan_sha256':digest,'files':{p:sha256_file(root/p) for p in paths},'unchanged_fixture_binding':'research/reviews/ASM01-LEXICAL-DIAG-SOURCE-BINDING-V2.json','prior_fixture_executions':0,'prior_knownfile_reads':0,'before_only_execution':True})
+print({'source_bound':True,'plan':digest},flush=True)

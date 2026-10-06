@@ -1,0 +1,12 @@
+{
+  "before_only_execution": true,
+  "created_at": "2026-10-06T04:04:32Z",
+  "files": {
+    "research/reviews/ASM01-LEXICAL-DIAG-CLONE-V3.py": "1b49bab1e828f24726854ff32424878b4547f68a1dc7215d613f46dacd4e95bb",
+    "research/reviews/ASM01-LEXICAL-DIAG-CONTROLLER-V3.py": "9a246a9b388a7e45bb13177ee243b3279943326acbdba41e2291b455ea7fc146"
+  },
+  "plan_sha256": "64053a777915f96c72a7b1c88cad951b2824537f39579ac86cf38e55511ffddb",
+  "prior_fixture_executions": 0,
+  "prior_knownfile_reads": 0,
+  "unchanged_fixture_binding": "research/reviews/ASM01-LEXICAL-DIAG-SOURCE-BINDING-V2.json"
+}
