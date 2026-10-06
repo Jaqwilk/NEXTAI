@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-10-06T02:36:15Z",
+  "error": null,
+  "experiment_id": "EXP-20261006-0001",
+  "fit_total_cap": 3600,
+  "paid_retry": false,
+  "parent_overhead_seconds": 414.96394950000104,
+  "parent_wall_seconds": 1041.9291737000167,
+  "plan_sha256": "cbde3b9e16bc6a8b59139249d065a9faaa2cbad41c2891293b3156d5ae7ef4a4",
+  "raw_outputs": {
+    "MUC02-REPLICATION-EXPERIMENT-CONTROLLER-V1.registration.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "MUC02-REPLICATION-EXPERIMENT-CONTROLLER-V1.registration.stdout.txt": "2c5ae94b790bc42970a304b326c31e607c2d4c0d9deea2ad03d82d4f386bd1db",
+    "MUC02-REPLICATION-EXPERIMENT-CONTROLLER-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "MUC02-REPLICATION-EXPERIMENT-CONTROLLER-V1.stdout.txt": "60d4a70e1db2c2430128633eb2d50a28ff9684f1e54b05e4678fa211bf4c83bc"
+  },
+  "registration": {
+    "elapsed_seconds": 140.91173439999693,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4294762496,
+    "pid": 20908,
+    "processes_created": 155,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "run": {
+    "elapsed_seconds": 886.8822777000023,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4294045696,
+    "pid": 38284,
+    "processes_created": 196,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "source_archive_path": "research/laboratory/archive/MUC02-REPLICATION-EVALUATED-SOURCE-V1.zip",
+  "source_archive_sha256": "12441e25920fba489d7f65d7b9d5c3ca5900e6b7298156bd9cc9c1a52f4f60e8",
+  "stage_id": "MUC02-NEGATIVES-REPLICATION-20261006-V1",
+  "supervised_fit_seconds": 115.41394759999821,
+  "whole_process_trees_bounded": true,
+  "worker_wall_seconds": 626.9652242000157
+}

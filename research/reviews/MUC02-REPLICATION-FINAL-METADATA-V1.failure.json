@@ -1,0 +1,15 @@
+{
+  "cause": "The assertion incorrectly expected CURRENT_STATUS.md in the protected manifest; that documentation path is not a protected entry.",
+  "command": ".venv/Scripts/python.exe research/reviews/MUC02-REPLICATION-FINAL-METADATA-V1.py",
+  "cost": "All elapsed administrative time, including this failure, is inside the 14400-second stage wall clock.",
+  "created_at": "2026-10-06T02:42:24Z",
+  "exception": "AssertionError: ['AGENTS.md', 'program.md', 'research/LAB_PLAN.md']",
+  "failed_line": 44,
+  "new_fit_seconds": 0,
+  "new_scoring_seed_draws": 0,
+  "operation": "administrative completed-stage header and provenance closure",
+  "preserved_effects": "Four headers prepended; manifest and preflight generated before the assertion; no report or metadata proof was written by the failed helper.",
+  "resolution": "Inspect existing bytes and seal reporting through an append-only reconciliation; never rerun the failed helper.",
+  "returncode": 1,
+  "scientific_retry": false
+}

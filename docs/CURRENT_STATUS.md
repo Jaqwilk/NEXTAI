@@ -1,3 +1,20 @@
+# Completed cycle328: independent MUC v2 negatives replication (2026-10-06)
+
+The separately authorized MUC02-NEGATIVES-REPLICATION-20261006-V1 stage is complete.
+One canonical clone execution EXP-20261006-0001: 11/11 roles,135 trials,5 fresh paired seeds.
+Same model,4096 pairs,192 steps; frozen metrics,threshold0.5 and gates unchanged.
+Decision DISCARD exact recipe: ranking +8.000pp,97.5% CI[-3.869,+19.869];
+dense UNKNOWN -14.148pp,CI[-55.633,+27.336]; known false abstention +9.481pp.
+Symbolic control100%; fit115.4139476/3600s; full workers626.9652242s.
+All prior failures,source bytes,registrations,results and costs remain consumed and preserved.
+Report research/analyses/EXP-20261006-0001.md; separate interpretation and final accounting.
+Current config restored exactly to parent ASM01 maintenance,scoring=false; no further MUC execution.
+B remains active,its wallet unchanged: 1/12 registrations,20098.55024020007/72000s;
+protected7 registrations/47000s unchanged. Separate MUC authority grants no extra B credit.
+Broader transfer/prototype goal remains open. Any further scientific scope needs separately frozen authority.
+No retry,WT8-9,future ASM/HAR writers,external models/API,new architecture or schedule change.
+Earlier stage-specific sections below remain preserved history.
+
 # Current separate MUC02 negative-sampling replication (2026-10-06)
 
 New human-authorized independent development stage; prior MUC failures/decisions remain consumed.

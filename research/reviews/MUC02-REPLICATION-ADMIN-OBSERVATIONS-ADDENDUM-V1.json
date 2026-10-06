@@ -1,0 +1,20 @@
+{
+  "stage_id": "MUC02-NEGATIVES-REPLICATION-20261006-V1",
+  "scope": "administration only; all elapsed time is included in the stage wall clock",
+  "observations": [
+    {
+      "operation": "fast-forward clone to readiness commit 11a618f",
+      "first_result": "Git aborted because the clone's untracked preseed evidence files would be overwritten",
+      "resolution": "Staged the identical evidence files, then completed a non-force fast-forward; no files deleted, no tests or scientific execution repeated"
+    },
+    {
+      "operation": "raw diagnostic byte preservation",
+      "result": "A proposed gitattributes addition was immediately withdrawn before registration; the protected file was restored byte-for-byte to its frozen SHA256",
+      "gitattributes_sha256": "d2e78c0db174d5b9669ddf2437366cd9991fd03e7102f290ba0ae81feee11a9a",
+      "preservation": "Captured native diagnostic bytes will be preserved losslessly in an archive; ordinary text copies in Git can have line endings normalized"
+    }
+  ],
+  "scientific_retry": false,
+  "required_check_failure": false,
+  "model_or_metric_change": false
+}

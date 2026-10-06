@@ -1,6 +1,6 @@
 # Research report
 
-Generated: 2026-10-06T02:15:45Z
+Generated: 2026-10-06T02:43:07Z
 
 Only results from the same benchmark version and budget tier are compared.
 The implementable Pareto frontier excludes privileged support controls and is capability-gated.
@@ -1341,6 +1341,28 @@ Unranked because declared axes are unmeasured: `EXP-20261004-0001` / `symbolic_l
 | EXP-20261004-0001 | muc02_random_neg_s4 | implementable | complete | 0.338 | - | 1 | 1.984e+10 | 101.5 | 4.026e+08 | 5.442e+12 | 6.38e-08 (3) | 4.32925e+07 |  |
 | EXP-20261004-0001 | muc02_hard_neg_s4 | implementable | complete | 0.1269 | - | 1 | 8.786e+09 | 101.5 | 1.783e+08 | 2.612e+12 | 0.01361 (3) | 4.32925e+07 |  |
 | EXP-20261004-0001 | symbolic_last_write_graph_v2 | implementable | complete | 1 | - | 5 | 162.3 | 101.5 | 39.8 | 7.067e+04 | 8.023e-05 (3) | 29440 |  |
+
+## mutable_contact_ledger_negatives_replication_v1 / quick
+
+Pareto axes: maximize `fact_top1_accuracy, dense_unknown_rejection, accuracy, continual_retention`; minimize `mean_query_ops, p95_latency_us, state_bytes, fit_ops, preprocessing_ops`.
+
+Pareto coverage is incomplete. The omitted controls remain unranked; this frontier cannot certify an advantage over them.
+
+Unranked because declared axes are unmeasured: `EXP-20261006-0001` / `symbolic_last_write_graph_v2` — `fact_top1_accuracy, dense_unknown_rejection`.
+
+| Experiment | Candidate | Role | Status | Acc. | bpb | Seeds | Ops/query | Input ops | Bytes touched | R16 workload | K slope (points) | State bytes | Pareto |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
+| EXP-20261006-0001 | muc02_random_neg_s0 | implementable | complete | 0.2787 | - | 1 | 1.76e+10 | 101.5 | 3.57e+08 | 4.868e+12 | 0.007075 (3) | 4.32924e+07 |  |
+| EXP-20261006-0001 | muc02_hard_neg_s0 | implementable | complete | 0.2384 | - | 1 | 1.176e+10 | 101.5 | 2.387e+08 | 3.374e+12 | -0.01899 (3) | 4.32924e+07 |  |
+| EXP-20261006-0001 | muc02_random_neg_s1 | implementable | complete | 0.3444 | - | 1 | 1.984e+10 | 101.5 | 4.026e+08 | 5.442e+12 | 6.401e-08 (3) | 4.32924e+07 |  |
+| EXP-20261006-0001 | muc02_hard_neg_s1 | implementable | complete | 0.5231 | - | 1 | 1.891e+10 | 101.5 | 3.838e+08 | 5.205e+12 | -0.01043 (3) | 4.32924e+07 |  |
+| EXP-20261006-0001 | muc02_random_neg_s2 | implementable | complete | 0.3574 | - | 1 | 1.984e+10 | 101.5 | 4.026e+08 | 5.442e+12 | 6.425e-08 (3) | 4.32925e+07 |  |
+| EXP-20261006-0001 | muc02_hard_neg_s2 | implementable | complete | 0.3583 | - | 1 | 1.984e+10 | 101.5 | 4.026e+08 | 5.442e+12 | 6.422e-08 (3) | 4.32925e+07 |  |
+| EXP-20261006-0001 | muc02_random_neg_s3 | implementable | complete | 0.3102 | - | 1 | 1.984e+10 | 101.5 | 4.026e+08 | 5.442e+12 | 6.409e-08 (3) | 4.32924e+07 |  |
+| EXP-20261006-0001 | muc02_hard_neg_s3 | implementable | complete | 0.3398 | - | 1 | 1.835e+10 | 101.5 | 3.725e+08 | 5.062e+12 | -0.006503 (3) | 4.32924e+07 |  |
+| EXP-20261006-0001 | muc02_random_neg_s4 | implementable | complete | 0.3532 | - | 1 | 1.984e+10 | 101.5 | 4.026e+08 | 5.442e+12 | 6.421e-08 (3) | 4.32924e+07 |  |
+| EXP-20261006-0001 | muc02_hard_neg_s4 | implementable | complete | 0.4153 | - | 1 | 1.754e+10 | 101.5 | 3.558e+08 | 4.853e+12 | 0.00386 (3) | 4.32924e+07 |  |
+| EXP-20261006-0001 | symbolic_last_write_graph_v2 | implementable | complete | 1 | - | 5 | 162.3 | 101.5 | 39.79 | 7.066e+04 | -0.0002382 (3) | 29440 |  |
 
 ## mutable_contact_ledger_v1 / quick
 

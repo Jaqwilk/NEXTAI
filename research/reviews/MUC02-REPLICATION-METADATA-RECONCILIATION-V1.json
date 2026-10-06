@@ -1,0 +1,34 @@
+{
+  "config_restored_byte_for_byte": true,
+  "created_at": "2026-10-06T02:43:36Z",
+  "current_headers_sha256": {
+    "AGENTS.md": "3f3336e029984726d5e59169cf570d9726a89f31cf5580634396397a3fdda88e",
+    "docs/CURRENT_STATUS.md": "f5506cd4805d7dc57902465137e469c9898e4f72a7610b82d6b59dd4d1f15951",
+    "program.md": "00899962e93163561b325241c8a8f92d261687ef51d417c1b68e07d69b4c296b",
+    "research/LAB_PLAN.md": "56505ba672e173a21ee4140b0d8cf65129b46c8bd3ab09c874ff9b15faf56b68"
+  },
+  "experiment_id": "EXP-20261006-0001",
+  "failed_helper_was_rerun": false,
+  "failure_path": "research/reviews/MUC02-REPLICATION-FINAL-METADATA-V1.failure.json",
+  "failure_sha256": "841b5a3d87f2e3727978004b069746fe55c59d9102456586042322fc0e3e1218",
+  "manifest_sha256": "f10053354c6f6f0f1f94099458968bed2fd1a8b67cfc890b977c2819e7e6a2c5",
+  "new_fit_seconds": 0,
+  "new_scoring_seed_draws": 0,
+  "old_headers_sha256": {
+    "AGENTS.md": "1cbb666a41e3a45b542a5ad7e9cace06099a0cc983d57cb4b4c906a03eea2ba2",
+    "docs/CURRENT_STATUS.md": "79751eeb973844dfcec943694160c7b143a40b1dc579b17943b86ae715ced83f",
+    "program.md": "717ee86394a77dbef729c910135da444896dad0d2669355ca53bf8428b5a80ec",
+    "research/LAB_PLAN.md": "b18ee2df8f05aeed4725f08f18420204ddb4363e77d3569d7b7ccb4dc0138138"
+  },
+  "preflight_sha256": "62957907372589afa7015fc54e0a7b4f68255e277862ffe855a72f311ec0c0d2",
+  "prior_headers_preserved_as_suffixes": true,
+  "protected_changes_since_evaluated_source": [
+    "AGENTS.md",
+    "config/research.toml",
+    "program.md",
+    "research/LAB_PLAN.md"
+  ],
+  "scientific_incomplete_scope": [],
+  "scientific_source_changed": false,
+  "status": "existing_metadata_reconciled"
+}

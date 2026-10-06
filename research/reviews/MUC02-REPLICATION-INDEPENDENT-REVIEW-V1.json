@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "review_id": "MUC02-REPLICATION-INDEPENDENT-REVIEW-V1",
+  "experiment_id": "EXP-20261006-0001",
+  "stage_id": "MUC02-NEGATIVES-REPLICATION-20261006-V1",
+  "reviewer": "/root/muc_readonly",
+  "created_at_utc": "2026-10-06T02:40:21.942942+00:00",
+  "review_status": "complete",
+  "issues": [],
+  "conclusion": "Independent read-only recomputation found no numerical, pairing, freshness, gate or cost error. The frozen decision discard_proposed_recipe is supported. The positive ranking point estimate does not establish an effect under its frozen interval gate; dense UNKNOWN and known false-abstention guards fail.",
+  "artifacts": {
+    "result": {
+      "path": "research/results/EXP-20261006-0001.json",
+      "bytes": 21799895,
+      "sha256": "1e9bee0d298fe1935f19c4b6c1e34096a8ad58fd857916e7166577aef4774285",
+      "clone_copy_byte_identical": true,
+      "clone_path": "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/results/EXP-20261006-0001.json"
+    },
+    "machine_analysis": {
+      "path": "research/reviews/EXP-20261006-0001-paired-analysis.json",
+      "bytes": 32006,
+      "sha256": "0a4a1b972c632fa0ebd47498e3027cb3fe2fec6f55a6e96274896c728b0e79fc"
+    },
+    "original_human_report": {
+      "path": "research/analyses/EXP-20261006-0001.md",
+      "bytes": 5123,
+      "sha256": "4cd3faf5726629f34e986095dae339fca7caa6dcd86f7cb08f5f80a7040cf3e8"
+    },
+    "preregistration": {
+      "path": "research/plans/MUC02-NEGATIVES-REPLICATION-20261006-V1.json",
+      "bytes": 14596,
+      "sha256": "cbde3b9e16bc6a8b59139249d065a9faaa2cbad41c2891293b3156d5ae7ef4a4"
+    },
+    "controller_receipt": {
+      "path": "research/reviews/MUC02-REPLICATION-EXPERIMENT-CONTROLLER-V1.json"
+    },
+    "evaluated_source_archive": {
+      "path": "research/laboratory/archive/MUC02-REPLICATION-EVALUATED-SOURCE-V1.zip",
+      "sha256": "12441e25920fba489d7f65d7b9d5c3ca5900e6b7298156bd9cc9c1a52f4f60e8"
+    }
+  },
+  "method": {
+    "timing": "All scientific checks described here were completed before authorization to create this evidence file. This write did not rerun the scientific analysis. Artifact byte hashes were read to bind this evidence to the reviewed files.",
+    "inputs": "Read the frozen plan, persisted canonical clone result, registered plan, construction journals, controller receipt, machine analysis and original human report. Read result metadata and saved predictions; do not instantiate a candidate or generator.",
+    "independent_recomputation": [
+      "Reconstructed latest-record fact correctness from persisted selected key, selected timestamp, query and gold timestamp.",
+      "Reconstructed dense UNKNOWN and known false abstention using the frozen maximum-probability threshold 0.5.",
+      "Reconstructed accepted fact accuracy as correct and accepted, with all known trials in the denominator.",
+      "Reconstructed end-to-end known, UNKNOWN, updated and retained accuracy from saved prediction and expected-answer arrays.",
+      "Recomputed the equal nine-cell means within each paired seed and paired differences across the five seeds.",
+      "Recomputed Student-t paired intervals with four degrees of freedom: 97.5 percent for each of two primary endpoints and 95 percent descriptive intervals for secondary endpoints.",
+      "Compared recomputed values and frozen gate outcomes with the machine analysis and displayed report.",
+      "Checked all paired initial-state, train-world, positive-sequence, document-and-label-sequence and per-cell dev-world hashes, with different negative-sequence hashes and fixed hard-negative type counts.",
+      "Checked realized seeds against the immutable historical seed exclusion list and rederived every persisted construction-journal seed from the explicit new TAG without constructing a world.",
+      "Checked complete role/cell coverage, 405 train worlds, 4096 training pairs and 192 optimizer updates per learned role, symbolic coverage, result integrity flags and root/clone byte identity.",
+      "Summed persisted supervised fit and worker charges and checked the controller receipt and recorded limits."
+    ],
+    "independence_unit": "Five paired seeds with their own fresh train/dev worlds; queries and cells are dependent observations within a seed and are not treated as independent replications.",
+    "uncertainty_method": "Two primary two-sided 97.5 percent paired-t intervals provide Bonferroni familywise 95 percent coverage. Descriptive secondary intervals are not additional confirmatory gates. Difference intervals are not clipped to probability bounds.",
+    "preservation": "No existing source, result, preregistration, report, metric, threshold or history was changed by this review.",
+    "actions": {
+      "new_tests": 0,
+      "new_fit_seconds": 0,
+      "new_optimizer_updates": 0,
+      "new_candidate_instantiations": 0,
+      "new_seed_draws": 0,
+      "new_generated_worlds": 0,
+      "experiment_retries": 0,
+      "analysis_reruns_during_evidence_write": 0,
+      "new_files": ["research/reviews/MUC02-REPLICATION-INDEPENDENT-REVIEW-V1.json"]
+    }
+  },
+  "coverage_and_freshness": {
+    "complete_roles": 11,
+    "expected_roles": 11,
+    "learned_roles": 10,
+    "learned_cells_per_role": 9,
+    "symbolic_trials": 45,
+    "total_trials": 135,
+    "paired_units": 5,
+    "seeds": [1676295826, 1380025130, 1444016924, 197800381, 815499825],
+    "data_tag": "MUC02-NEGATIVES-REPLICATION-20261006-V1",
+    "historical_seed_overlap": [],
+    "all_pairing_checks_pass": true,
+    "pairs_per_learned_role": 4096,
+    "optimizer_updates_per_learned_role": 192,
+    "train_worlds_per_learned_role": 405,
+    "hard_same_subject_different_relation_pairs": 1024,
+    "hard_same_relation_different_subject_pairs": 1024,
+    "journal_records": 6077,
+    "accepted_journal_records": 6075,
+    "rejected_journal_records": 2,
+    "unique_rejected_structural_proposals": 1,
+    "unique_accepted_world_seeds": 2700,
+    "all_journal_seed_derivations_match": true,
+    "construction_rule": "The two rejected journal entries describe one shared structural proposal logged in both arms of a pair. The prospectively frozen at-most-64 proposal rule conditions on required query-stratum feasibility, never model quality or seed outcome. This is not an experiment or fit retry.",
+    "integrity_before_and_after_pass": true
+  },
+  "primary_results": {
+    "fact_top1_accuracy": {
+      "random_mean": 0.09333333333333334,
+      "hard_mean": 0.17333333333333334,
+      "paired_mean_difference": 0.08,
+      "paired_t_ci_97_5": [-0.03869394037019333, 0.19869394037019333],
+      "strict_positive_pairs": 5,
+      "required_mean_difference": 0.05,
+      "mean_gate_pass": true,
+      "interval_gate_pass": false
+    },
+    "dense_unknown_rejection": {
+      "random_mean": 0.3,
+      "hard_mean": 0.1585185185185185,
+      "paired_mean_difference": -0.14148148148148149,
+      "paired_t_ci_97_5": [-0.5563258928949302, 0.27336292993196715],
+      "strict_positive_pairs": 2,
+      "required_mean_difference": 0.1,
+      "mean_gate_pass": false,
+      "interval_gate_pass": false
+    }
+  },
+  "secondary_summary": {
+    "presentation_precision": "Percentages and percentage-point differences in this summary are rounded to three decimal places; authoritative full precision remains in the hash-bound machine analysis.",
+    "accepted_fact_accuracy": {"random_percent": 9.333, "hard_percent": 16.074, "difference_pp": 6.741, "ci_95_pp": [-3.773, 17.255], "strict_positive_pairs": 5},
+    "known_false_abstention": {"random_percent": 0.0, "hard_percent": 9.481, "difference_pp": 9.481, "ci_95_pp": [-5.897, 24.86], "strict_positive_pairs": 4, "positive_difference_is_harmful": true},
+    "e2e_known_accuracy": {"random_percent": 36.709, "hard_percent": 38.899, "difference_pp": 2.19, "ci_95_pp": [-10.667, 15.048], "strict_positive_pairs": 4},
+    "e2e_unknown_rejection": {"random_percent": 6.074, "hard_percent": 27.704, "difference_pp": 21.63, "ci_95_pp": [-4.556, 47.815], "strict_positive_pairs": 4},
+    "updated_accuracy": {"random_percent": 38.272, "hard_percent": 39.457, "difference_pp": 1.185, "ci_95_pp": [-10.909, 13.279], "strict_positive_pairs": 4},
+    "retained_accuracy": {"random_percent": 35.537, "hard_percent": 38.481, "difference_pp": 2.944, "ci_95_pp": [-11.149, 17.038], "strict_positive_pairs": 3},
+    "symbolic_accuracy": 1.0,
+    "symbolic_parser_failure_rate": 0.0
+  },
+  "frozen_gates": {
+    "fact_selection_effect": true,
+    "unknown_effect": false,
+    "simultaneous_intervals": false,
+    "sign_consistency": false,
+    "accepted_known_guard": true,
+    "e2e_known_guard": true,
+    "false_abstention_guard": false,
+    "symbolic_control": true,
+    "decision": "discard_proposed_recipe",
+    "thresholds_or_metrics_changed": false
+  },
+  "costs": {
+    "total_supervised_fit_seconds": 115.41394759999821,
+    "total_fit_cap_seconds": 3600,
+    "all_learned_role_fits_below_350_seconds": true,
+    "full_worker_seconds": 626.9652242000157,
+    "symbolic_worker_seconds_included_in_total": 3.9497814000060316,
+    "controller_wall_seconds_including_registration": 1041.9291737000167,
+    "controller_overhead_seconds": 414.96394950000104,
+    "stage_elapsed_at_original_report_seconds": 2832.9,
+    "stage_wall_cap_seconds": 14400,
+    "learned_peak_rss_range_mib": [1103.5, 1168.6],
+    "learned_cuda_reserved_mib": 666.0,
+    "rss_cap_gib": 8,
+    "cuda_reserved_cap_gib": 4,
+    "energy_currency_and_full_driver_gpu_memory_measured": false,
+    "economic_advantage_established": false
+  },
+  "presentation_notes": [
+    {
+      "id": "unknown_subject_relation_breakdown",
+      "severity": "clarification",
+      "observation": "Dense absent-subject rejection changes from 0 to 8.148148 percent, while absent-relation rejection changes from 60 to 23.555556 percent. The aggregate dense UNKNOWN deterioration is mainly the absent-relation endpoint.",
+      "recommendation": "Add this mechanism split to the human report without changing or replacing the aggregate primary endpoint."
+    },
+    {
+      "id": "distinct_e2e_unknown_endpoint",
+      "severity": "clarification",
+      "observation": "The descriptive end-to-end UNKNOWN increase of 21.630 percentage points uses BM25 top-four plus path traversal, whereas the dense primary rejects only if the maximum score over all records is below 0.5. Its descriptive 95 percent interval includes zero.",
+      "recommendation": "Explicitly distinguish these endpoints; the end-to-end point estimate does not rescue the failed dense UNKNOWN primary or the frozen decision."
+    },
+    {
+      "id": "individual_known_answer_harm",
+      "severity": "clarification",
+      "observation": "For seed 1676295826, hard-negative known false abstention is 30 percent and end-to-end known accuracy falls from 27.513228 to 15.079365 percent, a 12.433862 percentage-point decrease. Passing mean accepted-known and end-to-end-known guards does not mean every pair is safe.",
+      "recommendation": "State this individual-pair harm descriptively. Do not introduce a retrospective individual gate or modify the preregistered mean guards."
+    },
+    {
+      "id": "symbolic_cost_table_coverage",
+      "severity": "clarification",
+      "observation": "The human role-cost table lists the ten learned roles. The full worker sum correctly also includes 3.9497814000060316 seconds for the eleventh symbolic role.",
+      "recommendation": "Add a symbolic row or explanatory sentence so readers can reconcile all eleven roles with the full worker total."
+    }
+  ],
+  "interpretation_limits": [
+    "This is one visible synthetic-development replication with five paired units, not blinded final or transfer evidence.",
+    "Earlier selecting and failed studies remain separate and are not pooled into these intervals.",
+    "The ranking point estimate and five positive signs are encouraging descriptive evidence, but the frozen primary interval gate fails.",
+    "The result discards this exact recipe and does not falsify all hard-negative training or the architectural family.",
+    "Different quality and abstention outcomes prevent a claim of economic superiority from descriptive latency measurements.",
+    "The broader B transfer/prototype goal is not completed by this bounded MUC stage."
+  ]
+}
