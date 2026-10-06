@@ -1,0 +1,38 @@
+{
+  "actual_paths_preserved": true,
+  "alias_collisions": 0,
+  "all_metadata_bounds_pass": true,
+  "canonical_UIDs": 1830,
+  "complete_metadata_validated_before_payload": true,
+  "conformance_sha256": "f2eb77b5ae066cead9b9c6eeecb434b90f8a4c781cb9a22b41e6c1abc0542ee1",
+  "created_at": "2026-10-06T01:41:07Z",
+  "cycle": 327,
+  "files": 1830,
+  "fixed_order_preserved": true,
+  "implementation_sha256": {
+    "scripts/prove_asm01_inventory_v3_metadata.py": "5c9d94ca43ca3d0509c32992b547a8c9bd7d7bc17eb97367e43b8aad8cc61163",
+    "scripts/run_asm01_inventory_v3_check.py": "2c64cbcd6fffe6a0a28e577facdb3dd166d54797edc32590ed2f80d5d671afb3",
+    "scripts/run_asm01_inventory_v3_fixtures.py": "e99a2e5e3db405b1c0cbc09cefd02cefbdcf26e49023a33802b260b875b8ce31",
+    "src/nextai_autoresearch/asm01_grammar_inventory.py": "cd5759386fa5f412ea125c849c5958b7d284dec91e811f93f173a6ccb544eb86",
+    "src/nextai_autoresearch/asm01_inventory_members_v3.py": "c1752b82b4cdc7ce8e51430b2ed6934cedec1877d606570b80b82a352562f392",
+    "src/nextai_autoresearch/asm01_inventory_v3.py": "77da2ba84b6ea5562f93e016cfc3aa1e0645ed8dcf812451d0ef26189138d6cc",
+    "tests/test_asm01_grammar_inventory.py": "6619d0a07e3b80e9dbd97352cec884dc508d1bf2fc144d7d8b0c14a40a8b5fd9",
+    "tests/test_asm01_inventory_v3.py": "efaa325e1ca50019de315a13db500fd82f1d13cae2c58779c1515605d12f7230"
+  },
+  "linked_entries": 0,
+  "listing_sha256": "d49c97288d650bc42995d27b7301e2b15b4d373b74ec6a320b7971020fe4e4f5",
+  "max_bytes": 25086,
+  "native_payloads_read": 0,
+  "new_EXPs": 0,
+  "numeric_conversions": 0,
+  "raw_listing_equals_disk": true,
+  "raw_name_set_sha256": "e96399e79a24b32109c3818eedd9b4f60a5143457d75df0eb75062928144597c",
+  "research_fit": 0,
+  "scoring": false,
+  "study_sha256": "730a9e6843eaf085970bad82e5878dc404f400634e0c8ff18ab9af0e4c46888d",
+  "total_bytes": 14394085,
+  "uppercase_extensions": 153,
+  "uppercase_extensions_by_writer": {
+    "5": 153
+  }
+}

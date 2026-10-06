@@ -1,0 +1,29 @@
+{
+  "cap_seconds": 140,
+  "command": [
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/.venv/Scripts/python.exe",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/scripts/prove_asm01_inventory_v3_metadata.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T01:41:34Z",
+  "error": null,
+  "id": "NEXTAI-B-327-real-metadata-V1",
+  "raw_outputs": {
+    "NEXTAI-B-327-real-metadata-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-327-real-metadata-V1.stdout.txt": "aa7410cac1564f3314166c488632b5e515b5a055c821535f5bc5ff15c1eb2418"
+  },
+  "result": {
+    "elapsed_seconds": 1.2439845000044443,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 39477248,
+    "pid": 38040,
+    "processes_created": 3,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 55,
+  "wall_seconds": 14.838958900014404,
+  "whole_process_tree_bounded": true
+}

@@ -1,0 +1,1 @@
+{"metadata_complete": true, "canonical_UIDs": 1830, "uppercase_extensions": 153, "total_bytes": 14394085, "max_bytes": 25086, "native_payloads_read": 0}
