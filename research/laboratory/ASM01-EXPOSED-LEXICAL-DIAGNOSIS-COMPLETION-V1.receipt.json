@@ -1,0 +1,23 @@
+{
+  "EXP": 0,
+  "charged_seconds": 300,
+  "clock_start": "2026-10-06T03:52:00Z",
+  "closing_reserve_seconds": 90,
+  "coordinate_conversions": 0,
+  "created_at": "2026-10-06T03:56:54Z",
+  "deadline": "2026-10-06T03:57:00Z",
+  "fit": 0,
+  "fixture_executions": 0,
+  "full_goal_status": "ACTIVE, INCOMPLETE",
+  "id": "ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V1",
+  "knownfile_reads": 0,
+  "plan_sha256": "35f0a0be5fa65451cffeba1cd3242c5f6491c0e80d8404fa77dba90d50802109",
+  "protected_seconds": 47000,
+  "protected_tickets": 7,
+  "reason": "At sourcefreeze observed03:55:42Z,78seconds remained,below unchanged90secondclosingreserve. No controller/test/native read attempted; no retry or deadline repair.",
+  "registrations": 0,
+  "source_binding_created_before_test": true,
+  "source_binding_sha256": "2f009735c24974c902083b58d7190cf4b87c56fd3721bcc83210dccd65e36936",
+  "status": "INCOMPLETE_UNSTARTED_after_closing_time_guard",
+  "unprotected_B_seconds_remaining": 890.4497597999289
+}

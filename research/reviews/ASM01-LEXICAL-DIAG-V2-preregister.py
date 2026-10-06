@@ -1,0 +1,13 @@
+from pathlib import Path
+from copy import deepcopy
+from nextai_autoresearch.research_program import status,auxiliary_reserve
+from nextai_autoresearch.ledger import append_jsonl
+from nextai_autoresearch.utils import load_json,atomic_write_json,sha256_file,utc_now
+root=Path.cwd();identity='ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V2';path=root/f'research/plans/{identity}.json';assert not path.exists()
+wallet=status(root);assert wallet['fit_seconds_remaining']-47000>=360 and not wallet['scoring_authorized']
+parent='research/plans/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V1.json';old=load_json(root/parent);receipt='research/laboratory/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-COMPLETION-V1.receipt.json'
+assert load_json(root/receipt)['fixture_executions']==load_json(root/receipt)['knownfile_reads']==0
+plan=deepcopy(old);plan.update(id=identity,cycle=334,created_at=utc_now(),clock_start='2026-10-06T03:57:00Z',deadline='2026-10-06T04:03:00Z',auxiliary_seconds_cap=360,B_wallet_at_freeze=wallet,parent_plan_path=parent,parent_plan_sha256=sha256_file(root/parent),parent_unstarted_receipt_sha256=sha256_file(root/receipt),prior_turn_classification='NO VERIFIED SCIENTIFIC PROGRESS: V1 code authored but test/read unstarted. New separate fixed metadata correction before any test/read; original360? original300 cap unchanged.',metadata_repair='New version ONLY: unsigned positive serial updates previous independently of declared range; malformed orzero serial never updates previous. Range counter unchanged. Coordinate classifier/outputcategories/grammar/native scope unchanged. Add two malformed/range-monotonic challenges inside same metadata namedcase before firsttest.',implementation_paths=[f'research/preparations/{identity}/classifier.py',f'research/preparations/{identity}/test_classifier.py'])
+plan['parent_bindings'].update({parent:sha256_file(root/parent),receipt:sha256_file(root/receipt),'research/preparations/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V1/classifier.py':sha256_file(root/'research/preparations/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V1/classifier.py'),'research/preparations/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V1/test_classifier.py':sha256_file(root/'research/preparations/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V1/test_classifier.py'),'research/reviews/ASM01-LEXICAL-DIAG-SOURCE-BINDING-V1.json':sha256_file(root/'research/reviews/ASM01-LEXICAL-DIAG-SOURCE-BINDING-V1.json')})
+atomic_write_json(path,plan);append_jsonl(root/'research/events.jsonl',{'event':'maintenance_preparation_preregistered','created_at':utc_now(),'cycle':334,'plan_id':identity,'plan_sha256':sha256_file(path),'before_V2_code_or_test_or_read':True});auxiliary_reserve(root,identity,360)
+print({'plan_sha256':sha256_file(path),'reserved':360},flush=True)
