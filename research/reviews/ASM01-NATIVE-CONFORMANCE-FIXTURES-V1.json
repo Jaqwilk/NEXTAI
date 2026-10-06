@@ -1,0 +1,15 @@
+{
+  "clone_package_path": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\__init__.py",
+  "complete": true,
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 46
+  },
+  "created_at": "2026-10-06T03:46:49Z",
+  "fit": 0,
+  "native_bytes": 0,
+  "plan_sha256": "6db8382e5080fbc4b3b244289bb04bbb6f0f3b7f730b5f12bfef9d3d8da3b8c4",
+  "returncode": 0
+}

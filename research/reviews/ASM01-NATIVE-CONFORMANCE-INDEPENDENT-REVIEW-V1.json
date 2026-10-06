@@ -1,0 +1,28 @@
+{
+  "EXP": 0,
+  "NPZ": 0,
+  "all1172_SHA_match_inventory": true,
+  "all3ledgerprefixes_root_clone_unchanged": true,
+  "attempts1172_exact_fixed_prefix": true,
+  "both_jobs_live_descendants": 0,
+  "created_at": "2026-10-06T03:50:16Z",
+  "current_sample": "17:74",
+  "earlier_lexical_metadata": "3negative_integerY/172unsignedpoints; no exact tokens/values; genericnormalize does not prove exactcause",
+  "error_category": "normalize",
+  "fit": 0,
+  "fixture46PASS": true,
+  "intake_complete": false,
+  "native_receipt_sha256": "d86202a43df3f0c0169dff3e66f413adf5ccc4145f322171aa96b552efdf453a",
+  "old74_array_and_three_view_hashmaps_complete": true,
+  "old74_arrayhash_matches_current_canonical_arrayhash": true,
+  "parent16bindings_root_clone_unchanged": true,
+  "protected1468files_root_clone_unchanged": true,
+  "raw_reads_by_reviewers": 0,
+  "remaining_unattempted": 658,
+  "reviewers": [
+    "inventory_review",
+    "muc_readonly"
+  ],
+  "scientific_decision": "INCONCLUSIVE through intake; no same-cycle rescue or continuation",
+  "status": "PASS_preservation_and_exact_old74_only"
+}
