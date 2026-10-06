@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-10-06T00:07:26Z",
+  "fixture_AST_equal_except_IDs": true,
+  "manifest_sha256": "bd298d38773364eb20b04d5ef1654bae37465ab57fde23685516f3ca13ef9abe",
+  "native_scope_stopped": true,
+  "new_native_content_read": false,
+  "old_science_and_scanner_unchanged": true,
+  "protected_files": 1448,
+  "scoring": false
+}

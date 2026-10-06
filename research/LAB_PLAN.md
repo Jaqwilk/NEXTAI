@@ -1,3 +1,21 @@
+# Current cycle325 — fixture-ID failure; native inventory stopped (2026-10-06)
+
+The full-screen inventory was frozen before code or remaining native text.
+Synthetic V1:35 passes,one oversized-input case with2 setup/teardown errors.
+Automatic pytest node ID exceeded Windows environment-variable length.
+Failed source,XML,outputs and full56s charge are preserved.
+ASM01-INVENTORY-FIXTURE-ID-CONFORMANCE-V1 freezes only four short IDs;
+all payloads/assertions,36 cases,scanner,geometry/models/gates unchanged.
+Native scope stays stopped this cycle even after synthetic correction.
+New native texts/numeric conversions,fit,registration,EXP all0.
+Maintenance/scoring=false; deadline01:37Z,entire auxiliary1800s unchanged.
+Next a NEW separately frozen inventory binding of the same fixed1830
+screen members; all prior failures and75 exposed texts disclosed.
+B/full goal active; future7tickets/47000s protected; no retry,WT8-9,
+external models/API or schedule changes.
+
+Earlier stage-specific sections below remain preserved history.
+
 # Current cycle325 — complete ASM01 screen grammar inventory (2026-10-05)
 
 ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V1 is preparation only.

@@ -1,0 +1,33 @@
+{
+  "cap_seconds": 200,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "-c",
+    "import json; from pathlib import Path; from nextai_autoresearch.integrity import freeze_manifest,verify_manifest; from nextai_autoresearch.baseline_semantics import write_preflight_certificate; from nextai_autoresearch.utils import sha256_file,atomic_write_json,utc_now; r=Path.cwd(); m=json.loads((r/'research/laboratory/archive/ASM01-inventory-fixture-ID-failure-V1/research/eval_manifest.json').read_text()); allowed={'AGENTS.md','program.md','research/LAB_PLAN.md','docs/CURRENT_STATUS.md','tests/test_asm01_grammar_inventory.py'}; assert all(sha256_file(r/f)==h for f,h in m['files'].items() if f not in allowed); new=freeze_manifest(r,overwrite=True); write_preflight_certificate(r); assert verify_manifest(r)['ok']; out=r/'research/reviews/ASM01-INVENTORY-FIXTURE-ID-SEAL-V1.json'; assert not out.exists(); atomic_write_json(out,{'created_at':utc_now(),'protected_files':len(new['files']),'old_science_and_scanner_unchanged':True,'fixture_AST_equal_except_IDs':True,'new_native_content_read':False,'native_scope_stopped':True,'scoring':False,'manifest_sha256':sha256_file(r/'research/eval_manifest.json')}); print('Fixture ID correction sealed; native scope stopped')"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T00:07:53Z",
+  "error": null,
+  "id": "NEXTAI-B-325-fixture-ID-seal-V1",
+  "raw_outputs": {
+    "NEXTAI-B-325-fixture-ID-seal-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-325-fixture-ID-seal-V1.stdout.txt": "53e5ac785531ebb7996066332702da9edd308b1f257d2fd3399cb7697dda8794"
+  },
+  "result": {
+    "elapsed_seconds": 1.9105681999935769,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 63246336,
+    "pid": 27476,
+    "processes_created": 4,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 56,
+  "wall_seconds": 15.471351300016977,
+  "whole_process_tree_bounded": true
+}

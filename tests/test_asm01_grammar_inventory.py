@@ -49,7 +49,8 @@ def test_unknown_forms_are_counted_and_redacted():
     assert all(x not in output for x in ("UNKNOWN_SECRET", "987654", "123456", "SECRET_NAME"))
 
 
-@pytest.mark.parametrize("payload", [None, "text", b"a" * 262145, b"\xff"])
+@pytest.mark.parametrize("payload", [None, "text", b"a" * 262145, b"\xff"],
+                         ids=["none", "text", "over-byte-cap", "non-ascii"])
 def test_input_type_bytes_and_encoding_guard(payload):
     with pytest.raises(ValueError):
         inventory.inventory_bytes(payload)
