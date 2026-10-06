@@ -1,0 +1,29 @@
+{
+  "cap_seconds": 130,
+  "command": [
+    ".venv/Scripts/python.exe",
+    "scripts/prove_asm01_inventory_v3_fixtures.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T01:40:14Z",
+  "error": null,
+  "id": "NEXTAI-B-327-fixture-proof-V1",
+  "raw_outputs": {
+    "NEXTAI-B-327-fixture-proof-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-327-fixture-proof-V1.stdout.txt": "cebcca462929bd7e0e1993743aab51c048036bdb865a8e217e282d032b12d417"
+  },
+  "result": {
+    "elapsed_seconds": 1.461419700004626,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 40296448,
+    "pid": 5436,
+    "processes_created": 3,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 56,
+  "wall_seconds": 15.105770199996186,
+  "whole_process_tree_bounded": true
+}

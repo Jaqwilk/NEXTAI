@@ -1,0 +1,2 @@
+independent_clone_package=C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\src\nextai_autoresearch\__init__.py
+......................................................................   [100%]

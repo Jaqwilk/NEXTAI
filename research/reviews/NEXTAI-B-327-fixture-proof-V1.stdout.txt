@@ -1,0 +1,1 @@
+{"synthetic_cases": 70, "both_manifests_ok": true, "scanner_unchanged": true, "native_payloads_read": 0}

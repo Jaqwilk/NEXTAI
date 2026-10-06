@@ -1,0 +1,29 @@
+{
+  "cap_seconds": 250,
+  "command": [
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/.venv/Scripts/python.exe",
+    "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/scripts/run_asm01_inventory_v3_fixtures.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T01:39:12Z",
+  "error": null,
+  "id": "NEXTAI-B-327-inventory-fixtures-V1",
+  "raw_outputs": {
+    "NEXTAI-B-327-inventory-fixtures-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-327-inventory-fixtures-V1.stdout.txt": "5a2677cfe9441c18e37ec7936bcc9a9f4020c07bc23e077ab8d4ed6cb1bf74b1"
+  },
+  "result": {
+    "elapsed_seconds": 11.339127800019924,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 77516800,
+    "pid": 25524,
+    "processes_created": 5,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 65,
+  "wall_seconds": 24.84492770000361,
+  "whole_process_tree_bounded": true
+}
