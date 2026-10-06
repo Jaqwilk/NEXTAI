@@ -1,0 +1,14 @@
+{
+  "V1_executions": 0,
+  "V2_executions": 0,
+  "before_only_execution": true,
+  "created_at": "2026-10-06T03:59:55Z",
+  "files": {
+    "research/preparations/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V2/classifier.py": "ce7aa36c447cd7484796b3389ecf2d3a4b3b75590648d7fc453fb320e1be456e",
+    "research/preparations/ASM01-EXPOSED-LEXICAL-DIAGNOSIS-V2/test_classifier.py": "87f4b88dde4f0d45e969c61644b23fe57582882c9bafb0cb70a0d92d1b3f437e",
+    "research/reviews/ASM01-LEXICAL-DIAG-CLONE-V2.py": "fed962507a9abb959d7b738901d1f5c929159afb9cd9e205343cf0029f731ce2",
+    "research/reviews/ASM01-LEXICAL-DIAG-CONTROLLER-V2.py": "75c8c2af5349d3172992879bdba8bb924ade6145878dd74a33b2c6dcdc53d5a5"
+  },
+  "metadata_only_versioned_correction": true,
+  "plan_sha256": "1c138c0d1b3868e247c356c9c2640d5490faca5a1bc0f7c5f6e16d2680a13e48"
+}
