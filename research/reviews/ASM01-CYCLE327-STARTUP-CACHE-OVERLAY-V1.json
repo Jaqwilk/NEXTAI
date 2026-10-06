@@ -1,0 +1,11 @@
+{
+  "cache_relative_path": "research/tmp/cycle327-uv-cache",
+  "change": "UV_CACHE_DIR inside workspace; --offline --no-sync; unchanged Doctor/Lab code",
+  "created_at": "2026-10-06T01:23:40Z",
+  "cycle": 327,
+  "maximum_startup_auxiliary_seconds": 950,
+  "new_native_bytes": 0,
+  "previous_failure_sha256": "2206cc9cd3d73c4b9f314a81df7701bc35c17c0c16a72161336ab9ffd91891b3",
+  "scientific_retry": false,
+  "whole_cycle_auxiliary_cap_prospective": 1800
+}

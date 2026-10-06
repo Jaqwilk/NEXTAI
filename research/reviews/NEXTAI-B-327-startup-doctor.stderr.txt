@@ -1,0 +1,2 @@
+error: Failed to initialize cache at `C:\Users\NATAN\AppData\Local\uv\cache`
+  Caused by: failed to open file `C:\Users\NATAN\AppData\Local\uv\cache\sdists-v9\.git`: Odmowa dostępu. (os error 5)

@@ -1,16 +1,3 @@
-# Current cycle327 — extension-only inventory V3 (2026-10-06)
-
-New separate preparation-only contract; deadline03:21Z,all auxiliary1800s including failures/admin.
-Accept only final .txt/.TXT aliases in listing AND disk; preserve all1830 UIDs/actual paths/order.
-70 synthetic cases and complete real metadata proof before one full lexical inventory.
-Unchanged scanner; no coordinates,numeric parser/geometry/model repair,fit,EXP or NPZ.
-Prior75 raw/74 numerical exposures disclosed; preserve all consumed V1/V2 failures.
-Any fixture/intake failure stops unstarted native scope; no retry or sample filtering.
-Maintenance/scoring=false; B/full goal active; protected7tickets/47000s unchanged.
-No future writers6-15/21-30,WT8-9,external model/API or schedule change.
-
-Earlier stage-specific sections below remain preserved history.
-
 # Current cycle326 — ASM01 inventory V2 (2026-10-06)
 
 Preparation only; deadline2026-10-06T02:28:24Z, auxiliary cap1800s including all failures/admin.

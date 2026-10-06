@@ -1,0 +1,33 @@
+{
+  "cap_seconds": 450,
+  "command": [
+    "uv",
+    "run",
+    "--offline",
+    "--no-sync",
+    "nextai",
+    "doctor"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T01:27:06Z",
+  "error": null,
+  "id": "NEXTAI-B-327-startup-doctor-local-cache",
+  "raw_outputs": {
+    "NEXTAI-B-327-startup-doctor-local-cache.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-327-startup-doctor-local-cache.stdout.txt": "71f9118f34b493a2080883818cc7df47bb3a8c4744443be14d37ef88f8677eb1"
+  },
+  "result": {
+    "elapsed_seconds": 164.04576829998405,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4317069312,
+    "pid": 11524,
+    "processes_created": 158,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 218,
+  "wall_seconds": 177.8347330999968,
+  "whole_process_tree_bounded": true
+}
