@@ -1,0 +1,8 @@
+{
+  "cap_seconds": 300,
+  "conservative_prepaid": true,
+  "created_at": "2026-10-06T00:39:51Z",
+  "id": "NEXTAI-B-326-administration-prepaid",
+  "scope": "Required reads, metadata construction, syntax, archived parent bytes, report, settled mirrors and Git. No native scan, numerical parser/model call or substantive test; these are charged separately.",
+  "seconds_charged": 300
+}

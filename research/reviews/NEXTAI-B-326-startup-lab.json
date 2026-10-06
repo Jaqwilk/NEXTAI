@@ -1,0 +1,33 @@
+{
+  "cap_seconds": 340,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "nextai",
+    "lab",
+    "status"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T00:38:48Z",
+  "error": null,
+  "id": "NEXTAI-B-326-startup-lab",
+  "raw_outputs": {
+    "NEXTAI-B-326-startup-lab.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-326-startup-lab.stdout.txt": "db0d6389968742ddf8d7e521c709e8f89438b285832846a7d89fdf5c0418fbf6"
+  },
+  "result": {
+    "elapsed_seconds": 200.94761949998792,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4314664960,
+    "pid": 26132,
+    "processes_created": 159,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 255,
+  "wall_seconds": 214.45237670000643,
+  "whole_process_tree_bounded": true
+}

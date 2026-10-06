@@ -1,15 +1,3 @@
-# Current cycle326 — ASM01 inventory V2 (2026-10-06)
-
-Preparation only; deadline2026-10-06T02:28:24Z, auxiliary cap1800s including all failures/admin.
-One complete inventory of the fixed1830 T1-5/D16-20 texts;75 prior raw exposures/74 conversions disclosed.
-Unchanged scanner and36 short-ID fixtures; new fixed bindings validated before new bytes.
-Only redacted lexical/categorical structure; no coordinates, parser/geometry repair, model, fit, EXP or NPZ.
-Any fixture or intake failure stops unstarted scope; no retry or sample filtering.
-Maintenance/scoring=false; B/full goal active; future7tickets/47000s protected.
-No future writers6-15/21-30,WT8-9,external model/API or schedule change.
-
-Earlier stage-specific sections below remain preserved history.
-
 # Current cycle325 — fixture-ID failure; native inventory stopped (2026-10-06)
 
 The full-screen inventory was frozen before code or remaining native text.
@@ -663,7 +651,7 @@ Reference/learning/absence gates and finite training-only grids are immutable in
 
 Previous sections are preserved history.
 
-# Current queue — NEXTAI continuation / PVM01 preparation (2026-10-04)
+# Current authority — NEXTAI continuation and preparation cycle304 (2026-10-04)
 
 Nowy program NEXTAI-CONTINUATION-20261004-V1 jest zatwierdzony: maksymalnie 17 dodatkowych rejestracji i 69344 s obliczeń, z zachowaniem 3 zużytych rejestracji i 2655.336485 s. Kontrakt: research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json. Zamknięty MUC03 i jego wyniki pozostają niezmienione. Nowa autoryzacja pozwala na zmianę receptur, uzasadniony nowy benchmark, minimalne prototypy, ablacje i replikacje; porażka jednej receptury nie zamyka programu. Nie ma potrzeby ponownego pytania o działania objęte tym zakresem.
 
@@ -677,50 +665,7 @@ Bramki ekonomiczne pozostają bez osłabienia. Cały fit i czas testów, także 
 
 Poniżej zachowano wcześniejsze sekcje jako historię; nie zastępują tej autoryzacji. Stałe niezmienniki naukowe i techniczne nadal obowiązują.
 
-# Plan uruchomienia laboratorium NEXTAI
-
-## Latest cycle 303 — MUC03 resolution INCONCLUSIVE (2026-10-04)
-
-EXP-20261004-0003 completed once in the independent validation clone: all 11
-workers / 135 trials, five fresh paired seed/data units, 768 vs 8192 steps,
-unchanged model, 4096 hard pairs and threshold 0.5. Train 98.54 -> 99.87%; dense
-top1 84.52 -> 91.93%, both primary paired 97.5% intervals exclude zero. Dense
-UNKNOWN is only 53.48%; one top1 seed is 80%. No arm passes all frozen stability
-gates. Classical last-write graph has 100% E2E and much lower local cost/state.
-
-The third and last reference recipe fails. The authorized program resolves to
-INCONCLUSIVE at the failed reference entry gate, without a fourth recipe or
-architecture promotion. Mechanism selection, source-identical ablations,
-matched-quality scaling, adverse generalization and fresh final remain
-UNEXECUTED. This does not falsify the untested delta-memory family. The global
-20-attempt / 72000-second cap was not exhausted. Three tickets include one
-failed registration; research fit totals 1216.336485 s. Every test wall is also
-conservatively charged, with all failures retained in completion receipts.
-
-Resolution: research/analyses/MUC03-AUTONOMOUS-PROGRAM-RESOLUTION-V1.md.
-Last experiment: research/plans/EXP-20261004-0003.json and
-research/analyses/EXP-20261004-0003.md. Required 12-result reflection:
-research/reviews/MUC03-REFERENCE-PORTFOLIO-CYCLE-303-V1.md. All evaluated source
-and runtime bytes are archived before post-run changes. The diagnostic Pareto
-front omits classical dense probes; the report now discloses omitted axes,
-without changing old results or claiming economic non-dominance.
-
-Final queue after the hash-bound closure: MUC03-PROGRAM-COMPLETE, maintenance,
-scoring=false, no pending run or reservation. No retry, WT 8-9, final access,
-external model/API, new architecture or schedule change. All sections below
-are preserved historical records and cannot authorize another study.
-
-## Historical cycle 303 preparation — final reference calibration (2026-10-04)
-
-Prospective MUC03-REFERENCE-CALIBRATION-V1 is frozen in Git d6f0d0a before
-implementation. Compare768 versus8192 steps, unchanged4096 hard pairs/model,
-five new paired train/dev units, fixed0.5 threshold and identical stability
-gates. This is the third and last tested reference step recipe. At most one
-registration/run,3500 s fit,350 s per role,4h bound ending2026-10-04T04:55:06Z.
-Keep maintenance until clone tests, integrity/preflight and readiness pass.
-No retry, final access, WT8-9, new architecture or implicit economic claim.
-If no arm passes all gates, close reference INCONCLUSIVE and report untested
-mechanism/ablations/scaling/fresh-final scope; do not add a fourth recipe.
+# NEXTAI autonomous research rules
 
 ## Latest completed cycle302 — EXP-20261004-0002 (2026-10-04)
 
@@ -743,7 +688,7 @@ This is the third and last tested reference step recipe; if stability still
 fails, close this reference milestone inconclusive with exact untested scope.
 No further user approval is needed inside the standing finite program.
 
-## Historical authority record — finite autonomous research program MUC03 (2026-10-04)
+## Current authority — finite autonomous research program MUC03 (2026-10-04)
 
 The user authorizes MUC03-AUTONOMOUS-20261004-V1: at most 20 new registration
 attempts, including failures/invalidations, and 72000 s total fit, including
@@ -812,7 +757,22 @@ threshold, model, data, seed, deadline or budget changes.
 Use `uv run nextai lab status` for the verified queue. All sections below are
 historical unless explicitly selected by this new authority.
 
-## Historical authority — audit repair (2026-10-02)
+## Historical authority — MUC v2 hard negatives (2026-10-03)
+
+The user authorized MUC02-HARD-NEGATIVES-20261003-V1: preregister metrics and
+thresholds, minimally change only training negatives, then compare random and
+hard negatives in the independent Git clone on fresh train/dev for five paired
+runner seeds. The MUC v2 model, 4096 pairs and 192 steps stay fixed. Work starts
+2026-10-03T21:08:25Z and stops by 2026-10-04T01:08:25Z; total fit <=3600 s.
+The immutable contract is research/plans/MUC02-HARD-NEGATIVES-20261003-V1.json,
+with user authority in the matching research/laboratory record. The new cohort
+is mutable_contact_ledger_hard_negatives_v1. No retry, WT 8-9, final/calibration
+reuse, tuning, new architecture, promotion, external model/API or schedule change.
+Any worker failure or cap stops the unstarted scope and preserves all outcomes.
+Use `uv run nextai lab status` for the verified queue. All sections below are
+historical unless explicitly selected by this new authority.
+
+## Current authority â€” audit repair (2026-10-02)
 
 The latest user decision authorizes AUDIT-REPAIR-20261002-V1: repair all audit
 findings, validate an independent Git clone, and execute exactly one new bounded
@@ -823,357 +783,205 @@ prior decision waits, not consumed attempts or scientific invariants. WT files
 
 All stage-specific sections below are historical records, not the active queue.
 
-## Historyczny etap — MUC-01-CALIBRATION-DECISION (2026-09-06)
+## Historical REVIEW-01 decision state (2026-09-06)
 
-Jedyna prerejestrowana próba `EXP-20260906-0002` została wykonana i jest
-terminalna. Symboliczny last-write graph przeszedł wszystkie komórki z accuracy
-1.0, lecz dense transformer osiągnął 0.189815 zamiast wymaganego 0.85, a BM25
-reader 0.755093. Kalibracja jest więc niekonkluzywna jako komplet uczonych
-kontroli i negatywna dla dokładnie tej receptury. Nie ma retry, rejestracji
-zastępczej ani zgody na implementację delta-memory. Analiza:
-`research/analyses/EXP-20260906-0002.md`; receipt:
-`research/laboratory/MUC-01-CALIBRATION-EXP-20260906-0002-V1.receipt.json`.
+The user authorized exactly one preparation-only, at-most-60-minute REVIEW-01
+cycle in `research/laboratory/REVIEW-01-20260906-V1.json`. The review of R0,
+PC-01 and WT-01 and the proposed contract are in
+`research/analyses/REVIEW-01-V1.md` and
+`research/plans/MUC-01-PROPOSED-CONTRACT-V1.json`. The proposal is not an
+experiment plan or execution authority. The current queue after validation is
+REVIEW-01-DECISION. Do not implement a candidate or generator, train, download,
+register an EXP, score, access WT files 8-9, replicate WT, change the schedule,
+or start the proposed stage without a new explicit user decision. Preserve the
+completed EXP-20260906-0001 and synchronized GitHub `master`/`main`.
 
-Najbliższy sensowny, ale nieautoryzowany krok to osobny v2 baseline calibration
-z właściwym one-shot dense causal transformerem, pełnym BPE i poprawioną
-normalizacją kosztów. Do tego potrzebna jest nowa decyzja użytkownika.
+## Historical WT-01 terminal decision state (2026-09-06)
 
-## Historyczny etap — MUC-01-CALIBRATION (2026-09-06)
+The user's exact approval "Zatwierdzam poprawkÄ™ append-only lifecycle, ponowny
+freeze oraz jednÄ… zastÄ™pczÄ… rejestracjÄ™ i run WT-01-DEV-1 w niezmienionym
+zakresie, wyĹ‚Ä…cznie na plikach 6â€“7, bez dostÄ™pu do 8â€“9." is recorded in
+`research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`; the
+prospective plan is `research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. The
+append-only lifecycle correction, tests and re-freeze passed. Replacement
+`EXP-20260906-0001` then completed exactly once through the audited runner on
+files 6-7 with one runner-random permutation seed; files 8-9 were not opened.
 
-Użytkownik zatwierdził dokładnie jedną prerejestrowaną kalibrację zadania
-`mutable_contact_ledger_v1` i trzech baseline'ów. Zakres wiąże
-`research/laboratory/MUC-01-CALIBRATION-20260906-V1.json` oraz
-`research/plans/MUC-01-CALIBRATION-ACTIVATION-V1.json`: K=32/128/512,
-D=1/2/4, jedna losowa próba runnera, bez retry i rejestracji zastępczej.
-Najpierw zamrozić evaluator i prerejestrować EXP, potem wdrożyć wyłącznie
-`dense_transformer_v1`, `bm25_iterative_reader_v1` i
-`symbolic_last_write_graph_v1`, uruchomić je tylko audytowanym runnerem i
-zatrzymać się na `MUC-01-CALIBRATION-DECISION`. Mechanizm delta-memory,
-jego ablation, WT, pliki WT 8–9, zewnętrzne modele/API, pobrania i harmonogram
-pozostają poza zgodą.
+The immutable result and analysis are `research/results/EXP-20260906-0001.json`
+and `research/analyses/EXP-20260906-0001.md`. The primary NRMSE contrast was
+0.1627937252458549 versus the frozen 0.03343253453162794 threshold and was
+positive on both files. All 162 trials completed stably. The VAR(2)/ARX control
+matched R1-U1-C1 within 3.552713678800501e-15, so this is narrow descriptive
+support for recurrence inside a classical affine mechanism, not architectural
+novelty. The current queue is WT-01-DECISION. No retry, files 8-9, tuning,
+another registration/seed, download, replication/transfer/economic claim or
+promotion is authorized. A fresh same-protocol physical replication requires a
+new prospective plan, new user authority and at least five independent recordings.
 
-Kalibracja zachowuje 45/15 światów train/dev na komórkę i osobny losowy
-holdout 15 światów na komórkę; nie zużywa przyszłego finalnego ekranu
-kandydata. Jej jawny iteracyjny reader jest kalibracją plumbing/baseline, nie
-certyfikacją przyszłego jednoprzebiegowego dekodera 8192-tokenowego ani dowodem
-mechanizmu. Wynik dodatni, ujemny albo awaria kończy etap bez automatycznej
-kontynuacji.
+## Historical WT-01 development authorization (2026-09-05)
 
-## Historyczny etap — REVIEW-01-DECISION (2026-09-06)
+The user's exact approval "zatwierdzam WT-01-DEV-1 w opisanym zakresie" was
+recorded in `research/laboratory/WT-01-DEV1-20260905-V1.json`, with the
+prospective integration plan in `research/plans/WT-01-DEV1-ACTIVATION-V1.json`.
+It authorized exactly one registered quick run of all eight frozen RĂ—UĂ—C cells
+and the separate VAR(2)/ARX control at K=18/36/54 and H=16/32/96, with one
+runner-random channel permutation. Fit may use files 0-5 and evaluation may use
+only visible development files 6-7. Files 8-9, dataset downloads, retry, a
+second registration/seed, tuning, replication/transfer/economic/novelty claims
+and architecture promotion remain forbidden. Freeze and preregister first,
+execute only through `uv run nextai run --plan ...`, preserve every outcome,
+then stop at WT-01-DECISION and synchronize GitHub `master` and `main`.
 
-Użytkownik zatwierdził jeden przygotowawczy cykl REVIEW-01, maksymalnie 60 minut,
-w `research/laboratory/REVIEW-01-20260906-V1.json`. Przegląd R0/PC-01/WT-01
-zapisano w `research/analyses/REVIEW-01-V1.md`, a konkretny, jeszcze nieaktywny
-kontrakt w `research/plans/MUC-01-PROPOSED-CONTRACT-V1.json`. R0 utrzymuje
-wiarygodność provenance, PC-01 potwierdza kontrolę uczenia, a WT-01 pozostaje
-opisową diagnostyką rekurencji w klasycznie równoważnym VAR(2)/ARX.
+That original registration was consumed by `EXP-20260905-0006` and invalidated
+before seed realization because the historical PC-01 closure incorrectly treats
+the append-only `research/plan_registry.jsonl` as a permanently fixed whole-file
+hash. No WT array was opened and no development attempt was executed. The
+2026-09-06 authority above supersedes only the former decision wait; all historical
+records and the original one-registration accounting remain immutable.
 
-Propozycja MUC-01 testuje wyłącznie lokalny delta-update pamięci na oryginalnym
-zadaniu z dokładną odpowiedzią, K=32/128/512 i niezależnym D=1/2/4. Obowiązkowe
-są: źródłowo identyczna ablacją append-only, kompetentny transformer, iteracyjny
-BM25+reader i jawny parser/hash-map. Pełny koszt obejmuje tekst, tokenizer, fit,
-indeks, ingest, update, query, RAM/VRAM i amortyzację. To propozycja do decyzji,
-nie EXP ani zgoda wykonawcza. Aktualna kolejka: REVIEW-01-DECISION. Bez nowej
-zgody nie implementować, nie trenować, nie pobierać, nie rejestrować/scorować,
-nie otwierać WT 8-9, nie replikować WT i nie zmieniać harmonogramu.
+## Historical final-series authorization (2026-09-05)
 
-## Historyczny etap — WT-01-DECISION po zastępczym WT-01-DEV-1 (2026-09-06)
+The user explicitly approved PC-01-FINAL-ACTIVATION-20260905-V1: exactly three
+fresh v3 final replicas of the unchanged pc01_byte_gpt_v1, selected dev
+EXP-20260905-0002, one experiment per bounded cycle, <=1200 s fit / <=1800 s
+worker each. The hash-bound authority supersedes only the completed preparation
+waiting state. Freeze/certify before final access; no new dev, tuning, resume,
+replacement seed, automatic retry or architecture promotion. A crash/invalid
+final stops for review; all three valid outcomes precede the aggregate decision.
+Preserve the original restart, prior receipts and cumulative 7200-second cap.
 
-Użytkownik jawnie zatwierdził poprawkę append-only lifecycle, ponowny freeze i
-jedną zastępczą rejestrację/run w
-`research/laboratory/WT-01-LIFECYCLE-REPLACEMENT-20260906-V1.json`. Wiążący plan:
-`research/plans/WT-01-LIFECYCLE-REPLACEMENT-V1.json`. Poprawka, testy i ponowny
-freeze przeszły. `EXP-20260906-0001` wykorzystał dokładnie jedną zastępczą
-rejestrację, jeden seed i jeden run przez runner. Wszystkie 162 próby dla ośmiu
-komórek R×U×C oraz VAR(2)/ARX zakończyły się stabilnie na plikach 6-7; plików
-8-9 nie otwarto.
+The user also authorized committing and pushing verified project changes to
+the existing GitHub origin. Preserve history; use non-force fast-forward pushes.
+Keep large data/checkpoints local, publish scientific records and their hashes,
+and preserve archived bytes. This does not authorize schedule changes or deployment.
+Older stage-specific prohibitions below describe their historical scopes.
 
-Kontrast NRMSE R0-U1-C1 minus R1-U1-C1 wyniósł 0,1627937252458549 przy progu
-0,03343253453162794 i był dodatni osobno na obu plikach. Kontrola VAR(2)/ARX
-była równoważna numerycznie do 3,552713678800501e-15. To zachowujemy jako wąski
-opisowy efekt rekurencji w klasycznym mechanizmie afinicznym, bez twierdzenia o
-nowości, replikacji, transferze lub przewadze ekonomicznej. Aktualny stan to
-WT-01-DECISION: zakaz kolejnego scoringu, retry, tuningu, plików 8-9, kolejnej
-rejestracji/ziarna, pobrań i promocji. Następna replikacja wymaga osobnej zgody,
-prospektywnego freeze i co najmniej pięciu niezależnych fizycznych nagrań tego
-samego protokołu. Zsynchronizować `master` i `main` bez force.
+## Historical no-training final preparation (2026-09-05)
 
-## Historyczny stan decyzji — WT-01-DEV-1 (2026-09-05)
+The latest `kontyynuj` authorizes only `research/plans/PC-01-FINAL-PREP-V1.json`:
+the exact selected-dev v2 to measurement-v3 bridge and metadata-aware series
+validation. The immutable plan has a 45-minute bound. No dev attempt, training,
+final access, actual final-series freeze, publishing or scheduling is authorized.
+After the receipt, stop at PC-01-DECISION. A future explicit decision must grant
+execution separately; preparation code and a conformance certificate are not
+execution authority. Preserve the completed dev/GPU repair and all old budgets.
 
-Użytkownik zatwierdził dokładnie jedną rejestrację w
-`research/laboratory/WT-01-DEV1-20260905-V1.json`; wiążący plan integracji to
-`research/plans/WT-01-DEV1-ACTIVATION-V1.json`. Najpierw walidacja, freeze i
-prerejestracja jednego quick EXP. Integracja przeszła 949/949 testów, ale jedyna
-rejestracja `EXP-20260905-0006` ujawniła blocker przed seedem i została
-append-only unieważniona: historyczne zamknięcie PC-01 wymaga niezmiennego hasha
-całego append-only `research/plan_registry.jsonl`. Nie otwarto żadnej tablicy WT
-i nie zużyto próby obliczeniowej. Utrzymać maintenance i stop na
-WT-01-DECISION. Wymagana osobna zgoda została udzielona 2026-09-06 i jest opisana
-powyżej; pierwotna rejestracja i jej unieważnienie pozostają niezmienne.
+## Identity and fixed objective
 
-Zakres danych jest diagnostyczny i wcześniej widziany: 0-5 historyczny fit,
-6-7 visible development, 8-9 visible historical diagnostic. Świeżych śladów tego
-samego protokołu jest zero; nie wolno twierdzić, że to hidden holdout, replikacja
-lub transfer. Osiem ról R×U×C ma jeden rdzeń, a osobna kontrola VAR(2)/ARX musi
-być równoważna R1-U1-C1 do 1e-12 na danych syntetycznych. Próg kontrastu
-NRMSE(R0,U1,C1)-NRMSE(R1,U1,C1) wynosi 0.03343253453162794 i służy wyłącznie
-atrybucji starego dodatniego wyniku. `wt_walks_v1` pozostaje niepobranym testem
-innej operacji. Planowany run obejmował wszystkie osiem komórek i kontrolę
-VAR(2)/ARX, K=18/36/54, H=16/32/96 oraz jeden seed permutacji. Fit używa 0-5,
-ocena wyłącznie visible development 6-7. Pliki 8-9 są zabronione. Nie wolno
-stroić, ponawiać, poprawiać lifecycle ani rejestrować drugiego EXP bez nowej
-zgody. Aktualny stan to WT-01-DECISION bez wyniku scoringowego.
+You are the Codex-native research scientist for this repository. There is no external model, OpenAI API client, or hidden orchestration service. Your fixed objective is to discover and rigorously test computational principles that could eventually deliver materially better capability per unit of end-to-end inference cost than dense autoregressive LLMs.
 
-## Historia — zgoda na trzy repliki finalne PC-01
+The objective is fixed. Every architecture, including ACC/SCCS, is disposable.
 
-Obowiązuje research/laboratory/PC-01-FINAL-ACTIVATION-20260905-V1.json.
-Użytkownik zatwierdził trzy świeże repliki niezmienionego modelu v3, po jednej
-na cykl, 1200 s fit / 1800 s procesu każda, bez kolejnego dev, strojenia,
-resume ani automatycznych powtórek. Najpierw freeze/certyfikat i rejestracja.
-Awaria lub nieważny wynik zatrzymuje serię do przeglądu. Trzy kompletne wyniki
-oceniamy razem według niezmienionych progów; bez awansu architektury.
-Zatwierdzono także commity i nie-siłowy push do istniejącego GitHub origin;
-duże dane i checkpointy zostają lokalnie. Nie zmieniamy harmonogramu.
-Poniższe opisy zakończonych etapów pozostają historią, nie aktualnym zakazem.
+## Required reading at the start of every run
 
-## Aktualna kolejka — PC-01-FINAL-PREP-V1 (2026-09-05)
+Before changing anything:
 
-Naprawa metadanych GPU jest zakończona. Najnowsza zgoda obejmuje wyłącznie
-kontrakt przejścia wybranego dev EXP-20260905-0002 z v2 do pomiaru v3 oraz
-adapter oceny serii finalnej. Plan: research/plans/PC-01-FINAL-PREP-V1.json.
-Testy są syntetyczne, bez treningu i bez danych finalnych. Po receipt wracamy
-do PC-01-DECISION; poniższe kolejki są historyczne, jeśli dotyczą zakończonych etapów.
+1. Read `program.md` completely.
+   Read `research/LAB_PLAN.md` and `research/laboratory/restart.json`; these are the current queue, not historical `next_cycle` suggestions.
+2. Read `research/state.json`, the tail of `research/experiments.tsv`, the current hypothesis events, and the most recent result/analysis files.
+3. Read `docs/SCIENTIFIC_PROTOCOL.md` when selecting or interpreting an experiment.
+4. Run `uv run nextai doctor`.
+5. If `STOP` or `PAUSE` exists, do not start an experiment. Report the state and stop.
 
-Następny eksperyment, dopiero po osobnej zgodzie: seria trzech świeżych replik
-niezmienionego pc01_byte_gpt_v1, nowe losowe seedy runnera, 5000 aktualizacji,
-1200 s fit / 1800 s worker na replikę, maksymalnie jeden eksperyment na cykl.
-Selekcja recipe pochodzi z v2, lecz wszystkie końcowe pomiary i kontrole będą
-z v3. Nie używać dev best.pt ani wyników dev jako replik finalnych. Zachować
-progi 3.5 bpb, różnicę frozen−trained co najmniej 1 bpb i dodatnią dolną granicę
-95% przedziału t dla trzech seedów. To lokalna kontrola uczenia na jednym
-korpusie, nie awans architektury, ekonomia, transfer ani ślepy holdout.
+## Scientific invariants
 
-Identyfikator: LAB-RESTART-20260904-V1. Data: 2026-09-04.
-Status: druga próba dev ukończona; zatwierdzona tylko naprawa metadanych GPU.
-Aktualny zakres: research/plans/PC-01-GPU-METADATA-V1.json, bez treningu/scoringu,
-limit serwisu 45 minut. Wersja v3 przygotowuje obowiązkowy odczyt sterownika,
-zegarów i obciążenia; pozostaje maintenance także po walidacji.
-Wyniki v1/v2 są niezmienne. Łączny trening 1500,4259332/7200 s, dwie próby dev
-zużyte. Ta zgoda nie dopuszcza trzeciej próby, final ani automatycznego retry.
-Po naprawie: PC-01-DECISION i jawny przegląd przejścia do serii finalnej.
-Cel programu nie zmienia się: lepsza zdolność na jednostkę pełnego kosztu
-inferencji niż gęste autoregresyjne LLM. Żadna architektura nie jest z góry wybrana.
+- Evidence outranks elegance, novelty, and the original vision.
+- Preregister every experiment before implementing the tested change or seeing its result.
+- Change one fundamental causal factor at a time during screening unless the plan explicitly tests an interaction.
+- Never edit a completed plan or result. Corrections are new append-only events.
+- Never delete, hide, rewrite, or omit failed, crashed, null, or inconvenient experiments.
+- Keep OBSERVATION, INTERPRETATION, CONFIDENCE, and NEXT DISCRIMINATING EXPERIMENT separate.
+- Do not promote from one seed. A surprising positive requires the configured replication count and an adversarial variant.
+- Compare at matched budgets and report the full end-to-end system boundary.
+- Never move candidate work into an LLM, retriever, preprocessing job, cache warm-up, or human-written ontology without charging and disclosing it.
+- Do not claim general intelligence, an LLM successor, or a new scaling law from a toy task.
+- Check prior art before marking a principle `promising` or `promoted`.
+- Prefer information gain per compute and engineering time over leaderboard movement.
 
-## 1. Decyzja po audycie i dodatkowej walidacji
+## Evaluation integrity
 
-Nie odrzucamy dotychczasowej historii. Odrzucamy utożsamienie braku spełnienia
-bardzo silnej koniunkcji G1 z brakiem jakiegokolwiek użytecznego efektu uczenia.
-Najpierw sprawdzamy aparaturę, potem wąskie efekty, ekonomię, a dopiero potem
-transfer. Nie zaczynamy od dużego zintegrowanego systemu.
+- Files listed in `research/eval_manifest.json` are protected. Verify them before and after every run.
+- Do not modify a benchmark, oracle, metric direction, seed policy, or baseline to help a candidate. A justified harness change creates a new benchmark version and a new comparison cohort.
+- Treat local visible benchmarks as development/screening evidence. Strong claims require an evaluator or holdout the research agent cannot inspect.
+- Use explicit operation counts where available; label estimates as estimates. Never present wall time from different hardware or load conditions as algorithmic complexity.
 
-Ten plan jest aktualną kolejką i zastępuje stare sugestie next_cycle/SEARCH MODE,
-ale ich nie usuwa. Licznik historii pozostaje ciągły. G2/infrastructure oznacza
-reset strategiczny, nie zaliczenie dawnych bram zdolności G2.
+## Laboratory restart: protocol v3 (user authorized 2026-09-04)
 
-## 2. Co rzeczywiście wynika z ponownej kontroli
+`LAB-RESTART-20260904-V1` supersedes the prospective G1/SEARCH MODE queue. The eight-experiment `G1-POST-EXP-0059-V1` window is historical; do not erase, reset, reinterpret or increment it. Generation 2 here means a strategic restart, not evidence that the old G2 capability gate passed. Historical cohort contracts remain in `docs/archive/SCIENTIFIC_PROTOCOL_V2_2026-09-04.md` and their frozen manifests.
 
-Źródłem jest research/reviews/EXTERNAL-AUDIT-2026-09-03.md, draft
-research/BELIEFS.json oraz niezmienne wyniki i kod. Audyt traktujemy poważnie,
-ale poniższe ograniczenia są równie ważne jak jego trafne zarzuty.
+The fixed order is reproducibility and provenance, a competent learned positive control and measurement controls, causal WT revalidation, a decision review, then (only if justified) one small language-like memory/update/composition system. Do not resume open-ended biological literature search or build an integration framework in place of these deliverables.
 
-| Ustalenie | Znaczenie dla planu |
-|---|---|
-| 99 wyników EXP, 88 jednoseedowych i 11 trzyseedowych; 4 wyniki mają append-only invalidację | Zachować pełną historię; nie zamieniać screeningu w replikację |
-| Zidentyfikowano 3 chronione pliki, których historyczne hashe dotyczą CRLF, oraz kontrolę świeżości raportu zależną od dat plików | Ustalić zakończenia linii i kontrolować treść raportu |
-| Później zmieniono plik wt_candidate_under_test.py; nie jest to kod wyników WT 0006/0007 | Przed interpretacją rozwiązać źródło po hashu z wyniku |
-| WT ma wąski dodatni wynik jakości, ale nie ustaloną przyczynę ani przewagę pełnego kosztu | Osobny, zamrożony test rekurencji, RLS i ograniczenia amplitudy |
-| 3 permutacje tych samych 2 śladów WT nie są 3 niezależnymi zbiorami fizycznymi | Nowe niezależne ślady dla replikacji; permutacje raportować oddzielnie |
-| Kontrola pushdown uogólnia zamykanie nawiasów, lecz stos push/pop jest napisany ręcznie | Zachować wąski wynik; nie twierdzić, że odkryto ogólny operator |
-| CAL-20260901-0001 porównywała różną jakość i różne tryby batchowania | To diagnostyka, nie ranking architektur przy tej samej jakości |
-| Są ścieżki GPU i uczenie gradientowe także poza bezpośrednim importem torch | Nie powtarzać tezy „zero GPU/zero neural”; zapisywać faktyczne urządzenie i trening |
-| Brak porządnie ustalonej kontroli małego transformera na właściwym zadaniu | Najpierw kompetentny pozytywny test uczenia, nie arbitralnie krótki trening |
-| Zmiana pewności BELIEFS o 0.05 byłaby celem podatnym na manipulację | Mierzyć rozstrzygnięte pytania i nowe dowody, nie wielkość zmiany opinii |
+Separate three claims: a causal learned mechanism effect, an end-to-end economic advantage, and transfer. Cross-family source identity is required for the transfer claim, not for detecting learning. A positive control need not outperform PPM/CTW on arbitrary small data or satisfy every old G1 condition. Classical solvers with the same legal observations are implementable baselines, not privileged merely because they exploit structure.
 
-Dokładny WT dla EXP-20260831-0006/0007: commit 4952515, źródło
-src/nextai_autoresearch/candidates/wt_candidate_under_test.py, SHA-256
-4471f2a999f9432e9d2e6fb56d309ebe7af52cca6dff246ab1b439b38f035104.
-Wiążący hash odczytujemy poleceniem provenance z niezmiennego wyniku.
+Allow a preregistered finite development budget on training/development data, with every attempt and change recorded. Freeze recipe, controls, effect sizes and selection before final evaluation. A final negative closes that tested version; no holdout-guided rescue tuning. Another question needs a new contract and fresh test data. A crash or failed positive control does not falsify an architectural family.
 
-Model historyczny to ridge na [1, current, delta, control], rekurencyjne
-przewidywanie, ograniczenie do +/-4 względem początku i lokalna aktualizacja RLS.
-Algebraicznie jest to afiniczny VAR(2) z wejściem i clippingiem. To ważna
-alternatywa, nie samo w sobie unieważnienie efektu. Wynik 0006: NRMSE około
-0.6728 vs 1.0071; R16 około 16.683M vs 7.887M. Lepsza jakość przy wyższym
-koszcie nie jest dominacją ekonomiczną. Źródła: wyniki 0006/0007 i ich audit.
+HYP-0012 remains an accounting control. `research/BELIEFS.json` is an unchanged external-audit draft, not an active reward function. Do not require a 0.05 confidence movement or update unrelated beliefs after a gate failure. Use `research/laboratory/BELIEFS_POLICY.md` for prospective interpretation.
 
-CAL-20260901-0001 pozostaje nietykalna: PPM 2.1678 bpb / 1.7175 s;
-tiny transformer 4.6247 bpb / 0.4803 s, trening około 0.6801 s.
-GPU mierzył batche z prawdziwym kontekstem, a nie pojedynczą autoregresyjną
-generację. Nie zmierzono energii. Nie powtarzamy tej kalibracji.
+Use bounded milestones from `research/LAB_PLAN.md`, not a quota forcing scoring after two service cycles. Exhausting a milestone's budget requires a concrete decision/blocker report; it does not authorize infinite search. No scoring is permitted while the active benchmark is in maintenance, while the restart status is preparation-only, or before a new cohort has frozen its own claim-specific contract. User-authorized preparation may repair harness rules in a separate, logged no-scoring cycle; never re-freeze just to hide an integrity failure.
 
-Dla kosztów przeliczona korelacja rang operacje–czas zapytania w 805 ważnych
-wierszach wynosi około 0.806; w 571 z zamrożonym kontraktem Pareto około 0.671.
-To opis historycznych zapytań, nie dowód uniwersalnej miary kosztu end-to-end.
-W EXP-20260901-0036 R oznacza cały workload; wyliczone przecięcie około R=55.3
-nie oznacza 55 pojedynczych pytań i nie usuwa różnicy pamięci.
-Zapis zdarzenia o usunięciu cooldownu nie dowodzi zmiany częstotliwości heartbeatu.
-Nie wnioskujemy o aktualnym stanie harmonogramu z dawnych analiz.
+The one-time local real-system calibration selected in cycle 227 was completed as `CAL-20260901-0001` in cycle 228. Its results are systems diagnostics, never candidate evidence, and it must not be rerun or increment the G1 window.
 
-## 3. Etap R0 — odtwarzalność i pochodzenie
+## Allowed implementation scope
 
-Dostarczamy w przygotowaniu:
+Prospective PC-01 approval on 2026-09-05 is separately recorded in
+research/laboratory/PC-01-ACTIVATION-20260905-V1.json. The effective laboratory
+authority may permit exactly one registered dev attempt after new-cohort
+validation/freeze; original restart.json and closed service budgets stay immutable.
+Only pc01_byte_gpt_v1, seed 1103, fit <=1200 s and worker <=1800 s are authorized.
+No final access/series freeze, automatic retry or architecture promotion follows
+from this approval. Preserve the outcome and stop for its decision review.
 
-- jawną politykę Git EOL z zachowaniem 3 historycznych hashy;
-- świeżość raportu po treści wejść i renderera, odporną na kopiowanie/touch;
-- narzędzie provenance: wynik -> zapisane zależności -> dokładne bajty z Git;
-- kopię starego protokołu i archiwum manifestu; nową tożsamość protokołu v3;
-- testy pozytywne i negatywne powyższych kontroli;
-- kontrolę kopii checkoutu z ustawieniami LF i CRLF bez przepisywania danych;
-- jawne rozróżnienie testu checkoutu na Windows od faktycznego testu Linux.
+After the consumed dev attempt, the user authorized only the no-training
+PC-01-TELEMETRY-REPAIR-V1 maintenance stage and concurrent read/write tests.
+Its repair/addendum and laboratory status are the current queue; no model retry
+or final access is authorized. Keep maintenance after validation pending review.
 
-Nie zmieniamy wyników, planów, ledgerów hipotez, kandydatów ani benchmarków.
-Stara kohorta SuiteSparse pozostaje dostępna historycznie, ale ma maintenance.
-Brak nowych źródeł danych i modeli pobranych w tej fazie.
+The subsequent approval "zatweirdam" grants ONE additional fresh dev, globally
+attempt 2, under research/laboratory/PC-01-DEV2-20260905-V1.json and new cohort v2.
+This prospective overlay supersedes only the completed repair's waiting state.
+Reuse the unchanged candidate/recipe from initialization, never best.pt; freeze
+and preregister first. Fit <=1200 s, worker <=1800 s, no final data or series,
+no third attempt, no history/budget reset. Stop for review after its outcome.
 
-## 4. Etap PC-01 — pozytywna kontrola uczenia i pomiarów
+After the completed second dev, "okej kontynuuj" authorizes only the bounded
+PC-01-GPU-METADATA-V1 no-training maintenance plan. Prepare v3 metadata capture
+and mandatory completeness checks, preserving v1/v2 evidence. Only the trusted
+nvidia-smi child may receive its registry-derived path; candidate environment
+and model/recipe remain unchanged. Maintenance stays in effect after validation.
+No third dev, final-series freeze/access, automatic retry or old-budget reset.
 
-Pierwszy następny cykl: przygotować kontrakt PC-01, bez treningu i scoringu.
-Najpierw wybrać konkretną publiczną licencjonowaną lokalną próbkę danych i
-kompetentną opublikowaną receptę małego transformera. Ustalić rozmiar modelu,
-tokenizację, długość kontekstu, optymalizator, kroki, learning curve, early stopping
-tylko na dev, limity czasu/RAM/VRAM i selekcję przed finalnym wynikiem.
-Nie wybierać zbioru dlatego, że już wiadomo, kto na nim wygrywa w tym repo.
+- Candidate architecture code belongs under `src/nextai_autoresearch/candidates/`.
+- Experiment plans belong under `research/plans/`; results under `research/results/`; analyses under `research/analyses/`.
+- Do not add an API client, another model provider, telemetry, credentials, or a remote dependency.
+- Literature search may use Codex web access. Record primary sources in `research/sources.jsonl` and distinguish source claims from inference.
+- Candidate execution must go through `uv run nextai run --plan ...`; do not bypass the audited runner for a scored result.
+- The user granted standing authorization on 2026-09-02 to install locally any dependency or tool, download public licensed research data, and run checks or tests needed for NEXTAI, now and in future cycles, without requesting dependency-by-dependency approval. This does not authorize an external model/API, credentials, paid services, deployment, publishing, destructive changes, or weakening scientific gates.
+- Before every installation or download, measure free space on the destination volume and estimate the operation's installed/extracted footprint when it is knowable. Stop before mutation if the operation would leave less than 10 GiB free or if the footprint cannot be bounded safely; report the exact disk blocker. Recheck free space after the operation. Large datasets remain local and ignored, while acquisition manifests, licenses, citations and hashes remain tracked.
+- Do not use destructive Git commands. Preserve the complete history and the user's unrelated changes.
+- Write the smallest amount of code that can discriminate the current hypothesis. Avoid speculative frameworks, dependencies, helpers, and duplicate implementations.
+- At the end of a cycle, remove only verified temporary files and genuinely dead code. Never remove plans, results, logs, analyses, manifests, ledger entries, or failed candidates that form scientific history.
 
-Obowiązkowe rozdzielone pytania:
+## Bounded autonomous cycle
 
-1. Czy kontrola rzeczywiście uczy się w sensownym budżecie i poprawia jakość
-   wobec tej samej nieuczonej/zamrożonej wersji?
-2. Czy liczenie jakości wykrywa celowo błędne targety/wyłączone uczenie,
-   przeciek oraz znane odpowiedzi kontrolne?
-3. Czy pomiar odzyskuje osobno batch=1 latency i throughput dla zadanych batchy,
-   z synchronizacją GPU, powtórzeniami, rozgrzewką oraz kosztami wejścia/wyjścia?
+Each scheduled wakeup performs one bounded cycle from `program.md`. It may finish a previously started cycle, but it must not start a second experiment after completing one. This prevents overlapping runs and makes each wakeup auditable.
 
-Nie wymagamy zwycięstwa transformera nad PPM/CTW na dowolnie małych danych.
-Nie wymagamy lokalnego update ani cross-family do potwierdzenia uczenia.
-Dla pytania ekonomicznego dodajemy mocne klasyczne baseline'y i dopasowanie
-jakości; porażka takiego porównania nie kasuje dodatniej kontroli uczenia.
+The schedule is best-effort, not a 24/7 uptime guarantee. Local cycles require the computer to remain on, Codex to remain running, and sufficient account usage, disk, and system availability. Missed or failed wakeups do not authorize overlapping catch-up experiments; the next successful wakeup resumes from durable state.
 
-Przed aktywacją: nowy evaluator/cohort, osobny audytowany kontrakt, testy kontroli,
-źródła pierwotne, licencja i hashe danych, jednostka podziału, progi efektu oraz
-surowe pomiary. Nie wykorzystujemy do tego starego identyfikatora CAL.
-Nowa kalibracja pozostaje diagnostyką, bez promocji architektury.
+Autonomy does not widen permissions. Stop and request direction for external publishing, spending outside configured local budgets, credentials, deployment, destructive changes, or a new security boundary.
 
-Limit: najwyżej 2 cykle projektowania/serwisu (łącznie 120 minut pracy narzędzi),
-następnie najwyżej 3 prerejestrowane próby dev i 120 minut łącznego treningu
-na lokalnym urządzeniu. Twardy limit każdej próby, procesów i pamięci musi być
-niższy lub równy dostępnemu budżetowi i zamrożony w kontrakcie; nie zwiększamy
-go po zobaczeniu wyniku. Replikacja kontroli: minimum 3 seedy, osobny zamrożony
-budżet przed finalnym testem. To pułap programu, nie zgoda na obejście limitów
-runnera. Jeśli nie wystarcza, raport dokładnej blokady i decyzja użytkownika.
+## Promotion and falsification
 
-Dodatek autoryzacyjny z 2026-09-05: użytkownik zaakceptował jeden dodatkowy
-cykl PC-01-INTEGRATION, maksymalnie 60 minut, bez treningu i scoringu.
-Wiążący zapis: research/laboratory/PC-01-EXTENSION-20260905-V1.json.
-Nie zmienia to pierwotnego rozliczenia 2/2 ani kontraktu modelu i danych.
-Po zakończeniu dodatkowego cyklu wymagany jest raport i nowa decyzja;
-ta zgoda nie aktywuje kohorty ani nie uruchamia eksperymentu.
+A principle may be promoted only if it is non-dominated on the declared Pareto axes, survives replication, passes integrity checks, has a meaningful baseline, and shows a plausible scaling signature rather than only a constant-factor toy win.
 
-Kolejna, oddzielna zgoda „zatwierdzam etap” obejmuje aktywację nowej kohorty
-pc01_byte_lm_learning_measurement_v1 i dokładnie jedną prerejestrowaną próbę
-pc01_byte_gpt_v1, dev seed 1103. Zapis: PC-01-ACTIVATION-20260905-V1.json.
-Najpierw testy bram, freeze evaluatora i nowy certyfikat; potem rejestracja EXP,
-implementacja modelu i jeden run. Limity 1200 s fit / 1800 s worker pozostają
-stałe. Crash/timeout zostaje wynikiem inconclusive, bez automatycznej ponownej
-próby. Nie otwieramy serii finalnej ani WT-01. Pierwotny restart, 2/2 + 1/1
-zamkniętych cykli oraz wszystkie wyniki pozostają zachowane. Po próbie: decyzja.
+Falsification requires a test that actually discriminates the hypothesis from credible alternatives. A crash falsifies an implementation, not an architectural family. Repeated decisive failures can make a family dormant; never patch it forever merely to protect prior intuition.
 
-Po awarii EXP-20260905-0001 użytkownik zatwierdził wyłącznie naprawę telemetrii
-i testy równoczesnego odczytu/zapisu. Plan PC-01-TELEMETRY-REPAIR-V1.json oraz
-append-only READ-ADDENDUM opisują kontrolę błędów obu stron. Model, dane,
-recepta i limity pozostają bez zmian. Maintenance i zakaz scoringu obowiązują
-także po udanych testach. Ponowny dev wymaga nowej decyzji i nowej prerejestracji.
+## Completion format for each run
 
-## 5. Etap WT-01 — wyjaśnienie dodatniego wyniku
+Finish with:
 
-Warunek wejścia: R0 gotowe, PC-01 interpretable albo jawna decyzja po jego
-niepowodzeniu; dokładnie odzyskane historyczne źródło i cały dependency bundle.
-
-Preregisterujemy factorial 2x2x2: rekurencja/history delta, aktualizacja RLS,
-clipping/bound. Dla usunięcia rekurencji zachować jawnie zdefiniowaną
-jednokrokową/persistence kontrolę; nie zmieniać innych stałych, danych,
-harmonogramu ujawnień ani rachunku kosztu. Jeżeli dana interakcja zmienia
-znaczenie operacji, wyjaśnić to przed wynikiem, zamiast nazywać jej wynik
-automatycznie czystą ablacją. Dodać algebraicznie równoważny klasyczny VAR(2)
-i uczciwie rozliczony właściwy baseline nieliniowy, jeśli uzasadnia go pytanie.
-
-Osobno: reprodukcja historyczna na znanych danych (diagnostyka), nowe niezależne
-ślady z tej samej klasy (replikacja), zamrożona trudniejsza operacja (adversarial).
-Minimum 3 seedy nie zastępuje niezależnych śladów. Prerejestrować rozmiar efektu,
-stabilność, recovery po zmianie, okna/horyzonty, pełny koszt i pamięć. Nie stosować
-progów z arbitralnego obcego świata do odrzucenia wyniku WT.
-
-Wnioski rozłączne: (a) RLS/ograniczenie wystarcza — klasyczne wyjaśnienie;
-(b) dodatkowy izolowany efekt dynamiki — wąska zasada, nie transfer ogólny;
-(c) przewaga znika na nowych śladach — zamknąć tę wersję;
-(d) kontrola/evaluator nie działa — wynik nierozstrzygający.
-Nie wyciągać ze samej jakości wniosku o niższym koszcie.
-
-Limit: 2 cykle serwisowe do zamrożenia kontraktu i danych, maks. 2 jawne próby
-dev; potem jeden zamrożony factorial i, tylko przy dodatnim efekcie, jedna
-niezmieniona replikacja i jeden prerejestrowany adversarial. Każdy scored
-eksperyment tylko przez runner, jeden na cykl. Dokładne budżety przed rejestracją.
-
-## 6. Obowiązkowy przegląd po pierwszym pakiecie
-
-Po R0 + PC-01 + WT-01: jeden przegląd bez scoringu, tabela pytanie/dowód/
-ograniczenie/koszt/decyzja. Nie wymagamy pozytywnego WT, aby uznać poprawną
-kalibrację za użyteczną. Nie przechodzimy automatycznie do integracji.
-
-Jeśli pozytywna kontrola nie działa, naprawić aparaturę w nowej wersji albo
-zatrzymać etap; nie falsyfikować całej rodziny. Jeśli działa, a kandydat nie,
-zamknąć testowaną wersję i ocenić najtańsze następne pytanie. Dalszy budżet
-i przejście do prototypu wymagają osobnej decyzji użytkownika po przeglądzie.
-
-## 7. Dopiero potem: jeden system pamięć–aktualizacje–kompozycja
-
-Małe zadanie z naturalnopodobnym wejściem, zależnościami i zmianą istniejących
-faktów, nie tylko append-only. K to jawna liczba zapisanych informacji, D
-zmieniamy niezależnie. Sprawdzamy podobne distraktory, niewidziane kompozycje,
-retention i prawdziwy koszt od wejścia do odpowiedzi.
-
-Baseline: kompetentny gęsty transformer, neural + retrieval oraz mocne klasyczne
-rozwiązanie z identycznie legalnymi informacjami. Koszt obejmuje encoder/decoder,
-retrieval, budowę indeksu, trening, aktualizacje, cache, pamięć i scenariusze reuse.
-Elementy typu stos, indeks lub WT dołączamy wyłącznie, kiedy wymagają ich zadanie
-i dowody. Nie budujemy automatycznie „zwycięzcy = suma wszystkich części”.
-
-Zwiększenie inwestycji dopiero po powtarzalnej przewadze przy dopasowanej
-jakości, na szerszej skali i niezależnych danych, bez ukrytych kosztów.
-
-## 8. Kontrole i gotowość do startu
-
-```powershell
-uv run nextai doctor
-uv run nextai lab status
-uv run nextai provenance --experiment EXP-20260831-0007 --candidate wt_candidate_under_test --revision 4952515
-uv run pytest
-```
-
-PASS infrastruktury oznacza gotowość do pierwszego cyklu PC-01-CONTRACT.
-Nie oznacza, że model już wytrenowano ani że można ominąć maintenance.
-Nie uruchamiamy tu eksperymentu, automatyzacji, publikacji ani drugiego laboratorium.
-Historia drugiego worktree NEXTAI-LAB-B pozostaje poza zakresem.
-
-Każde zakończenie cyklu zapisuje ID, ścieżki/hash, obiektywne obserwacje,
-niepewność, interpretację, decyzję, budżet/integralność i dokładny następny krok.
-Prawdopodobieństwa przekonań nie są funkcją nagrody.
-
-## Źródła metodologiczne
-
-- [Git: jawne EOL](https://git-scm.com/docs/gitattributes) — mechanika checkoutu.
-- [MLPerf Inference](https://arxiv.org/abs/1911.02549) — rozdzielone scenariusze
-  pomiarowe i ograniczenia jakości; zastosowanie tutaj jest naszą decyzją.
-- [Deep RL at the Edge of the Statistical Precipice](https://proceedings.neurips.cc/paper/2021/hash/f514cec81cb148559cf475e7426eed5e-Abstract.html)
-  — ostrożność wobec niewielu uruchomień; nie gotowy dowód dla NEXTAI.
-- [TinyStories](https://arxiv.org/abs/2305.07759) — możliwy kierunek kalibracji,
-  nie dokonany wybór danych; syntetyczne pochodzenie i licencję trzeba ujawnić.
+- experiment ID and immutable plan path;
+- objective observations with uncertainty;
+- interpretation and confidence;
+- decision: keep, discard, inconclusive, replicate, or promote;
+- integrity/budget status;
+- exact next discriminating experiment.

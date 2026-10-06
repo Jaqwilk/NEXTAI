@@ -1,0 +1,15 @@
+{
+  "archive_path": "research/laboratory/archive/ASM01-cycle326-parent-V1",
+  "created_at": "2026-10-06T00:40:05Z",
+  "files": {
+    "AGENTS.md": "0d3910e20a320542fdab24a08724b2bf706a609f384ee1ced51859edcde231cd",
+    "config/research.toml": "b242ead3ce7238750aa279ac961a749d2944eac1cbcd677c06f721b882ff4ce4",
+    "docs/CURRENT_STATUS.md": "a4bf9e494c87ff00386621d78c219f1fde054df07ba119a1973edf2193a02eb7",
+    "program.md": "d828df460b58dd6a7729585ecfb21b820a260f2e5c8db70ed690881d8538c22b",
+    "research/LAB_PLAN.md": "484fdaf8cf34f3f486a2119eb141d03b96c31d8db4ff78d49630995f3a21b7a7",
+    "research/eval_manifest.json": "bd298d38773364eb20b04d5ef1654bae37465ab57fde23685516f3ca13ef9abe",
+    "research/laboratory/preflight_certificate.json": "a4461a97a434651dfa3c6918b0fa30b3e2e683efe6b014095dfff21ecdeb6f22",
+    "research/state.json": "a2216bca64e97655a921a05240694013be4070c0f0e53ae33df3042a364c72c9"
+  },
+  "protected_files": 1448
+}

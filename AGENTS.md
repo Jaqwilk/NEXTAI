@@ -1,3 +1,15 @@
+# Current cycle326 — ASM01 inventory V2 (2026-10-06)
+
+Preparation only; deadline2026-10-06T02:28:24Z, auxiliary cap1800s including all failures/admin.
+One complete inventory of the fixed1830 T1-5/D16-20 texts;75 prior raw exposures/74 conversions disclosed.
+Unchanged scanner and36 short-ID fixtures; new fixed bindings validated before new bytes.
+Only redacted lexical/categorical structure; no coordinates, parser/geometry repair, model, fit, EXP or NPZ.
+Any fixture or intake failure stops unstarted scope; no retry or sample filtering.
+Maintenance/scoring=false; B/full goal active; future7tickets/47000s protected.
+No future writers6-15/21-30,WT8-9,external model/API or schedule change.
+
+Earlier stage-specific sections below remain preserved history.
+
 # Current cycle325 — fixture-ID failure; native inventory stopped (2026-10-06)
 
 The full-screen inventory was frozen before code or remaining native text.
