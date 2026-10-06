@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-10-06T00:44:47Z",
+  "declared_metadata_changes": [
+    "AGENTS.md",
+    "config/research.toml",
+    "docs/CURRENT_STATUS.md",
+    "program.md",
+    "research/LAB_PLAN.md"
+  ],
+  "manifest_sha256": "4d6949079285bfeaaa18e5a38da593d55fb4ee5e026a2b06aa4b450972659385",
+  "new_native_content_read": false,
+  "old_science_bytes_unchanged": true,
+  "protected_files": 1450,
+  "scoring": false
+}
