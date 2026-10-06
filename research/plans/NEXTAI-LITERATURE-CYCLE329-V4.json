@@ -1,0 +1,76 @@
+{
+  "EXP_cap": 0,
+  "authority": "Existing active B authority permits bounded no-scoring maintenance; no new scientific authority.",
+  "auxiliary_seconds_cap": 1200,
+  "check_validity": "All executed checks must pass; scoring remains false. Not evidence of learning, transfer or goal completion.",
+  "checked_scope": "Abstract and bibliographic page only, no full-PDF review claimed.",
+  "checks_once_in_order": [
+    "parent scientific hashes and real review evidence",
+    "checked-in lifecycle pytest",
+    "CLI doctor",
+    "CLI lab status"
+  ],
+  "clone": "C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002",
+  "counter_gate": "Advance 117 to actual completed_experiments=123 only after all three primary pages and schema-valid source records and review exist.",
+  "created_at": "2026-10-06T03:00:46Z",
+  "cycle": 329,
+  "deadline": "2026-10-06T03:13:30Z",
+  "fit_seconds_cap": 0,
+  "fixed_primary_urls": [
+    "https://arxiv.org/abs/2010.04592",
+    "https://arxiv.org/abs/1705.08500",
+    "https://aclanthology.org/P18-2124/"
+  ],
+  "forbidden": [
+    "research fit",
+    "new scoring seeds or arrays",
+    "native ASM/HAR bytes or future writers",
+    "WT8-9",
+    "new architectures",
+    "external model/API",
+    "schedule changes",
+    "MUC scientific or postrun retry"
+  ],
+  "id": "NEXTAI-LITERATURE-CYCLE329-V4",
+  "parent_bindings_sha256": "6ac38d1b6742135dc1e32187397f2fe91fef86a1e88b909172b2f687b7bf7433",
+  "preserved_prepreregistration_authoring_failures": [
+    {
+      "error": "FileNotFoundError: research/program.md",
+      "source_sha256": "37cb0f797905b7c0d5a036b583afd260890ff24eb2a89af215f7c504a77f2994",
+      "version": 1
+    },
+    {
+      "error": "FileNotFoundError: LABORATORY.md",
+      "source_sha256": "01709c4582828cc76746e82495811a644ff2e7e70e05b958ef4cf8e9db61f9f9",
+      "version": 2
+    },
+    {
+      "error": "FileNotFoundError: research/experiments.jsonl",
+      "source_sha256": "d7b5ff8164bf71540db7bb4509fdd908f25a92a8cf4df9c12ae22c328feccf92",
+      "version": 3
+    }
+  ],
+  "registrations_cap": 0,
+  "review_sections": [
+    "OBSERVATION",
+    "INTERPRETATION",
+    "CONFIDENCE",
+    "ALTERNATIVE EXPLANATIONS",
+    "DECISION",
+    "NEXT DISCRIMINATING EXPERIMENT"
+  ],
+  "scope": "Three fixed primary abstract/bibliographic pages; evidence-based review, source records, real cadence pointer, one independent clone maintenance check sequence.",
+  "start_including_metadata_startup": "2026-10-06T02:53:30Z",
+  "startup_observations": [
+    "Read-only rg Windows wildcard/path errors and missing literature/test paths; no intake, fixture or scientific execution. All startup time charged."
+  ],
+  "stop_rule": "First required page, recording, fixture or check failure stops unstarted scope; no retry/replacement/filtering. Deadline or cap stops all unfinished work and preserves artifacts.",
+  "unchanged": [
+    "all models, scientific source, geometry, metrics, thresholds and grids",
+    "all previous outcomes, failures, costs and stage authorities",
+    "B protected 7 tickets / 47000 seconds",
+    "review cadence",
+    "config and eval manifest",
+    "AGENTS.md and program/LAB history"
+  ]
+}

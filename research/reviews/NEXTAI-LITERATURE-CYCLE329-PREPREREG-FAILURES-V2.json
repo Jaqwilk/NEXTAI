@@ -1,0 +1,20 @@
+{
+  "all_costs_included_from": "2026-10-06T02:53:30Z",
+  "checks_started": 0,
+  "correction_scope": "Metadata paths only, before any scientific code, paper or verification execution.",
+  "failures": [
+    {
+      "error": "FileNotFoundError: research/program.md",
+      "source_sha256": "37cb0f797905b7c0d5a036b583afd260890ff24eb2a89af215f7c504a77f2994",
+      "version": 1
+    },
+    {
+      "error": "FileNotFoundError: LABORATORY.md",
+      "source_sha256": "01709c4582828cc76746e82495811a644ff2e7e70e05b958ef4cf8e9db61f9f9",
+      "version": 2
+    }
+  ],
+  "new_fit": 0,
+  "old_drafts_not_preregistered": true,
+  "papers_opened": 0
+}

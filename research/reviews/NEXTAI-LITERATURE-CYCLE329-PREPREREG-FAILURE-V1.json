@@ -1,0 +1,10 @@
+{
+  "status": "authoring_failed_before_preregistration_or_reservation",
+  "error": "FileNotFoundError: research/program.md",
+  "source_sha256": "37cb0f797905b7c0d5a036b583afd260890ff24eb2a89af215f7c504a77f2994",
+  "papers_opened": 0,
+  "checks_started": 0,
+  "fit": 0,
+  "scope_stopped": "V1 metadata authoring stopped; separate V2 binds actual root metadata paths before any paper or check.",
+  "cost": "Included from 02:53:30Z in the unchanged 1200-second total auxiliary cap."
+}

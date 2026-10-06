@@ -1,0 +1,41 @@
+{
+  "files": {
+    "AGENTS.md": "3f3336e029984726d5e59169cf570d9726a89f31cf5580634396397a3fdda88e",
+    "config/research.toml": "baadde12549b77221f3119332d6a1d09a06d4fd3169f64c8f53ffc7eb5e0417c",
+    "program.md": "00899962e93163561b325241c8a8f92d261687ef51d417c1b68e07d69b4c296b",
+    "research/LAB_PLAN.md": "56505ba672e173a21ee4140b0d8cf65129b46c8bd3ab09c874ff9b15faf56b68",
+    "research/eval_manifest.json": "f10053354c6f6f0f1f94099458968bed2fd1a8b67cfc890b977c2819e7e6a2c5",
+    "research/results/EXP-20261006-0001.json": "1e9bee0d298fe1935f19c4b6c1e34096a8ad58fd857916e7166577aef4774285",
+    "research/reviews/EXP-20261006-0001-paired-analysis.json": "0a4a1b972c632fa0ebd47498e3027cb3fe2fec6f55a6e96274896c728b0e79fc",
+    "research/state.json": "b3f97d259475fa5d0fd6063982db0b753eb8b39dee545969795c55b6340953e2"
+  },
+  "ledger_prefixes": {
+    "events.jsonl": {
+      "bytes": 894869,
+      "sha256": "d9b8a889779736b649fc65c559e87a8e6b2a2af16e310372b0d59d4998c110a2"
+    },
+    "experiments.tsv": {
+      "bytes": 472451,
+      "sha256": "9079298bafc1acfbf91c8330250197cf3525cc33b29a577d67f4fc4107e0acd5"
+    },
+    "sources.jsonl": {
+      "bytes": 383829,
+      "sha256": "cc22f1bee59365775733edc5e9deee8d7be04e014410ffa9c87e8f53322d78c9"
+    }
+  },
+  "state": {
+    "active_experiment_id": null,
+    "completed_experiments": 123,
+    "cycle_number": 328,
+    "generation": 2,
+    "last_experiment_id": "EXP-20261006-0001",
+    "last_failure_at": "2026-09-05T13:10:07Z",
+    "last_literature_review_completed_experiments": 117,
+    "last_reflection_completed_experiments": 122,
+    "last_reflection_cycle": 319,
+    "phase": "infrastructure",
+    "protocol_version": 3,
+    "schema_version": 1,
+    "updated_at": "2026-10-06T02:36:15Z"
+  }
+}
