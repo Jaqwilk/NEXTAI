@@ -1,0 +1,17 @@
+{
+  "before_only_executions": true,
+  "created_at": "2026-10-06T03:46:30Z",
+  "files": {
+    "research/preparations/ASM01-POINT-SERIAL-NATIVE-CONFORMANCE-V1/intake.py": "763ea39f27c329a71eed4bd6ca5cdc420cbe22718603718ea7293ca7835aca34",
+    "research/preparations/ASM01-POINT-SERIAL-NATIVE-CONFORMANCE-V1/test_intake.py": "1a9a9cdef51ba11b4079ad137d3251cbc1d5d70f59e424b8f726bd925f58b9c7",
+    "research/reviews/ASM01-NATIVE-CONFORMANCE-CLONE-RUNNER-V1.py": "0afae4c8ff58fba42501a8e45093af368e1175c41905324570e1fa4699046ba2",
+    "research/reviews/ASM01-NATIVE-CONFORMANCE-CONTROLLER-V1.py": "9c627bdeda89820b7622b5d66d31705ec86f1f2d58bf6bbe3da0c1753f5ba338"
+  },
+  "independent_static_reviews": [
+    "inventory_review: engine scopes/hashmaps/old74/bytes/all3views, no execution",
+    "muc_readonly:8syntheticfixtures/complete1830/earlystops/provenance, no execution"
+  ],
+  "original_model_geometry_grid_gate_source_files_unchanged": true,
+  "plan_sha256": "6db8382e5080fbc4b3b244289bb04bbb6f0f3b7f730b5f12bfef9d3d8da3b8c4",
+  "prior_attempts": 0
+}
