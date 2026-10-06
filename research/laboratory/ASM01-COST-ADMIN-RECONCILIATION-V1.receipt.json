@@ -1,0 +1,29 @@
+{
+  "EXP": 0,
+  "charged_extra_seconds": 300,
+  "clock_start": "2026-10-06T03:37:00Z",
+  "closing_administration_in300charge": true,
+  "combined_conservative_seconds": 900,
+  "created_at": "2026-10-06T03:38:45Z",
+  "deadline": "2026-10-06T03:42:00Z",
+  "elapsed_at_cutoff_seconds": 105.627024,
+  "financial2200_attempt_now_affordable": false,
+  "fit_seconds": 0,
+  "framework_blockers": [
+    "runner totalcap is pre-role check; up to184s overshoot",
+    "reserve guard deducts whole immutable study cap after earlier own preparation already charged"
+  ],
+  "full_goal_status": "ACTIVE, INCOMPLETE",
+  "id": "ASM01-COST-CLOSING-ADMIN-RECONCILIATION-V1",
+  "native_bytes": 0,
+  "new_scope": "administrative reconciliation, not retry",
+  "original192_call_probe_status": "PASS finite synthetic scope only",
+  "original_charge_seconds": 600,
+  "original_stage_admin_limit_status": "EXCEEDED; first observed finalpublication9seconds after deadline; original cap not changed",
+  "parent_receipt_sha256": "8bb73322cde46a370ea0c44654a803e0b5c5e8141485f90e5303323ab4d28dac",
+  "plan_sha256": "939ff20566bf19c37f1cf99216a2b51630200a5572badc8cc07844edae82409b",
+  "protected_seconds": 47000,
+  "protected_tickets": 7,
+  "registrations": 0,
+  "unprotected_B_seconds_remaining": 1967.449759799929
+}

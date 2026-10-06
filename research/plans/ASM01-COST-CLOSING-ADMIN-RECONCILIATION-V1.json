@@ -1,0 +1,26 @@
+{
+  "EXP_cap": 0,
+  "auxiliary_seconds_cap": 300,
+  "clock_start": "2026-10-06T03:37:00Z",
+  "created_at": "2026-10-06T03:38:04Z",
+  "cycle": 331,
+  "deadline": "2026-10-06T03:42:00Z",
+  "decision": "Original finite probe192/192 valid; entire original600s stage administration INCOMPLETE through9s overrun. Financial whole-screen readiness NOT ESTABLISHED. Preserve original source/results/receipts and add separate full conservative administrative charge.",
+  "fit_seconds_cap": 0,
+  "forbidden": [
+    "new test or probe",
+    "native bytes",
+    "fit/EXP/registration",
+    "implementation of budget fixes",
+    "threshold or cap repair of original stage",
+    "retry",
+    "protected7tickets/47000s spending",
+    "schedule change"
+  ],
+  "id": "ASM01-COST-CLOSING-ADMIN-RECONCILIATION-V1",
+  "native_execution_authority": false,
+  "parent_receipt_sha256": "8bb73322cde46a370ea0c44654a803e0b5c5e8141485f90e5303323ab4d28dac",
+  "scope": "Administrative preservation and exact budget reconciliation ONLY; no extension/retry of synthetic probe or science. Original600s limit remains unchanged and its closing overrun is disclosed.",
+  "study_kind": "preparation_only",
+  "trigger": "Last publication ended03:37:09Z,9s after original03:37 deadline; plus independent framework review found aggregate worker overshoot and double reservation of own prior preparation."
+}
