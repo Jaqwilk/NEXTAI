@@ -1,0 +1,203 @@
+{
+  "B_wallet_at_freeze": {
+    "authority_path": "research/laboratory/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1.json",
+    "auxiliary_fit_seconds_conservative": 52096.0,
+    "cohort": "asm01_native_memory_v3",
+    "contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+    "current_program_registration_attempts_used": 1,
+    "experiment_id": null,
+    "experimental_fit_seconds": 8341.876085000156,
+    "fit_seconds_cap": 110305.32584480009,
+    "fit_seconds_charged": 60437.876085000156,
+    "fit_seconds_remaining": 49867.44975979993,
+    "id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "prior_compute_seconds_charged": 38305.325844800085,
+    "prior_program_closed": true,
+    "prior_program_id": "NEXTAI-CONTINUATION-20261004-V1",
+    "prior_registration_attempts_used": 14,
+    "program_closed": false,
+    "program_terminal": false,
+    "protected_future_compute_seconds": 47000,
+    "protected_future_registration_attempts": 7,
+    "ready": false,
+    "registration_attempts_cap": 26,
+    "registration_attempts_used": 15,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_a_accounting": {
+      "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+      "auxiliary_fit_seconds_conservative": 28705.0,
+      "cohort": "paired_view_mutable_memory_v11",
+      "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+      "experiment_id": null,
+      "experimental_fit_seconds": 6944.98936010008,
+      "fit_seconds_cap": 69344,
+      "fit_seconds_charged": 35649.98936010008,
+      "fit_seconds_remaining": 33694.01063989992,
+      "id": "NEXTAI-CONTINUATION-20261004-V1",
+      "paid_run_pending": false,
+      "pending_fit_reservation_seconds": 0.0,
+      "program_closed": true,
+      "program_terminal": true,
+      "ready": false,
+      "registration_attempts_cap": 17,
+      "registration_attempts_used": 11,
+      "registration_budget_exhausted": false,
+      "scoring_authorized": false,
+      "stage_registration_attempts": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 3,
+        "reference_and_alternatives": 5,
+        "repair_reserve": 0,
+        "replication_and_fresh_final": 3,
+        "scale_and_generalization": 0
+      },
+      "stage_registration_caps": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 4,
+        "reference_and_alternatives": 5,
+        "repair_reserve": 2,
+        "replication_and_fresh_final": 3,
+        "scale_and_generalization": 3
+      },
+      "study_expired": true,
+      "study_path": "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
+      "study_terminal": true,
+      "unreserved_fit_seconds_remaining": 33694.01063989992
+    },
+    "stage_b_compute_seconds_cap": 72000,
+    "stage_b_compute_seconds_charged": 22132.55024020007,
+    "stage_b_registration_attempts_cap": 12,
+    "stage_b_registration_attempts_used": 1,
+    "stage_registration_attempts": {
+      "frozen_fresh_final": 0,
+      "independent_replication": 0,
+      "prototype_evaluation": 0,
+      "repair_reserve": 0,
+      "task_design": 0,
+      "transfer_family_1_screen": 1,
+      "transfer_family_2_screen": 0
+    },
+    "stage_registration_caps": {
+      "frozen_fresh_final": 3,
+      "independent_replication": 3,
+      "prototype_evaluation": 1,
+      "repair_reserve": 1,
+      "task_design": 0,
+      "transfer_family_1_screen": 2,
+      "transfer_family_2_screen": 2
+    },
+    "study_expired": true,
+    "study_path": "research/plans/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.json",
+    "study_terminal": true,
+    "unreserved_fit_seconds_remaining": 49867.44975979993
+  },
+  "EXP_cap": 0,
+  "administration": "All startup since03:27, delegated metadata reads, code, failures, clone, report, Git included; the initially contemplated300s cap was not frozen/executed.600s is frozen before code/test; prior600s plus2200s fits2867.4497598 unprotected. No new clock reset.",
+  "auxiliary_seconds_cap": 600,
+  "clock_start": "2026-10-06T03:27:00Z",
+  "created_at": "2026-10-06T03:31:54Z",
+  "cycle": 331,
+  "deadline": "2026-10-06T03:37:00Z",
+  "decision_rule": "If complete exact probe and worker proxy<=1000, KEEP runtime evidence only: a NEW separately frozen <=2200s whole-cost attempt is financially possible after full600s gate charge, with native validity/completion unknown. Otherwise INCONCLUSIVE/NOT COST JUSTIFIED. Neither outcome authorizes native, fit, scientific registration or retry. Proxy is not a statistical upper bound; HAR residual is cross-family and may underestimate ASM overhead.",
+  "execution_authority": true,
+  "fit_seconds_cap": 0,
+  "forbidden": [
+    "native bytes/names/coordinates",
+    "new download/extraction/NPZ",
+    "fit/EXP/registration",
+    "source/model/geometry/grid/gate modification",
+    "WT8-9",
+    "futurewriters6-15/21-30",
+    "external models/API",
+    "schedule changes",
+    "retry",
+    "protected7tickets/47000s spending"
+  ],
+  "forecast_formula": "2*10680*sum(max_DTW_seconds_each_K)+2*1007380*max_transform_seconds+2*180.55024020007113",
+  "frozen_counts": {
+    "DTW_calls_each_K_all5roles": 10680,
+    "DTW_calls_total": 32040,
+    "prior_HAR_worker_seconds": 180.55024020007113,
+    "transform_calls_all45roles": 1007380
+  },
+  "id": "ASM01-SYNTHETIC-COST-PREPARATION-V1",
+  "ledger_prefixes": {
+    "events.jsonl": {
+      "bytes": 897733,
+      "sha256": "9c3bec36c52d1de0b4b7d52ef0cec43bbd6e1635ba40bb38791c8ed7ddf0564e"
+    },
+    "experiments.tsv": {
+      "bytes": 472451,
+      "sha256": "9079298bafc1acfbf91c8330250197cf3525cc33b29a577d67f4fc4107e0acd5"
+    },
+    "sources.jsonl": {
+      "bytes": 386005,
+      "sha256": "f6224357c0ca5f5688ff03fe9bf35ff0104ef59ef28493804b4c163b3bec8095"
+    }
+  },
+  "limitations": [
+    "No native geometry/old74/full1830 conformance",
+    "No guarantee for other40workers, calibration grids, model startup, intake/checks/admin",
+    "Independent replications, fresh finals and prototype remain active",
+    "Earlier Lab timeout preserved; no Doctor/Lab retry"
+  ],
+  "metrics": [
+    "all48 DTW calls finite shape K; no score emission",
+    "all144 transform calls finite float32 shape64",
+    "all latency samples including first",
+    "max latency each K and overall transform maximum",
+    "protected source hashes and old ledger prefixes unchanged",
+    "clone package provenance and drained process tree"
+  ],
+  "native_execution_authority": false,
+  "parent_file_bindings": {
+    "AGENTS.md": "3f3336e029984726d5e59169cf570d9726a89f31cf5580634396397a3fdda88e",
+    "config/research.toml": "baadde12549b77221f3119332d6a1d09a06d4fd3169f64c8f53ffc7eb5e0417c",
+    "research/eval_manifest.json": "f10053354c6f6f0f1f94099458968bed2fd1a8b67cfc890b977c2819e7e6a2c5",
+    "research/laboratory/ASM01-POINT-SERIAL-PREP-COMPLETION-V1.receipt.json": "4c2f0b7a1dfc1e4eb7ea204c2664aa810ecb84b89f059db4c6da2f60c9b0998f",
+    "research/laboratory/preflight_certificate.json": "62957907372589afa7015fc54e0a7b4f68255e277862ffe855a72f311ec0c0d2",
+    "research/plans/ASM01-POINT-SERIAL-PREPARATION-V1.json": "679a82220eeb6c0998038ebdbefbe9b2a988ffe2e4e48e974ce46d6ba48950db",
+    "research/state.json": "47203f63570fa01ccfd21a798c056b94a4cb7659a2e4e0c9751a6218cbe8707b",
+    "src/nextai_autoresearch/asm01_task.py": "858dd782f3823368435d0b490baee3e6633483907fcb861c58ca1da2246eaefd",
+    "src/nextai_autoresearch/benchmarks/asm01_native_memory_v2.py": "8f18f6610cef997654c9c6fc18afeed31a88b53accd414e9c14b294b776c18c9",
+    "src/nextai_autoresearch/candidates/asm01_core.py": "65b84c0c8ddfad649385fe6d1bafb3a1b218822acfc8e858961e3fa1d61e418e"
+  },
+  "question": "Measure unchanged DTW and geometry-transform service cost on synthetic data; assess only a conservative engineering forecast, never native/scientific feasibility.",
+  "recipe": {
+    "DTW_K": [
+      16,
+      32,
+      64
+    ],
+    "DTW_calls_each_K": 16,
+    "include_first_call": true,
+    "keys_and_queries": "independent seeded Gaussian float32 64-vectors normalized to unit L2; no native data",
+    "one_attempt": true,
+    "seed": 424331,
+    "single_clone_process_tree_timeout_seconds": 90,
+    "synthetic_path": "float32 x=linspace(0,3900,n),y=1500+700*sin(linspace(0,6,n))+linspace(0,500,n)",
+    "threads": 1,
+    "transform_calls_each_cell": 16,
+    "transform_lengths": [
+      39,
+      213,
+      691
+    ],
+    "transform_views": [
+      "write",
+      "nominal",
+      "adverse"
+    ]
+  },
+  "registration_cap": 0,
+  "study_kind": "preparation_only",
+  "thresholds": {
+    "all192_calls_pass": true,
+    "engineering_worker_proxy_seconds_max": 1000,
+    "prospective_auxiliary_cap_seconds": 1200,
+    "prospective_total_cap_seconds": 2200
+  }
+}
