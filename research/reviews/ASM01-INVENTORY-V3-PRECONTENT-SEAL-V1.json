@@ -1,0 +1,22 @@
+{
+  "all_old_scientific_bytes_unchanged": true,
+  "created_at": "2026-10-06T01:37:07Z",
+  "cycle": 327,
+  "manifest_sha256": "803fe4f4a57e9f9ba365eb18633ad9bd9653075e5301b8ca7aa14a71ceaafe2c",
+  "new_EXPs": 0,
+  "new_native_content": false,
+  "old_headers_preserved_exactly": true,
+  "parent_protected_files": 1450,
+  "permitted_metadata_changes": [
+    "AGENTS.md",
+    "config/research.toml",
+    "docs/CURRENT_STATUS.md",
+    "program.md",
+    "research/LAB_PLAN.md"
+  ],
+  "preflight_sha256": "ffda20ab4388c0aaea397f8e09bdb0c607aa8cdcecaa2f5c1f8739e0a02bd361",
+  "protected_files": 1453,
+  "research_fit": 0,
+  "scoring": false,
+  "study_sha256": "730a9e6843eaf085970bad82e5878dc404f400634e0c8ff18ab9af0e4c46888d"
+}
