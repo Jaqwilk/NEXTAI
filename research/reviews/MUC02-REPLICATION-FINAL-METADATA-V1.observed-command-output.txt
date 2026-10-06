@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI\research\reviews\MUC02-REPLICATION-FINAL-METADATA-V1.py", line 44, in <module>
+    assert changed == sorted(headers), changed
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ['AGENTS.md', 'program.md', 'research/LAB_PLAN.md']
