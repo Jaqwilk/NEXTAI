@@ -1,0 +1,24 @@
+{
+  "all_fixture_tests_passed": true,
+  "both_manifest_ok": true,
+  "created_at": "2026-10-06T00:48:05Z",
+  "cycle": 326,
+  "fixture_XML_sha256": "d4748d6be5f995bceaa722f61e799424b3926ac4ba1f0eb73d08c8df483e1dfd",
+  "fixture_cases": 42,
+  "fixture_check_sha256": "4d707d2aa0bafb5501eae596e0a6f987717f1df30b8c9aa2e2d3c440afafe032",
+  "implementation_sha256": {
+    "scripts/run_asm01_inventory_v2_check.py": "d72601f69e19a69e2315a39660a72963127379acd3efff3048117a6131b24098",
+    "src/nextai_autoresearch/asm01_grammar_inventory.py": "cd5759386fa5f412ea125c849c5958b7d284dec91e811f93f173a6ccb544eb86",
+    "src/nextai_autoresearch/asm01_inventory_v2.py": "034bf04adabc1a9139c486836f73d0cc3f7b628fa7ef463c06ac940526aa5e58",
+    "tests/test_asm01_grammar_inventory.py": "6619d0a07e3b80e9dbd97352cec884dc508d1bf2fc144d7d8b0c14a40a8b5fd9",
+    "tests/test_asm01_inventory_v2.py": "6c4e9631bf2ae787b0e8e80d29a3bcf41f11b09fff1e27aba5c3e0a5635b93b9"
+  },
+  "independent_clone_package_verified": true,
+  "native_execution_authorized_by_new_V2_only": true,
+  "new_EXPs": 0,
+  "new_native_content_not_yet_read": true,
+  "research_fit": 0,
+  "scanner_byte_identical": true,
+  "scoring": false,
+  "study_sha256": "6351509210dc6ad6f4247665db14ea50aba70e79a6f9dc46b2b0c654e6254726"
+}
