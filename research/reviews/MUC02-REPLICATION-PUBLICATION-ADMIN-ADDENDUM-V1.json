@@ -1,0 +1,18 @@
+{
+  "scope": "Final Git administration only; inside the existing charged closing reserve",
+  "published_commit_verified": "ccba0f475e6517d870e1af35070edad84cc76c77",
+  "root_master_main_and_clone_HEAD_equal": true,
+  "root_and_clone_working_trees_clean_before_this_addendum": true,
+  "remote_master_and_main_equal": true,
+  "first_remote_read_observed_at": "2026-10-06T02:52:19Z",
+  "first_remote_read_exit_code": 1,
+  "first_remote_read_error": "schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030e)",
+  "resolution": "Read-only ls-remote with authorized access to system credentials returned both refs successfully; no repository contents, tests or scientific execution were retried.",
+  "final_remote_refs": {
+    "refs/heads/master": "ccba0f475e6517d870e1af35070edad84cc76c77",
+    "refs/heads/main": "ccba0f475e6517d870e1af35070edad84cc76c77"
+  },
+  "new_fit_seconds": 0,
+  "new_experiment_retry": false,
+  "postrun_Doctor_Lab": "not_started"
+}
