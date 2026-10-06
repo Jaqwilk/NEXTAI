@@ -1,0 +1,11 @@
+# Cycle335 — independent evidence and continuation audit
+
+Independent static/evidence review by inventory_review: PASS. V2 classifier/test bytes identical in root/clone; V2/V3 source bindings and19 parent bindings validated. Four short-ID cases PASS,0failure/error/skip; abc→1 and4→1 serial challenges cover the metadata correction. Known-file proof has175rows, Y172unsigned+3minus_nonzero,0zeroaliases,allmetadataflags0. No reviewer rawreads/imports/tests. Job exit0,0active and0live descendants. This supports incompatibility of the exact unsigned recipe, not a learning null or complete geometry diagnosis.
+
+Read-only continuation audit by muc_readonly: Bcontract allows negative outcomes and contains no positive-screen prerequisite for independent_replication. A new prospectively frozen unchanged-recipe HAR negative replication on five new target/source-paired units is a permitted alternative to ASM rescue. Its own protected6000s/1ticket can be released for that stage at registration; the other6tickets/41000s remain protected. This is not permission to spend replication funds on new screening or ASM repair.
+
+Current harness auxiliary_reserve before registration still admits only the230.4497597999289s unprotected remainder. Existing full-cap reserve check can also double-count the same study's already charged preparation. A prospective ownership-aware budget solution or complete prereg/code/clone/preflight/readiness within the remainder is required before any replication fit. No implementation, registration or future target access authorized by this audit alone.
+
+Prototype order is explicit: AGENTS.md217/230 and program.md217/230 require independent replication and fresh TARGET finals before the evidence-selected local prototype; research_program.py499 likewise binds economic prototype to fresh replicated final and classical non-domination. Closed A same-law finals do not satisfy B target finals. Thus prototype reserve is not a current shortcut.
+
+Goal ACTIVE, incomplete. The legal next candidate is bounded preparation for fresh independent negative HAR replication, with no source refit, no rescued development target, no gate relaxation, no old-unit pooling, and all current/prospective wallet ownership verified before any charge or fit. This document does not freeze or start that scientific study.

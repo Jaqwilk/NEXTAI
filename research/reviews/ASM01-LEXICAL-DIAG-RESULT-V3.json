@@ -1,0 +1,40 @@
+{
+  "EXP": 0,
+  "complete": true,
+  "coordinate_numeric_conversions": 0,
+  "created_at": "2026-10-06T04:04:33Z",
+  "fit": 0,
+  "fixture_cases": 4,
+  "geometry_calls": 0,
+  "new_native_samples": 0,
+  "normalizer_calls": 0,
+  "opaque_lexical_counts": {
+    "coordinates": {
+      "X": {
+        "exact_minus_zero": 0,
+        "minus_nonzero": 0,
+        "other": 0,
+        "other_minus_zero": 0,
+        "unsigned": 175
+      },
+      "Y": {
+        "exact_minus_zero": 0,
+        "minus_nonzero": 3,
+        "other": 0,
+        "other_minus_zero": 0,
+        "unsigned": 172
+      }
+    },
+    "invalid_column_header": 0,
+    "invalid_count": 0,
+    "invalid_envelope": 0,
+    "invalid_marker": 0,
+    "invalid_serial": 0,
+    "invalid_state": 0,
+    "point_rows": 175,
+    "serial_decrease": 0,
+    "unknown_rows": 0
+  },
+  "raw_sha256": "0392f781b81f4d1d0a1f2ab0df30b3647c93c6e2b23d7f3ff8cf5da5dd939160",
+  "retry": false
+}
