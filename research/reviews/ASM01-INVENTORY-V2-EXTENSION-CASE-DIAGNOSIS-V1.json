@@ -1,0 +1,31 @@
+{
+  "canonical_UIDs": 1830,
+  "coordinate_conversions": 0,
+  "created_at": "2026-10-06T00:56:54Z",
+  "cycle": 326,
+  "decision": "KEEP metadata diagnosis; inventory remains INCONCLUSIVE and stopped",
+  "disk_files": 1830,
+  "existing_listing_or_extracted_files_modified": false,
+  "extension_only_bijection_preserves_all_UIDs": true,
+  "failed_native_receipt_sha256": "2df20080de8c2a2ebc7674d0bc1ff3315e37c929037414ec02dac7419e5f1a53",
+  "linked_entries": 0,
+  "listed_names": 1830,
+  "listing_and_disk_raw_names_identical": true,
+  "listing_sha256": "d49c97288d650bc42995d27b7301e2b15b4d373b74ec6a320b7971020fe4e4f5",
+  "native_inventory_restarted": false,
+  "new_EXPs": 0,
+  "new_native_texts_read": 0,
+  "next_rule": "In a NEW preregistered scope accept only final .txt/.TXT aliases; normalize BOTH listing and extracted names, reject collisions/foreign names/links, retain all 1830 actual paths and unchanged byte limits/UIDs. Validate the complete real filename metadata before any native content. Do not alter point grammar, geometry, scientific gates or completed records.",
+  "normalized_name_collisions": 0,
+  "only_final_extension_case_differs": true,
+  "parser_or_model_called": false,
+  "raw_name_set_sha256": "e96399e79a24b32109c3818eedd9b4f60a5143457d75df0eb75062928144597c",
+  "repair_implemented": false,
+  "research_fit": 0,
+  "script_sha256": "b3de15823139c56637014c2f46907cf49c45c5b9ee84ea168d22caa84368904f",
+  "study_sha256": "6351509210dc6ad6f4247665db14ea50aba70e79a6f9dc46b2b0c654e6254726",
+  "uppercase_extension_by_writer": {
+    "W5": 153
+  },
+  "uppercase_extension_files": 153
+}

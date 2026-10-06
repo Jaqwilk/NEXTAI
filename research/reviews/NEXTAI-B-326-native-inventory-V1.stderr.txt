@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\src\nextai_autoresearch\asm01_inventory_v2.py", line 90, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\src\nextai_autoresearch\asm01_inventory_v2.py", line 52, in main
+    for writer, sample, path in screen_members(directory, listing.read_text(encoding="ascii")):
+                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NATAN\Documents\ChatGPT\NEXTAI-VALIDATION-20261002\src\nextai_autoresearch\asm01_grammar_inventory.py", line 139, in screen_members
+    raise ValueError("Exactly the frozen1830 canonical members required")
+ValueError: Exactly the frozen1830 canonical members required

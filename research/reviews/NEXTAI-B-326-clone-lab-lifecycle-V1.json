@@ -1,0 +1,32 @@
+{
+  "cap_seconds": 470,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "python",
+    "scripts/verify_asm01_inventory_v2_clone_maintenance.py"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T01:05:31Z",
+  "error": null,
+  "id": "NEXTAI-B-326-clone-lab-lifecycle-V1",
+  "raw_outputs": {
+    "NEXTAI-B-326-clone-lab-lifecycle-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-326-clone-lab-lifecycle-V1.stdout.txt": "836413f5a79be79ee3f0697bd23932602f101c43d5e72d446242cb169fddf91f"
+  },
+  "result": {
+    "elapsed_seconds": 315.7018605999765,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4452085760,
+    "pid": 25516,
+    "processes_created": 164,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 370,
+  "wall_seconds": 329.32699939998565,
+  "whole_process_tree_bounded": true
+}
