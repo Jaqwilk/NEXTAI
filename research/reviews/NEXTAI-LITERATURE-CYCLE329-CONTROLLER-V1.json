@@ -1,0 +1,15 @@
+{
+  "complete": false,
+  "created_at": "2026-10-06T03:09:50Z",
+  "supervision": {
+    "elapsed_seconds": 384.9292090999952,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 4374175744,
+    "pid": 25368,
+    "processes_created": 309,
+    "reason": "exited",
+    "returncode": 124,
+    "root_returncode": 124
+  }
+}

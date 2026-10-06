@@ -1,0 +1,116 @@
+{
+  "B_wallet_after": {
+    "protected_future_compute_seconds": 47000,
+    "protected_future_registration_attempts": 7,
+    "stage_b_compute_seconds_charged": 21243.55024020007,
+    "stage_b_registration_attempts_used": 1
+  },
+  "MUC_decision_unchanged": "discard_proposed_recipe",
+  "accounting_cutoff": "2026-10-06T03:10:04.463648+00:00",
+  "actual_cadence_pointer": 123,
+  "actual_overrun_seconds": 0,
+  "all_failures_startup_read_errors_web_review_tests_Git_admin_in_full_clock": true,
+  "auxiliary_seconds_cap": 1200,
+  "auxiliary_seconds_charged": 1145,
+  "checks": {
+    "actual_review_and_source_records_verified": true,
+    "checks": [
+      {
+        "name": "lifecycle",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "914192d0b998765b000418f37d07a01536c2ae674628eb5a10b106f2b50ebb92",
+        "timed_out": false
+      },
+      {
+        "name": "doctor",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c3f11c3a932a9d89d67ef492b54778288feb3a75c012cddb64940a7f13ff082a",
+        "timed_out": false
+      },
+      {
+        "name": "lab",
+        "returncode": 124,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "timed_out": true
+      }
+    ],
+    "complete": false,
+    "created_at": "2026-10-06T03:09:50Z",
+    "ledger_prefixes_preserved": true,
+    "new_EXP": 0,
+    "new_fit": 0,
+    "new_scoring_seeds": 0,
+    "package_origin": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\__init__.py",
+    "scientific_parent_hashes_preserved": true
+  },
+  "clock_start": "2026-10-06T02:53:30Z",
+  "closing_administration_reserve_seconds": 150.53635199999997,
+  "completed_experiments": 123,
+  "controller": {
+    "complete": false,
+    "created_at": "2026-10-06T03:09:50Z",
+    "supervision": {
+      "elapsed_seconds": 384.9292090999952,
+      "exit_job_active_process_count": 0,
+      "exit_live_descendant_pids": [],
+      "peak_tree_rss_bytes_sampled": 4374175744,
+      "pid": 25368,
+      "processes_created": 309,
+      "reason": "exited",
+      "returncode": 124,
+      "root_returncode": 124
+    }
+  },
+  "created_at": "2026-10-06T03:10:45Z",
+  "elapsed_seconds_at_cutoff": 994.463648,
+  "experiment_retry": false,
+  "fit_seconds": 0,
+  "full_transfer_prototype_goal": "active_incomplete",
+  "id": "NEXTAI-LITERATURE-CYCLE329-V4",
+  "limitations": [
+    "Abstract-level review only; no transfer or learning evidence from maintenance",
+    "Current ASM scope remains maintenance/scoring=false; new exact prospective preparation required"
+  ],
+  "native_archive_path": "research/laboratory/archive/NEXTAI-LITERATURE-CYCLE329-NATIVE-EVIDENCE-V1.zip",
+  "native_archive_sha256": "e2ca48f4710c3ece5185cd980a12665cd1b25787cb2c1099994bc652fa5f95a1",
+  "native_file_bindings": {
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CLONE-V1.doctor.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CLONE-V1.doctor.stdout.txt": "c3f11c3a932a9d89d67ef492b54778288feb3a75c012cddb64940a7f13ff082a",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CLONE-V1.json": "535d4640670b4069a8d7beaf544ed9231203f6f2340527e6e46b2f4c31f62629",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CLONE-V1.lab.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CLONE-V1.lab.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CLONE-V1.lifecycle.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CLONE-V1.lifecycle.stdout.txt": "914192d0b998765b000418f37d07a01536c2ae674628eb5a10b106f2b50ebb92",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CLONE-V1.xml": "0054e4e11ea559782d6523dd05765e335a0503d2fd6370fb1798f4402aac3fcf",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CONTROLLER-V1.json": "c460eb8eb1bd17f97e8638f3164b1b73b9ddb66513c7ef2b2c6e848223a268e8",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CONTROLLER-V1.py": "1c365dff937c77d7dd42afed51708e6cdb3899a0520ee6a6935cb7dbab0f2030",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CONTROLLER-V1.started.json": "6f39fea1f3beebc8b26f9fa06c063e7bbca5942096d7bea3ccbf643d0b53886c",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CONTROLLER-V1.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/reviews/NEXTAI-LITERATURE-CYCLE329-CONTROLLER-V1.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "new_EXP": 0,
+  "old_MUC_failed_postrun_preserved": true,
+  "plan_path": "research/plans/NEXTAI-LITERATURE-CYCLE329-V4.json",
+  "plan_sha256": "bb49ad3dc82569073742f935d57e3c8460ff3b7b267c045cd932d205391fb709",
+  "preprereg_authoring_failures": [
+    "research/program.md missing",
+    "LABORATORY.md missing",
+    "research/experiments.jsonl missing"
+  ],
+  "review_path": "research/reviews/NEXTAI-LITERATURE-CYCLE329-V1.md",
+  "review_sha256": "bb1251e1c9e875fb4a396e3117a9dcb0d45cf838a7ccb75b74ab348e4989ee1f",
+  "scoring": false,
+  "source_ids": [
+    "SRC-0463",
+    "SRC-0464",
+    "SRC-0465"
+  ],
+  "status": "incomplete_after_first_failure_or_limit",
+  "unfinished_scope": [
+    "lab"
+  ],
+  "unprotected_B_seconds_remaining": 3756.449759799929
+}
