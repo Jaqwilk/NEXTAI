@@ -1,0 +1,20 @@
+{
+  "checked_scope": "Abstract and bibliographic page only, no full-PDF review claimed.",
+  "created_at": "2026-10-06T03:02:21Z",
+  "fixed_pages_read": [
+    "https://arxiv.org/abs/2010.04592",
+    "https://arxiv.org/abs/1705.08500",
+    "https://aclanthology.org/P18-2124/"
+  ],
+  "new_EXP": 0,
+  "new_fit": 0,
+  "plan_sha256": "bb49ad3dc82569073742f935d57e3c8460ff3b7b267c045cd932d205391fb709",
+  "preregistration_commit": "fe49209",
+  "review_path": "research/reviews/NEXTAI-LITERATURE-CYCLE329-V1.md",
+  "review_sha256": "bb1251e1c9e875fb4a396e3117a9dcb0d45cf838a7ccb75b74ab348e4989ee1f",
+  "source_ids": [
+    "SRC-0463",
+    "SRC-0464",
+    "SRC-0465"
+  ]
+}
