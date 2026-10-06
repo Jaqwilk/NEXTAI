@@ -1,0 +1,20 @@
+{
+  "all36_corrected_cases_passed": true,
+  "corrected_check_sha256": "7bb91c5d4ed7739ab30f2c55163a61978ee7225620fe9912b681f2f77b8acded",
+  "correction_plan_sha256": "bc5c5ffc63fb97291e844dec915ef1a2fa918839bc3955e73f19bfeb970340c7",
+  "created_at": "2026-10-06T00:14:16Z",
+  "cycle": 325,
+  "failed_junit_sha256": "112c3e3b7d34b7aad91e950a219e5e98fc0f70d0ac3681e8bee5b646ec620833",
+  "fixture_AST_equal_except_short_IDs": true,
+  "fixture_source_sha256": "6619d0a07e3b80e9dbd97352cec884dc508d1bf2fc144d7d8b0c14a40a8b5fd9",
+  "junit_sha256": "b445f1bd3c4c56efe40e0966db964bacc130869f3371b2c46bbc532e3d0ff6d5",
+  "native_inventory_stopped": true,
+  "native_read_authorized": false,
+  "new_native_files_opened": 0,
+  "original35_passes_and2_setup_teardown_errors_preserved": true,
+  "registration_attempts": 0,
+  "research_fit_seconds": 0,
+  "scanner_byte_identical_to_failed_V1": true,
+  "scanner_sha256": "cd5759386fa5f412ea125c849c5958b7d284dec91e811f93f173a6ccb544eb86",
+  "scoring": false
+}

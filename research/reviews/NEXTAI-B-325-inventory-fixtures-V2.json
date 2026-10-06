@@ -1,0 +1,37 @@
+{
+  "cap_seconds": 170,
+  "command": [
+    "uv",
+    "run",
+    "--no-sync",
+    "pytest",
+    "tests/test_asm01_grammar_inventory.py",
+    "-q",
+    "--basetemp",
+    "research/tmp/ASM01-INVENTORY-fixtures-V2",
+    "--junitxml",
+    "research/reviews/NEXTAI-B-325-inventory-fixtures-V2.xml"
+  ],
+  "conservative_accounting_allowance_seconds": 40,
+  "created_at": "2026-10-06T00:09:22Z",
+  "error": null,
+  "id": "NEXTAI-B-325-inventory-fixtures-V2",
+  "raw_outputs": {
+    "NEXTAI-B-325-inventory-fixtures-V2.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NEXTAI-B-325-inventory-fixtures-V2.stdout.txt": "369c47fbf4e04af873402a8568be38208bebabff8b6f81e2c7207438907bd4e4"
+  },
+  "result": {
+    "elapsed_seconds": 1.4604931000212673,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 80027648,
+    "pid": 29180,
+    "processes_created": 5,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "seconds_charged": 56,
+  "wall_seconds": 15.041861600009724,
+  "whole_process_tree_bounded": true
+}
