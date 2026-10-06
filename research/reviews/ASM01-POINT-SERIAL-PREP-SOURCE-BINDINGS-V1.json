@@ -1,0 +1,14 @@
+{
+  "EXP": 0,
+  "active_integration": false,
+  "created_at": "2026-10-06T03:20:56Z",
+  "fit": 0,
+  "fixture_path": "research/preparations/ASM01-POINT-SERIAL-PREPARATION-V1/test_normalizer.py",
+  "fixture_sha256": "b24bc87c7aabbdc07711be521f6ea83b384fbf2a36d56a1adc69f06e5cae60bf",
+  "frozen_cases": 38,
+  "new_native_bytes": 0,
+  "old_parent_bindings_and_ledger_prefixes_preserved": true,
+  "plan_sha256": "679a82220eeb6c0998038ebdbefbe9b2a988ffe2e4e48e974ce46d6ba48950db",
+  "source_path": "research/preparations/ASM01-POINT-SERIAL-PREPARATION-V1/normalizer.py",
+  "source_sha256": "fbc87c0ba993b73eaa751bc9ecc21cf0fb1ec544887b679cb9c42e8e5f844a8c"
+}
