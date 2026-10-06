@@ -1,0 +1,416 @@
+{
+  "B_wallet_at_freeze": {
+    "authority_path": "research/laboratory/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1.json",
+    "auxiliary_fit_seconds_conservative": 52996.0,
+    "cohort": "asm01_native_memory_v3",
+    "contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+    "current_program_registration_attempts_used": 1,
+    "experiment_id": null,
+    "experimental_fit_seconds": 8341.876085000156,
+    "fit_seconds_cap": 110305.32584480009,
+    "fit_seconds_charged": 61337.876085000156,
+    "fit_seconds_remaining": 48967.44975979993,
+    "id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+    "paid_run_pending": false,
+    "pending_fit_reservation_seconds": 0.0,
+    "prior_compute_seconds_charged": 38305.325844800085,
+    "prior_program_closed": true,
+    "prior_program_id": "NEXTAI-CONTINUATION-20261004-V1",
+    "prior_registration_attempts_used": 14,
+    "program_closed": false,
+    "program_terminal": false,
+    "protected_future_compute_seconds": 47000,
+    "protected_future_registration_attempts": 7,
+    "ready": false,
+    "registration_attempts_cap": 26,
+    "registration_attempts_used": 15,
+    "registration_budget_exhausted": false,
+    "scoring_authorized": false,
+    "stage_a_accounting": {
+      "authority_path": "research/laboratory/NEXTAI-CONTINUATION-20261004-V1.json",
+      "auxiliary_fit_seconds_conservative": 28705.0,
+      "cohort": "paired_view_mutable_memory_v11",
+      "contract_path": "research/plans/NEXTAI-CONTINUATION-PROGRAM-V1.json",
+      "experiment_id": null,
+      "experimental_fit_seconds": 6944.98936010008,
+      "fit_seconds_cap": 69344,
+      "fit_seconds_charged": 35649.98936010008,
+      "fit_seconds_remaining": 33694.01063989992,
+      "id": "NEXTAI-CONTINUATION-20261004-V1",
+      "paid_run_pending": false,
+      "pending_fit_reservation_seconds": 0.0,
+      "program_closed": true,
+      "program_terminal": true,
+      "ready": false,
+      "registration_attempts_cap": 17,
+      "registration_attempts_used": 11,
+      "registration_budget_exhausted": false,
+      "scoring_authorized": false,
+      "stage_registration_attempts": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 3,
+        "reference_and_alternatives": 5,
+        "repair_reserve": 0,
+        "replication_and_fresh_final": 3,
+        "scale_and_generalization": 0
+      },
+      "stage_registration_caps": {
+        "diagnosis_and_task": 0,
+        "mechanism_and_ablations": 4,
+        "reference_and_alternatives": 5,
+        "repair_reserve": 2,
+        "replication_and_fresh_final": 3,
+        "scale_and_generalization": 3
+      },
+      "study_expired": true,
+      "study_path": "research/plans/NEXTAI-A-CLOSURE-B-PREPARATION-V1.json",
+      "study_terminal": true,
+      "unreserved_fit_seconds_remaining": 33694.01063989992
+    },
+    "stage_b_compute_seconds_cap": 72000,
+    "stage_b_compute_seconds_charged": 23032.55024020007,
+    "stage_b_registration_attempts_cap": 12,
+    "stage_b_registration_attempts_used": 1,
+    "stage_registration_attempts": {
+      "frozen_fresh_final": 0,
+      "independent_replication": 0,
+      "prototype_evaluation": 0,
+      "repair_reserve": 0,
+      "task_design": 0,
+      "transfer_family_1_screen": 1,
+      "transfer_family_2_screen": 0
+    },
+    "stage_registration_caps": {
+      "frozen_fresh_final": 3,
+      "independent_replication": 3,
+      "prototype_evaluation": 1,
+      "repair_reserve": 1,
+      "task_design": 0,
+      "transfer_family_1_screen": 2,
+      "transfer_family_2_screen": 2
+    },
+    "study_expired": true,
+    "study_path": "research/plans/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.json",
+    "study_terminal": true,
+    "unreserved_fit_seconds_remaining": 48967.44975979993
+  },
+  "EXP_cap": 0,
+  "auxiliary_seconds_cap": 900,
+  "clock_start": "2026-10-06T03:39:20Z",
+  "created_at": "2026-10-06T03:42:55Z",
+  "cycle": 332,
+  "deadline": "2026-10-06T03:54:20Z",
+  "decision_rule": "KEEP complete native feasibility only if46/46 PASS followed by74/74 exact guards and1830/1830 feasibility without duplicates. Otherwise preserve INCOMPLETE/INVALID exact intake and stop unstarted scope. No same-cycle parser/geometry/source/schema rescue. No fit/EXP/scoring even on PASS.",
+  "execution_authority": true,
+  "fixtures": {
+    "existing38": "research/preparations/ASM01-POINT-SERIAL-PREPARATION-V1/test_normalizer.py",
+    "existing38_reason": "All historical protected parent330 bytes remain unchanged; this new standalone preparation reuses the validated normalizer, not a new active cohort integration. Historical fixtures and bindings remain intact.",
+    "fit_in_fixtures": false,
+    "new8_ids": [
+      "complete",
+      "old-difference",
+      "raw-sha",
+      "duplicate",
+      "stop-first",
+      "future-scope",
+      "bindings",
+      "clone-origin"
+    ],
+    "single_pytest_run": true,
+    "total": 46
+  },
+  "forbidden": [
+    "research fit",
+    "EXP/registration/scoring",
+    "active loader/cohort/config/schema modification",
+    "coordinate/name output",
+    "unknown-row rescue",
+    "filter/replacement",
+    "futurewriters6-15/21-30",
+    "Data_Table",
+    "WT8-9",
+    "source fit replay",
+    "external model/API",
+    "schedule change",
+    "retry",
+    "protected7tickets/47000s spending",
+    "original limit expansion"
+  ],
+  "goal_status": "ACTIVE; second-family scientific comparison, replications, fresh finals and prototype unfinished",
+  "id": "ASM01-POINT-SERIAL-NATIVE-CONFORMANCE-V1",
+  "implementation_paths": [
+    "research/preparations/ASM01-POINT-SERIAL-NATIVE-CONFORMANCE-V1/intake.py",
+    "research/preparations/ASM01-POINT-SERIAL-NATIVE-CONFORMANCE-V1/test_intake.py"
+  ],
+  "intake_binding": {
+    "inventory_path": "research/reviews/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.receipt.json",
+    "inventory_sha256": "ce4cc88018c02c0d6644cf2c9a8f74ad269458f1b07e33afd81e69bd7d227407",
+    "new_geometry_parser": "exact oldV4(normalize_release_bytes(raw)); release only, no fallback",
+    "normalizer_path": "research/preparations/ASM01-POINT-SERIAL-PREPARATION-V1/normalizer.py",
+    "normalizer_sha256": "fbc87c0ba993b73eaa751bc9ecc21cf0fb1ec544887b679cb9c42e8e5f844a8c",
+    "old75_path": "research/data_manifests/ASM01-ACQUISITION-V3.json",
+    "old75_sha256": "b5626c35c96e62f71e730045fa7ab8cbc69b41207cba2cc6e1e91afd043271ed",
+    "old_geometry_parser": "nextai_autoresearch.asm01_task_v4.parse_native_sample",
+    "publisher_sha256": "d6ad543e65269d53e38fdac6a32dd20bcd942e7616891a6cf95986894b454a4d"
+  },
+  "ledger_prefixes": {
+    "events.jsonl": {
+      "bytes": 899721,
+      "sha256": "1a8d28e3adebd875914bc6396be136c6b1c37ed2b08e35e20a7c6ba06b047115"
+    },
+    "experiments.tsv": {
+      "bytes": 472451,
+      "sha256": "9079298bafc1acfbf91c8330250197cf3525cc33b29a577d67f4fc4107e0acd5"
+    },
+    "sources.jsonl": {
+      "bytes": 386005,
+      "sha256": "f6224357c0ca5f5688ff03fe9bf35ff0104ef59ef28493804b4c163b3bec8095"
+    }
+  },
+  "metrics": [
+    "exact74 oldarrays and all3views",
+    "all1830 required identities/hash/geometry valid",
+    "global no duplicate array",
+    "all46 fixtures PASS",
+    "no native output values or names",
+    "all protected hashes/prefixes unchanged",
+    "single bounded process tree per fixtures and intake, zero live descendants"
+  ],
+  "native_execution_authority": true,
+  "output": "Only after1830/1830 and915D complete, write new sealed preparatory NPZ with points/offsets/rows for all10writers and exact writer/dataset hashes. Not an active loader or scoring dataset; later scientific cohort/task/binding/readiness required. Preserve all old manifests and failures.",
+  "parent_file_bindings": {
+    "AGENTS.md": "3f3336e029984726d5e59169cf570d9726a89f31cf5580634396397a3fdda88e",
+    "config/research.toml": "baadde12549b77221f3119332d6a1d09a06d4fd3169f64c8f53ffc7eb5e0417c",
+    "research/data_manifests/ASM01-ACQUISITION-V3.json": "b5626c35c96e62f71e730045fa7ab8cbc69b41207cba2cc6e1e91afd043271ed",
+    "research/eval_manifest.json": "f10053354c6f6f0f1f94099458968bed2fd1a8b67cfc890b977c2819e7e6a2c5",
+    "research/laboratory/ASM01-COST-ADMIN-RECONCILIATION-V1.receipt.json": "4e5e43ecff541b10dad3ee1f3a5804334b3bcfad301fa93ee5cc5b2b18cb4718",
+    "research/laboratory/preflight_certificate.json": "62957907372589afa7015fc54e0a7b4f68255e277862ffe855a72f311ec0c0d2",
+    "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V3.json": "a3e338f334aeccf7543f72e9e1c6133188ac39acbd23a53792a4607c3f57d217",
+    "research/preparations/ASM01-POINT-SERIAL-PREPARATION-V1/normalizer.py": "fbc87c0ba993b73eaa751bc9ecc21cf0fb1ec544887b679cb9c42e8e5f844a8c",
+    "research/reviews/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.receipt.json": "ce4cc88018c02c0d6644cf2c9a8f74ad269458f1b07e33afd81e69bd7d227407",
+    "research/state.json": "47203f63570fa01ccfd21a798c056b94a4cb7659a2e4e0c9751a6218cbe8707b",
+    "src/nextai_autoresearch/asm01_inventory_members_v3.py": "c1752b82b4cdc7ce8e51430b2ed6934cedec1877d606570b80b82a352562f392",
+    "src/nextai_autoresearch/asm01_task.py": "858dd782f3823368435d0b490baee3e6633483907fcb861c58ca1da2246eaefd",
+    "src/nextai_autoresearch/asm01_task_v3.py": "2419e5f101db1ac6708f6e817f33a77f31915e2e251412578c4ce3dd9907ff49",
+    "src/nextai_autoresearch/asm01_task_v4.py": "5d51c82c39dd56b230ec8406ad27dc48cf548de6757cb692b1e155fe0d0bb9f1",
+    "src/nextai_autoresearch/benchmarks/asm01_native_memory_v2.py": "8f18f6610cef997654c9c6fc18afeed31a88b53accd414e9c14b294b776c18c9",
+    "src/nextai_autoresearch/candidates/asm01_core.py": "65b84c0c8ddfad649385fe6d1bafb3a1b218822acfc8e858961e3fa1d61e418e"
+  },
+  "prior_turn_classification": "PROGRESS: finite192-call runtime evidence and independently identified budget blockers changed next action; original closing overrun preserved and charged separately. No scientific screening or retry.",
+  "process_caps": {
+    "closing_reserve_seconds": 160,
+    "fixtures_seconds": 120,
+    "intake_seconds": 120,
+    "whole_auxiliary900_includes_startup_since03:39:20": true
+  },
+  "question": "Can the separately conformed frozen point-serial normalizer preserve exact old74 arrays/all3views and make every fixed1830 native sample geometrically valid without replacement?",
+  "recipe": "Verify fixed1830 metadata/listing/link/alias/byte gates BEFORE payload; W1 samples1..74 first, each read once and SHA matched to both old75 and inventory; parse oldV4 and new-normalizedV4, exact dtype/shape/bytes equality of arrays and write/nominal/adverse views. Only after74/74 PASS open other1756, each inventorySHA and same frozen normalizer->oldV4. Global duplicate check includes each canonical array once. Bounds/dedup/pointcap/arc/RMS/views unchanged. No raw names/coordinates/token emission. Any error stops all unstarted scope, retains attempted hashes and redacted category; no fallback/filter/replacement/retry.",
+  "registration_cap": 0,
+  "research_fit_seconds_cap": 0,
+  "scientific_execution_authority": false,
+  "scientific_prospective_binding": {
+    "all_models_source_states_geometry_grids_metrics_thresholds_and45roles810trials_unchanged": true,
+    "authority": "This preparation freezes future scientific recipe before new native bytes but grants no future EXP authority. Original failed study not reactivated. Future new lower full-cost scope must independently freeze budgets and solve verified own-aux/aggregate-budget guards before code/scoring.",
+    "recipe_and_gates": {
+      "decision_policy": "Missing/partial fiveunits, intake/source/sourceweight/datahash/resource/mandatorycontrol/evaluator invalidity =>INCONCLUSIVE; failure of competence makes economic comparison INCONCLUSIVE, not architecture falsification. Source-information KEEP only all4frozen primary gates; otherwise DISCARD this exact frozen-source/readout transfer recipe if measurement/control valid; expose both rank/UNKNOWN separately. Qualify a fixed route only unchanged competent-reference and percell quality/UNKNOWN/FA plus18economic andfixed strong-classical non-domination gates. No promotion/LLM/generalintelligence/blindholdout/general scaling claim. Preserve every failure and cost; exactlyone audited EXP,no paid retry/seed replacement,outcome-based tuning or sourcefitreplay. Independently justified alternatives require new prospective recipe/data; replication andfresh finals remainprotected.",
+      "diagnosis_gates": {
+        "economic_qualification": {
+          "UNKNOWN_minimum": 0.95,
+          "all_conditions_required": [
+            "nominal",
+            "adverse"
+          ],
+          "candidate_full_service_ratio_CI_upper": 0.8,
+          "candidate_p95_ratio_CI_upper": 0.9,
+          "candidate_quality_minus_dense_CI_lower": -0.02,
+          "known_false_abstention_maximum": 0.02,
+          "no_weakened_economics": true,
+          "per_condition_K_metrics": [
+            "accuracy",
+            "UNKNOWN",
+            "known_false_abstention"
+          ],
+          "quality_cost_family": "18pairedgates/route:2conditionsx3Kx(accuracyNI,service,p95); two-sided99.722222% df4 intervals; fivepairs",
+          "quality_guard_each_unit": 0.9,
+          "quality_guard_mean": 0.95,
+          "scales": [
+            16,
+            32,
+            64
+          ],
+          "strong_classical_nondomination": "Six fixed native/classical comparators:source_ridge,target_ridge_pca,target_kernel,native_raw,native_dtw andtarget_dense. For each route and comparator across6cells, simultaneous Studentt df4 intervals over108fixedcomparisons (NIquality,service,p95). Dominated if comparator qualityNI lower>=-.02 and both service/p95 ratio upper<=1 with oneupper<1, plus competence/UNKNOWN/FA. Aroute is not qualified by beating dense alone."
+        },
+        "source_information_effect": {
+          "CI_lower": 0.0,
+          "familywise_alpha": 0.05,
+          "mean_minimum": 0.02,
+          "positive_pairs": 5
+        }
+      },
+      "diagnostics": {
+        "secondary": [
+          "accuracy",
+          "fact_top1_accuracy",
+          "source_attribution_accuracy",
+          "known_false_abstention",
+          "dense_unknown_rejection",
+          "updated_known_accuracy",
+          "retained_known_accuracy",
+          "current_value_at_correct_handle",
+          "service_seconds",
+          "p50_latency_us",
+          "p95_latency_us",
+          "state_bytes",
+          "fit_seconds",
+          "fullcold_worker_wall"
+        ],
+        "secondary_intervals": "paired95% descriptive only; no source-transfer claim from target fit alone; adverse contrasts separatelyreported",
+        "source_information_primary_family": {
+          "condition": "nominal, equalweights over3Kx3updates",
+          "endpoints": [
+            "trained_minus_untrained:fact_top1",
+            "trained_minus_shuffled:fact_top1",
+            "trained_minus_untrained:UNKNOWN",
+            "trained_minus_shuffled:UNKNOWN"
+          ],
+          "interval": "two-sided Studentt df4, Bonferroni nominal family95% across4endpoints =>98.75% each; all four pass for source-information KEEP",
+          "mean_gain_minimum": 0.02,
+          "paired_CI_lower_must_exceed": 0.0,
+          "paired_units": 5,
+          "positive_pairs_required": 5
+        }
+      },
+      "matrix": {
+        "knowledge_sizes": [
+          16,
+          32,
+          64
+        ],
+        "queries_per_cell": 64,
+        "reasoning_depths": [
+          1,
+          2,
+          3
+        ],
+        "seed_policy": {
+          "count": 5,
+          "maximum": 2147483647,
+          "method": "runner_random_v1",
+          "minimum": 1000000
+        }
+      },
+      "recipe": {
+        "alignment_batch": 128,
+        "alignment_steps": 2048,
+        "dense_set_steps": 1024,
+        "kernel_bandwidth_grid": [
+          0.25,
+          0.5,
+          1.0,
+          2.0
+        ],
+        "kernel_landmarks": 64,
+        "kernel_ridge_grid": [
+          0.0001,
+          0.01,
+          1.0
+        ],
+        "learning_rate": 0.003,
+        "margin_grid": [
+          0.0,
+          0.005,
+          0.01,
+          0.02,
+          0.04,
+          0.08,
+          0.16,
+          0.32
+        ],
+        "native_dtw": "Exact band4 DTW on SAME public32x2 unit-L2 views. Local cost32*sum((x_i-y_j)^2). Dynamic program minimizes total squared cost within |i-j|<=4, starts(0,0), ends(31,31), allowed diagonal/up/left with that deterministic tie priority. Track length of selected minimum-sum path; d=sum/length. Similarity=1/(1+d). All distances, DP state/allocation and selection work charged. No private full trajectory.",
+        "native_raw": "No-fit cosine retrieval on the same normalized public32x2 trajectory views; no sample/class/writer ID or private trajectory.",
+        "pca_rank_grid": [
+          16,
+          32,
+          64
+        ],
+        "pca_whitening_grid": [
+          0.0,
+          0.5
+        ],
+        "ridge_grid": [
+          0.0001,
+          0.001,
+          0.01,
+          0.1,
+          1.0,
+          10.0
+        ],
+        "score_normalization": "For all cosine routes clip score[-1,1] then s=(1+cosine)/2. NativeDTW uses1/(1+d). Stable top1 is lowest insertion slot on ties; margin=top1_score-second_highest_score. Accept iff s>=absolute_threshold AND margin>=margin_threshold. Same two-axis policy for all9arms.",
+        "source_frozen": "Actual64->64 residual linear/GELU encoder or actual65xrank source ridge; original source PCA frozen. Source feature output ->native write projected in that frozen PCA using legal target ridge readout with intercept. Choose regularizer on T-validation normalized squaredL2 only; deterministic ascending grid ties. Same adaptation on allfour source arms; all source weights unchanged. No target gradient update of source model. Source PCA hashes of neural controls must be identical.",
+        "target_dense": "Unchanged PVM64D residual linear/GELU64/128/64 transport and2-layer4head256FF residual-zero-init Transformer decoder; same AdamW recipe,2048alignment+1024set steps,lastcheckpoint. Target native T pairs only, no source weights. Context K16/32 alternating; batch4sets/8queries; CE20temperature with0.85 absence class +0.1 knownMSE. Decoder sees each query independently with peer-query mask. Cache CPU projections at inference as unchanged dense_cached_cpu algebra; no random projection or new architecture.",
+        "target_kernel": "Same existing RBF Nystrom transport; first64 distinct fit samples, not repeated draw landmarks. Bandwidth/ridge grids unchanged, jitter1e-10, validation MSE and deterministic ascending ties; all grid fits charged.",
+        "target_ridge_pca": "Native64query->write ridge/intercept on4096draws, choose regularizer by512 reserved T-validation MSE. T-write-only PCA ranks16/32/64 xwhitening0/.5, min validation normalizedL2 deterministic ascending rank/exponent. ExactCPU cosine scan and full chargedupdates.",
+        "threads": 1,
+        "threshold_grid": [
+          0.0,
+          0.25,
+          0.5,
+          0.65,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.925,
+          0.95,
+          0.97,
+          0.98,
+          0.99,
+          0.995,
+          0.999,
+          0.9995,
+          0.9999,
+          1.0
+        ],
+        "threshold_selection": "All27 nominal T-calibration episodes (3Kx3updatecountsx3episodes), same144 absolute/margin pairs for all9arms. Eligible iff knownFA<=.02 and UNKNOWN>=.95. Eligible first, then maximize full answer accuracy, higher UNKNOWN, lower absolute threshold, lower margin threshold, in that order. If none eligible retain best same ordered tuple and mark infeasible. No D threshold selection.",
+        "weight_decay": 0.0001
+      },
+      "reference_gates": {
+        "accuracy_each_unit_minimum": 0.9,
+        "accuracy_mean_minimum": 0.95,
+        "dense_unknown_rejection_minimum": 0.95,
+        "known_false_abstention_maximum": 0.02,
+        "three_K_each_condition": true
+      }
+    },
+    "source_study_path": "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V3.json",
+    "source_study_sha256": "a3e338f334aeccf7543f72e9e1c6133188ac39acbd23a53792a4607c3f57d217"
+  },
+  "scope": {
+    "already_lexically_inventoried": 1830,
+    "already_numerically_converted": 74,
+    "already_raw_exposed": 75,
+    "future_writers_authorized": false,
+    "listing": "research/data/asm01_native_v1/selected-screen-members-v3.txt",
+    "listing_sha256": "d49c97288d650bc42995d27b7301e2b15b4d373b74ec6a320b7971020fe4e4f5",
+    "new_download_or_extraction": false,
+    "old_arrays_persisted": false,
+    "reuse_existing_extraction_only": true,
+    "samples_each_writer": 183,
+    "samples_total": 1830,
+    "source_directory": "research/data/asm01_native_v1/screen-text-v3",
+    "writers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      16,
+      17,
+      18,
+      19,
+      20
+    ]
+  },
+  "study_kind": "preparation_only",
+  "thresholds": "Exact equality/complete counts; no filtered fixtures or samples; native failure is INCONCLUSIVE intake, never a learning/transfer/economic null."
+}
