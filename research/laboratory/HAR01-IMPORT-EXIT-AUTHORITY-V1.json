@@ -1,0 +1,23 @@
+{
+  "before_implementation_or_tests": true,
+  "created_at": "2026-10-07T00:16:44Z",
+  "human_authorization": "2026-10-07: Zatwierdzam ten osobny etap \u2014 up to600s from unused3600 first HARreplication for prospective importcorrection/process-exit diagnostics, minimalimplementation,new syntheticclonetests,no native/fit/EXP; previouscostsconsumed, other6/41000protected.",
+  "id": "HAR01-IMPORT-EXIT-AUTHORITY-V1",
+  "parent_study_path": "research/plans/HAR01-INDEPENDENT-REPLICATION-V1.json",
+  "parent_study_sha256": "d5567973e85b444d95ac13a70db9fe24b87c0ab3b672932e8322862c336ad12a",
+  "preparation_seconds_cap": 600,
+  "prior_consumed_stage_seconds": 2400,
+  "program_contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+  "protected_other_compute_seconds": 41000,
+  "protected_other_registration_attempts": 6,
+  "stage": "independent_replication",
+  "stage_slot": 0,
+  "study_path": "research/plans/HAR01-IMPORT-EXIT-CONFORMANCE-V1.json",
+  "unused_parent_seconds_after": 3000,
+  "unused_parent_seconds_before": 3600,
+  "wallet_before_bound_receipt": "research/laboratory/HAR01-REPLICATION-FAILURE-COMPLETION-V1.receipt.json",
+  "wallet_before_bound_receipt_sha256": "d837244240ea033828d7e09ae808250390a013aa9cc468fcd98ca68b480f65c8",
+  "whole_stage_seconds_cap": 6000
+}
