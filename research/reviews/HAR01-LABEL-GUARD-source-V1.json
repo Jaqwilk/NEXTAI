@@ -1,0 +1,29 @@
+{
+  "before_only_canonical_clone_invocation": true,
+  "created_at": "2026-10-07T00:26:49.778427+00:00",
+  "files": {
+    ".gitattributes": "6720df4e86facd4c9e033af6a4d16b86b158c3e45a9e905458c063adf84181dc",
+    "config/research.toml": "67358fa65af1f2f1876929bde1db1b4414a7906e5357e5cf81c37a16427fe12d",
+    "research/laboratory/HAR01-IMPORT-EXIT-COMPLETION-V1.receipt.json": "a82345b713912a3d0c2f4fb9de84dbe971dcb272b80dde264f316faede2af3c7",
+    "research/plans/HAR01-IMPORT-EXIT-CONFORMANCE-V1.json": "1b91ab6f3a22afeaa5122476555acfb03e6330d77f6b8251dda91e198ed384ea",
+    "research/plans/HAR01-LABEL-GUARD-FIXTURE-LABEL-CLARIFICATION-V1.json": "df412083695977f34f41cdc1252f576a2e8352fe5a976a4fb0c9a98b3bd06057",
+    "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+    "research/reviews/HAR01-LABEL-GUARD-run-V1.py": "0ca1c8d535b763b4336e28c63d871cc8e48eaf348d57e7fe92104cfe4a4128fa",
+    "scripts/acquire_har01.py": "342636e9f4d17b5c3e21fdaa8663abde1a0fffba3f4f7090b8543c3d8c579952",
+    "scripts/acquire_har01_replication.py": "c1fc6d48fe1c722a893a54475f91c75bb400549ed6553c1fac2f6c213aa764e9",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v1.py": "afcf66879c05e5ac1ea650a07c07fd8d45ab5f531a1b191d29d8787c5383c8f8",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v2.py": "315082fe430324ce6c0227dd52808bda0699a0d332143a004d192a9f022abbba",
+    "src/nextai_autoresearch/candidates/har01_core.py": "8e7e10b4779e40565cec140882df61d25517f92945d499d7df17d3f844179336",
+    "src/nextai_autoresearch/har01_analysis.py": "ce2436a34a56c86f06824797b216854419b03318b90e16819cd60ebb110f416b",
+    "src/nextai_autoresearch/har01_analysis_v2.py": "7dd219e60736beb4d67b0586fc846975c00bb8749ee6a3a87096ff58c016c515",
+    "src/nextai_autoresearch/har01_task.py": "52c905470c46f10c28bf79872ab15454316a3560f880eb058cf7576b8d94cd6d",
+    "src/nextai_autoresearch/har01_task_v2.py": "720dee6a0ff15de74b57c61e759d73097e15b163afc5a1986689ea918eb296c2",
+    "src/nextai_autoresearch/process_supervision.py": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b",
+    "src/nextai_autoresearch/research_program.py": "86d2b7b1be58785c195982c1a988990aeb6a6ce7d3c18258bf5685e3fab5f58c",
+    "tests/test_har01_import_loading_conformance.py": "e483fd2dfb99c8e18c27e690fb30fceb00f677d1765ff44c86cca984fb20b218",
+    "tests/test_har01_import_loading_conformance_v2.py": "66d2d7765705f81c6de921dc389933a3e8304dbc9ad9da4cafceed7f50dfa782",
+    "tests/test_har01_label_guard_ownership.py": "5dd758d9a88f5356b4b5fe1861f38e0649ce316e7f7c0cb403c7ac6376fe82da",
+    "tests/test_har01_replication_process_exit.py": "a79f87a7bb7399af7a22c2fd53097517609b202571b4c26af7ce85514e8c2713"
+  },
+  "study_sha256": "243ee6fe7d8634440b92bb88fb8dd712d89761513f32663ee54c1bd226af651b"
+}

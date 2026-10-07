@@ -85,3 +85,8 @@ research/reviews/HAR01-REPLICATION-conformance-V1.stdout.txt -text
 research/reviews/HAR01-IMPORT-EXIT-*.xml -text
 research/reviews/HAR01-IMPORT-EXIT-*.stdout.txt -text
 research/reviews/HAR01-IMPORT-EXIT-*.stderr.txt -text
+
+# Keep exact separately versioned label-guard conformance journals.
+research/reviews/HAR01-LABEL-GUARD-*.xml -text
+research/reviews/HAR01-LABEL-GUARD-*.stdout.txt -text
+research/reviews/HAR01-LABEL-GUARD-*.stderr.txt -text

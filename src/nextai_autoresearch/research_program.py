@@ -31,6 +31,11 @@ HAR_IMPORT_EXIT_SHA256 = "1b91ab6f3a22afeaa5122476555acfb03e6330d77f6b8251dda91e
 HAR_IMPORT_EXIT_AUTHORITY = "research/laboratory/HAR01-IMPORT-EXIT-AUTHORITY-V1.json"
 HAR_IMPORT_EXIT_AUTHORITY_SHA256 = "2015359bbd07dd715b5deba6f37918eacdfe668900cd0d72a5d5bbe0031f45cc"
 HAR_IMPORT_EXIT_AUXILIARY_ID = "HAR01-IMPORT-EXIT-preparation-V1"
+HAR_LABEL_GUARD_STUDY = "research/plans/HAR01-LABEL-GUARD-CONFORMANCE-V1.json"
+HAR_LABEL_GUARD_SHA256 = "243ee6fe7d8634440b92bb88fb8dd712d89761513f32663ee54c1bd226af651b"
+HAR_LABEL_GUARD_AUTHORITY = "research/laboratory/HAR01-LABEL-GUARD-AUTHORITY-V1.json"
+HAR_LABEL_GUARD_AUTHORITY_SHA256 = "04157dac2256884c782f259afeeb41e96d64fdc8d9fe183c13d84cee601691d7"
+HAR_LABEL_GUARD_AUXILIARY_ID = "HAR01-LABEL-GUARD-preparation-V1"
 
 
 def _finite_seconds(value):
@@ -133,6 +138,54 @@ def _har_import_exit_auxiliary(base, events):
     amount = charges[0].get("seconds") if charges else cap
     if not _finite_seconds(cap) or cap != 600 or not _finite_seconds(amount) or amount != 600:
         raise ValueError("HAR import/exit allocation must retain its full conservative 600s charge")
+    return prior + amount, expected
+
+
+def _har_label_guard_auxiliary(base, events):
+    """Carry the consumed 3000s and this one exact prospective 600s allocation."""
+    if (_bound_hash(base, HAR_LABEL_GUARD_STUDY) != HAR_LABEL_GUARD_SHA256
+            or _bound_hash(base, HAR_LABEL_GUARD_AUTHORITY) != HAR_LABEL_GUARD_AUTHORITY_SHA256):
+        raise ValueError("HAR label-guard study or authority hash mismatch")
+    study = _document(base, HAR_LABEL_GUARD_STUDY)
+    authority = _document(base, HAR_LABEL_GUARD_AUTHORITY)
+    prior, _ = _har_import_exit_auxiliary(base, events)
+    prior_charges = [e for e in events if e.get("event") == "research_program_aux_fit_charged"
+                     and e.get("charge_id") == HAR_IMPORT_EXIT_AUXILIARY_ID]
+    if (prior != 3000 or len(prior_charges) != 1
+            or not _finite_seconds(prior_charges[0].get("seconds")) or prior_charges[0]["seconds"] != 600):
+        raise ValueError("Prior HAR consumed 3000s cannot be refunded or replaced")
+    expected = {"program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+                "study_path": HAR_LABEL_GUARD_STUDY, "study_sha256": HAR_LABEL_GUARD_SHA256,
+                "authority_path": HAR_LABEL_GUARD_AUTHORITY,
+                "authority_sha256": HAR_LABEL_GUARD_AUTHORITY_SHA256}
+    permissions = [e for e in events if e.get("event") == "research_program_scoped_preparation_authorized"
+                   and e.get("study_path") == HAR_LABEL_GUARD_STUDY]
+    if (len(permissions) != 1 or any(permissions[0].get(k) != v for k, v in expected.items())
+            or permissions[0].get("human_authorized") is not True
+            or type(permissions[0].get("stage_slot")) is not int or permissions[0]["stage_slot"] != 0
+            or not _finite_seconds(permissions[0].get("cap")) or permissions[0]["cap"] != 600
+            or permissions[0].get("whole_stage_cap") != 6000
+            or authority["program_id"] != expected["program_id"] or authority["study_path"] != HAR_LABEL_GUARD_STUDY
+            or authority["stage"] != "independent_replication" or type(authority["stage_slot"]) is not int
+            or authority["stage_slot"] != 0 or authority["preparation_seconds_cap"] != 600
+            or authority["prior_consumed_stage_seconds"] != 3000 or authority["whole_stage_seconds_cap"] != 6000
+            or study["study_kind"] != "preparation_only" or study["registration_attempts_for_this_study_cap"] != 0
+            or study["resources"]["fit_seconds_study_cap"] != 0
+            or study["auxiliary_charge_ownership"]["allowed_ids"] != [HAR_LABEL_GUARD_AUXILIARY_ID]):
+        raise ValueError("HAR label-guard authority missing, repeated or changed")
+    owned = [e for e in events if e.get("event") in {"research_program_aux_fit_reserved", "research_program_aux_fit_charged"}
+             and (e.get("charge_id") == HAR_LABEL_GUARD_AUXILIARY_ID or e.get("study_path") == HAR_LABEL_GUARD_STUDY)]
+    reservations, charges = [], []
+    for event in owned:
+        if event.get("charge_id") != HAR_LABEL_GUARD_AUXILIARY_ID or any(event.get(k) != v for k, v in expected.items()):
+            raise ValueError("Foreign or incomplete HAR label-guard ownership binding")
+        (reservations if event["event"] == "research_program_aux_fit_reserved" else charges).append(event)
+    if len(reservations) != 1 or len(charges) > 1:
+        raise ValueError("Missing or duplicate HAR label-guard auxiliary accounting")
+    cap = reservations[0].get("seconds_cap")
+    amount = charges[0].get("seconds") if charges else cap
+    if not _finite_seconds(cap) or cap != 600 or not _finite_seconds(amount) or amount != 600:
+        raise ValueError("HAR label-guard allocation must retain its full conservative 600s charge")
     return prior + amount, expected
 
 
@@ -479,7 +532,13 @@ def _transfer_status(base, events):
                           expected_caps=(12, 72000), authorization_event="research_program_transfer_prototype_authorized")
     protected_tickets, protected_seconds = _transfer_reserves(current["stage_registration_attempts"])
     owned_auxiliary = 0.
-    if (current["study_path"] == HAR_IMPORT_EXIT_STUDY
+    if (current["study_path"] == HAR_LABEL_GUARD_STUDY
+            or any(e.get("study_path") == HAR_LABEL_GUARD_STUDY
+                   or e.get("charge_id") == HAR_LABEL_GUARD_AUXILIARY_ID for e in events)):
+        owned_auxiliary, _ = _har_label_guard_auxiliary(base, events)
+        if not current["stage_registration_attempts"]["independent_replication"]:
+            protected_seconds -= owned_auxiliary
+    elif (current["study_path"] == HAR_IMPORT_EXIT_STUDY
             or any(e.get("study_path") == HAR_IMPORT_EXIT_STUDY
                    or e.get("charge_id") == HAR_IMPORT_EXIT_AUXILIARY_ID for e in events)):
         owned_auxiliary, _ = _har_import_exit_auxiliary(base, events)
@@ -589,6 +648,10 @@ def auxiliary_charge(base, charge_id, seconds):
         _, binding = _har_import_exit_auxiliary(base, events)
         if seconds != 600:
             raise ValueError("HAR import/exit charge cannot release its conservative allocation")
+    elif charge_id == HAR_LABEL_GUARD_AUXILIARY_ID:
+        _, binding = _har_label_guard_auxiliary(base, events)
+        if seconds != 600:
+            raise ValueError("HAR label-guard charge cannot release its conservative allocation")
     append_jsonl(base / "research/events.jsonl", {"event": "research_program_aux_fit_charged", "created_at": utc_now(),
                  "program_id": value["id"], "charge_id": charge_id, "seconds": seconds, **binding})
     status(base)  # Validate the durable accounting, including failed test runs.
