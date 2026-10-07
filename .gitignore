@@ -60,3 +60,6 @@ research/pc01_payload/**/*.pt
 /research/data/har01_replication_v2/
 
 /research/data/har01_replication_v3/
+
+# C development native coordinates remain local; manifests and hashes are tracked.
+/research/data/asm01_c_v1/
