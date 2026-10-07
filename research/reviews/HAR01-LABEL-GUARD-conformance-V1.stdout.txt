@@ -1,0 +1,19 @@
+...........F
+================================== FAILURES ===================================
+____________________ test_ordinary_exit_zero_remains_zero _____________________
+
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/HAR01-LABEL-GUARD-CONFORMANCE-V1/test_ordinary_exit_zero_remain0')
+
+    def test_ordinary_exit_zero_remains_zero(tmp_path):
+        result = _run(tmp_path, [sys.executable, "-c", "import os;os.write(1,b'normal\\n')"])
+        assert (result.returncode, result.root_returncode, result.reason) == (0, 0, "exited")
+>       assert result.exit_live_descendant_pids == () and result.processes_created == 1
+E       AssertionError: assert (() == ()
+E         
+E         Use -v to get more diff and 3 == 1)
+E        +  where 3 = ProcessResult(returncode=0, root_returncode=0, reason='exited', elapsed_seconds=0.07053750000341097, pid=35196, processes_created=3, peak_tree_rss_bytes_sampled=26767360, exit_job_active_process_count=0, exit_live_descendant_pids=()).processes_created
+
+tests\test_har01_replication_process_exit.py:32: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_har01_replication_process_exit.py::test_ordinary_exit_zero_remains_zero
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!

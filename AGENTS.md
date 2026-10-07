@@ -1,3 +1,20 @@
+# Completed cycle339 - label guard passes; process-count fixture failure (2026-10-07)
+
+Separate frozenV2 conformance:11PASS/1FAIL/2unrun; import5 andownership6 pass.
+Ordinary root0/wrapper0/exited/no live descendants; fixture wrongly assumed
+processes_created1 while trusted jobcount3. No supervisor or scientific repair.
+Remaining root-failure/child-drain diagnostics unrun; no same-cycle rescue/retry.
+All failed versions/source/XML/processcosts preserved. Native/fit/EXP/registration0.
+B active1/12,28569.55024020007/72000s; first replication consumed3600/6000.
+Protected43400s includes other6/41000 plus currentunused2400; not auto-released.
+Currentstudy terminal,maintenance/scoring=false. Report
+research/analyses/HAR01-CYCLE339-IMPORT-EXIT-CONFORMANCE-V1.md.
+Human approved all subsequent stages: freeze each bounded scope before code/data,
+keep historical costs/Bcap/protected allocations/models/metrics/thresholds.
+No paid scientificretry,source refit,new architecture,WT8-9,externalmodels/API
+or schedulechange. Full transfer/fresh-target-final/prototype goal remains open.
+Earlier stage-specific sections below are preserved history.
+
 # Completed cycle338 - import conformance fixture failed (2026-10-07)
 
 Separately authorized600s technical stage froze before code/tests at22ad457.
