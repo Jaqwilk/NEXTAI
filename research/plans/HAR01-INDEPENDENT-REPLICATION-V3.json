@@ -1,0 +1,559 @@
+{
+  "auxiliary_charge_ownership": {
+    "all_pending_reserved_or_final_charged_once": true,
+    "allowed_ids": [
+      "HAR01-REPLICATION-preparation-V3",
+      "HAR01-REPLICATION-controller-V3"
+    ],
+    "bound_to_exact_study_sha256": true,
+    "caps": [
+      300,
+      250
+    ],
+    "no_prefix_credit": true,
+    "prior_consumed_seconds": 4950,
+    "whole_stage_cap": 6000
+  },
+  "candidates": [
+    "har01_source_trained_s0",
+    "har01_source_trained_s1",
+    "har01_source_trained_s2",
+    "har01_source_trained_s3",
+    "har01_source_trained_s4",
+    "har01_source_untrained_s0",
+    "har01_source_untrained_s1",
+    "har01_source_untrained_s2",
+    "har01_source_untrained_s3",
+    "har01_source_untrained_s4",
+    "har01_source_shuffled_s0",
+    "har01_source_shuffled_s1",
+    "har01_source_shuffled_s2",
+    "har01_source_shuffled_s3",
+    "har01_source_shuffled_s4",
+    "har01_source_ridge_s0",
+    "har01_source_ridge_s1",
+    "har01_source_ridge_s2",
+    "har01_source_ridge_s3",
+    "har01_source_ridge_s4",
+    "har01_target_dense_s0",
+    "har01_target_dense_s1",
+    "har01_target_dense_s2",
+    "har01_target_dense_s3",
+    "har01_target_dense_s4",
+    "har01_target_ridge_pca_s0",
+    "har01_target_ridge_pca_s1",
+    "har01_target_ridge_pca_s2",
+    "har01_target_ridge_pca_s3",
+    "har01_target_ridge_pca_s4",
+    "har01_target_kernel_s0",
+    "har01_target_kernel_s1",
+    "har01_target_kernel_s2",
+    "har01_target_kernel_s3",
+    "har01_target_kernel_s4",
+    "har01_native_raw_s0",
+    "har01_native_raw_s1",
+    "har01_native_raw_s2",
+    "har01_native_raw_s3",
+    "har01_native_raw_s4",
+    "har01_native_shift_s0",
+    "har01_native_shift_s1",
+    "har01_native_shift_s2",
+    "har01_native_shift_s3",
+    "har01_native_shift_s4"
+  ],
+  "clock_cap_policy": "Actualstart00:46:00Z includes preregistration/code/tests/intake/failures/admin. Newremaining1050 wall inside original6000 with prior4950 consumed: prep300 ending00:51:00Z, controller/archive/report250, fullworkers500. EnclosingJobtimeout485+15cleanup margin; perrole120fit/180worker unchanged. Chargeprep300/controller250 fullconservativelyonce. Failed enclosed uncoveredworker wall recovery<=500; no doublecount. Hardstop01:03:30Z; retain all partialresults. Anyoverrun disclosed.",
+  "cohort": "har01_native_memory_v4",
+  "created_at": "2026-10-07T00:46:34.969787+00:00",
+  "cycle": 342,
+  "data": {
+    "all_data_hashes_required": true,
+    "axis_encoding": {
+      "1": 0,
+      "2": 1,
+      "3": 4
+    },
+    "dev_episodes_per_cell": 4,
+    "evaluation_conditions": [
+      "nominal",
+      "adverse"
+    ],
+    "legal_inputs": "Only native64observations and legal train labels/write/source/version metadata, no subject/window ID on query or protected other-stage numeric data.",
+    "screen_subjects": [
+      {
+        "dev_subject": 21,
+        "source_unit": 0,
+        "train_subject": 6,
+        "unit": 0
+      },
+      {
+        "dev_subject": 22,
+        "source_unit": 1,
+        "train_subject": 7,
+        "unit": 1
+      },
+      {
+        "dev_subject": 23,
+        "source_unit": 2,
+        "train_subject": 8,
+        "unit": 2
+      },
+      {
+        "dev_subject": 24,
+        "source_unit": 3,
+        "train_subject": 9,
+        "unit": 3
+      },
+      {
+        "dev_subject": 25,
+        "source_unit": 4,
+        "train_subject": 10,
+        "unit": 4
+      }
+    ],
+    "train_calibration_episodes_per_K": 3,
+    "train_pairs": 4096,
+    "train_sets_episodes_per_K": 128,
+    "train_validation_pairs": 512
+  },
+  "decision_policy": "Missing/partial fiveunits, intake/source/sourceweight/datahash/resource/mandatorycontrol/evaluator invalidity =>INCONCLUSIVE; failure of competence makes economic comparison INCONCLUSIVE, not architecture falsification. Source-information KEEP only all4frozen primary gates; otherwise DISCARD this exact frozen-source/readout transfer recipe if measurement/control valid; expose both rank/UNKNOWN separately. Qualify a fixed route only unchanged competent-reference and percell quality/UNKNOWN/FA plus18economic andfixed strong-classical non-domination gates. No promotion/LLM/generalintelligence/blindholdout/general scaling claim. Preserve every failure and cost; exactlyone audited EXP,no paid retry/seed replacement,outcome-based tuning or sourcefitreplay. Independently justified alternatives require new prospective recipe/data; replication andfresh finals remainprotected.",
+  "diagnosis_gates": {
+    "economic_qualification": {
+      "UNKNOWN_minimum": 0.95,
+      "all_conditions_required": [
+        "nominal",
+        "adverse"
+      ],
+      "candidate_full_service_ratio_CI_upper": 0.8,
+      "candidate_p95_ratio_CI_upper": 0.9,
+      "candidate_quality_minus_dense_CI_lower": -0.02,
+      "known_false_abstention_maximum": 0.02,
+      "no_weakened_economics": true,
+      "per_condition_K_metrics": [
+        "accuracy",
+        "UNKNOWN",
+        "known_false_abstention"
+      ],
+      "quality_cost_family": "18pairedgates/route:2conditionsx3Kx(accuracyNI,service,p95); two-sided99.722222% df4 intervals; fivepairs",
+      "quality_guard_each_unit": 0.9,
+      "quality_guard_mean": 0.95,
+      "scales": [
+        16,
+        32,
+        64
+      ],
+      "strong_classical_nondomination": "Six fixed native/classical comparators:source_ridge,target_ridge_pca,target_kernel,native_raw,native_shift andtarget_dense. For each route and comparator across6cells, simultaneous Studentt df4 intervals over108fixedcomparisons (NIquality,service,p95). Dominated if comparator qualityNI lower>=-.02 and both service/p95 ratio upper<=1 with oneupper<1, plus competence/UNKNOWN/FA. Aroute is not qualified by beating dense alone."
+    },
+    "source_information_effect": {
+      "CI_lower": 0.0,
+      "familywise_alpha": 0.05,
+      "mean_minimum": 0.02,
+      "positive_pairs": 5
+    }
+  },
+  "diagnostics": {
+    "secondary": [
+      "accuracy",
+      "fact_top1_accuracy",
+      "source_attribution_accuracy",
+      "known_false_abstention",
+      "dense_unknown_rejection",
+      "updated_known_accuracy",
+      "retained_known_accuracy",
+      "current_value_at_correct_handle",
+      "service_seconds",
+      "p50_latency_us",
+      "p95_latency_us",
+      "state_bytes",
+      "fit_seconds",
+      "fullcold_worker_wall"
+    ],
+    "secondary_intervals": "paired95% descriptive only; no source-transfer claim from target fit alone; adverse contrasts separatelyreported",
+    "source_information_primary_family": {
+      "condition": "nominal, equalweights over3Kx3updates",
+      "endpoints": [
+        "trained_minus_untrained:fact_top1",
+        "trained_minus_shuffled:fact_top1",
+        "trained_minus_untrained:UNKNOWN",
+        "trained_minus_shuffled:UNKNOWN"
+      ],
+      "interval": "two-sided Studentt df4, Bonferroni nominal family95% across4endpoints =>98.75% each; all four pass for source-information KEEP",
+      "mean_gain_minimum": 0.02,
+      "paired_CI_lower_must_exceed": 0.0,
+      "paired_units": 5,
+      "positive_pairs_required": 5
+    }
+  },
+  "historical_unstarted_intake_manifest_exemptions": {
+    "research/data_manifests/HAR01-REPLICATION-ACQUISITION-V1.json": {
+      "receipt_path": "research/laboratory/HAR01-REPLICATION-PREPARATION-COMPLETION-V1.receipt.json",
+      "receipt_sha256": "fbca149a18f1010c9355f3ae95ee1eaa18dc72f8183d5d311708ebdc5d0a5b4f",
+      "scope": "onlyabsentunstarted; presentfile alwaysprotected"
+    },
+    "research/data_manifests/HAR01-REPLICATION-ACQUISITION-V2.json": {
+      "receipt_path": "research/laboratory/HAR01-REPLICATION-COMPLETION-V2.receipt.json",
+      "receipt_sha256": "132a331f4d6125d7ccbb3d3684b6ef3dfc52c6fa688c0a32bf25a91b88455567",
+      "scope": "onlyabsentunstarted; presentfile alwaysprotected"
+    }
+  },
+  "hypothesis_interpretation": "Independent replication of previouslynegative exactHARrecipe; not positivequalification prerequisite, notoldtargetrescue. New target subjects/nonces/seeds with actualsamefixedsource states; no priorresults pooled. Each independent targetpair is CIunit. Outcome canremainnegative orchange; unchanged decision gates.",
+  "id": "HAR01-INDEPENDENT-REPLICATION-V3",
+  "implementation_rule": "Versioned V4 adapters/scripts/cohort/task/manifest/schema only. New study matrix uses ONLY unchanged runner_random_v1 five-fresh-seed policy; removes unused placeholder seeds BEFORE data/code, retains strict global XOR. Preserve every oldfailedplan/schema/source/helper AST. Exact new costhelper requires prior4950settled, new300/250 IDs and500 aggregateworkers. Historical absent V1/V2 intake manifests may be excluded from protected_files ONLY while absent AND separately frozen exact failure receipt hashes prove those old intakes/EXP/fit were unstarted; any present oldmanifest remains protected. NewV3 intake required before readiness/freeze. Exemption limited to TWO explicit paths, no generic optionaldata/evidence and no fake receipts. Keep allscientific sources/recipe/model/steps/5pairs/K/metrics/grids/thresholds/decisions unchanged. Independentclone conformance once newV4 tests plus unchanged relevanttests; one intake then integrity/preflight/readiness, beforefirstscientificEXP. Anyfailure stops unstarted; no same-cycle rescue/rerun.",
+  "matrix": {
+    "knowledge_sizes": [
+      16,
+      32,
+      64
+    ],
+    "queries_per_cell": 64,
+    "reasoning_depths": [
+      1,
+      2,
+      3
+    ],
+    "seed_policy": {
+      "count": 5,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "parent_bindings": {
+    "AGENTS.md": "28936f2ccd50a6e3e4b9dea4ba152bfe0403525a5fba99e65123c4500b2f2753",
+    "research/laboratory/EXP-20261005-0006-fitted-state-publication-V1.json": "cf0e825db0e8c099013988a61bf836e008a65e1ef3a4fa1be82edf9b8aa06e31",
+    "research/laboratory/HAR01-PROCESS-LAUNCH-COMPLETION-V1.receipt.json": "186a5124fe120509d465be3e2f18e834a1079a0451bf2627f56cccae2dba3d06",
+    "research/laboratory/HAR01-REPLICATION-CLOSURE-FAILURE-V2.json": "5ef461b77f39db2e20b3ebcf868d126b6d43352830db51669c1e23a82bcad878",
+    "research/laboratory/HAR01-REPLICATION-COMPLETION-V2.receipt.json": "132a331f4d6125d7ccbb3d3684b6ef3dfc52c6fa688c0a32bf25a91b88455567",
+    "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+    "research/results/EXP-20261005-0007.json": "78380a19ffacf4a58af0bd8586425fbacee44b2e5a92c6e056f3699f769ed255",
+    "scripts/acquire_har01.py": "342636e9f4d17b5c3e21fdaa8663abde1a0fffba3f4f7090b8543c3d8c579952",
+    "scripts/acquire_har01_replication.py": "c1fc6d48fe1c722a893a54475f91c75bb400549ed6553c1fac2f6c213aa764e9",
+    "scripts/analyze_har01_replication.py": "8cb2b886a2b154c135ecd1a086c45b08e720f17fa75c77ca38179c1e8df96863",
+    "scripts/check_har01_replication_readiness.py": "9d08ebb25b058e3862920f9d1b9b72d5427a6ed90bdfa3ab2f43a2521c2f5e19",
+    "scripts/run_har01_replication_experiment.py": "c0b59fce8cc4e8eb210859543d793d565f4a7971e66a7e89ead49a18d4b06d1c",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v1.py": "afcf66879c05e5ac1ea650a07c07fd8d45ab5f531a1b191d29d8787c5383c8f8",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v2.py": "315082fe430324ce6c0227dd52808bda0699a0d332143a004d192a9f022abbba",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v3.py": "c80370550b04700398f759b4eea6191f0d3f59a2b0b015406ba5b7f3bb644eb1",
+    "src/nextai_autoresearch/candidates/har01_core.py": "8e7e10b4779e40565cec140882df61d25517f92945d499d7df17d3f844179336",
+    "src/nextai_autoresearch/har01_analysis.py": "ce2436a34a56c86f06824797b216854419b03318b90e16819cd60ebb110f416b",
+    "src/nextai_autoresearch/har01_analysis_v2.py": "7dd219e60736beb4d67b0586fc846975c00bb8749ee6a3a87096ff58c016c515",
+    "src/nextai_autoresearch/har01_analysis_v3.py": "2db5dc7992e446dfc77c159f942cf916cc9e5c732875cafac08f7e7f88ec0bc3",
+    "src/nextai_autoresearch/har01_task.py": "52c905470c46f10c28bf79872ab15454316a3560f880eb058cf7576b8d94cd6d",
+    "src/nextai_autoresearch/har01_task_v2.py": "720dee6a0ff15de74b57c61e759d73097e15b163afc5a1986689ea918eb296c2",
+    "src/nextai_autoresearch/har01_task_v3.py": "8088572c0033dd897c76d50d7be971b58fdf81e35640dc20ecd9164af549af4f",
+    "src/nextai_autoresearch/process_supervision.py": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b"
+  },
+  "parent_failed_replication_study_path": "research/plans/HAR01-INDEPENDENT-REPLICATION-V2.json",
+  "parent_failed_replication_study_sha256": "c1ffee7b7856851fc4dc2792f3aa0e6e8502bb465d2244ba0997fa43966f39aa",
+  "parent_study_path": "research/plans/HAR01-FROZEN-SOURCE-SCREEN-V1.json",
+  "parent_study_sha256": "9ec218451704762a128415204a1b4f7aa6e016bac4a56122368e975f6d9013eb",
+  "parent_technical_receipt_path": "research/laboratory/HAR01-REPLICATION-COMPLETION-V2.receipt.json",
+  "parent_technical_receipt_sha256": "132a331f4d6125d7ccbb3d3684b6ef3dfc52c6fa688c0a32bf25a91b88455567",
+  "preparation_authority_path": "research/laboratory/HAR01-REPLICATION-CONTINUATION-AUTHORITY-V3.json",
+  "preparation_authority_sha256": "a172881be9805bb6befba08acb87d4e6ae994516c56bdad260af701452883160",
+  "preparation_charge_id": "HAR01-REPLICATION-preparation-V3",
+  "preparation_deadline_at": "2026-10-07T00:51:00Z",
+  "preparation_seconds_cap": 300,
+  "prior_consumed_stage_seconds": 4950,
+  "program_contract_path": "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "protected_other_compute_seconds": 41000,
+  "protected_other_registration_attempts": 6,
+  "question": "Do the actual frozen learned PVM source weights add target-useful information on native physical sensor-window memory beyond their preserved untrained/shuffled controls under identical legal ridge readout, and can any fixed route match a competent target Transformer at lower complete cost versus strong native classics?",
+  "recipe": {
+    "alignment_batch": 128,
+    "alignment_steps": 2048,
+    "dense_set_steps": 1024,
+    "kernel_bandwidth_grid": [
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "kernel_landmarks": 128,
+    "kernel_ridge_grid": [
+      0.0001,
+      0.01,
+      1.0
+    ],
+    "learning_rate": 0.003,
+    "native_raw": "No-fit cosine on same normalized physical64views. Same train-only threshold policy.",
+    "native_shift": "Exactcosine native alignment maximum over block offsets -1/0/+1 with common overlapping positions on8channelsx8timeblocks. All48shift/block feature work charged; no privilege beyond same64observations.",
+    "pca_rank_grid": [
+      16,
+      32,
+      64
+    ],
+    "pca_whitening_grid": [
+      0.0,
+      0.5
+    ],
+    "ridge_grid": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "source_frozen": "Actual64->64 residual linear/GELU encoder or actual65xrank source ridge; original source PCA frozen. Source feature output ->native write projected in that frozen PCA using legal target ridge readout with intercept. Choose regularizer on T-validation normalized squaredL2 only; deterministic ascending grid ties. Same adaptation on allfour source arms; all source weights unchanged. No target gradient update of source model. Source PCA hashes of neural controls must be identical.",
+    "target_dense": "Unchanged PVM64D residual linear/GELU64/128/64 transport and2-layer4head256FF residual-zero-init Transformer decoder; same AdamW recipe,2048alignment+1024set steps,lastcheckpoint. Target native T pairs only, no source weights. Context K16/32 alternating; batch4sets/8queries; CE20temperature with0.85 absence class +0.1 knownMSE. Decoder sees each query independently with peer-query mask. Cache CPU projections at inference as unchanged dense_cached_cpu algebra; no random projection or new architecture.",
+    "target_kernel": "Native RBF Nystr\u00f6m transport with first128 paired draws as landmarks, whitening jitter1e-10;4bandwidthx3ridge grid, T-validation MSE; all gridfitwork charged. Exact64native cosine retrieval.",
+    "target_ridge_pca": "Native64query->write ridge/intercept on4096draws, choose regularizer by512 reserved T-validation MSE. T-write-only PCA ranks16/32/64 xwhitening0/.5, min validation normalizedL2 deterministic ascending rank/exponent. ExactCPU cosine scan and full chargedupdates.",
+    "threads": 1,
+    "threshold_grid": [
+      0.0,
+      0.25,
+      0.5,
+      0.65,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.925,
+      0.95,
+      0.97,
+      0.98,
+      0.99,
+      0.995,
+      0.999,
+      0.9995,
+      0.9999,
+      1.0
+    ],
+    "threshold_selection": "All27 nominal T-calibration episodes (3Kx3updatesx3episodes). Prefer knownFA<=.02 and UNKNOWN>=.95, then max fullaccuracy, higherUNKNOWN,lowerthreshold. If noeligible retain maximumaccuracy with same ties and mark infeasible. Same fixed grid allnine arms; no devthreshold rescue.",
+    "weight_decay": 0.0001
+  },
+  "reference_gates": {
+    "accuracy_each_unit_minimum": 0.9,
+    "accuracy_mean_minimum": 0.95,
+    "dense_unknown_rejection_minimum": 0.95,
+    "known_false_abstention_maximum": 0.02,
+    "three_K_each_condition": true
+  },
+  "remaining_stage_seconds_cap": 1050,
+  "resources": {
+    "auxiliary_test_seconds_cap": 550,
+    "compute_charge_basis": "full_worker_wall_v1",
+    "cuda_required": true,
+    "enclosing_worker_job_closing_reserve_seconds": 15,
+    "enclosing_worker_job_seconds_cap": 500,
+    "fit_seconds_per_role_cap": 120,
+    "fit_seconds_study_cap": 500,
+    "max_cuda_reserved_bytes": 4294967296,
+    "max_rss_bytes": 4294967296,
+    "startup_charge_included_seconds": 0,
+    "work_minutes_cap": 240,
+    "worker_charge_ceiling_with_monitor_margin": 184,
+    "worker_seconds_cap": 180
+  },
+  "roles": {
+    "har01_native_raw_s0": {
+      "arm": "native_raw",
+      "seed_index": 0
+    },
+    "har01_native_raw_s1": {
+      "arm": "native_raw",
+      "seed_index": 1
+    },
+    "har01_native_raw_s2": {
+      "arm": "native_raw",
+      "seed_index": 2
+    },
+    "har01_native_raw_s3": {
+      "arm": "native_raw",
+      "seed_index": 3
+    },
+    "har01_native_raw_s4": {
+      "arm": "native_raw",
+      "seed_index": 4
+    },
+    "har01_native_shift_s0": {
+      "arm": "native_shift",
+      "seed_index": 0
+    },
+    "har01_native_shift_s1": {
+      "arm": "native_shift",
+      "seed_index": 1
+    },
+    "har01_native_shift_s2": {
+      "arm": "native_shift",
+      "seed_index": 2
+    },
+    "har01_native_shift_s3": {
+      "arm": "native_shift",
+      "seed_index": 3
+    },
+    "har01_native_shift_s4": {
+      "arm": "native_shift",
+      "seed_index": 4
+    },
+    "har01_source_ridge_s0": {
+      "arm": "source_ridge",
+      "seed_index": 0
+    },
+    "har01_source_ridge_s1": {
+      "arm": "source_ridge",
+      "seed_index": 1
+    },
+    "har01_source_ridge_s2": {
+      "arm": "source_ridge",
+      "seed_index": 2
+    },
+    "har01_source_ridge_s3": {
+      "arm": "source_ridge",
+      "seed_index": 3
+    },
+    "har01_source_ridge_s4": {
+      "arm": "source_ridge",
+      "seed_index": 4
+    },
+    "har01_source_shuffled_s0": {
+      "arm": "source_shuffled",
+      "seed_index": 0
+    },
+    "har01_source_shuffled_s1": {
+      "arm": "source_shuffled",
+      "seed_index": 1
+    },
+    "har01_source_shuffled_s2": {
+      "arm": "source_shuffled",
+      "seed_index": 2
+    },
+    "har01_source_shuffled_s3": {
+      "arm": "source_shuffled",
+      "seed_index": 3
+    },
+    "har01_source_shuffled_s4": {
+      "arm": "source_shuffled",
+      "seed_index": 4
+    },
+    "har01_source_trained_s0": {
+      "arm": "source_trained",
+      "seed_index": 0
+    },
+    "har01_source_trained_s1": {
+      "arm": "source_trained",
+      "seed_index": 1
+    },
+    "har01_source_trained_s2": {
+      "arm": "source_trained",
+      "seed_index": 2
+    },
+    "har01_source_trained_s3": {
+      "arm": "source_trained",
+      "seed_index": 3
+    },
+    "har01_source_trained_s4": {
+      "arm": "source_trained",
+      "seed_index": 4
+    },
+    "har01_source_untrained_s0": {
+      "arm": "source_untrained",
+      "seed_index": 0
+    },
+    "har01_source_untrained_s1": {
+      "arm": "source_untrained",
+      "seed_index": 1
+    },
+    "har01_source_untrained_s2": {
+      "arm": "source_untrained",
+      "seed_index": 2
+    },
+    "har01_source_untrained_s3": {
+      "arm": "source_untrained",
+      "seed_index": 3
+    },
+    "har01_source_untrained_s4": {
+      "arm": "source_untrained",
+      "seed_index": 4
+    },
+    "har01_target_dense_s0": {
+      "arm": "target_dense",
+      "seed_index": 0
+    },
+    "har01_target_dense_s1": {
+      "arm": "target_dense",
+      "seed_index": 1
+    },
+    "har01_target_dense_s2": {
+      "arm": "target_dense",
+      "seed_index": 2
+    },
+    "har01_target_dense_s3": {
+      "arm": "target_dense",
+      "seed_index": 3
+    },
+    "har01_target_dense_s4": {
+      "arm": "target_dense",
+      "seed_index": 4
+    },
+    "har01_target_kernel_s0": {
+      "arm": "target_kernel",
+      "seed_index": 0
+    },
+    "har01_target_kernel_s1": {
+      "arm": "target_kernel",
+      "seed_index": 1
+    },
+    "har01_target_kernel_s2": {
+      "arm": "target_kernel",
+      "seed_index": 2
+    },
+    "har01_target_kernel_s3": {
+      "arm": "target_kernel",
+      "seed_index": 3
+    },
+    "har01_target_kernel_s4": {
+      "arm": "target_kernel",
+      "seed_index": 4
+    },
+    "har01_target_ridge_pca_s0": {
+      "arm": "target_ridge_pca",
+      "seed_index": 0
+    },
+    "har01_target_ridge_pca_s1": {
+      "arm": "target_ridge_pca",
+      "seed_index": 1
+    },
+    "har01_target_ridge_pca_s2": {
+      "arm": "target_ridge_pca",
+      "seed_index": 2
+    },
+    "har01_target_ridge_pca_s3": {
+      "arm": "target_ridge_pca",
+      "seed_index": 3
+    },
+    "har01_target_ridge_pca_s4": {
+      "arm": "target_ridge_pca",
+      "seed_index": 4
+    }
+  },
+  "schema_version": 1,
+  "stage": "independent_replication",
+  "study_deadline_at": "2026-10-07T01:03:30Z",
+  "study_kind": "native_frozen_source_transfer",
+  "study_started_at": "2026-10-07T00:46:00Z",
+  "task_contract_path": "research/plans/HAR01-REPLICATION-TASK-V3.json",
+  "task_contract_sha256": "e1f89d5deb93bccad900ad76477b844364119928da344ec3b54bacd0cf8a4bbf",
+  "validation_contract": {
+    "case_count": "all collected fixed cases, no skips/errors/failures, exact XML count before readiness",
+    "failure_stops_native_EXP": true,
+    "new_integrity_cases": "In integration_v4 synthetically prove exacttwo absent historical manifests exempt only under matchingfailurehashes; newly requiredV3 intake remains protected, changed/foreignreceipts rejected.",
+    "new_versioned_cases": [
+      "tests/test_har01_replication_intake_v4.py",
+      "tests/test_har01_replication_analysis_v4.py",
+      "tests/test_har01_replication_integration_v4.py",
+      "tests/test_har01_replication_final_budget.py"
+    ],
+    "one_canonical_invocation": true,
+    "registration_cap": 1,
+    "unchanged_cases": [
+      "tests/test_har01_intake.py",
+      "tests/test_har01_native_transfer.py",
+      "tests/test_har01_analysis_contract.py",
+      "tests/test_transfer_program_authority.py",
+      "tests/test_process_supervision.py"
+    ]
+  },
+  "whole_stage_seconds_cap": 6000
+}
