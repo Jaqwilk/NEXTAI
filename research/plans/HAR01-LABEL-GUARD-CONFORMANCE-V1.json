@@ -1,0 +1,107 @@
+{
+  "auxiliary_charge_ownership": {
+    "allowed_ids": [
+      "HAR01-LABEL-GUARD-preparation-V1"
+    ],
+    "bound_to_exact_study_sha256": true,
+    "no_prefix_credit": true,
+    "prior_consumed_seconds": 3000,
+    "stage_total_after": 3600,
+    "unused_remaining_not_released": 2400
+  },
+  "candidates": [],
+  "cohort": "har01_native_memory_v2",
+  "created_at": "2026-10-07T00:23:41.520039+00:00",
+  "cycle": 339,
+  "decision_policy": "KEEP technical import/labelguard/process-exit conformance only all14fixedcases pass/noerrors/skips, unchangedscientific/intake source and preservedpriorownerhelpers/budgets. Otherwise INCONCLUSIVE andstop. No scientificinference/scoring. Subsequent human-authorized science stillrequiresprospective frozenremainingbudget/data/model/metrics/gates/readiness.",
+  "fixtures": {
+    "import": [
+      "package_relative_identity",
+      "dynamic_without_repository_scripts_and_poisoned_ambient_module",
+      "direct_main_context_trace_stops_before_main_body",
+      "synthetic_selected_only_60numeric_120opaque_no_labels",
+      "three_closed_scope_bindings_rejected_before_bytes",
+      "exact-basename label predicate; legitimate *_y_train/test signal filenames allowed; sameoriginal5testcases"
+    ],
+    "ownership": [
+      "exact600_plus_prior2400_protected44000",
+      "missing_or_changed_hash_binding_rejected",
+      "foreign_charge_ID_rejected",
+      "duplicate_reservation_or_charge_rejected",
+      "invalid_cap_nan_bool_negative_or_over600_rejected",
+      "prior_consumed2400_cannot_refund_or_replace"
+    ],
+    "process_exit": [
+      "ordinary_exit0",
+      "failure_exit1_nochild",
+      "failure_exit1_with_ready_child_snapshot_and_postreturn_cleanup"
+    ]
+  },
+  "forbidden": [
+    "native HAR/ASM data",
+    "source fit",
+    "EXP/registration",
+    "new architecture",
+    "WT8-9",
+    "external models/API",
+    "historical deadline/schedule changes"
+  ],
+  "id": "HAR01-LABEL-GUARD-CONFORMANCE-V1",
+  "implementation_rule": "Only versioned synthetic label-member predicate correction: compare full ZIPbasename y_train.txt/y_test.txt instead of suffix. Same5casepayloads/rowcounts/bindings/assertions unchanged. Preserve failedV1bytes and import/scientific/supervisor sources. Add exact new600 costownership preserving prior3000, protectother6/41000/current2400. No same-cycle rescue/retry; public14fixtures once inclpreviouslyunrun6ownership/3process. No native/fit/EXP.",
+  "matrix": {},
+  "metrics_and_thresholds": {
+    "EXP": 0,
+    "all_cases": 14,
+    "all_parent_scientific_hashes_unchanged": true,
+    "errors": 0,
+    "failures": 0,
+    "fit": 0,
+    "import_cases": 5,
+    "native_intake": 0,
+    "outer_live_descendants": 0,
+    "outer_reason": "exited",
+    "outer_root_returncode": 0,
+    "ownership_cases": 6,
+    "previous_ownership_helpers_unchanged": true,
+    "process_exit_cases": 3,
+    "skips": 0,
+    "source_refit": 0
+  },
+  "parent_bindings": {
+    "AGENTS.md": "35f07aebcbc5753b2ea4b36b9cf948ddaf9c1ec324c91a09c08f5a07f49225b2",
+    "research/laboratory/HAR01-IMPORT-EXIT-COMPLETION-V1.receipt.json": "a82345b713912a3d0c2f4fb9de84dbe971dcb272b80dde264f316faede2af3c7",
+    "research/plans/HAR01-IMPORT-EXIT-CONFORMANCE-V1.json": "1b91ab6f3a22afeaa5122476555acfb03e6330d77f6b8251dda91e198ed384ea",
+    "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+    "scripts/acquire_har01.py": "342636e9f4d17b5c3e21fdaa8663abde1a0fffba3f4f7090b8543c3d8c579952",
+    "scripts/acquire_har01_replication.py": "c1fc6d48fe1c722a893a54475f91c75bb400549ed6553c1fac2f6c213aa764e9",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v1.py": "afcf66879c05e5ac1ea650a07c07fd8d45ab5f531a1b191d29d8787c5383c8f8",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v2.py": "315082fe430324ce6c0227dd52808bda0699a0d332143a004d192a9f022abbba",
+    "src/nextai_autoresearch/candidates/har01_core.py": "8e7e10b4779e40565cec140882df61d25517f92945d499d7df17d3f844179336",
+    "src/nextai_autoresearch/har01_analysis.py": "ce2436a34a56c86f06824797b216854419b03318b90e16819cd60ebb110f416b",
+    "src/nextai_autoresearch/har01_analysis_v2.py": "7dd219e60736beb4d67b0586fc846975c00bb8749ee6a3a87096ff58c016c515",
+    "src/nextai_autoresearch/har01_task.py": "52c905470c46f10c28bf79872ab15454316a3560f880eb058cf7576b8d94cd6d",
+    "src/nextai_autoresearch/har01_task_v2.py": "720dee6a0ff15de74b57c61e759d73097e15b163afc5a1986689ea918eb296c2",
+    "src/nextai_autoresearch/process_supervision.py": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b",
+    "tests/test_har01_import_loading_conformance.py": "e483fd2dfb99c8e18c27e690fb30fceb00f677d1765ff44c86cca984fb20b218"
+  },
+  "parent_failure_receipt_path": "research/laboratory/HAR01-IMPORT-EXIT-COMPLETION-V1.receipt.json",
+  "parent_failure_receipt_sha256": "a82345b713912a3d0c2f4fb9de84dbe971dcb272b80dde264f316faede2af3c7",
+  "parent_study_path": "research/plans/HAR01-IMPORT-EXIT-CONFORMANCE-V1.json",
+  "parent_study_sha256": "1b91ab6f3a22afeaa5122476555acfb03e6330d77f6b8251dda91e198ed384ea",
+  "preparation_authority_path": "research/laboratory/HAR01-LABEL-GUARD-AUTHORITY-V1.json",
+  "preparation_authority_sha256": "04157dac2256884c782f259afeeb41e96d64fdc8d9fe183c13d84cee601691d7",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "protected_other_compute_seconds": 41000,
+  "protected_other_registration_attempts": 6,
+  "registration_attempts_for_this_study_cap": 0,
+  "resources": {
+    "auxiliary_test_seconds_cap": 600,
+    "fit_seconds_study_cap": 0
+  },
+  "stage": "independent_replication",
+  "study_deadline_at": "2026-10-07T00:33:00Z",
+  "study_kind": "preparation_only",
+  "study_started_at": "2026-10-07T00:23:00Z",
+  "test_execution_rule": "One canonical independent-clone invocation of versioned5import+new6ownership+unchanged previouslyunrun3processcases. Freeze allsource beforeexec;180sjob/closingreserve90s. Anyfailurestops unstarted scope;no same-cyclefix/retry. Conservative600charge includesalladminarchive/report/publication; old3000consumed, unused2400notreleased.",
+  "whole_stage_seconds_cap": 6000
+}

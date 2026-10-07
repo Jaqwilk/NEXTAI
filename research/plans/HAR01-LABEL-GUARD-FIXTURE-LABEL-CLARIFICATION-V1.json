@@ -1,0 +1,22 @@
+{
+  "before_canonical_test": true,
+  "created_at": "2026-10-07T00:24:45.038787+00:00",
+  "inherited_case_identifiers": {
+    "exact600_plus_prior2400_protected44000": "Preserve338 baseline old2400+338600=3000/protected44000; new339 scenario adds600 to settled3000 =>3600/protected43400.",
+    "prior_consumed2400_cannot_refund_or_replace": "Preserveboth original2400 and settled338600 individually; no refund/replacement of totalprior3000."
+  },
+  "purpose": "Before canonical execution, distinguish inherited338 fixture identifiers from339 structured numeric allocation; no outcome/threshold/recipe/cap edits.",
+  "study_path": "research/plans/HAR01-LABEL-GUARD-CONFORMANCE-V1.json",
+  "study_sha256": "243ee6fe7d8634440b92bb88fb8dd712d89761513f32663ee54c1bd226af651b",
+  "unchanged_numeric_contract": {
+    "EXP": 0,
+    "fit": 0,
+    "new_cap": 600,
+    "other_protected": 41000,
+    "previous_consumed": 3000,
+    "registration": 0,
+    "total_consumed": 3600,
+    "total_protected_after": 43400,
+    "unused_current": 2400
+  }
+}
