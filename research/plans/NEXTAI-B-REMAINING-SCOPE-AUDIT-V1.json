@@ -1,0 +1,22 @@
+{
+  "id": "NEXTAI-B-REMAINING-SCOPE-AUDIT-V1",
+  "cycle": 343,
+  "scope": "Read-only saved-evidence requirement and budget audit after terminal HAR registration failure, plus append-only accounting and durable report. No data, source changes, tests, fit, registration, EXP or retry.",
+  "authority_path": "research/laboratory/NEXTAI-FUTURE-STAGES-AUTHORITY-20261007-V1.json",
+  "authority_sha256": "c0f7cff3a6ca47197b06ca9a57fbc7fa9601345933570a791776d7e1e52b4c76",
+  "work_started_at": "2026-10-07T01:01:07Z",
+  "work_deadline_at": "2026-10-07T01:02:27Z",
+  "conservative_auxiliary_seconds": 80,
+  "charge_id": "NEXTAI-B-remaining-scope-audit-V1",
+  "B_seconds_before": 30919.55024020007,
+  "B_seconds_after": 30999.55024020007,
+  "B_cap_seconds": 72000,
+  "protected_other_seconds": 41000,
+  "protected_other_registrations": 6,
+  "HAR_first_slot_charge_unchanged": 5950,
+  "unused_HAR50_not_released": true,
+  "question": "Does preserved evidence satisfy prerequisites for a remaining protected replication/final/prototype milestone, or is further execution infeasible inside unchanged budgets and no-retry constraints?",
+  "decision_rule": "Recommend a next execution only if its unchanged scientific prerequisites, unused allocation and disjoint authorized data are established. Otherwise record incomplete requirements and concrete alternatives; never claim goal completion, refund history, release protected allocations, retry a paid plan or access future data.",
+  "zero_new_EXP_and_fit": true,
+  "scoring": false
+}

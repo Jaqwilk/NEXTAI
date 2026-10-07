@@ -1,0 +1,22 @@
+{
+  "id": "NEXTAI-B-REMAINING-SCOPE-AUDIT-V2",
+  "supersedes_unexecuted_accounting_plan": "research/plans/NEXTAI-B-REMAINING-SCOPE-AUDIT-V1.json",
+  "scope": "Final HAR failure/unfinished-scope closure bookkeeping50seconds within its own original6000 slot, and broader saved-evidence feasibility audit30seconds. No scientific repair, new content, tests, registration, EXP or fit. V1 incorrectly treated HAR-owned50 as freely available; preserve and disclose that planning error before ledger implementation.",
+  "authority_path": "research/laboratory/NEXTAI-FUTURE-STAGES-AUTHORITY-20261007-V1.json",
+  "authority_sha256": "c0f7cff3a6ca47197b06ca9a57fbc7fa9601345933570a791776d7e1e52b4c76",
+  "charge_ids": ["HAR01-REPLICATION-final-scope-closure-V1", "NEXTAI-B-remaining-scope-feasibility-V1"],
+  "charges": [50, 30],
+  "HAR_before": 5950,
+  "HAR_after": 6000,
+  "HAR_cap": 6000,
+  "HAR_unused_funds_released_to_science": false,
+  "B_before": 30919.55024020007,
+  "B_after": 30999.55024020007,
+  "B_cap": 72000,
+  "protected_other_seconds": 41000,
+  "protected_other_registrations": 6,
+  "actual_wall_overruns_must_be_disclosed": true,
+  "decision_rule": "No execution without valid milestone, untouched authorized data and sufficient own allocation. Missing requirements remain incomplete; no goal completion from exhausted cap.",
+  "paid_retry": false,
+  "scoring": false
+}

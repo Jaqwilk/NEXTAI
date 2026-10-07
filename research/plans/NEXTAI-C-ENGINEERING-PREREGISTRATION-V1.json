@@ -1,0 +1,36 @@
+{
+  "id": "NEXTAI-C-ENGINEERING-PREREGISTRATION-V1",
+  "parent_contract_path": "research/plans/NEXTAI-C-STABILIZATION-ASM-SCREEN-V1.json",
+  "hypothesis": "Repeated historical result parsing/retention or baseline subprocess validation may dominate current registration. Measure individual gates before choosing targeted repairs; green technical tests do not establish scientific transfer.",
+  "work_started_at": "2026-10-07T23:42:00Z",
+  "engineering_phase_seconds_max": 10800,
+  "profile_scope": ["CLI import","C and legacy wallet/history","lifecycle","laboratory and scope","manifest/integrity","Git metadata","schema","baseline semantics","preflight","plan construction/commit","runner admission/startup","worker startup/fit/service/serialization","analysis/journal completeness","archive/maintenance"],
+  "profile_measurements": ["full process-tree wall","sampled peak treeRSS","CPU","trusted created processes","root/wrapper exits and drain","named spans including failures","input/source hashes"],
+  "initial_probes": "Bounded isolated-clone engineering jobs only; no old HAR scientific execution and no ticketed registration. Baseline probes before repair, same-input after-repair comparisons. Preserve exact failed sources and raw outputs of every iteration; normal engineering fixture iterations/retests explicitly allowed.",
+  "allowed_repairs": [
+    "Extract one shared pure scientific plan construction and validation path for dry-run and actual registration; preserve ticket consumption of sole actual scientific attempt on failure",
+    "Keep dry-run nonmutating: no plan/registry/ticket/private seed/nonces; prospective identity metadata and same schema/scientific/budget/integrity/leakage/mandatory-control/preflight gates",
+    "Target measured repeated reads and excessive retained historical payloads; use streaming compact metadata where equivalent",
+    "Optional process-local or persistent compact derivation cache only if measured hotspot, bound to exact hashes of every input and relevant source/config; content change, missing file or version change must invalidate or fail closed",
+    "Separate C wallet/ticket/status admission from preserved A/B; no fallback into B or duplicate hierarchical charges",
+    "C runner aggregate fullworker9000 and supervisedfit3600 enforcement plus exact failure/partial evidence",
+    "Versioned readiness/driver/analysis/closure binding for one later frozen ASM screen; no candidate-family-wide refactor",
+    "Durable inclusive outer timing, historical debt uncertainty, monotone checkpoint, resource/crash/OOM/timeout diagnostics and safe closure"
+  ],
+  "fixture_conformance": [
+    "same shared builder/gates produce equivalent dry-run and actual planned body apart from commit identity/time",
+    "valid and malformed isolated fixtures; dry-run creates no scientific side effects or seeds, including gate failures",
+    "actual attempt consumes exactly one C ticket and failed actual attempt forbids scientific retry",
+    "no C credit/ticket changes to B; original results/receipts/source snapshots retained",
+    "cache invalidates on each input/source/config/data/manifest/ledger change, missing file and same-size/mtime content mutation; uncached equivalence",
+    "strict budget/nonfinite/negative/foreign-authority guards; no overlap/double counting of nested intervals",
+    "worker and fit ceilings halt with preserved actual cost and partial outcome",
+    "normal exit, root failure, timeout, lingering child drainage remain correct",
+    "full isolated fixture path validation-dryrun-realfixture registration-workers-analysis-closure uses engineering synthetic ledger only, zero canonical scientific registrations"
+  ],
+  "technical_acceptance": "All required cases pass in clone with clone package origin; baseline/after profiles retained. Actual native science waits for separately frozen full intake and all release gates. No threshold/model/recipe/outcome tuning.",
+  "failure_policy": "Engineering fixture failures may be corrected/retested in this preregistered scope. Preserve each failure and cost. Scientific registration/worker failure or total exhaustion stops paid scope, no retry.",
+  "historical_code_scope": "Active path only; preserve closed plans/raw outcomes and avoid refactoring the library of historical candidates.",
+  "new_native_bytes_before_scientific_freeze": false,
+  "no_architecture_source_refit_WT_external_API_schedule_change": true
+}

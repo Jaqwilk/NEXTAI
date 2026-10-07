@@ -1,14 +1,14 @@
 {
   "benchmark_version": "har01_native_memory_v4",
   "candidate_bundle_sha256": "813ac21b93c2b22e45af988a24c2611374acac179be6efca75fd436cefb1510a",
-  "created_at": "2026-10-07T01:04:17Z",
-  "evaluator_sha256": "23ed49d27998870c87676fb534c9f9d5ba069cec9b2bbcd90d501dbb3814392b",
+  "created_at": "2026-10-07T00:59:10Z",
+  "evaluator_sha256": "e667568348f35a734f256804243a5742ec7cea87a1e5887753a6a6b8e82792a9",
   "files": {
     ".cursor/environment.json": "4775619c62ddd3c342ff59db608fed2f3b2146a09ded8e740761f10ae50ee11d",
     ".cursor/install.sh": "677e83e0d368041d266d845de58cc94a339f37bfef8f1538c318ba10944a213c",
     ".gitattributes": "c9a25b84d61b76b58105df22b90ae008463af6334e1a30693cbaee36ad240339",
     ".gitignore": "2a1b53e79fe0568047ccb06b036f1dd79004e98da4a885272c9d7b32ab919f0f",
-    "AGENTS.md": "b9030c019c1a14583e78719c90ec171c9283edfd2077541073151a5864d35d46",
+    "AGENTS.md": "19e088260279c7e85aebbf03a8c81d28fca81a6faece8db538ecbdedab3de573",
     "README.md": "39db095f752b0a31bf86cc7ad270af413986e1c0dbf68ec526ae36faf3d34671",
     "config/baseline_semantics.json": "ee6f5d55a184cf920c283d1530eb182b543d905d388c188f0e9b478b091d178d",
     "config/bootstrap_sizes.json": "c27d3c644692dad1c5b22397c9908ab6728793c33edb5314288078d35aeae672",

@@ -104,3 +104,4 @@ research/reviews/HAR01-REPLICATION-*-V3.xml -text
 research/reviews/HAR01-REPLICATION-*-V3.stdout.txt -text
 research/reviews/HAR01-REPLICATION-*-V3.stderr.txt -text
 research/reviews/HAR01-REPLICATION-controller-V3.*.txt -text
+research/laboratory/NEXTAI-C-HUMAN-AUTHORITY-20261008.md -text

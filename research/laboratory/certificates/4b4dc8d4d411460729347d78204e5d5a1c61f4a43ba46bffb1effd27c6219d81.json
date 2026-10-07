@@ -1,11 +1,11 @@
 {
   "benchmark_version": "har01_native_memory_v4",
-  "certificate_sha256": "bf53cd578782879af0c7f64080bfe168775582e0389dd6cd28105ae5ba43cb71",
-  "created_at": "2026-10-07T01:04:17Z",
-  "evaluator_sha256": "23ed49d27998870c87676fb534c9f9d5ba069cec9b2bbcd90d501dbb3814392b",
+  "certificate_sha256": "db0039b98fa68cde6e8878228685138b02f480170cc01d41647948f38546d9b7",
+  "created_at": "2026-10-07T00:59:10Z",
+  "evaluator_sha256": "e667568348f35a734f256804243a5742ec7cea87a1e5887753a6a6b8e82792a9",
   "files": {
     "baseline_registry": "ee6f5d55a184cf920c283d1530eb182b543d905d388c188f0e9b478b091d178d",
-    "manifest": "9fd7a8cff7764a4395b3fc79dc81256b1a856c752010110cc2fafa806c4c5fd4",
+    "manifest": "977ba9f209cddab6847dc3564d066df9575dcbd82d750455c2d307875a61d4c7",
     "runner": "5a2cad5634737f3f109e6fce8537eb5556526dcc43fbad9f5a8768c7600d3c3f",
     "schema:experiment_plan": "d3966ecd606d77daa7ad91e8440e161add81f9e724befa7cdc0bae59b2243a90",
     "schema:experiment_result": "ea41b0a4c0ee6fd8d0deaa54b315ae21849532aa12bf2eb638d2c6f010508471",

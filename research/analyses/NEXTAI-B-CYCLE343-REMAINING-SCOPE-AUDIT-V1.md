@@ -1,0 +1,20 @@
+# NEXTAI B: feasibility after the terminal HAR replication failure
+
+Decision: **NO EXECUTION; full goal remains incomplete**. This is a saved-evidence audit, not a scientific result. No new native content, tests, registration, EXP or fit was performed.
+
+The last HAR50 seconds are consumed only by its own failure/unfinished-scope closure: original slot6000/6000, without a refund or a scientific retry. Another30 seconds funds the broader feasibility audit. The initial auditV1 incorrectly treated all80.4497598 remaining non-protected seconds as freely available, although50 belonged to HAR; that unexecuted accounting plan is retained. V2 corrected ownership before ledger implementation. Prior receipts remain immutable.
+
+Ledger B charge is30999.55024020007/72000 seconds,2/12 tickets; remaining41000.44975979993 seconds includes the untouched six protected registrations/41000 seconds. There is only0.44975979993 freely available second. The audit's observed wall at its01:03:06.793257Z accounting receipt was119.793257s, exceeding its80-second envelope by39.793257s; this is disclosed as uncovered administrative overhead, not erased by the ledger's conservative charge. Further final-report preservation has not been fully timed. Therefore the ledger remaining amount must not be claimed as sufficient funded capacity for more work. No further execution is authorized by this audit. Protected milestones are not silently reassigned to cover the overshoot.
+
+| Goal requirement | Saved evidence and current conclusion |
+| --- | --- |
+| Same-law learned mechanism versus competent dense and strong classics | `NEXTAI-A-CONTINUATION-PROGRAM-RESOLUTION-V1.md`: local alignmentKEEP; exact neural economic qualificationDISCARD; exact ridge/PCA routeKEEP in same-law fresh finals. This does not establish native transfer. |
+| First native transfer family | `EXP-20261005-0007.md`: valid HAR screen, exact source-information recipeDISCARD; economic comparisonINCONCLUSIVE when dense is incompetent. |
+| Independent HAR replication | `HAR01-CYCLE342-INDEPENDENT-REPLICATION-V3.md`:116conformancePASS and native/readinessPASS, then paid registrationtimeout; no scientific replication result. T6–10/D21–25 are consumed. |
+| Second independent family | `ASM01-CYCLE332-NATIVE-CONFORMANCE-V1.md`:1171validated conversions then intake failure, NPZ/fit/EXP0. `ASM01-CYCLE335-EXPOSED-LEXICAL-DIAGNOSIS-V1.md`: three Y tokens are negative and nonzero, incompatible with frozen unsigned geometry. No valid second-family screen. |
+| Independent replications and fresh target finals | Incomplete. Remaining HAR T11–15/D26–30 are designated final data and cannot be renamed replication data to bypass failure. A same-law finals do not satisfy target finals. |
+| Evidence-selected local fact/source/update/UNKNOWN prototype | Incomplete. Existing stage sequence requires independent replication and fresh target finals; spending prototype reserve early would bypass those prerequisites. |
+
+Concrete alternatives were assessed: (1) retrying the paid HAR registration is forbidden; (2) changing ASM signed-coordinate geometry or choosing a different licensed family requires a new prospectively frozen screen and its own non-protected funding, which is absent; (3) remaining independent-replication funds cannot finance a renamed screen; (4) fresh-final data and prototype funds cannot substitute for unfulfilled earlier milestones. A negative scientifically valid result is allowed, but an invalid intake or technical registration failure is not such a result.
+
+The blocker is the combination of remaining budget ownership, scientific prerequisites and no-retry constraints, not missing general approval: human approval of future stages persists. Meaningful further scientific execution requires an external funding/allocation change consistent with the protected milestones, or genuinely new evidence establishing a different valid milestone; neither is supplied by this audit. The original full objective is retained and is not marked complete. Completion receipt: `research/laboratory/NEXTAI-B-REMAINING-SCOPE-AUDIT-COMPLETION-V1.json`.

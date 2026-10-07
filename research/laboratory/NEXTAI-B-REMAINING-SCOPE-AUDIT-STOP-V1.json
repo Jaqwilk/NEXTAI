@@ -1,0 +1,17 @@
+{
+  "B_ledger_available_above_protection_seconds": 0.44975979993,
+  "B_ledger_charged_seconds": 30999.55024020007,
+  "HAR_slot_charged_seconds": 6000,
+  "audit80_wall_overrun_seconds": 110.72464500000001,
+  "audit_observed_wall_seconds": 190.724645,
+  "id": "NEXTAI-B-REMAINING-SCOPE-AUDIT-STOP-V1",
+  "maintenance_integrity_after_final_documentation": true,
+  "new_audit_not_published": true,
+  "no_new_scientific_execution": true,
+  "overrun_liability_not_a_released_or_credited_budget": true,
+  "prior_HAR_hard_deadline_overrun_at_formal_audit_stop_seconds": 47.724645,
+  "protected_other_seconds": 41000,
+  "stopped_at": "2026-10-07T01:04:17.724645+00:00",
+  "unfunded_admin_overrun_minimum_seconds": 110.72464500000001,
+  "whole_goal_complete": false
+}
