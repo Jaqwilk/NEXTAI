@@ -1,0 +1,2 @@
+{"event": "probe_started", "probe": "baseline-hashes", "pid": 32572, "root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002"}
+{"event": "probe_completed", "probe": "baseline-hashes", "elapsed": 14.337784400006058, "error": null}

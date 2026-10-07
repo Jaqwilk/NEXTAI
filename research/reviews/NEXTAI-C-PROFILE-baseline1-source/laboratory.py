@@ -174,14 +174,8 @@ def activation_authority(base: Path) -> dict | None:
 
 def pc01_scope_problems(base: Path, *, candidate: str | None = None,
                         phase: str | None = None, experiment_id: str | None = None,
-                        series_freeze: bool = False, prospective: bool = False) -> list[str]:
+                        series_freeze: bool = False) -> list[str]:
     """One registered development attempt; invalidation does not replenish it."""
-    from .research_program import _c_owner
-    owner = _c_owner(base)
-    if owner is not None:
-        if candidate is not None or phase is not None or series_freeze:
-            return ["C does not reopen historical PC-01 or final-series operations"]
-        return owner.scope_problems(base, experiment_id, prospective=prospective)
     try:
         from .muc02_replication_stage import status as replication_status, scope_problems as replication_scope
         replication = replication_status(base)
@@ -267,19 +261,6 @@ def pc01_scope_problems(base: Path, *, candidate: str | None = None,
 
 def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
     base = (root or project_root()).resolve()
-    from .research_program import _c_owner
-    owner = _c_owner(base)
-    if owner is not None:
-        # Explicit C authority supersedes traversal of closed PC-01 stages.
-        contract = laboratory_contract(base)
-        program = owner.status(base)
-        stopped = program["program_terminal"] or program["study_terminal"] or program["study_expired"]
-        return {"restart_id": contract["restart_id"], "activation_id": program["id"],
-                "research_program": program, "scoring_authorized": program["scoring_authorized"],
-                "user_decision_required": False,
-                "next_action_id": "NEXTAI-C-CLOSE" if stopped else "NEXTAI-C-RUN" if program["ready"] else "NEXTAI-C-PREP",
-                "next_action": "Preserve evidence and unfinished scope; no scientific retry." if stopped else
-                    "Complete the frozen C engineering/intake gates, then at most one separately frozen ASM screen."}
     progress = _historical_laboratory_progress(base)
     from .muc02_replication_stage import status as replication_status
     replication = replication_status(base)
@@ -671,13 +652,6 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
         path = (base / relative).resolve()
         if not path.is_relative_to(base) or not path.is_file():
             raise ValueError(f"Missing or invalid laboratory document: {relative}")
-    from .research_program import _c_owner
-    owner = _c_owner(base)
-    if owner is not None:
-        program = owner.status(base)
-        return {**contract, "status": "dev_authorized" if program["scoring_authorized"] else "preparation_only",
-                "scoring_authorized": program["scoring_authorized"], "activation_id": program["id"],
-                "maintenance_plan": program["contract_path"], "original_status": contract["status"]}
     from .muc02_replication_stage import status as replication_status, PLAN as REPLICATION_PLAN
     replication = replication_status(base)
     if replication is not None:
@@ -766,29 +740,11 @@ def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
     return contract
 
 
-def laboratory_problems(root: Path | None = None, *, scoring: bool = False,
-                        prospective: bool = False) -> list[str]:
+def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> list[str]:
     base = (root or project_root()).resolve()
     config = load_config(base)
     if config.protocol_version < 3:
         return []
-    from .research_program import _c_owner
-    owner = _c_owner(base)
-    if owner is not None:
-        try:
-            laboratory_contract(base)  # Keep the protected restart contract checks.
-            program = owner.status(base)
-            if config.benchmark_version != program["cohort"]:
-                return ["C requires its exact frozen current cohort"]
-            if prospective:
-                return owner.prospective_admission_problems(base)
-            if scoring and not program["scoring_authorized"]:
-                return ["C study not ready, expired, failed or terminal; no scientific retry"]
-            if not program["ready"] and config.benchmark_status != "maintenance":
-                return ["C preparation requires maintenance"]
-            return []
-        except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
-            return [f"C laboratory contract: {exc}"]
     try:
         contract = laboratory_contract(base)
         laboratory_progress(base)

@@ -895,3 +895,6 @@ minimize = [
 
 [research_program]
 study_path = "research/plans/HAR01-INDEPENDENT-REPLICATION-V3.json"
+
+[research_program_c]
+study_path = "research/plans/NEXTAI-C-ENGINEERING-PREREGISTRATION-V1.json"

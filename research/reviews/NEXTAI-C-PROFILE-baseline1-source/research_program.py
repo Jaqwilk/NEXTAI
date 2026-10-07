@@ -457,14 +457,8 @@ def _study_scope(study):
         if study["cohort"] == "har01_native_memory_v4" and study.get("id") != "HAR01-INDEPENDENT-REPLICATION-V3":
             raise ValueError("HAR v4 belongs only to the exact independent continuation")
     if study.get("study_kind") == "asm01_frozen_source_transfer":
-        if study["cohort"] not in {"asm01_native_memory_v2", "asm01_native_memory_v3", "asm01_native_memory_v4"}:
+        if study["cohort"] not in {"asm01_native_memory_v2", "asm01_native_memory_v3"}:
             raise ValueError("Canonical native pen source-transfer recipe/cohort mismatch")
-        if study["cohort"] == "asm01_native_memory_v4" and (
-                study.get("id") != "ASM01-C-STABILIZED-SCREEN-V1"
-                or study.get("task_contract_path") != "research/plans/ASM01-C-SIGNED-SERIAL-TASK-V1.json"
-                or study.get("task_contract_sha256") != "66cb7521a72e3485c8738d0f46cfe64bad3d773755fcc15c5db23a4cde9afa85"
-                or study.get("program_contract_sha256") != "4a95f8bef9cdfef23abf27c3b0dbee74cb9b9b1796b822c6eb2b0edca7a47f41"):
-            raise ValueError("ASM v4 belongs only to the exact separately frozen C study and task")
     return {**extra, **{key: study[key] for key in ("roles", "recipe", "data", "diagnostics", "diagnosis_gates", "reference_gates")},
             "classical_baselines": study["candidates"], "deadline_at": study["study_deadline_at"],
             "fit_seconds_cap": resources["fit_seconds_per_role_cap"], "fit_seconds_total_cap": resources["fit_seconds_study_cap"],
@@ -788,30 +782,12 @@ def _transfer_status(base, events):
             "fit_seconds_cap": previous["fit_seconds_charged"] + 72000}
 
 
-def _c_owner(base):
-    # A prospective C document alone never replaces a preserved legacy wallet.
-    if not (base / "research/c_events.jsonl").is_file():
-        return None
-    from . import research_program_c
-    return research_program_c if research_program_c.is_active(base) else None
-
-
-def _c_active(base):
-    return _c_owner(base) is not None
-
-
-def legacy_status(base):
+def status(base):
     """Only an explicit hash-bound event can activate the approved next stage."""
     events = read_jsonl(base / "research/events.jsonl")
     if any(event.get("event") == "research_program_transfer_prototype_authorized" for event in events):
         return _transfer_status(base, events)
     return _continuation_status(base)
-
-
-def status(base):
-    """Dispatch only explicitly activated C; never add its credit to A or B."""
-    owner = _c_owner(base)
-    return owner.status(base) if owner is not None else legacy_status(base)
 
 
 def _check_transfer_study_reserve(value, study):
@@ -831,9 +807,6 @@ def _check_transfer_study_reserve(value, study):
 
 
 def scope_problems(base, experiment_id=None):
-    owner = _c_owner(base)
-    if owner is not None:
-        return owner.scope_problems(base, experiment_id)
     value = status(base)
     if not value or not value["scoring_authorized"]:
         return ["Research study is not ready, expired or terminal; preregister a new bounded study within program caps"]
@@ -847,9 +820,6 @@ def scope_problems(base, experiment_id=None):
 
 
 def auxiliary_reserve(base, charge_id, seconds_cap):
-    owner = _c_owner(base)
-    if owner is not None:
-        return owner.auxiliary_reserve(base, charge_id, seconds_cap)
     value = status(base)
     if (not value or value["program_closed"] or type(seconds_cap) not in (int, float)
             or not math.isfinite(seconds_cap) or seconds_cap <= 0 or seconds_cap > value["unreserved_fit_seconds_remaining"]):
@@ -890,9 +860,6 @@ def auxiliary_reserve(base, charge_id, seconds_cap):
 
 
 def auxiliary_charge(base, charge_id, seconds):
-    owner = _c_owner(base)
-    if owner is not None:
-        return owner.auxiliary_charge(base, charge_id, seconds)
     value = status(base)
     events = read_jsonl(base / "research/events.jsonl")
     if any(e.get("event") == "research_program_aux_fit_charged" and e.get("charge_id") == charge_id for e in events):
@@ -974,8 +941,15 @@ def verify_pvm01_fresh_realization(base, seeds, nonces, *, include_latest=False,
             raise ValueError("Consumed PVM01 seed/data collision; no replacement or retry")
 
 
-def _registration_context(base):
-    """Read admission state without claiming the sole actual scientific ticket."""
+def create_plan(base, requested=None):
+    """Called only by the audited CLI; reserve before every attempted validation."""
+    from .gates import ensure_can_create_plan
+    from .ledger import next_experiment_id, register_plan
+    from .schemas import validate_document
+    from .integrity import manifest_path
+    from .baseline_semantics import verify_preflight_certificate, verify_required_baselines
+    from .utils import atomic_write_json
+    from .runner import _git_value
     value = status(base)
     if not value or value["program_terminal"] or value["registration_budget_exhausted"]:
         raise ValueError("Research program absent or exhausted")
@@ -984,141 +958,85 @@ def _registration_context(base):
         raise ValueError("Preparation-only study cannot register or score an experiment")
     if value["stage_registration_attempts"][study["stage"]] >= value["stage_registration_caps"][study["stage"]]:
         raise ValueError("Research milestone registration budget exhausted")
-    if not _c_active(base):
-        events = read_jsonl(base / "research/events.jsonl")
-        if any(e.get("event") == "research_program_registration_started" and e.get("study_path") == value["study_path"] for e in events):
-            raise ValueError("Study ticket already consumed; do not retry")
+    events = read_jsonl(base / "research/events.jsonl")
+    if any(e.get("event") == "research_program_registration_started" and e.get("study_path") == value["study_path"] for e in events):
+        raise ValueError("Study ticket already consumed; do not retry")
     ticket = value.get("current_program_registration_attempts_used",
                        value.get("continuation_registration_attempts_used", value["registration_attempts_used"])) + 1
-    return value, study, ticket
-
-
-def build_and_validate_plan(base, requested=None, *, value=None, prospective_ticket=None,
-                            experiment_id=None, created_at=None, prospective=False):
-    """Shared nonmutating body and gates for dry-run and actual registration.
-
-    An actual attempt supplies the pre-reservation wallet snapshot; its durable
-    ticket is owned by create_plan. This function never writes ledgers or plans.
-    """
-    from .gates import ensure_can_create_plan
-    from .ledger import next_experiment_id
-    from .schemas import validate_document
-    from .integrity import manifest_path
-    from .baseline_semantics import verify_preflight_certificate, verify_required_baselines
-    from .runner import _git_value
-    if value is None:
-        value, study, ticket = _registration_context(base)
-    else:
-        study = _document(base, value["study_path"])
-        ticket = value.get("current_program_registration_attempts_used",
-                           value.get("continuation_registration_attempts_used", value["registration_attempts_used"])) + 1
-    if prospective_ticket is not None:
-        ticket = prospective_ticket
-    _check_transfer_study_reserve(value, study)
-    if requested is not None and (requested.get("candidates") != study["candidates"]
-            or requested.get("budget") != "quick" or requested.get("pc01_phase") is not None):
-        raise ValueError("Legacy request differs from frozen research study; use program register")
-    if prospective and _c_active(base):
-        ensure_can_create_plan(base, prospective=True)
-    else:
-        ensure_can_create_plan(base)
-    if study["resources"]["fit_seconds_study_cap"] > value["unreserved_fit_seconds_remaining"]:
-        raise ValueError("Study worst-case fit exceeds remaining global fit budget")
-    experiment_id = experiment_id or next_experiment_id(base)
-    protocol = {"authority_path": value["authority_path"], "program_contract_path": value["contract_path"],
-                "program_contract_sha256": sha256_file(base / value["contract_path"]), "study_path": value["study_path"],
-                "study_sha256": sha256_file(base / value["study_path"]), "registration_ticket": ticket,
-                **_study_scope(study)}
-    owner = _c_owner(base)
-    if owner is not None:
-        protocol.update(owner.science_budget_protocol(base))
-    metrics = ["accuracy", "fact_top1_accuracy", "dense_unknown_rejection", "mean_query_ops", "p95_latency_us", "state_bytes", "fit_ops", "preprocessing_ops"]
-    paired_view = study["cohort"] in ("paired_view_mutable_memory_v1", "paired_view_mutable_memory_v2", "paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11")
-    plan = {"schema_version": 1, "experiment_id": experiment_id, "parent_experiment_id": None, "created_at": created_at or utc_now(),
-            "status": "planned", "hypothesis_id": "HYP-0012", "title": study["id"], "research_question": study["question"],
-            "architecture_family": "paired_view_learning_reference" if paired_view else "muc_v2_reference_diagnostic", "candidates": study["candidates"], "benchmark": study["cohort"],
-            "evaluator_sha256": load_json(manifest_path(base))["evaluator_sha256"], "budget": "quick", "matrix": study["matrix"],
-            "primary_metrics": metrics, "metric_directions": {m: "maximize" if m in metrics[:3] else "minimize" for m in metrics},
-            "predicted_outcome": ("Legal trained alignment may improve ranking/absence over untrained and shuffled controls; classical transport may suffice; no predetermined success." if paired_view else "More hard-negative steps may improve fit; paired namespace probes discriminate generalization; no predetermined success."),
-            "falsification_criteria": ["Stable-reference gates fail, or all outcomes are invalid/partial; retain every outcome."],
-            "promotion_criteria": ["None: diagnostic only; economic prototype needs fresh replicated final and classical non-domination."],
-            "alternative_explanations": ["Observation alignment, rejection and ranking failures are measured separately." if paired_view else "Undertraining, rejection, namespace shift and ranking failures are measured separately."],
-            "confounds": ["Visible synthetic development; five combined seed/data units; no externally blinded final; update labels are not reasoning depth." if paired_view else "Visible synthetic development; five combined seed/data units; steps change training cost intentionally."],
-            "outcome_policy": {"positive": study["decision_policy"], "null": study["decision_policy"], "negative": study["decision_policy"]},
-            "eligibility_contract": {"metric": "accuracy", "minimum": .90}, "research_program_protocol": protocol,
-            "git_before": {"commit": _git_value(base, "rev-parse", "HEAD"), "branch": _git_value(base, "branch", "--show-current"),
-                           "dirty": bool(_git_value(base, "status", "--porcelain"))}}
-    if study.get("study_kind") in {"paired_view_delta_memory", "paired_view_compact_feature_memory", "paired_view_capacity_exposure"}:
-        common = [m for m in metrics if m != "fact_top1_accuracy"]
-        plan.update(architecture_family="learned_transport_classical_delta_memory",
-            primary_metrics=common,
-            metric_directions={m: "maximize" if m in {"accuracy", "dense_unknown_rejection"} else "minimize" for m in common},
-            predicted_outcome="Local delta may improve replacement while retaining facts; compact capacity and absence may fail, and strong classical retrieval may dominate.",
-            falsification_criteria=["Any of the four preregistered simultaneous primary or competence gates fails; preserve valid narrow effects and exact tested scope."],
-            alternative_explanations=["Classical RFF/LMS update, retrieval, finite capacity, representation learning and deployment overhead are distinct explanations."])
-        if study["study_kind"] == "paired_view_compact_feature_memory":
-            plan.update(architecture_family="learned_compact_features_classical_delta_memory",
-                predicted_outcome="Feature learning may improve matched512 capacity over frozen/shuffled maps; compact capacity and absence may fail, and classical retrieval may dominate.",
-                falsification_criteria=["Any frozen compact feature primary or competence gate fails; preserve narrow effects, all outcomes and exact recipe."])
-        if study["study_kind"] == "paired_view_capacity_exposure":
-            plan.update(architecture_family="learned_compact_features_capacity_exposure",
-                predicted_outcome="K512 optimizer exposure may improve the fixed512-feature memory beyond small/frozen/shuffled controls; larger fitting work is charged and strong classics may dominate.",
-                falsification_criteria=["Any frozen exposure primary or competence gate fails; preserve narrow effects and exact tested recipe."])
-    if study.get("study_kind") == "paired_view_transport_compression_adverse":
-        common = [m for m in metrics if m != "fact_top1_accuracy"]
-        plan.update(architecture_family="learned_transport_compression_adverse",
-            primary_metrics=common,
-            metric_directions={m: "maximize" if m in {"accuracy", "dense_unknown_rejection"} else "minimize" for m in common},
-            predicted_outcome="Write-only PCA may preserve learned transport quality under noise0.02/0.04; classical controls may dominate; no predetermined success.",
-            falsification_criteria=["Any frozen eight primary or competence gate fails; invalid fit identity makes comparison inconclusive."],
-            alternative_explanations=["Classical transport/PCA/exact retrieval, nonlinear representation and deployment overhead remain distinct explanations."])
-    if study.get("study_kind") in {"native_frozen_source_transfer", "asm01_frozen_source_transfer"}:
-        plan.update(architecture_family="frozen_source_features_native_sensor_memory",
-            predicted_outcome="Actual frozen source weights may add useful native information beyond preserved untrained/shuffled states under identical target readout; native classical retrieval may suffice; no predetermined success.",
-            falsification_criteria=["Any frozen source-information primary gate fails; failed reference or source/data/resource integrity yields an inconclusive qualified comparison, not architectural falsification."],
-            alternative_explanations=["Target readout alone, native similarity, PCA/kernel/temporal alignment and hardware overhead must be separated from source information."],
-            confounds=["Visible public physical subjects; overlapping training windows are not independent units. Five disjoint evaluation subjects/source-seed pairs; no external blind holdout. Latest-write logic is hand-written; update rounds are not reasoning depth."])
-    validate_document("experiment_plan", plan, base)
-    verify_required_baselines(plan, base, run_tests=False)
-    verify_preflight_certificate(base)
-    return plan
-
-
-def dry_run_plan(base, requested=None):
-    """Validate a prospective plan through the real gates without a ticket."""
-    return build_and_validate_plan(base, requested, prospective=True)
-
-
-def create_plan(base, requested=None):
-    """Claim one actual ticket before the shared build/validation attempt."""
-    from .ledger import register_plan
-    from .utils import atomic_write_json
-    value, study, ticket = _registration_context(base)
-    owner = _c_owner(base)
-    if owner is not None:
-        ticket = owner.reserve_registration(base)
-    else:
-        append_jsonl(base / "research/events.jsonl", {"event": "research_program_registration_started", "created_at": utc_now(),
-                     "program_id": value["id"], "study_path": value["study_path"], "ticket": ticket})
+    append_jsonl(base / "research/events.jsonl", {"event": "research_program_registration_started", "created_at": utc_now(),
+                 "program_id": value["id"], "study_path": value["study_path"], "ticket": ticket})
     try:
-        plan = build_and_validate_plan(base, requested, value=value, prospective_ticket=ticket)
-        experiment_id = plan["experiment_id"]
+        _check_transfer_study_reserve(value, study)
+        if requested is not None and (requested.get("candidates") != study["candidates"]
+                or requested.get("budget") != "quick" or requested.get("pc01_phase") is not None):
+            raise ValueError("Legacy request differs from frozen research study; use program register")
+        ensure_can_create_plan(base)
+        if study["resources"]["fit_seconds_study_cap"] > value["unreserved_fit_seconds_remaining"]:
+            raise ValueError("Study worst-case fit exceeds remaining global fit budget")
+        experiment_id = next_experiment_id(base)
+        protocol = {"authority_path": value["authority_path"], "program_contract_path": value["contract_path"],
+                    "program_contract_sha256": sha256_file(base / value["contract_path"]), "study_path": value["study_path"],
+                    "study_sha256": sha256_file(base / value["study_path"]), "registration_ticket": ticket,
+                    **_study_scope(study)}
+        metrics = ["accuracy", "fact_top1_accuracy", "dense_unknown_rejection", "mean_query_ops", "p95_latency_us", "state_bytes", "fit_ops", "preprocessing_ops"]
+        paired_view = study["cohort"] in ("paired_view_mutable_memory_v1", "paired_view_mutable_memory_v2", "paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11")
+        plan = {"schema_version": 1, "experiment_id": experiment_id, "parent_experiment_id": None, "created_at": utc_now(),
+                "status": "planned", "hypothesis_id": "HYP-0012", "title": study["id"], "research_question": study["question"],
+                "architecture_family": "paired_view_learning_reference" if paired_view else "muc_v2_reference_diagnostic", "candidates": study["candidates"], "benchmark": study["cohort"],
+                "evaluator_sha256": load_json(manifest_path(base))["evaluator_sha256"], "budget": "quick", "matrix": study["matrix"],
+                "primary_metrics": metrics, "metric_directions": {m: "maximize" if m in metrics[:3] else "minimize" for m in metrics},
+                "predicted_outcome": ("Legal trained alignment may improve ranking/absence over untrained and shuffled controls; classical transport may suffice; no predetermined success." if paired_view else "More hard-negative steps may improve fit; paired namespace probes discriminate generalization; no predetermined success."),
+                "falsification_criteria": ["Stable-reference gates fail, or all outcomes are invalid/partial; retain every outcome."],
+                "promotion_criteria": ["None: diagnostic only; economic prototype needs fresh replicated final and classical non-domination."],
+                "alternative_explanations": ["Observation alignment, rejection and ranking failures are measured separately." if paired_view else "Undertraining, rejection, namespace shift and ranking failures are measured separately."],
+                "confounds": ["Visible synthetic development; five combined seed/data units; no externally blinded final; update labels are not reasoning depth." if paired_view else "Visible synthetic development; five combined seed/data units; steps change training cost intentionally."],
+                "outcome_policy": {"positive": study["decision_policy"], "null": study["decision_policy"], "negative": study["decision_policy"]},
+                "eligibility_contract": {"metric": "accuracy", "minimum": .90}, "research_program_protocol": protocol,
+                "git_before": {"commit": _git_value(base, "rev-parse", "HEAD"), "branch": _git_value(base, "branch", "--show-current"),
+                               "dirty": bool(_git_value(base, "status", "--porcelain"))}}
+        if study.get("study_kind") in {"paired_view_delta_memory", "paired_view_compact_feature_memory", "paired_view_capacity_exposure"}:
+            common = [m for m in metrics if m != "fact_top1_accuracy"]
+            plan.update(architecture_family="learned_transport_classical_delta_memory",
+                primary_metrics=common,
+                metric_directions={m: "maximize" if m in {"accuracy", "dense_unknown_rejection"} else "minimize" for m in common},
+                predicted_outcome="Local delta may improve replacement while retaining facts; compact capacity and absence may fail, and strong classical retrieval may dominate.",
+                falsification_criteria=["Any of the four preregistered simultaneous primary or competence gates fails; preserve valid narrow effects and exact tested scope."],
+                alternative_explanations=["Classical RFF/LMS update, retrieval, finite capacity, representation learning and deployment overhead are distinct explanations."])
+            if study["study_kind"] == "paired_view_compact_feature_memory":
+                plan.update(architecture_family="learned_compact_features_classical_delta_memory",
+                    predicted_outcome="Feature learning may improve matched512 capacity over frozen/shuffled maps; compact capacity and absence may fail, and classical retrieval may dominate.",
+                    falsification_criteria=["Any frozen compact feature primary or competence gate fails; preserve narrow effects, all outcomes and exact recipe."])
+            if study["study_kind"] == "paired_view_capacity_exposure":
+                plan.update(architecture_family="learned_compact_features_capacity_exposure",
+                    predicted_outcome="K512 optimizer exposure may improve the fixed512-feature memory beyond small/frozen/shuffled controls; larger fitting work is charged and strong classics may dominate.",
+                    falsification_criteria=["Any frozen exposure primary or competence gate fails; preserve narrow effects and exact tested recipe."])
+        if study.get("study_kind") == "paired_view_transport_compression_adverse":
+            common = [m for m in metrics if m != "fact_top1_accuracy"]
+            plan.update(architecture_family="learned_transport_compression_adverse",
+                primary_metrics=common,
+                metric_directions={m: "maximize" if m in {"accuracy", "dense_unknown_rejection"} else "minimize" for m in common},
+                predicted_outcome="Write-only PCA may preserve learned transport quality under noise0.02/0.04; classical controls may dominate; no predetermined success.",
+                falsification_criteria=["Any frozen eight primary or competence gate fails; invalid fit identity makes comparison inconclusive."],
+                alternative_explanations=["Classical transport/PCA/exact retrieval, nonlinear representation and deployment overhead remain distinct explanations."])
+        if study.get("study_kind") in {"native_frozen_source_transfer", "asm01_frozen_source_transfer"}:
+            plan.update(architecture_family="frozen_source_features_native_sensor_memory",
+                predicted_outcome="Actual frozen source weights may add useful native information beyond preserved untrained/shuffled states under identical target readout; native classical retrieval may suffice; no predetermined success.",
+                falsification_criteria=["Any frozen source-information primary gate fails; failed reference or source/data/resource integrity yields an inconclusive qualified comparison, not architectural falsification."],
+                alternative_explanations=["Target readout alone, native similarity, PCA/kernel/temporal alignment and hardware overhead must be separated from source information."],
+                confounds=["Visible public physical subjects; overlapping training windows are not independent units. Five disjoint evaluation subjects/source-seed pairs; no external blind holdout. Latest-write logic is hand-written; update rounds are not reasoning depth."])
+        validate_document("experiment_plan", plan, base)
+        verify_required_baselines(plan, base, run_tests=False)
+        verify_preflight_certificate(base)
         path = base / "research/plans" / f"{experiment_id}.json"
         if path.exists():
             raise FileExistsError("Research plan already exists")
         atomic_write_json(path, plan)
         digest = register_plan(plan, path, base)
-        if owner is not None:
-            owner.mark_registered(base, plan, path.relative_to(base).as_posix(), digest)
-        else:
-            append_jsonl(base / "research/events.jsonl", {"event": "research_program_registered", "created_at": utc_now(),
-                         "program_id": value["id"], "ticket": ticket, "study_path": value["study_path"],
-                         "experiment_id": experiment_id, "plan_path": path.relative_to(base).as_posix(), "plan_sha256": digest})
+        append_jsonl(base / "research/events.jsonl", {"event": "research_program_registered", "created_at": utc_now(),
+                     "program_id": value["id"], "ticket": ticket, "study_path": value["study_path"],
+                     "experiment_id": experiment_id, "plan_path": path.relative_to(base).as_posix(), "plan_sha256": digest})
         return path
     except Exception as exc:
-        if owner is not None:
-            owner.mark_registration_failed(base, str(exc))
-        else:
-            append_jsonl(base / "research/events.jsonl", {"event": "research_program_registration_failed", "created_at": utc_now(),
-                         "program_id": value["id"], "ticket": ticket, "study_path": value["study_path"], "error": str(exc)})
+        append_jsonl(base / "research/events.jsonl", {"event": "research_program_registration_failed", "created_at": utc_now(),
+                     "program_id": value["id"], "ticket": ticket, "study_path": value["study_path"], "error": str(exc)})
         raise

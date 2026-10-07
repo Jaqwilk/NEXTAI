@@ -133,17 +133,11 @@ def lifecycle_problems(root: Path | None = None) -> list[str]:
         if event.get("status") != "invalidated" or not str(event.get("reason", "")).strip():
             problems.append(f"invalid plan status event: {experiment_id}")
 
-    result_count = 0
-    newest_result: tuple[str, Any] | None = None
+    results: list[tuple[Path, dict[str, Any]]] = []
     for path in sorted((research / "results").glob("EXP-*.json")):
         result = load_json(path)
         experiment_id = str(result.get("experiment_id", ""))
-        result_count += 1
-        identity = (str(result.get("completed_at", "")), result.get("experiment_id"))
-        # Keep only lifecycle metadata: historical trial payloads can be huge.
-        # Strict > preserves the original first-in-file-order tie behavior.
-        if newest_result is None or identity[0] > newest_result[0]:
-            newest_result = identity
+        results.append((path, result))
         if experiment_id in status_events:
             problems.append(f"invalidated plan has a result: {experiment_id}")
         plan = plans.get(experiment_id)
@@ -163,22 +157,23 @@ def lifecycle_problems(root: Path | None = None) -> list[str]:
     state_path = research / "state.json"
     if state_path.is_file():
         state = load_json(state_path)
-        if int(state.get("completed_experiments", -1)) != result_count:
+        if int(state.get("completed_experiments", -1)) != len(results):
             problems.append(
                 "state completed_experiments differs from immutable result count"
             )
         active = state.get("active_experiment_id")
         if active is not None and active not in pending:
             problems.append(f"state points to a non-pending active experiment: {active}")
-        if newest_result is not None:
-            if state.get("last_experiment_id") != newest_result[1]:
+        if results:
+            newest = max(results, key=lambda item: str(item[1].get("completed_at", "")))[1]
+            if state.get("last_experiment_id") != newest.get("experiment_id"):
                 problems.append("state last_experiment_id differs from newest result")
         try:
             problems.extend(_review_gate_problems(state, load_config(base)))
         except (KeyError, TypeError, ValueError) as exc:
             problems.append(f"review cadence cannot be evaluated: {exc}")
 
-    if result_count:
+    if results:
         problems.extend(report_provenance_problems(base))
     return problems
 
@@ -189,24 +184,13 @@ def _raise_if(problems: list[str], action: str) -> None:
 
 
 def ensure_can_create_plan(root: Path | None = None, *, pc01_candidate: str | None = None,
-                           pc01_phase: str | None = None, pc01_series_freeze: bool = False,
-                           prospective: bool = False) -> None:
+                           pc01_phase: str | None = None, pc01_series_freeze: bool = False) -> None:
     base = (root or project_root()).resolve()
     config = load_config(base)
-    from .research_program import _c_owner
-    owner = _c_owner(base)
-    if prospective and owner is None:
-        # A legacy dry-run uses the unchanged admission rules.
-        prospective = False
-    lab = laboratory_problems(base, scoring=True, prospective=True) if prospective else laboratory_problems(base, scoring=True)
-    problems = [*stop_gate_problems(base), *lifecycle_problems(base), *lab]
-    if prospective:
-        problems.extend(owner.prospective_admission_problems(base))
+    problems = [*stop_gate_problems(base), *lifecycle_problems(base), *laboratory_problems(base, scoring=True)]
     if config.protocol_version >= 3:
-        options = {"candidate": pc01_candidate, "phase": pc01_phase, "series_freeze": pc01_series_freeze}
-        if prospective:
-            options["prospective"] = True
-        problems.extend(pc01_scope_problems(base, **options))
+        problems.extend(pc01_scope_problems(base, candidate=pc01_candidate, phase=pc01_phase,
+                                            series_freeze=pc01_series_freeze))
     if config.benchmark_status != "active":
         problems.append(
             f"benchmark {config.benchmark_version!r} is {config.benchmark_status!r}, not active"

@@ -50,7 +50,7 @@ def _stage_deadline_expired(plan):
     return bool(deadline and datetime.now(timezone.utc) >= datetime.fromisoformat(deadline.replace("Z", "+00:00")))
 
 
-def _stage_halt_reason(plan, outcome=None, fit_charged=0., supervised_fit_charged=0.):
+def _stage_halt_reason(plan, outcome=None, fit_charged=0.):
     limits = plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol")
     if not limits:
         return None
@@ -58,26 +58,9 @@ def _stage_halt_reason(plan, outcome=None, fit_charged=0., supervised_fit_charge
         return "stage_deadline"
     if fit_charged >= limits["fit_seconds_total_cap"]:
         return "total_fit_budget"
-    if (limits.get("program_id") == "NEXTAI-C-STABILIZATION-ASM-SCREEN-20261008-V1"
-            and supervised_fit_charged >= limits["supervised_fit_total_cap"]):
-        return "total_supervised_fit_budget"
     if outcome is not None and outcome.get("status") != "complete":
         return "previous_worker_failure"
     return None
-
-
-def _c_worker_remaining_limits(limits, supervised_remaining=None, worker_remaining=None):
-    """Parent admission caps; actual worker recipe stays immutable on disk."""
-    result = dict(limits)
-    if result.get("program_id") != "NEXTAI-C-STABILIZATION-ASM-SCREEN-20261008-V1":
-        return result
-    for value, field in ((supervised_remaining, "fit_seconds_cap"),
-                         (worker_remaining, "worker_seconds_cap")):
-        if value is not None:
-            if type(value) not in (int, float) or not math.isfinite(value) or value <= 0:
-                raise ValueError("C requires positive finite remaining budget before worker admission")
-            result[field] = min(result[field], value)
-    return result
 
 
 def _git_value(root: Path, *arguments: str) -> str | None:
@@ -309,8 +292,6 @@ def _run_candidate(
     config: ResearchConfig,
     root: Path,
     audit: AuditResult | None = None,
-    remaining_supervised_fit_seconds: float | None = None,
-    remaining_full_worker_seconds: float | None = None,
 ) -> dict[str, Any]:
     audit = audit or audit_candidate(candidate, config, root)
     audit_payload = {
@@ -357,9 +338,7 @@ def _run_candidate(
     termination_reason: str | None = None
     from .worker import read_trial_journal
     from .worker_resources import resource_problem
-    limits = _c_worker_remaining_limits(
-        plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol") or plan.get("muc02_protocol", {}),
-        remaining_supervised_fit_seconds, remaining_full_worker_seconds)
+    limits = plan.get("research_program_protocol") or plan.get("muc02_negatives_protocol") or plan.get("muc02_protocol", {})
     device_gap_started = started
     with log_path.open("w", encoding="utf-8", newline="\n") as log:
         process = None
@@ -425,14 +404,7 @@ def _run_candidate(
                 raise ValueError("Invalid final fit phase")
             execution["supervised_fit_seconds"] = charged
         except (OSError, ValueError, TypeError, KeyError):
-            if limits.get("program_id") == "NEXTAI-C-STABILIZATION-ASM-SCREEN-20261008-V1":
-                # Missing trusted fit timing is bounded by actual full worker wall,
-                # never by a smaller remaining allocation. Preserve any overrun.
-                execution["supervised_fit_seconds"] = elapsed
-                termination_reason = termination_reason or "telemetry_failure"
-                execution["termination_reason"] = termination_reason
-            else:
-                execution["supervised_fit_seconds"] = limits["fit_seconds_cap"]
+            execution["supervised_fit_seconds"] = limits["fit_seconds_cap"]
             execution["fit_charge_conservative"] = True
     if termination_reason is not None:
         preserved = read_trial_journal(output_path)
@@ -703,9 +675,9 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                     "unit_nonces": unit_nonces,
                     "entropy_policy": "independent256bit_each_unit_separate_from_model_seed_v1"})
                 runtime_plan.update(pvm01_private_data_path=str(private_path), pvm01_private_data_sha256=sha256_file(private_path))
-            if plan["benchmark"] in {"har01_native_memory_v1", "har01_native_memory_v2", "har01_native_memory_v3", "har01_native_memory_v4", "asm01_native_memory_v2", "asm01_native_memory_v3", "asm01_native_memory_v4"}:
+            if plan["benchmark"] in {"har01_native_memory_v1", "har01_native_memory_v2", "har01_native_memory_v3", "har01_native_memory_v4", "asm01_native_memory_v2", "asm01_native_memory_v3"}:
                 from .research_program import verify_pvm01_fresh_realization
-                private_prefix = "asm01" if plan["benchmark"] in {"asm01_native_memory_v2", "asm01_native_memory_v3", "asm01_native_memory_v4"} else "har01"
+                private_prefix = "asm01" if plan["benchmark"] in {"asm01_native_memory_v2", "asm01_native_memory_v3"} else "har01"
                 private_path = runtime_plan_path.parent / f"{private_prefix}-private-data.json"
                 if private_path.exists():
                     raise FileExistsError("Native data realization exists; no retry")
@@ -760,12 +732,8 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                 },
             )
             fit_charged, halt_reason = 0., None
-            supervised_fit_charged = 0.
-            c_limits = plan.get("research_program_protocol", {})
-            is_c = c_limits.get("program_id") == "NEXTAI-C-STABILIZATION-ASM-SCREEN-20261008-V1"
             for candidate in plan["candidates"]:
-                halt_reason = halt_reason or _stage_halt_reason(plan, fit_charged=fit_charged,
-                                                               supervised_fit_charged=supervised_fit_charged)
+                halt_reason = halt_reason or _stage_halt_reason(plan, fit_charged=fit_charged)
                 if halt_reason:
                     outcome = {"candidate": candidate, "status": "stopped", "audit": {"ok": audits[candidate].ok},
                                "execution": {"started": False, "wall_seconds": 0., "peak_rss_bytes": 0,
@@ -773,14 +741,10 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                                "trials": [], "summary": {"status": "failed", "completed_trials": 0, "total_trials": 0},
                                "error": "Not started: finite stage stops at first failure/deadline/budget; no retry"}
                 else:
-                    remaining = ({"remaining_supervised_fit_seconds": c_limits["supervised_fit_total_cap"] - supervised_fit_charged,
-                                  "remaining_full_worker_seconds": c_limits["fit_seconds_total_cap"] - fit_charged}
-                                 if is_c else {})
-                    outcome = _run_candidate(candidate, runtime_plan_path, runtime_plan, config, base, audits[candidate], **remaining)
+                    outcome = _run_candidate(candidate, runtime_plan_path, runtime_plan, config, base, audits[candidate])
                     execution = outcome.get("execution") or {}
                     fit_charged += execution.get("research_compute_seconds", execution.get("supervised_fit_seconds", 0.))
-                    supervised_fit_charged += execution.get("supervised_fit_seconds", 0.)
-                    halt_reason = _stage_halt_reason(plan, outcome, fit_charged, supervised_fit_charged)
+                    halt_reason = _stage_halt_reason(plan, outcome, fit_charged)
                 candidate_results.append(outcome)
                 atomic_write_json(
                     runtime_plan_path.parent / f"{candidate}.supervisor.json", outcome
@@ -845,7 +809,7 @@ def run_experiment(plan_path: Path, root: Path | None = None) -> Path:
                 "interpretation_status": "pending_codex_analysis",
             }
             validate_document("experiment_result", result, base)
-            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11", "har01_native_memory_v1", "har01_native_memory_v2", "har01_native_memory_v3", "har01_native_memory_v4", "asm01_native_memory_v2", "asm01_native_memory_v3", "asm01_native_memory_v4"})
+            atomic_write_json(result_path, result, compact=plan["benchmark"] in {"paired_view_mutable_memory_v3", "paired_view_mutable_memory_v4", "paired_view_mutable_memory_v5", "paired_view_mutable_memory_v6", "paired_view_mutable_memory_v7", "paired_view_mutable_memory_v8", "paired_view_mutable_memory_v9", "paired_view_mutable_memory_v10", "paired_view_mutable_memory_v11", "har01_native_memory_v1", "har01_native_memory_v2", "har01_native_memory_v3", "har01_native_memory_v4", "asm01_native_memory_v2", "asm01_native_memory_v3"})
             for candidate in candidate_results:
                 summary = candidate.get("summary", {})
                 append_experiment_row(

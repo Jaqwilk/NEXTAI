@@ -109,3 +109,5 @@ research/reviews/ASM01-C-science-proposal-V1.json -text
 research/reviews/NEXTAI-C-*.xml -text
 research/reviews/NEXTAI-C-*.stdout.txt -text
 research/reviews/NEXTAI-C-*.stderr.txt -text
+research/reviews/NEXTAI-C-PROFILE-* -text
+research/reviews/NEXTAI-C-PROFILE-*/** -text

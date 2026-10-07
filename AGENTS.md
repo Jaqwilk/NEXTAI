@@ -1,3 +1,27 @@
+# Active cycle344 - separately funded C stabilization and ASM development screen (2026-10-08)
+
+Human authority: research/laboratory/NEXTAI-C-HUMAN-AUTHORITY-20261008.md.
+Engineering scope frozen before fixes at e7a7472; signed-coordinate NEW ASM task
+and unchanged five-pair screen frozen before implementation at 40a8506/4310174.
+C separate cap43200s inclusive, one scientific registration at most, workers9000s,
+supervisedfit3600s. Work start2026-10-07T23:42:00Z, wall deadline11:42Z Oct8;
+initial inherited debt600s reduces effective budget deadline to11:32Z. Debt
+knownminimum110.724645s;600 is conservative allowance, not verified upper bound.
+All preparation/failures/admin charged once to C outer wall; nested telemetry
+not added again. B2/12 and30999.55024020007/72000s unchanged; protected6/41000
+untouched. No extra C funds enter B, no historical reset/refund.
+Ordinary engineering fixes/public-synthetic test reruns authorized within C.
+Paid science retry still forbidden. Complete all1830 exposed development
+T1-5/D16-20 only; future writers closed. New signed law symmetric original
+magnitudes X4392/Y4868; no abs/clamp/drops/replacement/content-based rescue.
+Same source states/model/4096pairs/2048-1024steps/5pairs/K16-32-64/updates0-1-4,
+nominal-adverse,metrics/grids/thresholds/gates. Native intake failure stops
+unstarted science. Full conformance/intake/sourcefreeze/preflight/readiness and
+same-builder no-ticket dry-run precede sole paid attempt. No source refit,
+new architecture, WT8-9, external models/API, schedule change or prototype in C.
+Entire main goal ACTIVE/incomplete; C success alone cannot complete it.
+All earlier stage-specific sections below preserved byte-for-byte.
+
 # Completed cycle343 - remaining scope budget/prerequisite impasse (2026-10-07)
 
 Read-only saved-evidence audit; no data/tests/registration/EXP/fit. FirstHAR
