@@ -1,0 +1,15 @@
+{
+  "all_allocations_already_settled": 1050,
+  "bookkeeping_continuation": "Copied exact completed receipt and append-only clone ledger suffix after failure; no source change, intake, EXP or fit. Maintenance/scoring=false through terminal study. Missing intake evidence remains absent; integrity refresh unperformed.",
+  "created_at": "2026-10-07T00:45:34.945912+00:00",
+  "error": "FileNotFoundError protected unstarted historical/current intake manifests absent",
+  "extra_charge": 0,
+  "failed_close_driver_restarted": false,
+  "failed_driver_sha256": "e9d8c03345081b8952c2e464694703dff682e4019ec57cbff6a1d0a2b8e7344c",
+  "missing_files": [
+    "research/data_manifests/HAR01-REPLICATION-ACQUISITION-V1.json",
+    "research/data_manifests/HAR01-REPLICATION-ACQUISITION-V2.json"
+  ],
+  "phase": "post-archive maintenance integrity refresh",
+  "scientific_rerun": false
+}

@@ -1,0 +1,44 @@
+.................................................F
+================================== FAILURES ===================================
+_____ test_v3_schema_accepts_frozen_plan_and_rejects_scientific_mutations _____
+
+    def test_v3_schema_accepts_frozen_plan_and_rejects_scientific_mutations():
+        plan = synthetic_plan()
+>       validate_document("experiment_plan", plan, ROOT)
+
+tests\test_har01_replication_integration_v3.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'alternative_explanations': ['Observation alignment, rejection and ranking failures are measured separately.'], 'architecture_family': 'paired_view_learning_reference', 'benchmark': 'har01_native_memory_v3', 'budget': 'quick', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix: {'knowledge_sizes': [16, 32, 64], 'queries_per_cell': 64, 'reasoning_depths': [1, 2, 3], 'seed_policy': {'count': 5, 'maximum': 2147483647, 'method': 'runner_random_v1', 'minimum': 1000000}, 'seeds': [341060, 341061, 341062, 341063, 341064]} is not valid under any of the given schemas
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+=========================== short test summary info ===========================
+FAILED tests/test_har01_replication_integration_v3.py::test_v3_schema_accepts_frozen_plan_and_rejects_scientific_mutations
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
