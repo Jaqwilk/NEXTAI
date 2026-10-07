@@ -1,0 +1,116 @@
+{
+  "auxiliary_charge_ownership": {
+    "allowed_ids": [
+      "HAR01-PROCESS-LAUNCH-preparation-V1"
+    ],
+    "bound_to_exact_study_sha256": true,
+    "no_prefix_credit": true,
+    "prior_consumed_seconds": 3600,
+    "stage_total_after": 3900,
+    "unused_remaining_not_released": 2100
+  },
+  "candidates": [],
+  "cohort": "har01_native_memory_v2",
+  "created_at": "2026-10-07T00:31:56.063385+00:00",
+  "cycle": 340,
+  "decision_policy": "KEEP technicallaunch/drain conformance only all9fixedtests/gates pass; otherwise INCONCLUSIVE stop. Previous successful5import/6ownership339cases remainseparateevidence; no scientificclaim or scoring/native gate. Nextscience stillrequiresprospectivefrozen remaining2100budget and clone/readiness gates underpersistenthumanapproval.",
+  "fixtures": {
+    "ownership": [
+      "exact300+prior3600/protected43100",
+      "missing_changedhash_binding",
+      "foreignchargeID",
+      "duplicate_reserve_charge",
+      "invalidNaN_bool_negative_over300cap",
+      "each_prior1200_1200_600_600_no_refund"
+    ],
+    "process": [
+      "ordinaryexit0/created>=1",
+      "failureexit1-nochild/created>=1",
+      "failureexit1-readyownedworker/created>=2/launcherancestry/drainallPID/heartbeatstable"
+    ]
+  },
+  "forbidden": [
+    "nativeHAR/ASM",
+    "sourcefit",
+    "EXP/registration",
+    "newarchitecture",
+    "WT8-9",
+    "externalmodels/API",
+    "historicalschedulechanges"
+  ],
+  "id": "HAR01-PROCESS-LAUNCH-CONFORMANCE-V1",
+  "implementation_rule": "Version-copy3processfixturecases only: ordinary/failure processcounts>=1,live-child>=2 instead of undocumented exact1/2. Capture actualstartupcount unchanged. Atomic workerREADY PID marker. Parent verifies worker==launcher OR worker is live recursive descendant of Popen launcher, recordslauncher/worker/descendantPIDs; afterreturn allrecordedPIDs absent and heartbeatstable. Preserveexitcodes/reasons/liveworker-in-job/drain/timeout5s+cleanup3s. Supervisor/scientific/import/labelguard sources unchanged. Add exactnew300ownership preserving allprior3600. No same-cyclefix/retry.",
+  "matrix": {},
+  "metrics_and_thresholds": {
+    "EXP": 0,
+    "all_cases": 9,
+    "all_observed_launcher_worker_descendants_gone_afterreturn": true,
+    "all_parent_scientific_hashes_unchanged": true,
+    "all_previous_ownership_helpers_AST_unchanged": true,
+    "errors": 0,
+    "failure_nochild_codes": [
+      1,
+      1,
+      "exited"
+    ],
+    "failure_withchild_codes": [
+      124,
+      1,
+      "lingering_descendants"
+    ],
+    "failures": 0,
+    "fit": 0,
+    "heartbeat_stable_afterreturn": true,
+    "native_intake": 0,
+    "ordinary_codes": [
+      0,
+      0,
+      "exited"
+    ],
+    "outer_live_descendants": 0,
+    "outer_reason": "exited",
+    "outer_root_returncode": 0,
+    "ownership_cases": 6,
+    "process_cases": 3,
+    "skips": 0,
+    "worker_PID_in_owned_job_snapshot": true
+  },
+  "parent_bindings": {
+    "AGENTS.md": "f2b6cf6d478b4436d2ac8470fec70025b25a8705de50dfc4af0feec906aefb81",
+    "research/laboratory/HAR01-LABEL-GUARD-COMPLETION-V1.receipt.json": "a05db167f0f31f8c562b2aacb771a1cf2cf66f7013e46a51f9cc83d8061dcf2b",
+    "research/plans/HAR01-LABEL-GUARD-CONFORMANCE-V1.json": "243ee6fe7d8634440b92bb88fb8dd712d89761513f32663ee54c1bd226af651b",
+    "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+    "scripts/acquire_har01.py": "342636e9f4d17b5c3e21fdaa8663abde1a0fffba3f4f7090b8543c3d8c579952",
+    "scripts/acquire_har01_replication.py": "c1fc6d48fe1c722a893a54475f91c75bb400549ed6553c1fac2f6c213aa764e9",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v1.py": "afcf66879c05e5ac1ea650a07c07fd8d45ab5f531a1b191d29d8787c5383c8f8",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v2.py": "315082fe430324ce6c0227dd52808bda0699a0d332143a004d192a9f022abbba",
+    "src/nextai_autoresearch/candidates/har01_core.py": "8e7e10b4779e40565cec140882df61d25517f92945d499d7df17d3f844179336",
+    "src/nextai_autoresearch/har01_analysis.py": "ce2436a34a56c86f06824797b216854419b03318b90e16819cd60ebb110f416b",
+    "src/nextai_autoresearch/har01_analysis_v2.py": "7dd219e60736beb4d67b0586fc846975c00bb8749ee6a3a87096ff58c016c515",
+    "src/nextai_autoresearch/har01_task.py": "52c905470c46f10c28bf79872ab15454316a3560f880eb058cf7576b8d94cd6d",
+    "src/nextai_autoresearch/har01_task_v2.py": "720dee6a0ff15de74b57c61e759d73097e15b163afc5a1986689ea918eb296c2",
+    "src/nextai_autoresearch/process_supervision.py": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b",
+    "tests/test_har01_import_loading_conformance_v2.py": "66d2d7765705f81c6de921dc389933a3e8304dbc9ad9da4cafceed7f50dfa782",
+    "tests/test_har01_replication_process_exit.py": "a79f87a7bb7399af7a22c2fd53097517609b202571b4c26af7ce85514e8c2713"
+  },
+  "parent_failure_receipt_path": "research/laboratory/HAR01-LABEL-GUARD-COMPLETION-V1.receipt.json",
+  "parent_failure_receipt_sha256": "a05db167f0f31f8c562b2aacb771a1cf2cf66f7013e46a51f9cc83d8061dcf2b",
+  "parent_study_path": "research/plans/HAR01-LABEL-GUARD-CONFORMANCE-V1.json",
+  "parent_study_sha256": "243ee6fe7d8634440b92bb88fb8dd712d89761513f32663ee54c1bd226af651b",
+  "preparation_authority_path": "research/laboratory/HAR01-PROCESS-LAUNCH-AUTHORITY-V1.json",
+  "preparation_authority_sha256": "5239722efb53f015b43a6b14e47a78573822a525b874be67e31bb9b8d6833e69",
+  "program_contract_sha256": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+  "protected_other_compute_seconds": 41000,
+  "protected_other_registration_attempts": 6,
+  "registration_attempts_for_this_study_cap": 0,
+  "resources": {
+    "auxiliary_test_seconds_cap": 300,
+    "fit_seconds_study_cap": 0
+  },
+  "stage": "independent_replication",
+  "study_deadline_at": "2026-10-07T00:36:30Z",
+  "study_kind": "preparation_only",
+  "study_started_at": "2026-10-07T00:31:30Z",
+  "test_execution_rule": "One canonical independentclone invocation only new3process+new6ownership fixtures; wholejobmax90s plusunchangedcleanup, closingreserve75s. Freezefullsourcefirst; anyfailure stops unstarted/no same-cyclefix/retry. Full300s conservativelycharged once inclstartup/failure/admin/report/archive/publication.",
+  "whole_stage_seconds_cap": 6000
+}
