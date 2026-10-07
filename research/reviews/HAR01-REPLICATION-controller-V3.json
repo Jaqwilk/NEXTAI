@@ -1,0 +1,41 @@
+{
+  "auxiliary_charge_basis": "full_reserved_controller_and_closure_envelope_v1",
+  "auxiliary_parent_overhead_and_closure_seconds_charged": 250,
+  "conservative_missing_worker_seconds": 0.0,
+  "created_at": "2026-10-07T00:52:58Z",
+  "enclosing_job_cap_seconds": 500,
+  "enclosing_job_timeout_seconds_maximum": 485,
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\scripts\\run_har01_replication_experiment_v3.py\", line 55, in main\n    assert registered.returncode == 0 and not registered.exit_live_descendant_pids\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "experiment_id": null,
+  "full_workers_charged_separately_seconds": 0.0,
+  "hard_deadline_at": "2026-10-07T01:03:30Z",
+  "minimum_auxiliary_charge_with_bookkeeping_margin": 124,
+  "missing_worker_charge_is_conservative_not_supervised_fit": true,
+  "observed_parent_overhead_seconds": 103.493407199996,
+  "package_origin": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\__init__.py",
+  "paid_retry": false,
+  "parent_wall_seconds": 103.493407199996,
+  "physical_auxiliary_overrun_seconds": 0,
+  "physical_worker_envelope_overrun_seconds": 0.0,
+  "registration": {
+    "elapsed_seconds": 90.00184720000107,
+    "exit_job_active_process_count": 3,
+    "exit_live_descendant_pids": [
+      34780,
+      23712
+    ],
+    "peak_tree_rss_bytes_sampled": 4336791552,
+    "pid": 35856,
+    "processes_created": 149,
+    "reason": "timeout",
+    "returncode": 124,
+    "root_returncode": 124
+  },
+  "remaining_auxiliary_seconds_for_analysis_archive_and_closure": 126,
+  "run": null,
+  "shutdown_margin_seconds": 15,
+  "study_path": "research/plans/HAR01-INDEPENDENT-REPLICATION-V3.json",
+  "study_sha256": "9cf2153945a322e9c0e47c6d20287a9286e544a62ca0f711b64c797bcb493400",
+  "whole_process_trees_bounded": true,
+  "worker_interval_observed_seconds": 0.0
+}

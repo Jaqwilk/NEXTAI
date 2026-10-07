@@ -1,0 +1,55 @@
+{
+  "EXP": 0,
+  "charged_preparation_seconds": 300,
+  "conformance_cases": 116,
+  "created_at": "2026-10-07T00:50:21Z",
+  "error": null,
+  "failed": 0,
+  "fit": 0,
+  "jobs": [
+    {
+      "elapsed_seconds": 32.44445730000007,
+      "exit_job_active_process_count": 0,
+      "exit_live_descendant_pids": [],
+      "label": "conformance",
+      "peak_tree_rss_bytes_sampled": 1463914496,
+      "pid": 34044,
+      "processes_created": 111,
+      "reason": "exited",
+      "returncode": 0,
+      "root_returncode": 0
+    },
+    {
+      "elapsed_seconds": 1.5655562999963877,
+      "exit_job_active_process_count": 0,
+      "exit_live_descendant_pids": [],
+      "label": "intake",
+      "peak_tree_rss_bytes_sampled": 122605568,
+      "pid": 24536,
+      "processes_created": 3,
+      "reason": "exited",
+      "returncode": 0,
+      "root_returncode": 0
+    },
+    {
+      "elapsed_seconds": 32.63970849999896,
+      "exit_job_active_process_count": 0,
+      "exit_live_descendant_pids": [],
+      "label": "readiness",
+      "peak_tree_rss_bytes_sampled": 1422315520,
+      "pid": 35304,
+      "processes_created": 5,
+      "reason": "exited",
+      "returncode": 0,
+      "root_returncode": 0
+    }
+  ],
+  "passed": 116,
+  "preparation_clock_start": "2026-10-07T00:46:00Z",
+  "preparation_deadline": "2026-10-07T00:51:00Z",
+  "ready": true,
+  "retry": false,
+  "skipped": 0,
+  "source_binding_sha256": "b9d51fc749ff0fe8e9ba8f7a419c9d6ab779c382e0d07dc995bec1aeebf178b9",
+  "study_sha256": "9cf2153945a322e9c0e47c6d20287a9286e544a62ca0f711b64c797bcb493400"
+}
