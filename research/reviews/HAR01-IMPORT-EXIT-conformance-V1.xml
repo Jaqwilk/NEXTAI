@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="4" time="0.352" timestamp="2026-10-07T02:20:00.156963+02:00" hostname="3vilOS20"><testcase classname="tests.test_har01_import_loading_conformance" name="test_package_relative_identity" file="tests\test_har01_import_loading_conformance.py" line="54" time="0.007" /><testcase classname="tests.test_har01_import_loading_conformance" name="test_dynamic_without_paths_ignores_ambient_module" file="tests\test_har01_import_loading_conformance.py" line="72" time="0.003" /><testcase classname="tests.test_har01_import_loading_conformance" name="test_direct_main_context_stops_before_main_body" file="tests\test_har01_import_loading_conformance.py" line="85" time="0.005" /><testcase classname="tests.test_har01_import_loading_conformance" name="test_synthetic_selected_only_60numeric_120opaque_no_labels" file="tests\test_har01_import_loading_conformance.py" line="144" time="0.005"><failure message="AssertionError: assert not True&#10; +  where True = &lt;built-in method endswith of str object at 0x0000021DC9AD2F00&gt;(('y_train.txt', 'y_test.txt'))&#10; +    where &lt;built-in method endswith of str object at 0x0000021DC9AD2F00&gt; = 'Public HAR fixture/train/Inertial Signals/body_acc_y_train.txt'.endswith&#10; +      where 'Public HAR fixture/train/Inertial Signals/body_acc_y_train.txt' = str('Public HAR fixture/train/Inertial Signals/body_acc_y_train.txt')">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000021DC9BE4AF0&gt;
+
+    def test_synthetic_selected_only_60numeric_120opaque_no_labels(monkeypatch):
+        module = _load("_har01_conformance_synthetic", monkeypatch)
+        original_conversion = np.fromstring
+        converted = []
+    
+        def conversion(value, *args, **kwargs):
+            assert "OPAQUE" not in value
+            converted.append(value)
+            return original_conversion(value, *args, **kwargs)
+    
+        monkeypatch.setattr(np, "fromstring", conversion)
+        receipt = {}
+        with _synthetic_zip() as archive:
+            original_read, original_open = archive.read, archive.open
+    
+            def read(name, *args, **kwargs):
+                assert not str(name).endswith(("y_train.txt", "y_test.txt"))
+                return original_read(name, *args, **kwargs)
+    
+            def open_member(name, *args, **kwargs):
+                assert not str(name).endswith(("y_train.txt", "y_test.txt"))
+                return original_open(name, *args, **kwargs)
+    
+            monkeypatch.setattr(archive, "read", read)
+            monkeypatch.setattr(archive, "open", open_member)
+&gt;           arrays, hashes = module.collect_selected_signals(archive, _synthetic_rules(), receipt)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_har01_import_loading_conformance.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\acquire_har01_replication.py:57: in collect_selected_signals
+    with archive.open(f"{base}{split}/Inertial Signals/{label}_{split}.txt") as stream:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'Public HAR fixture/train/Inertial Signals/body_acc_y_train.txt'
+args = (), kwargs = {}
+
+    def open_member(name, *args, **kwargs):
+&gt;       assert not str(name).endswith(("y_train.txt", "y_test.txt"))
+E       AssertionError: assert not True
+E        +  where True = &lt;built-in method endswith of str object at 0x0000021DC9AD2F00&gt;(('y_train.txt', 'y_test.txt'))
+E        +    where &lt;built-in method endswith of str object at 0x0000021DC9AD2F00&gt; = 'Public HAR fixture/train/Inertial Signals/body_acc_y_train.txt'.endswith
+E        +      where 'Public HAR fixture/train/Inertial Signals/body_acc_y_train.txt' = str('Public HAR fixture/train/Inertial Signals/body_acc_y_train.txt')
+
+tests\test_har01_import_loading_conformance.py:165: AssertionError</failure></testcase></testsuite></testsuites>
