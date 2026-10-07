@@ -26,6 +26,11 @@ HAR_REPLICATION_SHA256 = "d5567973e85b444d95ac13a70db9fe24b87c0ab3b672932e832286
 HAR_PREPARATION_AUTHORITY = "research/laboratory/HAR01-REPLICATION-PREPARATION-AUTHORITY-V1.json"
 HAR_PREPARATION_SHA256 = "036894388f89b4dfb5377c27fbde737f42853104c8a69f4d356fcb2734111fb6"
 HAR_OWN_AUXILIARY_IDS = ("HAR01-REPLICATION-preparation-V1", "HAR01-REPLICATION-controller-V1")
+HAR_IMPORT_EXIT_STUDY = "research/plans/HAR01-IMPORT-EXIT-CONFORMANCE-V1.json"
+HAR_IMPORT_EXIT_SHA256 = "1b91ab6f3a22afeaa5122476555acfb03e6330d77f6b8251dda91e198ed384ea"
+HAR_IMPORT_EXIT_AUTHORITY = "research/laboratory/HAR01-IMPORT-EXIT-AUTHORITY-V1.json"
+HAR_IMPORT_EXIT_AUTHORITY_SHA256 = "2015359bbd07dd715b5deba6f37918eacdfe668900cd0d72a5d5bbe0031f45cc"
+HAR_IMPORT_EXIT_AUXILIARY_ID = "HAR01-IMPORT-EXIT-preparation-V1"
 
 
 def _finite_seconds(value):
@@ -81,6 +86,54 @@ def _har_replication_auxiliary(base, events):
     if total > 2400:
         raise ValueError("HAR owned auxiliary allocation exceeded")
     return total, expected
+
+
+def _har_import_exit_auxiliary(base, events):
+    """Deduct only the exact new 600s allocation from the existing first slot."""
+    if (_bound_hash(base, HAR_IMPORT_EXIT_STUDY) != HAR_IMPORT_EXIT_SHA256
+            or _bound_hash(base, HAR_IMPORT_EXIT_AUTHORITY) != HAR_IMPORT_EXIT_AUTHORITY_SHA256):
+        raise ValueError("HAR import/exit study or authority hash mismatch")
+    study = _document(base, HAR_IMPORT_EXIT_STUDY)
+    authority = _document(base, HAR_IMPORT_EXIT_AUTHORITY)
+    prior, _ = _har_replication_auxiliary(base, events)
+    prior_charges = [e for e in events if e.get("event") == "research_program_aux_fit_charged"
+                     and e.get("charge_id") in HAR_OWN_AUXILIARY_IDS]
+    if (prior != 2400 or len(prior_charges) != 2
+            or any(not _finite_seconds(e.get("seconds")) or e["seconds"] != 1200 for e in prior_charges)):
+        raise ValueError("Prior HAR consumed 2400s cannot be refunded or replaced")
+    expected = {"program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+                "study_path": HAR_IMPORT_EXIT_STUDY, "study_sha256": HAR_IMPORT_EXIT_SHA256,
+                "authority_path": HAR_IMPORT_EXIT_AUTHORITY,
+                "authority_sha256": HAR_IMPORT_EXIT_AUTHORITY_SHA256}
+    permissions = [e for e in events if e.get("event") == "research_program_scoped_preparation_authorized"
+                   and e.get("study_path") == HAR_IMPORT_EXIT_STUDY]
+    if (len(permissions) != 1 or any(permissions[0].get(k) != v for k, v in expected.items())
+            or permissions[0].get("human_authorized") is not True
+            or type(permissions[0].get("stage_slot")) is not int or permissions[0]["stage_slot"] != 0
+            or not _finite_seconds(permissions[0].get("cap")) or permissions[0]["cap"] != 600
+            or permissions[0].get("whole_stage_cap") != 6000
+            or authority["program_id"] != expected["program_id"] or authority["study_path"] != HAR_IMPORT_EXIT_STUDY
+            or authority["stage"] != "independent_replication" or type(authority["stage_slot"]) is not int
+            or authority["stage_slot"] != 0 or authority["preparation_seconds_cap"] != 600
+            or authority["prior_consumed_stage_seconds"] != 2400 or authority["whole_stage_seconds_cap"] != 6000
+            or study["study_kind"] != "preparation_only" or study["registration_attempts_for_this_study_cap"] != 0
+            or study["resources"]["fit_seconds_study_cap"] != 0
+            or study["auxiliary_charge_ownership"]["allowed_ids"] != [HAR_IMPORT_EXIT_AUXILIARY_ID]):
+        raise ValueError("HAR import/exit authority missing, repeated or changed")
+    owned = [e for e in events if e.get("event") in {"research_program_aux_fit_reserved", "research_program_aux_fit_charged"}
+             and (e.get("charge_id") == HAR_IMPORT_EXIT_AUXILIARY_ID or e.get("study_path") == HAR_IMPORT_EXIT_STUDY)]
+    reservations, charges = [], []
+    for event in owned:
+        if event.get("charge_id") != HAR_IMPORT_EXIT_AUXILIARY_ID or any(event.get(k) != v for k, v in expected.items()):
+            raise ValueError("Foreign or incomplete HAR import/exit ownership binding")
+        (reservations if event["event"] == "research_program_aux_fit_reserved" else charges).append(event)
+    if len(reservations) != 1 or len(charges) > 1:
+        raise ValueError("Missing or duplicate HAR import/exit auxiliary accounting")
+    cap = reservations[0].get("seconds_cap")
+    amount = charges[0].get("seconds") if charges else cap
+    if not _finite_seconds(cap) or cap != 600 or not _finite_seconds(amount) or amount != 600:
+        raise ValueError("HAR import/exit allocation must retain its full conservative 600s charge")
+    return prior + amount, expected
 
 
 def _har_worker_recovery(base, events, plan, observed):
@@ -426,7 +479,13 @@ def _transfer_status(base, events):
                           expected_caps=(12, 72000), authorization_event="research_program_transfer_prototype_authorized")
     protected_tickets, protected_seconds = _transfer_reserves(current["stage_registration_attempts"])
     owned_auxiliary = 0.
-    if current["study_path"] == HAR_REPLICATION_STUDY:
+    if (current["study_path"] == HAR_IMPORT_EXIT_STUDY
+            or any(e.get("study_path") == HAR_IMPORT_EXIT_STUDY
+                   or e.get("charge_id") == HAR_IMPORT_EXIT_AUXILIARY_ID for e in events)):
+        owned_auxiliary, _ = _har_import_exit_auxiliary(base, events)
+        if not current["stage_registration_attempts"]["independent_replication"]:
+            protected_seconds -= owned_auxiliary
+    elif current["study_path"] == HAR_REPLICATION_STUDY:
         owned_auxiliary, _ = _har_replication_auxiliary(base, events)
         current_tickets = [e for e in events if e.get("event") == "research_program_registration_started"
                            and e.get("program_id") == current["id"] and e.get("study_path") == HAR_REPLICATION_STUDY]
@@ -526,6 +585,10 @@ def auxiliary_charge(base, charge_id, seconds):
     binding = {}
     if charge_id in HAR_OWN_AUXILIARY_IDS:
         _, binding = _har_replication_auxiliary(base, events)
+    elif charge_id == HAR_IMPORT_EXIT_AUXILIARY_ID:
+        _, binding = _har_import_exit_auxiliary(base, events)
+        if seconds != 600:
+            raise ValueError("HAR import/exit charge cannot release its conservative allocation")
     append_jsonl(base / "research/events.jsonl", {"event": "research_program_aux_fit_charged", "created_at": utc_now(),
                  "program_id": value["id"], "charge_id": charge_id, "seconds": seconds, **binding})
     status(base)  # Validate the durable accounting, including failed test runs.

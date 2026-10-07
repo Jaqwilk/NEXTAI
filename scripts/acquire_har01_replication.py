@@ -1,4 +1,5 @@
 """One fresh, bounded replication intake from the preserved public HAR archive."""
+import importlib.util
 import json
 from pathlib import Path
 import shutil
@@ -9,7 +10,11 @@ import numpy as np
 if __package__:
     from .acquire_har01 import data_archive
 else:
-    from acquire_har01 import data_archive
+    _archive_spec = importlib.util.spec_from_file_location(
+        "_har01_acquisition_sibling", Path(__file__).with_name("acquire_har01.py"))
+    _archive_module = importlib.util.module_from_spec(_archive_spec)
+    _archive_spec.loader.exec_module(_archive_module)
+    data_archive = _archive_module.data_archive
 from nextai_autoresearch.har01_task_v2 import CHANNELS, SCREEN_SUBJECTS, arrays_hash
 from nextai_autoresearch.utils import atomic_write_json, sha256_file, utc_now
 

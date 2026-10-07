@@ -80,3 +80,8 @@ research/laboratory/archive/FAMILY2-*/** -text
 research/laboratory/HAR01-REPLICATION-STOP-V1.receipt.json -text
 research/reviews/HAR01-REPLICATION-conformance-V1.xml -text
 research/reviews/HAR01-REPLICATION-conformance-V1.stdout.txt -text
+
+# Native import/exit conformance evidence keeps exact captured bytes.
+research/reviews/HAR01-IMPORT-EXIT-*.xml -text
+research/reviews/HAR01-IMPORT-EXIT-*.stdout.txt -text
+research/reviews/HAR01-IMPORT-EXIT-*.stderr.txt -text
