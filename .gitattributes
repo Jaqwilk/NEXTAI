@@ -94,3 +94,8 @@ research/reviews/HAR01-LABEL-GUARD-*.stderr.txt -text
 research/reviews/HAR01-PROCESS-LAUNCH-*.xml -text
 research/reviews/HAR01-PROCESS-LAUNCH-*.stdout.txt -text
 research/reviews/HAR01-PROCESS-LAUNCH-*.stderr.txt -text
+
+research/reviews/HAR01-REPLICATION-*-V2.xml -text
+research/reviews/HAR01-REPLICATION-*-V2.stdout.txt -text
+research/reviews/HAR01-REPLICATION-*-V2.stderr.txt -text
+research/reviews/HAR01-REPLICATION-controller-V2.*.txt -text

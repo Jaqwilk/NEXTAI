@@ -27827,6 +27827,7 @@
     "paired_view_mutable_memory_v7",
     "paired_view_mutable_memory_v8",
     "har01_native_memory_v1",
+    "har01_native_memory_v3",
     "asm01_native_memory_v2",
     "asm01_native_memory_v3"
   ],

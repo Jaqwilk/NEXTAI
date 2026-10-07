@@ -17,6 +17,8 @@ FORBIDDEN_INTERNAL_PREFIXES = (
     "nextai_autoresearch.asm01_analysis",
     "nextai_autoresearch.har01_task",
     "nextai_autoresearch.har01_task_v2",
+    "nextai_autoresearch.har01_task_v3",
+    "nextai_autoresearch.har01_analysis_v3",
     "nextai_autoresearch.har01_analysis",
     "nextai_autoresearch.pvm01_fitted_state",
     "nextai_autoresearch.pvm01_task",

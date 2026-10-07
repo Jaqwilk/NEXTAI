@@ -56,3 +56,5 @@ research/pc01_payload/**/*.pt
 
 # Native ASM publisher/sample/coordinate bytes remain local; manifests and hashes are tracked.
 /research/data/asm01_native_v1/
+
+/research/data/har01_replication_v2/

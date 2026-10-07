@@ -41,6 +41,12 @@ HAR_PROCESS_LAUNCH_SHA256 = "8747333468ea4cb03db5a47e862d5c42493845207594c65a021
 HAR_PROCESS_LAUNCH_AUTHORITY = "research/laboratory/HAR01-PROCESS-LAUNCH-AUTHORITY-V1.json"
 HAR_PROCESS_LAUNCH_AUTHORITY_SHA256 = "5239722efb53f015b43a6b14e47a78573822a525b874be67e31bb9b8d6833e69"
 HAR_PROCESS_LAUNCH_AUXILIARY_ID = "HAR01-PROCESS-LAUNCH-preparation-V1"
+HAR_CONTINUATION_STUDY = "research/plans/HAR01-INDEPENDENT-REPLICATION-V2.json"
+HAR_CONTINUATION_SHA256 = "c1ffee7b7856851fc4dc2792f3aa0e6e8502bb465d2244ba0997fa43966f39aa"
+HAR_CONTINUATION_AUTHORITY = "research/laboratory/HAR01-REPLICATION-CONTINUATION-AUTHORITY-V2.json"
+HAR_CONTINUATION_AUTHORITY_SHA256 = "a2ffcca6567de58b5f71c219520bb1c344b748997411627d94a046ff7bc4b120"
+HAR_CONTINUATION_AUXILIARY_CAPS = {"HAR01-REPLICATION-preparation-V2": 600,
+                                   "HAR01-REPLICATION-controller-V2": 450}
 
 
 def _finite_seconds(value):
@@ -232,6 +238,74 @@ def _har_process_launch_auxiliary(base, events):
     return prior + amount, expected
 
 
+def _har_continuation_auxiliary(base, events):
+    """The new scientific allocation owns only 1050s; its consumed parent owns 3900s."""
+    if (_bound_hash(base, HAR_CONTINUATION_STUDY) != HAR_CONTINUATION_SHA256
+            or _bound_hash(base, HAR_CONTINUATION_AUTHORITY) != HAR_CONTINUATION_AUTHORITY_SHA256):
+        raise ValueError("HAR continuation study or authority hash mismatch")
+    prior, _ = _har_process_launch_auxiliary(base, events)
+    settled = [e for e in events if e.get("event") == "research_program_aux_fit_charged"
+               and e.get("charge_id") == HAR_PROCESS_LAUNCH_AUXILIARY_ID]
+    if prior != 3900 or len(settled) != 1 or not _finite_seconds(settled[0].get("seconds")) or settled[0]["seconds"] != 300:
+        raise ValueError("Prior HAR consumed 3900s cannot be refunded or replaced")
+    expected = {"program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+                "study_path": HAR_CONTINUATION_STUDY, "study_sha256": HAR_CONTINUATION_SHA256,
+                "authority_path": HAR_CONTINUATION_AUTHORITY,
+                "authority_sha256": HAR_CONTINUATION_AUTHORITY_SHA256}
+    permissions = [e for e in events if e.get("event") == "research_program_scoped_preparation_authorized"
+                   and e.get("study_path") == HAR_CONTINUATION_STUDY]
+    if (len(permissions) != 1 or any(permissions[0].get(k) != v for k, v in expected.items())
+            or permissions[0].get("human_authorized") is not True
+            or type(permissions[0].get("stage_slot")) is not int or permissions[0]["stage_slot"] != 0
+            or not _finite_seconds(permissions[0].get("cap")) or permissions[0]["cap"] != 600
+            or permissions[0].get("whole_stage_cap") != 6000):
+        raise ValueError("HAR continuation authority missing, repeated or changed")
+    owned = [e for e in events if e.get("event") in {"research_program_aux_fit_reserved", "research_program_aux_fit_charged"}
+             and (e.get("charge_id") in HAR_CONTINUATION_AUXILIARY_CAPS or e.get("study_path") == HAR_CONTINUATION_STUDY)]
+    reservations, charges = {}, {}
+    for event in owned:
+        identity = event.get("charge_id")
+        if identity not in HAR_CONTINUATION_AUXILIARY_CAPS or any(event.get(k) != v for k, v in expected.items()):
+            raise ValueError("Foreign or incomplete HAR continuation ownership binding")
+        target = reservations if event["event"] == "research_program_aux_fit_reserved" else charges
+        if identity in target:
+            raise ValueError("Duplicate HAR continuation auxiliary accounting")
+        target[identity] = event
+    if "HAR01-REPLICATION-preparation-V2" not in reservations or set(charges) - set(reservations):
+        raise ValueError("Missing HAR continuation preparation reservation or unreserved charge")
+    total = 0.
+    for identity, reservation in reservations.items():
+        cap = reservation.get("seconds_cap")
+        amount = charges.get(identity, {}).get("seconds", cap)
+        if (not _finite_seconds(cap) or cap != HAR_CONTINUATION_AUXILIARY_CAPS[identity]
+                or not _finite_seconds(amount) or amount != cap):
+            raise ValueError("HAR continuation must retain its full conservative auxiliary allocations")
+        total += amount
+    return prior + total, expected
+
+
+def _study_worker_recovery(base, events, plan, observed):
+    if plan["research_program_protocol"].get("study_path") != HAR_CONTINUATION_STUDY:
+        return _har_worker_recovery(base, events, plan, observed)
+    recoveries = [e for e in events if e.get("event") == "research_program_worker_charge_recovery"
+                  and e.get("experiment_id") == plan["experiment_id"]]
+    if not recoveries:
+        return 0.
+    if len(recoveries) != 1 or plan["research_program_protocol"].get("study_sha256") != HAR_CONTINUATION_SHA256:
+        raise ValueError("HAR continuation worker recovery repeated or outside exact study")
+    event = recoveries[0]
+    expected = {"program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+                "study_path": HAR_CONTINUATION_STUDY, "study_sha256": HAR_CONTINUATION_SHA256,
+                "experiment_id": plan["experiment_id"]}
+    receipt = _document(base, event["receipt_path"])
+    total = event.get("worker_charge_total")
+    if (any(event.get(k) != v or receipt.get(k) != v for k, v in expected.items())
+            or _bound_hash(base, event["receipt_path"]) != event.get("receipt_sha256")
+            or not _finite_seconds(total) or total > 1050 or receipt.get("worker_charge_total") != total):
+        raise ValueError("HAR continuation worker recovery receipt or finite allocation changed")
+    return max(0., total - observed)
+
+
 def _har_worker_recovery(base, events, plan, observed):
     recoveries = [e for e in events if e.get("event") == "research_program_worker_charge_recovery"
                   and e.get("experiment_id") == plan["experiment_id"]]
@@ -307,10 +381,12 @@ def _study_scope(study):
                      resource_measurement_version="cumulative_cuda_phase_peaks_v1",
                      evaluation_data_role="frozen_fresh_final_v1")
     if study.get("study_kind") == "native_frozen_source_transfer":
-        if study["cohort"] not in {"har01_native_memory_v1", "har01_native_memory_v2"}:
+        if study["cohort"] not in {"har01_native_memory_v1", "har01_native_memory_v2", "har01_native_memory_v3"}:
             raise ValueError("Native source-transfer recipe/cohort mismatch")
         if study["cohort"] == "har01_native_memory_v2" and study.get("id") != "HAR01-INDEPENDENT-REPLICATION-V1":
             raise ValueError("HAR v2 belongs only to the exact independent replication")
+        if study["cohort"] == "har01_native_memory_v3" and study.get("id") != "HAR01-INDEPENDENT-REPLICATION-V2":
+            raise ValueError("HAR v3 belongs only to the exact independent continuation")
     if study.get("study_kind") == "asm01_frozen_source_transfer":
         if study["cohort"] not in {"asm01_native_memory_v2", "asm01_native_memory_v3"}:
             raise ValueError("Canonical native pen source-transfer recipe/cohort mismatch")
@@ -399,11 +475,11 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
             raise ValueError("Preserved completed research result changed; budget cannot be reset")
         if result.exists():
             observed = _execution_fit(load_json(result)["candidates"])
-            fit += observed + _har_worker_recovery(base, events, plan, observed)
+            fit += observed + _study_worker_recovery(base, events, plan, observed)
         else:
             supervisors = sorted((base / "research/tmp" / plan["experiment_id"]).glob("*.supervisor.json"))
             observed = _execution_fit(load_json(p) for p in supervisors)
-            recovered = _har_worker_recovery(base, events, plan, observed)
+            recovered = _study_worker_recovery(base, events, plan, observed)
             fit += observed + recovered
             recovery_terminal = any(e.get("event") == "research_program_worker_charge_recovery"
                                     and e.get("experiment_id") == plan["experiment_id"] for e in events)
@@ -430,6 +506,9 @@ def _status_for(base, *, authority_path=None, contract_path=None, study_path=Non
     if study_registration_cap is None and study_path == HAR_REPLICATION_STUDY:
         _har_replication_auxiliary(base, read_jsonl(base / "research/events.jsonl"))
         study_registration_cap = 1
+    if study_registration_cap is None and study_path == HAR_CONTINUATION_STUDY:
+        _har_continuation_auxiliary(base, read_jsonl(base / "research/events.jsonl"))
+        study_registration_cap = study["validation_contract"]["registration_cap"]
     if study_registration_cap is None and study.get("id") == "HAR01-FROZEN-SOURCE-SCREEN-V1":
         cap_addendum = _document(base, "research/plans/HAR01-PRESEED-CAP-CONFORMANCE-V1.json")
         if (study.get("study_kind") != "native_frozen_source_transfer"
@@ -575,7 +654,14 @@ def _transfer_status(base, events):
                           expected_caps=(12, 72000), authorization_event="research_program_transfer_prototype_authorized")
     protected_tickets, protected_seconds = _transfer_reserves(current["stage_registration_attempts"])
     owned_auxiliary = 0.
-    if (current["study_path"] == HAR_PROCESS_LAUNCH_STUDY
+    if (current["study_path"] == HAR_CONTINUATION_STUDY
+            or any(e.get("study_path") == HAR_CONTINUATION_STUDY
+                   or e.get("charge_id") in HAR_CONTINUATION_AUXILIARY_CAPS for e in events)):
+        combined, _ = _har_continuation_auxiliary(base, events)
+        owned_auxiliary = combined - 3900
+        if not current["stage_registration_attempts"]["independent_replication"]:
+            protected_seconds -= combined
+    elif (current["study_path"] == HAR_PROCESS_LAUNCH_STUDY
             or any(e.get("study_path") == HAR_PROCESS_LAUNCH_STUDY
                    or e.get("charge_id") == HAR_PROCESS_LAUNCH_AUXILIARY_ID for e in events)):
         owned_auxiliary, _ = _har_process_launch_auxiliary(base, events)
@@ -633,7 +719,7 @@ def _check_transfer_study_reserve(value, study):
     resources = study["resources"]
     auxiliary_cap = resources["auxiliary_test_seconds_cap"]
     worker_cap = resources["fit_seconds_study_cap"]
-    credit = value.get("study_owned_auxiliary_seconds", 0.) if value["study_path"] == HAR_REPLICATION_STUDY else 0.
+    credit = value.get("study_owned_auxiliary_seconds", 0.) if value["study_path"] in {HAR_REPLICATION_STUDY, HAR_CONTINUATION_STUDY} else 0.
     if (not _finite_seconds(auxiliary_cap) or not _finite_seconds(worker_cap)
             or not _finite_seconds(credit) or credit > auxiliary_cap):
         raise ValueError("Invalid finite study resource cap or owned auxiliary credit")
@@ -672,6 +758,13 @@ def auxiliary_reserve(base, charge_id, seconds_cap):
         protected = 41000
         if not value["stage_registration_attempts"]["independent_replication"]:
             _check_transfer_study_reserve(value, _document(base, HAR_REPLICATION_STUDY))
+    elif charge_id in HAR_CONTINUATION_AUXILIARY_CAPS:
+        if value["study_path"] != HAR_CONTINUATION_STUDY or seconds_cap != HAR_CONTINUATION_AUXILIARY_CAPS[charge_id]:
+            raise ValueError("HAR continuation auxiliary reservation differs from exact study allocation")
+        _, binding = _har_continuation_auxiliary(base, events)
+        if not value["stage_registration_attempts"]["independent_replication"]:
+            _check_transfer_study_reserve(value, _document(base, HAR_CONTINUATION_STUDY))
+            protected -= seconds_cap
     if ("stage_b_registration_attempts_used" in value and
             seconds_cap > value["unreserved_fit_seconds_remaining"] - protected):
         raise ValueError("Auxiliary reservation would consume protected future research reserves")
@@ -705,6 +798,10 @@ def auxiliary_charge(base, charge_id, seconds):
         _, binding = _har_process_launch_auxiliary(base, events)
         if seconds != 300:
             raise ValueError("HAR process-launch charge cannot release its conservative allocation")
+    elif charge_id in HAR_CONTINUATION_AUXILIARY_CAPS:
+        _, binding = _har_continuation_auxiliary(base, events)
+        if seconds != HAR_CONTINUATION_AUXILIARY_CAPS[charge_id]:
+            raise ValueError("HAR continuation charge cannot release its conservative allocation")
     append_jsonl(base / "research/events.jsonl", {"event": "research_program_aux_fit_charged", "created_at": utc_now(),
                  "program_id": value["id"], "charge_id": charge_id, "seconds": seconds, **binding})
     status(base)  # Validate the durable accounting, including failed test runs.
