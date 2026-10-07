@@ -1,3 +1,21 @@
+# Completed cycle338 - import conformance fixture failed (2026-10-07)
+
+Separately authorized600s technical stage froze before code/tests at22ad457.
+One clone invocation:3 import-context PASS,1 synthetic fixture FAIL;10 cases unrun.
+Suffix label guard wrongly rejects legitimate body_acc_y_train.txt; no native data.
+No same-cycle rescue/retry; scientific models/functions/supervisor unchanged.
+Decision INCONCLUSIVE; native/fit/EXP/registration0. All failures/source/raw bytes retained.
+B active1/12,27969.55024020007/72000s; first replication consumed3000/6000.
+Protected44000s includes other6/41000 plus unused current3000, not automatically released.
+Current technical study terminal, maintenance/scoring=false.
+Report research/analyses/HAR01-CYCLE338-IMPORT-EXIT-CONFORMANCE-V1.md.
+Human preauthorized subsequent stages on2026-10-07; freeze each new concrete
+scope/recipe/data/metrics/thresholds/cost before implementation or content.
+Keep previous failure/cost/history, existing B cap and protected allocations.
+No scientific retry/source refit/new architecture/WT8-9/external models/API
+or schedule change. Whole transfer/fresh-target-final/prototype goal remains open.
+Earlier stage-specific sections below are preserved history.
+
 # Completed cycle337 — HAR independent-replication preparation failed (2026-10-06)
 
 Human-owned HAR01-INDEPENDENT-REPLICATION-V1 froze before implementation/data.
