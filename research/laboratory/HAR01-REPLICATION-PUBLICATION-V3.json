@@ -1,0 +1,21 @@
+{
+  "id": "HAR01-REPLICATION-PUBLICATION-V3",
+  "verified_at": "2026-10-07T01:00:09Z",
+  "published_report_and_evidence_commit": "3c183ea7b46a2d8c4b9211f73b3b28c33896e7e1",
+  "remote": "https://github.com/Jaqwilk/NEXTAI.git",
+  "remote_main_and_master_verified_equal": true,
+  "clone_HEAD_verified_equal": true,
+  "root_and_clone_clean": true,
+  "root_clone_and_committed_blob_exact_byte_checks": 24,
+  "immutable_initial_completion_sha256": "f9ca281ed807f9f6e72c6cfe1f93dd5a329e01422ed6df3d28380c227863d0b6",
+  "final_stage_conservative_charge_seconds": 5950,
+  "stage_cap_seconds": 6000,
+  "conservative_elapsed_from_earliest_controller_launch_at_publication_seconds": 588,
+  "marker_to_publication_seconds": 561,
+  "original250_admin_subcap_overrun_lower_bound_at_publication_seconds": 311,
+  "whole700_admin_envelope_end_at": "2026-10-07T01:02:01Z",
+  "publication_verified_within_additive_admin_envelope": true,
+  "original_stage_hard_deadline_at": "2026-10-07T01:03:30Z",
+  "new_scientific_EXP_or_fit": false,
+  "whole_goal_complete": false
+}
