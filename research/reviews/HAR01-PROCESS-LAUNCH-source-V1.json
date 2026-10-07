@@ -1,0 +1,27 @@
+{
+  "files": {
+    ".gitattributes": "9a85dd69330eaec345526c794c350df3629b07906ee6046a9f1240bed165ec61",
+    "AGENTS.md": "f2b6cf6d478b4436d2ac8470fec70025b25a8705de50dfc4af0feec906aefb81",
+    "config/research.toml": "f98f9855a4d12307a8b6e01ce6b837500163d8a89687dd2c0c5ffa73781c196a",
+    "research/laboratory/HAR01-LABEL-GUARD-COMPLETION-V1.receipt.json": "a05db167f0f31f8c562b2aacb771a1cf2cf66f7013e46a51f9cc83d8061dcf2b",
+    "research/plans/HAR01-LABEL-GUARD-CONFORMANCE-V1.json": "243ee6fe7d8634440b92bb88fb8dd712d89761513f32663ee54c1bd226af651b",
+    "research/plans/NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-V1.json": "fef97eeb1b9d7c775496b195756f641e94ce2a7aea96775b1961defa6a334d37",
+    "research/reviews/HAR01-PROCESS-LAUNCH-run-V1.py": "5a4aff984c53447f7d88c4df56fe3fe4d01bf39ea738e64a3b8d985a309b52e8",
+    "scripts/acquire_har01.py": "342636e9f4d17b5c3e21fdaa8663abde1a0fffba3f4f7090b8543c3d8c579952",
+    "scripts/acquire_har01_replication.py": "c1fc6d48fe1c722a893a54475f91c75bb400549ed6553c1fac2f6c213aa764e9",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v1.py": "afcf66879c05e5ac1ea650a07c07fd8d45ab5f531a1b191d29d8787c5383c8f8",
+    "src/nextai_autoresearch/benchmarks/har01_native_memory_v2.py": "315082fe430324ce6c0227dd52808bda0699a0d332143a004d192a9f022abbba",
+    "src/nextai_autoresearch/candidates/har01_core.py": "8e7e10b4779e40565cec140882df61d25517f92945d499d7df17d3f844179336",
+    "src/nextai_autoresearch/har01_analysis.py": "ce2436a34a56c86f06824797b216854419b03318b90e16819cd60ebb110f416b",
+    "src/nextai_autoresearch/har01_analysis_v2.py": "7dd219e60736beb4d67b0586fc846975c00bb8749ee6a3a87096ff58c016c515",
+    "src/nextai_autoresearch/har01_task.py": "52c905470c46f10c28bf79872ab15454316a3560f880eb058cf7576b8d94cd6d",
+    "src/nextai_autoresearch/har01_task_v2.py": "720dee6a0ff15de74b57c61e759d73097e15b163afc5a1986689ea918eb296c2",
+    "src/nextai_autoresearch/process_supervision.py": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b",
+    "src/nextai_autoresearch/research_program.py": "b1bb1288dff96bedc5952a6eb0519a59ddde1fe28a1c394b831c0e6e8139f330",
+    "tests/test_har01_import_loading_conformance_v2.py": "66d2d7765705f81c6de921dc389933a3e8304dbc9ad9da4cafceed7f50dfa782",
+    "tests/test_har01_process_launch_ownership.py": "1121e8a6b60cfd1c008461b6e0521b58a01a692cd862cfcb223e25f795b31695",
+    "tests/test_har01_replication_process_exit.py": "a79f87a7bb7399af7a22c2fd53097517609b202571b4c26af7ce85514e8c2713",
+    "tests/test_har01_replication_process_exit_v2.py": "46451461201a11350b554d3f0a2034d3f6d2e021387f60f4cca8ce781827c55b"
+  },
+  "study_sha256": "8747333468ea4cb03db5a47e862d5c42493845207594c65a02123c0e05c2ca3a"
+}

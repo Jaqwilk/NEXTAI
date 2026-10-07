@@ -36,6 +36,11 @@ HAR_LABEL_GUARD_SHA256 = "243ee6fe7d8634440b92bb88fb8dd712d89761513f32663ee54c1b
 HAR_LABEL_GUARD_AUTHORITY = "research/laboratory/HAR01-LABEL-GUARD-AUTHORITY-V1.json"
 HAR_LABEL_GUARD_AUTHORITY_SHA256 = "04157dac2256884c782f259afeeb41e96d64fdc8d9fe183c13d84cee601691d7"
 HAR_LABEL_GUARD_AUXILIARY_ID = "HAR01-LABEL-GUARD-preparation-V1"
+HAR_PROCESS_LAUNCH_STUDY = "research/plans/HAR01-PROCESS-LAUNCH-CONFORMANCE-V1.json"
+HAR_PROCESS_LAUNCH_SHA256 = "8747333468ea4cb03db5a47e862d5c42493845207594c65a02123c0e05c2ca3a"
+HAR_PROCESS_LAUNCH_AUTHORITY = "research/laboratory/HAR01-PROCESS-LAUNCH-AUTHORITY-V1.json"
+HAR_PROCESS_LAUNCH_AUTHORITY_SHA256 = "5239722efb53f015b43a6b14e47a78573822a525b874be67e31bb9b8d6833e69"
+HAR_PROCESS_LAUNCH_AUXILIARY_ID = "HAR01-PROCESS-LAUNCH-preparation-V1"
 
 
 def _finite_seconds(value):
@@ -186,6 +191,44 @@ def _har_label_guard_auxiliary(base, events):
     amount = charges[0].get("seconds") if charges else cap
     if not _finite_seconds(cap) or cap != 600 or not _finite_seconds(amount) or amount != 600:
         raise ValueError("HAR label-guard allocation must retain its full conservative 600s charge")
+    return prior + amount, expected
+
+
+def _har_process_launch_auxiliary(base, events):
+    """Retain the spent 3600s and the exact prospectively authorized 300s."""
+    if (_bound_hash(base, HAR_PROCESS_LAUNCH_STUDY) != HAR_PROCESS_LAUNCH_SHA256
+            or _bound_hash(base, HAR_PROCESS_LAUNCH_AUTHORITY) != HAR_PROCESS_LAUNCH_AUTHORITY_SHA256):
+        raise ValueError("HAR process-launch study or authority hash mismatch")
+    prior, _ = _har_label_guard_auxiliary(base, events)
+    settled = [e for e in events if e.get("event") == "research_program_aux_fit_charged"
+               and e.get("charge_id") == HAR_LABEL_GUARD_AUXILIARY_ID]
+    if prior != 3600 or len(settled) != 1 or not _finite_seconds(settled[0].get("seconds")) or settled[0]["seconds"] != 600:
+        raise ValueError("Prior HAR consumed 3600s cannot be refunded or replaced")
+    expected = {"program_id": "NEXTAI-TRANSFER-PROTOTYPE-PROGRAM-20261005-V1",
+                "study_path": HAR_PROCESS_LAUNCH_STUDY, "study_sha256": HAR_PROCESS_LAUNCH_SHA256,
+                "authority_path": HAR_PROCESS_LAUNCH_AUTHORITY,
+                "authority_sha256": HAR_PROCESS_LAUNCH_AUTHORITY_SHA256}
+    permissions = [e for e in events if e.get("event") == "research_program_scoped_preparation_authorized"
+                   and e.get("study_path") == HAR_PROCESS_LAUNCH_STUDY]
+    if (len(permissions) != 1 or any(permissions[0].get(k) != v for k, v in expected.items())
+            or permissions[0].get("human_authorized") is not True
+            or type(permissions[0].get("stage_slot")) is not int or permissions[0]["stage_slot"] != 0
+            or not _finite_seconds(permissions[0].get("cap")) or permissions[0]["cap"] != 300
+            or permissions[0].get("whole_stage_cap") != 6000):
+        raise ValueError("HAR process-launch authority missing, repeated or changed")
+    owned = [e for e in events if e.get("event") in {"research_program_aux_fit_reserved", "research_program_aux_fit_charged"}
+             and (e.get("charge_id") == HAR_PROCESS_LAUNCH_AUXILIARY_ID or e.get("study_path") == HAR_PROCESS_LAUNCH_STUDY)]
+    reservations, charges = [], []
+    for event in owned:
+        if event.get("charge_id") != HAR_PROCESS_LAUNCH_AUXILIARY_ID or any(event.get(k) != v for k, v in expected.items()):
+            raise ValueError("Foreign or incomplete HAR process-launch ownership binding")
+        (reservations if event["event"] == "research_program_aux_fit_reserved" else charges).append(event)
+    if len(reservations) != 1 or len(charges) > 1:
+        raise ValueError("Missing or duplicate HAR process-launch auxiliary accounting")
+    cap = reservations[0].get("seconds_cap")
+    amount = charges[0].get("seconds") if charges else cap
+    if not _finite_seconds(cap) or cap != 300 or not _finite_seconds(amount) or amount != 300:
+        raise ValueError("HAR process-launch allocation must retain its full conservative 300s charge")
     return prior + amount, expected
 
 
@@ -532,7 +575,13 @@ def _transfer_status(base, events):
                           expected_caps=(12, 72000), authorization_event="research_program_transfer_prototype_authorized")
     protected_tickets, protected_seconds = _transfer_reserves(current["stage_registration_attempts"])
     owned_auxiliary = 0.
-    if (current["study_path"] == HAR_LABEL_GUARD_STUDY
+    if (current["study_path"] == HAR_PROCESS_LAUNCH_STUDY
+            or any(e.get("study_path") == HAR_PROCESS_LAUNCH_STUDY
+                   or e.get("charge_id") == HAR_PROCESS_LAUNCH_AUXILIARY_ID for e in events)):
+        owned_auxiliary, _ = _har_process_launch_auxiliary(base, events)
+        if not current["stage_registration_attempts"]["independent_replication"]:
+            protected_seconds -= owned_auxiliary
+    elif (current["study_path"] == HAR_LABEL_GUARD_STUDY
             or any(e.get("study_path") == HAR_LABEL_GUARD_STUDY
                    or e.get("charge_id") == HAR_LABEL_GUARD_AUXILIARY_ID for e in events)):
         owned_auxiliary, _ = _har_label_guard_auxiliary(base, events)
@@ -652,6 +701,10 @@ def auxiliary_charge(base, charge_id, seconds):
         _, binding = _har_label_guard_auxiliary(base, events)
         if seconds != 600:
             raise ValueError("HAR label-guard charge cannot release its conservative allocation")
+    elif charge_id == HAR_PROCESS_LAUNCH_AUXILIARY_ID:
+        _, binding = _har_process_launch_auxiliary(base, events)
+        if seconds != 300:
+            raise ValueError("HAR process-launch charge cannot release its conservative allocation")
     append_jsonl(base / "research/events.jsonl", {"event": "research_program_aux_fit_charged", "created_at": utc_now(),
                  "program_id": value["id"], "charge_id": charge_id, "seconds": seconds, **binding})
     status(base)  # Validate the durable accounting, including failed test runs.

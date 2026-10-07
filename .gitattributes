@@ -90,3 +90,7 @@ research/reviews/HAR01-IMPORT-EXIT-*.stderr.txt -text
 research/reviews/HAR01-LABEL-GUARD-*.xml -text
 research/reviews/HAR01-LABEL-GUARD-*.stdout.txt -text
 research/reviews/HAR01-LABEL-GUARD-*.stderr.txt -text
+
+research/reviews/HAR01-PROCESS-LAUNCH-*.xml -text
+research/reviews/HAR01-PROCESS-LAUNCH-*.stdout.txt -text
+research/reviews/HAR01-PROCESS-LAUNCH-*.stderr.txt -text
