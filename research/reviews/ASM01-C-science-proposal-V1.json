@@ -1,0 +1,791 @@
+{
+  "schema_version": 1,
+  "id": "ASM01-C-SCIENCE-PROPOSAL-V1",
+  "status": "PLANNING_ONLY_NOT_PREREGISTERED_NO_CODE_OR_NATIVE_AUTHORITY",
+  "prepared_at": "2026-10-07T23:48:33Z",
+  "objective_attachment": "C:/Users/NATAN/.codex/attachments/334d91a4-79ba-486f-a703-56095e4f14ce/goal-objective.md",
+  "recommended_study_id": "ASM01-C-FROZEN-SOURCE-SCREEN-V1",
+  "recommended_task_id": "ASM01-C-SIGNED-SERIAL-TASK-V1",
+  "cohort": "asm01_native_memory_v4",
+  "task_module": "nextai_autoresearch.asm01_task_v6",
+  "acquisition_manifest": "research/data_manifests/ASM01-C-ACQUISITION-V1.json",
+  "acquisition_output": "new C-specific screen path, allocated by root before freeze; never overwrite historical data or receipts",
+  "scientific_parent": {
+    "sha256": "a3e338f334aeccf7543f72e9e1c6133188ac39acbd23a53792a4607c3f57d217",
+    "reactivation": false,
+    "decision": "INCONCLUSIVE through intake, not a valid transfer or economic null",
+    "path": "research/plans/ASM01-FROZEN-SOURCE-SCREEN-V3.json"
+  },
+  "question": "Does information in actual frozen learned source states transfer to native pen-trajectory instance memory beyond identical untrained/shuffled source states and target/native classics, with a competent dense reference and full costs?",
+  "source_evidence": {
+    "experiment_id": "EXP-20261005-0006",
+    "no_source_refit": true,
+    "pairing": "Actual exported source unit i to fixed writer pair i. All25 source/PCA/ridge arrays exactly preserved; no source fit replay, source nonces/data or cache.",
+    "publication_path": "research/laboratory/EXP-20261005-0006-fitted-state-publication-V1.json",
+    "publication_sha256": "cf0e825db0e8c099013988a61bf836e008a65e1ef3a4fa1be82edf9b8aa06e31"
+  },
+  "source_and_methods": "Actual25 exported source states of EXP-20261005-0006; no source fit or source-array replay",
+  "candidate_names": [
+    "asm01_source_trained_s0",
+    "asm01_source_trained_s1",
+    "asm01_source_trained_s2",
+    "asm01_source_trained_s3",
+    "asm01_source_trained_s4",
+    "asm01_source_untrained_s0",
+    "asm01_source_untrained_s1",
+    "asm01_source_untrained_s2",
+    "asm01_source_untrained_s3",
+    "asm01_source_untrained_s4",
+    "asm01_source_shuffled_s0",
+    "asm01_source_shuffled_s1",
+    "asm01_source_shuffled_s2",
+    "asm01_source_shuffled_s3",
+    "asm01_source_shuffled_s4",
+    "asm01_source_ridge_s0",
+    "asm01_source_ridge_s1",
+    "asm01_source_ridge_s2",
+    "asm01_source_ridge_s3",
+    "asm01_source_ridge_s4",
+    "asm01_target_dense_s0",
+    "asm01_target_dense_s1",
+    "asm01_target_dense_s2",
+    "asm01_target_dense_s3",
+    "asm01_target_dense_s4",
+    "asm01_target_ridge_pca_s0",
+    "asm01_target_ridge_pca_s1",
+    "asm01_target_ridge_pca_s2",
+    "asm01_target_ridge_pca_s3",
+    "asm01_target_ridge_pca_s4",
+    "asm01_target_kernel_s0",
+    "asm01_target_kernel_s1",
+    "asm01_target_kernel_s2",
+    "asm01_target_kernel_s3",
+    "asm01_target_kernel_s4",
+    "asm01_native_raw_s0",
+    "asm01_native_raw_s1",
+    "asm01_native_raw_s2",
+    "asm01_native_raw_s3",
+    "asm01_native_raw_s4",
+    "asm01_native_dtw_s0",
+    "asm01_native_dtw_s1",
+    "asm01_native_dtw_s2",
+    "asm01_native_dtw_s3",
+    "asm01_native_dtw_s4"
+  ],
+  "roles": {
+    "asm01_native_dtw_s0": {
+      "arm": "native_dtw",
+      "seed_index": 0
+    },
+    "asm01_native_dtw_s1": {
+      "arm": "native_dtw",
+      "seed_index": 1
+    },
+    "asm01_native_dtw_s2": {
+      "arm": "native_dtw",
+      "seed_index": 2
+    },
+    "asm01_native_dtw_s3": {
+      "arm": "native_dtw",
+      "seed_index": 3
+    },
+    "asm01_native_dtw_s4": {
+      "arm": "native_dtw",
+      "seed_index": 4
+    },
+    "asm01_native_raw_s0": {
+      "arm": "native_raw",
+      "seed_index": 0
+    },
+    "asm01_native_raw_s1": {
+      "arm": "native_raw",
+      "seed_index": 1
+    },
+    "asm01_native_raw_s2": {
+      "arm": "native_raw",
+      "seed_index": 2
+    },
+    "asm01_native_raw_s3": {
+      "arm": "native_raw",
+      "seed_index": 3
+    },
+    "asm01_native_raw_s4": {
+      "arm": "native_raw",
+      "seed_index": 4
+    },
+    "asm01_source_ridge_s0": {
+      "arm": "source_ridge",
+      "seed_index": 0
+    },
+    "asm01_source_ridge_s1": {
+      "arm": "source_ridge",
+      "seed_index": 1
+    },
+    "asm01_source_ridge_s2": {
+      "arm": "source_ridge",
+      "seed_index": 2
+    },
+    "asm01_source_ridge_s3": {
+      "arm": "source_ridge",
+      "seed_index": 3
+    },
+    "asm01_source_ridge_s4": {
+      "arm": "source_ridge",
+      "seed_index": 4
+    },
+    "asm01_source_shuffled_s0": {
+      "arm": "source_shuffled",
+      "seed_index": 0
+    },
+    "asm01_source_shuffled_s1": {
+      "arm": "source_shuffled",
+      "seed_index": 1
+    },
+    "asm01_source_shuffled_s2": {
+      "arm": "source_shuffled",
+      "seed_index": 2
+    },
+    "asm01_source_shuffled_s3": {
+      "arm": "source_shuffled",
+      "seed_index": 3
+    },
+    "asm01_source_shuffled_s4": {
+      "arm": "source_shuffled",
+      "seed_index": 4
+    },
+    "asm01_source_trained_s0": {
+      "arm": "source_trained",
+      "seed_index": 0
+    },
+    "asm01_source_trained_s1": {
+      "arm": "source_trained",
+      "seed_index": 1
+    },
+    "asm01_source_trained_s2": {
+      "arm": "source_trained",
+      "seed_index": 2
+    },
+    "asm01_source_trained_s3": {
+      "arm": "source_trained",
+      "seed_index": 3
+    },
+    "asm01_source_trained_s4": {
+      "arm": "source_trained",
+      "seed_index": 4
+    },
+    "asm01_source_untrained_s0": {
+      "arm": "source_untrained",
+      "seed_index": 0
+    },
+    "asm01_source_untrained_s1": {
+      "arm": "source_untrained",
+      "seed_index": 1
+    },
+    "asm01_source_untrained_s2": {
+      "arm": "source_untrained",
+      "seed_index": 2
+    },
+    "asm01_source_untrained_s3": {
+      "arm": "source_untrained",
+      "seed_index": 3
+    },
+    "asm01_source_untrained_s4": {
+      "arm": "source_untrained",
+      "seed_index": 4
+    },
+    "asm01_target_dense_s0": {
+      "arm": "target_dense",
+      "seed_index": 0
+    },
+    "asm01_target_dense_s1": {
+      "arm": "target_dense",
+      "seed_index": 1
+    },
+    "asm01_target_dense_s2": {
+      "arm": "target_dense",
+      "seed_index": 2
+    },
+    "asm01_target_dense_s3": {
+      "arm": "target_dense",
+      "seed_index": 3
+    },
+    "asm01_target_dense_s4": {
+      "arm": "target_dense",
+      "seed_index": 4
+    },
+    "asm01_target_kernel_s0": {
+      "arm": "target_kernel",
+      "seed_index": 0
+    },
+    "asm01_target_kernel_s1": {
+      "arm": "target_kernel",
+      "seed_index": 1
+    },
+    "asm01_target_kernel_s2": {
+      "arm": "target_kernel",
+      "seed_index": 2
+    },
+    "asm01_target_kernel_s3": {
+      "arm": "target_kernel",
+      "seed_index": 3
+    },
+    "asm01_target_kernel_s4": {
+      "arm": "target_kernel",
+      "seed_index": 4
+    },
+    "asm01_target_ridge_pca_s0": {
+      "arm": "target_ridge_pca",
+      "seed_index": 0
+    },
+    "asm01_target_ridge_pca_s1": {
+      "arm": "target_ridge_pca",
+      "seed_index": 1
+    },
+    "asm01_target_ridge_pca_s2": {
+      "arm": "target_ridge_pca",
+      "seed_index": 2
+    },
+    "asm01_target_ridge_pca_s3": {
+      "arm": "target_ridge_pca",
+      "seed_index": 3
+    },
+    "asm01_target_ridge_pca_s4": {
+      "arm": "target_ridge_pca",
+      "seed_index": 4
+    }
+  },
+  "matrix": {
+    "knowledge_sizes": [
+      16,
+      32,
+      64
+    ],
+    "queries_per_cell": 64,
+    "reasoning_depths": [
+      1,
+      2,
+      3
+    ],
+    "seed_policy": {
+      "count": 5,
+      "maximum": 2147483647,
+      "method": "runner_random_v1",
+      "minimum": 1000000
+    }
+  },
+  "scientific_data_law": {
+    "train_validation_pairs": 512,
+    "interpretation": "Previously exposed public development screen. No fresh or blind-holdout claim; separate writer-level acquisition units, dependent views within each sample.",
+    "fit_instances": 64,
+    "screen_writers": [
+      {
+        "dev_writer": 16,
+        "source_unit": 0,
+        "train_writer": 1,
+        "unit": 0
+      },
+      {
+        "dev_writer": 17,
+        "source_unit": 1,
+        "train_writer": 2,
+        "unit": 1
+      },
+      {
+        "dev_writer": 18,
+        "source_unit": 2,
+        "train_writer": 3,
+        "unit": 2
+      },
+      {
+        "dev_writer": 19,
+        "source_unit": 3,
+        "train_writer": 4,
+        "unit": 3
+      },
+      {
+        "dev_writer": 20,
+        "source_unit": 4,
+        "train_writer": 5,
+        "unit": 4
+      }
+    ],
+    "validation_instances": 24,
+    "evaluation_conditions": [
+      "nominal",
+      "adverse"
+    ],
+    "train_pairs": 4096,
+    "independent_units": {
+      "archive_identity_gate": "Require exactly45 Wn native writer folders, each with183 distinct M.n.txt entries whose filename writer n agrees with folder Wn, total8235. No missing/duplicate canonical sample allowed. Exactly one publisher foreign member W6/15.5.TXT (9459bytes) is excluded from the legal membership map, preserved in archive, never numerically read. No other exception or sample/writer substitution.",
+      "fresh_final_dev": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "fresh_final_train": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "pairing": "Source state i -> fixed train/dev writer pair i; no favorable source/target selection",
+      "replication_dev": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "replication_train": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "screen_dev": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "screen_train": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unit": "writer; query repeats/points/augmentations are not independent units",
+      "unused_writers": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    "train_calibration_episodes_per_K": 3,
+    "dev_episodes_per_cell": 4,
+    "no_sample_filters_replacement_or_favorable_writer_selection": true,
+    "expected_trials": 810,
+    "train_sets_episodes_per_K": 128,
+    "calibration_instances": 95,
+    "expected_roles": 45,
+    "train_pair_draw_rule": "One private permutation of183 sample IDs for each T writer:64fit/24validation/95calibration.4096 training pairs start with those64 distinct fit IDs, then4032 replacement draws.512 validation pairs start with24 distinct validation IDs, then488 replacement draws. Same pairs/all nine arms; repeats do not create independent samples.",
+    "legal_inputs": "Only normalized64 native coordinates and legal random fact/source/version write metadata and T training labels. No sample, character or writer identifier on queries or in model features; no character-name/class label or Data_Table.pdf.",
+    "axis_encoding": {
+      "1": 0,
+      "2": 1,
+      "3": 4
+    },
+    "required_samples": 1830,
+    "all_data_hashes_required": true,
+    "samples_per_writer": 183
+  },
+  "recipe": {
+    "alignment_batch": 128,
+    "alignment_steps": 2048,
+    "dense_set_steps": 1024,
+    "kernel_bandwidth_grid": [
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "kernel_landmarks": 64,
+    "kernel_ridge_grid": [
+      0.0001,
+      0.01,
+      1.0
+    ],
+    "learning_rate": 0.003,
+    "margin_grid": [
+      0.0,
+      0.005,
+      0.01,
+      0.02,
+      0.04,
+      0.08,
+      0.16,
+      0.32
+    ],
+    "native_dtw": "Exact band4 DTW on SAME public32x2 unit-L2 views. Local cost32*sum((x_i-y_j)^2). Dynamic program minimizes total squared cost within |i-j|<=4, starts(0,0), ends(31,31), allowed diagonal/up/left with that deterministic tie priority. Track length of selected minimum-sum path; d=sum/length. Similarity=1/(1+d). All distances, DP state/allocation and selection work charged. No private full trajectory.",
+    "native_raw": "No-fit cosine retrieval on the same normalized public32x2 trajectory views; no sample/class/writer ID or private trajectory.",
+    "pca_rank_grid": [
+      16,
+      32,
+      64
+    ],
+    "pca_whitening_grid": [
+      0.0,
+      0.5
+    ],
+    "ridge_grid": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "score_normalization": "For all cosine routes clip score[-1,1] then s=(1+cosine)/2. NativeDTW uses1/(1+d). Stable top1 is lowest insertion slot on ties; margin=top1_score-second_highest_score. Accept iff s>=absolute_threshold AND margin>=margin_threshold. Same two-axis policy for all9arms.",
+    "source_frozen": "Actual64->64 residual linear/GELU encoder or actual65xrank source ridge; original source PCA frozen. Source feature output ->native write projected in that frozen PCA using legal target ridge readout with intercept. Choose regularizer on T-validation normalized squaredL2 only; deterministic ascending grid ties. Same adaptation on allfour source arms; all source weights unchanged. No target gradient update of source model. Source PCA hashes of neural controls must be identical.",
+    "target_dense": "Unchanged PVM64D residual linear/GELU64/128/64 transport and2-layer4head256FF residual-zero-init Transformer decoder; same AdamW recipe,2048alignment+1024set steps,lastcheckpoint. Target native T pairs only, no source weights. Context K16/32 alternating; batch4sets/8queries; CE20temperature with0.85 absence class +0.1 knownMSE. Decoder sees each query independently with peer-query mask. Cache CPU projections at inference as unchanged dense_cached_cpu algebra; no random projection or new architecture.",
+    "target_kernel": "Same existing RBF Nystrom transport; first64 distinct fit samples, not repeated draw landmarks. Bandwidth/ridge grids unchanged, jitter1e-10, validation MSE and deterministic ascending ties; all grid fits charged.",
+    "target_ridge_pca": "Native64query->write ridge/intercept on4096draws, choose regularizer by512 reserved T-validation MSE. T-write-only PCA ranks16/32/64 xwhitening0/.5, min validation normalizedL2 deterministic ascending rank/exponent. ExactCPU cosine scan and full chargedupdates.",
+    "threads": 1,
+    "threshold_grid": [
+      0.0,
+      0.25,
+      0.5,
+      0.65,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.925,
+      0.95,
+      0.97,
+      0.98,
+      0.99,
+      0.995,
+      0.999,
+      0.9995,
+      0.9999,
+      1.0
+    ],
+    "threshold_selection": "All27 nominal T-calibration episodes (3Kx3updatecountsx3episodes), same144 absolute/margin pairs for all9arms. Eligible iff knownFA<=.02 and UNKNOWN>=.95. Eligible first, then maximize full answer accuracy, higher UNKNOWN, lower absolute threshold, lower margin threshold, in that order. If none eligible retain best same ordered tuple and mark infeasible. No D threshold selection.",
+    "weight_decay": 0.0001
+  },
+  "diagnostics": {
+    "secondary": [
+      "accuracy",
+      "fact_top1_accuracy",
+      "source_attribution_accuracy",
+      "known_false_abstention",
+      "dense_unknown_rejection",
+      "updated_known_accuracy",
+      "retained_known_accuracy",
+      "current_value_at_correct_handle",
+      "service_seconds",
+      "p50_latency_us",
+      "p95_latency_us",
+      "state_bytes",
+      "fit_seconds",
+      "fullcold_worker_wall"
+    ],
+    "secondary_intervals": "paired95% descriptive only; no source-transfer claim from target fit alone; adverse contrasts separatelyreported",
+    "source_information_primary_family": {
+      "condition": "nominal, equalweights over3Kx3updates",
+      "endpoints": [
+        "trained_minus_untrained:fact_top1",
+        "trained_minus_shuffled:fact_top1",
+        "trained_minus_untrained:UNKNOWN",
+        "trained_minus_shuffled:UNKNOWN"
+      ],
+      "interval": "two-sided Studentt df4, Bonferroni nominal family95% across4endpoints =>98.75% each; all four pass for source-information KEEP",
+      "mean_gain_minimum": 0.02,
+      "paired_CI_lower_must_exceed": 0.0,
+      "paired_units": 5,
+      "positive_pairs_required": 5
+    }
+  },
+  "reference_gates": {
+    "accuracy_each_unit_minimum": 0.9,
+    "accuracy_mean_minimum": 0.95,
+    "dense_unknown_rejection_minimum": 0.95,
+    "known_false_abstention_maximum": 0.02,
+    "three_K_each_condition": true
+  },
+  "diagnosis_gates": {
+    "economic_qualification": {
+      "UNKNOWN_minimum": 0.95,
+      "all_conditions_required": [
+        "nominal",
+        "adverse"
+      ],
+      "candidate_full_service_ratio_CI_upper": 0.8,
+      "candidate_p95_ratio_CI_upper": 0.9,
+      "candidate_quality_minus_dense_CI_lower": -0.02,
+      "known_false_abstention_maximum": 0.02,
+      "no_weakened_economics": true,
+      "per_condition_K_metrics": [
+        "accuracy",
+        "UNKNOWN",
+        "known_false_abstention"
+      ],
+      "quality_cost_family": "18pairedgates/route:2conditionsx3Kx(accuracyNI,service,p95); two-sided99.722222% df4 intervals; fivepairs",
+      "quality_guard_each_unit": 0.9,
+      "quality_guard_mean": 0.95,
+      "scales": [
+        16,
+        32,
+        64
+      ],
+      "strong_classical_nondomination": "Six fixed native/classical comparators:source_ridge,target_ridge_pca,target_kernel,native_raw,native_dtw andtarget_dense. For each route and comparator across6cells, simultaneous Studentt df4 intervals over108fixedcomparisons (NIquality,service,p95). Dominated if comparator qualityNI lower>=-.02 and both service/p95 ratio upper<=1 with oneupper<1, plus competence/UNKNOWN/FA. Aroute is not qualified by beating dense alone."
+    },
+    "source_information_effect": {
+      "CI_lower": 0.0,
+      "familywise_alpha": 0.05,
+      "mean_minimum": 0.02,
+      "positive_pairs": 5
+    }
+  },
+  "decision_policy": "Missing/partial fiveunits, intake/source/sourceweight/datahash/resource/mandatorycontrol/evaluator invalidity =>INCONCLUSIVE; failure of competence makes economic comparison INCONCLUSIVE, not architecture falsification. Source-information KEEP only all4frozen primary gates; otherwise DISCARD this exact frozen-source/readout transfer recipe if measurement/control valid; expose both rank/UNKNOWN separately. Qualify a fixed route only unchanged competent-reference and percell quality/UNKNOWN/FA plus18economic andfixed strong-classical non-domination gates. No promotion/LLM/generalintelligence/blindholdout/general scaling claim. Preserve every failure and cost; exactlyone audited EXP,no paid retry/seed replacement,outcome-based tuning or sourcefitreplay. Independently justified alternatives require new prospective recipe/data; replication andfresh finals remainprotected.",
+  "cost_boundary": {
+    "attribution": "Same acquisition shared once in aggregate and disclosed separately; per-route amortized totals include it. Sunk original source fit and historical B intake/preparation cost disclosed descriptively without replay or recharging. All new C work, failures and overhead charged once to separate C; nested subprocess wall included under its owning reservation, not duplicated. Protected B allocations remain untouched.",
+    "energy_measured": false,
+    "service": "Raw pen-down paths already in memory -> descriptor, copies, service-state construction/restoration, ingest/index/cache, all updates, warmup, query and current value/source/UNKNOWN decode. Cold cost additionally includes bounded acquisition, archive decompression, text parsing, all grids/fit/calibration, process supervision and copied/compressed file reads."
+  },
+  "proposed_new_parser_law": {
+    "metadata": {
+      "declared_strokes": "Positive canonical decimal, at most16384; bound inherited from prior262144/16 serializer envelope before allocation. All declared IDs including leading/middle/trailing empties are retained as metadata. No inferred replacement stroke IDs.",
+      "annotation_semantics": "Explicit point stroke IDs authoritative. Marker annotations retained only as verified release metadata, not boundaries.",
+      "state": "Unsigned decimal, value1 only; signed metadata reject.",
+      "serial": "Unsigned decimal, positive1..declared_strokes; monotonically nondecreasing in original point order, gaps allowed."
+    },
+    "failure": "Categorical redacted failure only. Any required invalid grammar/bound/order/duplicate/geometry invalidates complete native intake and stops unstarted scientific scope. Do not change scientific law from new content under engineering rerun authority.",
+    "coordinates": {
+      "y_minimum": -4868,
+      "justification": "Prospective symmetric extension of exact magnitudes4392/4868 already frozen in original asm01_task.parse_native_sample. Known signed nonzero Y proves unsigned-only rule is insufficient. No magnitude of negative native coordinate has been inspected. This is a NEW scientific admissibility law, not claimed publisher device documentation and not a metadata-only repair.",
+      "prohibited": [
+        "abs",
+        "clamp",
+        "offset",
+        "sign deletion except numerical zero equivalence",
+        "coordinate/point/sample dropping",
+        "sorting",
+        "bounds fitted to new coordinate content"
+      ],
+      "plus_decimal_exponent_nan_inf": "reject",
+      "inclusive": true,
+      "x_maximum": 4392,
+      "leading_zeros": "Allowed, including signed zero, with mathematical integer value preserved. Strip leading zeros for bounded lexical comparison BEFORE int conversion; no unbounded decimal int conversion.",
+      "lexical": "-?[0-9]+",
+      "x_minimum": -4392,
+      "y_maximum": 4868
+    },
+    "body": "Only bare PEN_DOWN, literal PEN_UP 0, or exactly four point tokens X Y STYLUS_STATE STROKE. Known marker annotations may be missing, repeated or orphaned; their order/count do not define geometry. Unknown marker operands or row forms reject.",
+    "payload": "Exact bytes, ASCII, at most262144 bytes; strip blank lines and surrounding whitespace as historical code. First nonempty line begins CHARACTER_NAME:, last begins END_CHARACTER:. Opaque name/footer suffixes are neither features nor diagnostics. STROKE_COUNT is second line and matches STROKE_COUNT:\\s*[1-9][0-9]*. Exactly one tokenized X Y STYLUS_STATE STROKE column header at nonempty index2. Mid-body envelope/header/count rows reject.",
+    "geometry": {
+      "flattened_geometry": "Keep existing concatenation, including its cross-stroke arc segments. Adding separators or resampling strokes separately would change frozen descriptor and is forbidden.",
+      "minimum_retained_points": 4,
+      "transform": "Import and reuse unchanged nextai_autoresearch.asm01_task.transform, same object. Even point parity write, odd nominal query, adverse query removes indices3,7,11,...; all three views must pass existing distinct-position/positive arc/RMS/finite64D checks.",
+      "array": "C-contiguous float32 Nx2, same exact value conversion as old integer-to-float32 path.",
+      "retained_point_cap": 32768,
+      "order": "Preserve every coordinate value and original point order. Dedup only adjacent equal XY within the SAME explicit serial; reset predecessor across serial changes and gaps. No global dedup."
+    },
+    "input_mode": "Release-only; no legacy or old-parser fallback. Historical V1-V5 bytes and APIs remain untouched."
+  },
+  "preserved_source_sha256": {
+    "src/nextai_autoresearch/asm01_task.py": "858dd782f3823368435d0b490baee3e6633483907fcb861c58ca1da2246eaefd",
+    "src/nextai_autoresearch/asm01_task_v2.py": "32c6c9c9e1aa6069e35d5741b7a674ee33b71db25c9d3362e69f24bbfe4672c5",
+    "src/nextai_autoresearch/asm01_task_v3.py": "2419e5f101db1ac6708f6e817f33a77f31915e2e251412578c4ce3dd9907ff49",
+    "src/nextai_autoresearch/asm01_task_v4.py": "5d51c82c39dd56b230ec8406ad27dc48cf548de6757cb692b1e155fe0d0bb9f1",
+    "src/nextai_autoresearch/asm01_task_v5.py": "ef5c49accb6ec1f4fb2318499aae28131198139fc5a50aed01d69420c173686e",
+    "src/nextai_autoresearch/benchmarks/asm01_native_memory_v2.py": "8f18f6610cef997654c9c6fc18afeed31a88b53accd414e9c14b294b776c18c9",
+    "src/nextai_autoresearch/benchmarks/asm01_native_memory_v3.py": "e4bdc193276176dfe74eaf0b0949eda35b5f7e139b0aa0504de2f8caf9cd5d66",
+    "src/nextai_autoresearch/candidates/asm01_core.py": "65b84c0c8ddfad649385fe6d1bafb3a1b218822acfc8e858961e3fa1d61e418e",
+    "src/nextai_autoresearch/asm01_inventory_members_v3.py": "c1752b82b4cdc7ce8e51430b2ed6934cedec1877d606570b80b82a352562f392",
+    "research/preparations/ASM01-POINT-SERIAL-PREPARATION-V1/normalizer.py": "fbc87c0ba993b73eaa751bc9ecc21cf0fb1ec544887b679cb9c42e8e5f844a8c",
+    "research/preparations/ASM01-POINT-SERIAL-NATIVE-CONFORMANCE-V1/intake.py": "763ea39f27c329a71eed4bd6ca5cdc420cbe22718603718ea7293ca7835aca34"
+  },
+  "acquisition": {
+    "listing": "research/data/asm01_native_v1/selected-screen-members-v3.txt",
+    "new_download_or_extraction": false,
+    "publisher_sha256": "d6ad543e65269d53e38fdac6a32dd20bcd942e7616891a6cf95986894b454a4d",
+    "future_closed": "W6-15,W21-30,W31-45,Data_Table.pdf and excluded foreign member numeric contents remain inaccessible. Existing fixed archive hash provenance only, no reacquisition.",
+    "maximum_two_root_total_footprint_bytes": 335544320,
+    "membership_guard": "Reuse frozen screen_members with all1830 fixed UIDs, no links/junctions/resolve escapes/foreign directories, raw listing==disk and all stat caps checked before any payload.",
+    "source_directory": "research/data/asm01_native_v1/screen-text-v3",
+    "minimum_free_bytes_after_operation": 10737418240,
+    "per_file_bytes_cap": 262144,
+    "aggregate_file_bytes_cap": 479723520,
+    "metadata_proof": {
+      "max_bytes": 25086,
+      "final_uppercase_extensions": 153,
+      "total_bytes": 14394085,
+      "alias_scope": "Final .txt/.TXT only; actual Paths/raw disk-listing sets/UIDs/frozen order preserved.",
+      "sha256": "70ef9eede4cf148187debd2431461d8f05a2eac05c9accb47ba90df2a8ffca0b",
+      "files": 1830,
+      "path": "research/reviews/ASM01-INVENTORY-V3-REAL-METADATA-V1.json"
+    },
+    "reuse_existing_extraction_only": true,
+    "listing_sha256": "d49c97288d650bc42995d27b7301e2b15b4d373b74ec6a320b7971020fe4e4f5"
+  },
+  "historical_evidence": {
+    "latest_numeric_intake": {
+      "old74_array_three_view_comparisons": 74,
+      "D_numeric_converted": 256,
+      "D_attempted": 257,
+      "sha256": "6eb67400a08af48725ff98450e199fbb50606e74585bdcbe42c8c475cb0ab378",
+      "other_raw_reads_unstarted_in_that_run": 658,
+      "previously_numeric_converted_old74": 74,
+      "numeric_converted_distinct": 1171,
+      "additional_distinct_numeric_conversions": 1097,
+      "failure_category": "normalize",
+      "samples_not_numeric_converted": 659,
+      "NPZ": 0,
+      "fit": 0,
+      "registration": 0,
+      "map_fields": [
+        "native_intake.attempted_sample_text_sha256",
+        "native_intake.sample_array_sha256",
+        "native_intake.old_array_sha256",
+        "native_intake.old_descriptor_sha256"
+      ],
+      "EXP": 0,
+      "failure_UID": "17:74",
+      "path": "research/laboratory/ASM01-NATIVE-CONFORMANCE-COMPLETION-V1.receipt.json",
+      "raw_attempted_in_that_run": 1172,
+      "T_numeric_converted": 915
+    },
+    "complete_lexical_inventory": {
+      "unknown_rows": 0,
+      "exact_header_index2_all_files": true,
+      "structural_anomalous_files": 55,
+      "point_max": 691,
+      "point_min": 39,
+      "sha256": "ce4cc88018c02c0d6644cf2c9a8f74ad269458f1b07e33afd81e69bd7d227407",
+      "point_rows": 389510,
+      "declared_strokes_min": 1,
+      "total_categorical_rows": 407424,
+      "all_point_state_values": [
+        1
+      ],
+      "path": "research/reviews/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.receipt.json",
+      "files": 1830,
+      "D_raw_exposed": 915,
+      "T_raw_exposed": 915,
+      "point_mean": 212.84699453551912,
+      "declared_strokes_max": 11,
+      "coordinate_values_parsed_or_emitted": false
+    },
+    "scientific_screen_valid_results": 0,
+    "signed_lexical_diagnosis": {
+      "new_unique_native_samples": 0,
+      "point_rows": 175,
+      "signed_coordinate_numeric_magnitudes": "UNKNOWN; must not infer or inspect before freeze",
+      "path": "research/reviews/ASM01-LEXICAL-DIAG-RESULT-V3.json",
+      "X_unsigned": 175,
+      "numeric_coordinate_conversions": 0,
+      "Y_unsigned": 172,
+      "raw_sha256": "0392f781b81f4d1d0a1f2ab0df30b3647c93c6e2b23d7f3ff8cf5da5dd939160",
+      "zero_aliases": 0,
+      "Y_minus_nonzero": 3,
+      "sha256": "f07b264d58d8f2c05eb331cc53f802b253ba206e1d2cad8fcf8d316c3220ba80",
+      "UID": "17:74"
+    },
+    "old75_intake": {
+      "raw_attempted": 75,
+      "numeric_converted": 74,
+      "failure": "1:75 Native point grammar",
+      "sha256": "b5626c35c96e62f71e730045fa7ab8cbc69b41207cba2cc6e1e91afd043271ed",
+      "NPZ": 0,
+      "D_attempted": 0,
+      "path": "research/data_manifests/ASM01-ACQUISITION-V3.json"
+    }
+  },
+  "native_conformance_sequence": [
+    "Before any payload: bind objective/new task/study/source SHA, clone package origin, all historical receipts/source hashes, exact1830 inventory SHA keys and member metadata, old75 map and1171 priorarray map scope/consistency, cap/disk guards. No current output/receipt overwrite.",
+    "Process UID1:1..1:74 FIRST, one raw read per UID; raw SHA matches inventory and old75. Old frozen V4 and new V6 parse same in-memory payload. Require dtype,shape,tobytes exact arrays and unchanged transform write/nominal/adverse arrays; compare saved74 array and descriptor hashes. First failure stops before UID1:75 or D.",
+    "After74PASS process remaining1756 in same fixed writer/sample order, one read per UID, raw SHA inventory match. Require exact1171 prior array-hash matches for each previously accepted UID; arrays_hash includes dtype,shape,bytes and unchanged transform ensures same descriptor from equal arrays. Gate complete1171 comparisons before intake success.",
+    "Global duplicate array check includes every canonical UID once, including the74. All required views valid; no dropped/replaced UID. Fullreceipt remains redacted and durable after any failure withattempted/converted/compared/T/D/currentUID/errorcategory/maps/costs.",
+    "Only1830/1830 converted,1830 raw hashes,915T/915D,74 direct comparisons,1171 historical hash comparisons,all writer arrays/rows/offsets/hashes complete permits new30-key NPZ written atomically with exclusive creation. Manifest hashes dataset and exact source/task/study/publisher binding.",
+    "Only complete nativeconformance permits loader integration/full sourcefreeze/preflight/readiness/same-builder no-ticket dryrun before one C-funded scientific registration. No native failure rescue/scientific paid retry."
+  ],
+  "finite_synthetic_contract": {
+    "evidence_preservation": "Preserve all failed historical versions/XML/receipts; C technical public/synthetic fixes can rerun only under coherent engineering prereg, with all failure costs retained. No scientific content-guided rule rescue.",
+    "loader_provenance_families": [
+      "newexactmanifest/task/study/hash binding, old receipt refused",
+      "exact30NPZkeys/10writerrowidentity/183paths/dtype/offsets",
+      "hash mismatches/datasetescape/futurewriters/duplicates reject",
+      "all5sourceunitpairings,4096/512 draws and fixedTsplit same",
+      "unchanged methods/sourcearrays/grids/gates; wrapper only loader/manifest/cohort"
+    ],
+    "negative_families": [
+      "wrongtype/nonASCII/bytecap",
+      "missing/duplicate/misplacedheader",
+      "count0/negative/noncanonical/overcap",
+      "unknownrow/unknownmarkeroperands",
+      "state0/signedstate",
+      "serial0/aboveN/decrease/signed",
+      "pointarity",
+      "plus/decimal/exponent/NaN/inf coordinate forms",
+      "four one-unit bound overshoots",
+      "large digit tokens checked lexically before int",
+      "underfour retainedpoints/postdedup pointcap",
+      "degenerate or invalid each required view"
+    ],
+    "positive_families": [
+      "oldV4 accepted headed fixtures exactarrays/threeviews",
+      "canonical release annotations",
+      "missing/repeated/orphan recognizedannotations with monotone explicit serials",
+      "leading/middle/trailing empty IDs",
+      "same XY acrossstroke retained and withinstroke adjacent duplicate removed",
+      "negativeX/negativeY/interior and all four inclusive bounds",
+      "leading zeros and signed zeros",
+      "all valid whitespace/blank handling"
+    ],
+    "expected_arrays": "Construct independently; no test mirroring parser internals; short parameter IDs."
+  },
+  "stage_C_caps": {
+    "unchanged_fit_seconds_per_role_cap": 120,
+    "unchanged_monitor_inclusive_worker_ceiling": 184,
+    "total_supervised_fit_seconds_cap": 3600,
+    "charged_seconds_cap": 43200,
+    "cuda_required": true,
+    "prior_admin_liability_minimum_seconds": 110.724645,
+    "B_history_preserved": {
+      "seconds_cap": 72000,
+      "registrations_cap": 12,
+      "protected_registrations": 6,
+      "registrations_consumed": 2,
+      "C_credit_added_to_B": false,
+      "protected_seconds": 41000,
+      "seconds_consumed": 30999.55024020007
+    },
+    "allocation_owner": "Root freezes exact auxiliary/science/controller/admin reservations and program authority separately; this proposal grants no reservation/execution.",
+    "stage_started_at": "2026-10-07T23:42:00Z",
+    "max_rss_bytes": 4294967296,
+    "prior_admin_liability_uncertainty": "Estimate conservatively from saved evidence; notzero/free credit.",
+    "new_scientific_registration_cap": 1,
+    "max_cuda_reserved_bytes": 4294967296,
+    "nominal_wall_deadline_at": "2026-10-08T11:42:00Z",
+    "scientific_full_workers_seconds_cap": 9000,
+    "unchanged_worker_seconds_cap": 180
+  },
+  "implementation_binding_notes": [
+    "New task_v6 loader copies only frozenversionbinding; transform/pairs/episodes/training math are imported unchanged.",
+    "New benchmark_v4 delegates untouched V2 run_suite using FunctionType with new load_unit, exact old acquisition-path->Cmanifest load_json shim and cohort only. Without exact shim, intakecost would read old failedV2manifest and be wrong.",
+    "All source/trained/untrained/shuffled/PCA/ridge weights frozen; no replay or source fitting. Bind actual25 arrays from EXP-20261005-0006 publication.",
+    "Beforefreeze root resolves newtask/study/outputpaths and allSHA placeholders, removes stale old budget/prior-exposure text and gives C-specific program registration ownership. No generic lifecycle callback can finance current work from protected B."
+  ],
+  "exclusions": [
+    "fresh/blindfinal claim",
+    "WT8-9",
+    "external models/API",
+    "source refit",
+    "architecture changes",
+    "schedule changes",
+    "prototype",
+    "HAR scientific retry",
+    "protected B spending",
+    "paid scientific retry"
+  ]
+}
