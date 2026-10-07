@@ -1,0 +1,12 @@
+{
+  "actual_start_at": "2026-10-07T00:36:30Z",
+  "frozen_before_implementation_and_data": true,
+  "full_remaining_seconds_cap": 2100,
+  "hard_preparation_deadline_at": "2026-10-07T00:46:30Z",
+  "hard_study_deadline_at": "2026-10-07T01:11:30Z",
+  "id": "HAR01-REPLICATION-CONTINUATION-CLOCK-V2",
+  "preparation_seconds_cap": 600,
+  "prior_consumed_seconds": 3900,
+  "reason": "Conservatively include all preregistration/setup after previous300s stage ends00:36:30Z; nominal study starts00:37:30Z so impose earlier hard clock. This shortens limits; never extends/reset/refunds.",
+  "study_sha256": "c1ffee7b7856851fc4dc2792f3aa0e6e8502bb465d2244ba0997fa43966f39aa"
+}
