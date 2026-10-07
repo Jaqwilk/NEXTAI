@@ -15,6 +15,14 @@ from .utils import (
 
 
 FIXED_PROTECTED_FILES = (
+    "research/plans/HAR01-INDEPENDENT-REPLICATION-V3.json",
+    "research/plans/HAR01-REPLICATION-TASK-V3.json",
+    "research/laboratory/HAR01-REPLICATION-CONTINUATION-AUTHORITY-V3.json",
+    "research/data_manifests/HAR01-REPLICATION-ACQUISITION-V3.json",
+    "scripts/acquire_har01_replication_v3.py",
+    "scripts/check_har01_replication_readiness_v3.py",
+    "scripts/run_har01_replication_experiment_v3.py",
+    "scripts/analyze_har01_replication_v3.py",
     "research/plans/HAR01-INDEPENDENT-REPLICATION-V2.json",
     "research/plans/HAR01-REPLICATION-TASK-V2.json",
     "research/plans/HAR01-REPLICATION-CONTINUATION-CLOCK-V2.json",
@@ -206,9 +214,55 @@ FIXED_PROTECTED_FILES = (
 )
 
 
+_HAR_UNSTARTED_STUDY = "research/plans/HAR01-INDEPENDENT-REPLICATION-V3.json"
+_HAR_UNSTARTED_STUDY_SHA = "9cf2153945a322e9c0e47c6d20287a9286e544a62ca0f711b64c797bcb493400"
+_HAR_UNSTARTED_MANIFESTS = {
+    "research/data_manifests/HAR01-REPLICATION-ACQUISITION-V1.json": {
+        "receipt_path": "research/laboratory/HAR01-REPLICATION-PREPARATION-COMPLETION-V1.receipt.json",
+        "receipt_sha256": "fbca149a18f1010c9355f3ae95ee1eaa18dc72f8183d5d311708ebdc5d0a5b4f",
+        "scope": "onlyabsentunstarted; presentfile alwaysprotected",
+    },
+    "research/data_manifests/HAR01-REPLICATION-ACQUISITION-V2.json": {
+        "receipt_path": "research/laboratory/HAR01-REPLICATION-COMPLETION-V2.receipt.json",
+        "receipt_sha256": "132a331f4d6125d7ccbb3d3684b6ef3dfc52c6fa688c0a32bf25a91b88455567",
+        "scope": "onlyabsentunstarted; presentfile alwaysprotected",
+    },
+}
+
+
+def _exclude_proven_unstarted_har_intakes(base: Path, discovered: set[str]) -> None:
+    study_path = base / _HAR_UNSTARTED_STUDY
+    if not study_path.exists():
+        return
+    if not study_path.is_file() or sha256_file(study_path) != _HAR_UNSTARTED_STUDY_SHA:
+        raise ValueError("Historical HAR intake exemption study binding changed")
+    study = load_json(study_path)
+    if study.get("historical_unstarted_intake_manifest_exemptions") != _HAR_UNSTARTED_MANIFESTS:
+        raise ValueError("Historical HAR intake exemption scope changed")
+    receipts = []
+    for binding in _HAR_UNSTARTED_MANIFESTS.values():
+        path = base / binding["receipt_path"]
+        if not path.is_file() or sha256_file(path) != binding["receipt_sha256"]:
+            raise ValueError("Historical HAR unstarted intake receipt binding changed")
+        receipts.append(load_json(path))
+    first, second = receipts
+    if (first.get("ready") is not False or first.get("EXP") != 0 or first.get("fit") != 0
+            or second.get("experiment_id", "missing") is not None
+            or second.get("workers_present") != 0 or second.get("trials_present") != 0
+            or second.get("observed_full_workers_seconds") != 0
+            or second.get("full_worker_charge_including_conservative_recovery") != 0
+            or second.get("native_raw_publisher_or_NPZ_published") is not False):
+        raise ValueError("Historical HAR intake was not proven unstarted")
+    for relative in _HAR_UNSTARTED_MANIFESTS:
+        path = base / relative
+        if not path.exists() and not path.is_symlink():
+            discovered.discard(relative)
+
+
 def protected_files(root: Path | None = None) -> tuple[str, ...]:
     base = (root or project_root()).resolve()
     discovered: set[str] = set(FIXED_PROTECTED_FILES)
+    _exclude_proven_unstarted_har_intakes(base, discovered)
     for pattern in ("src/nextai_autoresearch/**/*.py", "tests/**/*.py"):
         for path in base.glob(pattern):
             if path.is_file() and "__pycache__" not in path.parts:

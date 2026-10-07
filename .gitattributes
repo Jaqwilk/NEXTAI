@@ -99,3 +99,8 @@ research/reviews/HAR01-REPLICATION-*-V2.xml -text
 research/reviews/HAR01-REPLICATION-*-V2.stdout.txt -text
 research/reviews/HAR01-REPLICATION-*-V2.stderr.txt -text
 research/reviews/HAR01-REPLICATION-controller-V2.*.txt -text
+
+research/reviews/HAR01-REPLICATION-*-V3.xml -text
+research/reviews/HAR01-REPLICATION-*-V3.stdout.txt -text
+research/reviews/HAR01-REPLICATION-*-V3.stderr.txt -text
+research/reviews/HAR01-REPLICATION-controller-V3.*.txt -text
