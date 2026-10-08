@@ -1,0 +1,51 @@
+........................................................................ [ 48%]
+............................................F
+================================== FAILURES ===================================
+_____ test_complete_public_fixture_preserves_frozen_math_and_cost_nesting _____
+
+analyzer = <module 'c_analysis_fixture' from 'C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\scripts\\analyze_asm01_c_v1.py'>
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-readiness-V5/test_complete_public_fixture_p0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000027CBF968130>
+
+    def test_complete_public_fixture_preserves_frozen_math_and_cost_nesting(analyzer, tmp_path, monkeypatch):
+>       study, result = _fixture(tmp_path, analyzer, monkeypatch)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_c_analysis.py:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_c_analysis.py:50: in _fixture
+    _write(base, source, {"status": "complete", "execution": {"supervised_fit_seconds": 1.}})
+tests\test_c_analysis.py:30: in _write
+    atomic_write_json(path, value)
+src\nextai_autoresearch\utils.py:58: in atomic_write_json
+    fd, temporary_name = tempfile.mkstemp(
+..\..\..\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\tempfile.py:354: in mkstemp
+    return _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+dir = 'C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\NEXTAI-C-ENGINEERING-readiness-V5\\t...complete_public_fixture_p0\\research\\laboratory\\archive\\EXP-20261005-0006-runtime\\research\\tmp\\EXP-20261005-0006'
+pre = '.pvm01_tc_ridge_pca_scan_s0.supervisor.json.', suf = '.tmp'
+flags = 34050, output_type = <class 'str'>
+
+    def _mkstemp_inner(dir, pre, suf, flags, output_type):
+        """Code common to mkstemp, TemporaryFile, and NamedTemporaryFile."""
+    
+        dir = _os.path.abspath(dir)
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, pre + name + suf)
+            _sys.audit("tempfile.mkstemp", file)
+            try:
+>               fd = _os.open(file, flags, 0o600)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\research\\tmp\\NEXTAI-C-ENGINEERING-readiness-V5\\test_complete_public_fixture_p0\\research\\laboratory\\archive\\EXP-20261005-0006-runtime\\research\\tmp\\EXP-20261005-0006\\.pvm01_tc_ridge_pca_scan_s0.supervisor.json.7v5gevu0.tmp'
+
+..\..\..\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\tempfile.py:255: FileNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/test_c_analysis.py::test_complete_public_fixture_preserves_frozen_math_and_cost_nesting
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!

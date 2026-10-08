@@ -1,0 +1,40 @@
+{
+  "command": [
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_research_program_c.py",
+    "tests/test_c_runner_limits.py",
+    "tests/test_c_harness_admission.py",
+    "tests/test_c_engineering_full_path.py",
+    "tests/test_c_scientific_driver.py",
+    "tests/test_asm01_c_intake.py",
+    "tests/test_asm01_c_binding.py",
+    "--junitxml=research/reviews/NEXTAI-C-ENGINEERING-full-V2.xml",
+    "--basetemp=research/tmp/NEXTAI-C-ENGINEERING-full-V2"
+  ],
+  "completed_at": "2026-10-08T00:06:33.965642+00:00",
+  "component_nested_in_C_outer_wall": true,
+  "driver_sha256": "b4e5b5d6fbc63e78e67d419c6089489274b9d948103063e10a38971d72895fae",
+  "error": null,
+  "inclusive_controller_wall_seconds": 27.71669070000644,
+  "job": {
+    "elapsed_seconds": 27.716300400003092,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 495693824,
+    "pid": 36336,
+    "processes_created": 39,
+    "reason": "exited",
+    "returncode": 1,
+    "root_returncode": 1
+  },
+  "root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "started_at": "2026-10-08T00:06:06.248951+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "2e36cb0108b711b3d79bfc91cdc191c9b355395a9634e73176592ebc0d3ca400",
+  "supervisor_origin": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\process_supervision.py",
+  "supervisor_sha256": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b",
+  "timeout_seconds": 1800.0
+}

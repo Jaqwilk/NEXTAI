@@ -1,0 +1,2 @@
+{"event": "probe_started", "probe": "cli-import", "pid": 6680, "root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002"}
+{"event": "probe_completed", "probe": "cli-import", "elapsed": 0.29535159999795724, "error": null}

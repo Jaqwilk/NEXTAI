@@ -1,0 +1,62 @@
+import json
+from pathlib import Path
+
+from nextai_autoresearch.laboratory import laboratory_progress, _historical_laboratory_progress, pc01_scope_problems
+from nextai_autoresearch.schemas import validate_document
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_authority_is_one_attempt_and_forbids_candidate_and_wt_scope() -> None:
+    value = json.loads((ROOT / "research/laboratory/MUC-01-CALIBRATION-20260906-V1.json").read_text(encoding="utf-8"))
+    assert value["experiment_registrations_cap"] == 1
+    assert value["runner_random_seeds"] == 1
+    assert value["automatic_retry"] is False
+    assert value["candidate_mechanism_implementation_authorized"] is False
+    assert value["wt_files_8_9_access_authorized"] is False
+
+
+def test_historical_queue_preserves_muc_v1_terminal_decision() -> None:
+    progress = _historical_laboratory_progress(ROOT)
+    assert progress["next_action_id"] in {"MUC-01-CALIBRATION", "MUC-01-CALIBRATION-DECISION"}
+    if progress["next_action_id"] == "MUC-01-CALIBRATION":
+        assert progress["scoring_authorized"] is True
+        assert pc01_scope_problems(ROOT) == []
+
+
+def test_current_queue_resolves_new_authority_without_resetting_v1() -> None:
+    from nextai_autoresearch.audit_repair import status as repair_status
+    from nextai_autoresearch.muc02_negatives_stage import status as negatives_status
+    progress = laboratory_progress(ROOT)
+    program = progress["research_program"]
+    prefix = "NEXTAI" if program.get("prior_program_closed") else "MUC03"
+    assert progress["next_action_id"] in {f"{prefix}-{phase}" for phase in
+                                        ("STUDY-PREP", "STUDY-RUN", "STUDY-REVIEW", "PROGRAM-COMPLETE")}
+    if "stage_b_registration_attempts_cap" in program:
+        assert program["registration_attempts_cap"] == 26
+        assert program["prior_registration_attempts_used"] == 14
+        assert program["stage_b_registration_attempts_cap"] == 12
+        assert program["stage_b_compute_seconds_cap"] == 72000
+        assert program["stage_a_accounting"]["registration_attempts_used"] == 11
+        assert program["stage_a_accounting"]["registration_attempts_cap"] == 17
+        assert program["stage_a_accounting"]["program_closed"]
+    else:
+        assert program["registration_attempts_cap"] == 20
+        if prefix == "NEXTAI":
+            assert program["prior_registration_attempts_used"] == 3
+            assert program["continuation_registration_attempts_cap"] == 17
+    assert progress["muc01_calibration"]["terminal"]
+    assert repair_status(ROOT)["registrations_cap"] == 1
+    assert repair_status(ROOT)["terminal"] and negatives_status(ROOT)["executed_attempts_cap"] == 1
+    assert negatives_status(ROOT)["terminal"]
+
+
+def test_frozen_plan_schema_accepts_only_exact_matrix_and_roles() -> None:
+    plans = sorted((ROOT / "research/plans").glob("EXP-*.json"))
+    muc = [json.loads(path.read_text(encoding="utf-8")) for path in plans if json.loads(path.read_text(encoding="utf-8")).get("benchmark") == "mutable_contact_ledger_v1"]
+    for plan in muc:
+        validate_document("experiment_plan", plan, ROOT)
+        assert plan["matrix"]["knowledge_sizes"] == [32, 128, 512]
+        assert plan["matrix"]["reasoning_depths"] == [1, 2, 4]
+        assert plan["candidates"] == ["dense_transformer_v1", "bm25_iterative_reader_v1", "symbolic_last_write_graph_v1"]

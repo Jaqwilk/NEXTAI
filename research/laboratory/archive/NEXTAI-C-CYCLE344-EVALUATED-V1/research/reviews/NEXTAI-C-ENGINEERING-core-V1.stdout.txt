@@ -1,0 +1,31 @@
+..........F.............                                                 [100%]
+================================== FAILURES ===================================
+_ test_prospective_admission_reads_real_prerequisites_without_ready_or_writes _
+
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-core-V1/test_prospective_admission_rea0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001C2768BB310>
+
+    def test_prospective_admission_reads_real_prerequisites_without_ready_or_writes(tmp_path, monkeypatch):
+        base, clock, contract, _ = _fixture(tmp_path, monkeypatch)
+        c.activate(base)
+        assert c.prospective_admission_problems(base)
+        _science_inputs(base, contract)
+        before = {str(path.relative_to(base)): path.read_bytes() for path in base.rglob("*") if path.is_file()}
+        assert c.prospective_admission_problems(base) == []
+        assert c.scope_problems(base, prospective=True) == []
+        assert c.scope_problems(base) and c.status(base)["scoring_authorized"] is False
+        with pytest.raises(ValueError):
+            c.reserve_registration(base)
+        after = {str(path.relative_to(base)): path.read_bytes() for path in base.rglob("*") if path.is_file()}
+        assert before == after
+        config = base / "config/research.toml"
+        config.write_text(config.read_text().replace('benchmark_version="c_engineering_fixture_v1"',
+                                                    'benchmark_version="foreign_cohort"'), encoding="utf-8")
+        assert c.prospective_admission_problems(base)
+>       config.write_bytes(before["config/research.toml"])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'config/research.toml'
+
+tests\test_research_program_c.py:337: KeyError
+=========================== short test summary info ===========================
+FAILED tests/test_research_program_c.py::test_prospective_admission_reads_real_prerequisites_without_ready_or_writes

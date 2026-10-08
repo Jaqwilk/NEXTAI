@@ -1,0 +1,38 @@
+{
+  "command": [
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_asm01_cohort_conformance.py::test_actual_dense_model_cached_top2_scores_agree_with_full_transformer",
+    "tests/test_asm01_cohort_conformance.py::test_target_classical_gridfits_keep64_distinct_landmarks_and_full_pca_grid",
+    "tests/test_asm01_cohort_conformance.py::test_train_only_calibration_uses_all144_pairs_and_rejects_absent_margin",
+    "tests/test_asm01_cohort_conformance.py::test_serialized_native_worker_stops_at_trusted_boundary_before_arrays_or_fit",
+    "--maxfail=1",
+    "--junitxml=research/reviews/NEXTAI-C-ENGINEERING-semantic-V8.xml",
+    "--basetemp=research/tmp/c8"
+  ],
+  "completed_at": "2026-10-08T00:28:19.085339+00:00",
+  "component_nested_in_C_outer_wall": true,
+  "driver_sha256": "b4e5b5d6fbc63e78e67d419c6089489274b9d948103063e10a38971d72895fae",
+  "error": null,
+  "inclusive_controller_wall_seconds": 3.2682710999943083,
+  "job": {
+    "elapsed_seconds": 3.267862900000182,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 1352962048,
+    "pid": 28108,
+    "processes_created": 3,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "started_at": "2026-10-08T00:28:15.817068+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "c7e4112ee00157f6cd73b78553233801e1ebd66836f258ef8f46fb8e60480444",
+  "supervisor_origin": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\process_supervision.py",
+  "supervisor_sha256": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b",
+  "timeout_seconds": 600.0
+}

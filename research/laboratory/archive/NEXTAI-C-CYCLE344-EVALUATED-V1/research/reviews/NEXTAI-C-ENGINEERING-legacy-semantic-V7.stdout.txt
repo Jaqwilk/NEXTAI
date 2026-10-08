@@ -1,0 +1,48 @@
+....................................F
+================================== FAILURES ===================================
+___ test_actual_dense_model_cached_top2_scores_agree_with_full_transformer ____
+
+    def test_actual_dense_model_cached_top2_scores_agree_with_full_transformer():
+        recipe=dict(STUDY['recipe'],alignment_steps=1,dense_set_steps=2)
+        model=Candidate(666,'target_dense',recipe)
+        rng=np.random.default_rng(122);writes=rng.normal(size=(40,64)).astype(np.float32);queries=writes.copy()
+        sets={size:(np.repeat(writes[None,:size],4,axis=0),np.repeat(queries[None,:8],4,axis=0),
+                    np.repeat(np.arange(8)[None],4,axis=0)) for size in (16,32)}
+>       model.fit(writes[:32],queries[:32],writes[32:],queries[32:],sets)
+
+tests\test_asm01_cohort_conformance.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\candidates\har01_core.py:143: in fit
+    self._dense_fit(writes, queries, validation_writes, validation_queries, sets)
+src\nextai_autoresearch\candidates\har01_core.py:87: in _dense_fit
+    super().fit(writes, queries, validation_writes, validation_queries)
+src\nextai_autoresearch\candidates\pvm01_core.py:84: in fit
+    loss.backward()
+.venv\Lib\site-packages\torch\_tensor.py:626: in backward
+    torch.autograd.backward(
+.venv\Lib\site-packages\torch\autograd\__init__.py:347: in backward
+    _engine_run_backward(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+t_outputs = (tensor(1.4152, device='cuda:0', grad_fn=<MseLossBackward0>),)
+args = ((tensor(1., device='cuda:0'),), False, False, ())
+kwargs = {'allow_unreachable': True, 'accumulate_grad': True}
+
+    def _engine_run_backward(
+        t_outputs: Sequence[Union[torch.Tensor, GradientEdge]],
+        *args: Any,
+        **kwargs: Any,
+    ) -> Tuple[torch.Tensor, ...]:
+        attach_logging_hooks = log.getEffectiveLevel() <= logging.DEBUG
+        if attach_logging_hooks:
+            unregister_hooks = _register_logging_hooks_on_whole_graph(t_outputs)
+        try:
+>           return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+                t_outputs, *args, **kwargs
+            )  # Calls into the C++ engine to run the backward pass
+E           RuntimeError: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility
+
+.venv\Lib\site-packages\torch\autograd\graph.py:823: RuntimeError
+=========================== short test summary info ===========================
+FAILED tests/test_asm01_cohort_conformance.py::test_actual_dense_model_cached_top2_scores_agree_with_full_transformer
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!

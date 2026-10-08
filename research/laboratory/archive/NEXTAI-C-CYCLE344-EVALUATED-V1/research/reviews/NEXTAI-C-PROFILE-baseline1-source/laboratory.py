@@ -1,0 +1,807 @@
+"""Small preparation gate for the user-authorized laboratory restart."""
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+from jsonschema.exceptions import ValidationError
+
+from .config import load_config
+from .schemas import validate_document
+from .utils import load_json, project_root, sha256_file
+
+
+CONTRACT_PATH = "research/laboratory/restart.json"
+ACTIVATION_PATH = "research/laboratory/PC-01-ACTIVATION-20260905-V1.json"
+ACTIVATION_SHA256 = "9ea8810d50a4495770dba9f774ce6d006d62ba0632eb346b271c46b1ed1ca6ca"
+REPAIR_PATH = "research/plans/PC-01-TELEMETRY-REPAIR-V1.json"
+REPAIR_SHA256 = "9cee710f1d927153ae7aa72962f22e1721f47707da19392cf0a1343d784377f1"
+DEV2_PATH = "research/laboratory/PC-01-DEV2-20260905-V1.json"
+DEV2_SHA256 = "d595da85d8a16f70fde42375579f5e7012804ee61ddc225b5313b185f5664008"
+GPU_METADATA_PATH = "research/plans/PC-01-GPU-METADATA-V1.json"
+GPU_METADATA_SHA256 = "f0d14d68e266a9701ab6aaa66638e1375618eb59d2acae284c915830de69ed8e"
+
+
+def final_preparation_status(base: Path) -> dict | None:
+    """One bounded adapter preparation, without execution authority."""
+    from datetime import datetime, timezone
+    from .ledger import read_jsonl
+    from .pc01_final_transition import PLAN_PATH, PLAN_SHA256
+    events = read_jsonl(base / "research/events.jsonl")
+    starts = [e for e in events if e.get("event") == "laboratory_maintenance_started"
+              and e.get("action_id") == "PC-01-FINAL-PREP"]
+    path = base / PLAN_PATH
+    if not path.exists() and not starts:
+        return None
+    if (not path.is_file() or sha256_file(path) != PLAN_SHA256 or len(starts) != 1
+            or starts[0].get("plan_path") != PLAN_PATH or starts[0].get("plan_sha256") != PLAN_SHA256):
+        raise ValueError("Final preparation authorization missing, changed or repeated")
+    plan = load_json(path)
+    if sha256_file(base / plan["metadata_receipt"]) != plan["metadata_receipt_sha256"]:
+        raise ValueError("Final preparation metadata receipt changed")
+    ends = [e for e in events if e.get("event") == "pc01_final_preparation_completed"]
+    if len(ends) > 1:
+        raise ValueError("Final preparation completed more than once")
+    if ends:
+        event = ends[0]
+        relative = "research/laboratory/PC-01-FINAL-PREP-V1.receipt.json"
+        if (event.get("receipt_path") != relative or sha256_file(base / relative) != event.get("receipt_sha256")
+                or event.get("training_performed") is not False or event.get("scoring_performed") is not False):
+            raise ValueError("Final preparation completion changed or scope exceeded")
+    return {"complete": bool(ends), "expired": datetime.now(timezone.utc) >= datetime.fromisoformat(plan["deadline_at"]),
+            "deadline_at": plan["deadline_at"], "plan_path": PLAN_PATH}
+
+
+def gpu_metadata_status(base: Path) -> dict | None:
+    """A separate bounded repair, never authority for another training attempt."""
+    from datetime import datetime, timezone
+    from .ledger import read_jsonl
+    events = read_jsonl(base / "research/events.jsonl")
+    starts = [e for e in events if e.get("event") == "laboratory_maintenance_started"
+              and e.get("action_id") == "PC-01-GPU-METADATA"]
+    path = base / GPU_METADATA_PATH
+    if not path.exists() and not starts:
+        return None
+    if (not path.is_file() or sha256_file(path) != GPU_METADATA_SHA256 or len(starts) != 1
+            or starts[0].get("plan_path") != GPU_METADATA_PATH
+            or starts[0].get("plan_sha256") != GPU_METADATA_SHA256):
+        raise ValueError("GPU metadata repair authorization missing, changed or repeated")
+    plan = load_json(path)
+    if sha256_file(base / plan["prior_dev_receipt"]) != plan["prior_dev_receipt_sha256"]:
+        raise ValueError("GPU metadata repair cannot replace the completed dev receipt")
+    ends = [e for e in events if e.get("event") == "pc01_gpu_metadata_completed"]
+    if len(ends) > 1:
+        raise ValueError("GPU metadata repair completed more than once")
+    if ends:
+        event = ends[0]
+        relative = "research/laboratory/PC-01-GPU-METADATA-V1.receipt.json"
+        if (event.get("receipt_path") != relative or sha256_file(base / relative) != event.get("receipt_sha256")
+                or event.get("training_performed") is not False or event.get("scoring_performed") is not False):
+            raise ValueError("GPU metadata completion receipt changed or scope exceeded")
+    return {"complete": bool(ends), "expired": datetime.now(timezone.utc) >= datetime.fromisoformat(plan["deadline_at"]),
+            "deadline_at": plan["deadline_at"], "plan_path": GPU_METADATA_PATH}
+
+
+def dev2_authority(base: Path) -> dict | None:
+    """Prospective one-attempt overlay; never edits or replenishes old authority."""
+    from .ledger import read_jsonl
+    from .utils import sha256_json
+    events = [e for e in read_jsonl(base / "research/events.jsonl")
+              if e.get("event") == "pc01_dev2_authorized"]
+    path = base / DEV2_PATH
+    if not path.exists() and not events:
+        return None
+    if (not path.is_file() or sha256_file(path) != DEV2_SHA256 or len(events) != 1
+            or events[0].get("authorization_path") != DEV2_PATH
+            or events[0].get("authorization_sha256") != DEV2_SHA256):
+        raise ValueError("PC-01 second dev authorization missing, changed or repeated")
+    authority = load_json(path)
+    repair = telemetry_repair_status(base)
+    if activation_authority(base) is None or not repair or not repair["complete"]:
+        raise ValueError("Second dev requires the preserved first authority and completed repair")
+    for relative, digest in authority["historical_anchors"].items():
+        artifact = base / relative
+        actual = (sha256_json(load_json(artifact)) if relative == "research/plans/EXP-20260905-0001.json"
+                  else sha256_file(artifact))
+        if actual != digest:
+            raise ValueError(f"Second dev historical anchor changed: {relative}")
+    if load_json(base / "research/results/EXP-20260905-0001.json")["execution"]["fit_seconds_charged"] != 1200:
+        raise ValueError("Second dev cannot reset the previous fit charge")
+    candidate = base / "src/nextai_autoresearch/candidates/pc01_byte_gpt_v1.py"
+    if sha256_file(candidate) != authority["candidate_sha256"]:
+        raise ValueError("Second dev requires unchanged candidate source")
+    if sha256_file(base / authority["design_path"]) != authority["design_sha256"]:
+        raise ValueError("Second dev design changed")
+    return authority
+
+
+def _dev2_plans(base: Path, authority: dict) -> list[dict]:
+    from .pc01_execution import registered_plans
+    from .utils import sha256_json
+    plans = registered_plans(base)
+    if (not 1 <= len(plans) <= 2 or plans[0]["experiment_id"] != "EXP-20260905-0001"
+            or sha256_json(plans[0]) != authority["historical_anchors"]["research/plans/EXP-20260905-0001.json"]):
+        raise ValueError("Second dev cannot omit, replace or reset historical registrations")
+    for plan in plans[1:]:
+        if (plan["candidate"] != authority["candidate"] or plan["phase"] != "dev"
+                or plan["attempt"] != 2 or plan["development_seed"] != 1103
+                or plan["benchmark"] != authority["cohort"] or plan["series_sha256"] is not None
+                or plan["recipe_sha256"] != authority["recipe_sha256"]):
+            raise ValueError("Second dev registration exceeds the exact approved scope")
+    return plans
+
+
+def telemetry_repair_status(base: Path) -> dict | None:
+    """One user-authorized maintenance deliverable; never grants a model retry."""
+    from datetime import datetime, timezone, timedelta
+    from .ledger import read_jsonl
+    events = read_jsonl(base / "research/events.jsonl")
+    starts = [e for e in events if e.get("event") == "laboratory_maintenance_started"
+              and e.get("action_id") == "PC-01-TELEMETRY-REPAIR"]
+    path = base / REPAIR_PATH
+    if not path.exists() and not starts:
+        return None
+    if (not path.is_file() or sha256_file(path) != REPAIR_SHA256 or len(starts) != 1
+            or starts[0].get("plan_path") != REPAIR_PATH or starts[0].get("plan_sha256") != REPAIR_SHA256):
+        raise ValueError("Telemetry repair authorization missing, changed or repeated")
+    ends = [e for e in events if e.get("event") == "pc01_telemetry_repair_completed"]
+    if len(ends) > 1:
+        raise ValueError("Telemetry repair completed more than once")
+    if ends:
+        event = ends[0]
+        relative = "research/laboratory/PC-01-TELEMETRY-REPAIR-V1.receipt.json"
+        if (event.get("receipt_path") != relative or sha256_file(base / relative) != event.get("receipt_sha256")
+                or event.get("training_performed") is not False or event.get("scoring_performed") is not False):
+            raise ValueError("Telemetry repair completion receipt changed or scope exceeded")
+    deadline = datetime.fromisoformat(starts[0]["created_at"]) + timedelta(minutes=45)
+    return {"complete": bool(ends), "expired": datetime.now(timezone.utc) >= deadline,
+            "deadline_at": deadline.isoformat(), "plan_path": REPAIR_PATH}
+
+
+def activation_authority(base: Path) -> dict | None:
+    """A separately hash-bound user decision, not a rewrite of the restart."""
+    from .ledger import read_jsonl
+    events = [e for e in read_jsonl(base / "research/events.jsonl")
+              if e.get("event") == "pc01_activation_authorized"]
+    path = base / ACTIVATION_PATH
+    if not path.exists() and not events:
+        return None
+    if (not path.is_file() or sha256_file(path) != ACTIVATION_SHA256 or len(events) != 1
+            or events[0].get("authorization_path") != ACTIVATION_PATH
+            or events[0].get("authorization_sha256") != ACTIVATION_SHA256):
+        raise ValueError("PC-01 activation authorization missing, changed or repeated")
+    return load_json(path)
+
+
+def pc01_scope_problems(base: Path, *, candidate: str | None = None,
+                        phase: str | None = None, experiment_id: str | None = None,
+                        series_freeze: bool = False) -> list[str]:
+    """One registered development attempt; invalidation does not replenish it."""
+    try:
+        from .muc02_replication_stage import status as replication_status, scope_problems as replication_scope
+        replication = replication_status(base)
+        if replication is not None:
+            if candidate is not None or phase is not None or series_freeze:
+                return ["MUC replication does not reopen historical PC-01 or final-series operations"]
+            return replication_scope(base, experiment_id)
+        from .research_program import status as program_status, scope_problems as program_scope
+        if program_status(base) is not None:
+            if candidate is not None or phase is not None or series_freeze:
+                return ["Research program does not reopen historical PC-01 operations"]
+            return program_scope(base, experiment_id)
+        from .muc02_negatives_stage import status as negatives_status, scope_problems as negatives_scope, COHORT
+        if negatives_status(base) is not None:
+            if load_config(base).benchmark_version != COHORT:
+                return ["Hard-negative stage may score only its fresh development cohort"]
+            if candidate is not None or phase is not None or series_freeze:
+                return ["Hard-negative stage forbids PC-01 and final-series operations"]
+            return negatives_scope(base, experiment_id)
+        from .audit_repair import status as repair_status, scope_problems as repair_scope
+        if repair_status(base) is not None:
+            if load_config(base).benchmark_version != "mutable_contact_ledger_v2":
+                return ["Audit repair may score only its new v2 calibration cohort"]
+            if candidate is not None or phase is not None or series_freeze:
+                return ["Audit repair forbids PC-01 training and final series"]
+            return repair_scope(base, experiment_id)
+        from .muc01_calibration import authority as muc_authority, scope_problems as muc_scope
+        if load_config(base).benchmark_version == "mutable_contact_ledger_v1" and muc_authority(base) is not None:
+            if experiment_id is not None or (candidate is None and phase is None and not series_freeze):
+                return muc_scope(base, experiment_id=experiment_id)
+            return ["MUC-01 calibration forbids PC-01 candidate, phase and series operations"]
+        from .wt01_dev1 import authority as wt01_authority, scope_problems as wt01_scope
+        if wt01_authority(base) is not None and (
+            experiment_id is not None
+            or (candidate is None and phase is None and not series_freeze)
+        ):
+            return wt01_scope(base, experiment_id=experiment_id)
+        from .pc01_final_authority import authority as final_authority, scope as final_scope
+        final = final_authority(base)
+        if final is not None:
+            return final_scope(base, final, candidate=candidate, phase=phase,
+                               experiment_id=experiment_id, series_freeze=series_freeze)
+        if final_preparation_status(base) is not None:
+            return ["Final preparation never authorizes training or final access"]
+        if gpu_metadata_status(base) is not None:
+            return ["GPU metadata maintenance never authorizes dev/final/legacy scoring"]
+        second = dev2_authority(base)
+        if second is not None:
+            plans = _dev2_plans(base, second)
+            if load_config(base).benchmark_version != second["cohort"]:
+                return ["Second dev cannot activate another cohort"]
+            if experiment_id is not None:
+                if len(plans) != 2 or plans[1]["experiment_id"] != experiment_id:
+                    return ["Second dev authorization does not cover this plan"]
+                return []
+            if len(plans) != 1:
+                return ["Second dev single additional registration already consumed"]
+            if candidate != second["candidate"] or phase != "dev":
+                return ["Second dev forbids final/legacy/different candidate execution"]
+            return []
+        authority = activation_authority(base)
+        if authority is None:
+            return ["laboratory scoring is not authorized"]
+        from .pc01_execution import registered_plans
+        plans = registered_plans(base)
+        if experiment_id is not None:
+            if len(plans) != 1 or plans[0]["experiment_id"] != experiment_id:
+                return ["PC-01 single-attempt authorization does not cover this plan"]
+            plan = plans[0]
+            candidate, phase = plan["candidate"], plan["phase"]
+            if plan["attempt"] != 1 or plan["development_seed"] != 1103 or plan["series_sha256"] is not None:
+                return ["PC-01 authorized dev contract differs"]
+        elif plans:
+            return ["PC-01 single registered development attempt already consumed"]
+        if candidate != authority["candidate"] or phase != "dev":
+            return ["PC-01 authorization covers only pc01_byte_gpt_v1 dev; final/legacy execution forbidden"]
+        if load_config(base).benchmark_version != authority["cohort"]:
+            return ["PC-01 authorization cannot activate another cohort"]
+        return []
+    except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
+        return [f"PC-01 activation: {exc}"]
+
+
+def laboratory_progress(root: Path | None = None) -> dict[str, Any]:
+    base = (root or project_root()).resolve()
+    progress = _historical_laboratory_progress(base)
+    from .muc02_replication_stage import status as replication_status
+    replication = replication_status(base)
+    if replication is not None:
+        stopped = replication["terminal"] or replication["expired"]
+        scope = {key: value for key, value in replication.items() if key != "preserved_research_program"}
+        return {**progress, "activation_id": replication["id"], "muc02_negatives": scope,
+                "preserved_research_program": replication["preserved_research_program"],
+                "scoring_authorized": replication["scoring_authorized"], "user_decision_required": stopped,
+                "next_action_id": "MUC02-REPLICATION-DECISION" if stopped else
+                    "MUC02-REPLICATION-RUNNING" if replication["started"] else
+                    "MUC02-REPLICATION-RUN" if replication["ready"] else "MUC02-REPLICATION-PREP",
+                "next_action": "Preserve every outcome and report the exact unfinished scope; no retry or automatic final."
+                    if stopped else "Complete the separately authorized fresh five-pair replication within its frozen caps."}
+    from .research_program import status as program_status
+    program = program_status(base)
+    if program is not None:
+        queue_prefix = "NEXTAI" if program.get("prior_program_closed") else "MUC03"
+        return {**progress, "activation_id": program["id"], "research_program": program,
+                "scoring_authorized": program["scoring_authorized"], "user_decision_required": False,
+                "next_action_id": f"{queue_prefix}-PROGRAM-COMPLETE" if program["program_terminal"] else
+                    f"{queue_prefix}-STUDY-REVIEW" if program["study_terminal"] or program["study_expired"] else
+                    f"{queue_prefix}-STUDY-RUN" if program["ready"] else f"{queue_prefix}-STUDY-PREP",
+                "next_action": (
+                    "Program terminal. Preserve all outcomes and report the exact unexecuted scope; "
+                    "no further study or scoring under this authority."
+                    if program["program_terminal"] else
+                    "Preserve all outcomes, review evidence and autonomously select the next preregistered study within finite program caps."
+                )}
+    from .muc02_negatives_stage import status as negatives_status
+    negatives = negatives_status(base)
+    if negatives is not None:
+        stopped = negatives["terminal"] or negatives["expired"]
+        from .audit_repair import status as repair_status
+        return {**progress, "activation_id": negatives["id"], "muc02_negatives": negatives,
+                "audit_repair": repair_status(base),
+                "scoring_authorized": negatives["scoring_authorized"], "user_decision_required": stopped,
+                "next_action_id": "MUC02-HARD-NEGATIVES-DECISION" if stopped else "MUC02-HARD-NEGATIVES-RUN" if negatives["ready"] else "MUC02-HARD-NEGATIVES-PREP",
+                "next_action": "Review all preserved paired development outcomes; no retry or automatic final stage." if stopped else
+                    "Preregister and complete exactly one fresh 5-pair negative-sampling comparison within the frozen budgets."}
+    from .audit_repair import status
+    repair = status(base)
+    if repair is None:
+        return progress
+    stopped = repair["terminal"] or repair["expired"]
+    return {**progress, "activation_id": repair["id"], "audit_repair": repair,
+            "scoring_authorized": repair["scoring_authorized"], "user_decision_required": stopped,
+            "next_action_id": "AUDIT-REPAIR-DECISION" if stopped else "MUC-02-CALIBRATION" if repair["ready"] else "AUDIT-REPAIR",
+            "next_action": "Review the preserved repair and single calibration outcome; no retry." if stopped else
+                "Complete the authorized audit fixes, clone validation and one preregistered v2 baseline calibration."}
+
+
+def _historical_laboratory_progress(root: Path | None = None) -> dict[str, Any]:
+    """Resolve the bounded service queue from verified append-only completions.
+
+    Progress cannot grant scoring authority or change the frozen restart limits.
+    A preparation blocker is an operational state, not a doctor integrity error.
+    """
+    from .ledger import read_jsonl
+
+    base = (root or project_root()).resolve()
+    initial = laboratory_contract(base)
+    milestones = {m["id"]: m for m in initial["milestones"]}
+    events = [e for e in read_jsonl(base / "research/events.jsonl")
+              if e.get("event") == "lab_milestone_progress"
+              and e.get("restart_id") == initial["restart_id"] and e.get("milestone_id") == "PC-01"]
+    default = {"next_action_id": initial["next_action_id"], "next_action": initial["next_action"],
+               "service_cycles_used": 0, "service_cycles_cap": milestones["PC-01"]["max_service_cycles"],
+               "service_budget_exhausted": False, "user_decision_required": False, "progress_source": CONTRACT_PATH}
+    if not events:
+        return default
+    used, charged = 0, 0.0
+    for event in events:
+        attempt = event.get("attempt")
+        if type(attempt) is not int or attempt != used+1 or attempt > default["service_cycles_cap"]:
+            raise ValueError("PC-01 progress resets/skips/exceeds the service-cycle cap")
+        if event.get("scoring_performed") is not False or event.get("training_performed") is not False:
+            raise ValueError("PC-01 preparation event cannot certify training/scoring")
+        budget = event.get("cumulative_budget", {})
+        if budget.get("service_cycles_used") != attempt or budget.get("service_cycles_cap") != default["service_cycles_cap"]:
+            raise ValueError("PC-01 progress budget differs from restart contract")
+        minutes = budget.get("service_minutes_conservatively_charged")
+        if isinstance(minutes, bool) or not isinstance(minutes, (int, float)) or not charged <= minutes <= 120:
+            raise ValueError("PC-01 preparation minutes reset/exceed the total cap")
+        if budget.get("total_fit_seconds_used") != 0 or budget.get("development_attempts_used") != 0:
+            raise ValueError("PC-01 service progress cannot hide training attempts")
+        charged = float(minutes)
+        used = attempt
+    latest = events[-1]
+    expected_next = {"design_contract_completed": "PC-01-HARNESS",
+                     "preparation_blocked": "PC-01-DECISION"}.get(latest.get("status"))
+    if expected_next is None or latest.get("next_action_id") != expected_next:
+        raise ValueError("Unrecognized PC-01 preparation transition; cannot unlock execution")
+    artifacts = latest.get("artifact_sha256")
+    if not isinstance(artifacts, dict) or not artifacts:
+        raise ValueError("PC-01 progress has no hash-linked artifacts")
+    for relative, digest in artifacts.items():
+        path = (base / relative).resolve()
+        if not path.is_relative_to(base) or not path.is_file() or sha256_file(path) != digest:
+            raise ValueError(f"PC-01 progress artifact missing or changed: {relative}")
+    exhausted = used >= default["service_cycles_cap"]
+    if exhausted and expected_next != "PC-01-DECISION":
+        raise ValueError("PC-01 service cap exhausted without an explicit decision report")
+    progress = {**default, "next_action_id": expected_next, "next_action": latest["next_action"],
+            "service_minutes_accounted": charged, "remaining_service_minutes": max(0.0, 120-charged),
+            "service_cycles_used": used, "service_budget_exhausted": exhausted,
+            "user_decision_required": expected_next == "PC-01-DECISION",
+            "progress_source": "research/events.jsonl", "completed_action_id": latest.get("action_id")}
+    progress = _authorized_extension(base, progress)
+    from .pc01_closure import closure as pc01_closure, migration_completed
+    historical = pc01_closure(base)
+    if historical is not None:
+        completed = migration_completed(base)
+        from .wt01_contract import status as wt01_status
+        wt01 = wt01_status(base) if completed is not None else None
+        if wt01 is not None:
+            finished = wt01["complete"]
+            from .wt01_harness import status as wt01_harness_status
+            harness = wt01_harness_status(base) if finished else None
+            if harness is not None:
+                ready = harness["complete"]
+                from .wt01_dev1 import status as wt01_dev1_status
+                dev1 = wt01_dev1_status(base) if ready else None
+                if dev1 is not None:
+                    stopped = dev1["terminal"]
+                    review = _review01_status(base) if stopped else None
+                    if review is not None:
+                        from .muc01_calibration import status as muc01_status
+                        muc01 = muc01_status(base)
+                        if muc01 is not None:
+                            return {**progress, "activation_id": muc01["id"],
+                                    "development_registrations_used": muc01["registrations_used"],
+                                    "development_registrations_cap": 1,
+                                    "final_registrations_used": 3, "final_registrations_cap": 3,
+                                    "final_completed": 3, "final_access_authorized": False,
+                                    "scoring_authorized": muc01["scoring_authorized"],
+                                    "user_decision_required": muc01["terminal"],
+                                    "next_action_id": "MUC-01-CALIBRATION-DECISION" if muc01["terminal"] else "MUC-01-CALIBRATION",
+                                    "next_action": "Review the single preserved MUC-01 calibration; no retry or next stage."
+                                        if muc01["terminal"] else
+                                        "Freeze, preregister and execute exactly one MUC-01 baseline calibration.",
+                                    "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                                    "lifecycle_migration_complete": True,
+                                    "wt01_contract": wt01, "wt01_harness": harness,
+                                    "wt01_dev1": dev1, "review01": review, "muc01_calibration": muc01}
+                        return {**progress, "activation_id": dev1["id"],
+                                "development_registrations_used": dev1["registrations_used"],
+                                "development_registrations_cap": 1,
+                                "final_registrations_used": 3, "final_registrations_cap": 3,
+                                "final_completed": 3, "final_access_authorized": False,
+                                "scoring_authorized": False,
+                                "user_decision_required": review["complete"],
+                                "next_action_id": "REVIEW-01-DECISION" if review["complete"] else "REVIEW-01",
+                                "next_action": "Review the proposed MUC-01 contract; no implementation or experiment is authorized."
+                                    if review["complete"] else
+                                    "Complete only the bounded R0/PC-01/WT-01 review and proposed contract.",
+                                "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                                "lifecycle_migration_complete": True,
+                                "wt01_contract": wt01, "wt01_harness": harness,
+                                "wt01_dev1": dev1, "review01": review}
+                    return {**progress, "activation_id": dev1["id"],
+                            "development_registrations_used": dev1["registrations_used"],
+                            "development_registrations_cap": 1,
+                            "final_registrations_used": 3, "final_registrations_cap": 3,
+                            "final_completed": 3, "final_access_authorized": False,
+                            "scoring_authorized": not stopped,
+                            "user_decision_required": stopped,
+                            "next_action_id": "WT-01-DECISION" if stopped else "WT-01-DEV-1",
+                            "next_action": "Review the one preserved WT-01 development outcome; no retry or diagnostic-file access."
+                                if stopped else "Freeze, register and execute exactly one visible-development WT-01 factorial run.",
+                            "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                            "lifecycle_migration_complete": True,
+                            "wt01_contract": wt01, "wt01_harness": harness,
+                            "wt01_dev1": dev1}
+                return {**progress, "activation_id": historical["id"],
+                        "development_registrations_used": 2, "development_registrations_cap": 2,
+                        "final_registrations_used": 3, "final_registrations_cap": 3,
+                        "final_completed": 3, "final_access_authorized": False,
+                        "scoring_authorized": False, "user_decision_required": ready,
+                        "next_action_id": "WT-01-DEV-1" if ready else "WT-01-DATA-HARNESS",
+                        "next_action": "Review the frozen diagnostic harness before any separately authorized visible-development run."
+                            if ready else "Complete only the final no-training, no-scoring WT-01 data/harness service cycle.",
+                        "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                        "lifecycle_migration_complete": True,
+                        "wt01_contract": wt01, "wt01_harness": harness}
+            return {**progress, "activation_id": historical["id"],
+                    "development_registrations_used": 2, "development_registrations_cap": 2,
+                    "final_registrations_used": 3, "final_registrations_cap": 3,
+                    "final_completed": 3, "final_access_authorized": False,
+                    "scoring_authorized": False, "user_decision_required": finished,
+                    "next_action_id": "WT-01-DATA-HARNESS" if finished else "WT-01-CONTRACT",
+                    "next_action": "Review the frozen mechanism contract and independent-trace blocker before the final WT-01 data/harness service cycle."
+                        if finished else
+                        "Complete only the authorized no-training, no-scoring WT-01 mechanism contract preparation.",
+                    "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                    "lifecycle_migration_complete": True,
+                    "wt01_contract": wt01}
+        return {**progress, "activation_id": historical["id"],
+                "development_registrations_used": 2, "development_registrations_cap": 2,
+                "final_registrations_used": 3, "final_registrations_cap": 3,
+                "final_completed": 3, "final_access_authorized": False,
+                "scoring_authorized": False,
+                "user_decision_required": completed is not None,
+                "next_action_id": "WT-01-CONTRACT" if completed is not None
+                    else "PC-01-TELEMETRY-LIFECYCLE-MIGRATION",
+                "next_action": "Review the verified migration before a separate WT-01 no-scoring contract-preparation cycle."
+                    if completed is not None else
+                    "Complete the bounded no-training lifecycle migration; no PC-01 retry or WT-01 scoring.",
+                "pc01_historical_decision": historical["terminal_decision"]["decision"],
+                "lifecycle_migration_complete": completed is not None}
+    from .pc01_final_authority import authority as final_authority
+    final = final_authority(base)
+    if final is not None:
+        stopped = final["terminal"]
+        return {**progress, "activation_id": final["id"], "development_registrations_used": 2,
+                "development_registrations_cap": 2, "final_registrations_used": len(final["finals"]),
+                "final_registrations_cap": 3, "final_completed": final["completed"],
+                "final_access_authorized": not stopped, "user_decision_required": stopped,
+                "next_action_id": "PC-01-DECISION" if stopped else
+                    ("PC-01-FINAL-FREEZE" if not final["series_frozen"] else f"PC-01-FINAL-{final['completed']+1}"),
+                "next_action": "Review all preserved final outcomes; no retry or promotion." if stopped else
+                    "Execute at most one unchanged final replica this cycle, under the frozen three-replica authority."}
+    authority = activation_authority(base)
+    if authority is not None:
+        from .pc01_execution import registered_plans
+        plans = registered_plans(base)
+        from .ledger import latest_plan_statuses
+        terminal = bool(plans and ((base / "research/results" / f"{plans[0]['experiment_id']}.json").exists()
+                                  or plans[0]["experiment_id"] in latest_plan_statuses(base)))
+        # Historical 2/2 + 1/1 service accounting is retained in progress.
+        progress.update(activation_id=authority["id"], development_registrations_used=len(plans),
+                        development_registrations_cap=1, final_access_authorized=False,
+                        user_decision_required=terminal,
+                        next_action_id="PC-01-DECISION" if terminal else "PC-01-DEV-1",
+                        next_action="Review the one preserved development outcome; no automatic retry."
+                        if terminal else "Validate activation, register and execute only the authorized development attempt.")
+    repair = telemetry_repair_status(base)
+    if repair is not None:
+        stopped = repair["complete"] or repair["expired"]
+        progress.update(telemetry_repair=repair, user_decision_required=stopped,
+                        next_action_id="PC-01-DECISION" if stopped else "PC-01-TELEMETRY-REPAIR",
+                        next_action="Review the bounded no-training repair; another dev attempt requires separate authority."
+                        if stopped else "Repair and validate synthetic telemetry only; no training or scoring.")
+    second = dev2_authority(base)
+    if second is not None:
+        plans = _dev2_plans(base, second)
+        from .ledger import latest_plan_statuses
+        terminal = len(plans) == 2 and (
+            (base / "research/results" / f"{plans[1]['experiment_id']}.json").exists()
+            or plans[1]["experiment_id"] in latest_plan_statuses(base))
+        progress.update(activation_id=second["id"], development_registrations_used=len(plans),
+                        development_registrations_cap=2, final_access_authorized=False,
+                        user_decision_required=terminal,
+                        next_action_id="PC-01-DECISION" if terminal else "PC-01-DEV-2",
+                        next_action="Review the preserved second dev outcome; no further attempt authorized."
+                        if terminal else "Register and execute one fresh v2 dev, unchanged recipe, no final access.")
+    metadata = gpu_metadata_status(base)
+    if metadata is not None:
+        stopped = metadata["complete"] or metadata["expired"]
+        progress.update(gpu_metadata_repair=metadata, user_decision_required=stopped,
+                        next_action_id="PC-01-DECISION" if stopped else "PC-01-GPU-METADATA",
+                        next_action="Review the no-training metadata repair; no final or further dev authorized."
+                        if stopped else "Validate scoped GPU metadata capture and completeness; no training or scoring.")
+    preparation = final_preparation_status(base)
+    if preparation is not None:
+        stopped = preparation["complete"] or preparation["expired"]
+        progress.update(final_preparation=preparation, user_decision_required=stopped,
+                        next_action_id="PC-01-DECISION" if stopped else "PC-01-FINAL-PREP",
+                        next_action="Review prepared final-series adapter; execution requires separate authorization."
+                        if stopped else "Prepare and test the exact v2-to-v3 bridge; no training or final access.")
+    return progress
+
+
+def _review01_status(base: Path) -> dict[str, Any] | None:
+    """Resolve the one preparation-only REVIEW-01 overlay without widening authority."""
+    from .ledger import read_jsonl
+
+    relative = "research/laboratory/REVIEW-01-20260906-V1.json"
+    path = base / relative
+    if not path.is_file():
+        return None
+    authority = load_json(path)
+    required_false = (
+        "candidate_implementation_authorized", "candidate_training_authorized",
+        "dataset_or_model_download_authorized", "experiment_registration_authorized",
+        "scoring_authorized", "wt_replication_authorized",
+        "wt_files_8_9_access_authorized", "schedule_change_authorized",
+    )
+    if (authority.get("id") != "REVIEW-01-20260906-V1"
+            or authority.get("service_cycles_authorized") != 1
+            or authority.get("stage_minutes_cap") != 60
+            or any(authority.get(field) is not False for field in required_false)):
+        raise ValueError("REVIEW-01 authority changed or widens the preparation-only scope")
+    events = [event for event in read_jsonl(base / "research/events.jsonl")
+              if event.get("event") == "lab_milestone_progress"
+              and event.get("restart_id") == "LAB-RESTART-20260904-V1"
+              and event.get("milestone_id") == "REVIEW-01"]
+    if len(events) > 1:
+        raise ValueError("REVIEW-01 exceeds its one-cycle cap")
+    if not events:
+        return {"id": authority["id"], "complete": False,
+                "service_cycles_used": 1, "service_cycles_cap": 1,
+                "scoring_authorized": False}
+    event = events[0]
+    if (event.get("attempt") != 1 or event.get("status") != "review_completed"
+            or event.get("next_action_id") != "REVIEW-01-DECISION"
+            or event.get("training_performed") is not False
+            or event.get("scoring_performed") is not False
+            or event.get("experiment_registered") is not False
+            or event.get("downloads_performed") is not False
+            or event.get("wt_files_8_9_opened") is not False):
+        raise ValueError("REVIEW-01 completion is not a valid preparation-only terminal event")
+    budget = event.get("cumulative_budget", {})
+    if (budget.get("service_cycles_used") != 1 or budget.get("service_cycles_cap") != 1
+            or budget.get("service_minutes_conservatively_charged") != 60
+            or budget.get("service_minutes_cap") != 60):
+        raise ValueError("REVIEW-01 completion budget changed")
+    artifacts = event.get("artifact_sha256")
+    if not isinstance(artifacts, dict) or not artifacts:
+        raise ValueError("REVIEW-01 completion has no hash-linked artifacts")
+    for artifact_relative, digest in artifacts.items():
+        artifact = (base / artifact_relative).resolve()
+        if not artifact.is_relative_to(base) or not artifact.is_file() or sha256_file(artifact) != digest:
+            raise ValueError(f"REVIEW-01 artifact missing or changed: {artifact_relative}")
+    return {"id": authority["id"], "complete": True,
+            "service_cycles_used": 1, "service_cycles_cap": 1,
+            "service_minutes_charged": 60, "service_minutes_cap": 60,
+            "scoring_authorized": False, "receipt": event.get("receipt_path")}
+
+
+def _authorized_extension(base: Path, progress: dict[str, Any]) -> dict[str, Any]:
+    """One explicit user extension; never rewrite the original 2/2 accounting."""
+    from datetime import datetime, timezone
+    from .ledger import read_jsonl
+
+    relative = "research/laboratory/PC-01-EXTENSION-20260905-V1.json"
+    path = base / relative
+    if not path.exists():
+        return progress
+    if sha256_file(path) != "863e659a69416c7efe96441f841e893e22fd436396822fcaa6679e4c6a237799":
+        raise ValueError("PC-01 user extension changed")
+    authorization = load_json(path)
+    events = read_jsonl(base / "research/events.jsonl")
+    starts = [e for e in events if e.get("action_id") == "PC-01-INTEGRATION"
+              and e.get("event") == "laboratory_maintenance_started"]
+    ends = [e for e in events if e.get("authorization_id") == authorization["id"]
+            and e.get("event") == "lab_extension_completed"]
+    if len(starts) != 1 or len(ends) > 1 or progress["service_cycles_used"] != 2:
+        raise ValueError("PC-01 extension missing/repeated or original budget changed")
+    if starts[0].get("authorization_sha256") != sha256_file(path):
+        raise ValueError("PC-01 extension receipt does not match authorization")
+    for event in ends:
+        if event.get("training_performed") is not False or event.get("scoring_performed") is not False:
+            raise ValueError("Service extension cannot certify training")
+        if (type(event.get("service_cycles_used")) is not int or event["service_cycles_used"] != 1
+                or type(event.get("minutes_charged")) not in (int, float)
+                or not 0 <= event["minutes_charged"] <= 60):
+            raise ValueError("Extension budget exceeded or reset")
+        if not event.get("artifact_sha256"):
+            raise ValueError("Extension completion requires immutable evidence")
+        for rel, digest in event["artifact_sha256"].items():
+            artifact = (base / rel).resolve()
+            if not artifact.is_relative_to(base) or not artifact.is_file() or sha256_file(artifact) != digest:
+                raise ValueError(f"Extension artifact changed: {rel}")
+    expired = datetime.now(timezone.utc) >= datetime.fromisoformat(authorization["deadline_at"])
+    active = not ends and not expired
+    return {**progress, "extension_id": authorization["id"], "extension_cycles_used": 1,
+            "extension_cycles_cap": 1, "extension_minutes_cap": 60,
+            "extension_deadline": authorization["deadline_at"], "extension_complete": bool(ends),
+            "next_action_id": "PC-01-INTEGRATION" if active else "PC-01-DECISION",
+            "next_action": "Complete the single authorized no-training integration cycle before its deadline."
+            if active else "Review integration receipt; further service or training needs a separate user decision.",
+            "user_decision_required": not active}
+
+
+def laboratory_contract(root: Path | None = None) -> dict[str, Any]:
+    base = (root or project_root()).resolve()
+    config = load_config(base)
+    setting = config.raw.get("laboratory", {})
+    if setting.get("contract_path") != CONTRACT_PATH:
+        raise ValueError("Laboratory contract_path must point to the protected restart contract")
+    contract = load_json(base / CONTRACT_PATH)
+    validate_document("laboratory_restart", contract, base)
+    if contract["restart_id"] != setting.get("restart_id"):
+        raise ValueError("Laboratory restart_id differs from config")
+    if contract["protocol_version"] != config.protocol_version:
+        raise ValueError("Laboratory protocol_version differs from config")
+    for relative in contract["required_documents"]:
+        path = (base / relative).resolve()
+        if not path.is_relative_to(base) or not path.is_file():
+            raise ValueError(f"Missing or invalid laboratory document: {relative}")
+    from .muc02_replication_stage import status as replication_status, PLAN as REPLICATION_PLAN
+    replication = replication_status(base)
+    if replication is not None:
+        return {**contract, "status": "dev_authorized" if replication["scoring_authorized"] else "preparation_only",
+                "scoring_authorized": replication["scoring_authorized"], "activation_id": replication["id"],
+                "maintenance_plan": REPLICATION_PLAN, "original_status": contract["status"]}
+    from .research_program import status as program_status, CONTRACT as PROGRAM_CONTRACT
+    program = program_status(base)
+    if program is not None:
+        return {**contract, "status": "dev_authorized" if program["scoring_authorized"] else "preparation_only",
+                "scoring_authorized": program["scoring_authorized"], "activation_id": program["id"],
+                "maintenance_plan": program.get("contract_path", PROGRAM_CONTRACT), "original_status": contract["status"]}
+    from .muc02_negatives_stage import status as negatives_status, PLAN as NEGATIVES_PLAN
+    negatives = negatives_status(base)
+    if negatives is not None:
+        return {**contract, "status": "dev_authorized" if negatives["scoring_authorized"] else "preparation_only",
+                "scoring_authorized": negatives["scoring_authorized"], "activation_id": negatives["id"],
+                "maintenance_plan": NEGATIVES_PLAN, "original_status": contract["status"]}
+    from .audit_repair import status as repair_status
+    repair = repair_status(base)
+    if repair is not None:
+        return {**contract, "status": "dev_authorized" if repair["scoring_authorized"] else "preparation_only",
+                "scoring_authorized": repair["scoring_authorized"], "activation_id": repair["id"],
+                "maintenance_plan": "research/plans/AUDIT-REPAIR-20261002-V1.json", "original_status": contract["status"]}
+    authority = activation_authority(base)
+    second = dev2_authority(base)
+    from .pc01_closure import closure as pc01_closure, migration_completed
+    historical = pc01_closure(base)
+    if historical is not None:
+        completed = migration_completed(base)
+        from .wt01_contract import PLAN_PATH as WT01_PLAN_PATH, status as wt01_status
+        wt01 = wt01_status(base) if completed is not None else None
+        from .wt01_harness import PLAN_PATH as WT01_HARNESS_PLAN_PATH, status as wt01_harness_status
+        harness = wt01_harness_status(base) if wt01 is not None and wt01["complete"] else None
+        from .wt01_dev1 import status as wt01_dev1_status
+        dev1 = wt01_dev1_status(base) if harness is not None and harness["complete"] else None
+        if dev1 is not None:
+            stopped = dev1["terminal"]
+            return {**contract,
+                    "status": "preparation_only" if stopped else "dev_authorized",
+                    "scoring_authorized": not stopped,
+                    "maintenance_plan": "research/plans/WT-01-DEV1-ACTIVATION-V1.json" if stopped else None,
+                    "activation_id": dev1["id"], "original_status": contract["status"],
+                    "lifecycle_migration_complete": True,
+                    "wt01_contract_ready": True, "wt01_harness_ready": True,
+                    "wt01_dev1_terminal": stopped}
+        return {**contract, "status": "preparation_only", "scoring_authorized": False,
+                "maintenance_plan": WT01_HARNESS_PLAN_PATH if harness is not None else
+                    WT01_PLAN_PATH if wt01 is not None else
+                    "research/plans/PC-01-TELEMETRY-LIFECYCLE-MIGRATION-V1.json",
+                "activation_id": historical["id"], "original_status": contract["status"],
+                "lifecycle_migration_complete": completed is not None,
+                "wt01_contract_ready": bool(wt01 and wt01["artifacts_ready"]),
+                "wt01_harness_ready": bool(harness and harness["complete"])}
+    from .pc01_final_authority import authority as final_authority
+    final = final_authority(base)
+    if final is not None:
+        return {**contract, "status": "final_authorized", "scoring_authorized": not final["terminal"],
+                "activation_id": final["id"], "original_status": contract["status"]}
+    if final_preparation_status(base) is not None:
+        if second is not None:
+            _dev2_plans(base, second)
+        gpu_metadata_status(base)
+        from .pc01_final_transition import PLAN_PATH
+        return {**contract, "status": "preparation_only", "scoring_authorized": False,
+                "maintenance_plan": PLAN_PATH}
+    if gpu_metadata_status(base) is not None:
+        if second is not None:
+            _dev2_plans(base, second)
+        return {**contract, "status": "preparation_only", "scoring_authorized": False,
+                "maintenance_plan": GPU_METADATA_PATH}
+    if second is not None:
+        _dev2_plans(base, second)
+        if config.benchmark_status == "active" and config.benchmark_version != second["cohort"]:
+            raise ValueError("Second dev cannot activate another cohort")
+        return {**contract, "status": "dev_authorized", "scoring_authorized": True,
+                "activation_id": second["id"], "original_status": contract["status"]}
+    if telemetry_repair_status(base) is not None:
+        return {**contract, "status": "preparation_only", "scoring_authorized": False,
+                "maintenance_plan": REPAIR_PATH}
+    if authority is not None:
+        if config.benchmark_status == "active" and config.benchmark_version != authority["cohort"]:
+            raise ValueError("PC-01 authorization cannot activate another cohort")
+        return {**contract, "status": "dev_authorized", "scoring_authorized": True,
+                "activation_id": authority["id"], "original_status": contract["status"]}
+    return contract
+
+
+def laboratory_problems(root: Path | None = None, *, scoring: bool = False) -> list[str]:
+    base = (root or project_root()).resolve()
+    config = load_config(base)
+    if config.protocol_version < 3:
+        return []
+    try:
+        contract = laboratory_contract(base)
+        laboratory_progress(base)
+    except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
+        return [f"laboratory contract: {exc}"]
+    from .muc02_replication_stage import status as replication_status
+    replication = replication_status(base)
+    if replication is not None:
+        if scoring and not replication["scoring_authorized"]:
+            return ["MUC replication not ready, started, terminal or expired; no retry"]
+        if not replication["ready"] and config.benchmark_status != "maintenance":
+            return ["MUC replication preparation requires maintenance"]
+        return []
+    from .research_program import status as program_status
+    program = program_status(base)
+    if program is not None:
+        if config.benchmark_version != program["cohort"]:
+            return ["Research program requires its frozen current study cohort"]
+        if scoring and not program["scoring_authorized"]:
+            return ["Research study not ready, expired, or consumed; choose next study under program authority"]
+        if not program["ready"] and config.benchmark_status != "maintenance":
+            return ["Research preparation requires maintenance"]
+        return []
+    from .muc02_negatives_stage import status as negatives_status, COHORT
+    negatives = negatives_status(base)
+    if negatives is not None:
+        if config.benchmark_version != COHORT:
+            return ["Hard-negative authority cannot activate a different cohort"]
+        if scoring and not negatives["scoring_authorized"]:
+            return ["Hard-negative stage is preparation-only, expired or terminal; no retry"]
+        if not negatives["ready"] and config.benchmark_status != "maintenance":
+            return ["Hard-negative preparation requires maintenance"]
+        return []
+    from .muc01_calibration import authority as muc_authority
+    from .audit_repair import status as repair_status
+    repair = repair_status(base)
+    muc_active = ((config.benchmark_version == "mutable_contact_ledger_v1" and muc_authority(base) is not None and repair is None)
+                  or (config.benchmark_version == "mutable_contact_ledger_v2" and repair is not None))
+    problems = []
+    if contract["status"] == "dev_authorized":
+        try:
+            from .wt01_dev1 import authority as wt01_authority, status as wt01_status
+            if wt01_authority(base) is not None:
+                wt01_status(base)
+            else:
+                from .pc01_execution import registered_plans
+                plans = registered_plans(base)
+                if dev2_authority(base) is not None:
+                    _dev2_plans(base, dev2_authority(base))
+                elif plans:
+                    problems.extend(pc01_scope_problems(base, experiment_id=plans[0]["experiment_id"]))
+        except (OSError, ValueError, KeyError, TypeError, ValidationError) as exc:
+            problems.append(f"PC-01 activation registrations: {exc}")
+    if contract["status"] == "preparation_only" and config.benchmark_status != "maintenance" and not muc_active:
+        problems.append("laboratory preparation requires benchmark_status=maintenance")
+    if scoring and not contract["scoring_authorized"] and not muc_active:
+        problems.append(
+            "laboratory scoring is not authorized: complete PC-01-CONTRACT and freeze a new claim-specific cohort"
+        )
+    return problems

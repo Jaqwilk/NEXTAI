@@ -1,0 +1,2 @@
+{"event": "probe_started", "probe": "lifecycle", "pid": 24848, "root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002"}
+{"event": "probe_completed", "probe": "lifecycle", "elapsed": 42.198818899996695, "error": null}

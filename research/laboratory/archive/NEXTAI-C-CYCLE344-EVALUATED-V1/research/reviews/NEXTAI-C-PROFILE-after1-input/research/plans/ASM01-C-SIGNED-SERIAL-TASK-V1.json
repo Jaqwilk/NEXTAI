@@ -1,0 +1,317 @@
+{
+  "cohort": "asm01_native_memory_v4",
+  "comparison": {
+    "arms": [
+      "source_trained",
+      "source_untrained",
+      "source_shuffled",
+      "source_ridge",
+      "target_dense_cached_cpu",
+      "target_ridge_pca",
+      "target_kernel",
+      "native_raw",
+      "native_banded_DTW"
+    ],
+    "conditions": [
+      "nominal",
+      "adverse"
+    ],
+    "confidence_rule": "Prospective two-axis absolute score plus top1-top2 margin, same policy for all arms. Absolute grid=[0,.25,.5,.65,.75,.8,.85,.9,.925,.95,.97,.98,.99,.995,.999,.9995,.9999,1], margin=[0,.005,.01,.02,.04,.08,.16,.32]. Select only Tcal under unchanged UNKNOWN>=.95/knownFA<=.02, then full accuracy with deterministic ties. Separate future study must freeze exact score normalization, DTW and cost equations before implementation/data.",
+    "motivation": "Closed HAR showed perfect native nominal ranking but weak absence decisions. A prospective native family and confidence policy address identifiability/rejection, not more-step rescue on HAR dev.",
+    "scales": [
+      16,
+      32,
+      64
+    ],
+    "strong_classical": "Ridge/PCA exact scan, nonlinear native transport, raw geometry and exact band4 DTW on the SAME public32x2 views; no full private trajectory or labels for a privileged classical baseline.",
+    "updates": [
+      0,
+      1,
+      4
+    ]
+  },
+  "created_at": "2026-10-07T23:50:48.357689+00:00",
+  "decision": "Missing/partial fiveunits, intake/source/sourceweight/datahash/resource/mandatorycontrol/evaluator invalidity =>INCONCLUSIVE; failure of competence makes economic comparison INCONCLUSIVE, not architecture falsification. Source-information KEEP only all4frozen primary gates; otherwise DISCARD this exact frozen-source/readout transfer recipe if measurement/control valid; expose both rank/UNKNOWN separately. Qualify a fixed route only unchanged competent-reference and percell quality/UNKNOWN/FA plus18economic andfixed strong-classical non-domination gates. No promotion/LLM/generalintelligence/blindholdout/general scaling claim. Preserve every failure and cost; exactlyone audited EXP,no paid retry/seed replacement,outcome-based tuning or sourcefitreplay. Independently justified alternatives require new prospective recipe/data; replication andfresh finals remainprotected.",
+  "execution_authority": "Separate C scope; no B credit, one paid screen only after full release gates",
+  "future_cohorts_closed": true,
+  "id": "ASM01-C-SIGNED-SERIAL-TASK-V1",
+  "independent_units": {
+    "archive_identity_gate": "Require exactly45 Wn native writer folders, each with183 distinct M.n.txt entries whose filename writer n agrees with folder Wn, total8235. No missing/duplicate canonical sample allowed. Exactly one publisher foreign member W6/15.5.TXT (9459bytes) is excluded from the legal membership map, preserved in archive, never numerically read. No other exception or sample/writer substitution.",
+    "fresh_final_dev": [
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "fresh_final_train": [
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "pairing": "Source state i -> fixed train/dev writer pair i; no favorable source/target selection",
+    "replication_dev": [
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "replication_train": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "screen_dev": [
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "screen_train": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "unit": "writer; query repeats/points/augmentations are not independent units",
+    "unused_writers": [
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ]
+  },
+  "intake": {
+    "aggregate_file_bytes_cap": 479723520,
+    "future_closed": "W6-15,W21-30,W31-45,Data_Table.pdf and excluded foreign member numeric contents remain inaccessible. Existing fixed archive hash provenance only, no reacquisition.",
+    "listing": "research/data/asm01_native_v1/selected-screen-members-v3.txt",
+    "listing_sha256": "d49c97288d650bc42995d27b7301e2b15b4d373b74ec6a320b7971020fe4e4f5",
+    "manifest": "research/data_manifests/ASM01-C-ACQUISITION-V1.json",
+    "maximum_two_root_total_footprint_bytes": 335544320,
+    "membership_guard": "Reuse frozen screen_members with all1830 fixed UIDs, no links/junctions/resolve escapes/foreign directories, raw listing==disk and all stat caps checked before any payload.",
+    "metadata_proof": {
+      "alias_scope": "Final .txt/.TXT only; actual Paths/raw disk-listing sets/UIDs/frozen order preserved.",
+      "files": 1830,
+      "final_uppercase_extensions": 153,
+      "max_bytes": 25086,
+      "path": "research/reviews/ASM01-INVENTORY-V3-REAL-METADATA-V1.json",
+      "sha256": "70ef9eede4cf148187debd2431461d8f05a2eac05c9accb47ba90df2a8ffca0b",
+      "total_bytes": 14394085
+    },
+    "minimum_free_bytes_after_operation": 10737418240,
+    "new_download_or_extraction": false,
+    "output": "research/data/asm01_c_v1/screen.npz",
+    "per_file_bytes_cap": 262144,
+    "publisher_sha256": "d6ad543e65269d53e38fdac6a32dd20bcd942e7616891a6cf95986894b454a4d",
+    "reuse_existing_extraction_only": true,
+    "source_directory": "research/data/asm01_native_v1/screen-text-v3"
+  },
+  "metrics": {
+    "economic_gates": {
+      "adversarial_required": true,
+      "all_preprocessing_ingest_index_updates_cache_warmup_decoding_included": true,
+      "at_least3_scale_points_at_matched_quality": true,
+      "candidate_quality_difference_simultaneous_lower_min": -0.02,
+      "full_workload_latency_ratio_simultaneous_upper_max": 0.8,
+      "independent_seed_data_units_min": 5,
+      "known_false_abstention_max": 0.02,
+      "non_dominated_against_strong_classical_required": true,
+      "p95_ratio_upper_max": 0.9,
+      "reference_each_seed_accuracy_min": 0.9,
+      "reference_mean_accuracy_min": 0.95,
+      "unknown_rejection_min": 0.95
+    },
+    "full_answer": "Current random fact value AND exact current source URI; UNKNOWN=-1/null. Private sample/writer ID absent from query.",
+    "full_boundary": "Acquisition/archive/parser, native coordinate processing/resampling, normalization, input copies, all target gridfits/source restore, threshold calibration, ingest/index, cache, updates, query and value/source decoding. Disclose compressed filesystem reads and source sunk fit separately; do not infer energy.",
+    "separate": [
+      "known fact top1",
+      "source attribution",
+      "updated known accuracy",
+      "retained known accuracy",
+      "UNKNOWN rejection",
+      "known false abstention",
+      "full answer accuracy",
+      "full service and batch1 p50/p95",
+      "resident/peak state",
+      "fit and full cold worker cost"
+    ],
+    "source_information_primary": "Four trained-minus-untrained/shuffled top1/UNKNOWN endpoints;5fixed pairs,mean>=.02,two-sided98.75% Studentt df4 intervals lower>0,5/5positive; family95%"
+  },
+  "native_conformance_sequence": [
+    "Before any payload: bind objective/new task/study/source SHA, clone package origin, all historical receipts/source hashes, exact1830 inventory SHA keys and member metadata, old75 map and1171 priorarray map scope/consistency, cap/disk guards. No current output/receipt overwrite.",
+    "Process UID1:1..1:74 FIRST, one raw read per UID; raw SHA matches inventory and old75. Old frozen V4 and new V6 parse same in-memory payload. Require dtype,shape,tobytes exact arrays and unchanged transform write/nominal/adverse arrays; compare saved74 array and descriptor hashes. First failure stops before UID1:75 or D.",
+    "After74PASS process remaining1756 in same fixed writer/sample order, one read per UID, raw SHA inventory match. Require exact1171 prior array-hash matches for each previously accepted UID; arrays_hash includes dtype,shape,bytes and unchanged transform ensures same descriptor from equal arrays. Gate complete1171 comparisons before intake success.",
+    "Global duplicate array check includes every canonical UID once, including the74. All required views valid; no dropped/replaced UID. Fullreceipt remains redacted and durable after any failure withattempted/converted/compared/T/D/currentUID/errorcategory/maps/costs.",
+    "Only1830/1830 converted,1830 raw hashes,915T/915D,74 direct comparisons,1171 historical hash comparisons,all writer arrays/rows/offsets/hashes complete permits new30-key NPZ written atomically with exclusive creation. Manifest hashes dataset and exact source/task/study/publisher binding.",
+    "Only complete nativeconformance permits loader integration/full sourcefreeze/preflight/readiness/same-builder no-ticket dryrun before one C-funded scientific registration. No native failure rescue/scientific paid retry."
+  ],
+  "native_views": {
+    "adverse": "On query only remove every fourth selected point before arc-length resampling; same write view. This is simulated reduced acquisition resolution, not a new independent identity or physical recording.",
+    "identity": "One physically acquired(writer,character sample) trajectory; M.N only provenance, never query key or learning feature",
+    "invalidity_policy": "Any missing/degenerate required native sample invalidates intake; no selective sample dropping or writer replacement after content",
+    "recipe": "Remove pen-up separators and consecutive repeated positions within each stroke; require at least4 pen-down coordinate points. Even-index points form write view, odd-index points form query view. Resample each view at32 equally spaced cumulative arc-length positions, normalize translation by centroid and common fixed per-view RMS, flatten XY to64 values. No random Gaussian substitute, family labels, ontology or public exact identity key.",
+    "within_identity_dependence": "Views are dependent subsamples of one acquisition, not independently acquired observations; disclose this limit"
+  },
+  "new_coordinate_admissibility_is_not_metadata_only": true,
+  "new_native_reads_only_development": true,
+  "parent_task_path": "research/plans/ASM01-VERIFIED-SERIALIZER-TASK-V3.json",
+  "parent_task_sha256": "d34bf101fe22ad5fbe739d6ff05a24b96ce4939eca57720f76b8eb89063c4dd1",
+  "prior_exposure": {
+    "complete_lexical_inventory": {
+      "D_raw_exposed": 915,
+      "T_raw_exposed": 915,
+      "all_point_state_values": [
+        1
+      ],
+      "coordinate_values_parsed_or_emitted": false,
+      "declared_strokes_max": 11,
+      "declared_strokes_min": 1,
+      "exact_header_index2_all_files": true,
+      "files": 1830,
+      "path": "research/reviews/ASM01-FULL-SCREEN-GRAMMAR-INVENTORY-V3.receipt.json",
+      "point_max": 691,
+      "point_mean": 212.84699453551912,
+      "point_min": 39,
+      "point_rows": 389510,
+      "sha256": "ce4cc88018c02c0d6644cf2c9a8f74ad269458f1b07e33afd81e69bd7d227407",
+      "structural_anomalous_files": 55,
+      "total_categorical_rows": 407424,
+      "unknown_rows": 0
+    },
+    "latest_numeric_intake": {
+      "D_attempted": 257,
+      "D_numeric_converted": 256,
+      "EXP": 0,
+      "NPZ": 0,
+      "T_numeric_converted": 915,
+      "additional_distinct_numeric_conversions": 1097,
+      "failure_UID": "17:74",
+      "failure_category": "normalize",
+      "fit": 0,
+      "map_fields": [
+        "native_intake.attempted_sample_text_sha256",
+        "native_intake.sample_array_sha256",
+        "native_intake.old_array_sha256",
+        "native_intake.old_descriptor_sha256"
+      ],
+      "numeric_converted_distinct": 1171,
+      "old74_array_three_view_comparisons": 74,
+      "other_raw_reads_unstarted_in_that_run": 658,
+      "path": "research/laboratory/ASM01-NATIVE-CONFORMANCE-COMPLETION-V1.receipt.json",
+      "previously_numeric_converted_old74": 74,
+      "raw_attempted_in_that_run": 1172,
+      "registration": 0,
+      "samples_not_numeric_converted": 659,
+      "sha256": "6eb67400a08af48725ff98450e199fbb50606e74585bdcbe42c8c475cb0ab378"
+    },
+    "old75_intake": {
+      "D_attempted": 0,
+      "NPZ": 0,
+      "failure": "1:75 Native point grammar",
+      "numeric_converted": 74,
+      "path": "research/data_manifests/ASM01-ACQUISITION-V3.json",
+      "raw_attempted": 75,
+      "sha256": "b5626c35c96e62f71e730045fa7ab8cbc69b41207cba2cc6e1e91afd043271ed"
+    },
+    "scientific_screen_valid_results": 0,
+    "signed_lexical_diagnosis": {
+      "UID": "17:74",
+      "X_unsigned": 175,
+      "Y_minus_nonzero": 3,
+      "Y_unsigned": 172,
+      "new_unique_native_samples": 0,
+      "numeric_coordinate_conversions": 0,
+      "path": "research/reviews/ASM01-LEXICAL-DIAG-RESULT-V3.json",
+      "point_rows": 175,
+      "raw_sha256": "0392f781b81f4d1d0a1f2ab0df30b3647c93c6e2b23d7f3ff8cf5da5dd939160",
+      "sha256": "f07b264d58d8f2c05eb331cc53f802b253ba206e1d2cad8fcf8d316c3220ba80",
+      "signed_coordinate_numeric_magnitudes": "UNKNOWN; must not infer or inspect before freeze",
+      "zero_aliases": 0
+    }
+  },
+  "program_contract_path": "research/plans/NEXTAI-C-STABILIZATION-ASM-SCREEN-V1.json",
+  "program_contract_sha256": "4a95f8bef9cdfef23abf27c3b0dbee74cb9b9b1796b822c6eb2b0edca7a47f41",
+  "question": "Does information in actual frozen learned source states transfer to native pen-trajectory instance memory beyond identical untrained/shuffled source states and target/native classics, with a competent dense reference and full costs?",
+  "schema_version": 1,
+  "serializer": {
+    "body": "Only bare PEN_DOWN, literal PEN_UP 0, or exactly four point tokens X Y STYLUS_STATE STROKE. Known marker annotations may be missing, repeated or orphaned; their order/count do not define geometry. Unknown marker operands or row forms reject.",
+    "coordinates": {
+      "inclusive": true,
+      "justification": "Prospective symmetric extension of exact magnitudes4392/4868 already frozen in original asm01_task.parse_native_sample. Known signed nonzero Y proves unsigned-only rule is insufficient. No magnitude of negative native coordinate has been inspected. This is a NEW scientific admissibility law, not claimed publisher device documentation and not a metadata-only repair.",
+      "leading_zeros": "Allowed, including signed zero, with mathematical integer value preserved. Strip leading zeros for bounded lexical comparison BEFORE int conversion; no unbounded decimal int conversion.",
+      "lexical": "-?[0-9]+",
+      "plus_decimal_exponent_nan_inf": "reject",
+      "prohibited": [
+        "abs",
+        "clamp",
+        "offset",
+        "sign deletion except numerical zero equivalence",
+        "coordinate/point/sample dropping",
+        "sorting",
+        "bounds fitted to new coordinate content"
+      ],
+      "x_maximum": 4392,
+      "x_minimum": -4392,
+      "y_maximum": 4868,
+      "y_minimum": -4868
+    },
+    "failure": "Categorical redacted failure only. Any required invalid grammar/bound/order/duplicate/geometry invalidates complete native intake and stops unstarted scientific scope. Do not change scientific law from new content under engineering rerun authority.",
+    "geometry": {
+      "array": "C-contiguous float32 Nx2, same exact value conversion as old integer-to-float32 path.",
+      "flattened_geometry": "Keep existing concatenation, including its cross-stroke arc segments. Adding separators or resampling strokes separately would change frozen descriptor and is forbidden.",
+      "minimum_retained_points": 4,
+      "order": "Preserve every coordinate value and original point order. Dedup only adjacent equal XY within the SAME explicit serial; reset predecessor across serial changes and gaps. No global dedup.",
+      "retained_point_cap": 32768,
+      "transform": "Import and reuse unchanged nextai_autoresearch.asm01_task.transform, same object. Even point parity write, odd nominal query, adverse query removes indices3,7,11,...; all three views must pass existing distinct-position/positive arc/RMS/finite64D checks."
+    },
+    "input_mode": "Release-only; no legacy or old-parser fallback. Historical V1-V5 bytes and APIs remain untouched.",
+    "metadata": {
+      "annotation_semantics": "Explicit point stroke IDs authoritative. Marker annotations retained only as verified release metadata, not boundaries.",
+      "declared_strokes": "Positive canonical decimal, at most16384; bound inherited from prior262144/16 serializer envelope before allocation. All declared IDs including leading/middle/trailing empties are retained as metadata. No inferred replacement stroke IDs.",
+      "serial": "Unsigned decimal, positive1..declared_strokes; monotonically nondecreasing in original point order, gaps allowed.",
+      "state": "Unsigned decimal, value1 only; signed metadata reject."
+    },
+    "payload": "Exact bytes, ASCII, at most262144 bytes; strip blank lines and surrounding whitespace as historical code. First nonempty line begins CHARACTER_NAME:, last begins END_CHARACTER:. Opaque name/footer suffixes are neither features nor diagnostics. STROKE_COUNT is second line and matches STROKE_COUNT:\\s*[1-9][0-9]*. Exactly one tokenized X Y STYLUS_STATE STROKE column header at nonempty index2. Mid-body envelope/header/count rows reject."
+  },
+  "source": {
+    "all_other_native_coordinate_arrays_seen": false,
+    "already_exposed_T1_processed_in_technical_conformance": true,
+    "arrays_seen": true,
+    "coordinate_values_emitted_to_assistant": false,
+    "dataset_role": "instance fingerprint memory, not Assamese OCR or semantic character classification",
+    "doi": "10.24432/C50C8Q",
+    "id": "SRC-0461",
+    "license": "CC BY4.0",
+    "native_family": "Human electronic-pen stroke trajectories, independent of HAR smartphone inertial windows and PVM artificial continuous identities"
+  },
+  "status": "prospectively_frozen_development_task",
+  "training": {
+    "calibration_feasibility": "95 calibration identities permit K64 plus31 distinct unknown identities; queries may repeat identities, uncertainty remains writer-pair level.",
+    "calibration_instances": 95,
+    "distinct_fit_instances_per_train_writer": 64,
+    "kernel_landmarks": "First64 distinct fit native samples, not128 repeated draws; finite bandwidth/ridge grids from HAR declared again in separate study",
+    "recipe": "Existing64D residual linear/GELU encoder and2layer4head256FF residual-zero-init dense decoder;2048alignment/1024decoder steps,4096pairs. Actual source states frozen and same legal target ridge readout on trained/untrained/shuffled/source-ridge arms. No new architecture.",
+    "source": "Actual25 exported source states of EXP-20261005-0006; no source fit or source-array replay",
+    "split": "One runner-private permutation of183 native IDs before arrays per T writer;64fit/24validation/95calibration. Separate writer dev, no Dev-guided fit/calibration.",
+    "target_pairs": 4096,
+    "validation_instances": 24
+  }
+}

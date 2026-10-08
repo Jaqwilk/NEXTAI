@@ -1,3 +1,29 @@
+# Completed cycle344 — C native geometry stop (2026-10-08)
+
+Separate C froze engineering and signed/serial ASM science before code/data.
+Measured laboratory58.515->0.575s/149->3processes; lifecycle RSS4.340->1.070GB,
+remaining history validation~42s. Shared dry-run/actual builder and separate
+C wallet/worker9000/fit3600 caps;362 distinct selected synthetic PASS, all
+failed versions/commands/receipts retained. Not all historical jobs passed.
+Single native intake1348attempted/1347validated; old74 arrays+222views and
+all1171 historical arrays unchanged. T915/D433opened; error18:67 native_geometry
+ValueError; exact degeneration/view unknown. NPZ/partial/ticket/EXP/sciencefit0.
+No postfailure native read/test/geometry rescue/intake retry. Study stops
+INCONCLUSIVE technical, not a learning/transfer/economic null. Archive1535/1535
+hashes verified twice before maintenance. asm01v4 maintenance,scoring=false.
+C total includes continuous own outer wall23:42Z->final closure/publication plus
+600s inherited uncertain liability; no double-count of nested jobs, no refund.
+Exact final time/cost: research/laboratory/NEXTAI-C-CYCLE344-FINAL-ACCOUNTING-V1.json.
+C unused cap is not extra B credit or automatic rescue authority.
+B remains2/12,30999.55024020007/72000s; protected6/41000s untouched. Old HAR/MUC/A
+scientific decisions unchanged. No valid complete ASM screen; replication,
+fresh target finals/prototype and main goal remain ACTIVE/incomplete.
+Further geometry work needs concrete prospective scope and lawful allocation;
+protected replication/final/prototype funds cannot finance a renamed screen.
+Report research/analyses/NEXTAI-C-CYCLE344-STABILIZATION-AND-ASM-SCREEN-V1.md.
+Human future-stage approval persists; no source refit/new architecture,WT8-9,
+external model/API,schedule change. All earlier sections preserved losslessly.
+
 # Active cycle344 - separately funded C stabilization and ASM development screen (2026-10-08)
 
 Human authority: research/laboratory/NEXTAI-C-HUMAN-AUTHORITY-20261008.md.
