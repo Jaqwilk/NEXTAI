@@ -1,0 +1,33 @@
+............................................F
+================================== FAILURES ===================================
+___________ test_preflight_certificate_detects_any_covered_mismatch ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002383F151EF0>
+
+    def test_preflight_certificate_detects_any_covered_mismatch(
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        root = project_root()
+>       certificate = verify_preflight_certificate(root)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_preflight_contract.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002')
+
+    def verify_preflight_certificate(root: Path | None = None) -> dict[str, Any]:
+        base = (root or project_root()).resolve()
+        path = _certificate_path(base)
+        if not path.is_file():
+            raise RuntimeError("Preflight certificate is missing")
+        certificate = load_json(path)
+        expected = _preflight_payload(base)
+        if certificate.get("certificate_sha256") != sha256_json(expected):
+>           raise RuntimeError("Preflight certificate does not match evaluator/runner/schemas/registry/manifest")
+E           RuntimeError: Preflight certificate does not match evaluator/runner/schemas/registry/manifest
+
+src\nextai_autoresearch\baseline_semantics.py:152: RuntimeError
+=========================== short test summary info ===========================
+FAILED tests/test_preflight_contract.py::test_preflight_certificate_detects_any_covered_mismatch
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!

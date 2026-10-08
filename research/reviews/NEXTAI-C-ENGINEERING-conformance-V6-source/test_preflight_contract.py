@@ -11,7 +11,7 @@ from nextai_autoresearch import baseline_semantics
 from nextai_autoresearch.baseline_semantics import verify_preflight_certificate
 from nextai_autoresearch.runner import _frontier
 from nextai_autoresearch.schemas import validate_document
-from nextai_autoresearch.utils import atomic_write_json, load_json, project_root, sha256_json
+from nextai_autoresearch.utils import load_json, project_root
 
 
 def test_final_schema_accepts_all_supervisor_outcomes_and_missing_metrics() -> None:
@@ -112,17 +112,11 @@ def test_three_family_v2_pareto_uses_universal_capability_axes() -> None:
 
 
 def test_preflight_certificate_detects_any_covered_mismatch(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     root = project_root()
+    certificate = verify_preflight_certificate(root)
     original = baseline_semantics._preflight_payload
-    payload = original(root)
-    certificate_path = tmp_path / "public-certificate.json"
-    certificate = {**payload, "created_at": "2000-01-01T00:00:00Z",
-                   "certificate_sha256": sha256_json(payload)}
-    atomic_write_json(certificate_path, certificate)
-    monkeypatch.setattr(baseline_semantics, "_certificate_path", lambda base: certificate_path)
-    assert verify_preflight_certificate(root) == certificate
     monkeypatch.setattr(
         baseline_semantics, "_preflight_payload",
         lambda base: {**original(base), "evaluator_sha256": "0" * 64},
