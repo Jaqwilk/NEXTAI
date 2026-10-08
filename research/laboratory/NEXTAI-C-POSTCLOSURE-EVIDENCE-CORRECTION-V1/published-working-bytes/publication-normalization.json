@@ -1,0 +1,14 @@
+{
+  "Git_attribute": "* text=auto eol=lf",
+  "all_other_corrected_documents_match_clone_and_receipt": true,
+  "correction_receipt_hash_refers_to": "prepublication working bytes, preserved exactly",
+  "cost_owner": "C postclosure administration",
+  "git_and_clone_sha256": "abc37d731a7123af57e15835b273128effb22c2f6a379fcdbfce72533f854151",
+  "historical_originals_exact_git_hashes_verified": 4,
+  "only_CRLF_to_LF_normalization": true,
+  "path": "AGENTS.md",
+  "prepublication_bytes_preserved_path": "research/laboratory/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1/published-working-bytes/AGENTS.md",
+  "prepublication_working_sha256": "24608f92b6a201bf471a3b3db46e61ac541c2590fab9c97d6e369328f4377285",
+  "scientific_sources_changed": false,
+  "source_commit": "cbebc4d"
+}
