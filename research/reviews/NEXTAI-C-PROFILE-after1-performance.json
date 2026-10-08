@@ -1,0 +1,491 @@
+{
+  "comparisons": {
+    "cli-import": {
+      "after_processes": 3,
+      "after_rss_bytes": 60026880,
+      "after_seconds": 0.4431691000063438,
+      "after_top_cumulative_functions": [
+        {
+          "cumulative_seconds": 0.3111322,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\scripts\\profile_c_harness.py",
+          "function": "_probe",
+          "line": 20,
+          "primitive_calls": 1,
+          "total_calls": 2,
+          "total_seconds": 7.3e-06
+        },
+        {
+          "cumulative_seconds": 0.31112850000000003,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\importlib\\__init__.py",
+          "function": "import_module",
+          "line": 71,
+          "primitive_calls": 1,
+          "total_calls": 2,
+          "total_seconds": 3.8e-06
+        },
+        {
+          "cumulative_seconds": 0.3111236,
+          "filename": "<frozen importlib._bootstrap>",
+          "function": "_gcd_import",
+          "line": 1383,
+          "primitive_calls": 1,
+          "total_calls": 3,
+          "total_seconds": 6.4000000000000006e-06
+        },
+        {
+          "cumulative_seconds": 0.3110873,
+          "filename": "<frozen importlib._bootstrap>",
+          "function": "_find_and_load",
+          "line": 1349,
+          "primitive_calls": 1,
+          "total_calls": 220,
+          "total_seconds": 0.0006815
+        },
+        {
+          "cumulative_seconds": 0.3104894,
+          "filename": "<frozen importlib._bootstrap>",
+          "function": "_call_with_frames_removed",
+          "line": 480,
+          "primitive_calls": 4,
+          "total_calls": 496,
+          "total_seconds": 0.0004649
+        },
+        {
+          "cumulative_seconds": 0.3103852,
+          "filename": "<frozen importlib._bootstrap>",
+          "function": "_load_unlocked",
+          "line": 911,
+          "primitive_calls": 2,
+          "total_calls": 205,
+          "total_seconds": 0.00040350000000000005
+        },
+        {
+          "cumulative_seconds": 0.31023860000000003,
+          "filename": "<frozen importlib._bootstrap>",
+          "function": "_find_and_load_unlocked",
+          "line": 1304,
+          "primitive_calls": 1,
+          "total_calls": 219,
+          "total_seconds": 0.0005172
+        },
+        {
+          "cumulative_seconds": 0.3044216,
+          "filename": "<frozen importlib._bootstrap_external>",
+          "function": "exec_module",
+          "line": 1017,
+          "primitive_calls": 2,
+          "total_calls": 184,
+          "total_seconds": 0.0002812
+        },
+        {
+          "cumulative_seconds": 0.3042822,
+          "filename": "~",
+          "function": "<built-in method builtins.exec>",
+          "line": 0,
+          "primitive_calls": 2,
+          "total_calls": 189,
+          "total_seconds": 0.0018831000000000002
+        },
+        {
+          "cumulative_seconds": 0.3042672,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\cli.py",
+          "function": "<module>",
+          "line": 1,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 2.86e-05
+        },
+        {
+          "cumulative_seconds": 0.14237170000000002,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\doctor.py",
+          "function": "<module>",
+          "line": 1,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 1.93e-05
+        },
+        {
+          "cumulative_seconds": 0.141054,
+          "filename": "~",
+          "function": "<built-in method builtins.__import__>",
+          "line": 0,
+          "primitive_calls": 5,
+          "total_calls": 408,
+          "total_seconds": 0.00019720000000000002
+        }
+      ],
+      "baseline_processes": 3,
+      "baseline_rss_bytes": 56614912,
+      "baseline_seconds": 0.43566509999800473,
+      "rss_reduction_fraction": -0.06026624222254373,
+      "same_probe_return_value": true,
+      "speed_ratio_descriptive": 0.9830674114954503
+    },
+    "laboratory": {
+      "after_processes": 3,
+      "after_rss_bytes": 51589120,
+      "after_seconds": 0.5745225999999093,
+      "after_top_cumulative_functions": [
+        {
+          "cumulative_seconds": 0.43178320000000003,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\scripts\\profile_c_harness.py",
+          "function": "_probe",
+          "line": 20,
+          "primitive_calls": 1,
+          "total_calls": 2,
+          "total_seconds": 4.8400000000000004e-05
+        },
+        {
+          "cumulative_seconds": 0.3394411,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\laboratory.py",
+          "function": "laboratory_problems",
+          "line": 769,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 5.0900000000000004e-05
+        },
+        {
+          "cumulative_seconds": 0.3079526,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program_c.py",
+          "function": "status",
+          "line": 435,
+          "primitive_calls": 2,
+          "total_calls": 2,
+          "total_seconds": 7.14e-05
+        },
+        {
+          "cumulative_seconds": 0.2723894,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program_c.py",
+          "function": "_read",
+          "line": 168,
+          "primitive_calls": 2,
+          "total_calls": 2,
+          "total_seconds": 6.63e-05
+        },
+        {
+          "cumulative_seconds": 0.26433270000000003,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program_c.py",
+          "function": "_preservation",
+          "line": 140,
+          "primitive_calls": 2,
+          "total_calls": 2,
+          "total_seconds": 0.0002187
+        },
+        {
+          "cumulative_seconds": 0.23506590000000002,
+          "filename": "~",
+          "function": "<built-in method builtins.any>",
+          "line": 0,
+          "primitive_calls": 55,
+          "total_calls": 55,
+          "total_seconds": 0.0001071
+        },
+        {
+          "cumulative_seconds": 0.1638146,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\laboratory.py",
+          "function": "laboratory_contract",
+          "line": 658,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 3.49e-05
+        },
+        {
+          "cumulative_seconds": 0.14330120000000002,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\threading.py",
+          "function": "wait",
+          "line": 641,
+          "primitive_calls": 6,
+          "total_calls": 6,
+          "total_seconds": 2.2800000000000002e-05
+        },
+        {
+          "cumulative_seconds": 0.1427431,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\threading.py",
+          "function": "wait",
+          "line": 327,
+          "primitive_calls": 6,
+          "total_calls": 6,
+          "total_seconds": 0.0095875
+        },
+        {
+          "cumulative_seconds": 0.12957300000000002,
+          "filename": "~",
+          "function": "<method 'update' of '_hashlib.HASH' objects>",
+          "line": 0,
+          "primitive_calls": 340,
+          "total_calls": 340,
+          "total_seconds": 0.12957300000000002
+        },
+        {
+          "cumulative_seconds": 0.10677940000000001,
+          "filename": "<frozen importlib._bootstrap>",
+          "function": "_find_and_load",
+          "line": 1349,
+          "primitive_calls": 3,
+          "total_calls": 108,
+          "total_seconds": 0.00034270000000000004
+        },
+        {
+          "cumulative_seconds": 0.1057435,
+          "filename": "<frozen importlib._bootstrap>",
+          "function": "_call_with_frames_removed",
+          "line": 480,
+          "primitive_calls": 8,
+          "total_calls": 229,
+          "total_seconds": 0.00022490000000000002
+        }
+      ],
+      "baseline_processes": 149,
+      "baseline_rss_bytes": 633122816,
+      "baseline_seconds": 58.515046400003484,
+      "rss_reduction_fraction": 0.9185164099345932,
+      "same_probe_return_value": true,
+      "speed_ratio_descriptive": 101.84986004034084
+    },
+    "lifecycle": {
+      "after_processes": 3,
+      "after_rss_bytes": 1070157824,
+      "after_seconds": 42.361485299989,
+      "after_top_cumulative_functions": [
+        {
+          "cumulative_seconds": 116.547065,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\threading.py",
+          "function": "wait",
+          "line": 641,
+          "primitive_calls": 90,
+          "total_calls": 90,
+          "total_seconds": 0.4887246
+        },
+        {
+          "cumulative_seconds": 44.873058900000004,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\threading.py",
+          "function": "wait",
+          "line": 327,
+          "primitive_calls": 89,
+          "total_calls": 89,
+          "total_seconds": 0.0882111
+        },
+        {
+          "cumulative_seconds": 38.6857443,
+          "filename": "~",
+          "function": "<method 'acquire' of '_thread.lock' objects>",
+          "line": 0,
+          "primitive_calls": 359,
+          "total_calls": 359,
+          "total_seconds": 36.7702656
+        },
+        {
+          "cumulative_seconds": 31.745682700000003,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\scripts\\profile_c_harness.py",
+          "function": "_probe",
+          "line": 20,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 0.0073109
+        },
+        {
+          "cumulative_seconds": 29.5263725,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\gates.py",
+          "function": "lifecycle_problems",
+          "line": 80,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 9.460000000000001e-05
+        },
+        {
+          "cumulative_seconds": 29.526238000000003,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\report.py",
+          "function": "report_provenance_problems",
+          "line": 43,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 0.0066148000000000005
+        },
+        {
+          "cumulative_seconds": 22.7620101,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\utils.py",
+          "function": "canonical_json_bytes",
+          "line": 24,
+          "primitive_calls": 543,
+          "total_calls": 543,
+          "total_seconds": 0.2265124
+        },
+        {
+          "cumulative_seconds": 22.086478300000003,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\utils.py",
+          "function": "load_json",
+          "line": 51,
+          "primitive_calls": 708,
+          "total_calls": 708,
+          "total_seconds": 0.0012815
+        },
+        {
+          "cumulative_seconds": 22.045171800000002,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\json\\__init__.py",
+          "function": "load",
+          "line": 278,
+          "primitive_calls": 717,
+          "total_calls": 717,
+          "total_seconds": 0.1707652
+        },
+        {
+          "cumulative_seconds": 6.6249368,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+          "function": "children",
+          "line": 951,
+          "primitive_calls": 90,
+          "total_calls": 90,
+          "total_seconds": 1.3846850000000002
+        },
+        {
+          "cumulative_seconds": 4.3163991,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\utils.py",
+          "function": "sha256_json",
+          "line": 37,
+          "primitive_calls": 543,
+          "total_calls": 543,
+          "total_seconds": 0.0684008
+        },
+        {
+          "cumulative_seconds": 2.2821687,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\json\\__init__.py",
+          "function": "loads",
+          "line": 304,
+          "primitive_calls": 6172,
+          "total_calls": 6172,
+          "total_seconds": 0.0031424
+        }
+      ],
+      "baseline_processes": 3,
+      "baseline_rss_bytes": 4339982336,
+      "baseline_seconds": 43.32921929999429,
+      "rss_reduction_fraction": 0.7534188526245651,
+      "same_probe_return_value": true,
+      "speed_ratio_descriptive": 1.0228446664027984
+    },
+    "wallet": {
+      "after_processes": 3,
+      "after_rss_bytes": 46194688,
+      "after_seconds": 0.326231099999859,
+      "after_top_cumulative_functions": [
+        {
+          "cumulative_seconds": 0.15416770000000002,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\scripts\\profile_c_harness.py",
+          "function": "_probe",
+          "line": 20,
+          "primitive_calls": 1,
+          "total_calls": 2,
+          "total_seconds": 1.3500000000000001e-05
+        },
+        {
+          "cumulative_seconds": 0.1487155,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program.py",
+          "function": "status",
+          "line": 811,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 1.2800000000000001e-05
+        },
+        {
+          "cumulative_seconds": 0.14870270000000002,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program_c.py",
+          "function": "status",
+          "line": 435,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 5.44e-05
+        },
+        {
+          "cumulative_seconds": 0.12900920000000002,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program_c.py",
+          "function": "_read",
+          "line": 168,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 9.250000000000001e-05
+        },
+        {
+          "cumulative_seconds": 0.1184994,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program_c.py",
+          "function": "_preservation",
+          "line": 140,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 3e-06
+        },
+        {
+          "cumulative_seconds": 0.1172773,
+          "filename": "~",
+          "function": "<built-in method builtins.any>",
+          "line": 0,
+          "primitive_calls": 11,
+          "total_calls": 11,
+          "total_seconds": 0.0161985
+        },
+        {
+          "cumulative_seconds": 0.0642564,
+          "filename": "~",
+          "function": "<method 'update' of '_hashlib.HASH' objects>",
+          "line": 0,
+          "primitive_calls": 170,
+          "total_calls": 170,
+          "total_seconds": 0.0642564
+        },
+        {
+          "cumulative_seconds": 0.0631462,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\threading.py",
+          "function": "wait",
+          "line": 641,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 5.4e-06
+        },
+        {
+          "cumulative_seconds": 0.06313730000000001,
+          "filename": "C:\\Users\\NATAN\\AppData\\Roaming\\uv\\python\\cpython-3.13-windows-x86_64-none\\Lib\\threading.py",
+          "function": "wait",
+          "line": 327,
+          "primitive_calls": 1,
+          "total_calls": 1,
+          "total_seconds": 0.0042782
+        },
+        {
+          "cumulative_seconds": 0.0408277,
+          "filename": "~",
+          "function": "<method 'read' of '_io.BufferedReader' objects>",
+          "line": 0,
+          "primitive_calls": 199,
+          "total_calls": 199,
+          "total_seconds": 0.0408277
+        },
+        {
+          "cumulative_seconds": 0.0339338,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program_c.py",
+          "function": "_hash",
+          "line": 64,
+          "primitive_calls": 10,
+          "total_calls": 10,
+          "total_seconds": 0.0021278
+        },
+        {
+          "cumulative_seconds": 0.031471200000000005,
+          "filename": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\research_program_c.py",
+          "function": "<genexpr>",
+          "line": 164,
+          "primitive_calls": 4,
+          "total_calls": 4,
+          "total_seconds": 1.2400000000000002e-05
+        }
+      ],
+      "baseline_processes": 3,
+      "baseline_rss_bytes": 615682048,
+      "baseline_seconds": 14.11848769999051,
+      "rss_reduction_fraction": 0.9249698961500336,
+      "same_probe_return_value": false,
+      "speed_ratio_descriptive": 43.27756519840264
+    }
+  },
+  "profile_evidence_receipt_sha256": "474a74d94612f83d0dc55e6f0bf652853a96d9312dde38aef2307eab973f8a86",
+  "science_claim": false,
+  "timing_uncertainty": "One cold Python process per configuration; OS file cache was not cleared. Ratios are descriptive, not confidence intervals or general performance guarantees."
+}

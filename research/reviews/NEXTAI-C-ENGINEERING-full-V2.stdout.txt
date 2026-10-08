@@ -1,0 +1,345 @@
+...........................F..FFFF...................................... [ 37%]
+........................................................................ [ 75%]
+...............................................                          [100%]
+================================== FAILURES ===================================
+_ test_shared_dry_run_and_actual_fixture_registration_have_same_body_and_gates _
+
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_shared_dry_run_and_actual0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001A7F27B1250>
+
+    def test_shared_dry_run_and_actual_fixture_registration_have_same_body_and_gates(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        canonical = project_root()
+        canonical_before = _canonical_ledger_hashes(canonical)
+        base, _, _ = _lab(tmp_path, monkeypatch)
+        legacy_before = (base / "research/events.jsonl").read_bytes()
+        before = _tree_hashes(base)
+        calls, built = [], []
+        for module, name, label in (
+            (gates, "ensure_can_create_plan", "admission"),
+            (schemas, "validate_document", "schema"),
+            (baseline_semantics, "verify_required_baselines", "baseline"),
+            (baseline_semantics, "verify_preflight_certificate", "preflight"),
+        ):
+            original = getattr(module, name)
+    
+            def wrapped(*args, _original=original, _label=label, **kwargs):
+                calls.append(_label)
+                return _original(*args, **kwargs)
+    
+            monkeypatch.setattr(module, name, wrapped)
+        original_builder = program.build_and_validate_plan
+    
+        def shared_builder(*args, **kwargs):
+            value = original_builder(*args, **kwargs)
+            built.append(copy.deepcopy(value))
+            return value
+    
+        monkeypatch.setattr(program, "build_and_validate_plan", shared_builder)
+        with monkeypatch.context() as no_entropy:
+            _forbid_scoring_entropy(no_entropy)
+>           dry = program.dry_run_plan(base)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_c_engineering_full_path.py:392: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_c_engineering_full_path.py:385: in shared_builder
+    value = original_builder(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+tests\test_c_engineering_full_path.py:379: in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:14Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_shared_dry_run_and_actual0')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+_ test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect[baseline] _
+
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_failed_dry_run_has_no_fil2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001A7E739CD00>
+gate = 'baseline'
+
+    @pytest.mark.parametrize("gate", ["admission", "schema", "baseline", "preflight"])
+    def test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch, gate: str,
+    ) -> None:
+        base, _, _ = _lab(tmp_path, monkeypatch)
+        before = _tree_hashes(base)
+        module, name = {
+            "admission": (gates, "ensure_can_create_plan"),
+            "schema": (schemas, "validate_document"),
+            "baseline": (baseline_semantics, "verify_required_baselines"),
+            "preflight": (baseline_semantics, "verify_preflight_certificate"),
+        }[gate]
+    
+        def failure(*args, **kwargs):
+            raise RuntimeError("synthetic " + gate + " rejection")
+    
+        monkeypatch.setattr(module, name, failure)
+        _forbid_scoring_entropy(monkeypatch)
+        monkeypatch.setattr(c, "reserve_registration", lambda *a: pytest.fail("dry-run claimed a ticket"))
+        monkeypatch.setattr(ledger, "register_plan", lambda *a: pytest.fail("dry-run registered a plan"))
+        with pytest.raises(RuntimeError, match="synthetic " + gate):
+>           program.dry_run_plan(base)
+
+tests\test_c_engineering_full_path.py:434: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:22Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_failed_dry_run_has_no_fil2')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+_ test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect[preflight] _
+
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_failed_dry_run_has_no_fil3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001A7F2CEA190>
+gate = 'preflight'
+
+    @pytest.mark.parametrize("gate", ["admission", "schema", "baseline", "preflight"])
+    def test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch, gate: str,
+    ) -> None:
+        base, _, _ = _lab(tmp_path, monkeypatch)
+        before = _tree_hashes(base)
+        module, name = {
+            "admission": (gates, "ensure_can_create_plan"),
+            "schema": (schemas, "validate_document"),
+            "baseline": (baseline_semantics, "verify_required_baselines"),
+            "preflight": (baseline_semantics, "verify_preflight_certificate"),
+        }[gate]
+    
+        def failure(*args, **kwargs):
+            raise RuntimeError("synthetic " + gate + " rejection")
+    
+        monkeypatch.setattr(module, name, failure)
+        _forbid_scoring_entropy(monkeypatch)
+        monkeypatch.setattr(c, "reserve_registration", lambda *a: pytest.fail("dry-run claimed a ticket"))
+        monkeypatch.setattr(ledger, "register_plan", lambda *a: pytest.fail("dry-run registered a plan"))
+        with pytest.raises(RuntimeError, match="synthetic " + gate):
+>           program.dry_run_plan(base)
+
+tests\test_c_engineering_full_path.py:434: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:24Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_failed_dry_run_has_no_fil3')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+_ test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence[complete] _
+
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_real_fixture_worker_analy0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001A7F2FFA9E0>
+partial = False
+
+    @pytest.mark.parametrize("partial", [False, True], ids=["complete", "partial-crash"])
+    def test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch, partial: bool,
+    ) -> None:
+        canonical = project_root()
+        canonical_before = _canonical_ledger_hashes(canonical)
+        base, clock, contract = _lab(tmp_path, monkeypatch, partial=partial)
+        legacy_before = (base / "research/events.jsonl").read_bytes()
+        legacy_subset_before = copy.deepcopy(c._legacy_subset(base))
+>       dry = program.dry_run_plan(base)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_c_engineering_full_path.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:26Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_real_fixture_worker_analy0')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+_ test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence[partial-crash] _
+
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_real_fixture_worker_analy1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001A7F2CEA2E0>
+partial = True
+
+    @pytest.mark.parametrize("partial", [False, True], ids=["complete", "partial-crash"])
+    def test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch, partial: bool,
+    ) -> None:
+        canonical = project_root()
+        canonical_before = _canonical_ledger_hashes(canonical)
+        base, clock, contract = _lab(tmp_path, monkeypatch, partial=partial)
+        legacy_before = (base / "research/events.jsonl").read_bytes()
+        legacy_subset_before = copy.deepcopy(c._legacy_subset(base))
+>       dry = program.dry_run_plan(base)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_c_engineering_full_path.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:28Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_real_fixture_worker_analy1')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -> None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "<root>"
+            rendered.append(f"{location}: {error.message}")
+>       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError
+=========================== short test summary info ===========================
+FAILED tests/test_c_engineering_full_path.py::test_shared_dry_run_and_actual_fixture_registration_have_same_body_and_gates
+FAILED tests/test_c_engineering_full_path.py::test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect[baseline]
+FAILED tests/test_c_engineering_full_path.py::test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect[preflight]
+FAILED tests/test_c_engineering_full_path.py::test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence[complete]
+FAILED tests/test_c_engineering_full_path.py::test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence[partial-crash]

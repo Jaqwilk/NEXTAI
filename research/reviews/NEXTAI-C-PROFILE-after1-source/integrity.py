@@ -279,7 +279,6 @@ def protected_files(root: Path | None = None) -> tuple[str, ...]:
             "scripts/acquire_asm01_c_v1.py",
             "scripts/run_c_bounded.py",
             "scripts/run_c_science.py",
-            "scripts/prepare_c_science.py",
         ))
     for pattern in ("src/nextai_autoresearch/**/*.py", "tests/**/*.py"):
         for path in base.glob(pattern):

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="191" time="27.251" timestamp="2026-10-08T02:06:06.472384+02:00" hostname="3vilOS20"><testcase classname="tests.test_research_program_c" name="test_activation_preserves_b_and_charges_one_outer_window" file="tests\test_research_program_c.py" line="125" time="0.134" /><testcase classname="tests.test_research_program_c" name="test_cannot_register_during_engineering_or_ready_with_missing_gate" file="tests\test_research_program_c.py" line="144" time="0.251" /><testcase classname="tests.test_research_program_c" name="test_one_paid_failure_consumed_without_b_change" file="tests\test_research_program_c.py" line="168" time="0.351" /><testcase classname="tests.test_research_program_c" name="test_registered_binding_resource_overruns_preserved_not_double_counted" file="tests\test_research_program_c.py" line="189" time="0.319" /><testcase classname="tests.test_research_program_c" name="test_authority_missing_hash_change_b_prefix_and_source_fail_closed" file="tests\test_research_program_c.py" line="211" time="0.089" /><testcase classname="tests.test_research_program_c" name="test_global_non_b_suffix_allowed_b_prefix_immutable" file="tests\test_research_program_c.py" line="232" time="0.085" /><testcase classname="tests.test_research_program_c" name="test_foreign_duplicate_reordered_and_nonfinite_events_rejected" file="tests\test_research_program_c.py" line="244" time="0.115" /><testcase classname="tests.test_research_program_c" name="test_nonfinite_caps_measurements_clock_and_exhaustion" file="tests\test_research_program_c.py" line="266" time="0.243" /><testcase classname="tests.test_research_program_c" name="test_liability_increases_without_refund_and_closure_stops_idle_clock" file="tests\test_research_program_c.py" line="290" time="0.168" /><testcase classname="tests.test_research_program_c" name="test_exclusive_ledger_lock_rejects_racing_second_mutation" file="tests\test_research_program_c.py" line="310" time="0.072" /><testcase classname="tests.test_research_program_c" name="test_prospective_admission_reads_real_prerequisites_without_ready_or_writes" file="tests\test_research_program_c.py" line="319" time="0.247" /><testcase classname="tests.test_research_program_c" name="test_prospective_artifact_missing_corrupt_same_size_mtime_and_foreign_receipt" file="tests\test_research_program_c.py" line="341" time="0.184" /><testcase classname="tests.test_research_program_c" name="test_scientific_finish_terminal_but_admin_outer_clock_keeps_charging[None]" file="tests\test_research_program_c.py" line="375" time="0.494" /><testcase classname="tests.test_research_program_c" name="test_scientific_finish_terminal_but_admin_outer_clock_keeps_charging[Synthetic scientific worker failure]" file="tests\test_research_program_c.py" line="375" time="0.459" /><testcase classname="tests.test_research_program_c" name="test_scientific_finish_foreign_cost_binding_and_refund_rejected" file="tests\test_research_program_c.py" line="413" time="0.395" /><testcase classname="tests.test_c_runner_limits" name="test_fit_and_full_worker_limits_are_independent" file="tests\test_c_runner_limits.py" line="15" time="0.000" /><testcase classname="tests.test_c_runner_limits" name="test_legacy_protocol_does_not_gain_c_fit_semantics" file="tests\test_c_runner_limits.py" line="22" time="0.000" /><testcase classname="tests.test_c_runner_limits" name="test_exhausted_or_invalid_budget_cannot_admit_worker[zero]" file="tests\test_c_runner_limits.py" line="28" time="0.000" /><testcase classname="tests.test_c_runner_limits" name="test_exhausted_or_invalid_budget_cannot_admit_worker[negative]" file="tests\test_c_runner_limits.py" line="28" time="0.000" /><testcase classname="tests.test_c_runner_limits" name="test_exhausted_or_invalid_budget_cannot_admit_worker[bool]" file="tests\test_c_runner_limits.py" line="28" time="0.000" /><testcase classname="tests.test_c_runner_limits" name="test_exhausted_or_invalid_budget_cannot_admit_worker[infinite]" file="tests\test_c_runner_limits.py" line="28" time="0.000" /><testcase classname="tests.test_c_runner_limits" name="test_exhausted_or_invalid_budget_cannot_admit_worker[nan]" file="tests\test_c_runner_limits.py" line="28" time="0.000" /><testcase classname="tests.test_c_runner_limits" name="test_remaining_fit_changes_parent_clock_without_mutating_recipe" file="tests\test_c_runner_limits.py" line="36" time="0.006" /><testcase classname="tests.test_c_harness_admission" name="test_lifecycle_releases_each_historical_result_and_preserves_timestamp_tie" file="tests\test_c_harness_admission.py" line="34" time="0.196" /><testcase classname="tests.test_c_harness_admission" name="test_lifecycle_metadata_still_rejects_count_and_newest_state_errors" file="tests\test_c_harness_admission.py" line="54" time="0.068" /><testcase classname="tests.test_c_harness_admission" name="test_active_c_scope_never_enters_historical_pc01_ladder" file="tests\test_c_harness_admission.py" line="65" time="0.001" /><testcase classname="tests.test_c_harness_admission" name="test_c_wallet_dispatch_never_falls_back_to_b" file="tests\test_c_harness_admission.py" line="75" time="0.001" /><testcase classname="tests.test_c_engineering_full_path" name="test_shared_dry_run_and_actual_fixture_registration_have_same_body_and_gates" file="tests\test_c_engineering_full_path.py" line="359" time="2.608"><failure message="jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short">tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_shared_dry_run_and_actual0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A7F27B1250&gt;
+
+    def test_shared_dry_run_and_actual_fixture_registration_have_same_body_and_gates(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    ) -&gt; None:
+        canonical = project_root()
+        canonical_before = _canonical_ledger_hashes(canonical)
+        base, _, _ = _lab(tmp_path, monkeypatch)
+        legacy_before = (base / "research/events.jsonl").read_bytes()
+        before = _tree_hashes(base)
+        calls, built = [], []
+        for module, name, label in (
+            (gates, "ensure_can_create_plan", "admission"),
+            (schemas, "validate_document", "schema"),
+            (baseline_semantics, "verify_required_baselines", "baseline"),
+            (baseline_semantics, "verify_preflight_certificate", "preflight"),
+        ):
+            original = getattr(module, name)
+    
+            def wrapped(*args, _original=original, _label=label, **kwargs):
+                calls.append(_label)
+                return _original(*args, **kwargs)
+    
+            monkeypatch.setattr(module, name, wrapped)
+        original_builder = program.build_and_validate_plan
+    
+        def shared_builder(*args, **kwargs):
+            value = original_builder(*args, **kwargs)
+            built.append(copy.deepcopy(value))
+            return value
+    
+        monkeypatch.setattr(program, "build_and_validate_plan", shared_builder)
+        with monkeypatch.context() as no_entropy:
+            _forbid_scoring_entropy(no_entropy)
+&gt;           dry = program.dry_run_plan(base)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_c_engineering_full_path.py:392: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_c_engineering_full_path.py:385: in shared_builder
+    value = original_builder(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+tests\test_c_engineering_full_path.py:379: in wrapped
+    return _original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:14Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_shared_dry_run_and_actual0')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -&gt; None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "&lt;root&gt;"
+            rendered.append(f"{location}: {error.message}")
+&gt;       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError</failure></testcase><testcase classname="tests.test_c_engineering_full_path" name="test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect[admission]" file="tests\test_c_engineering_full_path.py" line="412" time="2.352" /><testcase classname="tests.test_c_engineering_full_path" name="test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect[schema]" file="tests\test_c_engineering_full_path.py" line="412" time="2.918" /><testcase classname="tests.test_c_engineering_full_path" name="test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect[baseline]" file="tests\test_c_engineering_full_path.py" line="412" time="2.500"><failure message="jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short">tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_failed_dry_run_has_no_fil2')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A7E739CD00&gt;
+gate = 'baseline'
+
+    @pytest.mark.parametrize("gate", ["admission", "schema", "baseline", "preflight"])
+    def test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch, gate: str,
+    ) -&gt; None:
+        base, _, _ = _lab(tmp_path, monkeypatch)
+        before = _tree_hashes(base)
+        module, name = {
+            "admission": (gates, "ensure_can_create_plan"),
+            "schema": (schemas, "validate_document"),
+            "baseline": (baseline_semantics, "verify_required_baselines"),
+            "preflight": (baseline_semantics, "verify_preflight_certificate"),
+        }[gate]
+    
+        def failure(*args, **kwargs):
+            raise RuntimeError("synthetic " + gate + " rejection")
+    
+        monkeypatch.setattr(module, name, failure)
+        _forbid_scoring_entropy(monkeypatch)
+        monkeypatch.setattr(c, "reserve_registration", lambda *a: pytest.fail("dry-run claimed a ticket"))
+        monkeypatch.setattr(ledger, "register_plan", lambda *a: pytest.fail("dry-run registered a plan"))
+        with pytest.raises(RuntimeError, match="synthetic " + gate):
+&gt;           program.dry_run_plan(base)
+
+tests\test_c_engineering_full_path.py:434: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:22Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_failed_dry_run_has_no_fil2')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -&gt; None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "&lt;root&gt;"
+            rendered.append(f"{location}: {error.message}")
+&gt;       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError</failure></testcase><testcase classname="tests.test_c_engineering_full_path" name="test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect[preflight]" file="tests\test_c_engineering_full_path.py" line="412" time="2.522"><failure message="jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short">tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_failed_dry_run_has_no_fil3')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A7F2CEA190&gt;
+gate = 'preflight'
+
+    @pytest.mark.parametrize("gate", ["admission", "schema", "baseline", "preflight"])
+    def test_failed_dry_run_has_no_file_ticket_registration_or_entropy_side_effect(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch, gate: str,
+    ) -&gt; None:
+        base, _, _ = _lab(tmp_path, monkeypatch)
+        before = _tree_hashes(base)
+        module, name = {
+            "admission": (gates, "ensure_can_create_plan"),
+            "schema": (schemas, "validate_document"),
+            "baseline": (baseline_semantics, "verify_required_baselines"),
+            "preflight": (baseline_semantics, "verify_preflight_certificate"),
+        }[gate]
+    
+        def failure(*args, **kwargs):
+            raise RuntimeError("synthetic " + gate + " rejection")
+    
+        monkeypatch.setattr(module, name, failure)
+        _forbid_scoring_entropy(monkeypatch)
+        monkeypatch.setattr(c, "reserve_registration", lambda *a: pytest.fail("dry-run claimed a ticket"))
+        monkeypatch.setattr(ledger, "register_plan", lambda *a: pytest.fail("dry-run registered a plan"))
+        with pytest.raises(RuntimeError, match="synthetic " + gate):
+&gt;           program.dry_run_plan(base)
+
+tests\test_c_engineering_full_path.py:434: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:24Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_failed_dry_run_has_no_fil3')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -&gt; None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "&lt;root&gt;"
+            rendered.append(f"{location}: {error.message}")
+&gt;       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError</failure></testcase><testcase classname="tests.test_c_engineering_full_path" name="test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence[complete]" file="tests\test_c_engineering_full_path.py" line="438" time="2.001"><failure message="jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short">tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_real_fixture_worker_analy0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A7F2FFA9E0&gt;
+partial = False
+
+    @pytest.mark.parametrize("partial", [False, True], ids=["complete", "partial-crash"])
+    def test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch, partial: bool,
+    ) -&gt; None:
+        canonical = project_root()
+        canonical_before = _canonical_ledger_hashes(canonical)
+        base, clock, contract = _lab(tmp_path, monkeypatch, partial=partial)
+        legacy_before = (base / "research/events.jsonl").read_bytes()
+        legacy_subset_before = copy.deepcopy(c._legacy_subset(base))
+&gt;       dry = program.dry_run_plan(base)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_c_engineering_full_path.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:26Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_real_fixture_worker_analy0')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -&gt; None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "&lt;root&gt;"
+            rendered.append(f"{location}: {error.message}")
+&gt;       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError</failure></testcase><testcase classname="tests.test_c_engineering_full_path" name="test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence[partial-crash]" file="tests\test_c_engineering_full_path.py" line="438" time="2.021"><failure message="jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short">tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_real_fixture_worker_analy1')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A7F2CEA2E0&gt;
+partial = True
+
+    @pytest.mark.parametrize("partial", [False, True], ids=["complete", "partial-crash"])
+    def test_real_fixture_worker_analysis_archive_and_maintenance_preserve_evidence(
+        tmp_path: Path, monkeypatch: pytest.MonkeyPatch, partial: bool,
+    ) -&gt; None:
+        canonical = project_root()
+        canonical_before = _canonical_ledger_hashes(canonical)
+        base, clock, contract = _lab(tmp_path, monkeypatch, partial=partial)
+        legacy_before = (base / "research/events.jsonl").read_bytes()
+        legacy_subset_before = copy.deepcopy(c._legacy_subset(base))
+&gt;       dry = program.dry_run_plan(base)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_c_engineering_full_path.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\research_program.py:1089: in dry_run_plan
+    return build_and_validate_plan(base, requested, prospective=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\research_program.py:1081: in build_and_validate_plan
+    validate_document("experiment_plan", plan, base)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment_plan'
+value = {'schema_version': 1, 'experiment_id': 'EXP-20261008-0001', 'parent_experiment_id': None, 'created_at': '2026-10-08T00:06:28Z', ...}
+root = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-ENGINEERING-full-V2/test_real_fixture_worker_analy1')
+
+    def validate_document(name: str, value: Any, root: Path | None = None) -&gt; None:
+        if isinstance(value, dict):
+            if name == "experiment_plan" and value.get("kind") == "pc01_diagnostic_plan":
+                name = "pc01_plan"
+            elif name == "experiment_result" and value.get("kind") == "pc01_diagnostic_result":
+                name = "pc01_result"
+        schema = load_schema(name, root)
+        # Legacy schema bytes stay immutable. Versioned plan/result identity is
+        # explicit; v3 metadata completeness is separately enforced by the runner.
+        if name in ("pc01_plan", "pc01_result") and isinstance(value, dict):
+            if value.get("benchmark") in ("pc01_byte_lm_learning_measurement_v2", "pc01_byte_lm_learning_measurement_v3"):
+                schema["properties"]["benchmark"] = {"const": value["benchmark"]}
+        validator = Draft202012Validator(schema)
+        errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
+        if not errors:
+            if name == "experiment_result":
+                validate_metric_domains(value)
+            return
+        rendered: list[str] = []
+        for error in errors[:20]:
+            location = ".".join(str(part) for part in error.absolute_path) or "&lt;root&gt;"
+            rendered.append(f"{location}: {error.message}")
+&gt;       raise ValidationError("; ".join(rendered))
+E       jsonschema.exceptions.ValidationError: matrix.knowledge_sizes: [8] is too short; matrix.reasoning_depths: [1] is too short
+
+src\nextai_autoresearch\schemas.py:73: ValidationError</failure></testcase><testcase classname="tests.test_c_scientific_driver" name="test_registration_failure_has_explicit_no_worker_identity" file="tests\test_c_scientific_driver.py" line="30" time="0.003" /><testcase classname="tests.test_c_scientific_driver" name="test_complete_result_keeps_failed_partial_and_skips_only_explicit_unstarted" file="tests\test_c_scientific_driver.py" line="34" time="0.007" /><testcase classname="tests.test_c_scientific_driver" name="test_partial_supervisors_preserved_without_result" file="tests\test_c_scientific_driver.py" line="41" time="0.011" /><testcase classname="tests.test_c_scientific_driver" name="test_wall_fallback_has_measured_fit_and_missing_fit_requires_recovery" file="tests\test_c_scientific_driver.py" line="48" time="0.013" /><testcase classname="tests.test_c_scientific_driver" name="test_missing_full_telemetry_never_becomes_optimistic_zero" file="tests\test_c_scientific_driver.py" line="59" time="0.023" /><testcase classname="tests.test_c_scientific_driver" name="test_registered_identity_with_no_worker_receipts_or_empty_result_is_unknown" file="tests\test_c_scientific_driver.py" line="68" time="0.007" /><testcase classname="tests.test_c_scientific_driver" name="test_invalid_nonfinite_boolean_negative_or_fit_greater_than_full_rejected" file="tests\test_c_scientific_driver.py" line="76" time="0.043" /><testcase classname="tests.test_c_scientific_driver" name="test_corrupt_or_malformed_result_and_supervisor_are_not_zero" file="tests\test_c_scientific_driver.py" line="84" time="0.010" /><testcase classname="tests.test_c_scientific_driver" name="test_result_and_supervisor_are_alternatives_not_added_twice" file="tests\test_c_scientific_driver.py" line="99" time="0.012" /><testcase classname="tests.test_asm01_c_intake" name="test_signed_inclusive_bounds_preserve_coordinate_values[xmin]" file="tests\test_asm01_c_intake.py" line="51" time="0.002" /><testcase classname="tests.test_asm01_c_intake" name="test_signed_inclusive_bounds_preserve_coordinate_values[xmax]" file="tests\test_asm01_c_intake.py" line="51" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_signed_inclusive_bounds_preserve_coordinate_values[ymin]" file="tests\test_asm01_c_intake.py" line="51" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_signed_inclusive_bounds_preserve_coordinate_values[ymax]" file="tests\test_asm01_c_intake.py" line="51" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_signed_zero_and_leading_zeros_are_numerical_equivalence[minus-zero]" file="tests\test_asm01_c_intake.py" line="59" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_signed_zero_and_leading_zeros_are_numerical_equivalence[long-minus-zero]" file="tests\test_asm01_c_intake.py" line="59" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_signed_zero_and_leading_zeros_are_numerical_equivalence[zero]" file="tests\test_asm01_c_intake.py" line="59" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_signed_zero_and_leading_zeros_are_numerical_equivalence[signed-leading]" file="tests\test_asm01_c_intake.py" line="59" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_long_zero_prefix_is_bounded_before_integer_conversion" file="tests\test_asm01_c_intake.py" line="69" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[xmin-over]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[xmax-over]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[ymin-over]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[ymax-over]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[plus]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[decimal]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[exponent]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[nan]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[inf]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[state-minus]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[state-plus]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[state-zero]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[state-two]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[serial-minus]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[serial-plus]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[serial-zero]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[serial-over]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[arity-three]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_coordinate_and_unsigned_metadata_rejections[arity-five]" file="tests\test_asm01_c_intake.py" line="84" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_stroke_count_must_be_canonical_and_bounded[zero]" file="tests\test_asm01_c_intake.py" line="99" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_stroke_count_must_be_canonical_and_bounded[minus]" file="tests\test_asm01_c_intake.py" line="99" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_stroke_count_must_be_canonical_and_bounded[plus]" file="tests\test_asm01_c_intake.py" line="99" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_stroke_count_must_be_canonical_and_bounded[noncanonical]" file="tests\test_asm01_c_intake.py" line="99" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_stroke_count_must_be_canonical_and_bounded[over]" file="tests\test_asm01_c_intake.py" line="99" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_stroke_count_must_be_canonical_and_bounded[huge]" file="tests\test_asm01_c_intake.py" line="99" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_empty_ids_orphan_annotations_and_monotone_serials_preserve_order" file="tests\test_asm01_c_intake.py" line="106" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_maximum_declared_empty_ids_do_not_infer_points" file="tests\test_asm01_c_intake.py" line="127" time="0.002" /><testcase classname="tests.test_asm01_c_intake" name="test_public_whitespace_and_opaque_names_cannot_change_geometry" file="tests\test_asm01_c_intake.py" line="135" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[missing]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[duplicate]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[misplaced]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[wrong]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[unknown]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[down-operand]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[up-operand]" file="tests\test_asm01_c_intake.py" line="141" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[middle-count]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[middle-end]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_release_grammar_has_no_legacy_fallback[envelope]" file="tests\test_asm01_c_intake.py" line="141" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_type_ascii_and_byte_envelope[none]" file="tests\test_asm01_c_intake.py" line="172" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_type_ascii_and_byte_envelope[bytearray]" file="tests\test_asm01_c_intake.py" line="172" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_type_ascii_and_byte_envelope[bytes-over]" file="tests\test_asm01_c_intake.py" line="172" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_type_ascii_and_byte_envelope[nonascii]" file="tests\test_asm01_c_intake.py" line="172" time="0.000" /><testcase classname="tests.test_asm01_c_intake" name="test_point_cap_exact_boundary_and_independent_reachable_branch" file="tests\test_asm01_c_intake.py" line="180" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_each_required_view_and_minimum_points_must_be_valid" file="tests\test_asm01_c_intake.py" line="190" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_transform_object_and_accepted_arrays_views_are_unchanged" file="tests\test_asm01_c_intake.py" line="209" time="0.001" /><testcase classname="tests.test_asm01_c_intake" name="test_complete_1830_intake_compares_all_1171_and_74_before_serving" file="tests\test_asm01_c_intake.py" line="273" time="0.391" /><testcase classname="tests.test_asm01_c_intake" name="test_old_74_array_difference_stops_before_75_and_any_D" file="tests\test_asm01_c_intake.py" line="298" time="0.021" /><testcase classname="tests.test_asm01_c_intake" name="test_each_saved_old_view_is_mandatory_before_75[write]" file="tests\test_asm01_c_intake.py" line="310" time="0.021" /><testcase classname="tests.test_asm01_c_intake" name="test_each_saved_old_view_is_mandatory_before_75[nominal]" file="tests\test_asm01_c_intake.py" line="310" time="0.021" /><testcase classname="tests.test_asm01_c_intake" name="test_each_saved_old_view_is_mandatory_before_75[adverse]" file="tests\test_asm01_c_intake.py" line="310" time="0.021" /><testcase classname="tests.test_asm01_c_intake" name="test_previous_accepted_array_75_is_checked_not_only_old74" file="tests\test_asm01_c_intake.py" line="319" time="0.063" /><testcase classname="tests.test_asm01_c_intake" name="test_corrupt_raw_reader_payload_stops_before_conversion" file="tests\test_asm01_c_intake.py" line="328" time="0.020" /><testcase classname="tests.test_asm01_c_intake" name="test_unknown_row_75_stops_after_exact_old74_without_D" file="tests\test_asm01_c_intake.py" line="337" time="0.063" /><testcase classname="tests.test_asm01_c_intake" name="test_duplicate_final_array_invalidates_complete_cohort_without_filtering" file="tests\test_asm01_c_intake.py" line="349" time="0.335" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[future]" file="tests\test_asm01_c_intake.py" line="360" time="0.018" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[sample]" file="tests\test_asm01_c_intake.py" line="360" time="0.018" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[order]" file="tests\test_asm01_c_intake.py" line="360" time="0.018" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[path]" file="tests\test_asm01_c_intake.py" line="360" time="0.018" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[expected]" file="tests\test_asm01_c_intake.py" line="360" time="0.018" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[old75]" file="tests\test_asm01_c_intake.py" line="360" time="0.019" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[prior-prefix]" file="tests\test_asm01_c_intake.py" line="360" time="0.019" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[prior-array]" file="tests\test_asm01_c_intake.py" line="360" time="0.019" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[prior-old]" file="tests\test_asm01_c_intake.py" line="360" time="0.020" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[prior-view]" file="tests\test_asm01_c_intake.py" line="360" time="0.020" /><testcase classname="tests.test_asm01_c_intake" name="test_foreign_or_inconsistent_metadata_rejects_before_reader[prior-count]" file="tests\test_asm01_c_intake.py" line="360" time="0.019" /><testcase classname="tests.test_asm01_c_intake" name="test_receipt_cannot_be_reused_as_an_intake_retry" file="tests\test_asm01_c_intake.py" line="393" time="0.340" /><testcase classname="tests.test_asm01_c_binding" name="test_clone_origin_and_exact_new_frozen_task_study" file="tests\test_asm01_c_binding.py" line="104" time="0.003" /><testcase classname="tests.test_asm01_c_binding" name="test_complete_loader_all_five_pairs_and_disjoint_T_partitions[pair0]" file="tests\test_asm01_c_binding.py" line="116" time="0.052" /><testcase classname="tests.test_asm01_c_binding" name="test_complete_loader_all_five_pairs_and_disjoint_T_partitions[pair1]" file="tests\test_asm01_c_binding.py" line="116" time="0.042" /><testcase classname="tests.test_asm01_c_binding" name="test_complete_loader_all_five_pairs_and_disjoint_T_partitions[pair2]" file="tests\test_asm01_c_binding.py" line="116" time="0.042" /><testcase classname="tests.test_asm01_c_binding" name="test_complete_loader_all_five_pairs_and_disjoint_T_partitions[pair3]" file="tests\test_asm01_c_binding.py" line="116" time="0.042" /><testcase classname="tests.test_asm01_c_binding" name="test_complete_loader_all_five_pairs_and_disjoint_T_partitions[pair4]" file="tests\test_asm01_c_binding.py" line="116" time="0.041" /><testcase classname="tests.test_asm01_c_binding" name="test_loader_refuses_noncanonical_pair_before_manifest_read[negative]" file="tests\test_asm01_c_binding.py" line="133" time="0.002" /><testcase classname="tests.test_asm01_c_binding" name="test_loader_refuses_noncanonical_pair_before_manifest_read[future]" file="tests\test_asm01_c_binding.py" line="133" time="0.001" /><testcase classname="tests.test_asm01_c_binding" name="test_loader_refuses_noncanonical_pair_before_manifest_read[bool]" file="tests\test_asm01_c_binding.py" line="133" time="0.002" /><testcase classname="tests.test_asm01_c_binding" name="test_loader_refuses_noncanonical_pair_before_manifest_read[float]" file="tests\test_asm01_c_binding.py" line="133" time="0.001" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[incomplete]" file="tests\test_asm01_c_binding.py" line="139" time="0.036" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[task]" file="tests\test_asm01_c_binding.py" line="139" time="0.039" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[study]" file="tests\test_asm01_c_binding.py" line="139" time="0.036" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[writers]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[hash-keys]" file="tests\test_asm01_c_binding.py" line="139" time="0.047" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[future-flag]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[publisher]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[source]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[payload]" file="tests\test_asm01_c_binding.py" line="139" time="0.037" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[path]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[attempted]" file="tests\test_asm01_c_binding.py" line="139" time="0.036" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[converted]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[validated]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[old74]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[previous1171]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_manifest_scope_integrity_and_complete_counters_are_mandatory[D915]" file="tests\test_asm01_c_binding.py" line="139" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_bound_input_bytes_changed_are_rejected[task-bytes]" file="tests\test_asm01_c_binding.py" line="165" time="0.029" /><testcase classname="tests.test_asm01_c_binding" name="test_bound_input_bytes_changed_are_rejected[study-bytes]" file="tests\test_asm01_c_binding.py" line="165" time="0.029" /><testcase classname="tests.test_asm01_c_binding" name="test_bound_input_bytes_changed_are_rejected[source-bytes]" file="tests\test_asm01_c_binding.py" line="165" time="0.032" /><testcase classname="tests.test_asm01_c_binding" name="test_changed_publisher_hash_is_rejected_without_native_archive" file="tests\test_asm01_c_binding.py" line="175" time="0.086" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[keys]" file="tests\test_asm01_c_binding.py" line="190" time="0.048" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[point-dtype]" file="tests\test_asm01_c_binding.py" line="190" time="0.050" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[offset-dtype]" file="tests\test_asm01_c_binding.py" line="190" time="0.052" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[row-dtype]" file="tests\test_asm01_c_binding.py" line="190" time="0.052" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[offset-start]" file="tests\test_asm01_c_binding.py" line="190" time="0.052" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[offset-end]" file="tests\test_asm01_c_binding.py" line="190" time="0.052" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[short-path]" file="tests\test_asm01_c_binding.py" line="190" time="0.051" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[sample-row]" file="tests\test_asm01_c_binding.py" line="190" time="0.053" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[future-row]" file="tests\test_asm01_c_binding.py" line="190" time="0.052" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[nan]" file="tests\test_asm01_c_binding.py" line="190" time="0.052" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[fraction]" file="tests\test_asm01_c_binding.py" line="190" time="0.050" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[x-bound]" file="tests\test_asm01_c_binding.py" line="190" time="0.051" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[y-bound]" file="tests\test_asm01_c_binding.py" line="190" time="0.053" /><testcase classname="tests.test_asm01_c_binding" name="test_every_writer_structure_is_checked_even_with_recomputed_hashes[duplicate]" file="tests\test_asm01_c_binding.py" line="190" time="0.051" /><testcase classname="tests.test_asm01_c_binding" name="test_legacy_manifest_cannot_replace_missing_C_binding" file="tests\test_asm01_c_binding.py" line="233" time="0.048" /><testcase classname="tests.test_asm01_c_binding" name="test_wrapper_uses_old_method_code_and_new_intake_cost_binding" file="tests\test_asm01_c_binding.py" line="242" time="0.029" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_requires_complete_evidence_and_creates_exclusively" file="tests\test_asm01_c_binding.py" line="261" time="0.046" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_cannot_create_NPZ_from_partial_intake[incomplete]" file="tests\test_asm01_c_binding.py" line="276" time="0.016" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_cannot_create_NPZ_from_partial_intake[attempted]" file="tests\test_asm01_c_binding.py" line="276" time="0.017" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_cannot_create_NPZ_from_partial_intake[converted]" file="tests\test_asm01_c_binding.py" line="276" time="0.017" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_cannot_create_NPZ_from_partial_intake[validated]" file="tests\test_asm01_c_binding.py" line="276" time="0.016" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_cannot_create_NPZ_from_partial_intake[old74]" file="tests\test_asm01_c_binding.py" line="276" time="0.016" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_cannot_create_NPZ_from_partial_intake[previous1171]" file="tests\test_asm01_c_binding.py" line="276" time="0.017" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_cannot_create_NPZ_from_partial_intake[D915]" file="tests\test_asm01_c_binding.py" line="276" time="0.016" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_rejects_incomplete_or_foreign_proof_before_NPZ[raw-map]" file="tests\test_asm01_c_binding.py" line="290" time="0.016" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_rejects_incomplete_or_foreign_proof_before_NPZ[array-map]" file="tests\test_asm01_c_binding.py" line="290" time="0.017" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_rejects_incomplete_or_foreign_proof_before_NPZ[array-proof]" file="tests\test_asm01_c_binding.py" line="290" time="0.024" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_rejects_incomplete_or_foreign_proof_before_NPZ[writer-hashes]" file="tests\test_asm01_c_binding.py" line="290" time="0.017" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_rejects_incomplete_or_foreign_proof_before_NPZ[keys]" file="tests\test_asm01_c_binding.py" line="290" time="0.016" /><testcase classname="tests.test_asm01_c_binding" name="test_publisher_rejects_incomplete_or_foreign_proof_before_NPZ[source]" file="tests\test_asm01_c_binding.py" line="290" time="0.020" /><testcase classname="tests.test_asm01_c_binding" name="test_publication_failure_preserves_partial_and_no_complete_manifest[serialize]" file="tests\test_asm01_c_binding.py" line="312" time="0.024" /><testcase classname="tests.test_asm01_c_binding" name="test_publication_failure_preserves_partial_and_no_complete_manifest[dataset-link]" file="tests\test_asm01_c_binding.py" line="312" time="0.034" /><testcase classname="tests.test_asm01_c_binding" name="test_publication_failure_preserves_partial_and_no_complete_manifest[manifest-link]" file="tests\test_asm01_c_binding.py" line="312" time="0.038" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[valid]" file="tests\test_asm01_c_binding.py" line="344" time="0.035" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[native-flag]" file="tests\test_asm01_c_binding.py" line="344" time="0.024" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[conformance-flag]" file="tests\test_asm01_c_binding.py" line="344" time="0.024" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[task]" file="tests\test_asm01_c_binding.py" line="344" time="0.534" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[study]" file="tests\test_asm01_c_binding.py" line="344" time="0.026" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[preserved-entry]" file="tests\test_asm01_c_binding.py" line="344" time="0.024" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[new-module]" file="tests\test_asm01_c_binding.py" line="344" time="0.024" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[old-hash]" file="tests\test_asm01_c_binding.py" line="344" time="0.024" /><testcase classname="tests.test_asm01_c_binding" name="test_source_binding_metadata_precedes_any_native_reader[file-bytes]" file="tests\test_asm01_c_binding.py" line="344" time="0.033" /><testcase classname="tests.test_asm01_c_binding" name="test_main_rejects_clone_name_spoof_before_any_payload_or_publication" file="tests\test_asm01_c_binding.py" line="393" time="0.002" /></testsuite></testsuites>
