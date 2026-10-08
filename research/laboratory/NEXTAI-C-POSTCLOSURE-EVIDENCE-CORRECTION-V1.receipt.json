@@ -1,0 +1,70 @@
+{
+  "B_contract_unchanged": true,
+  "B_events_prefix_unchanged": true,
+  "B_program_events_unchanged": true,
+  "B_program_subset_sha256": "71d9838aeb0993e435ce3885901c61806eb5f76a3eae6d1bdb5f7db8fb9cceb6",
+  "C_closed": true,
+  "EXP": 0,
+  "administrative_failure_preserved": {
+    "cost": "included in C outer wall; not treated as zero or refunded",
+    "documents_already_preserved_and_corrected_before_failure": true,
+    "exception_type": "FileNotFoundError",
+    "exit_code": 1,
+    "message": "No such file or directory",
+    "operation": "preservation/receipt construction V1",
+    "recovery": "Receipt construction only; no repeat document mutations. Actual B SHA is canonical filtered research/events.jsonl, verified by saved implementation.",
+    "wrong_assumed_path": "research/program_events.jsonl"
+  },
+  "collector_phase_set_before_whole_parser": true,
+  "corrected_documents_sha256": {
+    "AGENTS.md": "24608f92b6a201bf471a3b3db46e61ac541c2590fab9c97d6e369328f4377285",
+    "research/analyses/NEXTAI-C-CYCLE344-STABILIZATION-AND-ASM-SCREEN-V1.md": "88c8c65a6ba2f107714f9efd00dbe05db6c2adc1ef22223c797ff296bb606aac",
+    "research/reviews/NEXTAI-C-engineering-summary-V1.md": "175d894d928362fa4b59119e3f8e4231606a4c1cc11c7059277f4c64d690993e",
+    "research/reviews/NEXTAI-C-science-stop-interpretation-V1.md": "64a5b17c6cc8c213ca7648f1130a1a670407679654e86776e826f1b3b48f0d7a"
+  },
+  "cost_owner": "C postclosure administrative outer wall; subsequent checkpoint required",
+  "created_at": "2026-10-08T00:46:21.652323+00:00",
+  "erratum_path": "research/analyses/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1.md",
+  "erratum_sha256": "f0cffe2748826cf47d9bdf5d1ccadd79574c14e899e2a196450bc5cee6b94dcc",
+  "error_UID": "18:67",
+  "evaluated_source_sha256": {
+    "scripts/acquire_asm01_c_v1.py": "e0b4af58c83a817ef74f7208a2f71a6c4eac257496f30bee02ab96ffc273d0ff",
+    "src/nextai_autoresearch/asm01_task_v6.py": "fb1a6525acd04234a3838816b3785e5c36b53c86531bfb5735d438eb06a529ba"
+  },
+  "exact_failure_subtype": "UNKNOWN",
+  "native_payloads_opened": 0,
+  "original_documents": {
+    "AGENTS.md": {
+      "preserved_path": "research/laboratory/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1/originals/AGENTS.md",
+      "sha256": "dcbb2e5bd969480dc359df5fe2e9fbe201fd3212783512d98c1977a42cff55cb"
+    },
+    "research/analyses/NEXTAI-C-CYCLE344-STABILIZATION-AND-ASM-SCREEN-V1.md": {
+      "preserved_path": "research/laboratory/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1/originals/research/analyses/NEXTAI-C-CYCLE344-STABILIZATION-AND-ASM-SCREEN-V1.md",
+      "sha256": "b57c80b7040136df440f2ac99ca9f5b71ca735a99e731e4348890adeffe610de"
+    },
+    "research/reviews/NEXTAI-C-engineering-summary-V1.md": {
+      "preserved_path": "research/laboratory/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1/originals/research/reviews/NEXTAI-C-engineering-summary-V1.md",
+      "sha256": "c9deb43bba523f912b42dcecbc519cc4d9b28eeabb776792d445c5ee7621dfa5"
+    },
+    "research/reviews/NEXTAI-C-science-stop-interpretation-V1.md": {
+      "preserved_path": "research/laboratory/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1/originals/research/reviews/NEXTAI-C-science-stop-interpretation-V1.md",
+      "sha256": "d0f0fd25ca884b9773439a4963f9d809c6faf861d734fbe358d8e58f19d6b6e4"
+    }
+  },
+  "original_exception_message_preserved": false,
+  "paid_retry": false,
+  "prior_geometry_specific_interpretation_superseded": true,
+  "saved_category": "native_geometry",
+  "saved_exception_type": "ValueError",
+  "scientific_fit_seconds": 0,
+  "scientific_registration_attempts": 0,
+  "scope": "postclosure saved-source interpretation correction, no scientific execution",
+  "tests_run": 0,
+  "unchanged_evidence_sha256": {
+    "research/data_manifests/ASM01-C-ACQUISITION-V1.json": "7d3ff5d7da791797ddae32a10c5815a78b0779dffc8badadfbc7ba29e39a7a2c",
+    "research/laboratory/NEXTAI-C-CYCLE344-COMPLETION-V1.receipt.json": "bbd5237bd84b49700c4a601e8be4fbe55e3c96141f27cad1c1a5b0782fa01f14",
+    "research/laboratory/NEXTAI-C-CYCLE344-FINAL-ACCOUNTING-V1.json": "c5302c09e7bcca83ba530d03e217e372dfc3f40aebde9cb67d72e7ba7a09e5f9",
+    "research/plans/ASM01-C-STABILIZED-SCREEN-V1.json": "297357e54f271bebe8fdf8da0d6a31c6d2c7a3fea5251ad9f1008eb9b26b8c1d"
+  },
+  "whole_goal_complete": false
+}

@@ -64,6 +64,3 @@ Decyzja inżynieryjna: zachować zmierzone usprawnienia kontroli wraz z ich ogra
 | Zamrożone study C | `297357e54f271bebe8fdf8da0d6a31c6d2c7a3fea5251ad9f1008eb9b26b8c1d` |
 | Zamrożony task signed/serial | `66cb7521a72e3485c8738d0f46cfe64bad3d773755fcc15c5db23a4cde9afa85` |
 
-
-
-Sprostowanie interpretacji po audycie ocenionych źródeł: `native_geometry` to faza obejmująca cały parser i tablicę. Przyczyna błędu `18:67` jest nieustalona, nie potwierdzono degeneracji geometrii. [Dowody i zakres korekty](../analyses/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1.md). Oryginalny dokument zachowano z hashem; ten dopisek nie zmienia wyników technicznych ani naukowych.

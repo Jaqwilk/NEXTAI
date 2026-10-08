@@ -1,9 +1,3 @@
-# Etap C: niekompletny intake, przyczyna awarii nieustalona
-
-**Sprostowanie po audycie ocenionych źródeł:** etykieta `native_geometry` obejmuje cały parser, zakresy, seriale, tablicę i widoki. Nie dowodzi degeneracji geometrii. Przyczyna `18:67` pozostaje nieustalona. Decyzja INCONCLUSIVE technicznie i zamknięcie C bez retry pozostają bez zmian. [Dowody i stan całego celu](NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1.md).
-
-Poniżej zachowano wcześniejszą wersję raportu; sprostowanie zastępuje jej tytuł i interpretację sugerującą ustaloną awarię geometrii.
-
 # Etap C: stabilizacja i screen ASM — zatrzymany na geometrii
 
 **Decyzja: INCONCLUSIVE technicznie.** Usprawnienia aktywnego harnessu mają potwierdzenie w testach i pomiarach. Jedyny zamrożony intake drugiej rodziny nie uzyskał jednak kompletności. Nie zarejestrowano eksperymentu naukowego, nie uruchomiono workerów naukowych i nie dopasowano modeli na danych C. Nie ma nowego wyniku transferu ani ekonomii.

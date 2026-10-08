@@ -1,0 +1,9 @@
+{
+  "check": "git diff --cached --check",
+  "cost_owner": "C postclosure outer wall",
+  "first_exit_code": 1,
+  "first_result": "Preserved raw CRLF originals and historical EOF blank line produce whitespace warnings. Originals deliberately unchanged for exact SHA preservation.",
+  "non_snapshot_check_exit_code": 0,
+  "science_or_tests_executed": false,
+  "subsequent_check": "git diff --cached --check -- . :!research/laboratory/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1/**"
+}

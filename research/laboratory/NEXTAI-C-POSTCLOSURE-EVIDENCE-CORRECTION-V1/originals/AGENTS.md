@@ -1,23 +1,3 @@
-# Current correction after cycle344 — failure subtype unknown (2026-10-08)
-
-Saved evaluated source audit confirms collector native_geometry is assigned BEFORE
-whole parser/array validation; original ValueError message discarded. Failure18:67
-has UNKNOWN subtype: grammar/range/serial/minpoints/array/views possible, geometry
-degeneration NOT established. Earlier geometry-specific wording below is superseded
-by research/analyses/NEXTAI-C-POSTCLOSURE-EVIDENCE-CORRECTION-V1.md.
-Original documents preserved byte-for-byte with hashes; source/binding/intake/
-closure/archive unchanged. No native read, imports, tests, fit, registration or EXP
-in this audit. C remains CLOSED/scoring=false; broad goal incomplete.
-B2/12,30999.55024020007/72000s; protected6/41000 unchanged; free0.44975979993s.
-Future-stage human approval persists, no reopening C or protected-fund screen.
-Postclosure correction/publication admin charged by C outer wall. Historical
-endpoint V2 4074.634399s retained; subsequent endpoint retained separately.
-Full-goal missing: valid second-family screen, independent replications, fresh
- target finals and evidence-selected fact/source/update/UNKNOWN prototype.
-Concrete next scope first redacted subtype diagnostics, then prospectively valid
-new task/screen with lawful new allocation; no geometry rescue from unknown cause.
-All earlier text preserved below losslessly.
-
 # Completed cycle344 — C native geometry stop (2026-10-08)
 
 Separate C froze engineering and signed/serial ASM science before code/data.

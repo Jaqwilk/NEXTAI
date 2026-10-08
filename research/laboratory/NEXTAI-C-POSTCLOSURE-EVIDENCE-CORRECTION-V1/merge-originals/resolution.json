@@ -1,0 +1,11 @@
+{
+  "cause": "root ends at sequence4, canonical clone retains sequence5 publication tail",
+  "conflict_path": "research/c_events.jsonl",
+  "cost_owner": "C postclosure outer wall",
+  "initial_exit_code": 1,
+  "left_sha256": "3e3c5dd07970660ac3eeb1fa99b494c962e10f58a7ce1334447a3297799fcfbb",
+  "operation": "administrative Git history merge",
+  "resolution": "Verified semantic prefix4 and exact canonical5; selected full sequence5 without refund, duplicate event or scientific change",
+  "resolved_sha256": "3e3c5dd07970660ac3eeb1fa99b494c962e10f58a7ce1334447a3297799fcfbb",
+  "right_sha256": "f0c0909b1440c4e774e87acf2b0321666e398bf1d5c8c972dbf453dbd66a98a3"
+}
