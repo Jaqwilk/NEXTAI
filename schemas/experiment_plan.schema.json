@@ -7,6 +7,696 @@
       "if": {
         "properties": {
           "benchmark": {
+            "const": "asm01_native_memory_v4"
+          }
+        },
+        "required": [
+          "benchmark"
+        ]
+      },
+      "then": {
+        "properties": {
+          "candidates": {
+            "const": [
+              "asm01_source_trained_s0",
+              "asm01_source_trained_s1",
+              "asm01_source_trained_s2",
+              "asm01_source_trained_s3",
+              "asm01_source_trained_s4",
+              "asm01_source_untrained_s0",
+              "asm01_source_untrained_s1",
+              "asm01_source_untrained_s2",
+              "asm01_source_untrained_s3",
+              "asm01_source_untrained_s4",
+              "asm01_source_shuffled_s0",
+              "asm01_source_shuffled_s1",
+              "asm01_source_shuffled_s2",
+              "asm01_source_shuffled_s3",
+              "asm01_source_shuffled_s4",
+              "asm01_source_ridge_s0",
+              "asm01_source_ridge_s1",
+              "asm01_source_ridge_s2",
+              "asm01_source_ridge_s3",
+              "asm01_source_ridge_s4",
+              "asm01_target_dense_s0",
+              "asm01_target_dense_s1",
+              "asm01_target_dense_s2",
+              "asm01_target_dense_s3",
+              "asm01_target_dense_s4",
+              "asm01_target_ridge_pca_s0",
+              "asm01_target_ridge_pca_s1",
+              "asm01_target_ridge_pca_s2",
+              "asm01_target_ridge_pca_s3",
+              "asm01_target_ridge_pca_s4",
+              "asm01_target_kernel_s0",
+              "asm01_target_kernel_s1",
+              "asm01_target_kernel_s2",
+              "asm01_target_kernel_s3",
+              "asm01_target_kernel_s4",
+              "asm01_native_raw_s0",
+              "asm01_native_raw_s1",
+              "asm01_native_raw_s2",
+              "asm01_native_raw_s3",
+              "asm01_native_raw_s4",
+              "asm01_native_dtw_s0",
+              "asm01_native_dtw_s1",
+              "asm01_native_dtw_s2",
+              "asm01_native_dtw_s3",
+              "asm01_native_dtw_s4"
+            ]
+          },
+          "matrix": {
+            "oneOf": [
+              {
+                "const": {
+                  "knowledge_sizes": [
+                    16,
+                    32,
+                    64
+                  ],
+                  "queries_per_cell": 64,
+                  "reasoning_depths": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "seed_policy": {
+                    "count": 5,
+                    "maximum": 2147483647,
+                    "method": "runner_random_v1",
+                    "minimum": 1000000
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "knowledge_sizes": {
+                    "const": [
+                      16,
+                      32,
+                      64
+                    ]
+                  },
+                  "reasoning_depths": {
+                    "const": [
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "queries_per_cell": {
+                    "const": 64
+                  },
+                  "seeds": {
+                    "uniqueItems": true,
+                    "maxItems": 5,
+                    "minItems": 5,
+                    "type": "array",
+                    "items": {
+                      "minimum": 1000000,
+                      "type": "integer",
+                      "maximum": 2147483647
+                    }
+                  }
+                },
+                "required": [
+                  "knowledge_sizes",
+                  "reasoning_depths",
+                  "queries_per_cell",
+                  "seeds"
+                ]
+              }
+            ]
+          },
+          "research_program_protocol": {
+            "properties": {
+              "program_contract_path": {
+                "const": "research/plans/NEXTAI-C-STABILIZATION-ASM-SCREEN-V1.json"
+              },
+              "program_contract_sha256": {
+                "const": "4a95f8bef9cdfef23abf27c3b0dbee74cb9b9b1796b822c6eb2b0edca7a47f41"
+              },
+              "C_work_started_at": {
+                "const": "2026-10-07T23:42:00Z"
+              },
+              "C_wall_deadline_at": {
+                "const": "2026-10-08T11:42:00Z"
+              },
+              "compute_charge_basis": {
+                "const": "full_worker_wall_v1"
+              },
+              "data": {
+                "const": {
+                  "acquisition": {
+                    "aggregate_file_bytes_cap": 479723520,
+                    "future_closed": "W6-15,W21-30,W31-45,Data_Table.pdf and excluded foreign member numeric contents remain inaccessible. Existing fixed archive hash provenance only, no reacquisition.",
+                    "listing": "research/data/asm01_native_v1/selected-screen-members-v3.txt",
+                    "listing_sha256": "d49c97288d650bc42995d27b7301e2b15b4d373b74ec6a320b7971020fe4e4f5",
+                    "manifest": "research/data_manifests/ASM01-C-ACQUISITION-V1.json",
+                    "maximum_two_root_total_footprint_bytes": 335544320,
+                    "membership_guard": "Reuse frozen screen_members with all1830 fixed UIDs, no links/junctions/resolve escapes/foreign directories, raw listing==disk and all stat caps checked before any payload.",
+                    "metadata_proof": {
+                      "alias_scope": "Final .txt/.TXT only; actual Paths/raw disk-listing sets/UIDs/frozen order preserved.",
+                      "files": 1830,
+                      "final_uppercase_extensions": 153,
+                      "max_bytes": 25086,
+                      "path": "research/reviews/ASM01-INVENTORY-V3-REAL-METADATA-V1.json",
+                      "sha256": "70ef9eede4cf148187debd2431461d8f05a2eac05c9accb47ba90df2a8ffca0b",
+                      "total_bytes": 14394085
+                    },
+                    "minimum_free_bytes_after_operation": 10737418240,
+                    "new_download_or_extraction": false,
+                    "output": "research/data/asm01_c_v1/screen.npz",
+                    "per_file_bytes_cap": 262144,
+                    "publisher_sha256": "d6ad543e65269d53e38fdac6a32dd20bcd942e7616891a6cf95986894b454a4d",
+                    "reuse_existing_extraction_only": true,
+                    "source_directory": "research/data/asm01_native_v1/screen-text-v3"
+                  },
+                  "all_data_hashes_required": true,
+                  "axis_encoding": {
+                    "1": 0,
+                    "2": 1,
+                    "3": 4
+                  },
+                  "calibration_instances": 95,
+                  "dev_episodes_per_cell": 4,
+                  "evaluation_conditions": [
+                    "nominal",
+                    "adverse"
+                  ],
+                  "fit_instances": 64,
+                  "independent_units": {
+                    "archive_identity_gate": "Require exactly45 Wn native writer folders, each with183 distinct M.n.txt entries whose filename writer n agrees with folder Wn, total8235. No missing/duplicate canonical sample allowed. Exactly one publisher foreign member W6/15.5.TXT (9459bytes) is excluded from the legal membership map, preserved in archive, never numerically read. No other exception or sample/writer substitution.",
+                    "fresh_final_dev": [
+                      26,
+                      27,
+                      28,
+                      29,
+                      30
+                    ],
+                    "fresh_final_train": [
+                      11,
+                      12,
+                      13,
+                      14,
+                      15
+                    ],
+                    "pairing": "Source state i -> fixed train/dev writer pair i; no favorable source/target selection",
+                    "replication_dev": [
+                      21,
+                      22,
+                      23,
+                      24,
+                      25
+                    ],
+                    "replication_train": [
+                      6,
+                      7,
+                      8,
+                      9,
+                      10
+                    ],
+                    "screen_dev": [
+                      16,
+                      17,
+                      18,
+                      19,
+                      20
+                    ],
+                    "screen_train": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ],
+                    "unit": "writer; query repeats/points/augmentations are not independent units",
+                    "unused_writers": [
+                      31,
+                      32,
+                      33,
+                      34,
+                      35,
+                      36,
+                      37,
+                      38,
+                      39,
+                      40,
+                      41,
+                      42,
+                      43,
+                      44,
+                      45
+                    ]
+                  },
+                  "interpretation": "All fixed1830 exposed development members T1-5/D16-20. Not fresh/blinded/final. Other writers closed.",
+                  "legal_inputs": "Only normalized64 native coordinates and legal random fact/source/version write metadata and T training labels. No sample, character or writer identifier on queries or in model features; no character-name/class label or Data_Table.pdf.",
+                  "screen_writers": [
+                    {
+                      "dev_writer": 16,
+                      "source_unit": 0,
+                      "train_writer": 1,
+                      "unit": 0
+                    },
+                    {
+                      "dev_writer": 17,
+                      "source_unit": 1,
+                      "train_writer": 2,
+                      "unit": 1
+                    },
+                    {
+                      "dev_writer": 18,
+                      "source_unit": 2,
+                      "train_writer": 3,
+                      "unit": 2
+                    },
+                    {
+                      "dev_writer": 19,
+                      "source_unit": 3,
+                      "train_writer": 4,
+                      "unit": 3
+                    },
+                    {
+                      "dev_writer": 20,
+                      "source_unit": 4,
+                      "train_writer": 5,
+                      "unit": 4
+                    }
+                  ],
+                  "train_calibration_episodes_per_K": 3,
+                  "train_pair_draw_rule": "One private permutation of183 sample IDs for each T writer:64fit/24validation/95calibration.4096 training pairs start with those64 distinct fit IDs, then4032 replacement draws.512 validation pairs start with24 distinct validation IDs, then488 replacement draws. Same pairs/all nine arms; repeats do not create independent samples.",
+                  "train_pairs": 4096,
+                  "train_sets_episodes_per_K": 128,
+                  "train_validation_pairs": 512,
+                  "validation_instances": 24
+                }
+              },
+              "deadline_at": {
+                "const": "2026-10-08T11:32:00Z"
+              },
+              "diagnosis_gates": {
+                "const": {
+                  "economic_qualification": {
+                    "UNKNOWN_minimum": 0.95,
+                    "all_conditions_required": [
+                      "nominal",
+                      "adverse"
+                    ],
+                    "candidate_full_service_ratio_CI_upper": 0.8,
+                    "candidate_p95_ratio_CI_upper": 0.9,
+                    "candidate_quality_minus_dense_CI_lower": -0.02,
+                    "known_false_abstention_maximum": 0.02,
+                    "no_weakened_economics": true,
+                    "per_condition_K_metrics": [
+                      "accuracy",
+                      "UNKNOWN",
+                      "known_false_abstention"
+                    ],
+                    "quality_cost_family": "18pairedgates/route:2conditionsx3Kx(accuracyNI,service,p95); two-sided99.722222% df4 intervals; fivepairs",
+                    "quality_guard_each_unit": 0.9,
+                    "quality_guard_mean": 0.95,
+                    "scales": [
+                      16,
+                      32,
+                      64
+                    ],
+                    "strong_classical_nondomination": "Six fixed native/classical comparators:source_ridge,target_ridge_pca,target_kernel,native_raw,native_dtw andtarget_dense. For each route and comparator across6cells, simultaneous Studentt df4 intervals over108fixedcomparisons (NIquality,service,p95). Dominated if comparator qualityNI lower>=-.02 and both service/p95 ratio upper<=1 with oneupper<1, plus competence/UNKNOWN/FA. Aroute is not qualified by beating dense alone."
+                  },
+                  "source_information_effect": {
+                    "CI_lower": 0.0,
+                    "familywise_alpha": 0.05,
+                    "mean_minimum": 0.02,
+                    "positive_pairs": 5
+                  }
+                }
+              },
+              "diagnostics": {
+                "const": {
+                  "secondary": [
+                    "accuracy",
+                    "fact_top1_accuracy",
+                    "source_attribution_accuracy",
+                    "known_false_abstention",
+                    "dense_unknown_rejection",
+                    "updated_known_accuracy",
+                    "retained_known_accuracy",
+                    "current_value_at_correct_handle",
+                    "service_seconds",
+                    "p50_latency_us",
+                    "p95_latency_us",
+                    "state_bytes",
+                    "fit_seconds",
+                    "fullcold_worker_wall"
+                  ],
+                  "secondary_intervals": "paired95% descriptive only; no source-transfer claim from target fit alone; adverse contrasts separatelyreported",
+                  "source_information_primary_family": {
+                    "condition": "nominal, equalweights over3Kx3updates",
+                    "endpoints": [
+                      "trained_minus_untrained:fact_top1",
+                      "trained_minus_shuffled:fact_top1",
+                      "trained_minus_untrained:UNKNOWN",
+                      "trained_minus_shuffled:UNKNOWN"
+                    ],
+                    "interval": "two-sided Studentt df4, Bonferroni nominal family95% across4endpoints =>98.75% each; all four pass for source-information KEEP",
+                    "mean_gain_minimum": 0.02,
+                    "paired_CI_lower_must_exceed": 0.0,
+                    "paired_units": 5,
+                    "positive_pairs_required": 5
+                  }
+                }
+              },
+              "fit_seconds_cap": {
+                "const": 120
+              },
+              "fit_seconds_total_cap": {
+                "const": 9000
+              },
+              "max_cuda_reserved_bytes": {
+                "const": 4294967296
+              },
+              "max_rss_bytes": {
+                "const": 4294967296
+              },
+              "recipe": {
+                "const": {
+                  "alignment_batch": 128,
+                  "alignment_steps": 2048,
+                  "dense_set_steps": 1024,
+                  "kernel_bandwidth_grid": [
+                    0.25,
+                    0.5,
+                    1.0,
+                    2.0
+                  ],
+                  "kernel_landmarks": 64,
+                  "kernel_ridge_grid": [
+                    0.0001,
+                    0.01,
+                    1.0
+                  ],
+                  "learning_rate": 0.003,
+                  "margin_grid": [
+                    0.0,
+                    0.005,
+                    0.01,
+                    0.02,
+                    0.04,
+                    0.08,
+                    0.16,
+                    0.32
+                  ],
+                  "native_dtw": "Exact band4 DTW on SAME public32x2 unit-L2 views. Local cost32*sum((x_i-y_j)^2). Dynamic program minimizes total squared cost within |i-j|<=4, starts(0,0), ends(31,31), allowed diagonal/up/left with that deterministic tie priority. Track length of selected minimum-sum path; d=sum/length. Similarity=1/(1+d). All distances, DP state/allocation and selection work charged. No private full trajectory.",
+                  "native_raw": "No-fit cosine retrieval on the same normalized public32x2 trajectory views; no sample/class/writer ID or private trajectory.",
+                  "pca_rank_grid": [
+                    16,
+                    32,
+                    64
+                  ],
+                  "pca_whitening_grid": [
+                    0.0,
+                    0.5
+                  ],
+                  "ridge_grid": [
+                    0.0001,
+                    0.001,
+                    0.01,
+                    0.1,
+                    1.0,
+                    10.0
+                  ],
+                  "score_normalization": "For all cosine routes clip score[-1,1] then s=(1+cosine)/2. NativeDTW uses1/(1+d). Stable top1 is lowest insertion slot on ties; margin=top1_score-second_highest_score. Accept iff s>=absolute_threshold AND margin>=margin_threshold. Same two-axis policy for all9arms.",
+                  "source_frozen": "Actual64->64 residual linear/GELU encoder or actual65xrank source ridge; original source PCA frozen. Source feature output ->native write projected in that frozen PCA using legal target ridge readout with intercept. Choose regularizer on T-validation normalized squaredL2 only; deterministic ascending grid ties. Same adaptation on allfour source arms; all source weights unchanged. No target gradient update of source model. Source PCA hashes of neural controls must be identical.",
+                  "target_dense": "Unchanged PVM64D residual linear/GELU64/128/64 transport and2-layer4head256FF residual-zero-init Transformer decoder; same AdamW recipe,2048alignment+1024set steps,lastcheckpoint. Target native T pairs only, no source weights. Context K16/32 alternating; batch4sets/8queries; CE20temperature with0.85 absence class +0.1 knownMSE. Decoder sees each query independently with peer-query mask. Cache CPU projections at inference as unchanged dense_cached_cpu algebra; no random projection or new architecture.",
+                  "target_kernel": "Same existing RBF Nystrom transport; first64 distinct fit samples, not repeated draw landmarks. Bandwidth/ridge grids unchanged, jitter1e-10, validation MSE and deterministic ascending ties; all grid fits charged.",
+                  "target_ridge_pca": "Native64query->write ridge/intercept on4096draws, choose regularizer by512 reserved T-validation MSE. T-write-only PCA ranks16/32/64 xwhitening0/.5, min validation normalizedL2 deterministic ascending rank/exponent. ExactCPU cosine scan and full chargedupdates.",
+                  "threads": 1,
+                  "threshold_grid": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.65,
+                    0.75,
+                    0.8,
+                    0.85,
+                    0.9,
+                    0.925,
+                    0.95,
+                    0.97,
+                    0.98,
+                    0.99,
+                    0.995,
+                    0.999,
+                    0.9995,
+                    0.9999,
+                    1.0
+                  ],
+                  "threshold_selection": "All27 nominal T-calibration episodes (3Kx3updatecountsx3episodes), same144 absolute/margin pairs for all9arms. Eligible iff knownFA<=.02 and UNKNOWN>=.95. Eligible first, then maximize full answer accuracy, higher UNKNOWN, lower absolute threshold, lower margin threshold, in that order. If none eligible retain best same ordered tuple and mark infeasible. No D threshold selection.",
+                  "weight_decay": 0.0001
+                }
+              },
+              "reference_gates": {
+                "const": {
+                  "accuracy_each_unit_minimum": 0.9,
+                  "accuracy_mean_minimum": 0.95,
+                  "dense_unknown_rejection_minimum": 0.95,
+                  "known_false_abstention_maximum": 0.02,
+                  "three_K_each_condition": true
+                }
+              },
+              "roles": {
+                "const": {
+                  "asm01_native_dtw_s0": {
+                    "arm": "native_dtw",
+                    "seed_index": 0
+                  },
+                  "asm01_native_dtw_s1": {
+                    "arm": "native_dtw",
+                    "seed_index": 1
+                  },
+                  "asm01_native_dtw_s2": {
+                    "arm": "native_dtw",
+                    "seed_index": 2
+                  },
+                  "asm01_native_dtw_s3": {
+                    "arm": "native_dtw",
+                    "seed_index": 3
+                  },
+                  "asm01_native_dtw_s4": {
+                    "arm": "native_dtw",
+                    "seed_index": 4
+                  },
+                  "asm01_native_raw_s0": {
+                    "arm": "native_raw",
+                    "seed_index": 0
+                  },
+                  "asm01_native_raw_s1": {
+                    "arm": "native_raw",
+                    "seed_index": 1
+                  },
+                  "asm01_native_raw_s2": {
+                    "arm": "native_raw",
+                    "seed_index": 2
+                  },
+                  "asm01_native_raw_s3": {
+                    "arm": "native_raw",
+                    "seed_index": 3
+                  },
+                  "asm01_native_raw_s4": {
+                    "arm": "native_raw",
+                    "seed_index": 4
+                  },
+                  "asm01_source_ridge_s0": {
+                    "arm": "source_ridge",
+                    "seed_index": 0
+                  },
+                  "asm01_source_ridge_s1": {
+                    "arm": "source_ridge",
+                    "seed_index": 1
+                  },
+                  "asm01_source_ridge_s2": {
+                    "arm": "source_ridge",
+                    "seed_index": 2
+                  },
+                  "asm01_source_ridge_s3": {
+                    "arm": "source_ridge",
+                    "seed_index": 3
+                  },
+                  "asm01_source_ridge_s4": {
+                    "arm": "source_ridge",
+                    "seed_index": 4
+                  },
+                  "asm01_source_shuffled_s0": {
+                    "arm": "source_shuffled",
+                    "seed_index": 0
+                  },
+                  "asm01_source_shuffled_s1": {
+                    "arm": "source_shuffled",
+                    "seed_index": 1
+                  },
+                  "asm01_source_shuffled_s2": {
+                    "arm": "source_shuffled",
+                    "seed_index": 2
+                  },
+                  "asm01_source_shuffled_s3": {
+                    "arm": "source_shuffled",
+                    "seed_index": 3
+                  },
+                  "asm01_source_shuffled_s4": {
+                    "arm": "source_shuffled",
+                    "seed_index": 4
+                  },
+                  "asm01_source_trained_s0": {
+                    "arm": "source_trained",
+                    "seed_index": 0
+                  },
+                  "asm01_source_trained_s1": {
+                    "arm": "source_trained",
+                    "seed_index": 1
+                  },
+                  "asm01_source_trained_s2": {
+                    "arm": "source_trained",
+                    "seed_index": 2
+                  },
+                  "asm01_source_trained_s3": {
+                    "arm": "source_trained",
+                    "seed_index": 3
+                  },
+                  "asm01_source_trained_s4": {
+                    "arm": "source_trained",
+                    "seed_index": 4
+                  },
+                  "asm01_source_untrained_s0": {
+                    "arm": "source_untrained",
+                    "seed_index": 0
+                  },
+                  "asm01_source_untrained_s1": {
+                    "arm": "source_untrained",
+                    "seed_index": 1
+                  },
+                  "asm01_source_untrained_s2": {
+                    "arm": "source_untrained",
+                    "seed_index": 2
+                  },
+                  "asm01_source_untrained_s3": {
+                    "arm": "source_untrained",
+                    "seed_index": 3
+                  },
+                  "asm01_source_untrained_s4": {
+                    "arm": "source_untrained",
+                    "seed_index": 4
+                  },
+                  "asm01_target_dense_s0": {
+                    "arm": "target_dense",
+                    "seed_index": 0
+                  },
+                  "asm01_target_dense_s1": {
+                    "arm": "target_dense",
+                    "seed_index": 1
+                  },
+                  "asm01_target_dense_s2": {
+                    "arm": "target_dense",
+                    "seed_index": 2
+                  },
+                  "asm01_target_dense_s3": {
+                    "arm": "target_dense",
+                    "seed_index": 3
+                  },
+                  "asm01_target_dense_s4": {
+                    "arm": "target_dense",
+                    "seed_index": 4
+                  },
+                  "asm01_target_kernel_s0": {
+                    "arm": "target_kernel",
+                    "seed_index": 0
+                  },
+                  "asm01_target_kernel_s1": {
+                    "arm": "target_kernel",
+                    "seed_index": 1
+                  },
+                  "asm01_target_kernel_s2": {
+                    "arm": "target_kernel",
+                    "seed_index": 2
+                  },
+                  "asm01_target_kernel_s3": {
+                    "arm": "target_kernel",
+                    "seed_index": 3
+                  },
+                  "asm01_target_kernel_s4": {
+                    "arm": "target_kernel",
+                    "seed_index": 4
+                  },
+                  "asm01_target_ridge_pca_s0": {
+                    "arm": "target_ridge_pca",
+                    "seed_index": 0
+                  },
+                  "asm01_target_ridge_pca_s1": {
+                    "arm": "target_ridge_pca",
+                    "seed_index": 1
+                  },
+                  "asm01_target_ridge_pca_s2": {
+                    "arm": "target_ridge_pca",
+                    "seed_index": 2
+                  },
+                  "asm01_target_ridge_pca_s3": {
+                    "arm": "target_ridge_pca",
+                    "seed_index": 3
+                  },
+                  "asm01_target_ridge_pca_s4": {
+                    "arm": "target_ridge_pca",
+                    "seed_index": 4
+                  }
+                }
+              },
+              "study_path": {
+                "const": "research/plans/ASM01-C-STABILIZED-SCREEN-V1.json"
+              },
+              "study_sha256": {
+                "const": "297357e54f271bebe8fdf8da0d6a31c6d2c7a3fea5251ad9f1008eb9b26b8c1d"
+              },
+              "task_contract_path": {
+                "const": "research/plans/ASM01-C-SIGNED-SERIAL-TASK-V1.json"
+              },
+              "task_contract_sha256": {
+                "const": "66cb7521a72e3485c8738d0f46cfe64bad3d773755fcc15c5db23a4cde9afa85"
+              },
+              "worker_seconds_cap": {
+                "const": 180
+              },
+              "program_id": {
+                "const": "NEXTAI-C-STABILIZATION-ASM-SCREEN-20261008-V1"
+              },
+              "full_worker_total_cap": {
+                "const": 9000
+              },
+              "supervised_fit_total_cap": {
+                "const": 3600
+              }
+            },
+            "required": [
+              "compute_charge_basis",
+              "task_contract_path",
+              "task_contract_sha256",
+              "program_id",
+              "full_worker_total_cap",
+              "supervised_fit_total_cap",
+              "C_outer_seconds_remaining_at_plan",
+              "C_work_started_at",
+              "C_liability_seconds",
+              "C_wall_deadline_at"
+            ]
+          }
+        },
+        "required": [
+          "research_program_protocol"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "benchmark": {
             "const": "mutable_contact_ledger_v2"
           }
         },
@@ -13051,6 +13741,38 @@
     "research_program_protocol": {
       "additionalProperties": false,
       "properties": {
+        "program_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "full_worker_total_cap": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "supervised_fit_total_cap": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "C_outer_seconds_remaining_at_plan": {
+          "minimum": 0,
+          "maximum": 43200,
+          "type": "number"
+        },
+        "C_work_started_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        "C_liability_seconds": {
+          "minimum": 0,
+          "maximum": 43200,
+          "type": "number"
+        },
+        "C_wall_deadline_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
         "authority_path": {
           "minLength": 1,
           "type": "string"

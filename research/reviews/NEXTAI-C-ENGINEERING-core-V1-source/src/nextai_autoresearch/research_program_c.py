@@ -31,8 +31,7 @@ RELEASE_CHECKS = ("complete1830_native_intake", "all_conformance", "same_builder
 INPUT_CHECKS = tuple(key for key in RELEASE_CHECKS if key not in {"same_builder_dry_run", "readiness"})
 _EVENT_TYPES = {"activated", "scientific_study_frozen", "ready", "registration_started",
                 "registered", "registration_failed", "checkpoint", "scientific_cost",
-                "auxiliary_reserved", "auxiliary_measured", "liability_increased", "closed", "inputs_ready",
-                "scientific_finished"}
+                "auxiliary_reserved", "auxiliary_measured", "liability_increased", "closed", "inputs_ready"}
 
 
 def _now():
@@ -185,7 +184,7 @@ def _read(base):
             raise ValueError("Foreign, missing, repeated or reordered C event")
         counts[name] = counts.get(name, 0) + 1
         if name in {"activated", "scientific_study_frozen", "inputs_ready", "ready", "registration_started", "registered",
-                    "registration_failed", "scientific_finished", "closed"} and counts[name] != 1:
+                    "registration_failed", "closed"} and counts[name] != 1:
             raise ValueError("Repeated C milestone or paid scientific retry")
         if name == "liability_increased":
             if (not _finite(event.get("additional_seconds")) or event["additional_seconds"] <= 0
@@ -204,7 +203,7 @@ def _read(base):
                     or _hash(_path(base, event["study_path"])) != event.get("study_sha256")):
                 raise ValueError("C scientific study freeze changed")
             frozen = event
-        if name in {"inputs_ready", "ready", "registration_started", "registered", "registration_failed", "scientific_cost", "scientific_finished"}:
+        if name in {"inputs_ready", "ready", "registration_started", "registered", "registration_failed", "scientific_cost"}:
             if not frozen or any(event.get(k) != frozen.get(k) for k in ("study_path", "study_sha256", "cohort", "stage")):
                 raise ValueError("C scientific milestone lacks exact frozen study binding")
         if name in {"registered", "registration_failed"}:
@@ -249,12 +248,6 @@ def _read(base):
                 raise ValueError("C actual cumulative resource cost cannot decrease or be clipped")
             worker, fit = new_worker, new_fit
             cost_receipts.add(event["receipt_sha256"])
-        if name == "scientific_finished":
-            registered = next((e for e in events[:index] if e["event"] == "registered"), None)
-            costs = [e for e in events[:index] if e["event"] == "scientific_cost"]
-            if not registered or not costs or event.get("experiment_id") != registered["experiment_id"]:
-                raise ValueError("C scientific terminality requires recorded registered worker costs")
-            _finished_receipt(base, event["receipt_path"], frozen, registered, costs[-1], event["receipt_sha256"])
         if name == "closed" and _hash(_path(base, event["receipt_path"])) != event["receipt_sha256"]:
             raise ValueError("C closure receipt changed")
         previous_hash, previous_total, previous_elapsed = sha256_json(event), total, elapsed
@@ -446,7 +439,6 @@ def status(base):
     used = sum(e["event"] == "registration_started" for e in events)
     registered = next((e for e in events if e["event"] == "registered"), None)
     failed = any(e["event"] == "registration_failed" for e in events)
-    scientific_finished = any(e["event"] == "scientific_finished" for e in events)
     measurements = [e for e in events if e["event"] == "scientific_cost"]
     worker = measurements[-1]["full_worker_seconds"] if measurements else 0.
     fit = measurements[-1]["supervised_fit_seconds"] if measurements else 0.
@@ -456,7 +448,7 @@ def status(base):
     study_deadline = study.get("study_deadline_at", contract["effective_budget_deadline_at_with_initial600_debt"])
     study_expired = exhausted or _now() >= _date(study_deadline)
     ready = any(e["event"] == "ready" for e in events) and not preparation
-    terminal = failed or scientific_finished or closed or exhausted or resource_exhausted
+    terminal = failed or closed or exhausted or resource_exhausted
     remaining = max(0., contract["total_seconds_cap"] - total)
     return {"id": PROGRAM_ID, "program_id": PROGRAM_ID, "authority_path": AUTHORITY,
             "contract_path": CONTRACT, "program_contract_sha256": CONTRACT_SHA256,
@@ -470,8 +462,7 @@ def status(base):
             "stage_registration_attempts": {stage: used if not preparation else 0},
             "stage_registration_caps": {stage: 0 if preparation else 1},
             "experiment_id": registered["experiment_id"] if registered else None,
-            "paid_run_pending": bool(used and not failed and not scientific_finished and not closed),
-            "scientific_phase_finished": scientific_finished,
+            "paid_run_pending": bool(used and not failed and not closed),
             "outer_elapsed_seconds": elapsed, "historical_liability_seconds": liability,
             "historical_liability_upper_bound_verified": False,
             "total_seconds_charged": total, "fit_seconds_charged": total,
@@ -602,42 +593,6 @@ def record_scientific_cost(base, receipt_path):
                 receipt_path=receipt_path, receipt_sha256=digest, full_worker_seconds=worker,
                 supervised_fit_seconds=fit, nested_not_added_to_total=True,
                 resource_cap_exceeded=worker > 9000 or fit > 3600)
-
-
-def _finished_receipt(base, path, study_binding, registered, cost, digest=None):
-    if digest and _hash(_path(base, path)) != digest:
-        raise ValueError("C scientific completion receipt changed")
-    receipt = load_json(_path(base, path))
-    expected = {"program_id": PROGRAM_ID, "contract_sha256": CONTRACT_SHA256,
-                "study_path": study_binding["study_path"], "study_sha256": study_binding["study_sha256"],
-                "experiment_id": registered["experiment_id"], "cost_receipt_path": cost["receipt_path"],
-                "cost_receipt_sha256": cost["receipt_sha256"],
-                "full_worker_seconds": cost["full_worker_seconds"],
-                "supervised_fit_seconds": cost["supervised_fit_seconds"]}
-    if (any(receipt.get(key) != value for key, value in expected.items())
-            or not _finite(receipt.get("full_worker_seconds")) or not _finite(receipt.get("supervised_fit_seconds"))
-            or receipt.get("paid_retry_authorized") is not False or receipt.get("whole_goal_complete") is not False
-            or "error" not in receipt or receipt["error"] is not None and not isinstance(receipt["error"], str)):
-        raise ValueError("C scientific completion lacks exact EXP/study/cost receipt binding")
-    return receipt
-
-
-def mark_scientific_finished(base, receipt_path):
-    """End the sole science attempt; archive/report/publication wall keeps accruing."""
-    with _lock(base):
-        contract, events = _read(base)
-        registered = next((e for e in events if e["event"] == "registered"), None)
-        costs = [e for e in events if e["event"] == "scientific_cost"]
-        if (not registered or not costs
-                or any(e["event"] in {"scientific_finished", "closed"} for e in events)):
-            raise ValueError("C scientific finish requires one registered attempt and prior costs, no retry")
-        binding = _study_binding(events)
-        receipt = _finished_receipt(base, receipt_path, binding, registered, costs[-1])
-        _append(base, contract, events, "scientific_finished", **binding,
-                experiment_id=registered["experiment_id"], receipt_path=receipt_path,
-                receipt_sha256=_hash(_path(base, receipt_path)),
-                scientific_outcome="failed" if receipt["error"] is not None else "finished",
-                scoring_authorized=False, outer_work_window_closed=False)
 
 
 def auxiliary_reserve(base, charge_id, seconds_cap):

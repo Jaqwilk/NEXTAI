@@ -111,3 +111,4 @@ research/reviews/NEXTAI-C-*.stdout.txt -text
 research/reviews/NEXTAI-C-*.stderr.txt -text
 research/reviews/NEXTAI-C-PROFILE-* -text
 research/reviews/NEXTAI-C-PROFILE-*/** -text
+research/reviews/NEXTAI-C-ENGINEERING-*-source/** -text

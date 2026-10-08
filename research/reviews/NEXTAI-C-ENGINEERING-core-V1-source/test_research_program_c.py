@@ -322,13 +322,13 @@ def test_prospective_admission_reads_real_prerequisites_without_ready_or_writes(
     c.activate(base)
     assert c.prospective_admission_problems(base)
     _science_inputs(base, contract)
-    before = {path.relative_to(base).as_posix(): path.read_bytes() for path in base.rglob("*") if path.is_file()}
+    before = {str(path.relative_to(base)): path.read_bytes() for path in base.rglob("*") if path.is_file()}
     assert c.prospective_admission_problems(base) == []
     assert c.scope_problems(base, prospective=True) == []
     assert c.scope_problems(base) and c.status(base)["scoring_authorized"] is False
     with pytest.raises(ValueError):
         c.reserve_registration(base)
-    after = {path.relative_to(base).as_posix(): path.read_bytes() for path in base.rglob("*") if path.is_file()}
+    after = {str(path.relative_to(base)): path.read_bytes() for path in base.rglob("*") if path.is_file()}
     assert before == after
     config = base / "config/research.toml"
     config.write_text(config.read_text().replace('benchmark_version="c_engineering_fixture_v1"',
@@ -371,65 +371,3 @@ def test_prospective_artifact_missing_corrupt_same_size_mtime_and_foreign_receip
         _write(base, "research/laboratory/foreign-inputs.json", wrong)
         with pytest.raises(ValueError, match="four"):
             c._inputs_receipt(base, "research/laboratory/foreign-inputs.json", binding)
-
-
-@pytest.mark.parametrize("error", [None, "Synthetic scientific worker failure"])
-def test_scientific_finish_terminal_but_admin_outer_clock_keeps_charging(tmp_path, monkeypatch, error):
-    base, clock, contract, _ = _fixture(tmp_path, monkeypatch)
-    c.activate(base)
-    binding = _register(base, contract)
-    cost_path = "research/laboratory/fixture-terminal-cost.json"
-    cost_digest = _write(base, cost_path, {**c._binding(), **binding, "experiment_id": "EXP-FIXTURE-0001",
-                         "full_worker_seconds": 10., "supervised_fit_seconds": 3.})
-    finish = {"program_id": c.PROGRAM_ID, "contract_sha256": c.CONTRACT_SHA256,
-              "study_path": binding["study_path"], "study_sha256": binding["study_sha256"],
-              "experiment_id": "EXP-FIXTURE-0001", "cost_receipt_path": cost_path,
-              "cost_receipt_sha256": cost_digest, "full_worker_seconds": 10., "supervised_fit_seconds": 3.,
-              "paid_retry_authorized": False, "whole_goal_complete": False, "error": error}
-    finish_path = "research/laboratory/fixture-scientific-finished.json"
-    _write(base, finish_path, finish)
-    with pytest.raises(ValueError, match="prior costs"):
-        c.mark_scientific_finished(base, finish_path)
-    c.record_scientific_cost(base, cost_path)
-    c.mark_scientific_finished(base, finish_path)
-    initial = c.status(base)
-    assert initial["scientific_phase_finished"] and initial["program_terminal"] and initial["study_terminal"]
-    assert not initial["scoring_authorized"] and not initial["program_closed"] and not initial["paid_run_pending"]
-    clock[0] += timedelta(seconds=40)
-    assert c.status(base)["total_seconds_charged"] == initial["total_seconds_charged"] + 40
-    c.checkpoint(base, "post-science-administration")
-    assert c.scope_problems(base, "EXP-FIXTURE-0001")
-    with pytest.raises(ValueError):
-        c.reserve_registration(base)
-    with pytest.raises(ValueError):
-        c.mark_scientific_finished(base, finish_path)
-    closure = "research/laboratory/fixture-last-closure.json"
-    _write(base, closure, {"program_id": c.PROGRAM_ID, "contract_sha256": c.CONTRACT_SHA256, "whole_goal_complete": False})
-    c.close(base, closure)
-    closed_cost = c.status(base)["total_seconds_charged"]
-    clock[0] += timedelta(seconds=50)
-    assert c.status(base)["total_seconds_charged"] == closed_cost
-
-
-def test_scientific_finish_foreign_cost_binding_and_refund_rejected(tmp_path, monkeypatch):
-    base, _, contract, _ = _fixture(tmp_path, monkeypatch)
-    c.activate(base)
-    binding = _register(base, contract)
-    cost_path = "research/laboratory/fixture-finish-cost.json"
-    digest = _write(base, cost_path, {**c._binding(), **binding, "experiment_id": "EXP-FIXTURE-0001",
-                                   "full_worker_seconds": 8., "supervised_fit_seconds": 2.})
-    c.record_scientific_cost(base, cost_path)
-    finish = {"program_id": c.PROGRAM_ID, "contract_sha256": c.CONTRACT_SHA256,
-              "study_path": binding["study_path"], "study_sha256": binding["study_sha256"],
-              "experiment_id": "EXP-FIXTURE-0001", "cost_receipt_path": cost_path, "cost_receipt_sha256": digest,
-              "full_worker_seconds": 8., "supervised_fit_seconds": 2., "paid_retry_authorized": False,
-              "whole_goal_complete": False, "error": None}
-    before = (base / c.EVENTS).read_bytes()
-    for key, bad in (("program_id", "foreign"), ("study_sha256", "0" * 64), ("experiment_id", "foreign"),
-                     ("cost_receipt_sha256", "0" * 64), ("full_worker_seconds", 0),
-                     ("supervised_fit_seconds", True), ("paid_retry_authorized", True)):
-        wrong = {**finish, key: bad}
-        _write(base, "research/laboratory/fixture-wrong-finish.json", wrong)
-        with pytest.raises(ValueError):
-            c.mark_scientific_finished(base, "research/laboratory/fixture-wrong-finish.json")
-        assert (base / c.EVENTS).read_bytes() == before

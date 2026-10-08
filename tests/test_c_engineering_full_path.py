@@ -68,7 +68,8 @@ _BENCHMARK_SOURCE = textwrap.dedent('''\
                 "p95_latency_us": 1.0, "fit_seconds": 0.0,
                 "state_bytes": 8, "fact_top1_accuracy": 1.0,
                 "dense_unknown_rejection": 1.0, "fit_ops": 0,
-                "preprocessing_ops": 0, "fixture_index": index,
+                "preprocessing_ops": 0, "update_ops": 0.0,
+                "update_latency_us": 0.0, "fixture_index": index,
             }
             trials.append(trial)
             if trial_sink:
@@ -147,6 +148,7 @@ def _lab(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, *, partial: bool = Fal
     base, clock, contract, study = _fixture(tmp_path, monkeypatch)
     ensure_layout(base)
     _write_synthetic_package(base)
+    monkeypatch.setenv("PYTHONPATH", str(base / "src"))
     task = "research/plans/fixture-task.json"
     atomic_write_json(base / task, {"fixture_only": True, "native_data": False})
     candidates = [COMPLETE, PARTIAL] if partial else [COMPLETE]

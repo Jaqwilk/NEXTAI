@@ -263,6 +263,23 @@ def protected_files(root: Path | None = None) -> tuple[str, ...]:
     base = (root or project_root()).resolve()
     discovered: set[str] = set(FIXED_PROTECTED_FILES)
     _exclude_proven_unstarted_har_intakes(base, discovered)
+    # C adds prospective documents and native payloads only to its new cohort.
+    # Their absence before intake cannot masquerade as a scoring-ready freeze.
+    from .config import load_config
+    if (base / "config/research.toml").is_file() and load_config(base).benchmark_version == "asm01_native_memory_v4":
+        discovered.update((
+            "research/laboratory/NEXTAI-C-HUMAN-AUTHORITY-20261008.md",
+            "research/plans/NEXTAI-C-STABILIZATION-ASM-SCREEN-V1.json",
+            "research/plans/NEXTAI-C-ENGINEERING-PREREGISTRATION-V1.json",
+            "research/plans/ASM01-C-SIGNED-SERIAL-TASK-V1.json",
+            "research/plans/ASM01-C-STABILIZED-SCREEN-V1.json",
+            "research/reviews/ASM01-C-source-binding-V1.json",
+            "research/data_manifests/ASM01-C-ACQUISITION-V1.json",
+            "research/data/asm01_c_v1/screen.npz",
+            "scripts/acquire_asm01_c_v1.py",
+            "scripts/run_c_bounded.py",
+            "scripts/run_c_science.py",
+        ))
     for pattern in ("src/nextai_autoresearch/**/*.py", "tests/**/*.py"):
         for path in base.glob(pattern):
             if path.is_file() and "__pycache__" not in path.parts:
