@@ -1,0 +1,43 @@
+....F
+================================== FAILURES ===================================
+____________________ test_eval_manifest_detects_tampering _____________________
+
+tmp_path = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-legacy-conformance-V1/test_eval_manifest_detects_tam0')
+
+    def test_eval_manifest_detects_tampering(tmp_path: Path) -> None:
+        _copy_integrity_fixture(tmp_path)
+>       manifest = freeze_manifest(tmp_path)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_integrity_and_schemas.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\nextai_autoresearch\integrity.py:365: in freeze_manifest
+    required = protected_files(base)
+               ^^^^^^^^^^^^^^^^^^^^^
+src\nextai_autoresearch\integrity.py:265: in protected_files
+    _exclude_proven_unstarted_har_intakes(base, discovered)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+base = WindowsPath('C:/Users/NATAN/Documents/ChatGPT/NEXTAI-VALIDATION-20261002/research/tmp/NEXTAI-C-legacy-conformance-V1/test_eval_manifest_detects_tam0')
+discovered = {'.cursor/environment.json', '.cursor/install.sh', '.gitattributes', '.gitignore', 'AGENTS.md', 'README.md', ...}
+
+    def _exclude_proven_unstarted_har_intakes(base: Path, discovered: set[str]) -> None:
+        study_path = base / _HAR_UNSTARTED_STUDY
+        if not study_path.exists():
+            return
+        if not study_path.is_file() or sha256_file(study_path) != _HAR_UNSTARTED_STUDY_SHA:
+            raise ValueError("Historical HAR intake exemption study binding changed")
+        study = load_json(study_path)
+        if study.get("historical_unstarted_intake_manifest_exemptions") != _HAR_UNSTARTED_MANIFESTS:
+            raise ValueError("Historical HAR intake exemption scope changed")
+        receipts = []
+        for binding in _HAR_UNSTARTED_MANIFESTS.values():
+            path = base / binding["receipt_path"]
+            if not path.is_file() or sha256_file(path) != binding["receipt_sha256"]:
+>               raise ValueError("Historical HAR unstarted intake receipt binding changed")
+E               ValueError: Historical HAR unstarted intake receipt binding changed
+
+src\nextai_autoresearch\integrity.py:246: ValueError
+=========================== short test summary info ===========================
+FAILED tests/test_integrity_and_schemas.py::test_eval_manifest_detects_tampering
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -460,7 +460,7 @@ def status(base):
     remaining = max(0., contract["total_seconds_cap"] - total)
     return {"id": PROGRAM_ID, "program_id": PROGRAM_ID, "authority_path": AUTHORITY,
             "contract_path": CONTRACT, "program_contract_sha256": CONTRACT_SHA256,
-            "study_path": path, "study_sha256": _hash(_path(base, path)), "cohort": study["cohort"],
+            "study_path": path, "study_sha256": _hash(_path(base, path)), "cohort": study["cohort"], "stage": stage,
             "ready": ready, "scoring_authorized": ready and not terminal and not study_expired and live_elapsed >= events[-1]["outer_elapsed_seconds"],
             "study_terminal": terminal or study_expired, "program_terminal": terminal, "program_closed": closed,
             "expired": exhausted, "study_expired": study_expired, "study_deadline_at": study_deadline,

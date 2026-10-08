@@ -1078,6 +1078,8 @@ def build_and_validate_plan(base, requested=None, *, value=None, prospective_tic
             falsification_criteria=["Any frozen source-information primary gate fails; failed reference or source/data/resource integrity yields an inconclusive qualified comparison, not architectural falsification."],
             alternative_explanations=["Target readout alone, native similarity, PCA/kernel/temporal alignment and hardware overhead must be separated from source information."],
             confounds=["Visible public physical subjects; overlapping training windows are not independent units. Five disjoint evaluation subjects/source-seed pairs; no external blind holdout. Latest-write logic is hand-written; update rounds are not reasoning depth."])
+        if study["study_kind"] == "asm01_frozen_source_transfer":
+            plan["confounds"] = ["Visible public development pen trajectories T1-5/D16-20, with prior exposures disclosed. Five disjoint writer/source-seed pairs are the units; views, queries and updates within an acquisition are dependent. No blind final or independent replication. Latest-write logic is hand-written; update rounds are not reasoning depth."]
     validate_document("experiment_plan", plan, base)
     verify_required_baselines(plan, base, run_tests=False)
     verify_preflight_certificate(base)

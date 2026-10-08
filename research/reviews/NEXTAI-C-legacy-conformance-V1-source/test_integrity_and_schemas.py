@@ -8,9 +8,7 @@ from jsonschema import Draft202012Validator
 
 from nextai_autoresearch.audit import audit_benchmark_boundary, audit_candidate
 from nextai_autoresearch.config import load_config
-from nextai_autoresearch.integrity import (
-    PROTECTED_FILES, _HAR_UNSTARTED_MANIFESTS, freeze_manifest, verify_manifest,
-)
+from nextai_autoresearch.integrity import PROTECTED_FILES, freeze_manifest, verify_manifest
 from nextai_autoresearch.ledger import latest_hypotheses, read_jsonl
 from nextai_autoresearch.schemas import check_all_schemas, validate_document
 from nextai_autoresearch.utils import load_json, project_root
@@ -57,10 +55,7 @@ def test_retired_active_benchmark_uses_contract_not_candidate_core() -> None:
 
 def _copy_integrity_fixture(destination: Path) -> None:
     source = project_root()
-    # Exemptions require their unchanged historical proof receipts as well as
-    # the protected source. These proofs do not enlarge the protected file set.
-    receipt_paths = (binding["receipt_path"] for binding in _HAR_UNSTARTED_MANIFESTS.values())
-    for relative in (*PROTECTED_FILES, *receipt_paths):
+    for relative in PROTECTED_FILES:
         target = destination / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source / relative, target)
