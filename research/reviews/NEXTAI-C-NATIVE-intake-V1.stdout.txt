@@ -1,0 +1,1 @@
+{"D_samples_opened": 433, "complete": false, "current_sample": "18:67", "dataset_sha256": null, "error_category": "native_geometry", "error_type": "ValueError", "full_intake_wall_seconds": 33.64903639999102, "native_files_attempted": 1348, "native_files_converted": 1347, "old74_compared": 74, "previous1171_compared": 1171, "validated_files": 1347}
