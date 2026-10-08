@@ -40,12 +40,15 @@ def main():
         ("ENGINEERING-conformance-V6", {"tests.test_c_analysis", "tests.test_research_program_c",
                                        "tests.test_c_harness_admission", "tests.test_c_engineering_full_path",
                                        "tests.test_integrity_and_schemas"}, 40),
-        ("ENGINEERING-legacy-semantic-V7", None, None),
+        ("ENGINEERING-legacy-semantic-V7", "passed", 36),
+        ("ENGINEERING-semantic-V8", None, None),
     )
     for label, classes, expected in definitions:
         prefix = "research/reviews/NEXTAI-C-" + label
         cases = ET.parse(root / (prefix + ".xml")).getroot().findall(".//testcase")
-        selected = [case for case in cases if classes is None or case.attrib["classname"] in classes]
+        selected = [case for case in cases if classes is None or classes == "passed"
+                    and not any(case.find(tag) is not None for tag in ("failure", "error", "skipped"))
+                    or isinstance(classes, set) and case.attrib["classname"] in classes]
         if (not selected or expected is not None and len(selected) != expected
                 or any(case.find(tag) is not None for case in selected for tag in ("failure", "error", "skipped"))):
             raise ValueError("Selected conformance cases do not pass:" + label)
@@ -59,10 +62,13 @@ def main():
         groups.append({"label": label, "selected_passed": len(selected),
             "selected_failed": 0, "selected_errors": 0, "selected_skipped": 0,
             "all_job_cases": len(cases), "whole_job_returncode": job["returncode"],
-            "selection": "all" if classes is None else sorted(classes),
+            "selection": "all" if classes is None else "passed only" if classes == "passed" else sorted(classes),
             "case_ids": [case.attrib["classname"] + "::" + case.attrib["name"] for case in selected],
             "prior_failed_cases_retained": classes is not None})
     sources = dict(study["source_hashes_preserved"])
+    for relative, digest in sources.items():
+        if sha256_file(c._path(root, relative)) != digest:
+            raise ValueError("Preserved source bytes changed:" + relative)
     for pattern in ("src/nextai_autoresearch/**/*.py", "tests/**/*.py"):
         for path in sorted(root.glob(pattern)):
             if path.is_file() and "__pycache__" not in path.parts:
@@ -82,6 +88,13 @@ def main():
                 "tests.test_asm01_canonical_intake", "tests.test_asm01_v3_cohort_conformance"}
     if not required.issubset(selected_classes):
         raise ValueError("Required synthetic conformance family missing")
+    all_ids = {identity for group in groups for identity in group["case_ids"]}
+    registry = load_json(root / "config/baseline_semantics.json")
+    for test in registry["baselines"]["asm01_source_trained_s0"]["conformance_tests"]:
+        path, name = test["node_id"].split("::", 1)
+        identity = path.removesuffix(".py").replace("/", ".") + "::" + name
+        if not any(item == identity or item.startswith(identity + "[") for item in all_ids):
+            raise ValueError("Required semantic test absent:" + identity)
     context = {"program_id": c.PROGRAM_ID, "contract_sha256": c.CONTRACT_SHA256,
         "study_path": STUDY, "study_sha256": STUDY_SHA, "cohort": study["cohort"], "stage": study["stage"]}
     save(root, SUMMARY, {**context, "created_at": utc_now(), "status": "PASS",

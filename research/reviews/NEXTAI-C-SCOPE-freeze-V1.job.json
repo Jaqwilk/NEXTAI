@@ -1,0 +1,30 @@
+{
+  "command": [
+    "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\.venv\\Scripts\\python.exe",
+    "-c",
+    "from pathlib import Path; from nextai_autoresearch import research_program_c as c; c.freeze_scientific_study(Path.cwd()); print(\"scientific scope frozen; no ticket or data\")"
+  ],
+  "completed_at": "2026-10-08T00:28:56.825312+00:00",
+  "component_nested_in_C_outer_wall": true,
+  "driver_sha256": "b4e5b5d6fbc63e78e67d419c6089489274b9d948103063e10a38971d72895fae",
+  "error": null,
+  "inclusive_controller_wall_seconds": 0.2778805999987526,
+  "job": {
+    "elapsed_seconds": 0.27749010000843555,
+    "exit_job_active_process_count": 0,
+    "exit_live_descendant_pids": [],
+    "peak_tree_rss_bytes_sampled": 43618304,
+    "pid": 27976,
+    "processes_created": 3,
+    "reason": "exited",
+    "returncode": 0,
+    "root_returncode": 0
+  },
+  "root": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002",
+  "started_at": "2026-10-08T00:28:56.547431+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "88220f4cc2a4015c39365f0085ace4e044ac8b73949b00229f40b4c71611e98c",
+  "supervisor_origin": "C:\\Users\\NATAN\\Documents\\ChatGPT\\NEXTAI-VALIDATION-20261002\\src\\nextai_autoresearch\\process_supervision.py",
+  "supervisor_sha256": "0260ae434fa54633904c5f31e1a16cc76284be085be5bb0d5c7af0c6d30a044b",
+  "timeout_seconds": 120.0
+}
