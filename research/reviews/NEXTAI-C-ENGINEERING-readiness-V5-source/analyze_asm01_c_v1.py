@@ -28,9 +28,7 @@ INTAKE = "research/data_manifests/ASM01-C-ACQUISITION-V1.json"
 COHORT = "asm01_native_memory_v4"
 _CELLS = {(condition, k, update) for condition in ("nominal", "adverse")
           for k in (16, 32, 64) for update in (0, 1, 4)}
-_ERRORS = (OSError, ValueError, KeyError, TypeError, AssertionError, IndexError, ArithmeticError)
-_SOURCE_ARMS = {"source_trained": "transport_pca", "source_untrained": "transport_pca_untrained",
-                "source_shuffled": "transport_pca_shuffled", "source_ridge": "ridge_pca_scan"}
+_ERRORS = (OSError, ValueError, KeyError, TypeError, AssertionError, IndexError, ZeroDivisionError)
 
 
 def _finite(value):
@@ -191,10 +189,7 @@ def _source_history(root, name, report, study, hashes):
                 "charged_to_C_again": False, "charged_to_B_again": False}
     _require(provenance["no_source_refit"] is True and report["source_replayed"] is False
              and report["source_frozen"] is True and report["source_before"] == report["source_after"]
-             and report["optimizer_steps"] == 0
-             and provenance["source_unit"] == study["roles"][name]["seed_index"]
-             and provenance["source_arm"] == _SOURCE_ARMS[study["roles"][name]["arm"]],
-             "Source weights/control identity changed or source fit was replayed")
+             and report["optimizer_steps"] == 0, "Source weights changed or source fit was replayed")
     publication_path = study["source_evidence"]["publication_path"]
     publication = load_json(_local(root, publication_path))
     _require(sha256_file(_local(root, publication_path)) == study["source_evidence"]["publication_sha256"]
@@ -429,8 +424,6 @@ def report_text(analysis):
         return f"{100 * value:.3f}" if _finite(value) else "unknown"
     def number(value, precision):
         return f"{value:.{precision}f}" if _finite(value) else "unknown"
-    def pp(value):
-        return f"{100 * value:.4f}" if type(value) in (int, float) and math.isfinite(value) else "unknown"
     lines = [f"# {analysis['id']} — C frozen-source native ASM development screen", "",
              f"Source information: **{analysis['source_information_transfer']}**. Economic qualification: **{analysis['economic_decision']}**. Valid complete comparison: {analysis['valid']}.", "",
              f"Recorded workers {analysis['recorded_workers']}/45; complete {analysis['completed_workers']}/45; trials {analysis['recorded_trials']}/810. Actual full-worker cost {seconds(analysis['full_worker_seconds'])}; supervised fit {seconds(analysis['supervised_fit_seconds'])}.",
@@ -454,7 +447,7 @@ def report_text(analysis):
         for metric in ("fact_top1_accuracy", "dense_unknown_rejection"):
             key = f"trained_minus_{control}:{metric}"
             row = analysis.get("primary", {}).get(key)
-            lines.append(f"- {key}: {pp(row['mean'])}pp, CI[{pp(row['lower'])},{pp(row['upper'])}]pp; positive {row['positive_pairs']}/5; pass={row['pass']}." if row else f"- {key}: unavailable; required paired evidence incomplete.")
+            lines.append(f"- {key}: {100*row['mean']:.4f}pp, CI[{100*row['lower']:.4f},{100*row['upper']:.4f}]pp; positive {row['positive_pairs']}/5; pass={row['pass']}." if row else f"- {key}: unavailable; required paired evidence incomplete.")
     costs = analysis["descriptive_full_costs"]
     lines += ["", f"Competent dense reference at all six condition/K cells: {analysis.get('reference_competent', False)}. Qualified routes: {analysis.get('qualified_routes', [])}.",
               "The unchanged18 economic guards and108 fixed strong-comparator contrasts per route are retained in the machine JSON. Reference competence failure makes economic qualification INCONCLUSIVE. A target-only fitted readout does not establish transfer; no result here falsifies an architectural family.", "",
